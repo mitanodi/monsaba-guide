@@ -1,10 +1,10 @@
 const $ = (selector) => document.querySelector(selector);
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const attrPath = {草:'grass', 水:'water', 火:'fire', 雷:'thunder', 土:'earth'};
-const modeLabels = {overall:'総合', normal:'通常', zombie:'ゾンビ', dojo:'道場', beginner:'初心者'};
+const modeLabels = {overall:'総合', normal:'通常', zombie:'ゾンビ', bossRally:'ボスラリー', dojo:'道場', beginner:'初心者'};
 const tierScore = {SSS:0, SS:1, S:2, A:3, '－':9};
 const priorityScore = {'最優先候補':0, '優先候補':1, '用途次第':2, '評価保留':3};
-let state = {families:[], skills:{}, ratings:{}, evolution:{}, aliases:[], transitions:[]};
+let state = {families:[], skills:{}, ratings:{}, evolution:{}, content:{}, aliases:[], transitions:[]};
 let flowState = {};
 let flowHistory = [];
 
@@ -18,10 +18,10 @@ const menuConfig = {
     ['detail', 'タタの性能を調べたい']
   ],
   contents: [
+    ['normal', '通常ステージ'],
     ['zombie', 'ゾンビラッシュ'],
-    ['dojo', 'バッジ道場'],
-    ['normal', '通常攻略'],
-    ['boss', 'ボスラリー']
+    ['bossRally', 'ボスラリー'],
+    ['dojo', 'バッジ道場']
   ],
   zombieTopics: [
     ['recommend', 'おすすめタタ'],
@@ -66,18 +66,48 @@ const menuConfig = {
   attrs: [['草','草'], ['水','水'], ['火','火'], ['雷','雷'], ['土','土']]
 };
 
+const contentTopics = {
+  normal: [
+    ['timeOut', '時間切れ'],
+    ['wipe', '全滅する'],
+    ['bosses', 'ボス'],
+    ['recommend', 'おすすめタタ'],
+    ['page', '通常攻略ページを見る']
+  ],
+  bossRally: [
+    ['bosses', 'ボス別攻略'],
+    ['recommend', 'おすすめタタ'],
+    ['level99', 'Lv99を目指したい'],
+    ['damage', '最大ダメージを伸ばしたい'],
+    ['mechanics', 'ボスラリーの仕組み'],
+    ['page', 'ボスラリー攻略ページを見る']
+  ],
+  dojo: [
+    ['recommend', 'おすすめタタ'],
+    ['attribute', '属性別'],
+    ['position', '配置'],
+    ['front', '前衛が落ちる'],
+    ['damage', '火力不足'],
+    ['cc', 'CCが欲しい'],
+    ['heal', '回復が欲しい'],
+    ['page', '道場攻略ページを見る']
+  ]
+};
+
 async function boot(){
-  const [tatari, skills, ratings, evolution] = await Promise.all([
+  const [tatari, skills, ratings, evolution, content] = await Promise.all([
     fetchJson('/data/tatari.json'),
     fetchJson('/data/tata-skills.json'),
     fetchJson('/data/tier-ratings.json'),
-    fetchJson('/data/evolution-priority.json')
+    fetchJson('/data/evolution-priority.json'),
+    fetchJson('/data/content-guides.json')
   ]);
   state = {
     families: tatari.families || [],
     skills: skills.byFamily || {},
     ratings,
     evolution,
+    content,
     aliases: [],
     transitions: []
   };
@@ -85,11 +115,14 @@ async function boot(){
   state.transitions = buildTransitions();
   renderSuggestions();
   bindUi();
-  const query = new URLSearchParams(location.search).get('q');
+  const params = new URLSearchParams(location.search);
+  const query = params.get('q');
   if(query) {
     addAssistant('今日は何について知りたい？');
     renderRootMenu(false);
     runQuestion(query);
+  } else if(params.get('flow') === 'content') {
+    openContentDeepLink(params);
   } else {
     renderRootMenu(false);
   }
@@ -204,6 +237,7 @@ function answerQuestion(question){
   if(intent === 'unknown' && families.length >= 2) intent = 'compare';
 
   switch(intent){
+    case 'contentGuide': return answerContentQuestion(q);
     case 't4': return answerT4(families[0], mode);
     case 'compare': return answerCompare(families.slice(0, 2), mode);
     case 'evolutionDiff': return answerEvolution(families[0], q, mode, true);
@@ -234,6 +268,13 @@ function handleGuideClick(event){
   }
   if(action === 'content') return showContentMenu();
   if(action === 'contentSelect') return handleContent(value);
+  if(action === 'contentTopic') return handleContentTopic(value);
+  if(action === 'bossSelect') return handleBossSelect(value);
+  if(action === 'bossAction') return handleBossAction(value);
+  if(action === 'dojoAttr') return handleDojoAttribute(value);
+  if(action === 'ownedFilter') return showOwnedPicker();
+  if(action === 'ownedToggle') return toggleOwned(value, button);
+  if(action === 'applyOwned') return applyOwnedFilter();
   if(action === 'zombieTopic') return handleZombieTopic(value);
   if(action === 'training') return showTrainingMenu();
   if(action === 'trainingSelect') return handleTraining(value);
@@ -284,6 +325,9 @@ function actionForGroup(group){
   return {
     rootSelect:'rootSelect',
     content:'contentSelect',
+    contentTopic:'contentTopic',
+    bossAction:'bossAction',
+    dojoAttr:'dojoAttr',
     zombieTopic:'zombieTopic',
     training:'trainingSelect',
     attr:'attrSelect',
@@ -325,6 +369,10 @@ function goBack(){
 function routeFromState(){
   const route = flowState.route;
   if(route === 'content') return showContentMenu(false);
+  if(route === 'contentTopics') return showContentTopicMenu(false);
+  if(route === 'bossSelect') return showBossSelectMenu(false);
+  if(route === 'bossActions') return showBossActionMenu(false);
+  if(route === 'dojoAttr') return showDojoAttributeMenu(false);
   if(route === 'zombie') return showZombieMenu(false);
   if(route === 'training') return showTrainingMenu(false);
   if(route === 'evolutionFamily') return renderFamilyPicker('selectFamily', 'どのタタを進化させたい？', false);
@@ -353,11 +401,137 @@ function handleContent(content){
     flowState = {route:'zombie', category:'content', content:'zombie', crumbs:['コンテンツ攻略','ゾンビラッシュ']};
     return showZombieMenu(false);
   }
-  const label = content === 'dojo' ? 'バッジ道場' : content === 'normal' ? '通常攻略' : 'ボスラリー';
-  flowState = {route:'content', category:'content', content, crumbs:['コンテンツ攻略', label]};
-  if(content === 'normal') return showResult(answerModeCandidates('normal').html, flowState.crumbs);
-  if(content === 'dojo') return showResult(answerModeCandidates('dojo').html, flowState.crumbs);
-  return showPreparedContent(label);
+  const mode = state.content.modes?.[content];
+  if(!mode || mode.status !== 'ready') return showPreparedContent(mode?.label || 'このコンテンツ');
+  flowState = {route:'contentTopics', category:'content', content, crumbs:['コンテンツ攻略', mode.label]};
+  showContentTopicMenu(false);
+}
+
+function showContentTopicMenu(withBack = true){
+  const content = flowState.content;
+  const mode = state.content.modes?.[content];
+  const topics = contentTopics[content] || [];
+  setGuide(`<h2>${esc(mode?.label || 'コンテンツ')}で何を知りたい？</h2>${buttonGrid(topics, 'contentTopic')}`, withBack);
+}
+
+function handleContentTopic(topic){
+  pushHistory();
+  const content = flowState.content;
+  if(content === 'normal') return handleNormalTopic(topic);
+  if(content === 'bossRally') return handleBossRallyTopic(topic);
+  if(content === 'dojo') return handleDojoTopic(topic);
+}
+
+function handleNormalTopic(topic){
+  if(topic === 'page') return showResult(`<h2>通常ステージ攻略</h2><p>時間切れ、全滅、配置の見直しは専用ページでも確認できます。</p>${relatedLinks([{label:'通常攻略ページ', href:'/normal-guide/'}])}`, [...flowState.crumbs, '攻略ページ']);
+  if(topic === 'recommend') return showResult(answerModeCandidates('normal').html, [...flowState.crumbs, 'おすすめタタ']);
+  if(topic === 'bosses') {
+    flowState.route = 'bossSelect';
+    flowState.bossContext = 'normal';
+    return showBossSelectMenu(false);
+  }
+  const html = answerNormalTrouble(topic).html;
+  showResult(html, [...flowState.crumbs, topic === 'timeOut' ? '時間切れ' : '全滅']);
+}
+
+function handleBossRallyTopic(topic){
+  if(topic === 'page') return showResult(`<h2>ボスラリー攻略</h2><p>5ボスの特徴と条件一致候補は専用ページで確認できます。</p>${relatedLinks([{label:'ボスラリー攻略ページ', href:'/boss-rally/'}])}`, [...flowState.crumbs, '攻略ページ']);
+  if(topic === 'mechanics' || topic === 'level99' || topic === 'damage') return showResult(answerBossRallyOverview(topic).html, [...flowState.crumbs, '仕組み']);
+  if(topic === 'recommend' || topic === 'bosses'){
+    flowState.route = 'bossSelect';
+    flowState.bossContext = 'bossRally';
+    return showBossSelectMenu(false);
+  }
+}
+
+function handleDojoTopic(topic){
+  if(topic === 'page') return showResult(`<h2>バッジ道場攻略</h2><p>属性別おすすめと当サイトdojo評価は専用ページで確認できます。</p>${relatedLinks([{label:'バッジ道場攻略ページ', href:'/badge-dojo/'}])}`, [...flowState.crumbs, '攻略ページ']);
+  if(topic === 'attribute'){
+    flowState.route = 'dojoAttr';
+    return showDojoAttributeMenu(false);
+  }
+  if(topic === 'position') return showResult(answerDojoPosition().html, [...flowState.crumbs, '配置']);
+  const roleMap = {front:'前衛', damage:'火力', cc:'CC', heal:'回復', recommend:'火力'};
+  showResult(answerContentRoleCandidates('dojo', roleMap[topic] || '火力').html, [...flowState.crumbs, roleMap[topic] || 'おすすめ']);
+}
+
+function showBossSelectMenu(withBack = true){
+  const bosses = state.content.bossRally?.bosses || [];
+  setGuide(`<h2>どのボスを確認する？</h2><div class="guide-button-grid">${bosses.map(boss => `<button type="button" data-action="bossSelect" data-value="${esc(boss.id)}">${esc(boss.name)}</button>`).join('')}</div>`, withBack);
+}
+
+function handleBossSelect(bossId){
+  pushHistory();
+  const boss = (state.content.bossRally?.bosses || []).find(item => item.id === bossId);
+  if(!boss) return showContentTopicMenu(false);
+  flowState.bossId = bossId;
+  flowState.route = 'bossActions';
+  flowState.crumbs = ['コンテンツ攻略', 'ボスラリー', boss.name];
+  if(flowState.role) return showResult(answerBossCandidates(boss).html, [...flowState.crumbs, flowState.role]);
+  showBossActionMenu(false);
+}
+
+function showBossActionMenu(withBack = true){
+  const boss = getBoss(flowState.bossId);
+  setGuide(`<h2>${esc(boss?.name || 'ボス')}について何を知りたい？</h2>${buttonGrid([['mechanics','能力を見る'], ['strategy','対策を見る'], ['condition','おすすめ条件'], ['candidates','条件に合うタタ'], ['owned','手持ちから絞る'], ['page','ボスラリー攻略ページ']], 'bossAction')}`, withBack);
+}
+
+function handleBossAction(action){
+  pushHistory();
+  const boss = getBoss(flowState.bossId);
+  if(!boss) return showBossSelectMenu(false);
+  if(action === 'page') return showResult(`<h2>${esc(boss.name)}</h2><p>専用ページで特徴と候補を確認できます。</p>${relatedLinks([{label:'ボスラリー攻略ページ', href:'/boss-rally/'}, {label:'このボスの相談URL', href:`/consult/?flow=content&mode=bossRally&boss=${boss.id}`}])}`, flowState.crumbs);
+  if(action === 'owned') return showOwnedPicker();
+  if(action === 'candidates') return showResult(answerBossCandidates(boss).html, [...flowState.crumbs, '条件に合うタタ']);
+  if(action === 'condition') return showResult(answerBossConditions(boss).html, [...flowState.crumbs, 'おすすめ条件']);
+  showResult(answerBossFacts(boss).html, [...flowState.crumbs, action === 'mechanics' ? '能力' : '対策']);
+}
+
+function showOwnedPicker(){
+  const selected = new Set(JSON.parse(localStorage.getItem('monsabaOwnedFamilies') || '[]'));
+  const buttons = state.families.map(f => `<button type="button" data-action="ownedToggle" data-value="${esc(f.id)}" class="${selected.has(f.id) ? 'is-selected' : ''}"><b>${esc(f.familyName)}系</b><small>${esc(f.evolutions.map(e => e.name).join(' / '))}</small></button>`).join('');
+  setGuide(`<h2>手持ちだけに絞る</h2><p>持っている系統を選んでください。サーバーには送信しません。</p><div class="guide-button-grid family-grid owned-grid">${buttons}</div><div class="guide-actions"><button type="button" data-action="applyOwned">選択した手持ちで候補を見る</button><button type="button" data-action="back">← 戻る</button></div>`, false);
+}
+
+function toggleOwned(id, button){
+  const selected = new Set(JSON.parse(localStorage.getItem('monsabaOwnedFamilies') || '[]'));
+  if(selected.has(id)) selected.delete(id);
+  else selected.add(id);
+  localStorage.setItem('monsabaOwnedFamilies', JSON.stringify([...selected]));
+  button.classList.toggle('is-selected', selected.has(id));
+}
+
+function applyOwnedFilter(){
+  const owned = JSON.parse(localStorage.getItem('monsabaOwnedFamilies') || '[]');
+  const boss = getBoss(flowState.bossId);
+  if(!boss) return showContentTopicMenu(false);
+  showResult(answerBossCandidates(boss, owned).html, [...flowState.crumbs, '手持ち候補']);
+}
+
+function showDojoAttributeMenu(withBack = true){
+  setGuide(`<h2>どの属性を見る？</h2>${buttonGrid(menuConfig.attrs, 'dojoAttr')}`, withBack);
+}
+
+function handleDojoAttribute(attr){
+  pushHistory();
+  showResult(answerDojoAttribute(attr).html, [...flowState.crumbs, attr]);
+}
+
+function openContentDeepLink(params){
+  const mode = params.get('mode');
+  const mapped = mode === 'boss' ? 'bossRally' : mode;
+  if(!state.content.modes?.[mapped]) return renderRootMenu(false);
+  flowState = {route:'contentTopics', category:'content', content:mapped, crumbs:['コンテンツ攻略', state.content.modes[mapped].label]};
+  if(mapped === 'bossRally' && params.get('boss')){
+    const boss = getBoss(params.get('boss'));
+    if(boss){
+      flowState.route = 'bossActions';
+      flowState.bossId = boss.id;
+      flowState.crumbs = ['コンテンツ攻略', 'ボスラリー', boss.name];
+      return showBossActionMenu(false);
+    }
+  }
+  showContentTopicMenu(false);
 }
 
 function showZombieMenu(push = true){
@@ -450,7 +624,7 @@ function handleEvolutionPurpose(mode){
 function showBuildModeMenu(push = true){
   if(push) pushHistory();
   flowState = {route:'buildMode', category:'build', crumbs:['編成・役割']};
-  setGuide(`<h2>どのコンテンツ用？</h2>${buttonGrid([['normal','通常攻略'], ['zombie','ゾンビラッシュ'], ['dojo','バッジ道場'], ['overall','総合']], 'buildMode')}`);
+  setGuide(`<h2>どのコンテンツ用？</h2>${buttonGrid([['normal','通常攻略'], ['zombie','ゾンビラッシュ'], ['bossRally','ボスラリー'], ['dojo','バッジ道場'], ['overall','総合']], 'buildMode')}`);
 }
 
 function showRoleMenu(context, extra = {}, push = true){
@@ -462,6 +636,13 @@ function showRoleMenu(context, extra = {}, push = true){
 function handleRoleSelect(role){
   pushHistory();
   const mode = flowState.mode || 'zombie';
+  if(mode === 'bossRally'){
+    flowState.role = role;
+    flowState.route = 'bossSelect';
+    flowState.bossContext = 'bossRally';
+    flowState.crumbs = ['編成・役割', 'ボスラリー', role];
+    return showBossSelectMenu(false);
+  }
   showResult(answerRoleCandidates(mode, role).html, [...(flowState.crumbs || []), role]);
 }
 
@@ -521,6 +702,7 @@ function handleDetailView(view){
 }
 
 function detectIntent(q, families, attr){
+  if(hasAny(q, ['ボスラリー','怪魚','ロックスター','走り屋','酔っ払い','社長ゾンビ','時間切れ','全滅','勝てない','道場','バッジ'])) return 'contentGuide';
   if(hasAny(q, ['t4','4進化','第4進化','四進化','オーラ'])) return 't4';
   if(families.length >= 2 && hasAny(q, ['どっち','どちら','比較','vs','と'])) return 'compare';
   if(hasAny(q, ['何が変わる','なにがかわる','変化','差分','から']) && families.length) return 'evolutionDiff';
@@ -546,6 +728,26 @@ function detectAttribute(question){
     if(question.includes(`${attr}属性`) || question.includes(`${attr}で`) || question.includes(`${attr}の`)) return attr;
   }
   return null;
+}
+
+function answerContentQuestion(q){
+  const boss = (state.content.bossRally?.bosses || []).find(item => q.includes(normalize(item.name.replace('ゾンビ',''))) || q.includes(normalize(item.name)));
+  if(boss) {
+    if(hasAny(q, ['条件','おすすめ','候補','強い','タタ'])) return answerBossCandidates(boss);
+    return answerBossFacts(boss);
+  }
+  if(hasAny(q, ['ボスラリー'])) return answerBossRallyOverview('mechanics');
+  if(hasAny(q, ['時間切れ'])) return answerNormalTrouble('timeOut');
+  if(hasAny(q, ['全滅','勝てない'])) return answerNormalTrouble('wipe');
+  if(hasAny(q, ['道場','バッジ'])){
+    const attr = ['草','水','火','雷','土'].find(a => q.includes(normalize(a)));
+    if(attr) return answerDojoAttribute(attr);
+    if(hasAny(q, ['cc','妨害'])) return answerContentRoleCandidates('dojo', 'CC');
+    if(hasAny(q, ['回復'])) return answerContentRoleCandidates('dojo', '回復');
+    if(hasAny(q, ['前衛','タンク'])) return answerContentRoleCandidates('dojo', '前衛');
+    return answerContentRoleCandidates('dojo', '火力');
+  }
+  return answerUnknown();
 }
 
 function resolveFamilies(q){
@@ -804,24 +1006,136 @@ function answerModeCandidates(mode, includeEvolution = false){
 }
 
 function answerRoleCandidates(mode, role, attr = null){
-  const candidates = state.families.map(f => {
-    const overall = state.ratings.overall?.byFamily?.[f.id];
-    const zombie = state.ratings.zombieRush?.byFamily?.[f.id];
-    const skillText = (state.skills[f.id]?.stages || []).map(s => `${s.skillName} ${s.description} ${(s.values || []).map(v => `${v.label} ${v.value}`).join(' ')}`).join(' ');
-    return {family:f, overall, zombie, skillText, tier: mode === 'zombie' ? (zombie?.tier || overall?.zombie) : mode === 'overall' ? overall?.tier : overall?.[mode]};
-  }).filter(item => (!attr || item.family.attribute === attr) && item.tier && roleMatches(role, item.overall?.roles || [], item.skillText))
-    .sort((a,b) => (tierScore[a.tier || '－'] - tierScore[b.tier || '－']) || (tierScore[a.overall?.tier || '－'] - tierScore[b.overall?.tier || '－']) || a.family.familyName.localeCompare(b.family.familyName, 'ja'))
-    .slice(0, 8);
-  const body = candidates.length ? `<div class="consult-pick-list">${candidates.map(item => pickRow(item.family.id, item.tier, item.overall?.roles, item.zombie?.adoptionRate)).join('')}</div>` : '<p>条件に合う評価済み候補は見つかりませんでした。条件を広げて確認してください。</p>';
+  const candidates = getCandidates({mode, roles:[role], attribute:attr, requireTier:true, limit:8});
+  const body = candidates.length ? `<div class="consult-pick-list">${candidates.map(item => pickCandidateRow(item)).join('')}</div>` : '<p>条件に合う評価済み候補は見つかりませんでした。条件を広げて確認してください。</p>';
   return {
     html: `<h2>${esc(modeLabels[mode] || '総合')}向け：${esc(role)}候補</h2><p>Tier評価と役割データに基づく候補です。完全な編成テンプレは生成しません。</p>${body}${relatedLinks([{label:'総合タタTier', href:'/tata-tier/'}, {label:'ゾンビラッシュ攻略', href:'/zombie-rush/'}])}`
   };
+}
+
+function answerContentRoleCandidates(mode, role){
+  const candidates = getCandidates({mode, roles:[role], requireTier:false, limit:8});
+  return {
+    html: `<h2>${esc(modeLabels[mode] || mode)}向け：${esc(role)}候補</h2>
+      <p>この一覧は編成テンプレではなく、当サイトDBの役割・スキル・Tierが条件に合う候補です。評価保留は弱いという意味ではありません。</p>
+      ${candidates.length ? `<div class="consult-pick-list">${candidates.map(item => pickCandidateRow(item)).join('')}</div>` : '<p>条件に合う候補は見つかりませんでした。</p>'}
+      ${relatedLinks([{label:'バッジ道場攻略ページ', href:'/badge-dojo/'}, {label:'総合タタTier', href:'/tata-tier/'}])}`
+  };
+}
+
+function answerNormalTrouble(key){
+  const item = state.content.normal?.troubleshooting?.[key];
+  if(!item) return answerUnknown();
+  const traits = item.candidateTraits || item.candidateRoles || [];
+  const candidates = getCandidates({mode:'normal', roles:traits, requireTier:false, limit:6});
+  return {
+    html: `<h2>通常攻略：${esc(item.label)}</h2>
+      <p><b>原因候補：</b>${esc((item.causes || []).join(' / '))}</p>
+      <h3>明示された対策</h3>${list(item.actions || [])}
+      ${traits.length ? `<h3>条件に合う当サイト候補</h3><p class="consult-note">通常攻略の専用Tierではなく、症状に合う役割・スキル条件で抽出しています。</p><div class="consult-pick-list">${candidates.map(item => pickCandidateRow(item)).join('') || '<p>条件一致候補はありません。</p>'}</div>` : ''}
+      ${relatedLinks([{label:'通常攻略ページ', href:'/normal-guide/'}, {label:'育成相談', href:'/consult/?flow=training'}])}`
+  };
+}
+
+function answerBossRallyOverview(topic){
+  const facts = state.content.bossRally?.overviewFacts || [];
+  const extra = topic === 'level99' ? 'Lv99は最大難易度です。Lv99到達や突破を保証する編成は、現在のDBだけでは断定しません。' : topic === 'damage' ? 'Lv99後は最大ダメージを伸ばす段階です。勝率やダメージ量は推測しません。' : 'ボスごとの特殊能力と属性相性が重要です。';
+  return {html:`<h2>ボスラリーの仕組み</h2>${list(facts.map(f => f.text))}<p class="consult-note">${esc(extra)}</p>${relatedLinks([{label:'ボスラリー攻略ページ', href:'/boss-rally/'}])}`};
+}
+
+function answerBossFacts(boss){
+  return {html:`<h2>${esc(boss.name)}</h2>
+    <h3>能力</h3>${list((boss.mechanics || []).map(f => f.text))}
+    <h3>ボスラリー専用挙動</h3><p>${esc(boss.rallyDifference || '明示情報なし')}</p>
+    ${boss.strategyFacts?.length ? `<h3>攻略上の事実</h3>${list(boss.strategyFacts.map(f => f.text))}` : ''}
+    ${relatedLinks([{label:'条件に合うタタを見る', href:'#'}, {label:'ボスラリー攻略ページ', href:'/boss-rally/'}])}`};
+}
+
+function answerBossConditions(boss){
+  const labels = conditionLabels(boss.explicitRecommendation);
+  return {html:`<h2>${esc(boss.name)}のおすすめ条件</h2>
+    ${labels.length ? tagList(labels) : '<p>本文で明確に確認できる推奨条件は限定的です。画像編成からの推測は行いません。</p>'}
+    <p class="consult-note">これはボス専用Tierではなく、公開攻略で明記された条件です。</p>
+    ${relatedLinks([{label:'条件に合うタタ', href:'#'}, {label:'ボスラリー攻略ページ', href:'/boss-rally/'}])}`};
+}
+
+function answerBossCandidates(boss, ownedIds = null){
+  const rec = boss.explicitRecommendation || {};
+  const candidates = getCandidates({mode:'overall', attribute:rec.attribute, roles:rec.traits || [], ownedIds, requireTier:false, limit:8});
+  return {html:`<h2>${esc(boss.name)}：条件に合うタタ</h2>
+    <p>公開攻略で明記された条件：${esc(conditionLabels(rec).join(' / ') || '明示条件なし')}</p>
+    <p class="consult-note">この一覧はボス専用Tierではありません。条件に一致する当サイトDB候補です。</p>
+    ${candidates.length ? `<div class="consult-pick-list">${candidates.map(item => pickCandidateRow(item)).join('')}</div>` : '<p>現在の条件で一致する候補はありません。推測で候補は作りません。</p>'}
+    ${relatedLinks([{label:'手持ちから絞る', href:'#'}, {label:'ボスラリー攻略ページ', href:'/boss-rally/'}])}`};
+}
+
+function answerDojoPosition(){
+  const facts = state.content.dojo?.principles || [];
+  return {html:`<h2>バッジ道場：配置</h2>
+    ${list(facts.map(f => f.text))}
+    <p class="consult-note">高階層では、前衛・回復・CC・攻撃範囲を見直し、直線配置や優先攻撃対象を調整します。</p>
+    ${relatedLinks([{label:'バッジ道場攻略ページ', href:'/badge-dojo/'}])}`};
+}
+
+function answerDojoAttribute(attr){
+  const data = state.content.dojo?.attributeRecommendations?.[attr];
+  if(!data) return answerUnknown();
+  const rows = [...(data.confirmed || []).map(item => dojoCandidateRow(item, '公開攻略の確定枠')), ...(data.candidates || []).map(item => dojoCandidateRow(item, '公開攻略の候補枠'))].join('');
+  const rated = getCandidates({mode:'dojo', attribute:attr, requireTier:true, limit:6});
+  return {html:`<h2>バッジ道場：${esc(attr)}属性</h2>
+    <h3>公開攻略で挙げられている例</h3><div class="consult-pick-list">${rows}</div>
+    <h3>当サイトdojo評価</h3><p class="consult-note">公開攻略の例と当サイト評価は別枠です。</p>
+    <div class="consult-pick-list">${rated.map(item => pickCandidateRow(item)).join('') || '<p>評価済み候補はありません。</p>'}</div>
+    ${relatedLinks([{label:'バッジ道場攻略ページ', href:'/badge-dojo/'}, {label:`${attr}属性攻略`, href:`/attribute/${attrPath[attr]}/`}])}`};
+}
+
+function getCandidates({mode = 'overall', attribute = null, roles = [], ownedIds = null, excludeIds = [], requireTier = false, limit = 8} = {}){
+  const roleList = roles.filter(Boolean);
+  return state.families.map(f => {
+    const overall = state.ratings.overall?.byFamily?.[f.id];
+    const zombie = state.ratings.zombieRush?.byFamily?.[f.id];
+    const skillText = (state.skills[f.id]?.stages || []).map(s => `${s.skillName} ${s.description} ${(s.values || []).map(v => `${v.label} ${v.value}`).join(' ')}`).join(' ');
+    const reasons = [];
+    if(attribute && f.attribute === attribute) reasons.push(`${attribute}属性`);
+    for(const role of roleList) if(roleMatches(role, overall?.roles || [], skillText)) reasons.push(role);
+    const needed = (attribute ? 1 : 0) + roleList.length;
+    const tier = mode === 'zombie' ? (zombie?.tier || overall?.zombie) : mode === 'overall' ? overall?.tier : overall?.[mode];
+    return {family:f, overall, zombie, tier, reasons, hit: needed === 0 ? !!tier : reasons.length >= needed};
+  }).filter(item => item.hit && (!requireTier || item.tier) && (!ownedIds || ownedIds.includes(item.family.id)) && !excludeIds.includes(item.family.id))
+    .sort((a,b) => (tierScore[a.tier || a.overall?.tier || '－'] - tierScore[b.tier || b.overall?.tier || '－']) || a.family.familyName.localeCompare(b.family.familyName, 'ja'))
+    .slice(0, limit);
+}
+
+function pickCandidateRow(item){
+  const reasons = item.reasons.length ? item.reasons : ['評価データあり'];
+  return `<a class="consult-pick-row" href="/tata/${esc(item.family.id)}/"><span><b>${esc(item.family.familyName)}系</b><small>候補理由：${esc(reasons.join(' / '))}${item.overall?.roles?.length ? ` / ${esc(item.overall.roles.join(' / '))}` : ''}</small></span><em>${esc(item.tier || item.overall?.tier || '評価保留')}</em></a>`;
+}
+
+function dojoCandidateRow(item, label){
+  if(!item.familyId) return `<div class="consult-pick-row"><span><b>${esc(item.sourceName)}</b><small>DB familyIdへ安全に紐付けできません</small></span><em>確認中</em></div>`;
+  const family = getFamily(item.familyId);
+  return `<a class="consult-pick-row" href="/tata/${esc(item.familyId)}/"><span><b>${esc(family?.familyName || item.sourceName)}系</b><small>${esc(label)} / 公開表記：${esc(item.sourceName)}</small></span><em>${esc(item.slot || '候補')}</em></a>`;
+}
+
+function conditionLabels(rec){
+  if(!rec) return [];
+  return [rec.attribute ? `${rec.attribute}属性` : null, ...(rec.traits || [])].filter(Boolean);
+}
+
+function getBoss(id){
+  return (state.content.bossRally?.bosses || []).find(item => item.id === id);
 }
 
 function roleMatches(role, roles, skillText){
   const hay = normalize([...roles, skillText].join(' '));
   const map = {
     '火力':['火力','ダメージ','範囲','燃焼','貫通','連撃'],
+    '範囲攻撃':['範囲','広範囲','複数','全体'],
+    '複数レーン':['範囲','広範囲','貫通','連鎖'],
+    '単体高火力':['近距離火力','単体','連撃','攻撃回数','燃焼','ダメージ倍率'],
+    '召喚処理':['範囲','広範囲','複数','貫通','連鎖'],
+    '速攻':['火力','ダメージ','連撃','燃焼','貫通'],
+    '耐久寄り':['前衛','タンク','シールド','回復','被ダメージ軽減'],
     '回復':['回復','継続回復','高速回復'],
     '前衛':['前衛','タンク','シールド','耐久','hp','生存'],
     'CC':['cc','妨害','麻痺','睡眠','減速','スタン','束縛'],

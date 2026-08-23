@@ -1,0 +1,205 @@
+{
+  "version": 1,
+  "updated": "2026-08-24",
+  "checkedAt": "2026-08-24",
+  "sources": {
+    "bossRally": "https://w.atwiki.jp/monstersurvival/pages/21.html",
+    "normalBosses": "https://w.atwiki.jp/monstersurvival/pages/20.html",
+    "faq": "https://w.atwiki.jp/monstersurvival/pages/5.html",
+    "dojo": "https://w.atwiki.jp/monstersurvival/pages/22.html",
+    "beginner": "https://w.atwiki.jp/monstersurvival/pages/112.html",
+    "t3Roadmap": "https://w.atwiki.jp/monstersurvival/pages/122.html",
+    "tata": "https://w.atwiki.jp/monstersurvival/pages/17.html"
+  },
+  "modes": {
+    "normal": { "status": "ready", "label": "通常ステージ", "page": "/normal-guide/" },
+    "zombieRush": { "status": "ready", "label": "ゾンビラッシュ", "page": "/zombie-rush/" },
+    "bossRally": { "status": "ready", "label": "ボスラリー", "page": "/boss-rally/" },
+    "dojo": { "status": "ready", "label": "バッジ道場", "page": "/badge-dojo/" }
+  },
+  "bossRally": {
+    "label": "ボスラリー",
+    "overviewFacts": [
+      { "text": "各ボスには特殊能力があり、個別の対策が必要。", "source": "https://w.atwiki.jp/monstersurvival/pages/21.html", "sourceType": "publicWiki", "evidence": "explicit", "checkedAt": "2026-08-24" },
+      { "text": "ボスには属性があり、弱点を突けるタタ選びが攻略上重要。", "source": "https://w.atwiki.jp/monstersurvival/pages/21.html", "sourceType": "publicWiki", "evidence": "explicit", "checkedAt": "2026-08-24" },
+      { "text": "ランキングは到達した最高レベルと与ダメージ量で決まる。", "source": "https://w.atwiki.jp/monstersurvival/pages/21.html", "sourceType": "publicWiki", "evidence": "explicit", "checkedAt": "2026-08-24" },
+      { "text": "難易度は最大Lv99。Lv99クリア後は最大ダメージ量を競う。", "source": "https://w.atwiki.jp/monstersurvival/pages/21.html", "sourceType": "publicWiki", "evidence": "explicit", "checkedAt": "2026-08-24" },
+      { "text": "ボスチャレンジは毎日リセットされる。", "source": "https://w.atwiki.jp/monstersurvival/pages/21.html", "sourceType": "publicWiki", "evidence": "explicit", "checkedAt": "2026-08-24" }
+    ],
+    "candidateNotice": "この一覧はボス専用Tierではありません。公開攻略で明記された条件と、当サイトDBの属性・スキル・Tierが一致する候補です。",
+    "bosses": [
+      {
+        "id": "monster-fish",
+        "name": "怪魚ゾンビ",
+        "mechanics": [
+          { "text": "水の玉で範囲ダメージを与える。", "source": "https://w.atwiki.jp/monstersurvival/pages/21.html", "sourceType": "publicWiki", "evidence": "explicit", "checkedAt": "2026-08-24" },
+          { "text": "一定回数攻撃されると別列へ瞬間移動する。", "source": "https://w.atwiki.jp/monstersurvival/pages/21.html", "sourceType": "publicWiki", "evidence": "explicit", "checkedAt": "2026-08-24" },
+          { "text": "瞬間移動後5秒間、被ダメージが増加する。", "source": "https://w.atwiki.jp/monstersurvival/pages/21.html", "sourceType": "publicWiki", "evidence": "explicit", "checkedAt": "2026-08-24" }
+        ],
+        "rallyDifference": "通常側は取り乱すを発生させず、攻撃力も一定のまま変化しない。",
+        "explicitRecommendation": {
+          "attribute": "雷",
+          "traits": [],
+          "source": "https://w.atwiki.jp/monstersurvival/pages/20.html",
+          "sourceType": "publicWiki",
+          "evidence": "explicit",
+          "checkedAt": "2026-08-24"
+        },
+        "strategyFacts": []
+      },
+      {
+        "id": "rockstar",
+        "name": "ロックスターゾンビ",
+        "mechanics": [
+          { "text": "電気玉を発射する。", "source": "https://w.atwiki.jp/monstersurvival/pages/21.html", "sourceType": "publicWiki", "evidence": "explicit", "checkedAt": "2026-08-24" },
+          { "text": "ロックゾンビを大量に召喚する。", "source": "https://w.atwiki.jp/monstersurvival/pages/21.html", "sourceType": "publicWiki", "evidence": "explicit", "checkedAt": "2026-08-24" },
+          { "text": "召喚されたロックゾンビがいる間、被ダメージが減少する。", "source": "https://w.atwiki.jp/monstersurvival/pages/21.html", "sourceType": "publicWiki", "evidence": "explicit", "checkedAt": "2026-08-24" }
+        ],
+        "rallyDifference": "通常より召喚数が増え、遠距離からの攻撃が強化される。",
+        "explicitRecommendation": {
+          "attribute": null,
+          "traits": ["範囲攻撃"],
+          "source": "https://w.atwiki.jp/monstersurvival/pages/20.html",
+          "sourceType": "publicWiki",
+          "evidence": "explicit",
+          "checkedAt": "2026-08-24"
+        },
+        "strategyFacts": []
+      },
+      {
+        "id": "speedster",
+        "name": "走り屋ゾンビ",
+        "mechanics": [
+          { "text": "タイヤクラッシュで範囲ダメージを与える。", "source": "https://w.atwiki.jp/monstersurvival/pages/21.html", "sourceType": "publicWiki", "evidence": "explicit", "checkedAt": "2026-08-24" },
+          { "text": "3連撃を行い、タタを叩き潰す。", "source": "https://w.atwiki.jp/monstersurvival/pages/21.html", "sourceType": "publicWiki", "evidence": "explicit", "checkedAt": "2026-08-24" },
+          { "text": "鉱夫ゾンビを継続的に召喚する。", "source": "https://w.atwiki.jp/monstersurvival/pages/21.html", "sourceType": "publicWiki", "evidence": "explicit", "checkedAt": "2026-08-24" }
+        ],
+        "rallyDifference": "通常側は鉱夫ゾンビを召喚しない。ボスラリーでは取り巻きを継続召喚する。",
+        "explicitRecommendation": {
+          "attribute": null,
+          "traits": ["単体高火力"],
+          "source": "https://w.atwiki.jp/monstersurvival/pages/20.html",
+          "sourceType": "publicWiki",
+          "evidence": "explicit",
+          "checkedAt": "2026-08-24"
+        },
+        "strategyFacts": []
+      },
+      {
+        "id": "drunk",
+        "name": "酔っ払いゾンビ",
+        "mechanics": [
+          { "text": "酒瓶を投げつけて攻撃する。", "source": "https://w.atwiki.jp/monstersurvival/pages/21.html", "sourceType": "publicWiki", "evidence": "explicit", "checkedAt": "2026-08-24" },
+          { "text": "大量のマッチゾンビを召喚する。", "source": "https://w.atwiki.jp/monstersurvival/pages/21.html", "sourceType": "publicWiki", "evidence": "explicit", "checkedAt": "2026-08-24" },
+          { "text": "全ゾンビへ加速とダメージ増加を付与する。", "source": "https://w.atwiki.jp/monstersurvival/pages/21.html", "sourceType": "publicWiki", "evidence": "explicit", "checkedAt": "2026-08-24" }
+        ],
+        "rallyDifference": "通常側はマッチゾンビを召喚しない。ボスラリーでは召喚と全体バフが危険。",
+        "explicitRecommendation": {
+          "attribute": null,
+          "traits": ["耐久寄り"],
+          "source": "https://w.atwiki.jp/monstersurvival/pages/20.html",
+          "sourceType": "publicWiki",
+          "evidence": "explicit",
+          "checkedAt": "2026-08-24"
+        },
+        "strategyFacts": []
+      },
+      {
+        "id": "president",
+        "name": "社長ゾンビ",
+        "mechanics": [
+          { "text": "花瓶を投げて攻撃する。", "source": "https://w.atwiki.jp/monstersurvival/pages/21.html", "sourceType": "publicWiki", "evidence": "explicit", "checkedAt": "2026-08-24" },
+          { "text": "機敏ゾンビを召喚する。", "source": "https://w.atwiki.jp/monstersurvival/pages/21.html", "sourceType": "publicWiki", "evidence": "explicit", "checkedAt": "2026-08-24" },
+          { "text": "タタ1体を強制退場させる。", "source": "https://w.atwiki.jp/monstersurvival/pages/21.html", "sourceType": "publicWiki", "evidence": "explicit", "checkedAt": "2026-08-24" }
+        ],
+        "rallyDifference": "通常側は人件費カットを使用しない。ボスラリーではタタを直接退場させるため速攻撃破が重要。",
+        "explicitRecommendation": {
+          "attribute": null,
+          "traits": ["召喚処理", "速攻"],
+          "source": "https://w.atwiki.jp/monstersurvival/pages/20.html",
+          "sourceType": "publicWiki",
+          "evidence": "explicit",
+          "checkedAt": "2026-08-24"
+        },
+        "strategyFacts": [
+          { "text": "強制退場で戦力を削るため、早めに倒す必要がある。", "source": "https://w.atwiki.jp/monstersurvival/pages/21.html", "sourceType": "publicWiki", "evidence": "explicit", "checkedAt": "2026-08-24" }
+        ]
+      }
+    ]
+  },
+  "normal": {
+    "label": "通常ステージ",
+    "troubleshooting": {
+      "timeOut": {
+        "label": "時間切れ",
+        "causes": ["火力不足"],
+        "actions": ["複数レーン攻撃持ちを採用する。", "倒しきれないレーンへタタを移動・追加する。", "場合によってはタンク・ファイター以外を前列に置く選択肢もある。"],
+        "candidateTraits": ["範囲攻撃", "複数レーン"],
+        "source": "https://w.atwiki.jp/monstersurvival/pages/5.html",
+        "sourceType": "publicWiki",
+        "evidence": "explicit",
+        "checkedAt": "2026-08-24"
+      },
+      "wipe": {
+        "label": "全滅",
+        "causes": ["前衛が耐えられていない", "耐久不足"],
+        "actions": ["ヒーラーの配置を見直す。", "タンクのレベルや星強化を進める。"],
+        "candidateRoles": ["前衛", "回復"],
+        "source": "https://w.atwiki.jp/monstersurvival/pages/5.html",
+        "sourceType": "publicWiki",
+        "evidence": "explicit",
+        "checkedAt": "2026-08-24"
+      },
+      "positioning": {
+        "label": "配置",
+        "causes": ["位置取りが噛み合っていない"],
+        "actions": ["全体を1マス下げるだけで改善する場合がある。"],
+        "source": "https://w.atwiki.jp/monstersurvival/pages/5.html",
+        "sourceType": "publicWiki",
+        "evidence": "explicit",
+        "checkedAt": "2026-08-24"
+      }
+    },
+    "bosses": [
+      { "id": "monster-fish", "name": "怪魚ゾンビ", "explicitRecommendation": { "attribute": "雷", "traits": [] }, "source": "https://w.atwiki.jp/monstersurvival/pages/20.html" },
+      { "id": "rockstar", "name": "ロックスターゾンビ", "explicitRecommendation": { "attribute": null, "traits": ["範囲攻撃"] }, "source": "https://w.atwiki.jp/monstersurvival/pages/20.html" },
+      { "id": "speedster", "name": "走り屋ゾンビ", "explicitRecommendation": { "attribute": null, "traits": ["単体高火力"] }, "source": "https://w.atwiki.jp/monstersurvival/pages/20.html" }
+    ]
+  },
+  "dojo": {
+    "label": "バッジ道場",
+    "principles": [
+      { "text": "属性バッジを集めると属性タタのステータスを強化できる。", "source": "https://w.atwiki.jp/monstersurvival/pages/22.html", "sourceType": "publicWiki", "evidence": "explicit", "checkedAt": "2026-08-24" },
+      { "text": "バッジ道場は全コンテンツに関わるため、解放後はなるべく進める価値がある。", "source": "https://w.atwiki.jp/monstersurvival/pages/22.html", "sourceType": "publicWiki", "evidence": "explicit", "checkedAt": "2026-08-24" },
+      { "text": "特定タタ対策では配置、優先攻撃、孤立、直線配置回避が重要になる。", "source": "https://w.atwiki.jp/monstersurvival/pages/22.html", "sourceType": "publicWiki", "evidence": "explicit", "checkedAt": "2026-08-24" }
+    ],
+    "desiredRoles": ["前衛", "回復", "CC", "射程", "範囲攻撃"],
+    "attributeRecommendations": {
+      "水": {
+        "confirmed": [{ "sourceName": "ネコオリ", "familyId": "nekoori", "slot": "確定枠" }],
+        "candidates": [{ "sourceName": "ナミアシカ", "familyId": "boruzarashi" }, { "sourceName": "ウミミ", "familyId": "umimi" }, { "sourceName": "トコペン", "familyId": "tafupen" }, { "sourceName": "ツヨカニ", "familyId": "kenkani" }],
+        "source": "https://w.atwiki.jp/monstersurvival/pages/22.html"
+      },
+      "火": {
+        "confirmed": [],
+        "candidates": [{ "sourceName": "ヒバイヌ", "familyId": "matchiba" }, { "sourceName": "コロコン", "familyId": "korokon" }, { "sourceName": "ヒノムシ", "familyId": "fureimuji" }, { "sourceName": "アタタマ", "familyId": "atatama" }, { "sourceName": "フグマル", "familyId": "fugumaru" }],
+        "source": "https://w.atwiki.jp/monstersurvival/pages/22.html"
+      },
+      "草": {
+        "confirmed": [{ "sourceName": "コマキリ", "familyId": "komakiri", "slot": "確定枠" }],
+        "candidates": [{ "sourceName": "フルッグ", "familyId": "furuggu" }, { "sourceName": "コパンダ", "familyId": "takepanda" }, { "sourceName": "フリコー", "familyId": "riifuro" }, { "sourceName": "ヤミノメ", "familyId": "yaminome" }],
+        "source": "https://w.atwiki.jp/monstersurvival/pages/22.html"
+      },
+      "土": {
+        "confirmed": [{ "sourceName": "ヤンザル", "familyId": "yanzaru", "slot": "確定枠" }],
+        "candidates": [{ "sourceName": "コロジュー", "familyId": "rokuju" }, { "sourceName": "コロカメ", "familyId": "gantoru" }, { "sourceName": "コロタマ", "familyId": "korotama" }],
+        "source": "https://w.atwiki.jp/monstersurvival/pages/22.html"
+      },
+      "雷": {
+        "confirmed": [{ "sourceName": "プラビ", "familyId": "purabi", "slot": "確定枠" }],
+        "candidates": [{ "sourceName": "ガオデン", "familyId": "gaoden" }, { "sourceName": "ビリジカ", "familyId": "denjika" }, { "sourceName": "モエミン", "familyId": "erekoon" }, { "sourceName": "ビリモ", "familyId": "birimori" }],
+        "source": "https://w.atwiki.jp/monstersurvival/pages/22.html"
+      }
+    }
+  }
+}
