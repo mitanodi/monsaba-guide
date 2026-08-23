@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>モンサバ 進化優先度ランキング｜第3進化おすすめ・T4育成</title>
+  <meta name="description" content="モンスターサバイバル（モンサバ）の進化優先度を解説。第3進化を優先したいタタ、T3で大きく強化されるタタ、第4進化の判断基準、進化前後のスキル差を掲載。" />
+  <meta name="theme-color" content="#2f6fb2" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://monsaba-guide.vercel.app/evolution-priority/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="モンサバ攻略DB" />
+  <meta property="og:title" content="モンサバ 進化優先度ランキング｜第3進化おすすめ・T4育成" />
+  <meta property="og:description" content="第3進化おすすめ、T3で大きく強化されるタタ、第4進化の判断基準、進化前後のスキル差を掲載。" />
+  <meta property="og:url" content="https://monsaba-guide.vercel.app/evolution-priority/" />
+  <meta property="og:image" content="https://monsaba-guide.vercel.app/assets/thumbs/IMG_6761.webp" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://monsaba-guide.vercel.app/assets/thumbs/IMG_6761.webp" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"モンサバ 進化優先度ランキング｜第3進化おすすめ・T4育成","description":"モンスターサバイバル（モンサバ）の進化優先度を解説。第3進化を優先したいタタ、T3で大きく強化されるタタ、第4進化の判断基準、進化前後のスキル差を掲載。","url":"https://monsaba-guide.vercel.app/evolution-priority/","inLanguage":"ja","dateModified":"2026-08-24","mainEntityOfPage":"https://monsaba-guide.vercel.app/evolution-priority/","publisher":{"@type":"Organization","name":"モンサバ攻略DB"}}</script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/" aria-label="モンサバ攻略DB トップ"><span class="brand-main">モンサバ攻略DB</span><span class="brand-sub">非公式</span></a>
+      <nav aria-label="主要メニュー"><a href="/#tatari">タタ図鑑</a><a href="/#compare">進化・スキル比較</a><a href="/tata-tier/">タタTier</a><a href="/evolution-priority/">進化優先度</a><a href="/zombie-rush/">ゾンビラッシュ</a></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero evolution-hero">
+      <div class="wrap">
+        <nav class="breadcrumbs"><a href="/">トップ</a><span>›</span><span>進化優先度</span></nav>
+        <div class="family-page-head">
+          <div>
+            <span class="attribute">最終更新 2026/8/24</span>
+            <h1>進化優先度ランキング・第3進化おすすめ</h1>
+            <p>序盤は第3進化に必要な星数が少ないタタを優先すると効率が良い。ただし、長期的な育成価値やコンテンツによって優先順位は変わります。</p>
+          </div>
+          <a class="ghost-button" href="#diagnosis">進化診断へ</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap tier-summary" aria-label="進化優先度の結論">
+      <div class="summary-box">
+        <strong>進化は「タタの強さ」と「その段階に素材を使う価値」を分けて判断</strong>
+        <p>最短T3はネコオリ / ヒモリ / フルッグ。次点はガオデン / ガントル（初期：コロカメ） / ヒマワリン。長期育成ではフレイムシ（初期：ヒノムシ） / ヒマワリン / ヤンザル / プラビが候補です。</p>
+      </div>
+      <div class="summary-links">
+        <a href="/tata-tier/">総合タタTier</a>
+        <a href="/zombie-rush/">ゾンビラッシュ攻略</a>
+        <a href="/attribute/thunder/">属性別おすすめ</a>
+      </div>
+    </section>
+
+    <section class="wrap static-section" id="t3-roadmap">
+      <h2 class="page-h2">第3進化は誰から？T3コスパ優先度</h2>
+      <p class="section-note">ゲーム内データと公開攻略情報をもとにした育成目安です。公式ランキングではありません。</p>
+      <div id="t3Roadmap" class="priority-tata-grid"></div>
+      <div class="guide-panel normal-cost-note">
+        <h3>通常18星組</h3>
+        <p>上記以外は原則として通常コスト帯です。総合Tier、用途、現在の編成、次進化で追加されるスキルを見て選びます。根拠が薄いタタに無理なS/A/B評価は付けていません。</p>
+      </div>
+    </section>
+
+    <section class="wrap static-section" id="diagnosis">
+      <h2 class="page-h2">このタタ、次まで進化する？</h2>
+      <div class="diagnosis-box">
+        <div class="diagnosis-controls">
+          <label>タタ系統<select id="familySelect"></select></label>
+          <label>現在の進化<select id="stageSelect"></select></label>
+          <label>目的<select id="modeSelect"><option value="overall">総合</option><option value="beginner">初心者・序盤</option><option value="normal">通常攻略</option><option value="zombie">ゾンビラッシュ</option><option value="dojo">道場</option></select></label>
+        </div>
+        <div id="diagnosisResult" class="diagnosis-result"></div>
+      </div>
+    </section>
+
+    <section class="wrap static-section">
+      <h2 class="page-h2">T3で大きく化けるタタ</h2>
+      <p class="section-note">ランキングではなく、2→3進化で明確な追加効果が確認できる例です。名称・数値は共通スキルJSONを正とします。</p>
+      <div id="impactGrid" class="evolution-card-grid"></div>
+    </section>
+
+    <section class="wrap static-section">
+      <h2 class="page-h2">第4進化（T4）はどこまで優先する？</h2>
+      <div class="guide-grid">
+        <article class="guide-panel">
+          <h3>T4オーラの見方</h3>
+          <p>多くの4段階系統では、T4で属性オーラが追加されます。オーラの数値は各タタのT4スキルデータから表示します。</p>
+          <ul id="auraSummary" class="plain-list"></ul>
+        </article>
+        <article class="alert-box">
+          <strong>ゾンビラッシュでは第4進化のオーラは無効</strong>
+          <p>ゾンビラッシュ目的なら、オーラだけを理由にT4を最優先する必要はありません。ただし基礎ステータス変化や他コンテンツでの利用はあり得るため、T4にする意味がないとは扱いません。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap static-section" id="transition-list">
+      <h2 class="page-h2">進化差分一覧</h2>
+      <div class="filter-panel evolution-filter">
+        <label>検索<input id="searchInput" type="search" placeholder="タタ名で検索（例：ガルルデン、スタピョン）" /></label>
+        <label>進化段階<select id="stageFilter"><option value="all">すべて</option><option value="2-3">T2→T3</option><option value="3-4">T3→T4</option></select></label>
+        <label>属性<select id="attributeFilter"><option value="all">すべて</option><option>草</option><option>水</option><option>火</option><option>雷</option><option>土</option></select></label>
+        <label>目的<select id="listModeFilter"><option value="overall">総合</option><option value="beginner">初心者</option><option value="normal">通常</option><option value="zombie">ゾンビラッシュ</option><option value="dojo">道場</option></select></label>
+        <label>評価<select id="priorityFilter"><option value="all">すべて</option><option value="top">最優先候補のみ</option><option value="priority">優先候補</option></select></label>
+      </div>
+      <div id="transitionGrid" class="evolution-card-grid"></div>
+    </section>
+
+    <section class="wrap static-section">
+      <h2 class="page-h2">長く育てるなら</h2>
+      <div id="longTermGrid" class="priority-tata-grid"></div>
+    </section>
+
+    <section class="wrap static-section">
+      <h2 class="page-h2">結局どう進める？</h2>
+      <div class="flow-list">
+        <article><b>最初</b><span>ネコオリ / ヒモリ / フルッグの6星T3を狙う</span></article>
+        <article><b>次</b><span>ガオデン / ガントル（初期：コロカメ） / ヒマワリンの12星T3を検討</span></article>
+        <article><b>その後</b><span>主力モードに合わせて18星T3を選ぶ</span></article>
+        <article><b>T4</b><span>用途・オーラ・必要素材を見て判断。ゾンビラッシュではオーラ無効に注意</span></article>
+      </div>
+    </section>
+
+    <section class="wrap attribute-guide-nav" aria-label="関連リンク">
+      <a href="/attribute/grass/">草属性</a>
+      <a href="/attribute/water/">水属性</a>
+      <a href="/attribute/fire/">火属性</a>
+      <a href="/attribute/thunder/">雷属性</a>
+      <a href="/attribute/earth/">土属性</a>
+    </section>
+
+    <section class="wrap source-note">
+      <strong>参考情報</strong>
+      <p>公開攻略情報、ゲーム内スクリーンショット由来のスキルデータ、当サイトのTierデータを合わせて整理しています。WikiとDBで名称差がある場合、サイト表示名は data/tatari.json / data/tata-skills.json を優先します。</p>
+    </section>
+  </main>
+  <footer><div class="wrap footer-inner"><div><strong>モンサバ攻略DB</strong><span>モンスターサバイバル 非公式攻略サイト</span></div><div class="footer-meta">63系統 / 224体</div></div></footer>
+  <script src="/evolution-priority/evolution-priority.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+{
+  "version": 1,
+  "updated": "2026-08-24",
+  "sources": [
+    "https://w.atwiki.jp/monstersurvival/pages/112.html",
+    "https://w.atwiki.jp/monstersurvival/pages/122.html",
+    "https://w.atwiki.jp/monstersurvival/pages/5.html",
+    "https://w.atwiki.jp/monstersurvival/pages/17.html"
+  ],
+  "notes": {
+    "basis": "ゲーム内スキルデータと公開攻略情報をもとにした当サイトの育成目安。公式ランキングではありません。",
+    "dataPriority": "表示名とスキル内容は data/tatari.json と data/tata-skills.json を優先します。",
+    "noInference": "根拠が薄い進化には無理に優先度を付けず、評価保留として扱います。"
+  },
+  "t3Roadmap": {
+    "firstPriority": [
+      {
+        "familyId": "nekoori",
+        "requiredStars": 6,
+        "priority": "最優先候補",
+        "reason": "第3進化までの必要星数が少なく、序盤から戦力化しやすい。"
+      },
+      {
+        "familyId": "himori",
+        "requiredStars": 6,
+        "priority": "最優先候補",
+        "reason": "第3進化までの必要星数が少なく、序盤から火力を伸ばしやすい。"
+      },
+      {
+        "familyId": "furuggu",
+        "requiredStars": 6,
+        "priority": "最優先候補",
+        "reason": "第3進化までの必要星数が少なく、爆発頻度と減速で序盤の攻略効率を上げやすい。"
+      }
+    ],
+    "secondPriority": [
+      {
+        "familyId": "gaoden",
+        "requiredStars": 12,
+        "priority": "優先候補",
+        "reason": "6星組の次に低コストで第3進化を狙える。第3進化で被ダメージ増加が追加される。"
+      },
+      {
+        "familyId": "gantoru",
+        "requiredStars": 12,
+        "priority": "優先候補",
+        "wikiName": "コロカメ",
+        "reason": "6星組の次に低コストで第3進化を狙える。サイトDBではガントル系（初期：コロカメ）として扱う。"
+      },
+      {
+        "familyId": "himawarin",
+        "requiredStars": 12,
+        "priority": "優先候補",
+        "reason": "6星組の次に低コストで第3進化を狙える。回復と攻防支援を伸ばせる。"
+      }
+    ],
+    "defaultRequiredStars": 18
+  },
+  "longTermRecommended": [
+    {
+      "familyId": "fureimuji",
+      "reason": "複数コンテンツで使いやすい範囲火力・回復・攻撃支援を持つ。"
+    },
+    {
+      "familyId": "himawarin",
+      "reason": "回復と攻防支援をまとめて担当し、長期的に編成の土台になりやすい。"
+    },
+    {
+      "familyId": "yanzaru",
+      "reason": "第3進化以降の火力上昇が大きく、長く使う主力候補になる。"
+    },
+    {
+      "familyId": "purabi",
+      "reason": "回復・バフ・生存補助をまとめて担当でき、複数コンテンツで役割を持ちやすい。"
+    }
+  ],
+  "highImpactTransitions": [
+    {
+      "familyId": "purabi",
+      "fromStage": 2,
+      "toStage": 3,
+      "priority": "優先候補",
+      "headline": "高速回復が追加される",
+      "reason": "回復性能が大きく伸びるため、プラビ系の重要な進化地点。"
+    },
+    {
+      "familyId": "denjika",
+      "fromStage": 2,
+      "toStage": 3,
+      "priority": "優先候補",
+      "headline": "攻撃4回ごとの無限貫通が追加される",
+      "reason": "貫通性能が大きく伸び、敵が密集する場面で強化される。"
+    },
+    {
+      "familyId": "nekoori",
+      "fromStage": 2,
+      "toStage": 3,
+      "priority": "最優先候補",
+      "headline": "氷の塊の貫通回数3が追加される",
+      "reason": "低コストT3で貫通まで獲得できるため、序盤の育成効率が高い。"
+    },
+    {
+      "familyId": "furuggu",
+      "fromStage": 2,
+      "toStage": 3,
+      "priority": "最優先候補",
+      "headline": "爆発頻度が攻撃4回ごとから2回ごとになり、減速も追加される",
+      "reason": "爆発頻度が上がり、減速まで追加される。"
+    },
+    {
+      "familyId": "himori",
+      "fromStage": 2,
+      "toStage": 3,
+      "priority": "最優先候補",
+      "headline": "増強燃焼による追加ダメージが追加される",
+      "reason": "低コストT3組の中でも、燃焼火力を伸ばしやすい。"
+    },
+    {
+      "familyId": "gaoden",
+      "fromStage": 2,
+      "toStage": 3,
+      "priority": "優先候補",
+      "headline": "被ダメージ増加が追加される",
+      "reason": "ノックバック役から、編成全体の火力補助もできるようになる。"
+    },
+    {
+      "familyId": "biripiyo",
+      "fromStage": 2,
+      "toStage": 3,
+      "priority": "用途次第",
+      "headline": "強化充電・攻撃力増加が追加される",
+      "reason": "味方3体への支援性能がさらに強化される。"
+    },
+    {
+      "familyId": "yanzaru",
+      "fromStage": 2,
+      "toStage": 3,
+      "priority": "優先候補",
+      "headline": "分身数が1から2になる",
+      "reason": "分身数が増え、ヤンザル系の火力が大きく伸びる重要地点。"
+    },
+    {
+      "familyId": "komakiri",
+      "fromStage": 2,
+      "toStage": 3,
+      "priority": "用途次第",
+      "headline": "攻撃回数が3から6になり、被ダメージ増加が追加される",
+      "reason": "連撃数が増え、敵へのデバフも追加される。"
+    },
+    {
+      "familyId": "denrou",
+      "fromStage": 2,
+      "toStage": 3,
+      "priority": "用途次第",
+      "headline": "攻撃中の無敵が追加される",
+      "reason": "生存性能が大きく変わる進化。"
+    },
+    {
+      "familyId": "marushu",
+      "fromStage": 2,
+      "toStage": 3,
+      "priority": "用途次第",
+      "headline": "被ダメージ増加と被ダメージ減少が追加される",
+      "reason": "攻撃速度支援に加え、攻守両面の支援が追加される。"
+    }
+  ],
+  "modeNotes": {
+    "zombieRush": {
+      "t4AuraDisabled": true,
+      "message": "ゾンビラッシュでは第4進化のオーラは無効。オーラだけを理由にT4を最優先する必要はありません。"
+    }
+  },
+  "transitionOverrides": {
+    "nekoori:2-3": {
+      "priority": "最優先候補",
+      "reason": "6星で第3進化を狙えるうえ、貫通効果が追加される。"
+    },
+    "himori:2-3": {
+      "priority": "最優先候補",
+      "reason": "6星で第3進化を狙え、増強燃焼で火力を伸ばしやすい。"
+    },
+    "furuggu:2-3": {
+      "priority": "最優先候補",
+      "reason": "6星で第3進化を狙え、爆発頻度と減速が強化される。"
+    },
+    "gaoden:2-3": {
+      "priority": "優先候補",
+      "reason": "12星で第3進化を狙え、被ダメージ増加が追加される。"
+    },
+    "gantoru:2-3": {
+      "priority": "優先候補",
+      "reason": "12星で第3進化を狙える低コスト枠。"
+    },
+    "himawarin:2-3": {
+      "priority": "優先候補",
+      "reason": "12星で第3進化を狙え、回復支援に加えて範囲ダメージも追加される。"
+    },
+    "purabi:2-3": {
+      "priority": "優先候補",
+      "reason": "高速回復が追加され、サポート性能が大きく伸びる。"
+    },
+    "denjika:2-3": {
+      "priority": "優先候補",
+      "reason": "無限貫通の頻度が追加され、敵集団への処理能力が伸びる。"
+    },
+    "yanzaru:2-3": {
+      "priority": "優先候補",
+      "reason": "分身数が増え、火力枠としての価値が大きく上がる。"
+    },
+    "biripiyo:2-3": {
+      "priority": "用途次第",
+      "reason": "強化充電が追加される。支援役を厚くしたい場合に候補。"
+    },
+    "komakiri:2-3": {
+      "priority": "用途次第",
+      "reason": "攻撃回数と被ダメージ増加が追加される。前衛・道場寄りの候補。"
+    },
+    "denrou:2-3": {
+      "priority": "用途次第",
+      "reason": "攻撃中の無敵が追加され、生存性能が変わる。"
+    },
+    "marushu:2-3": {
+      "priority": "用途次第",
+      "reason": "攻撃速度支援に加えて攻守両面の支援が追加される。"
+    }
+  }
+}
