@@ -1,42 +1,35 @@
-const tierGroups=[
-  {rank:'SSS',label:'ゾンビラッシュ最優先',ids:['umimi','shizukuchou','fureimuji','takepanda','himawarin','yanzaru','denjika','purabi','birimori']},
-  {rank:'SS',label:'主力級',ids:['korokon','hinyao','marushu','biripiyo']},
-  {rank:'S',label:'優秀',ids:['boruzarashi','erekoon']},
-  {rank:'A',label:'編成次第で強い',ids:['kunbuu','komakiri','gaoden','riifuro']}
-];
-const comments={
-  purabi:'回復・味方強化・無敵をまとめて担える。高Waveの安定性を大きく上げるサポート枠。',
-  denjika:'貫通攻撃＋麻痺が大量処理と足止めの両方で強力。スノーフィスト対策にも使いやすい。',
-  yanzaru:'第3進化以降の火力が高く、ゾンビラッシュの主力ディーラー候補。',
-  takepanda:'タケノコによる継続ダメージと減速で敵集団を抑えやすい。高Wave編成での採用実績も高い。',
-  umimi:'高キル編成で採用率が高い中核候補。',
-  gaoden:'ノックバックなどの役割を持てるが、現状の高キル編成ではSSS勢より優先度は下。'
-};
-const adoption={
-  umimi:'100%',shizukuchou:'100%',fureimuji:'100%',takepanda:'100%',himawarin:'100%',yanzaru:'100%',denjika:'100%',purabi:'100%',birimori:'100%',
-  korokon:'75%',hinyao:'75%',marushu:'75%',biripiyo:'75%',
-  boruzarashi:'62.5%',erekoon:'62.5%',
-  kunbuu:'37.5%',komakiri:'25%',gaoden:'25%',riifuro:'25%'
-};
-const annotations={
-  kunbuu:'公開攻略ではワンブー種表記',
-  korokon:'旧：タマキツネ系'
-};
 const attrIcon={草:'🌿',水:'💧',火:'🔥',雷:'⚡',土:'🪨'};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const thumb=src=>`/${String(src||'').replace('assets/monsters/','assets/thumbs/')}`;
+let tierGroups=[];
+let comments={};
+let adoption={};
+let annotations={};
 
 async function bootZombieRush(){
-  const res=await fetch('/data/tatari.json',{cache:'no-store'});
-  if(!res.ok) throw new Error(`data load ${res.status}`);
-  const data=await res.json();
+  const [data,ratings]=await Promise.all([
+    fetchJson('/data/tatari.json'),
+    fetchJson('/data/tier-ratings.json')
+  ]);
+  const zombie=ratings.zombieRush||{};
+  tierGroups=zombie.groups||[];
+  const byFamily=zombie.byFamily||{};
+  comments=Object.fromEntries(Object.entries(byFamily).filter(([,v])=>v.comment).map(([id,v])=>[id,v.comment]));
+  adoption=Object.fromEntries(Object.entries(byFamily).filter(([,v])=>v.adoptionRate).map(([id,v])=>[id,v.adoptionRate]));
+  annotations=Object.fromEntries(Object.entries(byFamily).filter(([,v])=>v.annotation).map(([id,v])=>[id,v.annotation]));
   const families=data.families||[];
   const byId=new Map(families.map(f=>[f.id,f]));
   const ranked=new Set(tierGroups.flatMap(g=>g.ids));
   $('#tierRoot').innerHTML=tierGroups.map(group=>renderTier(group,byId)).join('');
   const unrated=families.filter(f=>!ranked.has(f.id)).sort((a,b)=>a.familyName.localeCompare(b.familyName,'ja'));
   $('#unratedList').innerHTML=unrated.map(f=>`<a href="/tata/${encodeURIComponent(f.id)}/">${esc(f.familyName)}系</a>`).join('');
+}
+
+async function fetchJson(path){
+  const res=await fetch(path,{cache:'no-store'});
+  if(!res.ok) throw new Error(`${path} ${res.status}`);
+  return res.json();
 }
 
 function renderTier(group,byId){

@@ -1,16 +1,5 @@
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
-async function loadGroups(path,constantName){
-  const text=await fetch(path,{cache:'no-store'}).then(res=>{
-    if(!res.ok) throw new Error(`${path} ${res.status}`);
-    return res.text();
-  });
-  const re=new RegExp(`const ${constantName}=([\\s\\S]*?);`);
-  const match=text.match(re);
-  if(!match) throw new Error(`${constantName} not found`);
-  return Function(`return ${match[1]}`)();
-}
-
 function buildRankMap(groups){
   const map=new Map();
   groups.forEach(group=>group.ids.forEach(id=>map.set(id,group.rank)));
@@ -24,12 +13,9 @@ function badge(label,rank){
 }
 
 async function bootThunderBadges(){
-  const [overallGroups,zombieGroups]=await Promise.all([
-    loadGroups('/tata-tier/tata-tier.js','overallTierGroups'),
-    loadGroups('/zombie-rush/zombie-rush.js','tierGroups')
-  ]);
-  const overall=buildRankMap(overallGroups);
-  const zombie=buildRankMap(zombieGroups);
+  const ratings=await fetchJson('/data/tier-ratings.json');
+  const overall=buildRankMap(ratings.overall?.groups||[]);
+  const zombie=buildRankMap(ratings.zombieRush?.groups||[]);
   document.querySelectorAll('[data-family-id]').forEach(card=>{
     const id=card.dataset.familyId;
     const slot=card.querySelector('[data-tier-slot]');
@@ -39,6 +25,12 @@ async function bootThunderBadges(){
       zombie.has(id)?badge('ゾンビ',zombie.get(id)):''
     ].join('');
   });
+}
+
+async function fetchJson(path){
+  const res=await fetch(path,{cache:'no-store'});
+  if(!res.ok) throw new Error(`${path} ${res.status}`);
+  return res.json();
 }
 
 bootThunderBadges().catch(err=>{
