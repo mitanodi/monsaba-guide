@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>モンサバ攻略相談所｜タタ育成・進化・おすすめを質問</title>
-  <meta name="description" content="モンスターサバイバル（モンサバ）のタタ育成、進化、Tier、属性、ゾンビラッシュについて質問できる攻略相談ツール。サイト内のゲームデータをもとに回答します。" />
+  <title>モンサバ攻略相談所｜タタ育成・進化・おすすめを選んで相談</title>
+  <meta name="description" content="モンスターサバイバル（モンサバ）のタタ育成、進化、Tier、属性、ゾンビラッシュを選ぶだけで相談できる攻略ナビ。サイト内のゲームデータをもとに回答します。" />
   <meta name="theme-color" content="#2f6fb2" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <link rel="canonical" href="https://monsaba-guide.vercel.app/consult/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="モンサバ攻略DB" />
-  <meta property="og:title" content="モンサバ攻略相談所｜タタ育成・進化・おすすめを質問" />
-  <meta property="og:description" content="タタ育成、進化、Tier、属性、ゾンビラッシュについてサイト内のゲームデータをもとに回答する攻略相談ツール。" />
+  <meta property="og:title" content="モンサバ攻略相談所｜タタ育成・進化・おすすめを選んで相談" />
+  <meta property="og:description" content="タタ育成、進化、Tier、属性、ゾンビラッシュを選ぶだけで相談できる攻略ナビ。" />
   <meta property="og:url" content="https://monsaba-guide.vercel.app/consult/" />
   <meta property="og:image" content="https://monsaba-guide.vercel.app/assets/thumbs/IMG_6686.webp" />
   <meta property="og:locale" content="ja_JP" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://monsaba-guide.vercel.app/assets/thumbs/IMG_6686.webp" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"モンサバ攻略相談所 β","description":"モンスターサバイバル（モンサバ）のタタ育成、進化、Tier、属性、ゾンビラッシュについて質問できる攻略相談ツール。サイト内のゲームデータをもとに回答します。","url":"https://monsaba-guide.vercel.app/consult/","inLanguage":"ja","applicationCategory":"GameApplication","operatingSystem":"Any","publisher":{"@type":"Organization","name":"モンサバ攻略DB"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"モンサバ攻略相談所 β","description":"モンスターサバイバル（モンサバ）のタタ育成、進化、Tier、属性、ゾンビラッシュを選ぶだけで相談できる攻略ナビ。サイト内のゲームデータをもとに回答します。","url":"https://monsaba-guide.vercel.app/consult/","inLanguage":"ja","applicationCategory":"GameApplication","operatingSystem":"Any","publisher":{"@type":"Organization","name":"モンサバ攻略DB"}}</script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="/site.webmanifest" />
   <link rel="stylesheet" href="/styles.css" />
@@ -38,7 +38,7 @@
           <div>
             <span class="attribute">β版 / サイト内データ参照</span>
             <h1>モンサバ攻略相談所 β</h1>
-            <p>タタの育成・進化・Tier・属性・ゾンビラッシュについて質問できます。</p>
+            <p>タタの育成・進化・Tier・属性・ゾンビラッシュを、メニューから選んで相談できます。</p>
             <p class="consult-beta-note">現在はサイト内の攻略データから回答するβ版です。生成AIは使用していません。</p>
           </div>
           <a class="ghost-button" href="#consult-tool">質問する</a>
@@ -48,8 +48,9 @@
 
     <section id="consult-tool" class="wrap static-section">
       <div class="consult-layout">
-        <section class="consult-panel" aria-label="攻略相談チャット">
+        <section class="consult-panel" aria-label="攻略相談ナビ">
           <div id="chatLog" class="chat-log" aria-live="polite"></div>
+          <div class="free-question-note">メニューにない内容は自由に質問できます。</div>
           <div class="example-questions" aria-label="質問例">
             <button type="button">初心者は誰から育てる？</button>
             <button type="button">ゾンビラッシュ最強は？</button>

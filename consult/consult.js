@@ -5,6 +5,66 @@ const modeLabels = {overall:'総合', normal:'通常', zombie:'ゾンビ', dojo:
 const tierScore = {SSS:0, SS:1, S:2, A:3, '－':9};
 const priorityScore = {'最優先候補':0, '優先候補':1, '用途次第':2, '評価保留':3};
 let state = {families:[], skills:{}, ratings:{}, evolution:{}, aliases:[], transitions:[]};
+let flowState = {};
+let flowHistory = [];
+
+const menuConfig = {
+  root: [
+    ['content', 'コンテンツを攻略したい'],
+    ['training', 'タタを育成したい'],
+    ['evolution', '進化するか決めたい'],
+    ['build', '編成・役割を考えたい'],
+    ['compare', '2体を比較したい'],
+    ['detail', 'タタの性能を調べたい']
+  ],
+  contents: [
+    ['zombie', 'ゾンビラッシュ'],
+    ['dojo', 'バッジ道場'],
+    ['normal', '通常攻略'],
+    ['boss', 'ボスラリー']
+  ],
+  zombieTopics: [
+    ['recommend', 'おすすめタタ'],
+    ['training', '育成優先度'],
+    ['role', '必要な役割から探す'],
+    ['evolution', 'T3/T4進化'],
+    ['highwave', '高Wave攻略を見る'],
+    ['page', 'ゾンビラッシュ攻略ページを見る']
+  ],
+  training: [
+    ['beginner', '初心者・序盤'],
+    ['overall', '総合的に強いタタ'],
+    ['zombie', 'ゾンビラッシュ'],
+    ['dojo', '道場'],
+    ['normal', '通常攻略'],
+    ['attribute', '属性から選ぶ']
+  ],
+  roles: [
+    ['火力', '火力'],
+    ['回復', '回復'],
+    ['前衛', '前衛・タンク'],
+    ['CC', '妨害・CC'],
+    ['バフ', 'バフ'],
+    ['デバフ', 'デバフ'],
+    ['ノックバック', 'ノックバック']
+  ],
+  modes: [
+    ['overall', '総合'],
+    ['normal', '通常'],
+    ['zombie', 'ゾンビラッシュ'],
+    ['dojo', '道場'],
+    ['beginner', '初心者']
+  ],
+  evolutionPurposes: [
+    ['overall', '総合的に強くしたい'],
+    ['normal', '通常攻略'],
+    ['zombie', 'ゾンビラッシュ'],
+    ['dojo', 'バッジ道場'],
+    ['beginner', '初心者・序盤'],
+    ['overall', 'とにかく次進化の変化を知りたい']
+  ],
+  attrs: [['草','草'], ['水','水'], ['火','火'], ['雷','雷'], ['土','土']]
+};
 
 async function boot(){
   const [tatari, skills, ratings, evolution] = await Promise.all([
@@ -25,9 +85,14 @@ async function boot(){
   state.transitions = buildTransitions();
   renderSuggestions();
   bindUi();
-  addAssistant('何について知りたい？');
   const query = new URLSearchParams(location.search).get('q');
-  if(query) runQuestion(query);
+  if(query) {
+    addAssistant('今日は何について知りたい？');
+    renderRootMenu(false);
+    runQuestion(query);
+  } else {
+    renderRootMenu(false);
+  }
 }
 
 async function fetchJson(path){
@@ -115,6 +180,8 @@ function bindUi(){
   document.querySelectorAll('.example-questions button').forEach(button => {
     button.addEventListener('click', () => runQuestion(button.textContent.trim()));
   });
+  $('#chatLog').addEventListener('click', handleGuideClick);
+  $('#chatLog').addEventListener('input', handleGuideInput);
 }
 
 function runQuestion(question){
@@ -148,6 +215,308 @@ function answerQuestion(question){
     case 'detail': return answerDetail(families[0], mode);
     default: return answerUnknown(families.length ? null : question);
   }
+}
+
+function handleGuideClick(event){
+  const button = event.target.closest('[data-action]');
+  if(!button) return;
+  const action = button.dataset.action;
+  const value = button.dataset.value;
+  if(action === 'back') return goBack();
+  if(action === 'root') return renderRootMenu();
+  if(action === 'rootSelect') {
+    if(value === 'content') return showContentMenu();
+    if(value === 'training') return showTrainingMenu();
+    if(value === 'evolution') return startEvolutionFlow();
+    if(value === 'build') return showBuildModeMenu();
+    if(value === 'compare') return startCompareFlow();
+    if(value === 'detail') return startDetailFlow();
+  }
+  if(action === 'content') return showContentMenu();
+  if(action === 'contentSelect') return handleContent(value);
+  if(action === 'zombieTopic') return handleZombieTopic(value);
+  if(action === 'training') return showTrainingMenu();
+  if(action === 'trainingSelect') return handleTraining(value);
+  if(action === 'attrSelect') return handleAttributeSelect(value);
+  if(action === 'evolution') return startEvolutionFlow();
+  if(action === 'selectFamily') return handleFamilySelect(value);
+  if(action === 'selectStage') return handleStageSelect(Number(value));
+  if(action === 'selectPurpose') return handleEvolutionPurpose(value);
+  if(action === 'build') return showBuildModeMenu();
+  if(action === 'buildMode') return showRoleMenu('build', {mode:value});
+  if(action === 'roleSelect') return handleRoleSelect(value);
+  if(action === 'compare') return startCompareFlow();
+  if(action === 'compareFamily') return handleCompareFamily(value);
+  if(action === 'compareMode') return handleCompareMode(value);
+  if(action === 'detail') return startDetailFlow();
+  if(action === 'detailFamily') return handleDetailFamily(value);
+  if(action === 'detailView') return handleDetailView(value);
+  if(action === 'unknownStart') {
+    if(value === 'training') return showTrainingMenu();
+    if(value === 'evolution') return startEvolutionFlow();
+    if(value === 'content') return showContentMenu();
+    if(value === 'compare') return startCompareFlow();
+  }
+}
+
+function handleGuideInput(event){
+  const input = event.target.closest('[data-family-filter]');
+  if(!input) return;
+  const box = input.closest('.family-picker');
+  const q = normalize(input.value);
+  box.querySelectorAll('[data-family-id]').forEach(button => {
+    const hay = button.dataset.search || '';
+    button.hidden = q && !hay.includes(q);
+  });
+}
+
+function renderRootMenu(push = true){
+  if(push) pushHistory();
+  flowState = {};
+  setGuide(`<h2>今日は何について知りたい？</h2><p>目的を選ぶと、必要な条件だけ追加で選んで攻略データから回答します。</p>${buttonGrid(menuConfig.root, 'rootSelect')}`, false);
+}
+
+function buttonGrid(items, group){
+  return `<div class="guide-button-grid">${items.map(([value,label]) => `<button type="button" data-action="${actionForGroup(group)}" data-value="${esc(value)}">${esc(label)}</button>`).join('')}</div>`;
+}
+
+function actionForGroup(group){
+  return {
+    rootSelect:'rootSelect',
+    content:'contentSelect',
+    zombieTopic:'zombieTopic',
+    training:'trainingSelect',
+    attr:'attrSelect',
+    mode:'compareMode'
+  }[group] || group;
+}
+
+function setGuide(html, withBack = true){
+  const actions = withBack ? `<div class="guide-actions"><button type="button" data-action="back">← 戻る</button><button type="button" data-action="root">最初のメニューに戻る</button></div>` : '';
+  $('#chatLog').innerHTML = `<article class="chat-message assistant"><div class="chat-speaker">攻略相談所</div><div class="chat-bubble guide-bubble">${breadcrumbHtml()}${html}${actions}</div></article>`;
+}
+
+function showResult(html, crumbs = []){
+  flowState.crumbs = crumbs.length ? crumbs : flowState.crumbs;
+  setGuide(`${html}<div class="guide-button-grid followup-grid">
+    <button type="button" data-action="evolution">別のタタを進化相談</button>
+    <button type="button" data-action="compare">別のタタと比較</button>
+    <button type="button" data-action="training">同じ目的で候補を見る</button>
+    <button type="button" data-action="root">別の相談をする</button>
+  </div>`);
+  saveHistory((flowState.crumbs || []).join(' ＞ ') || '選択式相談');
+}
+
+function breadcrumbHtml(){
+  return flowState.crumbs?.length ? `<div class="guide-breadcrumb">相談内容：${flowState.crumbs.map(esc).join(' ＞ ')}</div>` : '';
+}
+
+function pushHistory(){
+  flowHistory.push(JSON.parse(JSON.stringify(flowState)));
+}
+
+function goBack(){
+  const prev = flowHistory.pop();
+  if(!prev) return renderRootMenu(false);
+  flowState = prev;
+  routeFromState(false);
+}
+
+function routeFromState(){
+  const route = flowState.route;
+  if(route === 'content') return showContentMenu(false);
+  if(route === 'zombie') return showZombieMenu(false);
+  if(route === 'training') return showTrainingMenu(false);
+  if(route === 'evolutionFamily') return renderFamilyPicker('selectFamily', 'どのタタを進化させたい？', false);
+  if(route === 'evolutionStage') return showStageMenu(false);
+  if(route === 'evolutionPurpose') return showEvolutionPurposeMenu(false);
+  if(route === 'buildMode') return showBuildModeMenu(false);
+  if(route === 'buildRole') return showRoleMenu('build', {mode:flowState.mode}, false);
+  if(route === 'zombieRole') return showRoleMenu('zombie', {mode:flowState.mode}, false);
+  if(route === 'compareA') return renderFamilyPicker('compareFamily', '1体目を選択', false);
+  if(route === 'compareB') return renderFamilyPicker('compareFamily', '2体目を選択', false);
+  if(route === 'compareMode') return showCompareModeMenu(false);
+  if(route === 'detailFamily') return renderFamilyPicker('detailFamily', '性能を調べたいタタを選択', false);
+  if(route === 'detailView') return showDetailViewMenu(false);
+  renderRootMenu(false);
+}
+
+function showContentMenu(push = true){
+  if(push) pushHistory();
+  flowState = {route:'content', category:'content', crumbs:['コンテンツ攻略']};
+  setGuide(`<h2>どのコンテンツを攻略したい？</h2>${buttonGrid(menuConfig.contents, 'content')}`);
+}
+
+function handleContent(content){
+  pushHistory();
+  if(content === 'zombie'){
+    flowState = {route:'zombie', category:'content', content:'zombie', crumbs:['コンテンツ攻略','ゾンビラッシュ']};
+    return showZombieMenu(false);
+  }
+  const label = content === 'dojo' ? 'バッジ道場' : content === 'normal' ? '通常攻略' : 'ボスラリー';
+  flowState = {route:'content', category:'content', content, crumbs:['コンテンツ攻略', label]};
+  if(content === 'normal') return showResult(answerModeCandidates('normal').html, flowState.crumbs);
+  if(content === 'dojo') return showResult(answerModeCandidates('dojo').html, flowState.crumbs);
+  return showPreparedContent(label);
+}
+
+function showZombieMenu(push = true){
+  if(push) pushHistory();
+  flowState.route = 'zombie';
+  setGuide(`<h2>ゾンビラッシュで何を知りたい？</h2>${buttonGrid(menuConfig.zombieTopics, 'zombieTopic')}`);
+}
+
+function handleZombieTopic(topic){
+  pushHistory();
+  flowState.crumbs = ['コンテンツ攻略','ゾンビラッシュ'];
+  if(topic === 'recommend') return showResult(answerZombie().html, [...flowState.crumbs, 'おすすめタタ']);
+  if(topic === 'training') return showResult(answerModeCandidates('zombie', true).html, [...flowState.crumbs, '育成優先度']);
+  if(topic === 'role') return showRoleMenu('zombie', {mode:'zombie'});
+  if(topic === 'evolution') return startEvolutionFlow();
+  if(topic === 'highwave' || topic === 'page') return showResult(`<h2>ゾンビラッシュ攻略</h2><p>高Wave攻略、育成順、注意ゾンビは専用ページで確認できます。</p>${relatedLinks([{label:'ゾンビラッシュ攻略ページを見る', href:'/zombie-rush/'}])}`, [...flowState.crumbs, '攻略ページ']);
+}
+
+function showTrainingMenu(push = true){
+  if(push) pushHistory();
+  flowState = {route:'training', category:'training', crumbs:['育成相談']};
+  setGuide(`<h2>何を基準に育てたい？</h2>${buttonGrid(menuConfig.training, 'training')}`);
+}
+
+function handleTraining(value){
+  pushHistory();
+  if(value === 'beginner') return showResult(answerBeginner().html, ['育成相談','初心者・序盤']);
+  if(value === 'overall') return showResult(answerOverallTier().html, ['育成相談','総合']);
+  if(value === 'attribute') {
+    flowState = {route:'training', category:'training', sub:'attribute', crumbs:['育成相談','属性から選ぶ']};
+    return setGuide(`<h2>どの属性から選ぶ？</h2>${buttonGrid(menuConfig.attrs, 'attr')}`);
+  }
+  return showResult(answerModeCandidates(value).html, ['育成相談', modeLabels[value]]);
+}
+
+function handleAttributeSelect(attr){
+  pushHistory();
+  showResult(answerAttribute(attr, flowState.mode || 'overall').html, [...(flowState.crumbs || ['属性']), attr]);
+}
+
+function startEvolutionFlow(){
+  pushHistory();
+  flowState = {route:'evolutionFamily', category:'evolution', crumbs:['進化相談']};
+  renderFamilyPicker('selectFamily', 'どのタタを進化させたい？', false);
+}
+
+function renderFamilyPicker(action, title, withBack = true){
+  const buttons = state.families.map(f => {
+    const names = [f.id, f.familyName, ...f.evolutions.map(e => e.name), ...(state.skills[f.id]?.stages || []).map(s => s.tataName)].join(' ');
+    return `<button type="button" data-action="${esc(action)}" data-value="${esc(f.id)}" data-family-id="${esc(f.id)}" data-search="${esc(normalize(names))}"><b>${esc(f.familyName)}系</b><small>${esc(f.evolutions.map(e => e.name).join(' / '))}</small></button>`;
+  }).join('');
+  setGuide(`<h2>${esc(title)}</h2><div class="family-picker"><input type="search" data-family-filter placeholder="タタ名で検索（例：スタピョン、ガルルデン）" aria-label="タタ名で検索" /><div class="guide-button-grid family-grid">${buttons}</div></div>`, withBack);
+}
+
+function handleFamilySelect(familyId){
+  pushHistory();
+  flowState.familyId = familyId;
+  flowState.route = 'evolutionStage';
+  flowState.crumbs = ['進化相談', `${getFamily(familyId).familyName}系`];
+  showStageMenu(false);
+}
+
+function showStageMenu(withBack = true){
+  const family = getFamily(flowState.familyId);
+  const stages = state.skills[flowState.familyId]?.stages || [];
+  const buttons = stages.map(s => `<button type="button" data-action="selectStage" data-value="${s.stage}">T${s.stage} ${esc(s.tataName)}</button>`).join('');
+  setGuide(`<h2>現在どこまで進化していますか？</h2><p>${esc(family.familyName)}系</p><div class="guide-button-grid">${buttons}</div>`, withBack);
+}
+
+function handleStageSelect(stage){
+  pushHistory();
+  const stageData = state.skills[flowState.familyId]?.stages.find(s => s.stage === stage);
+  flowState.currentStage = stage;
+  flowState.route = 'evolutionPurpose';
+  flowState.crumbs = ['進化相談', `${getFamily(flowState.familyId).familyName}系`, `T${stage} ${stageData?.tataName || ''}`];
+  showEvolutionPurposeMenu(false);
+}
+
+function showEvolutionPurposeMenu(withBack = true){
+  setGuide(`<h2>何を目的に進化させますか？</h2>${buttonGrid(menuConfig.evolutionPurposes, 'selectPurpose')}`, withBack);
+}
+
+function handleEvolutionPurpose(mode){
+  pushHistory();
+  flowState.mode = mode;
+  const answer = answerEvolutionDirect(flowState.familyId, flowState.currentStage, mode);
+  showResult(answer.html, [...flowState.crumbs, modeLabels[mode]]);
+}
+
+function showBuildModeMenu(push = true){
+  if(push) pushHistory();
+  flowState = {route:'buildMode', category:'build', crumbs:['編成・役割']};
+  setGuide(`<h2>どのコンテンツ用？</h2>${buttonGrid([['normal','通常攻略'], ['zombie','ゾンビラッシュ'], ['dojo','バッジ道場'], ['overall','総合']], 'buildMode')}`);
+}
+
+function showRoleMenu(context, extra = {}, push = true){
+  if(push) pushHistory();
+  flowState = {...flowState, ...extra, route: context === 'build' ? 'buildRole' : 'zombieRole', crumbs: context === 'build' ? ['編成・役割', modeLabels[extra.mode || flowState.mode]] : ['コンテンツ攻略','ゾンビラッシュ','必要な役割']};
+  setGuide(`<h2>どの役割が足りない？</h2>${buttonGrid(menuConfig.roles, 'roleSelect')}`);
+}
+
+function handleRoleSelect(role){
+  pushHistory();
+  const mode = flowState.mode || 'zombie';
+  showResult(answerRoleCandidates(mode, role).html, [...(flowState.crumbs || []), role]);
+}
+
+function startCompareFlow(){
+  pushHistory();
+  flowState = {route:'compareA', category:'compare', compareIds:[], crumbs:['タタ比較']};
+  renderFamilyPicker('compareFamily', '1体目を選択', false);
+}
+
+function handleCompareFamily(familyId){
+  pushHistory();
+  flowState.compareIds = [...(flowState.compareIds || []), familyId];
+  if(flowState.compareIds.length === 1){
+    flowState.route = 'compareB';
+    flowState.crumbs = ['タタ比較', `${getFamily(familyId).familyName}系`];
+    return renderFamilyPicker('compareFamily', '2体目を選択', false);
+  }
+  flowState.route = 'compareMode';
+  flowState.crumbs = ['タタ比較', ...flowState.compareIds.map(id => `${getFamily(id).familyName}系`)];
+  showCompareModeMenu(false);
+}
+
+function showCompareModeMenu(withBack = true){
+  setGuide(`<h2>何を基準に比較する？</h2>${buttonGrid(menuConfig.modes, 'mode')}`);
+}
+
+function handleCompareMode(mode){
+  pushHistory();
+  showResult(answerCompare(flowState.compareIds, mode).html, [...flowState.crumbs, modeLabels[mode]]);
+}
+
+function startDetailFlow(){
+  pushHistory();
+  flowState = {route:'detailFamily', category:'detail', crumbs:['性能確認']};
+  renderFamilyPicker('detailFamily', '性能を調べたいタタを選択', false);
+}
+
+function handleDetailFamily(familyId){
+  pushHistory();
+  flowState.detailStage = stageFromName(familyId, document.querySelector('[data-family-filter]')?.value) || 1;
+  flowState.familyId = familyId;
+  flowState.route = 'detailView';
+  flowState.crumbs = ['性能確認', `${getFamily(familyId).familyName}系`];
+  showDetailViewMenu(false);
+}
+
+function showDetailViewMenu(withBack = true){
+  setGuide(`<h2>何を見たい？</h2>${buttonGrid([['basic','基本性能'], ['skill','スキル'], ['route','進化ルート'], ['tier','Tier評価'], ['diff','次進化で何が変わる？'], ['page','個別攻略ページを見る']], 'detailView')}`, withBack);
+}
+
+function handleDetailView(view){
+  pushHistory();
+  if(view === 'page') location.href = `/tata/${flowState.familyId}/`;
+  if(view === 'diff') return showResult(answerEvolutionDirect(flowState.familyId, 2, 'overall').html, [...flowState.crumbs, '次進化差分']);
+  showResult(answerDetailView(flowState.familyId, view).html, [...flowState.crumbs, view]);
 }
 
 function detectIntent(q, families, attr){
@@ -374,13 +743,118 @@ function answerT4(familyId, mode){
   };
 }
 
+function answerEvolutionDirect(familyId, currentStage, mode){
+  if(!familyId) return answerUnknown();
+  const family = getFamily(familyId);
+  const tx = state.transitions.find(t => t.family.id === familyId && t.from.stage === currentStage);
+  if(!tx) {
+    return {
+      html: `<h2>${esc(family.familyName)}系</h2><p>現在のサイトDBでは、この段階から先の進化データは収録されていません。</p>${relatedLinks([{label:`${family.familyName}系詳細`, href:`/tata/${familyId}/`}, {label:'進化優先度', href:'/evolution-priority/'}])}`
+    };
+  }
+  const overall = state.ratings.overall?.byFamily?.[familyId];
+  const zombie = state.ratings.zombieRush?.byFamily?.[familyId];
+  const zombieAura = mode === 'zombie' && tx.from.stage === 3 && tx.to.stage === 4 ? `<p class="consult-warning">${esc(state.evolution.modeNotes?.zombieRush?.message || 'ゾンビラッシュでは第4進化のオーラは無効です。')}</p>` : '';
+  return {
+    html: `<h2>T${tx.from.stage} ${esc(tx.from.tataName)} → T${tx.to.stage} ${esc(tx.to.tataName)}</h2>
+      <div class="consult-compare-grid compact">
+        <div><small>現在</small><b>T${tx.from.stage} ${esc(tx.from.tataName)}</b><span>${esc(tx.from.skillName)}</span></div>
+        <div><small>次</small><b>T${tx.to.stage} ${esc(tx.to.tataName)}</b><span>${esc(tx.to.skillName)}</span></div>
+      </div>
+      <div class="consult-badges">${badge('進化優先度', tx.meta.priority)}${badge('総合Tier', overall?.tier || '評価保留')}${badge('ゾンビラッシュ', zombie?.tier || overall?.zombie || '－')}${mode !== 'overall' ? badge(modeLabels[mode], modeTier(familyId, mode) || '－') : ''}</div>
+      <h3>次進化で大きく変わる点</h3>
+      ${tx.meta.headline ? `<p>${esc(tx.meta.headline)}</p>` : ''}
+      <h3>スキル差分</h3>
+      ${deltaHtml(tx.delta)}
+      ${zombieAura}
+      <h3>短い結論</h3>
+      <p>${esc(tx.meta.reason)}</p>
+      ${relatedLinks([{label:`${family.familyName}系を詳しく見る`, href:`/tata/${familyId}/`}, {label:'もう1体と比較する', href:'#'}, {label:'ゾンビラッシュ攻略を見る', href:'/zombie-rush/'}])}`
+  };
+}
+
+function answerModeCandidates(mode, includeEvolution = false){
+  const list = state.families.map(f => ({family:f, overall:state.ratings.overall?.byFamily?.[f.id], zombie:state.ratings.zombieRush?.byFamily?.[f.id]}))
+    .filter(item => item.overall || item.zombie)
+    .map(item => ({...item, tier: mode === 'zombie' ? (item.zombie?.tier || item.overall?.zombie) : mode === 'overall' ? item.overall?.tier : item.overall?.[mode]}))
+    .filter(item => item.tier)
+    .sort((a,b) => (tierScore[a.tier || '－'] - tierScore[b.tier || '－']) || (tierScore[a.overall?.tier || '－'] - tierScore[b.overall?.tier || '－']) || a.family.familyName.localeCompare(b.family.familyName, 'ja'))
+    .slice(0, 8);
+  const evo = includeEvolution ? `<h3>進化面の目安</h3><p>ゾンビラッシュ目的でも、進化優先度はT3ロードマップや次進化の差分を合わせて判断します。</p>` : '';
+  return {
+    html: `<h2>${esc(modeLabels[mode] || '総合')}の育成候補</h2><p>現在のTierデータで評価がある候補を上位から表示します。評価保留のタタを弱いとは扱いません。</p>${evo}<div class="consult-pick-list">${list.map(item => pickRow(item.family.id, item.tier, item.overall?.roles, item.zombie?.adoptionRate)).join('')}</div>${relatedLinks([{label:'総合タタTier', href:'/tata-tier/'}, {label:'進化優先度', href:'/evolution-priority/'}])}`
+  };
+}
+
+function answerRoleCandidates(mode, role, attr = null){
+  const candidates = state.families.map(f => {
+    const overall = state.ratings.overall?.byFamily?.[f.id];
+    const zombie = state.ratings.zombieRush?.byFamily?.[f.id];
+    const skillText = (state.skills[f.id]?.stages || []).map(s => `${s.skillName} ${s.description} ${(s.values || []).map(v => `${v.label} ${v.value}`).join(' ')}`).join(' ');
+    return {family:f, overall, zombie, skillText, tier: mode === 'zombie' ? (zombie?.tier || overall?.zombie) : mode === 'overall' ? overall?.tier : overall?.[mode]};
+  }).filter(item => (!attr || item.family.attribute === attr) && item.tier && roleMatches(role, item.overall?.roles || [], item.skillText))
+    .sort((a,b) => (tierScore[a.tier || '－'] - tierScore[b.tier || '－']) || (tierScore[a.overall?.tier || '－'] - tierScore[b.overall?.tier || '－']) || a.family.familyName.localeCompare(b.family.familyName, 'ja'))
+    .slice(0, 8);
+  const body = candidates.length ? `<div class="consult-pick-list">${candidates.map(item => pickRow(item.family.id, item.tier, item.overall?.roles, item.zombie?.adoptionRate)).join('')}</div>` : '<p>条件に合う評価済み候補は見つかりませんでした。条件を広げて確認してください。</p>';
+  return {
+    html: `<h2>${esc(modeLabels[mode] || '総合')}向け：${esc(role)}候補</h2><p>Tier評価と役割データに基づく候補です。完全な編成テンプレは生成しません。</p>${body}${relatedLinks([{label:'総合タタTier', href:'/tata-tier/'}, {label:'ゾンビラッシュ攻略', href:'/zombie-rush/'}])}`
+  };
+}
+
+function roleMatches(role, roles, skillText){
+  const hay = normalize([...roles, skillText].join(' '));
+  const map = {
+    '火力':['火力','ダメージ','範囲','燃焼','貫通','連撃'],
+    '回復':['回復','継続回復','高速回復'],
+    '前衛':['前衛','タンク','シールド','耐久','hp','生存'],
+    'CC':['cc','妨害','麻痺','睡眠','減速','スタン','束縛'],
+    'バフ':['バフ','攻撃力増加','攻撃速度','攻防','強化'],
+    'デバフ':['デバフ','被ダメ','被撃','被ダメ増加','防御'],
+    'ノックバック':['ノックバック']
+  };
+  return (map[role] || [role]).some(word => hay.includes(normalize(word)));
+}
+
+function showPreparedContent(label){
+  showResult(`<h2>${esc(label)}</h2><p>現在このコンテンツの専用攻略データは準備中です。専用Tierや編成は推測せず、総合評価・タタ性能から確認できます。</p><div class="guide-button-grid followup-grid"><button type="button" data-action="training">総合Tierから候補を見る</button><button type="button" data-action="compare">タタを比較する</button><button type="button" data-action="detail">タタ性能を調べる</button></div>`, flowState.crumbs);
+}
+
+function answerDetailView(familyId, view){
+  const family = getFamily(familyId);
+  const detailStage = flowState.detailStage || 1;
+  const stage = state.skills[familyId]?.stages.find(s => s.stage === detailStage) || state.skills[familyId]?.stages[0];
+  if(view === 'skill') {
+    return {html:`<h2>T${stage.stage} ${esc(stage.tataName)}のスキル</h2><h3>${esc(stage.skillName)}</h3><p>${esc(stage.description)}</p>${deltaValueList(stage.values)}${relatedLinks([{label:`${family.familyName}系詳細`, href:`/tata/${familyId}/`}])}`};
+  }
+  if(view === 'route') return {html:`<h2>${esc(family.familyName)}系の進化ルート</h2>${chainHtml(family)}${relatedLinks([{label:`${family.familyName}系詳細`, href:`/tata/${familyId}/`}])}`};
+  if(view === 'tier') return answerDetail(familyId, 'overall');
+  return answerDetail(familyId, 'overall');
+}
+
+function deltaValueList(values){
+  return values?.length ? `<ul class="plain-list">${values.map(v => `<li>${esc(v.label)}：${esc(v.value)}</li>`).join('')}</ul>` : '<p>数値データは収録されていません。</p>';
+}
+
+function stageFromName(familyId, query){
+  const q = normalize(query);
+  if(!q) return null;
+  return (state.skills[familyId]?.stages || []).find(s => q.includes(normalize(s.tataName)) || q.includes(normalize(s.skillName)))?.stage || null;
+}
+
 function answerUnknown(raw){
   const exists = raw ? resolveFamilies(normalize(raw)).length > 0 : true;
   return {
     html: `<h2>質問を判断できませんでした</h2>
       ${exists ? '' : '<p>入力された名前は、現在のタタDBでは確認できませんでした。存在しないタタ名は作らずに案内します。</p>'}
+      <p>その質問は現在の自由質問では判断できません。下のメニューから条件を選ぶと、より正確に案内できます。</p>
       <p>今は以下について質問できます。</p>
       ${list(['タタの強さ','進化','育成優先度','タタ比較','属性おすすめ','ゾンビラッシュ','初心者育成'])}
+      <div class="guide-button-grid followup-grid">
+        <button type="button" data-action="unknownStart" data-value="training">育成相談を始める</button>
+        <button type="button" data-action="unknownStart" data-value="evolution">進化相談を始める</button>
+        <button type="button" data-action="unknownStart" data-value="content">コンテンツ攻略</button>
+        <button type="button" data-action="unknownStart" data-value="compare">タタ比較</button>
+      </div>
       <p class="consult-note">例：「スタピョンは進化するべき？」「雷属性おすすめ」「ガルルデンとデンジカどっち？」</p>`
   };
 }
