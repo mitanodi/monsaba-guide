@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>モンサバ攻略｜タタ図鑑・進化・スキル一覧</title>
+  <meta name="description" content="モンスターサバイバル（モンサバ）のタタ63系統・224体を収録。名前・属性から検索し、進化先とスキル効果・数値を一覧で確認できます。" />
+  <meta name="theme-color" content="#2f6fb2" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="モンサバ攻略DB" />
+  <meta property="og:title" content="モンサバ攻略｜タタ図鑑・進化・スキル一覧" />
+  <meta property="og:description" content="モンサバのタタを名前・属性から検索。進化先とスキル数値を一覧で確認できます。" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- BASE_URL_META_START -->
+  <link rel="canonical" href="https://monsaba-guide.vercel.app/" />
+  <meta property="og:url" content="https://monsaba-guide.vercel.app/" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"モンサバ攻略DB","alternateName":"モンサバ攻略","url":"https://monsaba-guide.vercel.app/","inLanguage":"ja","potentialAction":{"@type":"SearchAction","target":"https://monsaba-guide.vercel.app/?q={search_term_string}#tatari","query-input":"required name=search_term_string"}}</script>
+  <!-- BASE_URL_META_END -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/">
+        <span class="brand-main">モンサバ攻略DB</span>
+        <span class="brand-sub">非公式</span>
+      </a>
+      <nav aria-label="主要メニュー">
+        <a href="#tatari">タタ図鑑</a>
+        <a href="#compare">進化・スキル比較</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <p class="hero-note">モンスターサバイバル（モンサバ）攻略データ</p>
+        <h1>タタ図鑑・進化・スキル一覧</h1>
+        <p class="lead">タタの名前、属性、進化先、スキル名から検索できます。</p>
+
+        <div class="hero-search-row">
+          <label class="search-box hero-search">
+            <span aria-hidden="true">⌕</span>
+            <input id="search" type="search" placeholder="タタ名・スキル名で検索" aria-label="タタ検索" />
+          </label>
+          <label class="sort-box">
+            <span>並び順</span>
+            <select id="sort" aria-label="並び順">
+              <option value="default">図鑑順</option>
+              <option value="name">名前順</option>
+              <option value="stages">進化段階が多い順</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="site-stats" aria-label="収録データ">
+          <span><b>63</b>系統</span>
+          <span><b>224</b>体</span>
+          <span><b>5</b>属性</span>
+          <span>最終更新 2026/8/22</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="attributes" class="wrap quick-nav" aria-label="属性から探す">
+      <a class="quick-link grass" href="/attribute/grass/">🌿 草属性 <small>13系統</small></a>
+      <a class="quick-link water" href="/attribute/water/">💧 水属性 <small>12系統</small></a>
+      <a class="quick-link fire" href="/attribute/fire/">🔥 火属性 <small>13系統</small></a>
+      <a class="quick-link thunder" href="/attribute/thunder/">⚡ 雷属性 <small>13系統</small></a>
+      <a class="quick-link earth" href="/attribute/earth/">🪨 土属性 <small>12系統</small></a>
+    </section>
+
+    <section id="tatari" class="wrap section">
+      <div class="section-head simple-head">
+        <div>
+          <h2>タタ図鑑</h2>
+          <p>系統ごとに進化先とスキルをまとめています。</p>
+        </div>
+        <div class="result-tools">
+          <span id="resultCount">—</span>
+          <button id="clearFilters" class="text-button" type="button">絞り込みを解除</button>
+        </div>
+      </div>
+      <div id="attributeFilters" class="filters" aria-label="属性フィルター"></div>
+      <div id="cards" class="cards" aria-live="polite"></div>
+    </section>
+
+    <section id="compare" class="compare-section">
+      <div class="wrap">
+        <div class="section-head simple-head">
+          <div>
+            <h2>進化・スキル比較</h2>
+            <p>同じ系統の進化前後をまとめて確認できます。</p>
+          </div>
+          <label class="family-select-label">系統を選ぶ
+            <select id="familySelect" aria-label="表示する系統"></select>
+          </label>
+        </div>
+        <article id="detailPanel" class="detail-panel"></article>
+      </div>
+    </section>
+
+    <section class="wrap data-note">
+      <h2>掲載データについて</h2>
+      <p>ゲーム内スクリーンショットで確認できた内容を整理しています。数値が読めない箇所は推測で補完していません。誤りを見つけた場合は、元画面を再確認して修正します。</p>
+      <details>
+        <summary>収録状況を見る</summary>
+        <div class="data-meta-grid">
+          <span>確認済み画像 <b id="processedCount">—</b></span>
+          <span>受領画像 <b id="totalCount">—</b></span>
+          <span>登録系統 <b id="familyCount">—</b></span>
+          <span>登録タタ <b id="monsterCount">—</b></span>
+        </div>
+        <p id="processedRange" class="range-note">読み込み中…</p>
+        <span id="progressPct" hidden></span><span id="progressBar" hidden></span>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <strong>モンサバ攻略DB</strong>
+      <span>モンスターサバイバル 非公式攻略サイト</span>
+    </div>
+  </footer>
+  <script src="./app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "モンサバ攻略DB",
+  "short_name": "モンサバ攻略",
+  "lang": "ja",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f7fa",
+  "theme_color": "#2f6fb2",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
