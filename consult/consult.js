@@ -1,6 +1,6 @@
 const $ = (selector) => document.querySelector(selector);
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const attrPath = {草:'grass', 水:'water', 火:'fire', 雷:'thunder', 土:'earth'};
+const attrPath = Object.fromEntries(Object.entries(ATTRIBUTE_META).map(([attr,meta]) => [attr,meta.slug]));
 const modeLabels = {overall:'総合', normal:'通常', zombie:'ゾンビ', bossRally:'ボスラリー', dojo:'道場', beginner:'初心者'};
 const tierScore = {SSS:0, SS:1, S:2, A:3, '－':9};
 const priorityScore = {'最優先候補':0, '優先候補':1, '用途次第':2, '評価保留':3};
@@ -63,7 +63,7 @@ const menuConfig = {
     ['beginner', '初心者・序盤'],
     ['overall', 'とにかく次進化の変化を知りたい']
   ],
-  attrs: [['草','草'], ['水','水'], ['火','火'], ['雷','雷'], ['土','土']]
+  attrs: [['草','草'], ['水','水'], ['火','火'], ['雷','雷'], ['岩','岩']]
 };
 
 const contentTopics = {
@@ -445,7 +445,7 @@ function handleBossRallyTopic(topic){
 }
 
 function handleDojoTopic(topic){
-  if(topic === 'page') return showResult(`<h2>バッジ道場攻略</h2><p>属性別おすすめと当サイトdojo評価は専用ページで確認できます。</p>${relatedLinks([{label:'バッジ道場攻略ページ', href:'/badge-dojo/'}])}`, [...flowState.crumbs, '攻略ページ']);
+  if(topic === 'page') return showResult(`<h2>バッジ道場攻略</h2><p>属性別おすすめと当サイト道場評価は専用ページで確認できます。</p>${relatedLinks([{label:'バッジ道場攻略ページ', href:'/badge-dojo/'}])}`, [...flowState.crumbs, '攻略ページ']);
   if(topic === 'attribute'){
     flowState.route = 'dojoAttr';
     return showDojoAttributeMenu(false);
@@ -724,8 +724,9 @@ function detectMode(q){
 }
 
 function detectAttribute(question){
-  for(const attr of ['草','水','火','雷','土']){
-    if(question.includes(`${attr}属性`) || question.includes(`${attr}で`) || question.includes(`${attr}の`)) return attr;
+  const normalizedQuestion = question.replaceAll('土属性', '岩属性').replaceAll('土で', '岩で').replaceAll('土の', '岩の');
+  for(const attr of Object.keys(ATTRIBUTE_META)){
+    if(normalizedQuestion.includes(`${attr}属性`) || normalizedQuestion.includes(`${attr}で`) || normalizedQuestion.includes(`${attr}の`)) return attr;
   }
   return null;
 }
@@ -740,7 +741,7 @@ function answerContentQuestion(q){
   if(hasAny(q, ['時間切れ'])) return answerNormalTrouble('timeOut');
   if(hasAny(q, ['全滅','勝てない'])) return answerNormalTrouble('wipe');
   if(hasAny(q, ['道場','バッジ'])){
-    const attr = ['草','水','火','雷','土'].find(a => q.includes(normalize(a)));
+    const attr = Object.keys(ATTRIBUTE_META).find(a => q.includes(normalize(a)) || (a === '岩' && q.includes(normalize('土'))));
     if(attr) return answerDojoAttribute(attr);
     if(hasAny(q, ['cc','妨害'])) return answerContentRoleCandidates('dojo', 'CC');
     if(hasAny(q, ['回復'])) return answerContentRoleCandidates('dojo', '回復');
@@ -1084,7 +1085,7 @@ function answerDojoAttribute(attr){
   const rated = getCandidates({mode:'dojo', attribute:attr, requireTier:true, limit:6});
   return {html:`<h2>バッジ道場：${esc(attr)}属性</h2>
     <h3>公開攻略で挙げられている例</h3><div class="consult-pick-list">${rows}</div>
-    <h3>当サイトdojo評価</h3><p class="consult-note">公開攻略の例と当サイト評価は別枠です。</p>
+    <h3>当サイト道場評価</h3><p class="consult-note">公開攻略の例と当サイト評価は別枠です。</p>
     <div class="consult-pick-list">${rated.map(item => pickCandidateRow(item)).join('') || '<p>評価済み候補はありません。</p>'}</div>
     ${relatedLinks([{label:'バッジ道場攻略ページ', href:'/badge-dojo/'}, {label:`${attr}属性攻略`, href:`/attribute/${attrPath[attr]}/`}])}`};
 }

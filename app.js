@@ -1,7 +1,7 @@
 const state={families:[],meta:{},query:'',attribute:'すべて',sort:'default',selectedId:null};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const attrIcon={草:'🌿',水:'💧',火:'🔥',雷:'⚡',土:'🪨'};
+const attrIcon=Object.fromEntries(Object.entries(ATTRIBUTE_META).map(([attr,meta])=>[attr,meta.icon]));
 const thumb=src=>String(src||'').replace('assets/monsters/','assets/thumbs/');
 
 async function boot(){

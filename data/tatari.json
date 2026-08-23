@@ -955,7 +955,7 @@
     },
     {
       "id": "hihidog",
-      "familyName": "ヒヒドッグ",
+      "familyName": "ビビドッグ",
       "attribute": "雷",
       "evolutions": [
         {
@@ -966,7 +966,7 @@
         },
         {
           "stage": 2,
-          "name": "ヒヒドッグ",
+          "name": "ビビドッグ",
           "source": "IMG_6296.png",
           "image": "assets/monsters/IMG_6296.webp"
         }
@@ -1321,7 +1321,7 @@
     {
       "id": "guuhog",
       "familyName": "グウホッグ",
-      "attribute": "土",
+      "attribute": "岩",
       "evolutions": [
         {
           "stage": 1,
@@ -1488,7 +1488,7 @@
     {
       "id": "rokubuhi",
       "familyName": "ロクブヒ",
-      "attribute": "土",
+      "attribute": "岩",
       "evolutions": [
         {
           "stage": 1,
@@ -2131,7 +2131,7 @@
     {
       "id": "kowagaru",
       "familyName": "コワガルー",
-      "attribute": "土",
+      "attribute": "岩",
       "evolutions": [
         {
           "stage": 1,
@@ -2566,7 +2566,7 @@
     {
       "id": "tsubutsumuri",
       "familyName": "ツブツムリ",
-      "attribute": "土",
+      "attribute": "岩",
       "evolutions": [
         {
           "stage": 1,
@@ -3368,7 +3368,7 @@
     {
       "id": "mumukaba",
       "familyName": "ムムカバ",
-      "attribute": "土",
+      "attribute": "岩",
       "evolutions": [
         {
           "stage": 1,
@@ -4470,7 +4470,7 @@
     {
       "id": "mogurin",
       "familyName": "モグリン",
-      "attribute": "土",
+      "attribute": "岩",
       "evolutions": [
         {
           "stage": 1,
@@ -5590,7 +5590,7 @@
     {
       "id": "korotama",
       "familyName": "コロタマ",
-      "attribute": "土",
+      "attribute": "岩",
       "evolutions": [
         {
           "stage": 1,
@@ -5792,7 +5792,7 @@
     {
       "id": "yanzaru",
       "familyName": "ヤンザル",
-      "attribute": "土",
+      "attribute": "岩",
       "evolutions": [
         {
           "stage": 1,
@@ -7440,7 +7440,7 @@
     {
       "id": "rokuju",
       "familyName": "ロクジュー",
-      "attribute": "土",
+      "attribute": "岩",
       "evolutions": [
         {
           "stage": 1,
@@ -7760,7 +7760,7 @@
     {
       "id": "gantoru",
       "familyName": "ガントル",
-      "attribute": "土",
+      "attribute": "岩",
       "evolutions": [
         {
           "stage": 1,
@@ -8752,7 +8752,7 @@
     {
       "id": "nenbutsuhebi",
       "familyName": "ネンブツヘビ",
-      "attribute": "土",
+      "attribute": "岩",
       "evolutions": [
         {
           "stage": 1,
@@ -10387,7 +10387,7 @@
     {
       "id": "doriruu",
       "familyName": "ドリルー",
-      "attribute": "土",
+      "attribute": "岩",
       "evolutions": [
         {
           "stage": 1,

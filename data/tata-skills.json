@@ -802,7 +802,7 @@
     },
     "hihidog": {
       "familyId": "hihidog",
-      "familyName": "ヒヒドッグ",
+      "familyName": "ビビドッグ",
       "attribute": "雷",
       "stages": [
         {
@@ -835,7 +835,7 @@
         },
         {
           "stage": 2,
-          "tataName": "ヒヒドッグ",
+          "tataName": "ビビドッグ",
           "skillName": "インフィニボルト",
           "description": "インフィニボルトを放ち続ける。複数の対象へ連鎖する。",
           "values": [
@@ -1118,7 +1118,7 @@
     "guuhog": {
       "familyId": "guuhog",
       "familyName": "グウホッグ",
-      "attribute": "土",
+      "attribute": "岩",
       "stages": [
         {
           "stage": 1,
@@ -1265,7 +1265,7 @@
     "rokubuhi": {
       "familyId": "rokubuhi",
       "familyName": "ロクブヒ",
-      "attribute": "土",
+      "attribute": "岩",
       "stages": [
         {
           "stage": 1,
@@ -1844,7 +1844,7 @@
     "kowagaru": {
       "familyId": "kowagaru",
       "familyName": "コワガルー",
-      "attribute": "土",
+      "attribute": "岩",
       "stages": [
         {
           "stage": 1,
@@ -2243,7 +2243,7 @@
     "tsubutsumuri": {
       "familyId": "tsubutsumuri",
       "familyName": "ツブツムリ",
-      "attribute": "土",
+      "attribute": "岩",
       "stages": [
         {
           "stage": 1,
@@ -2967,7 +2967,7 @@
     "mumukaba": {
       "familyId": "mumukaba",
       "familyName": "ムムカバ",
-      "attribute": "土",
+      "attribute": "岩",
       "stages": [
         {
           "stage": 1,
@@ -3979,7 +3979,7 @@
     "mogurin": {
       "familyId": "mogurin",
       "familyName": "モグリン",
-      "attribute": "土",
+      "attribute": "岩",
       "stages": [
         {
           "stage": 1,
@@ -4995,7 +4995,7 @@
     "korotama": {
       "familyId": "korotama",
       "familyName": "コロタマ",
-      "attribute": "土",
+      "attribute": "岩",
       "stages": [
         {
           "stage": 1,
@@ -5179,7 +5179,7 @@
     "yanzaru": {
       "familyId": "yanzaru",
       "familyName": "ヤンザル",
-      "attribute": "土",
+      "attribute": "岩",
       "stages": [
         {
           "stage": 1,
@@ -6665,7 +6665,7 @@
     "rokuju": {
       "familyId": "rokuju",
       "familyName": "ロクジュー",
-      "attribute": "土",
+      "attribute": "岩",
       "stages": [
         {
           "stage": 1,
@@ -6949,7 +6949,7 @@
     "gantoru": {
       "familyId": "gantoru",
       "familyName": "ガントル",
-      "attribute": "土",
+      "attribute": "岩",
       "stages": [
         {
           "stage": 1,
@@ -7851,7 +7851,7 @@
     "nenbutsuhebi": {
       "familyId": "nenbutsuhebi",
       "familyName": "ネンブツヘビ",
-      "attribute": "土",
+      "attribute": "岩",
       "stages": [
         {
           "stage": 1,
@@ -9341,7 +9341,7 @@
     "doriruu": {
       "familyId": "doriruu",
       "familyName": "ドリルー",
-      "attribute": "土",
+      "attribute": "岩",
       "stages": [
         {
           "stage": 1,

@@ -1,6 +1,6 @@
 const modeLabels={overall:'総合',beginner:'初心者',normal:'通常',zombie:'ゾンビラッシュ',dojo:'道場'};
-const attrFilters=['すべて','草','水','火','雷','土'];
-const attrIcon={草:'🌿',水:'💧',火:'🔥',雷:'⚡',土:'🪨'};
+const attrFilters=['すべて',...Object.keys(ATTRIBUTE_META)];
+const attrIcon=Object.fromEntries(Object.entries(ATTRIBUTE_META).map(([attr,meta])=>[attr,meta.icon]));
 const rankOrder={SSS:0,SS:1,S:2,A:3,'－':4};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

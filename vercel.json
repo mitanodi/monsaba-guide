@@ -1,6 +1,13 @@
 {
   "cleanUrls": false,
   "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/attribute/earth/",
+      "destination": "/attribute/rock/",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

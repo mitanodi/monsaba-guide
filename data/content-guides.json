@@ -190,7 +190,7 @@
         "candidates": [{ "sourceName": "フルッグ", "familyId": "furuggu" }, { "sourceName": "コパンダ", "familyId": "takepanda" }, { "sourceName": "フリコー", "familyId": "riifuro" }, { "sourceName": "ヤミノメ", "familyId": "yaminome" }],
         "source": "https://w.atwiki.jp/monstersurvival/pages/22.html"
       },
-      "土": {
+      "岩": {
         "confirmed": [{ "sourceName": "ヤンザル", "familyId": "yanzaru", "slot": "確定枠" }],
         "candidates": [{ "sourceName": "コロジュー", "familyId": "rokuju" }, { "sourceName": "コロカメ", "familyId": "gantoru" }, { "sourceName": "コロタマ", "familyId": "korotama" }],
         "source": "https://w.atwiki.jp/monstersurvival/pages/22.html"

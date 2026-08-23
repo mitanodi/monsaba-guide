@@ -1,6 +1,6 @@
 const $ = (selector) => document.querySelector(selector);
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const attrIcon = {草:'🌿', 水:'💧', 火:'🔥', 雷:'⚡', 土:'🪨'};
+const attrIcon = Object.fromEntries(Object.entries(ATTRIBUTE_META).map(([attr,meta]) => [attr,meta.icon]));
 const tierScore = {SSS:0, SS:1, S:2, A:3, '－':9};
 const roleWords = {
   火力:['火力','ダメージ','燃焼','連撃','貫通'],
@@ -16,7 +16,7 @@ const roleWords = {
   速攻:['火力','ダメージ','連撃','燃焼','貫通'],
   耐久寄り:['前衛','タンク','シールド','回復','被ダメージ軽減']
 };
-const attrPath = {草:'grass', 水:'water', 火:'fire', 雷:'thunder', 土:'earth'};
+const attrPath = Object.fromEntries(Object.entries(ATTRIBUTE_META).map(([attr,meta]) => [attr,meta.slug]));
 let state = {};
 
 async function bootContentGuide(){
@@ -29,9 +29,10 @@ async function bootContentGuide(){
   ]);
   state = {families:tatari.families || [], skills:skills.byFamily || {}, ratings, guides};
   renderSharedLinks();
-  if(page === 'bossRally') return renderBossRally();
-  if(page === 'badgeDojo') return renderDojo();
-  if(page === 'normal') return renderNormal();
+  if(page === 'bossRally') renderBossRally();
+  if(page === 'badgeDojo') renderDojo();
+  if(page === 'normal') renderNormal();
+  renderReferences(guides[page === 'badgeDojo' ? 'dojo' : page]);
 }
 
 async function fetchJson(path){
@@ -51,6 +52,25 @@ function renderSharedLinks(){
       ['/consult/','攻略相談所']
     ].map(([href,label]) => `<a href="${href}" class="${location.pathname === href ? 'is-active' : ''}">${label}</a>`).join('');
   }
+}
+
+function renderReferences(guide){
+  const root = $('#referenceSources');
+  if(!root || !guide) return;
+  const urls = new Set();
+  const collect = (value) => {
+    if(typeof value === 'string' && /^https:\/\//.test(value)) urls.add(value);
+    else if(Array.isArray(value)) value.forEach(collect);
+    else if(value && typeof value === 'object') Object.values(value).forEach(collect);
+  };
+  collect(guide);
+  const sourceLabels = {
+    [state.guides.sources.bossRally]:'公開攻略Wiki：ボスラリー',
+    [state.guides.sources.normalBosses]:'公開攻略Wiki：通常ボス',
+    [state.guides.sources.faq]:'公開攻略Wiki：FAQ',
+    [state.guides.sources.dojo]:'公開攻略Wiki：バッジ道場'
+  };
+  root.innerHTML = [...urls].map(url => `<li><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(sourceLabels[url] || '公開攻略Wiki（外部サイト）')} <span aria-hidden="true">↗</span></a></li>`).join('');
 }
 
 function renderBossRally(){
@@ -103,12 +123,12 @@ function renderDojo(){
       .filter(x => x.tier)
       .sort((a,b) => (tierScore[a.tier] - tierScore[b.tier]) || a.family.familyName.localeCompare(b.family.familyName, 'ja'))
       .slice(0, 5)
-      .map(x => pickRow(x.family.id, `道場${x.tier}`, [`当サイトdojo評価`, ...(x.overall?.roles || [])]));
+      .map(x => pickRow(x.family.id, `道場${x.tier}`, [`当サイト道場評価`, ...(x.overall?.roles || [])]));
     return `<article class="content-card">
       <h3>${attrIcon[attr] || ''} ${esc(attr)}属性</h3>
       <h4>公開攻略で挙げられている例</h4>
       <div class="consult-pick-list">${[...confirmed, ...candidates].join('')}</div>
-      <h4>当サイトdojo評価</h4>
+      <h4>当サイト道場評価</h4>
       <div class="consult-pick-list">${dojoRated.join('') || '<p>評価済み候補はありません。</p>'}</div>
     </article>`;
   }).join('');

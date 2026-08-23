@@ -1,4 +1,4 @@
-const attrIcon={草:'🌿',水:'💧',火:'🔥',雷:'⚡',土:'🪨'};
+const attrIcon=Object.fromEntries(Object.entries(ATTRIBUTE_META).map(([attr,meta])=>[attr,meta.icon]));
 const modeLabels={overall:'総合',normal:'通常',zombie:'ゾンビ',dojo:'道場',beginner:'初心者'};
 const priorityOrder={'最優先候補':0,'優先候補':1,'用途次第':2,'評価保留':3};
 const $=s=>document.querySelector(s);
@@ -142,7 +142,7 @@ function renderImpact(){
 }
 
 function renderAuraSummary(){
-  const auraMap={火:'オーラ・炎：仲間の攻撃力増加',雷:'オーラ・雷：仲間の攻撃速度増加',草:'オーラ・草：仲間のHP増加',水:'オーラ・水：仲間を継続回復',土:'オーラ・岩：仲間の被ダメージ減少'};
+  const auraMap={火:'オーラ・炎：仲間の攻撃力増加',雷:'オーラ・雷：仲間の攻撃速度増加',草:'オーラ・草：仲間のHP増加',水:'オーラ・水：仲間を継続回復',岩:'オーラ・岩：仲間の被ダメージ減少'};
   $('#auraSummary').innerHTML=Object.entries(auraMap).map(([attr,text])=>{
     const sample=state.transitions.find(t=>t.family.attribute===attr&&t.from.stage===3&&t.to.stage===4&&t.delta.added.some(v=>v.label.includes('オーラ')));
     const vals=sample?sample.delta.added.filter(v=>v.label.includes('オーラ')).map(v=>`${v.label} ${v.value}`).join(' / '):'';

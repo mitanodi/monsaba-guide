@@ -91,11 +91,11 @@ const ATTRIBUTE_GUIDES={
     ],
     roleNotes:{purabi:'回復 / バフ',denjika:'火力 / CC',birimori:'デバフ',biripiyo:'バフ / 耐久補助',gaoden:'ノックバック / デバフ',denrou:'近接 / 麻痺',shiiparusu:'範囲 / 麻痺',hikaru:'シールド / 麻痺',hikikomoru:'束縛 / 減速',erekoon:'範囲火力',hihidog:'連鎖火力',birinamazu:'単体火力 / 束縛',erekineko:'近距離範囲 / 防御補助'}
   },
-  earth:{
-    key:'earth',attr:'土',icon:'🪨',path:'earth',count:12,bodyCount:42,
-    title:'土属性おすすめ・育成優先度',
-    lead:'モンサバ 土属性の12系統を収録。前衛・火力・サポート性能を比較して育成候補を整理しています。',
-    summary:'土属性は現時点で総合Tier対象が少ないため、評価済み候補と評価保留の特徴的な候補を分けて見ます。無理に低Tierを付けず、判明している役割を中心に整理します。',
+  rock:{
+    key:'rock',attr:'岩',icon:'🪨',path:'rock',count:12,bodyCount:42,
+    title:'岩属性おすすめ・育成優先度',
+    lead:'モンサバ 岩属性の12系統を収録。前衛・火力・サポート性能を比較して育成候補を整理しています。',
+    summary:'岩属性は現時点で総合Tier対象が少ないため、評価済み候補と評価保留の特徴的な候補を分けて見ます。無理に低Tierを付けず、判明している役割を中心に整理します。',
     recommendations:[
       {title:'現在評価済みの候補',type:'ordered',ids:['yanzaru']},
       {title:'ゾンビラッシュ',type:'ordered',ids:['yanzaru']},
@@ -103,18 +103,18 @@ const ATTRIBUTE_GUIDES={
       {title:'評価保留だが特徴的な候補',type:'list',ids:['gantoru','doriruu','mogurin','kowagaru']}
     ],
     priorityIds:['yanzaru'],
-    faq:{title:'土属性はヤンザル以外も育てる？',id:'yanzaru',body:'ヤンザル系は総合SSSかつゾンビラッシュSSSの評価済み候補です。ほかの土属性は評価保留が多いため、まずヤンザル系を軸にし、手持ちの役割不足に応じて追加候補を検討するのが無難です。'},
+    faq:{title:'岩属性はヤンザル以外も育てる？',id:'yanzaru',body:'ヤンザル系は総合SSSかつゾンビラッシュSSSの評価済み候補です。ほかの岩属性は評価保留が多いため、まずヤンザル系を軸にし、手持ちの役割不足に応じて追加候補を検討するのが無難です。'},
     compare:{a:'yanzaru',b:'gantoru',title:'ヤンザル vs 評価保留の前衛候補',aLabel:'火力 / 分身 / 前線補助',bLabel:'前衛 / 耐久候補',conclusion:'長く使う火力枠ならヤンザル。前衛不足を補いたい場合は評価保留候補も個別スキルを見て検討。'},
     evoPoints:[
       {id:'yanzaru',text:'進化で分身数が増える火力枠。第3進化以降の戦力上昇が大きい。'},
       {id:'kowagaru',text:'評価保留だが、進化段階が多く前線寄りの候補として確認対象。'},
-      {id:'gantoru',text:'評価保留の土属性前衛候補。個別ページでスキルを確認して採用を判断。'}
+      {id:'gantoru',text:'評価保留の岩属性前衛候補。個別ページでスキルを確認して採用を判断。'}
     ],
     roleNotes:{yanzaru:'火力 / 分身 / 前線補助',guuhog:'火力',rokubuhi:'前衛候補',kowagaru:'前衛候補',tsubutsumuri:'耐久候補',mumukaba:'妨害候補',mogurin:'前衛候補',korotama:'範囲火力',rokuju:'範囲火力',gantoru:'前衛 / 耐久候補',nenbutsuhebi:'妨害候補',doriruu:'前衛 / 火力候補'}
   }
 };
 
-const attrNav=[['grass','🌿','草'],['water','💧','水'],['fire','🔥','火'],['thunder','⚡','雷'],['earth','🪨','土']];
+const attrNav=Object.entries(ATTRIBUTE_META).map(([attr,meta])=>[meta.slug,meta.icon,attr]);
 const rankOrder={SSS:0,SS:1,S:2,A:3,'－':4};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
