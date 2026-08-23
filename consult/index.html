@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>モンサバ攻略相談所｜タタ育成・進化・おすすめを質問</title>
+  <meta name="description" content="モンスターサバイバル（モンサバ）のタタ育成、進化、Tier、属性、ゾンビラッシュについて質問できる攻略相談ツール。サイト内のゲームデータをもとに回答します。" />
+  <meta name="theme-color" content="#2f6fb2" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://monsaba-guide.vercel.app/consult/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="モンサバ攻略DB" />
+  <meta property="og:title" content="モンサバ攻略相談所｜タタ育成・進化・おすすめを質問" />
+  <meta property="og:description" content="タタ育成、進化、Tier、属性、ゾンビラッシュについてサイト内のゲームデータをもとに回答する攻略相談ツール。" />
+  <meta property="og:url" content="https://monsaba-guide.vercel.app/consult/" />
+  <meta property="og:image" content="https://monsaba-guide.vercel.app/assets/thumbs/IMG_6686.webp" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://monsaba-guide.vercel.app/assets/thumbs/IMG_6686.webp" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"モンサバ攻略相談所 β","description":"モンスターサバイバル（モンサバ）のタタ育成、進化、Tier、属性、ゾンビラッシュについて質問できる攻略相談ツール。サイト内のゲームデータをもとに回答します。","url":"https://monsaba-guide.vercel.app/consult/","inLanguage":"ja","applicationCategory":"GameApplication","operatingSystem":"Any","publisher":{"@type":"Organization","name":"モンサバ攻略DB"}}</script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/" aria-label="モンサバ攻略DB トップ"><span class="brand-main">モンサバ攻略DB</span><span class="brand-sub">非公式</span></a>
+      <nav aria-label="主要メニュー"><a href="/#tatari">タタ図鑑</a><a href="/#compare">進化・スキル比較</a><a href="/tata-tier/">タタTier</a><a href="/evolution-priority/">進化優先度</a><a href="/zombie-rush/">ゾンビラッシュ</a></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero consult-hero">
+      <div class="wrap">
+        <nav class="breadcrumbs" aria-label="パンくず"><a href="/">トップ</a><span>›</span><span>攻略相談所</span></nav>
+        <div class="family-page-head">
+          <div>
+            <span class="attribute">β版 / サイト内データ参照</span>
+            <h1>モンサバ攻略相談所 β</h1>
+            <p>タタの育成・進化・Tier・属性・ゾンビラッシュについて質問できます。</p>
+            <p class="consult-beta-note">現在はサイト内の攻略データから回答するβ版です。生成AIは使用していません。</p>
+          </div>
+          <a class="ghost-button" href="#consult-tool">質問する</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="consult-tool" class="wrap static-section">
+      <div class="consult-layout">
+        <section class="consult-panel" aria-label="攻略相談チャット">
+          <div id="chatLog" class="chat-log" aria-live="polite"></div>
+          <div class="example-questions" aria-label="質問例">
+            <button type="button">初心者は誰から育てる？</button>
+            <button type="button">ゾンビラッシュ最強は？</button>
+            <button type="button">雷属性おすすめは？</button>
+            <button type="button">スタピョンは進化するべき？</button>
+            <button type="button">ガルルデンとデンジカどっち？</button>
+            <button type="button">ネコオリは強い？</button>
+          </div>
+          <form id="consultForm" class="consult-form">
+            <label for="questionInput">質問</label>
+            <input id="questionInput" name="q" type="search" autocomplete="off" list="nameSuggestions" placeholder="タタ名や育成について質問..." aria-label="タタ名や育成について質問" />
+            <datalist id="nameSuggestions"></datalist>
+            <button type="submit">質問する</button>
+          </form>
+        </section>
+
+        <aside class="consult-side">
+          <section class="guide-panel">
+            <h2>質問できること</h2>
+            <ul class="plain-list">
+              <li>タタの強さ・主な役割</li>
+              <li>次進化で変わること</li>
+              <li>タタ同士の比較</li>
+              <li>属性別おすすめ</li>
+              <li>ゾンビラッシュ評価</li>
+              <li>初心者向け育成</li>
+              <li>T4とオーラの注意</li>
+            </ul>
+          </section>
+          <section class="guide-panel">
+            <h2>関連攻略</h2>
+            <div class="consult-link-list">
+              <a href="/tata-tier/">総合タタTier</a>
+              <a href="/evolution-priority/">進化優先度</a>
+              <a href="/zombie-rush/">ゾンビラッシュ攻略</a>
+              <a href="/attribute/thunder/">雷属性おすすめ</a>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </section>
+
+    <section class="wrap source-note">
+      <strong>データについて</strong>
+      <p>回答は data/tatari.json、data/tata-skills.json、data/tier-ratings.json、data/evolution-priority.json の範囲で作成します。データにない内容は推測せず、情報不足として案内します。</p>
+    </section>
+  </main>
+
+  <footer><div class="wrap footer-inner"><div><strong>モンサバ攻略DB</strong><span>モンスターサバイバル 非公式攻略サイト</span></div><div class="footer-meta">63系統 / 224体</div></div></footer>
+  <script src="/consult/consult.js" defer></script>
+</body>
+</html>
