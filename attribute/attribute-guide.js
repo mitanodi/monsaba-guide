@@ -125,10 +125,10 @@ async function bootAttributeGuide(){
   const key=document.body.dataset.attributeGuide;
   const guide=ATTRIBUTE_GUIDES[key];
   if(!guide) throw new Error(`unknown attribute guide: ${key}`);
-  const [tatari,ratings]=await Promise.all([fetchJson('/data/tatari.json'),fetchJson('/data/tier-ratings.json')]);
+  const [tatari,ratings,skills]=await Promise.all([fetchJson('/data/tatari.json'),fetchJson('/data/tier-ratings.json'),fetchJson('/data/tata-skills.json')]);
   const families=(tatari.families||[]).filter(f=>f.attribute===guide.attr);
   currentFamilies=families;
-  window.__attributeGuideState={guide,families,ratings};
+  window.__attributeGuideState={guide,families,ratings,skills};
   const overall=ratings.overall?.byFamily||{};
   const zombie=ratings.zombieRush?.byFamily||{};
   renderHero(guide,families);
@@ -139,8 +139,7 @@ async function bootAttributeGuide(){
   renderCompare(guide,families);
   renderEvoPoints(guide,families);
   renderRoleTable(guide,families,overall,zombie);
-  renderCards(guide,families,overall,zombie);
-  hydrateSkillChips();
+  renderCards(guide,families,overall,zombie,skills.byFamily||{});
 }
 
 async function fetchJson(path){
@@ -212,10 +211,10 @@ function renderRoleTable(guide,families,overall,zombie){
   }).join('');
 }
 
-function renderCards(guide,families,overall,zombie){
+function renderCards(guide,families,overall,zombie,skillsByFamily){
   $('#attributeCards').innerHTML=families.map(f=>{
     const first=f.evolutions[0]||{};
-    const skill=lastSkillName(f.id)||'スキル確認';
+    const skill=latestSkillName(skillsByFamily[f.id])||'スキル確認';
     return `<a class="card static-card" href="/tata/${encodeURIComponent(f.id)}/" data-family-id="${esc(f.id)}">
       <div class="card-image"><img src="${esc(thumb(first.image))}" alt="${esc(first.name||f.familyName)}" loading="lazy"></div>
       <div class="card-body"><div class="card-top"><span class="attribute">${guide.icon} ${guide.attr}属性</span><span class="source-state">${f.evolutions.length}段階</span></div>
@@ -239,24 +238,9 @@ function nameById(id){
 }
 function roleComment(guide,id){return `${guide.roleNotes[id]||'役割を確認中'}。現時点では評価データと個別スキルを見て育成を判断します。`;}
 
-function lastSkillName(id){
-  return ({fureimuji:'ブレイズリング',fureebi:'極限灼熱パンチ',matchiba:'ヘルストライク',himori:'サンブレイズボール',hinyao:'メラメラニャン弾',purabi:'ライトニングダンス',denjika:'超科学エレキランス',birimori:'バットライト',biripiyo:'エレクトロリンク',gaoden:'エレクトロパルス'})[id]||'スキル読み込み中';
-}
-
-async function hydrateSkillChips(){
-  const cards=[...document.querySelectorAll('#attributeCards [data-family-id]')];
-  await Promise.all(cards.map(async card=>{
-    const chip=card.querySelector('.skill-chip');
-    if(!chip||chip.textContent!=='スキル読み込み中') return;
-    try{
-      const html=await fetch(card.getAttribute('href'),{cache:'force-cache'}).then(res=>res.ok?res.text():'');
-      const doc=new DOMParser().parseFromString(html,'text/html');
-      const names=[...doc.querySelectorAll('.skill-block .skill-head h2')].map(el=>el.textContent.trim()).filter(Boolean);
-      chip.textContent=names.at(-1)||'個別ページで確認';
-    }catch{
-      chip.textContent='個別ページで確認';
-    }
-  }));
+function latestSkillName(skillFamily){
+  const stages=skillFamily?.stages||[];
+  return stages.at(-1)?.skillName||stages.find(stage=>stage.skillName)?.skillName||null;
 }
 
 bootAttributeGuide().catch(err=>{
