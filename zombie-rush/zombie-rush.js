@@ -12,6 +12,16 @@ const comments={
   umimi:'高キル編成で採用率が高い中核候補。',
   gaoden:'ノックバックなどの役割を持てるが、現状の高キル編成ではSSS勢より優先度は下。'
 };
+const adoption={
+  umimi:'100%',shizukuchou:'100%',fureimuji:'100%',takepanda:'100%',himawarin:'100%',yanzaru:'100%',denjika:'100%',purabi:'100%',birimori:'100%',
+  korokon:'75%',hinyao:'75%',marushu:'75%',biripiyo:'75%',
+  boruzarashi:'62.5%',erekoon:'62.5%',
+  kunbuu:'37.5%',komakiri:'25%',gaoden:'25%',riifuro:'25%'
+};
+const annotations={
+  kunbuu:'公開攻略ではワンブー種表記',
+  korokon:'旧：タマキツネ系'
+};
 const attrIcon={草:'🌿',水:'💧',火:'🔥',雷:'⚡',土:'🪨'};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -48,6 +58,8 @@ function renderCard(f,rank){
     <div class="tier-body">
       <div class="tier-meta"><span class="tier-badge">${esc(rank)}</span><span>${attrIcon[f.attribute]||''} ${esc(f.attribute)}属性</span></div>
       <h4>${esc(f.familyName)}系</h4>
+      ${annotations[f.id]?`<p class="tier-annotation">${esc(annotations[f.id])}</p>`:''}
+      ${adoption[f.id]?`<p class="adoption-rate">1000キル以上編成 採用率 ${esc(adoption[f.id])}</p>`:''}
       <p class="tier-chain">${chain}</p>
       ${comments[f.id]?`<p class="tier-comment">${esc(comments[f.id])}</p>`:''}
     </div>
