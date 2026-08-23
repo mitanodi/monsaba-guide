@@ -501,7 +501,8 @@ function startDetailFlow(){
 
 function handleDetailFamily(familyId){
   pushHistory();
-  flowState.detailStage = stageFromName(familyId, document.querySelector('[data-family-filter]')?.value) || 1;
+  const selectedStage = stageFromName(familyId, document.querySelector('[data-family-filter]')?.value);
+  flowState.detailStage = selectedStage;
   flowState.familyId = familyId;
   flowState.route = 'detailView';
   flowState.crumbs = ['性能確認', `${getFamily(familyId).familyName}系`];
@@ -515,7 +516,7 @@ function showDetailViewMenu(withBack = true){
 function handleDetailView(view){
   pushHistory();
   if(view === 'page') location.href = `/tata/${flowState.familyId}/`;
-  if(view === 'diff') return showResult(answerEvolutionDirect(flowState.familyId, 2, 'overall').html, [...flowState.crumbs, '次進化差分']);
+  if(view === 'diff') return showResult(answerEvolutionDirect(flowState.familyId, flowState.detailStage || 1, 'overall').html, [...flowState.crumbs, '次進化差分']);
   showResult(answerDetailView(flowState.familyId, view).html, [...flowState.crumbs, view]);
 }
 
@@ -666,13 +667,29 @@ function answerCompare(ids, mode){
 
 function compareConclusion(a, b, mode){
   const fa = getFamily(a), fb = getFamily(b);
-  const ta = mode === 'zombie' ? (state.ratings.zombieRush?.byFamily?.[a]?.tier || state.ratings.overall?.byFamily?.[a]?.zombie) : modeTier(a, mode) || state.ratings.overall?.byFamily?.[a]?.tier;
-  const tb = mode === 'zombie' ? (state.ratings.zombieRush?.byFamily?.[b]?.tier || state.ratings.overall?.byFamily?.[b]?.zombie) : modeTier(b, mode) || state.ratings.overall?.byFamily?.[b]?.tier;
+  const ta = tierForCompare(a, mode);
+  const tb = tierForCompare(b, mode);
   const rolesA = (state.ratings.overall?.byFamily?.[a]?.roles || []).join(' / ') || '役割データなし';
   const rolesB = (state.ratings.overall?.byFamily?.[b]?.roles || []).join(' / ') || '役割データなし';
-  if(tierScore[ta] < tierScore[tb]) return `${modeLabels[mode]}を重視するなら${fa.familyName}系が優先候補です。ただし、${fb.familyName}系は${rolesB}が欲しい時に候補になります。`;
-  if(tierScore[tb] < tierScore[ta]) return `${modeLabels[mode]}を重視するなら${fb.familyName}系が優先候補です。ただし、${fa.familyName}系は${rolesA}が欲しい時に候補になります。`;
+  const scoreA = safeTierScore(ta);
+  const scoreB = safeTierScore(tb);
+  if(scoreA == null && scoreB == null) return `両方とも現在このモードの評価が保留のため、Tierだけでは直接比較できません。${fa.familyName}系は${rolesA}、${fb.familyName}系は${rolesB}という役割差を確認してください。`;
+  if(scoreA != null && scoreB == null) return `${fa.familyName}系は現在${ta}評価。${fb.familyName}系はこのモードの評価が保留のため、Tierだけでは直接比較できません。評価保留は弱いという意味ではありません。`;
+  if(scoreA == null && scoreB != null) return `${fb.familyName}系は現在${tb}評価。${fa.familyName}系はこのモードの評価が保留のため、Tierだけでは直接比較できません。評価保留は弱いという意味ではありません。`;
+  if(scoreA < scoreB) return `${modeLabels[mode]}を重視するなら${fa.familyName}系が優先候補です。ただし、${fb.familyName}系は${rolesB}が欲しい時に候補になります。`;
+  if(scoreB < scoreA) return `${modeLabels[mode]}を重視するなら${fb.familyName}系が優先候補です。ただし、${fa.familyName}系は${rolesA}が欲しい時に候補になります。`;
   return `評価は近いため、${fa.familyName}系は${rolesA}、${fb.familyName}系は${rolesB}という役割差で選びます。`;
+}
+
+function tierForCompare(id, mode){
+  const overall = state.ratings.overall?.byFamily?.[id];
+  if(mode === 'zombie') return state.ratings.zombieRush?.byFamily?.[id]?.tier || overall?.zombie;
+  if(mode === 'overall') return overall?.tier;
+  return overall?.[mode];
+}
+
+function safeTierScore(tier){
+  return Object.prototype.hasOwnProperty.call(tierScore, tier) ? tierScore[tier] : null;
 }
 
 function answerAttribute(attr, mode){
@@ -821,8 +838,19 @@ function showPreparedContent(label){
 
 function answerDetailView(familyId, view){
   const family = getFamily(familyId);
-  const detailStage = flowState.detailStage || 1;
+  const detailStage = flowState.detailStage;
   const stage = state.skills[familyId]?.stages.find(s => s.stage === detailStage) || state.skills[familyId]?.stages[0];
+  const overall = state.ratings.overall?.byFamily?.[familyId];
+  const zombie = state.ratings.zombieRush?.byFamily?.[familyId];
+  if(view === 'basic' && detailStage) {
+    return {html:`<h2>T${stage.stage} ${esc(stage.tataName)}の基本性能</h2>
+      <div class="consult-badges">${badge('属性', family.attribute)}${badge('系統', `${family.familyName}系`)}${badge('総合Tier', `${overall?.tier || '評価保留'}（${family.familyName}系全体の評価）`)}${badge('ゾンビ', zombie?.tier || overall?.zombie || '－')}</div>
+      <h3>スキル</h3><p><b>${esc(stage.skillName)}</b></p>
+      <h3>説明</h3><p>${esc(stage.description)}</p>
+      <h3>数値</h3>${deltaValueList(stage.values)}
+      <h3>進化ルート</h3>${chainHtml(family)}
+      ${relatedLinks([{label:`${family.familyName}系詳細`, href:`/tata/${familyId}/`}, {label:'総合タタTier', href:'/tata-tier/'}])}`};
+  }
   if(view === 'skill') {
     return {html:`<h2>T${stage.stage} ${esc(stage.tataName)}のスキル</h2><h3>${esc(stage.skillName)}</h3><p>${esc(stage.description)}</p>${deltaValueList(stage.values)}${relatedLinks([{label:`${family.familyName}系詳細`, href:`/tata/${familyId}/`}])}`};
   }
