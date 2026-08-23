@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://monsaba-guide.vercel.app/</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://monsaba-guide.vercel.app/zombie-rush/</loc><lastmod>2026-08-24</lastmod><changefreq>weekly</changefreq></url>
   <url><loc>https://monsaba-guide.vercel.app/attribute/grass/</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://monsaba-guide.vercel.app/attribute/water/</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://monsaba-guide.vercel.app/attribute/fire/</loc><changefreq>weekly</changefreq></url>
