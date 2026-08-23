@@ -363,7 +363,7 @@ function answerOverallTier(){
 function answerT4(familyId, mode){
   if(familyId){
     const tx = state.transitions.find(t => t.family.id === familyId && t.from.stage === 3 && t.to.stage === 4);
-    if(tx) return answerEvolution(familyId, normalize(tx.from.tataName), mode === 'overall' ? 'zombie' : mode, false);
+    if(tx) return answerEvolution(familyId, normalize(tx.from.tataName), mode, false);
   }
   const message = state.evolution.modeNotes?.zombieRush?.message || 'ゾンビラッシュでは第4進化の属性オーラは無効です。';
   return {
