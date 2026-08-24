@@ -41,6 +41,17 @@ function tierCard(id, rank) {
 }
 const tierRoot = overallGroups.map((group) => `<section class="tier-section rank-${group.rank.toLowerCase()} overall-section" data-tier="${group.rank}"><div class="tier-head"><span>${group.rank}</span><h3>${esc(group.label)}</h3></div><div class="overall-cards">${group.ids.map((id) => tierCard(id, group.rank)).join('')}</div></section>`).join('');
 const hold = families.filter((family) => !rankedIds.has(family.id)).sort((a, b) => a.familyName.localeCompare(b.familyName, 'ja')).map((family) => `<a href="/tata/${encodeURIComponent(family.id)}/">${esc(family.familyName)}系</a>`).join('');
+const holdFamilies = families.filter((family) => !rankedIds.has(family.id)).sort((a, b) => a.familyName.localeCompare(b.familyName, 'ja'));
+const tierChartCard = (family) => {
+  const first = family?.evolutions?.[0];
+  if (!family || !first) return '';
+  return `<a class="tier-chart-tata" href="/tata/${encodeURIComponent(family.id)}/"><img loading="lazy" src="${esc(thumb(first.image))}" width="72" height="72" alt="${esc(first.name)}"><span>${esc(first.name)}系</span></a>`;
+};
+const tierChartRows = [
+  ...overallGroups.map((group) => ({ rank: group.rank, label: group.rank, families: group.ids.map((id) => familyById.get(id)).filter(Boolean) })),
+  { rank: 'hold', label: '保留', families: holdFamilies }
+];
+const tierChart = tierChartRows.map((row) => `<div class="tier-chart-row rank-${row.rank.toLowerCase()}"><div class="tier-chart-label"><strong>${esc(row.label)}</strong><span>${row.families.length}系統</span></div><div class="tier-chart-members">${row.families.map(tierChartCard).join('')}</div></div>`).join('');
 
 function diffStages(from, to) {
   const before = new Map((from.values || []).map((value) => [value.label, value.value]));
@@ -102,6 +113,7 @@ const transitionList = [...transitions].sort((a, b) => (transitionOrder[a.priori
 const longTerm = priority.longTermRecommended.map((item) => { const family = familyById.get(item.familyId); return `<article class="priority-tata-card"><div class="priority-tata-head"><h3>${esc(family.familyName)}系</h3><div>${badge('総合', overallByFamily[item.familyId]?.tier)}</div></div><p class="tier-chain">${family.evolutions.map((evolution) => esc(evolution.name)).join(' → ')}</p><p>${esc(item.reason)}</p><a class="detail-link" href="/tata/${encodeURIComponent(item.familyId)}/">詳しく見る</a></article>`; }).join('');
 
 replaceMarker('index.html', 'TOP_CARDS', families.map(topCard).join(''));
+replaceMarker('tata-tier/index.html', 'TIER_CHART', tierChart);
 replaceMarker('tata-tier/index.html', 'TIER_ROOT', tierRoot);
 replaceMarker('tata-tier/index.html', 'TIER_HOLD', hold);
 replaceMarker('evolution-priority/index.html', 'EVOLUTION_ROADMAP', roadmap);

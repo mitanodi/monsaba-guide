@@ -37,6 +37,15 @@ for (const family of tatari.families || []) counts[family.attribute] = (counts[f
 expect(JSON.stringify(counts) === JSON.stringify({草:13, 水:12, 火:13, 雷:13, 岩:12}), `属性系統数: ${JSON.stringify(counts)}`);
 expect((tatari.families || []).length === 63, `総系統数: ${(tatari.families || []).length}`);
 
+const overallGroups = ratings.overall?.groups || [];
+const overallIds = overallGroups.flatMap((group) => group.ids || []);
+expect(new Set(overallIds).size === overallIds.length, '総合Tierに重複familyIdがあります');
+expect(overallIds.every((id) => tatari.families.some((family) => family.id === id)), '総合Tierに存在しないfamilyIdがあります');
+expect(
+  JSON.stringify(overallGroups.find((group) => group.rank === 'SSS')?.ids) === JSON.stringify(['yanzaru', 'denjika', 'shizukuchou', 'purabi', 'himawarin']),
+  '総合SSSは再評価済み5系統と一致していません'
+);
+
 const publicFiles = textFiles.filter((file) => !file.startsWith('scripts/'));
 for (const file of publicFiles) {
   const content = read(file);
@@ -135,7 +144,11 @@ for (const file of htmlFiles) {
 }
 const topHtml = read('index.html');
 expect((topHtml.match(/data-family="/g) || []).length === 63, 'TOP図鑑の静的HTMLが63系統ではありません');
-expect((read('tata-tier/index.html').match(/class="overall-card"/g) || []).length > 0, 'Tierの静的HTMLがありません');
+const tierHtml = read('tata-tier/index.html');
+expect((tierHtml.match(/class="overall-card"/g) || []).length > 0, 'Tierの静的HTMLがありません');
+expect((tierHtml.match(/class="tier-chart-tata"/g) || []).length === 63, 'Tierチャートは63系統ではありません');
+expect((tierHtml.match(/class="tier-chart-row /g) || []).length === 4, 'Tierチャートは4区分ではありません');
+expect(tierHtml.includes('ビリジカ系') && tierHtml.includes('シズクジ系'), 'Tierチャートの日本名表示が不正です');
 expect((read('evolution-priority/index.html').match(/class="evolution-card"/g) || []).length > 0, '進化優先度の静的HTMLがありません');
 expect(topHtml.includes('data-official-x') && topHtml.includes('https://x.com/monsaba_jp') && topHtml.includes('/official-x.js'), 'TOPの公式Xセクションが不足しています');
 const xScript = read('official-x.js');

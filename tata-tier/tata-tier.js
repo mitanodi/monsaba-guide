@@ -109,7 +109,8 @@ function renderCard(item){
 }
 
 function modeRank(label,rank){
-  return `<span><b>${esc(label)}</b><em class="rank-chip rank-${esc(String(rank).toLowerCase())}">${esc(rank||'－')}</em></span>`;
+  const value=rank||'－';
+  return `<span><b>${esc(label)}</b><em class="rank-chip rank-${esc(String(value).toLowerCase())}">${esc(value)}</em></span>`;
 }
 
 bootTataTier().catch(err=>{
