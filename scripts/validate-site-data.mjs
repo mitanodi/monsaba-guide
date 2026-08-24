@@ -156,9 +156,19 @@ expect(read('robots.txt').includes(`Sitemap: ${BASE_URL}/sitemap.xml`), 'robots.
 
 const expectedSlots = ['article_after_summary', 'article_mid', 'article_bottom', 'tata_mid', 'beginner_mid'];
 expect(monetization.adsEnabled === false, 'monetization: adsEnabled は false を維持してください');
-expect(monetization.affiliateEnabled === false, 'monetization: affiliateEnabled は false を維持してください');
+expect(monetization.affiliateEnabled === true, 'monetization: affiliateEnabled は true を維持してください');
 expect(expectedSlots.every((slot) => monetization.slots?.includes(slot)), 'monetization: 固定slot IDが不足しています');
-expect(!publicFiles.map(read).join('\n').match(/adsbygoogle|doubleclick\.net|googlesyndication|data-affiliate-link/i), '実広告またはaffiliateリンクが混入しています');
+expect(!publicFiles.map(read).join('\n').match(/adsbygoogle|doubleclick\.net|googlesyndication/i), '未承認の通常広告が混入しています');
+const affiliatePlacement = 'data-affiliate-offer="point_income_003"';
+const affiliatePages = htmlFiles.filter((file) => read(file).includes(affiliatePlacement));
+expect(JSON.stringify(affiliatePages.sort()) === JSON.stringify(['beginner-guide/index.html', 'index.html']), `affiliate掲載範囲が不正: ${affiliatePages.join(', ')}`);
+const monetizationScript = read('monetization.js');
+expect(monetizationScript.includes('https://px.a8.net/svt/ejp?a8mat=4BADDF+YJ6MY+5JWO+5YZ75'), 'A8リンクURLが不正です');
+expect(monetizationScript.includes('https://www28.a8.net/svt/bgt?aid=260824371058&wid=002&eno=01&mid=s00000025908001003000&mc=1'), 'A8バナーURLが不正です');
+expect(monetizationScript.includes('https://www16.a8.net/0.gif?a8mat=4BADDF+YJ6MY+5JWO+5YZ75'), 'A8計測タグが不正です');
+expect(monetizationScript.includes('width="300" height="250"') && monetizationScript.includes('width="1" height="1"'), 'A8画像寸法が不足しています');
+expect(read('site.js').includes('当サイトはアフィリエイト広告を利用しています。'), '共通footerのaffiliate開示がありません');
+expect(read('privacy/index.html').includes('A8.netのアフィリエイトプログラム') && read('privacy/index.html').includes('Cookieや類似の識別技術'), 'privacyのaffiliate説明が不足しています');
 for (const route of ['/beginner-guide/', '/friends/', '/about/']) {
   const file = `${route.slice(1)}index.html`;
   const html = read(file);

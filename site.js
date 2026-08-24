@@ -93,6 +93,14 @@
     if (meta) side.appendChild(meta);
     footer.appendChild(side);
   }
+  const footerSide = footer?.querySelector('.footer-side');
+  if (footerSide && !footerSide.querySelector('.footer-affiliate-disclosure')) {
+    const disclosure = document.createElement('p');
+    disclosure.className = 'footer-affiliate-disclosure';
+    disclosure.textContent = '当サイトはアフィリエイト広告を利用しています。';
+    const meta = footerSide.querySelector('.footer-meta');
+    footerSide.insertBefore(disclosure, meta || null);
+  }
 
   const loadVercelScript = (queueName, queueKey, src) => {
     if (document.querySelector(`script[src="${src}"]`)) return;

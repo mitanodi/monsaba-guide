@@ -7,6 +7,17 @@
     'beginner_mid'
   ]);
 
+  const AFFILIATE_OFFERS = Object.freeze({
+    point_income_003: Object.freeze({
+      offerId: 's00000025908001',
+      placementId: 'point_income_003',
+      label: 'ポイントインカムの広告',
+      html: `<a href="https://px.a8.net/svt/ejp?a8mat=4BADDF+YJ6MY+5JWO+5YZ75" rel="nofollow">
+<img border="0" width="300" height="250" alt="" src="https://www28.a8.net/svt/bgt?aid=260824371058&wid=002&eno=01&mid=s00000025908001003000&mc=1"></a>
+<img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat=4BADDF+YJ6MY+5JWO+5YZ75" alt="">`
+    })
+  });
+
   const safeAffiliateAttributes = (config, offerId, placementId) => {
     if (!config?.affiliateEnabled || !offerId || !placementId) return null;
     return Object.freeze({
@@ -15,6 +26,27 @@
       event: Object.freeze({ name: 'affiliate_click', offer_id: String(offerId), placement_id: String(placementId) })
     });
   };
+
+  const createAffiliateAd = (offerKey) => {
+    const offer = AFFILIATE_OFFERS[offerKey];
+    if (!offer) return null;
+    const container = document.createElement('aside');
+    container.className = 'affiliate-ad';
+    container.setAttribute('aria-label', offer.label);
+    const disclosure = document.createElement('span');
+    disclosure.className = 'affiliate-ad-disclosure';
+    disclosure.textContent = 'PR';
+    const description = document.createElement('span');
+    description.className = 'affiliate-ad-description';
+    description.textContent = offer.label;
+    const media = document.createElement('div');
+    media.className = 'affiliate-ad-media';
+    media.innerHTML = offer.html;
+    container.append(disclosure, description, media);
+    return container;
+  };
+
+  document.querySelectorAll('[data-monetization-slot]:not([data-affiliate-offer])').forEach((element) => { element.hidden = true; });
 
   fetch('/data/monetization.json')
     .then((response) => {
@@ -27,7 +59,7 @@
         && typeof config.affiliateEnabled === 'boolean'
         && REQUIRED_SLOTS.every((slot) => slots.has(slot));
       if (!valid) throw new Error('monetization config is invalid');
-      document.querySelectorAll('[data-monetization-slot]').forEach((element) => { element.hidden = true; });
+      if (!config.affiliateEnabled) document.querySelectorAll('[data-affiliate-offer]').forEach((element) => { element.hidden = true; });
       const renderSlot = (slotId, contentNode) => {
         if (!config.adsEnabled || !slots.has(slotId) || !(contentNode instanceof Node)) return false;
         const element = document.querySelector(`[data-monetization-slot="${CSS.escape(slotId)}"]`);
@@ -36,7 +68,20 @@
         element.hidden = false;
         return true;
       };
-      window.MONSABA_MONETIZATION = Object.freeze({ config: Object.freeze(config), renderSlot, safeAffiliateAttributes });
+      if (config.affiliateEnabled) {
+        document.querySelectorAll('[data-affiliate-offer]').forEach((element) => {
+          const slotId = element.dataset.monetizationSlot;
+          const content = slots.has(slotId) ? createAffiliateAd(element.dataset.affiliateOffer) : null;
+          if (!content) {
+            element.hidden = true;
+            return;
+          }
+          element.replaceChildren(content);
+          element.removeAttribute('aria-busy');
+          element.hidden = false;
+        });
+      }
+      window.MONSABA_MONETIZATION = Object.freeze({ config: Object.freeze(config), renderSlot, safeAffiliateAttributes, createAffiliateAd });
     })
     .catch((error) => {
       document.querySelectorAll('[data-monetization-slot]').forEach((element) => { element.hidden = true; });

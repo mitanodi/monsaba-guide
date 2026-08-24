@@ -19,7 +19,7 @@
 
 ## データ
 
-主要ゲームJSONは `data/tatari.json`, `data/tata-skills.json`, `data/tier-ratings.json`, `data/evolution-priority.json`, `data/content-guides.json` です。収益化準備設定は `data/monetization.json` に分離し、現在は広告・アフィリエイトとも無効です。タタ名・進化・スキルは確認済みスクリーンショット、攻略は収録済み公開情報、Tierは当サイト独自の暫定評価を基準とし、不明内容は推測で補いません。
+主要ゲームJSONは `data/tatari.json`, `data/tata-skills.json`, `data/tier-ratings.json`, `data/evolution-priority.json`, `data/content-guides.json` です。収益化設定は `data/monetization.json` に分離し、通常広告は無効、承認済みのA8.netアフィリエイト枠だけを限定表示しています。タタ名・進化・スキルは確認済みスクリーンショット、攻略は収録済み公開情報、Tierは当サイト独自の暫定評価を基準とし、不明内容は推測で補いません。
 
 ## ローカル確認
 
@@ -41,7 +41,7 @@ npm.cmd run validate
 node scripts/update-base-url.mjs --from https://monster-survival.com --to https://example.com --dry-run
 ```
 
-掲示板のサーバー接続には `@upstash/redis` を使用します。`npm.cmd test` で掲示板のvalidation・削除・スパム対策を含む単体テストを実行できます。GitHub Actionsでも構文、5 JSON、生成差分、内部リンク、SEO、掲示板テストを検証します。将来の広告枠は `adsEnabled: false` の間は非表示で余白も作りません。実広告・実アフィリエイトリンクは未導入です。
+掲示板のサーバー接続には `@upstash/redis` を使用します。`npm.cmd test` で掲示板のvalidation・削除・スパム対策を含む単体テストを実行できます。GitHub Actionsでも構文、5 JSON、生成差分、内部リンク、SEO、掲示板テストを検証します。`adsEnabled` は無効のまま、`affiliateEnabled` で承認済みアフィリエイト枠を制御します。
 
 掲示板の接続情報と管理用秘密値はVercelの環境変数で管理し、`.env*` はGitへ追加しません。投稿は30日で期限切れになり、投稿者の削除tokenはブラウザだけに保存されます。
 

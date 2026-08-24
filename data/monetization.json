@@ -1,7 +1,7 @@
 {
   "version": 1,
   "adsEnabled": false,
-  "affiliateEnabled": false,
+  "affiliateEnabled": true,
   "slots": [
     "article_after_summary",
     "article_mid",
