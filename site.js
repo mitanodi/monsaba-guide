@@ -21,8 +21,20 @@
     ['/tata-tier/', 'タタTier'],
     ['/evolution-priority/', '進化優先度'],
     ['/#content-guides', 'コンテンツ攻略'],
-    ['/consult/', '攻略相談']
+    ['/consult/', '攻略相談'],
+    ['/search/', '検索']
   ].map(([href, label]) => `<a href="${href}">${label}</a>`).join('');
+
+  const path = location.pathname;
+  const currentHref = path.startsWith('/tata/') ? '/#tatari'
+    : ['/zombie-rush/', '/boss-rally/', '/badge-dojo/', '/normal-guide/'].some((route) => path.startsWith(route)) ? '/#content-guides'
+    : path.startsWith('/attribute/') ? '/#tatari'
+    : path.startsWith('/tata-tier/') ? '/tata-tier/'
+    : path.startsWith('/evolution-priority/') ? '/evolution-priority/'
+    : path.startsWith('/consult/') ? '/consult/'
+    : path.startsWith('/search/') ? '/search/'
+    : null;
+  if (currentHref) nav.querySelector(`a[href="${currentHref}"]`)?.setAttribute('aria-current', 'page');
 
   const button = document.createElement('button');
   button.className = 'mobile-nav-toggle';
@@ -56,4 +68,40 @@
   window.matchMedia('(min-width: 821px)').addEventListener('change', (event) => {
     if (event.matches) closeMenu();
   });
+
+  const topButton = document.createElement('button');
+  topButton.className = 'back-to-top';
+  topButton.type = 'button';
+  topButton.textContent = '↑ 上へ';
+  topButton.setAttribute('aria-label', 'ページ上部へ戻る');
+  document.body.appendChild(topButton);
+  const updateTopButton = () => topButton.classList.toggle('is-visible', window.scrollY > 600);
+  window.addEventListener('scroll', updateTopButton, { passive: true });
+  topButton.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  updateTopButton();
+
+  const footer = document.querySelector('footer .footer-inner');
+  if (footer && !footer.querySelector('.footer-links')) {
+    const side = document.createElement('div');
+    side.className = 'footer-side';
+    side.innerHTML = '<nav class="footer-links" aria-label="サイト情報"><a href="/privacy/">プライバシー</a><a href="/updates/">更新履歴</a><a href="/about-data/">データ方針</a></nav>';
+    const meta = footer.querySelector('.footer-meta');
+    if (meta) side.appendChild(meta);
+    footer.appendChild(side);
+  }
+
+  const loadVercelScript = (queueName, queueKey, src) => {
+    if (document.querySelector(`script[src="${src}"]`)) return;
+    window[queueName] = window[queueName] || function (...args) {
+      (window[queueKey] = window[queueKey] || []).push(args);
+    };
+    const script = document.createElement('script');
+    script.defer = true;
+    script.src = src;
+    document.head.appendChild(script);
+  };
+  if (location.hostname.endsWith('.vercel.app')) {
+    loadVercelScript('va', 'vaq', '/_vercel/insights/script.js');
+    loadVercelScript('si', 'siq', '/_vercel/speed-insights/script.js');
+  }
 })();

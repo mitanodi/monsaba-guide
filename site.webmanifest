@@ -3,6 +3,8 @@
   "short_name": "モンサバ攻略",
   "lang": "ja",
   "start_url": "/",
+  "scope": "/",
+  "description": "モンスターサバイバル（モンサバ）のタタ・進化・スキル・攻略情報を整理した非公式データベースです。",
   "display": "standalone",
   "background_color": "#f5f7fa",
   "theme_color": "#2f6fb2",

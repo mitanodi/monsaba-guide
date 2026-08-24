@@ -1,0 +1,23 @@
+export const BASE_URL = 'https://monsaba-guide.vercel.app';
+export const LAST_MODIFIED = '2026-08-24';
+
+export const ATTRIBUTE_META = Object.freeze({
+  草: Object.freeze({ slug: 'grass', icon: '🌿' }),
+  水: Object.freeze({ slug: 'water', icon: '💧' }),
+  火: Object.freeze({ slug: 'fire', icon: '🔥' }),
+  雷: Object.freeze({ slug: 'thunder', icon: '⚡' }),
+  岩: Object.freeze({ slug: 'rock', icon: '🪨', aliases: Object.freeze(['土']) })
+});
+
+export const HERO_BY_ROUTE = Object.freeze({
+  '/': '/assets/heroes/IMG_6940.webp',
+  '/zombie-rush/': '/assets/heroes/IMG_6941.webp',
+  '/boss-rally/': '/assets/heroes/IMG_6942.webp',
+  '/badge-dojo/': '/assets/heroes/IMG_6943.webp',
+  '/tata-tier/': '/assets/heroes/IMG_6944.webp',
+  '/consult/': '/assets/heroes/IMG_6944.webp',
+  '/normal-guide/': '/assets/heroes/IMG_6945.webp',
+  '/evolution-priority/': '/assets/heroes/IMG_6946.webp'
+});
+
+export const toAbsoluteUrl = (pathname) => `${BASE_URL}${pathname}`;
