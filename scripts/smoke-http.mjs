@@ -7,7 +7,16 @@ const production = base === 'https://monster-survival.com';
 const tatari = JSON.parse(fs.readFileSync(path.join(root, 'data/tatari.json'), 'utf8'));
 const routes = ['/', '/beginner-guide/', '/friends/', '/about/', '/search/', '/updates/', '/privacy/', '/about-data/', '/consult/', '/tata-tier/', '/evolution-priority/', '/zombie-rush/', '/boss-rally/', '/badge-dojo/', '/normal-guide/', '/attribute/grass/', '/attribute/water/', '/attribute/fire/', '/attribute/thunder/', '/attribute/rock/', ...tatari.families.map((family) => `/tata/${family.id}/`)];
 const jsonRoutes = ['/data/tatari.json', '/data/tata-skills.json', '/data/tier-ratings.json', '/data/evolution-priority.json', '/data/content-guides.json'];
-const heroes = Array.from({length:7}, (_, index) => `/assets/heroes/IMG_${6940 + index}.webp`);
+const heroes = [
+  ...Array.from({length:7}, (_, index) => `/assets/heroes/IMG_${6940 + index}.webp`),
+  '/assets/heroes/top-main.webp',
+  '/assets/heroes/evolution-main.webp',
+  '/favicon.ico',
+  '/favicon-32x32.png',
+  '/apple-touch-icon.png',
+  '/assets/icons/icon-192.png',
+  '/assets/icons/icon-512.png'
+];
 const errors = [];
 
 async function inBatches(items, size, worker) {
@@ -38,7 +47,8 @@ await inBatches(heroes, 1, async (route) => {
   try { response = await fetch(`${base}${route}`); }
   catch (error) { errors.push(`${route}: fetch ${error.cause?.code || error.message}`); return; }
   if (response.status !== 200) errors.push(`${route}: HTTP ${response.status}`);
-  if (!response.headers.get('content-type')?.includes('image/webp')) errors.push(`${route}: content-type ${response.headers.get('content-type')}`);
+  const expectedType = route.endsWith('.webp') ? 'image/webp' : route.endsWith('.png') ? 'image/png' : 'image/x-icon';
+  if (!response.headers.get('content-type')?.includes(expectedType)) errors.push(`${route}: content-type ${response.headers.get('content-type')}`);
   await response.arrayBuffer();
 });
 if (production) {

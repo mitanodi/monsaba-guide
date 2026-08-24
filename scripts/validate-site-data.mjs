@@ -159,16 +159,45 @@ expect(monetization.adsEnabled === false, 'monetization: adsEnabled は false �
 expect(monetization.affiliateEnabled === true, 'monetization: affiliateEnabled は true を維持してください');
 expect(expectedSlots.every((slot) => monetization.slots?.includes(slot)), 'monetization: 固定slot IDが不足しています');
 expect(!publicFiles.map(read).join('\n').match(/adsbygoogle|doubleclick\.net|googlesyndication/i), '未承認の通常広告が混入しています');
-const affiliatePlacement = 'data-affiliate-offer="point_income_003"';
-const affiliatePages = htmlFiles.filter((file) => read(file).includes(affiliatePlacement));
-expect(JSON.stringify(affiliatePages.sort()) === JSON.stringify(['beginner-guide/index.html', 'index.html']), `affiliate掲載範囲が不正: ${affiliatePages.join(', ')}`);
+const expectedAffiliatePages = Object.freeze({
+  'beginner-guide/index.html': 'point_income_003',
+  'evolution-priority/index.html': 'macromill_002',
+  'index.html': 'warau_003',
+  'normal-guide/index.html': 'ipsos_isay_001'
+});
+const affiliatePages = htmlFiles.filter((file) => read(file).includes('data-affiliate-offer='));
+expect(JSON.stringify(affiliatePages.sort()) === JSON.stringify(Object.keys(expectedAffiliatePages).sort()), `affiliate掲載範囲が不正: ${affiliatePages.join(', ')}`);
+for (const [file, offer] of Object.entries(expectedAffiliatePages)) {
+  expect(read(file).includes(`data-affiliate-offer="${offer}"`), `${file}: affiliate案件が不正です`);
+  expect((read(file).match(/data-affiliate-offer=/g) || []).length === 1, `${file}: affiliate広告は1件だけにしてください`);
+  expect(read(file).includes('/monetization.js'), `${file}: monetization.jsがありません`);
+}
 const monetizationScript = read('monetization.js');
-expect(monetizationScript.includes('https://px.a8.net/svt/ejp?a8mat=4BADDF+YJ6MY+5JWO+5YZ75'), 'A8リンクURLが不正です');
-expect(monetizationScript.includes('https://www28.a8.net/svt/bgt?aid=260824371058&wid=002&eno=01&mid=s00000025908001003000&mc=1'), 'A8バナーURLが不正です');
-expect(monetizationScript.includes('https://www16.a8.net/0.gif?a8mat=4BADDF+YJ6MY+5JWO+5YZ75'), 'A8計測タグが不正です');
-expect(monetizationScript.includes('width="300" height="250"') && monetizationScript.includes('width="1" height="1"'), 'A8画像寸法が不足しています');
+const a8Offers = [
+  ['s00000025908001', 'https://px.a8.net/svt/ejp?a8mat=4BADDF+YJ6MY+5JWO+5YZ75', 'https://www28.a8.net/svt/bgt?aid=260824371058&wid=002&eno=01&mid=s00000025908001003000&mc=1', 'https://www16.a8.net/0.gif?a8mat=4BADDF+YJ6MY+5JWO+5YZ75', 300, 250],
+  ['s00000018660003', 'https://px.a8.net/svt/ejp?a8mat=4BADDF+XCBFE+3ZZC+HXKQP', 'https://www25.a8.net/svt/bgt?aid=260824371056&wid=002&eno=01&mid=s00000018660003012000&mc=1', 'https://www11.a8.net/0.gif?a8mat=4BADDF+XCBFE+3ZZC+HXKQP', 468, 60],
+  ['s00000013554002', 'https://px.a8.net/svt/ejp?a8mat=4BADDF+1JU+2WL0+CN8W1', 'https://www21.a8.net/svt/bgt?aid=260824371000&wid=002&eno=01&mid=s00000013554002124000&mc=1', 'https://www18.a8.net/0.gif?a8mat=4BADDF+1JU+2WL0+CN8W1', 120, 600],
+  ['s00000018951001', 'https://px.a8.net/svt/ejp?a8mat=4BADDE+G8NPLM+4286+62U35', 'https://www21.a8.net/svt/bgt?aid=260824370982&wid=002&eno=01&mid=s00000018951001021000&mc=1', 'https://www11.a8.net/0.gif?a8mat=4BADDE+G8NPLM+4286+62U35', 250, 250]
+];
+for (const [programId, href, banner, tracking, width, height] of a8Offers) {
+  expect(monetizationScript.includes(`offerId: '${programId}'`), `A8 program ID ${programId} がありません`);
+  expect(monetizationScript.includes(href), `A8リンクURL ${programId} が不正です`);
+  expect(monetizationScript.includes(banner), `A8バナーURL ${programId} が不正です`);
+  expect(monetizationScript.includes(tracking), `A8計測タグ ${programId} が不正です`);
+  expect(monetizationScript.includes(`width="${width}" height="${height}"`), `A8画像寸法 ${programId} が不正です`);
+}
+expect((monetizationScript.match(/width="1" height="1"/g) || []).length === a8Offers.length, 'A8 1x1計測画像が不足しています');
 expect(read('site.js').includes('当サイトはアフィリエイト広告を利用しています。'), '共通footerのaffiliate開示がありません');
 expect(read('privacy/index.html').includes('A8.netのアフィリエイトプログラム') && read('privacy/index.html').includes('Cookieや類似の識別技術'), 'privacyのaffiliate説明が不足しています');
+for (const file of htmlFiles) {
+  const html = read(file);
+  expect(html.includes('/favicon.ico') && html.includes('/favicon-32x32.png') && html.includes('/apple-touch-icon.png'), `${file}: favicon設定が不足しています`);
+}
+for (const asset of ['favicon.ico', 'favicon-32x32.png', 'apple-touch-icon.png', 'assets/icons/icon-192.png', 'assets/icons/icon-512.png', 'assets/heroes/top-main.webp', 'assets/heroes/evolution-main.webp']) {
+  expect(fs.existsSync(path.join(root, asset)), `${asset}: 画像ファイルがありません`);
+}
+expect(read('index.html').includes('/assets/heroes/top-main.webp'), 'トップHeroが新画像ではありません');
+expect(read('evolution-priority/index.html').includes('/assets/heroes/evolution-main.webp'), '進化Heroが新画像ではありません');
 for (const route of ['/beginner-guide/', '/friends/', '/about/']) {
   const file = `${route.slice(1)}index.html`;
   const html = read(file);

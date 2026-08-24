@@ -58,7 +58,7 @@ const html = `<!doctype html>
   <meta property="og:title" content="${title}"><meta property="og:description" content="${description}"><meta property="og:url" content="${url}">
   <meta property="og:image" content="${image}"><meta property="og:image:alt" content="モンスターサバイバルのゲーム画面"><meta property="og:locale" content="ja_JP">
   <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${image}">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="manifest" href="/site.webmanifest"><link rel="stylesheet" href="/styles.css">
+  <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="stylesheet" href="/styles.css">
   <script type="application/ld+json">${JSON.stringify(structured).replaceAll('<', '\\u003c')}</script>
 </head><body><a class="skip-link" href="#main-content">本文へスキップ</a>
   <header class="site-header"><div class="wrap header-inner"><a class="brand" href="/" aria-label="モンサバ攻略DB トップ"><span class="brand-main">モンサバ攻略DB</span><span class="brand-sub">非公式</span></a><nav aria-label="主要メニュー"></nav></div></header>

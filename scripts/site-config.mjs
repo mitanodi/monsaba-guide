@@ -10,14 +10,14 @@ export const ATTRIBUTE_META = Object.freeze({
 });
 
 export const HERO_BY_ROUTE = Object.freeze({
-  '/': '/assets/heroes/IMG_6940.webp',
+  '/': '/assets/heroes/top-main.webp',
   '/zombie-rush/': '/assets/heroes/IMG_6941.webp',
   '/boss-rally/': '/assets/heroes/IMG_6942.webp',
   '/badge-dojo/': '/assets/heroes/IMG_6943.webp',
   '/tata-tier/': '/assets/heroes/IMG_6944.webp',
   '/consult/': '/assets/heroes/IMG_6944.webp',
   '/normal-guide/': '/assets/heroes/IMG_6945.webp',
-  '/evolution-priority/': '/assets/heroes/IMG_6946.webp'
+  '/evolution-priority/': '/assets/heroes/evolution-main.webp'
 });
 
 export const toAbsoluteUrl = (pathname) => `${BASE_URL}${pathname}`;
