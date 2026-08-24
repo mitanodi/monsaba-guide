@@ -215,5 +215,5 @@ function normalize(text){
 bootContentGuide().catch(error => {
   console.error(error);
   const root = $('#contentError');
-  if(root) root.textContent = '攻略データの読み込みに失敗しました。';
+  if(root) root.textContent = 'データの読み込みに失敗しました。ページを再読み込みしてください。';
 });

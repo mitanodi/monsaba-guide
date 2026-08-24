@@ -114,5 +114,5 @@ function modeRank(label,rank){
 
 bootTataTier().catch(err=>{
   console.error(err);
-  $('#overallTierRoot').innerHTML='<div class="empty">data/tatari.json の読み込みに失敗しました。</div>';
+  $('#overallTierRoot').innerHTML='<div class="empty">データの読み込みに失敗しました。ページを再読み込みしてください。</div>';
 });

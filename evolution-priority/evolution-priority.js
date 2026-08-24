@@ -223,5 +223,5 @@ function modeTierFor(id,mode){
 boot().catch(err=>{
   console.error(err);
   const root=$('#transitionGrid');
-  if(root) root.innerHTML='<div class="empty">進化データの読み込みに失敗しました。</div>';
+  if(root) root.innerHTML='<div class="empty">データの読み込みに失敗しました。ページを再読み込みしてください。</div>';
 });

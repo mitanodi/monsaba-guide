@@ -123,6 +123,8 @@ async function boot(){
     runQuestion(query);
   } else if(params.get('flow') === 'content') {
     openContentDeepLink(params);
+  } else if(params.get('flow') === 'evolution' || params.get('flow') === 'detail') {
+    openFamilyDeepLink(params);
   } else {
     renderRootMenu(false);
   }
@@ -275,6 +277,7 @@ function handleGuideClick(event){
   if(action === 'ownedFilter') return showOwnedPicker();
   if(action === 'ownedToggle') return toggleOwned(value, button);
   if(action === 'applyOwned') return applyOwnedFilter();
+  if(action === 'ownedReset') return resetOwnedFamilies();
   if(action === 'zombieTopic') return handleZombieTopic(value);
   if(action === 'training') return showTrainingMenu();
   if(action === 'trainingSelect') return handleTraining(value);
@@ -488,24 +491,47 @@ function handleBossAction(action){
 }
 
 function showOwnedPicker(){
-  const selected = new Set(JSON.parse(localStorage.getItem('monsabaOwnedFamilies') || '[]'));
+  const selected = new Set(readOwnedFamilies());
   const buttons = state.families.map(f => `<button type="button" data-action="ownedToggle" data-value="${esc(f.id)}" class="${selected.has(f.id) ? 'is-selected' : ''}"><b>${esc(f.familyName)}系</b><small>${esc(f.evolutions.map(e => e.name).join(' / '))}</small></button>`).join('');
-  setGuide(`<h2>手持ちだけに絞る</h2><p>持っている系統を選んでください。サーバーには送信しません。</p><div class="guide-button-grid family-grid owned-grid">${buttons}</div><div class="guide-actions"><button type="button" data-action="applyOwned">選択した手持ちで候補を見る</button><button type="button" data-action="back">← 戻る</button></div>`, false);
+  setGuide(`<h2>手持ちだけに絞る</h2><p>持っている系統を選んでください。この端末のブラウザ内だけに保存し、サーバーには送信しません。</p><div class="guide-button-grid family-grid owned-grid">${buttons}</div><div class="guide-actions"><button type="button" data-action="applyOwned">選択した手持ちで候補を見る</button><button type="button" data-action="ownedReset">手持ちをリセット</button><button type="button" data-action="back">← 戻る</button></div>`, false);
 }
 
 function toggleOwned(id, button){
-  const selected = new Set(JSON.parse(localStorage.getItem('monsabaOwnedFamilies') || '[]'));
+  if(!getFamily(id)) return;
+  const selected = new Set(readOwnedFamilies());
   if(selected.has(id)) selected.delete(id);
   else selected.add(id);
-  localStorage.setItem('monsabaOwnedFamilies', JSON.stringify([...selected]));
+  writeOwnedFamilies([...selected]);
   button.classList.toggle('is-selected', selected.has(id));
 }
 
 function applyOwnedFilter(){
-  const owned = JSON.parse(localStorage.getItem('monsabaOwnedFamilies') || '[]');
+  const owned = readOwnedFamilies();
   const boss = getBoss(flowState.bossId);
   if(!boss) return showContentTopicMenu(false);
   showResult(answerBossCandidates(boss, owned).html, [...flowState.crumbs, '手持ち候補']);
+}
+
+function readOwnedFamilies(){
+  try{
+    const parsed = JSON.parse(localStorage.getItem('monsabaOwnedFamilies') || '[]');
+    const ids = Array.isArray(parsed) ? parsed : parsed?.version === 1 && Array.isArray(parsed.familyIds) ? parsed.familyIds : [];
+    const valid = new Set(state.families.map(family => family.id));
+    return [...new Set(ids.filter(id => typeof id === 'string' && valid.has(id)))];
+  }catch(_){
+    return [];
+  }
+}
+
+function writeOwnedFamilies(ids){
+  try{
+    localStorage.setItem('monsabaOwnedFamilies', JSON.stringify({version:1, familyIds:ids}));
+  }catch(_){}
+}
+
+function resetOwnedFamilies(){
+  try{ localStorage.removeItem('monsabaOwnedFamilies'); }catch(_){}
+  showOwnedPicker();
 }
 
 function showDojoAttributeMenu(withBack = true){
@@ -532,6 +558,31 @@ function openContentDeepLink(params){
     }
   }
   showContentTopicMenu(false);
+}
+
+function openFamilyDeepLink(params){
+  const familyId = params.get('family');
+  const family = getFamily(familyId);
+  if(!family){
+    history.replaceState(null, '', '/consult/');
+    return renderRootMenu(false);
+  }
+  const flow = params.get('flow');
+  if(flow === 'detail'){
+    flowState = {route:'detailView', category:'detail', familyId, detailStage:null, crumbs:['性能確認', `${family.familyName}系`]};
+    return showDetailViewMenu(false);
+  }
+  const stages = state.skills[familyId]?.stages || [];
+  const requestedStage = Number(params.get('stage'));
+  flowState = {route:'evolutionStage', category:'evolution', familyId, crumbs:['進化相談', `${family.familyName}系`]};
+  if(Number.isInteger(requestedStage) && stages.some(stage => stage.stage === requestedStage)){
+    const stageData = stages.find(stage => stage.stage === requestedStage);
+    flowState.currentStage = requestedStage;
+    flowState.route = 'evolutionPurpose';
+    flowState.crumbs.push(`T${requestedStage} ${stageData.tataName}`);
+    return showEvolutionPurposeMenu(false);
+  }
+  return showStageMenu(false);
 }
 
 function showZombieMenu(push = true){
@@ -1255,7 +1306,8 @@ function updateUrl(question){
 function saveHistory(question){
   try{
     const key = 'monsabaConsultHistory';
-    const current = JSON.parse(localStorage.getItem(key) || '[]').filter(q => q !== question);
+    const parsed = JSON.parse(localStorage.getItem(key) || '[]');
+    const current = (Array.isArray(parsed) ? parsed : []).filter(q => typeof q === 'string' && q !== question);
     current.unshift(question);
     localStorage.setItem(key, JSON.stringify(current.slice(0, 8)));
   }catch(_){}
@@ -1263,5 +1315,5 @@ function saveHistory(question){
 
 boot().catch(error => {
   console.error(error);
-  addAssistant('データの読み込みに失敗しました。時間をおいて再読み込みしてください。');
+  addAssistant('データの読み込みに失敗しました。ページを再読み込みしてください。');
 });

@@ -1,0 +1,14 @@
+{
+  "name": "monsaba-guide",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check:syntax": "node scripts/check-js-syntax.mjs",
+    "validate:data": "node scripts/validate-data-integrity.mjs",
+    "validate:site": "node scripts/validate-site-data.mjs",
+    "validate": "npm run check:syntax && npm run validate:data && npm run validate:site && node scripts/generate-sitemap.mjs --check",
+    "generate:tata": "node scripts/generate-tata-pages.mjs",
+    "generate:sitemap": "node scripts/generate-sitemap.mjs",
+    "smoke:local": "node scripts/smoke-http.mjs"
+  }
+}

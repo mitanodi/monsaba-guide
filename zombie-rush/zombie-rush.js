@@ -61,5 +61,5 @@ function renderCard(f,rank){
 
 bootZombieRush().catch(err=>{
   console.error(err);
-  $('#tierRoot').innerHTML='<div class="empty">data/tatari.json の読み込みに失敗しました。</div>';
+  $('#tierRoot').innerHTML='<div class="empty">データの読み込みに失敗しました。ページを再読み込みしてください。</div>';
 });

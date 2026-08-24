@@ -84,7 +84,7 @@
   if (footer && !footer.querySelector('.footer-links')) {
     const side = document.createElement('div');
     side.className = 'footer-side';
-    side.innerHTML = '<nav class="footer-links" aria-label="サイト情報"><a href="/privacy/">プライバシー</a><a href="/updates/">更新履歴</a><a href="/about-data/">データ方針</a></nav>';
+    side.innerHTML = '<nav class="footer-links" aria-label="サイト情報"><a href="/privacy/">プライバシー</a><a href="/updates/">更新履歴</a><a href="/about-data/">データ方針</a></nav><p class="footer-contact">お問い合わせ・ご連絡は <a href="https://x.com/odi_monsaba" target="_blank" rel="noopener noreferrer">おぢ（@odi_monsaba）X</a> まで。フォローもよろしくお願いします。</p>';
     const meta = footer.querySelector('.footer-meta');
     if (meta) side.appendChild(meta);
     footer.appendChild(side);

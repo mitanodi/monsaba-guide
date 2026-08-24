@@ -246,5 +246,5 @@ function latestSkillName(skillFamily){
 bootAttributeGuide().catch(err=>{
   console.error(err);
   const root=$('#attributeCards');
-  if(root) root.innerHTML='<div class="empty">属性データの読み込みに失敗しました。</div>';
+  if(root) root.innerHTML='<div class="empty">データの読み込みに失敗しました。ページを再読み込みしてください。</div>';
 });

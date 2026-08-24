@@ -1,0 +1,25 @@
+name: Validate site
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm run check:syntax
+      - run: npm run validate:data
+      - run: npm run generate:tata
+      - run: git diff --exit-code -- tata
+      - run: npm run generate:sitemap
+      - run: git diff --exit-code -- sitemap.xml
+      - run: npm run validate:site
