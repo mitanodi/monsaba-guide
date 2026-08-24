@@ -117,6 +117,9 @@ for (const family of tatari.families || []) {
 }
 
 for (const label of ['タタ図鑑', 'タタTier', '進化優先度', 'コンテンツ攻略', '攻略相談', '検索', '初心者ガイド', 'フレンド掲示板']) expect(read('site.js').includes(label), `共通ヘッダーに ${label} がありません`);
+const siteJs = read('site.js');
+expect(siteJs.includes("['/friends/', 'フレンド掲示板', '']"), 'フレンド掲示板がPC常設ナビになっていません');
+expect(siteJs.indexOf("['/#content-guides'") < siteJs.indexOf("['/friends/'") && siteJs.indexOf("['/friends/'") < siteJs.indexOf("['/consult/'"), '共通ナビのフレンド掲示板の並びが不正です');
 expect(read('site.js').includes("aria-current', 'page'"), 'aria-current 共通処理がありません');
 expect(read('site.js').includes('/_vercel/insights/script.js') && read('site.js').includes('/_vercel/speed-insights/script.js'), 'Vercel計測スクリプトが不足');
 

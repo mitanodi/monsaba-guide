@@ -21,10 +21,10 @@
     ['/tata-tier/', 'タタTier', ''],
     ['/evolution-priority/', '進化優先度', ''],
     ['/#content-guides', 'コンテンツ攻略', ''],
+    ['/friends/', 'フレンド掲示板', ''],
     ['/consult/', '攻略相談', ''],
     ['/search/', '検索', ''],
-    ['/beginner-guide/', '初心者ガイド', 'mobile-only-nav-link'],
-    ['/friends/', 'フレンド掲示板', 'mobile-only-nav-link']
+    ['/beginner-guide/', '初心者ガイド', 'mobile-only-nav-link']
   ].map(([href, label, className]) => `<a href="${href}"${className ? ` class="${className}"` : ''}>${label}</a>`).join('');
 
   const path = location.pathname;
