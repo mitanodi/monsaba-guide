@@ -17,13 +17,14 @@
   nav.id = 'global-navigation';
   nav.setAttribute('aria-label', '主要メニュー');
   nav.innerHTML = [
-    ['/#tatari', 'タタ図鑑'],
-    ['/tata-tier/', 'タタTier'],
-    ['/evolution-priority/', '進化優先度'],
-    ['/#content-guides', 'コンテンツ攻略'],
-    ['/consult/', '攻略相談'],
-    ['/search/', '検索']
-  ].map(([href, label]) => `<a href="${href}">${label}</a>`).join('');
+    ['/#tatari', 'タタ図鑑', ''],
+    ['/tata-tier/', 'タタTier', ''],
+    ['/evolution-priority/', '進化優先度', ''],
+    ['/#content-guides', 'コンテンツ攻略', ''],
+    ['/consult/', '攻略相談', ''],
+    ['/search/', '検索', ''],
+    ['/beginner-guide/', '初心者ガイド', 'mobile-only-nav-link']
+  ].map(([href, label, className]) => `<a href="${href}"${className ? ` class="${className}"` : ''}>${label}</a>`).join('');
 
   const path = location.pathname;
   const currentHref = path.startsWith('/tata/') ? '/#tatari'
@@ -33,6 +34,7 @@
     : path.startsWith('/evolution-priority/') ? '/evolution-priority/'
     : path.startsWith('/consult/') ? '/consult/'
     : path.startsWith('/search/') ? '/search/'
+    : path.startsWith('/beginner-guide/') ? '/beginner-guide/'
     : null;
   if (currentHref) nav.querySelector(`a[href="${currentHref}"]`)?.setAttribute('aria-current', 'page');
 
@@ -84,7 +86,7 @@
   if (footer && !footer.querySelector('.footer-links')) {
     const side = document.createElement('div');
     side.className = 'footer-side';
-    side.innerHTML = '<nav class="footer-links" aria-label="サイト情報"><a href="/privacy/">プライバシー</a><a href="/updates/">更新履歴</a><a href="/about-data/">データ方針</a></nav><p class="footer-contact">お問い合わせ・ご連絡は <a href="https://x.com/odi_monsaba" target="_blank" rel="noopener noreferrer">おぢ（@odi_monsaba）X</a> まで。フォローもよろしくお願いします。</p>';
+    side.innerHTML = '<nav class="footer-links" aria-label="サイト情報"><a href="/about/">サイトについて</a><a href="/about-data/">データ方針</a><a href="/updates/">更新履歴</a><a href="/privacy/">プライバシー</a></nav><p class="footer-contact">お問い合わせ・ご連絡は <a href="https://x.com/odi_monsaba" target="_blank" rel="noopener noreferrer">おぢ（@odi_monsaba）X</a> まで。フォローもよろしくお願いします。</p>';
     const meta = footer.querySelector('.footer-meta');
     if (meta) side.appendChild(meta);
     footer.appendChild(side);

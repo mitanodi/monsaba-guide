@@ -20,6 +20,8 @@ jobs:
       - run: npm run validate:data
       - run: npm run generate:tata
       - run: git diff --exit-code -- tata
+      - run: npm run generate:beginner
+      - run: git diff --exit-code -- beginner-guide
       - run: npm run generate:sitemap
       - run: git diff --exit-code -- sitemap.xml
       - run: npm run validate:site

@@ -6,6 +6,7 @@ const normalize = (value) => {
   return text.replace(/[\s　・ーｰ]/g, '');
 };
 const pages = [
+  { title:'モンサバ初心者攻略', href:'/beginner-guide/', description:'最初にやること・おすすめタタ・育成順', keywords:'初心者 序盤 最初 はじめ 初めて t3 育成順' },
   { title:'タタ図鑑', href:'/#tatari', description:'63系統の進化・スキル一覧', keywords:'タタ 図鑑 一覧 進化 スキル' },
   { title:'総合タタTier', href:'/tata-tier/', description:'総合・通常・ゾンビ・道場・初心者評価', keywords:'tier 最強 育成 おすすめ' },
   { title:'進化優先度', href:'/evolution-priority/', description:'第3進化・T4・進化差分', keywords:'進化 優先度 星 t3 t4' },
@@ -51,7 +52,7 @@ function runSearch(rawQuery, updateUrl = true) {
   }
   if (!query) {
     $('#searchStatus').textContent = '検索語を入力してください。';
-    $('#searchResults').innerHTML = `<nav class="attribute-guide-nav" aria-label="主要ページ">${pages.slice(0, 8).map((page) => `<a href="${page.href}">${esc(page.title)}</a>`).join('')}</nav>`;
+    $('#searchResults').innerHTML = `<nav class="attribute-guide-nav" aria-label="主要ページ">${pages.slice(0, 9).map((page) => `<a href="${page.href}">${esc(page.title)}</a>`).join('')}</nav>`;
     return;
   }
   const familyResults = families.filter((family) => contains(query, family.familyName, `${family.attribute}属性`, family.id));

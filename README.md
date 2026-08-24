@@ -5,6 +5,8 @@
 ## 主なページ
 
 - トップ・タタ図鑑: `/`
+- 初心者ガイド: `/beginner-guide/`
+- サイト・運営者について: `/about/`
 - サイト内検索: `/search/`
 - 総合Tier: `/tata-tier/`
 - 進化優先度: `/evolution-priority/`
@@ -12,11 +14,11 @@
 - コンテンツ攻略: `/zombie-rush/`, `/boss-rally/`, `/badge-dojo/`, `/normal-guide/`
 - 属性別: `/attribute/{grass,water,fire,thunder,rock}/`
 - 個別タタ: `/tata/{familyId}/`
-- 更新履歴・データ方針: `/updates/`, `/about-data/`
+- 更新履歴・データ方針・プライバシー: `/updates/`, `/about-data/`, `/privacy/`
 
 ## データ
 
-主要JSONは `data/tatari.json`, `data/tata-skills.json`, `data/tier-ratings.json`, `data/evolution-priority.json`, `data/content-guides.json` です。タタ名・進化・スキルは確認済みスクリーンショット、攻略は収録済み公開情報、Tierは当サイト独自の暫定評価を基準とし、不明内容は推測で補いません。
+主要ゲームJSONは `data/tatari.json`, `data/tata-skills.json`, `data/tier-ratings.json`, `data/evolution-priority.json`, `data/content-guides.json` です。収益化準備設定は `data/monetization.json` に分離し、現在は広告・アフィリエイトとも無効です。タタ名・進化・スキルは確認済みスクリーンショット、攻略は収録済み公開情報、Tierは当サイト独自の暫定評価を基準とし、不明内容は推測で補いません。
 
 ## ローカル確認
 
@@ -32,12 +34,13 @@ python -m http.server 8000
 
 ```powershell
 npm.cmd run generate:tata
+npm.cmd run generate:beginner
 npm.cmd run generate:sitemap
 npm.cmd run validate
 node scripts/update-base-url.mjs --to https://monster-survival.com --dry-run
 ```
 
-Node標準機能だけを使用し、追加packageはありません。GitHub Actionsでも構文、5 JSON、生成差分、内部リンク、SEOを検証します。
+Node標準機能だけを使用し、追加packageはありません。GitHub Actionsでも構文、5 JSON、生成差分、内部リンク、SEOを検証します。将来の広告枠は `adsEnabled: false` の間は非表示で余白も作りません。実広告・実アフィリエイトリンクは未導入です。
 
 ## Deployment
 

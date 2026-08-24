@@ -23,6 +23,7 @@ walk(root);
 const tatari = json('data/tatari.json');
 const skills = json('data/tata-skills.json');
 const ratings = json('data/tier-ratings.json');
+const monetization = json('data/monetization.json');
 for (const [label, values] of [
   ['tatari.json', (tatari.families || []).map((family) => family.attribute)],
   ['tata-skills.json', Object.values(skills.byFamily || {}).map((family) => family.attribute)]
@@ -101,8 +102,11 @@ for (const family of tatari.families || []) {
   const html = read(file);
   expect(html.includes(`${family.familyName}系`), `${file}: family名がありません`);
   expect(html.includes(`${BASE_URL}/tata/${family.id}/`), `${file}: 固有canonical/URLがありません`);
-  const hasRatings = Boolean(ratings.overall?.byFamily?.[family.id] || ratings.zombieRush?.byFamily?.[family.id]);
-  expect(html.includes('このタタは何向け？') === hasRatings, `${file}: モード評価セクション条件が不正`);
+  expect(html.includes(`${family.familyName}は強い？`), `${file}: 強さのクイック回答がありません`);
+  expect(html.includes(`${family.familyName}系のおすすめ用途`), `${file}: おすすめ用途がありません`);
+  expect(html.includes(`${family.familyName}の進化先`), `${file}: 進化先がありません`);
+  expect(html.includes(`${family.familyName}系のスキル一覧`), `${file}: スキル一覧がありません`);
+  expect(html.includes('data-monetization-slot="tata_mid" hidden'), `${file}: 非表示の将来広告枠がありません`);
   const imageMatch = html.match(/<meta property="og:image" content="([^"]+)"/);
   expect(Boolean(imageMatch), `${file}: og:image がありません`);
   if (imageMatch) {
@@ -111,7 +115,7 @@ for (const family of tatari.families || []) {
   }
 }
 
-for (const label of ['タタ図鑑', 'タタTier', '進化優先度', 'コンテンツ攻略', '攻略相談', '検索']) expect(read('site.js').includes(label), `共通ヘッダーに ${label} がありません`);
+for (const label of ['タタ図鑑', 'タタTier', '進化優先度', 'コンテンツ攻略', '攻略相談', '検索', '初心者ガイド']) expect(read('site.js').includes(label), `共通ヘッダーに ${label} がありません`);
 expect(read('site.js').includes("aria-current', 'page'"), 'aria-current 共通処理がありません');
 expect(read('site.js').includes('/_vercel/insights/script.js') && read('site.js').includes('/_vercel/speed-insights/script.js'), 'Vercel計測スクリプトが不足');
 
@@ -134,9 +138,22 @@ expect(brokenLinks.length === 0, `存在しない内部リンク:\n${brokenLinks
 const sitemap = read('sitemap.xml');
 expect(!sitemap.includes('/attribute/earth/'), 'sitemap.xml に旧 earth URL が残っています');
 expect(sitemap.includes(`${BASE_URL}/attribute/rock/`), 'sitemap.xml に rock URL がありません');
-for (const route of ['/search/', '/updates/', '/privacy/', '/about-data/']) expect(sitemap.includes(`${BASE_URL}${route}`), `sitemap.xml に ${route} がありません`);
+for (const route of ['/beginner-guide/', '/about/', '/search/', '/updates/', '/privacy/', '/about-data/']) expect(sitemap.includes(`${BASE_URL}${route}`), `sitemap.xml に ${route} がありません`);
 expect(!sitemap.includes('/404'), 'sitemap.xml に404が含まれています');
 expect(read('robots.txt').includes(`Sitemap: ${BASE_URL}/sitemap.xml`), 'robots.txt のSitemap URLが不正');
+
+const expectedSlots = ['article_after_summary', 'article_mid', 'article_bottom', 'tata_mid', 'beginner_mid'];
+expect(monetization.adsEnabled === false, 'monetization: adsEnabled は false を維持してください');
+expect(monetization.affiliateEnabled === false, 'monetization: affiliateEnabled は false を維持してください');
+expect(expectedSlots.every((slot) => monetization.slots?.includes(slot)), 'monetization: 固定slot IDが不足しています');
+expect(!publicFiles.map(read).join('\n').match(/adsbygoogle|doubleclick\.net|googlesyndication|data-affiliate-link/i), '実広告またはaffiliateリンクが混入しています');
+for (const route of ['/beginner-guide/', '/about/']) {
+  const file = `${route.slice(1)}index.html`;
+  const html = read(file);
+  expect(html.includes(`<link rel="canonical" href="${BASE_URL}${route}"`), `${file}: 固有canonicalがありません`);
+  expect(html.includes('BreadcrumbList'), `${file}: BreadcrumbListがありません`);
+  expect(/<meta property="og:image" content="https:\/\/monsaba-guide\.vercel\.app\//.test(html), `${file}: OG画像がありません`);
+}
 
 if (errors.length) {
   console.error(`サイト検証失敗 (${errors.length})\n- ${errors.join('\n- ')}`);

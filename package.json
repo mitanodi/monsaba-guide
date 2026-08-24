@@ -8,6 +8,7 @@
     "validate:site": "node scripts/validate-site-data.mjs",
     "validate": "npm run check:syntax && npm run validate:data && npm run validate:site && node scripts/generate-sitemap.mjs --check",
     "generate:tata": "node scripts/generate-tata-pages.mjs",
+    "generate:beginner": "node scripts/generate-beginner-guide.mjs",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
     "smoke:local": "node scripts/smoke-http.mjs"
   }

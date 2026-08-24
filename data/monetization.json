@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "adsEnabled": false,
+  "affiliateEnabled": false,
+  "slots": [
+    "article_after_summary",
+    "article_mid",
+    "article_bottom",
+    "tata_mid",
+    "beginner_mid"
+  ]
+}
