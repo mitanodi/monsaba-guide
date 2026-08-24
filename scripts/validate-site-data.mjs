@@ -7,7 +7,7 @@ const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
 const json = (file) => JSON.parse(read(file));
 const errors = [];
 const expect = (condition, message) => { if (!condition) errors.push(message); };
-const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'assets']);
+const ignored = new Set(['.git', '.github', '.vercel', '.agents', 'node_modules', 'assets']);
 const textExtensions = new Set(['.html', '.js', '.json', '.xml', '.txt', '.webmanifest']);
 const textFiles = [];
 function walk(directory) {
@@ -75,6 +75,7 @@ for (const file of htmlFiles) {
   }
   if (html.includes('class="site-header"')) expect(html.includes('src="/site.js"'), `${file}: 共通サイトスクリプトがありません`);
   if (html.includes('<footer')) {
+    expect(html.includes('href="/friends/"'), `${file}: footerにフレンド掲示板リンクがありません`);
     expect((html.match(/https:\/\/x\.com\/odi_monsaba/g) || []).length === 1, `${file}: X問い合わせリンクが1件ではありません`);
     expect(/href="https:\/\/x\.com\/odi_monsaba" target="_blank" rel="noopener noreferrer"/.test(html), `${file}: Xリンクの安全属性が不足`);
   }
@@ -115,13 +116,20 @@ for (const family of tatari.families || []) {
   }
 }
 
-for (const label of ['タタ図鑑', 'タタTier', '進化優先度', 'コンテンツ攻略', '攻略相談', '検索', '初心者ガイド']) expect(read('site.js').includes(label), `共通ヘッダーに ${label} がありません`);
+for (const label of ['タタ図鑑', 'タタTier', '進化優先度', 'コンテンツ攻略', '攻略相談', '検索', '初心者ガイド', 'フレンド掲示板']) expect(read('site.js').includes(label), `共通ヘッダーに ${label} がありません`);
 expect(read('site.js').includes("aria-current', 'page'"), 'aria-current 共通処理がありません');
 expect(read('site.js').includes('/_vercel/insights/script.js') && read('site.js').includes('/_vercel/speed-insights/script.js'), 'Vercel計測スクリプトが不足');
 
 const vercel = json('vercel.json');
 const redirect = (vercel.redirects || []).find((item) => item.source === '/attribute/earth/' && item.destination === '/attribute/rock/');
 expect(redirect?.permanent === true, 'earth → rock の恒久リダイレクトがありません');
+const friendsHtml = read('friends/index.html');
+const friendsApi = read('api/friends.js');
+expect(friendsHtml.includes('maxlength="50"') && friendsHtml.includes('maxlength="30"') && friendsHtml.includes('maxlength="150"'), 'friends: 入力上限が不足しています');
+expect(friendsHtml.includes('name="website"') && friendsApi.includes('isAllowedOrigin'), 'friends: honeypot / Origin対策が不足しています');
+expect(friendsApi.includes("X-Robots-Tag', 'noindex, nofollow") && friendsApi.includes("Cache-Control', 'no-store"), 'friends API: noindex / cache設定が不足しています');
+expect(read('lib/friends-core.js').includes('postTtlSeconds: 30 * 24 * 60 * 60'), 'friends: 30日TTLが設定されていません');
+expect(!friendsHtml.includes('FRIENDS_ADMIN_TOKEN') && !friendsHtml.includes('KV_REST_API_TOKEN'), 'friends: サーバー秘密値名がHTMLへ露出しています');
 
 const brokenLinks = [];
 for (const file of htmlFiles) {
@@ -138,7 +146,7 @@ expect(brokenLinks.length === 0, `存在しない内部リンク:\n${brokenLinks
 const sitemap = read('sitemap.xml');
 expect(!sitemap.includes('/attribute/earth/'), 'sitemap.xml に旧 earth URL が残っています');
 expect(sitemap.includes(`${BASE_URL}/attribute/rock/`), 'sitemap.xml に rock URL がありません');
-for (const route of ['/beginner-guide/', '/about/', '/search/', '/updates/', '/privacy/', '/about-data/']) expect(sitemap.includes(`${BASE_URL}${route}`), `sitemap.xml に ${route} がありません`);
+for (const route of ['/beginner-guide/', '/friends/', '/about/', '/search/', '/updates/', '/privacy/', '/about-data/']) expect(sitemap.includes(`${BASE_URL}${route}`), `sitemap.xml に ${route} がありません`);
 expect(!sitemap.includes('/404'), 'sitemap.xml に404が含まれています');
 expect(read('robots.txt').includes(`Sitemap: ${BASE_URL}/sitemap.xml`), 'robots.txt のSitemap URLが不正');
 
@@ -147,7 +155,7 @@ expect(monetization.adsEnabled === false, 'monetization: adsEnabled は false �
 expect(monetization.affiliateEnabled === false, 'monetization: affiliateEnabled は false を維持してください');
 expect(expectedSlots.every((slot) => monetization.slots?.includes(slot)), 'monetization: 固定slot IDが不足しています');
 expect(!publicFiles.map(read).join('\n').match(/adsbygoogle|doubleclick\.net|googlesyndication|data-affiliate-link/i), '実広告またはaffiliateリンクが混入しています');
-for (const route of ['/beginner-guide/', '/about/']) {
+for (const route of ['/beginner-guide/', '/friends/', '/about/']) {
   const file = `${route.slice(1)}index.html`;
   const html = read(file);
   expect(html.includes(`<link rel="canonical" href="${BASE_URL}${route}"`), `${file}: 固有canonicalがありません`);

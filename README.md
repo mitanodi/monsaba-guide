@@ -6,6 +6,7 @@
 
 - トップ・タタ図鑑: `/`
 - 初心者ガイド: `/beginner-guide/`
+- フレンド募集掲示板: `/friends/`（Vercel Functions + Upstash Redis）
 - サイト・運営者について: `/about/`
 - サイト内検索: `/search/`
 - 総合Tier: `/tata-tier/`
@@ -40,7 +41,9 @@ npm.cmd run validate
 node scripts/update-base-url.mjs --to https://monster-survival.com --dry-run
 ```
 
-Node標準機能だけを使用し、追加packageはありません。GitHub Actionsでも構文、5 JSON、生成差分、内部リンク、SEOを検証します。将来の広告枠は `adsEnabled: false` の間は非表示で余白も作りません。実広告・実アフィリエイトリンクは未導入です。
+掲示板のサーバー接続には `@upstash/redis` を使用します。`npm.cmd test` で掲示板のvalidation・削除・スパム対策を含む単体テストを実行できます。GitHub Actionsでも構文、5 JSON、生成差分、内部リンク、SEO、掲示板テストを検証します。将来の広告枠は `adsEnabled: false` の間は非表示で余白も作りません。実広告・実アフィリエイトリンクは未導入です。
+
+掲示板の接続情報と管理用秘密値はVercelの環境変数で管理し、`.env*` はGitへ追加しません。投稿は30日で期限切れになり、投稿者の削除tokenはブラウザだけに保存されます。
 
 ## Deployment
 

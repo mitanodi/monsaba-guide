@@ -12,5 +12,7 @@
 - ゲーム画像はユーザー提供の正式素材だけを使用する。画像生成・描き足しは禁止。
 - Hero画像のH1はHTMLテキストで維持し、画像へ焼き込まない。
 - 公開外部リンクを新しいタブで開く場合は `rel="noopener noreferrer"` を付ける。
+- フレンド掲示板は既存Vercel Projectに接続済みのUpstash Redisだけを使用する。秘密値、Redis token、生IP、削除tokenをGit・HTML・ログへ出さない。
+- 掲示板投稿はVercel Functions経由に限定し、静的JSONやGit commitへ保存しない。rate limit、UID cooldown、honeypot、Origin検証、30日TTLを維持する。
 - 変更後は `npm.cmd run validate` を実行し、生成対象は差分が残らないことを確認する。
 - Deploymentは`main`へのpushによる既存Vercel Git Integrationを使用する。
