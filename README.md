@@ -19,7 +19,7 @@
 
 ## データ
 
-主要ゲームJSONは `data/tatari.json`, `data/tata-skills.json`, `data/tier-ratings.json`, `data/evolution-priority.json`, `data/content-guides.json` です。収益化設定は `data/monetization.json` に分離し、通常広告は無効、承認済みのA8.netアフィリエイト枠だけを限定表示しています。タタ名・進化・スキルは確認済みスクリーンショット、攻略は収録済み公開情報、Tierは当サイト独自の暫定評価を基準とし、不明内容は推測で補いません。
+主要ゲームJSONは `data/tatari.json`, `data/tata-skills.json`, `data/tier-ratings.json`, `data/evolution-priority.json`, `data/content-guides.json` です。Seasonごとに変わるゾンビラッシュ専用スキルは `data/zombie-rush/seasons/` に分離し、通常スキルDBへ混在させません。収益化設定は `data/monetization.json` に分離し、通常広告は無効、承認済みのA8.netアフィリエイト枠だけを限定表示しています。タタ名・進化・スキルは確認済みスクリーンショット、攻略は収録済み公開情報、Tierは当サイト独自の暫定評価を基準とし、不明内容は推測で補いません。
 
 ## ローカル確認
 
@@ -36,6 +36,7 @@ python -m http.server 8000
 ```powershell
 npm.cmd run generate:tata
 npm.cmd run generate:beginner
+npm.cmd run generate:updates
 npm.cmd run generate:sitemap
 npm.cmd run validate
 node scripts/update-base-url.mjs --from https://monster-survival.com --to https://example.com --dry-run

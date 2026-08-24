@@ -25,6 +25,7 @@ const tatari = json('data/tatari.json');
 const skills = json('data/tata-skills.json');
 const ratings = json('data/tier-ratings.json');
 const monetization = json('data/monetization.json');
+const seasonOne = json('data/zombie-rush/seasons/season-1.json');
 for (const [label, values] of [
   ['tatari.json', (tatari.families || []).map((family) => family.attribute)],
   ['tata-skills.json', Object.values(skills.byFamily || {}).map((family) => family.attribute)]
@@ -150,6 +151,17 @@ expect((tierHtml.match(/class="tier-chart-tata"/g) || []).length === 63, 'Tier�
 expect((tierHtml.match(/class="tier-chart-row /g) || []).length === 4, 'Tierチャートは4区分ではありません');
 expect(tierHtml.includes('ビリジカ系') && tierHtml.includes('シズクジ系'), 'Tierチャートの日本名表示が不正です');
 expect((read('evolution-priority/index.html').match(/class="evolution-card"/g) || []).length > 0, '進化優先度の静的HTMLがありません');
+const updatePreviewHtml = read('updates/2026-08-26/index.html');
+expect(updatePreviewHtml.includes('2026年8月26日 実装予定'), '8/26アップデートページに予定表記がありません');
+expect(updatePreviewHtml.includes('公式ゲーム内告知'), '8/26アップデートページに公式情報源の表示がありません');
+expect(updatePreviewHtml.includes('ゾンビラッシュ専用スキル') && updatePreviewHtml.includes('通常スキルではありません'), '専用スキルと通常スキルの区別が不足しています');
+expect((updatePreviewHtml.match(/class="zr-balance-card"/g) || []).length === 35, '専用スキル調整カードが35体ではありません');
+expect(updatePreviewHtml.includes('160%') && updatePreviewHtml.includes('230%') && updatePreviewHtml.includes('火焔爆裂'), 'トラーニー火焔爆裂の公式値が不足しています');
+expect(seasonOne.meta?.status === 'scheduled' && seasonOne.meta?.scope === 'zombie-rush-only', 'Season 1データの予定状態・範囲が不正です');
+expect((seasonOne.tataSkillBalance || []).length === 35, 'Season 1専用スキル対象が35体ではありません');
+expect(read('zombie-rush/index.html').includes('現在のTierと1000キル編成例は旧環境の評価です'), 'ゾンビラッシュに旧環境評価の注意がありません');
+expect(read('tata-tier/index.html').includes('この予定変更だけを理由に総合Tier・通常・道場・ボスラリー評価は変更しません'), '総合Tierに専用調整の注意がありません');
+expect(read('search/search.js').includes("href:'/updates/2026-08-26/'"), 'サイト内検索に8/26アップデート予定がありません');
 expect(topHtml.includes('data-official-x') && topHtml.includes('https://x.com/monsaba_jp') && topHtml.includes('/official-x.js'), 'TOPの公式Xセクションが不足しています');
 const xScript = read('official-x.js');
 expect(xScript.includes('IntersectionObserver') && xScript.includes('https://platform.twitter.com/widgets.js'), '公式Xの遅延読込が不足しています');
@@ -195,7 +207,7 @@ expect(brokenLinks.length === 0, `存在しない内部リンク:\n${brokenLinks
 const sitemap = read('sitemap.xml');
 expect(!sitemap.includes('/attribute/earth/'), 'sitemap.xml に旧 earth URL が残っています');
 expect(sitemap.includes(`${BASE_URL}/attribute/rock/`), 'sitemap.xml に rock URL がありません');
-for (const route of ['/beginner-guide/', '/friends/', '/about/', '/search/', '/updates/', '/privacy/', '/about-data/']) expect(sitemap.includes(`${BASE_URL}${route}`), `sitemap.xml に ${route} がありません`);
+for (const route of ['/beginner-guide/', '/friends/', '/about/', '/search/', '/updates/', '/updates/2026-08-26/', '/privacy/', '/about-data/']) expect(sitemap.includes(`${BASE_URL}${route}`), `sitemap.xml に ${route} がありません`);
 expect(!sitemap.includes('/404'), 'sitemap.xml に404が含まれています');
 expect((sitemap.match(/<loc>/g) || []).length === (sitemap.match(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g) || []).length, 'sitemap.xmlの全URLに有効なlastmodが必要です');
 expect(read('robots.txt').includes(`Sitemap: ${BASE_URL}/sitemap.xml`), 'robots.txt のSitemap URLが不正');

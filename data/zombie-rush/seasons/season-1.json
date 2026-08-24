@@ -1,0 +1,96 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "seasonId": "season-1",
+    "status": "scheduled",
+    "sourceType": "official-in-game-notice",
+    "noticeConfirmedDate": "2026-08-25",
+    "effectiveDate": "2026-08-26",
+    "maintenance": {
+      "startsAt": "2026-08-26T08:30:00Z",
+      "endsAt": "2026-08-26T10:30:00Z"
+    },
+    "scope": "zombie-rush-only",
+    "notice": "公式ゲーム内告知をもとにした8月26日実装予定データ。通常スキルには適用しない。"
+  },
+  "newTatari": {
+    "name": "パクマ",
+    "attribute": "水",
+    "databaseStatus": "awaiting-in-game-screenshots",
+    "knownInformation": "通常時の基本スキルとは別に、ゾンビラッシュ専用スキルが存在する。",
+    "unknownFields": ["進化名", "通常スキル", "ゾンビラッシュ専用スキル詳細", "数値", "画像"]
+  },
+  "newEvolutions": [
+    { "attribute": "水", "from": "スケダコ", "to": "ロードパス", "databaseStatus": "awaiting-in-game-screenshots" },
+    { "attribute": "岩", "from": "ボウズヘビ", "to": "ナムアミダイジャ", "databaseStatus": "awaiting-in-game-screenshots" }
+  ],
+  "seasonRules": {
+    "duration": "約4週間",
+    "roundsPerGame": 25,
+    "zombiesPerGame": 750,
+    "maximumDifficulty": 4,
+    "chipSystemPermanent": true,
+    "rankingBasis": ["最高難易度", "キル数"],
+    "features": [
+      "シーズンごとにタタとチップのバランスを調整",
+      "選択難易度をクリアすると次の難易度が解放",
+      "時間切れ前に750体すべて倒すと次の難易度へ挑戦可能",
+      "シーズンランキングを追加",
+      "シーズン限定アイコンフレームを獲得可能",
+      "直近一定回数までのシーズン戦績を確認可能",
+      "戦績をシェア可能"
+    ]
+  },
+  "chipBalance": [
+    { "name": "糖分補給 I / II / III", "metric": "エナジーキャンディ獲得間隔", "before": "4秒", "after": "5秒", "direction": "down" },
+    { "name": "賞金稼ぎ I / II / III", "metric": "効果持続時間", "before": "150秒", "after": "120秒", "direction": "down" },
+    { "name": "ガラス大砲", "metric": "攻撃力増加", "before": "20%", "after": "25%", "direction": "up" },
+    { "name": "ボスキラー", "metric": "ボスゾンビへのダメージ増加", "before": "30%", "after": "25%", "direction": "down" },
+    { "name": "マーベリック", "metric": "攻撃力 / HP / 防御力増加", "before": "10%", "after": "20%", "direction": "up" },
+    { "name": "バンテージ", "metric": "減少したHPの回復率", "before": "20%", "after": "15%", "direction": "down" },
+    { "name": "アップグレード", "metric": "有効範囲", "before": "Lv.2以下", "after": "Lv.3以下", "direction": "up" },
+    { "name": "シャッフル", "metric": "即座に獲得するエナジーキャンディ", "before": "400", "after": "600", "direction": "up" },
+    { "name": "別れの贈り物", "metric": "タタが倒されるたびに獲得するエナジーキャンディ", "before": "150", "after": "200", "direction": "up" },
+    { "name": "アンドワン", "metric": "即座に獲得するエナジーキャンディ", "before": "300", "after": "250", "direction": "down" },
+    { "name": "戦略的移動", "metric": "攻撃力と攻撃速度増加の持続時間", "before": "15秒", "after": "20秒", "direction": "up" },
+    { "name": "川の境界線", "metric": "川エリア内のゾンビ移動速度減少", "before": "50%", "after": "40%", "direction": "down" },
+    { "name": "リセット", "metric": "タタ回収時のエナジーキャンディ", "before": "150", "after": "200", "direction": "up" }
+  ],
+  "tataSkillBalance": [
+    { "officialTataName": "ネコオリ", "familyId": "nekoori", "databaseTataName": "ネコオリ", "stage": 1, "mappingStatus": "exact", "direction": "up", "skills": [{ "name": "爆裂氷晶", "changes": [{ "metric": "凍結確率", "before": "40%", "after": "45%" }] }, { "name": "アイスフラワー", "changes": [{ "metric": "ダメージ倍率", "before": "120%", "after": "135%" }] }, { "name": "アイスロード", "changes": [{ "metric": "凍結確率", "before": "40%", "after": "45%" }] }] },
+    { "officialTataName": "ヒバイヌ", "familyId": "matchiba", "databaseTataName": "ヒバイヌ", "stage": 1, "mappingStatus": "exact", "direction": "up", "skills": [{ "name": "フレイムサークル", "changes": [{ "metric": "ダメージ倍率", "before": "60%", "after": "85%" }] }, { "name": "ヘルインフェルノ", "changes": [{ "metric": "ダメージ倍率", "before": "80%", "after": "120%" }] }] },
+    { "officialTataName": "コロジュー", "familyId": "rokuju", "databaseTataName": "コロジュー", "stage": 1, "mappingStatus": "exact", "direction": "up", "skills": [{ "name": "地震帯", "changes": [{ "metric": "ダメージ倍率", "before": "210%", "after": "280%" }, { "metric": "スタン確率", "before": "20%", "after": "32%" }] }] },
+    { "officialTataName": "ガオデン", "familyId": "gaoden", "databaseTataName": "ガオデン", "stage": 1, "mappingStatus": "exact", "direction": "down", "skills": [{ "name": "強震スパーク", "changes": [{ "metric": "ダメージ倍率", "before": "500%", "after": "350%" }, { "metric": "ノックバック確率", "before": "50%", "after": "40%" }] }] },
+    { "officialTataName": "ナミアシカ", "familyId": "boruzarashi", "databaseTataName": "ナミアシカ", "stage": 1, "mappingStatus": "exact", "direction": "up", "skills": [{ "name": "高圧ウォーターボール", "changes": [{ "metric": "ダメージ倍率", "before": "110%", "after": "120%" }] }, { "name": "大波乗り", "changes": [{ "metric": "ダメージ倍率", "before": "160%", "after": "180%" }] }] },
+    { "officialTataName": "ヒモリ", "familyId": "himori", "databaseTataName": "ヒモリ", "stage": 1, "mappingStatus": "exact", "direction": "up", "skills": [{ "name": "ホーミングファイア", "changes": [{ "metric": "ダメージ倍率", "before": "60%", "after": "96%" }, { "metric": "追撃発動確率", "before": "20%", "after": "36%" }] }, { "name": "ブレイズトレイル", "changes": [{ "metric": "ダメージ倍率", "before": "200%", "after": "300%" }] }] },
+    { "officialTataName": "ビリジカ", "familyId": "denjika", "databaseTataName": "ビリジカ", "stage": 1, "mappingStatus": "exact", "direction": "mixed", "skills": [{ "name": "拡散エレキランス", "changes": [{ "metric": "発動確率", "before": "60%", "after": "45%" }] }, { "name": "非科学電撃ランス", "changes": [{ "metric": "ダメージ倍率", "before": "300%", "after": "255%" }, { "metric": "麻痺確率", "before": "40%", "after": "45%" }] }] },
+    { "officialTataName": "ウミミ", "familyId": "umimi", "databaseTataName": "ウミミ", "stage": 1, "mappingStatus": "exact", "direction": "down", "skills": [{ "name": "海霧散らし", "changes": [{ "metric": "「超被ダメージ増加」比率", "before": "40%", "after": "30%" }] }] },
+    { "officialTataName": "ヤンザル", "familyId": "yanzaru", "databaseTataName": "ヤンザル", "stage": 1, "mappingStatus": "exact", "direction": "down", "skills": [{ "name": "かかってこい！", "changes": [{ "metric": "分身HP", "before": "30%", "after": "24%" }] }, { "name": "ゾンビ荒らし", "changes": [{ "metric": "ダメージ倍率", "before": "240%", "after": "180%" }] }] },
+    { "officialTataName": "パチルフ", "familyId": "denrou", "databaseTataName": "パチルフ", "stage": 1, "mappingStatus": "exact", "direction": "up", "skills": [{ "name": "残影追撃", "changes": [{ "metric": "残影発動確率", "before": "35%", "after": "55%" }] }, { "name": "ライトニングスラッシュ", "changes": [{ "metric": "ダメージ倍率", "before": "420%", "after": "600%" }, { "metric": "最短間隔", "before": "9秒", "after": "8秒" }] }] },
+    { "officialTataName": "ヒノムシ", "familyId": "fureimuji", "databaseTataName": "ヒノムシ", "stage": 1, "mappingStatus": "exact", "direction": "down", "skills": [{ "name": "フウフウフレイム", "changes": [{ "metric": "ダメージ倍率", "before": "350%", "after": "240%" }] }, { "name": "火の蝶", "changes": [{ "metric": "ダメージ倍率", "before": "25%", "after": "16%" }] }, { "name": "蝶の羽", "changes": [{ "metric": "「蝶の翅-全ステータス増加」比率", "before": "18%", "after": "9%" }] }] },
+    { "officialTataName": "コパンダ", "familyId": "takepanda", "databaseTataName": "コパンダ", "stage": 1, "mappingStatus": "exact", "direction": "down", "skills": [{ "name": "ホームアドバンテージ", "changes": [{ "metric": "竹林によるダメージ増加と被ダメージ減少", "before": "25%", "after": "20%" }] }] },
+    { "officialTataName": "モグリン", "familyId": "mogurin", "databaseTataName": "モグリン", "stage": 1, "mappingStatus": "exact", "direction": "up", "skills": [{ "name": "煙玉", "changes": [{ "metric": "ダメージ倍率", "before": "50%", "after": "70%" }, { "metric": "霧発動確率", "before": "50%", "after": "60%" }] }, { "name": "逃げは役に立つ", "changes": [{ "metric": "ダメージ倍率", "before": "180%", "after": "300%" }] }] },
+    { "officialTataName": "ヒエビ", "familyId": "fureebi", "databaseTataName": "ヒエビ", "stage": 1, "mappingStatus": "exact", "direction": "up", "skills": [{ "name": "爆裂パンチ", "changes": [{ "metric": "ダメージ倍率", "before": "40%", "after": "65%" }] }, { "name": "散裂パンチ", "changes": [{ "metric": "ダメージ倍率", "before": "80%", "after": "140%" }] }] },
+    { "officialTataName": "ヒマワリン", "familyId": "himawarin", "databaseTataName": "ヒマワリン", "stage": 1, "mappingStatus": "exact", "direction": "down", "skills": [{ "name": "ウォームオーラ", "changes": [{ "metric": "シールド値", "before": "攻撃力の10%", "after": "攻撃力の4%" }, { "metric": "シールド最大スタック数", "before": "4", "after": "2" }] }, { "name": "変色サングラス", "changes": [{ "metric": "ダメージ倍率", "before": "280%", "after": "210%" }, { "metric": "光発動確率", "before": "50%", "after": "25%" }] }, { "name": "ミラーボール", "changes": [{ "metric": "発動間隔", "before": "14～24秒", "after": "24～32秒" }] }] },
+    { "officialTataName": "コワガルー", "familyId": "kowagaru", "databaseTataName": "コワガルー", "stage": 1, "mappingStatus": "exact", "direction": "up", "skills": [{ "name": "連打！", "changes": [{ "metric": "追加攻撃発動確率", "before": "66%", "after": "80%" }] }, { "name": "カウンター！", "changes": [{ "metric": "反撃発動確率", "before": "30%", "after": "45%" }, { "metric": "無敵持続時間", "before": "2秒", "after": "2.5秒" }] }, { "name": "流星拳！", "changes": [{ "metric": "ダメージ倍率", "before": "380%", "after": "525%" }] }] },
+    { "officialTataName": "ビリピヨ", "familyId": "biripiyo", "databaseTataName": "ビリピヨ", "stage": 1, "mappingStatus": "exact", "direction": "down", "skills": [{ "name": "電力全開", "changes": [{ "metric": "充電-被ダメージ減少 比率", "before": "20%", "after": "10%" }, { "metric": "充電-攻撃力増加 比率", "before": "50%", "after": "25%" }] }] },
+    { "officialTataName": "ポタカゲ", "familyId": "potakage", "databaseTataName": "ポタカゲ", "stage": 1, "mappingStatus": "exact", "direction": "up", "skills": [{ "name": "減速の渦", "changes": [{ "metric": "発動確率", "before": "40%", "after": "45%" }] }, { "name": "秘術・渦隠れ", "changes": [{ "metric": "ダメージ倍率", "before": "50%", "after": "90%" }] }] },
+    { "officialTataName": "ワンブー", "familyId": "kunbuu", "databaseTataName": "クンブー", "stage": 1, "mappingStatus": "official-name-review", "direction": "down", "skills": [{ "name": "おかわり！", "changes": [{ "metric": "ダメージ倍率", "before": "280%", "after": "180%" }, { "metric": "攻撃発動確率", "before": "40%", "after": "20%" }] }, { "name": "おやつ配り", "changes": [{ "metric": "自身への回復倍率", "before": "20%", "after": "12%" }] }, { "name": "食べ物祭り", "changes": [{ "metric": "ダメージ倍率", "before": "200%", "after": "105%" }, { "metric": "回復倍率", "before": "6%", "after": "2.5%" }] }] },
+    { "officialTataName": "フクロウグモ", "familyId": "fukurogumo", "databaseTataName": "フクロクモ", "stage": 1, "mappingStatus": "official-name-review", "direction": "up", "skills": [{ "name": "液化シールド", "changes": [{ "metric": "緑の泡発動確率", "before": "30%", "after": "45%" }] }, { "name": "クモの巣", "changes": [{ "metric": "束縛確率", "before": "30%", "after": "45%" }] }, { "name": "クモの巣穴", "changes": [{ "metric": "ダメージ倍率", "before": "170%", "after": "240%" }] }] },
+    { "officialTataName": "プラビ", "familyId": "purabi", "databaseTataName": "プラビ", "stage": 1, "mappingStatus": "exact", "direction": "down", "skills": [{ "name": "一緒に踊ろう", "changes": [{ "metric": "発動間隔", "before": "16～20秒", "after": "18～22秒" }, { "metric": "無敵持続時間", "before": "2秒", "after": "1.5秒" }] }, { "name": "パルスハーモニー", "changes": [{ "metric": "ダメージ倍率", "before": "200%", "after": "120%" }, { "metric": "減速 / 束縛 / スタン確率", "before": "40% / 30% / 20%", "after": "30% / 20% / 10%" }] }] },
+    { "officialTataName": "ネムクラゲ", "familyId": "nemukurage", "databaseTataName": "ネムクラゲ", "stage": 1, "mappingStatus": "exact", "direction": "up", "skills": [{ "name": "拡散ウォーターボール", "changes": [{ "metric": "ダメージ倍率", "before": "230%", "after": "280%" }, { "metric": "発動確率", "before": "40%", "after": "55%" }] }, { "name": "バウンドバブル", "changes": [{ "metric": "スタン確率", "before": "25%", "after": "35%" }] }] },
+    { "officialTataName": "トラーニー", "familyId": "haamitora", "databaseTataName": "トラーニー", "stage": 1, "mappingStatus": "exact", "direction": "up", "skills": [{ "name": "火焔爆裂", "changes": [{ "metric": "ダメージ倍率", "before": "160%", "after": "230%" }] }, { "name": "仙術・焔掌", "changes": [{ "metric": "ダメージ倍率", "before": "400%", "after": "580%" }] }] },
+    { "officialTataName": "ライマー", "familyId": "shiiparusu", "databaseTataName": "ライメー", "stage": 1, "mappingStatus": "official-name-review", "direction": "up", "skills": [{ "name": "クイックライトニング", "changes": [{ "metric": "ダメージ倍率", "before": "230%", "after": "255%" }] }, { "name": "暗雲襲来", "changes": [{ "metric": "ダメージ倍率", "before": "80%", "after": "135%" }] }] },
+    { "officialTataName": "シズクジ", "familyId": "shizukuchou", "databaseTataName": "シズクジ", "stage": 1, "mappingStatus": "exact", "direction": "down", "skills": [{ "name": "繭から蝶へ", "changes": [{ "metric": "ダメージ倍率", "before": "100%", "after": "45%" }, { "metric": "水の蝶 発動確率", "before": "20%", "after": "12%" }] }, { "name": "蝶と共に", "changes": [{ "metric": "発動間隔", "before": "8～12秒", "after": "9～13秒" }, { "metric": "効果持続時間", "before": "4秒", "after": "3.5秒" }] }, { "name": "絶え間なく舞う蝶", "changes": [{ "metric": "ダメージ倍率", "before": "75%", "after": "18%" }, { "metric": "睡眠確率", "before": "20%", "after": "12%" }] }] },
+    { "officialTataName": "ププンク", "familyId": "pupunku", "databaseTataName": "ププンク", "stage": 1, "mappingStatus": "exact", "direction": "up", "skills": [{ "name": "フレイムボール", "changes": [{ "metric": "ダメージ倍率", "before": "400%", "after": "450%" }, { "metric": "発動確率", "before": "20%", "after": "40%" }] }, { "name": "爆竹フェス", "changes": [{ "metric": "ダメージ倍率", "before": "40%", "after": "80%" }] }] },
+    { "officialTataName": "エレキネコ", "familyId": "erekineko", "databaseTataName": "エレキネコ", "stage": 1, "mappingStatus": "exact", "direction": "up", "skills": [{ "name": "散財豪雨", "changes": [{ "metric": "ダメージ倍率", "before": "85%", "after": "100%" }] }] },
+    { "officialTataName": "スケダコ", "familyId": "sukedako", "databaseTataName": "スケダコ", "stage": 1, "mappingStatus": "exact", "direction": "up", "skills": [{ "name": "イカ墨スプラッシュ", "changes": [{ "metric": "ダメージ倍率", "before": "160%", "after": "200%" }, { "metric": "追加イカ墨弾発動確率", "before": "40%", "after": "55%" }, { "metric": "視界妨害確率", "before": "30%", "after": "40%" }] }, { "name": "タコ降臨", "changes": [{ "metric": "ダメージ倍率", "before": "300%", "after": "390%" }, { "metric": "中心範囲ダメージ倍率", "before": "900%", "after": "1150%" }] }] },
+    { "officialTataName": "ヒニャオ", "familyId": "hinyao", "databaseTataName": "ヒニャオ", "stage": 1, "mappingStatus": "exact", "direction": "down", "skills": [{ "name": "スイープオーブ", "changes": [{ "metric": "ダメージ倍率", "before": "100%", "after": "50%" }, { "metric": "中玉 / 大玉 / 超大玉 貫通オーブダメージ倍率", "before": "40%", "after": "20%" }, { "metric": "終点ダメージ倍率", "before": "130%", "after": "50%" }] }] },
+    { "officialTataName": "ベロパカ", "familyId": "tsubaruka", "databaseTataName": "ベロパカ", "stage": 1, "mappingStatus": "exact", "direction": "up", "skills": [{ "name": "ネバネバツバ", "changes": [{ "metric": "ダメージ倍率", "before": "220%", "after": "240%" }] }, { "name": "ピンポイント誘導", "changes": [{ "metric": "ダメージ倍率", "before": "75%", "after": "140%" }] }] },
+    { "officialTataName": "ホルリン", "familyId": "doriruu", "databaseTataName": "ホルリン", "stage": 1, "mappingStatus": "exact", "direction": "up", "skills": [{ "name": "アーマーピアサー", "changes": [{ "metric": "発動確率", "before": "30%", "after": "45%" }] }, { "name": "強敵適応", "changes": [{ "metric": "基本シールド値", "before": "HPの5%", "after": "HPの7%" }] }] },
+    { "officialTataName": "ビリモ", "familyId": "birimori", "databaseTataName": "ビリモ", "stage": 1, "mappingStatus": "exact", "direction": "down", "skills": [{ "name": "共鳴ソニック", "changes": [{ "metric": "「ダメージ増加・大」比率", "before": "30%", "after": "20%" }] }, { "name": "コウモリラッシュ", "changes": [{ "metric": "ダメージ倍率", "before": "100%", "after": "50%" }] }, { "name": "ビートレーダー", "changes": [{ "metric": "ダメージ倍率", "before": "100%", "after": "50%" }] }] },
+    { "officialTataName": "ホネギョ", "familyId": "togegyo", "databaseTataName": "ホネギョ", "stage": 1, "mappingStatus": "exact", "direction": "up", "skills": [{ "name": "虚空の渦", "changes": [{ "metric": "ダメージ倍率", "before": "200%", "after": "225%" }] }, { "name": "古の神の贈り物", "changes": [{ "metric": "シールド値", "before": "HPの30%", "after": "HPの40%" }] }, { "name": "深淵の捕食", "changes": [{ "metric": "ダメージ倍率", "before": "250%", "after": "390%" }] }] },
+    { "officialTataName": "フリコー", "familyId": "riifuro", "databaseTataName": "フリコー", "stage": 1, "mappingStatus": "exact", "direction": "up", "skills": [{ "name": "波動ヒール", "changes": [{ "metric": "回復倍率", "before": "60%", "after": "75%" }] }] },
+    { "officialTataName": "ムムカバ", "familyId": "mumukaba", "databaseTataName": "ムムカバ", "stage": 1, "mappingStatus": "exact", "direction": "up", "skills": [{ "name": "ピンクハグ", "changes": [{ "metric": "基本回数", "before": "3", "after": "4" }] }, { "name": "心の障壁", "changes": [{ "metric": "基本回数", "before": "12", "after": "15" }] }] }
+  ]
+}

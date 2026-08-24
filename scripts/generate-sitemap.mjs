@@ -39,11 +39,15 @@ function dependenciesFor(route, htmlFile) {
   if (route.startsWith('/attribute/')) dependencies.push('data/tatari.json', 'data/tata-skills.json');
   if (route === '/beginner-guide/') dependencies.push('data/tatari.json', 'data/tier-ratings.json', 'data/evolution-priority.json', 'data/content-guides.json', 'scripts/generate-beginner-guide.mjs');
   if (['/normal-guide/', '/zombie-rush/', '/boss-rally/', '/badge-dojo/'].includes(route)) dependencies.push('data/content-guides.json');
+  if (['/updates/', '/zombie-rush/', '/tata-tier/', '/updates/2026-08-26/'].includes(route)) dependencies.push('data/zombie-rush/seasons/season-1.json');
+  if (route === '/updates/2026-08-26/') dependencies.push('scripts/generate-update-2026-08-26.mjs');
   return [...new Set(dependencies)];
 }
+const seasonOne = JSON.parse(fs.readFileSync(path.join(root, 'data', 'zombie-rush', 'seasons', 'season-1.json'), 'utf8'));
+const explicitContentDate = (route) => ['/updates/', '/zombie-rush/', '/tata-tier/', '/updates/2026-08-26/'].includes(route) ? seasonOne.meta.noticeConfirmedDate : null;
 const tatari = JSON.parse(fs.readFileSync(path.join(root, 'data', 'tatari.json'), 'utf8'));
 const tataRoutes = (tatari.families || []).map((family) => `/tata/${family.id}/`);
-const preferred = ['/', '/beginner-guide/', '/friends/', '/search/', '/tata-tier/', '/evolution-priority/', '/consult/', '/zombie-rush/', '/boss-rally/', '/badge-dojo/', '/normal-guide/', '/updates/', '/about/', '/about-data/', '/privacy/', '/attribute/grass/', '/attribute/water/', '/attribute/fire/', '/attribute/thunder/', '/attribute/rock/', ...tataRoutes];
+const preferred = ['/', '/beginner-guide/', '/friends/', '/search/', '/tata-tier/', '/evolution-priority/', '/consult/', '/zombie-rush/', '/boss-rally/', '/badge-dojo/', '/normal-guide/', '/updates/', '/updates/2026-08-26/', '/about/', '/about-data/', '/privacy/', '/attribute/grass/', '/attribute/water/', '/attribute/fire/', '/attribute/thunder/', '/attribute/rock/', ...tataRoutes];
 const rank = new Map(preferred.map((route, index) => [route, index]));
 const pages = walk(root)
   .filter((file) => !/<meta name="robots" content="[^\"]*noindex/i.test(fs.readFileSync(file, 'utf8')))
@@ -51,7 +55,7 @@ const pages = walk(root)
   .filter(({ route }) => route !== '/attribute/earth/')
   .sort((a, b) => (rank.get(a.route) ?? 1000) - (rank.get(b.route) ?? 1000) || a.route.localeCompare(b.route));
 const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map(({ file: htmlFile, route }) => {
-  const lastmod = dependenciesFor(route, htmlFile).map(gitDate).sort().at(-1);
+  const lastmod = [...dependenciesFor(route, htmlFile).map(gitDate), explicitContentDate(route)].filter(Boolean).sort().at(-1);
   return `  <url><loc>${BASE_URL}${route}</loc><lastmod>${lastmod}</lastmod></url>`;
 }).join('\n')}\n</urlset>\n`;
 const file = path.join(root, 'sitemap.xml');

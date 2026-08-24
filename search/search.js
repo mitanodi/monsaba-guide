@@ -12,6 +12,7 @@ const pages = [
   { title:'進化優先度', href:'/evolution-priority/', description:'第3進化・T4・進化差分', keywords:'進化 優先度 星 t3 t4' },
   { title:'攻略相談所', href:'/consult/', description:'育成・進化・攻略を選択式で相談', keywords:'相談 育成 比較' },
   { title:'ゾンビラッシュ攻略', href:'/zombie-rush/', description:'高Wave・おすすめTier・注意ゾンビ', keywords:'ゾンビラッシュ wave' },
+  { title:'8/26アップデート予定', href:'/updates/2026-08-26/', description:'パクマ・ゾンビラッシュSeason 1・新T4・バランス調整', keywords:'アップデート アプデ 8月26日 パクマ season1 シーズン1 ロードパス ナムアミダイジャ' },
   { title:'ボスラリー攻略', href:'/boss-rally/', description:'ボス別の特徴と対策', keywords:'ボスラリー ボス' },
   { title:'バッジ道場攻略', href:'/badge-dojo/', description:'属性別・配置・役割', keywords:'バッジ 道場 dojo' },
   { title:'通常ステージ攻略', href:'/normal-guide/', description:'時間切れ・全滅・配置・通常ボス', keywords:'通常 ステージ マップ' },

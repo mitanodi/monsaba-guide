@@ -11,12 +11,20 @@ const readJson = (name) => {
   catch (error) { errors.push(`${name}: JSON parse error: ${error.message}`); return {}; }
 };
 const [tatari, skills, ratings, evolution, guides] = files.map(readJson);
+const seasonOne = (() => {
+  try { return JSON.parse(fs.readFileSync(path.join(root, 'data', 'zombie-rush', 'seasons', 'season-1.json'), 'utf8')); }
+  catch (error) { errors.push(`zombie-rush/seasons/season-1.json: JSON parse error: ${error.message}`); return {}; }
+})();
 
 fail(Array.isArray(tatari.families), 'tatari.json: families must be an array');
 fail(skills.byFamily && typeof skills.byFamily === 'object' && !Array.isArray(skills.byFamily), 'tata-skills.json: byFamily must be an object');
 fail(ratings.overall && typeof ratings.overall === 'object', 'tier-ratings.json: overall is required');
 fail(evolution.version !== undefined && evolution.t3Roadmap, 'evolution-priority.json: version and t3Roadmap are required');
 fail(guides.version !== undefined && guides.sources && guides.modes, 'content-guides.json: version, sources and modes are required');
+fail(seasonOne.meta?.status === 'scheduled', 'season-1.json: status must remain scheduled before release confirmation');
+fail(seasonOne.meta?.sourceType === 'official-in-game-notice', 'season-1.json: sourceType must be official-in-game-notice');
+fail(seasonOne.meta?.scope === 'zombie-rush-only', 'season-1.json: scope must be zombie-rush-only');
+fail(seasonOne.meta?.effectiveDate === '2026-08-26', 'season-1.json: effectiveDate must be 2026-08-26');
 
 const families = Array.isArray(tatari.families) ? tatari.families : [];
 const familyIds = families.map((family) => family.id);
@@ -86,6 +94,27 @@ function validateReferences(value, file, trail = file) {
 validateReferences(ratings, 'tier-ratings.json');
 validateReferences(evolution, 'evolution-priority.json');
 validateReferences(guides, 'content-guides.json');
+validateReferences(seasonOne, 'zombie-rush/seasons/season-1.json');
+const seasonTargets = Array.isArray(seasonOne.tataSkillBalance) ? seasonOne.tataSkillBalance : [];
+fail(seasonTargets.length === 35, `season-1.json: tata skill target count ${seasonTargets.length}, expected 35`);
+fail(new Set(seasonTargets.map((item) => item.familyId)).size === seasonTargets.length, 'season-1.json: duplicate familyId in tataSkillBalance');
+fail(Array.isArray(seasonOne.chipBalance) && seasonOne.chipBalance.length === 13, 'season-1.json: chip balance count must be 13');
+for (const item of seasonTargets) {
+  const family = families.find((entry) => entry.id === item.familyId);
+  const stage = family?.evolutions?.find((entry) => entry.stage === item.stage);
+  fail(Boolean(stage), `season-1.json: ${item.officialTataName} family/stage is missing`);
+  fail(stage?.name === item.databaseTataName, `season-1.json: ${item.officialTataName} databaseTataName mismatch`);
+  fail(['exact', 'official-name-review'].includes(item.mappingStatus), `season-1.json: ${item.officialTataName} mappingStatus is invalid`);
+  fail(['up', 'down', 'mixed'].includes(item.direction), `season-1.json: ${item.officialTataName} direction is invalid`);
+  fail(Array.isArray(item.skills) && item.skills.length > 0, `season-1.json: ${item.officialTataName} skills are required`);
+  for (const skill of item.skills || []) {
+    fail(typeof skill.name === 'string' && skill.name.length > 0, `season-1.json: ${item.officialTataName} skill name is required`);
+    for (const change of skill.changes || []) fail(Boolean(change.metric && change.before && change.after), `season-1.json: ${item.officialTataName}/${skill.name} change is incomplete`);
+  }
+}
+const toraani = seasonTargets.find((item) => item.officialTataName === 'トラーニー');
+const fireBurst = toraani?.skills?.find((skill) => skill.name === '火焔爆裂')?.changes?.find((change) => change.metric === 'ダメージ倍率');
+fail(fireBurst?.before === '160%' && fireBurst?.after === '230%', 'season-1.json: トラーニー火焔爆裂は160% → 230%である必要があります');
 for (const section of [ratings.overall, ratings.zombieRush]) {
   for (const id of Object.keys(section?.byFamily || {})) if (!validIds.has(id)) errors.push(`tier-ratings.json.byFamily: unknown familyId ${id}`);
 }
@@ -95,4 +124,4 @@ if (errors.length) {
   console.error(`データ整合性検証失敗 (${errors.length})\n- ${errors.join('\n- ')}`);
   process.exit(1);
 }
-console.log(`データ整合性検証成功: 5 JSON / 63系統 / 224体 / warning ${warnings.length}`);
+console.log(`データ整合性検証成功: 主要5 JSON + Season 1 / 63系統 / 224体 / 専用スキル35体 / warning ${warnings.length}`);
