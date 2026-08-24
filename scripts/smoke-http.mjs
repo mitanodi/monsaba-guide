@@ -47,8 +47,13 @@ await inBatches(heroes, 1, async (route) => {
   try { response = await fetch(`${base}${route}`); }
   catch (error) { errors.push(`${route}: fetch ${error.cause?.code || error.message}`); return; }
   if (response.status !== 200) errors.push(`${route}: HTTP ${response.status}`);
-  const expectedType = route.endsWith('.webp') ? 'image/webp' : route.endsWith('.png') ? 'image/png' : 'image/x-icon';
-  if (!response.headers.get('content-type')?.includes(expectedType)) errors.push(`${route}: content-type ${response.headers.get('content-type')}`);
+  const contentType = response.headers.get('content-type') || '';
+  const validType = route.endsWith('.webp')
+    ? contentType.includes('image/webp')
+    : route.endsWith('.png')
+      ? contentType.includes('image/png')
+      : ['image/x-icon', 'image/vnd.microsoft.icon'].some((type) => contentType.includes(type));
+  if (!validType) errors.push(`${route}: content-type ${contentType}`);
   await response.arrayBuffer();
 });
 if (production) {
