@@ -143,16 +143,16 @@ function responseRecorder() {
 }
 
 test('Originは本番same-origin・localhostだけを許可する', () => {
-  assert.equal(isAllowedOrigin({ headers: { origin: 'https://monsaba-guide.vercel.app', host: 'monsaba-guide.vercel.app' } }), true);
+  assert.equal(isAllowedOrigin({ headers: { origin: 'https://monster-survival.com', host: 'monster-survival.com' } }), true);
   assert.equal(isAllowedOrigin({ headers: { origin: 'http://localhost:3000', host: 'localhost:3000' } }), true);
-  assert.equal(isAllowedOrigin({ headers: { origin: 'https://evil.example', host: 'monsaba-guide.vercel.app' } }), false);
+  assert.equal(isAllowedOrigin({ headers: { origin: 'https://evil.example', host: 'monster-survival.com' } }), false);
 });
 
 test('invalid JSON、oversized body、不正OriginをAPIで拒否する', async () => {
   for (const [request, status, code] of [
     [{ method: 'POST', url: '/api/friends', headers: { origin: 'http://localhost', host: 'localhost', 'content-type': 'application/json' }, body: '{' }, 400, 'INVALID_JSON'],
     [{ method: 'POST', url: '/api/friends', headers: { origin: 'http://localhost', host: 'localhost', 'content-length': String(FRIENDS_CONFIG.maxBodyBytes + 1) }, body: '{}' }, 413, 'BODY_TOO_LARGE'],
-    [{ method: 'POST', url: '/api/friends', headers: { origin: 'https://evil.example', host: 'monsaba-guide.vercel.app' }, body: '{}' }, 403, 'ORIGIN_NOT_ALLOWED']
+    [{ method: 'POST', url: '/api/friends', headers: { origin: 'https://evil.example', host: 'monster-survival.com' }, body: '{}' }, 403, 'ORIGIN_NOT_ALLOWED']
   ]) {
     const response = responseRecorder();
     await handler(request, response);

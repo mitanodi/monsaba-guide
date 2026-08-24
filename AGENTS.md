@@ -1,7 +1,7 @@
 # Repository rules
 
 - サイトは静的HTML / CSS / Vanilla JavaScriptを維持する。大規模frameworkへ移行しない。
-- 独自ドメイン移行が明示的に許可されるまでは、Base URLを `https://monsaba-guide.vercel.app` に維持する。
+- 正式ProductionとBase URLは `https://monster-survival.com`。旧Vercel URLへ戻さない。
 - 新しいVercel Projectを作らない。既存Project `monsaba-guide` のGit Integrationを使用する。
 - `chigonoki-ramen-blog` には触らない。
 - タタ名、進化、スキル数値、攻略内容を推測で追加・修正しない。

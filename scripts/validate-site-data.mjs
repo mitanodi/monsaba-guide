@@ -6,6 +6,7 @@ const root = path.resolve(import.meta.dirname, '..');
 const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
 const json = (file) => JSON.parse(read(file));
 const errors = [];
+const LEGACY_BASE_URL = 'https://monsaba-guide.vercel.app';
 const expect = (condition, message) => { if (!condition) errors.push(message); };
 const ignored = new Set(['.git', '.github', '.vercel', '.agents', 'node_modules', 'assets']);
 const textExtensions = new Set(['.html', '.js', '.json', '.xml', '.txt', '.webmanifest']);
@@ -43,7 +44,7 @@ for (const file of publicFiles) {
   expect(!content.includes('ヒヒドッグ'), `${file}: ヒヒドッグ`);
   expect(!content.includes('当サイトdojo評価'), `${file}: 当サイトdojo評価`);
   if (!['consult/consult.js', 'search/search.js'].includes(file)) expect(!content.includes('土属性'), `${file}: 土属性`);
-  expect(!content.includes('monster-survival.com'), `${file}: 未移行ドメインが混入`);
+  expect(!content.includes(LEGACY_BASE_URL), `${file}: 旧Production URLが混入`);
   expect(!/\beval\s*\(|new\s+Function\s*\(/.test(content), `${file}: eval / Function を使用`);
 }
 expect(publicFiles.map(read).join('\n').includes('ビビドッグ'), 'ビビドッグが公開データにありません');
@@ -92,7 +93,7 @@ for (const route of majorRoutes) {
   expect(html.includes(`<meta property="og:image" content="${expectedImage}"`), `${file}: og:image がHeroと不一致`);
   expect(html.includes(`<meta name="twitter:image" content="${expectedImage}"`), `${file}: twitter:image がHeroと不一致`);
   expect(/<meta property="og:image:alt" content="[^"]+"/.test(html), `${file}: og:image:alt がありません`);
-  expect(/"image":"https:\/\/monsaba-guide\.vercel\.app\//.test(html), `${file}: JSON-LD image がありません`);
+  expect(html.includes(`"image":"${BASE_URL}/`), `${file}: JSON-LD image がありません`);
   expect(/"mainEntityOfPage":/.test(html) && /"dateModified":/.test(html), `${file}: JSON-LD主要項目が不足`);
 }
 
@@ -163,7 +164,7 @@ for (const route of ['/beginner-guide/', '/friends/', '/about/']) {
   const html = read(file);
   expect(html.includes(`<link rel="canonical" href="${BASE_URL}${route}"`), `${file}: 固有canonicalがありません`);
   expect(html.includes('BreadcrumbList'), `${file}: BreadcrumbListがありません`);
-  expect(/<meta property="og:image" content="https:\/\/monsaba-guide\.vercel\.app\//.test(html), `${file}: OG画像がありません`);
+  expect(html.includes(`<meta property="og:image" content="${BASE_URL}/`), `${file}: OG画像がありません`);
 }
 
 if (errors.length) {

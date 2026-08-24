@@ -1,7 +1,7 @@
 import { createFriendsService, FRIENDS_CONFIG, FriendsError } from '../lib/friends-core.js';
 import { createRedisStore } from '../lib/friends-store.js';
 
-const PRODUCTION_ORIGIN = 'https://monsaba-guide.vercel.app';
+const PRODUCTION_ORIGIN = 'https://monster-survival.com';
 
 function setHeaders(response) {
   response.setHeader('Cache-Control', 'no-store');
@@ -77,7 +77,7 @@ function createService() {
 export default async function handler(request, response) {
   try {
     if (request.method === 'GET') {
-      const url = new URL(request.url, `https://${request.headers.host || 'monsaba-guide.vercel.app'}`);
+      const url = new URL(request.url, `https://${request.headers.host || 'monster-survival.com'}`);
       const result = await createService().list(url.searchParams.get('cursor'));
       return send(response, 200, { ok: true, ...result });
     }

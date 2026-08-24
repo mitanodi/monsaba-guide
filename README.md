@@ -1,6 +1,6 @@
 # モンサバ攻略DB
 
-「モンスターサバイバル」の非公式攻略データベースです。HTML / CSS / Vanilla JavaScript の静的サイトとして運営し、Production は <https://monsaba-guide.vercel.app/> です。
+「モンスターサバイバル」の非公式攻略データベースです。HTML / CSS / Vanilla JavaScript の静的サイトとして運営し、正式なProductionは <https://monster-survival.com/> です。
 
 ## 主なページ
 
@@ -38,7 +38,7 @@ npm.cmd run generate:tata
 npm.cmd run generate:beginner
 npm.cmd run generate:sitemap
 npm.cmd run validate
-node scripts/update-base-url.mjs --to https://monster-survival.com --dry-run
+node scripts/update-base-url.mjs --from https://monster-survival.com --to https://example.com --dry-run
 ```
 
 掲示板のサーバー接続には `@upstash/redis` を使用します。`npm.cmd test` で掲示板のvalidation・削除・スパム対策を含む単体テストを実行できます。GitHub Actionsでも構文、5 JSON、生成差分、内部リンク、SEO、掲示板テストを検証します。将来の広告枠は `adsEnabled: false` の間は非表示で余白も作りません。実広告・実アフィリエイトリンクは未導入です。
@@ -47,6 +47,6 @@ node scripts/update-base-url.mjs --to https://monster-survival.com --dry-run
 
 ## Deployment
 
-`main` へpushすると、既存のVercel Project `monsaba-guide` が自動でProduction Deploymentを作成します。新しいVercel Projectは作成しません。独自ドメイン取得完了まではcanonical・robots・sitemap・OG・JSON-LDとも `https://monsaba-guide.vercel.app/` を正とします。
+`main` へpushすると、既存のVercel Project `monsaba-guide` が自動でProduction Deploymentを作成します。新しいVercel Projectは作成しません。canonical・robots・sitemap・OG・JSON-LDは `https://monster-survival.com/` を正とします。旧 `monsaba-guide.vercel.app` と `www.monster-survival.com` は正式URLへ恒久リダイレクトします。
 
 問い合わせ・連絡先は [おぢ（@odi_monsaba）X](https://x.com/odi_monsaba) です。

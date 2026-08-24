@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://monsaba-guide.vercel.app';
+export const BASE_URL = 'https://monster-survival.com';
 export const LAST_MODIFIED = '2026-08-24';
 
 export const ATTRIBUTE_META = Object.freeze({

@@ -3,7 +3,7 @@ import path from 'node:path';
 
 const root = path.resolve(import.meta.dirname, '..');
 const base = (process.argv.find((arg) => arg.startsWith('--base='))?.slice(7) || 'http://127.0.0.1:8765').replace(/\/$/, '');
-const production = base === 'https://monsaba-guide.vercel.app';
+const production = base === 'https://monster-survival.com';
 const tatari = JSON.parse(fs.readFileSync(path.join(root, 'data/tatari.json'), 'utf8'));
 const routes = ['/', '/beginner-guide/', '/friends/', '/about/', '/search/', '/updates/', '/privacy/', '/about-data/', '/consult/', '/tata-tier/', '/evolution-priority/', '/zombie-rush/', '/boss-rally/', '/badge-dojo/', '/normal-guide/', '/attribute/grass/', '/attribute/water/', '/attribute/fire/', '/attribute/thunder/', '/attribute/rock/', ...tatari.families.map((family) => `/tata/${family.id}/`)];
 const jsonRoutes = ['/data/tatari.json', '/data/tata-skills.json', '/data/tier-ratings.json', '/data/evolution-priority.json', '/data/content-guides.json'];

@@ -8,6 +8,7 @@ const from = args.get('--from') || BASE_URL;
 const to = args.get('--to');
 const dryRun = args.has('--dry-run');
 if (!to || !/^https:\/\/[a-z0-9.-]+$/i.test(to)) throw new Error('--to に https:// から始まるoriginを指定してください。');
+if (from === to) throw new Error('--from と --to には異なるoriginを指定してください。');
 if (!dryRun && !args.has('--apply')) throw new Error('実変更には --apply が必要です。確認だけなら --dry-run を指定してください。');
 
 const extensions = new Set(['.html', '.xml', '.txt', '.mjs', '.js', '.webmanifest']);
