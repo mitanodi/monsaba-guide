@@ -45,6 +45,14 @@ node scripts/update-base-url.mjs --from https://monster-survival.com --to https:
 
 掲示板の接続情報と管理用秘密値はVercelの環境変数で管理し、`.env*` はGitへ追加しません。投稿は30日で期限切れになり、投稿者の削除tokenはブラウザだけに保存されます。
 
+## 公式情報の更新フロー
+
+1. 公式X・ゲーム内告知などの一次情報を確認し、参照URLやスクリーンショットを保存する。
+2. 既存のスクリーンショット由来DBと矛盾しないか確認し、確認できた対象JSONだけを更新する（公式Xからの自動反映は行わない）。
+3. `npm.cmd run generate:site` でHTMLを再生成し、`npm.cmd run validate` と `npm.cmd test` を実行する。
+4. 公開向けの変更内容を `/updates/` に記録し、`main` へpushする。
+5. GitHub Actions成功後、既存Vercel ProjectのProductionと対象ページを確認する。
+
 ## Deployment
 
 `main` へpushすると、既存のVercel Project `monsaba-guide` が自動でProduction Deploymentを作成します。新しいVercel Projectは作成しません。canonical・robots・sitemap・OG・JSON-LDは `https://monster-survival.com/` を正とします。旧 `monsaba-guide.vercel.app` と `www.monster-survival.com` は正式URLへ恒久リダイレクトします。
