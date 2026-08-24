@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { BASE_URL, LAST_MODIFIED } from './site-config.mjs';
+import { renderHeader } from './shared-layout.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const readJson = (file) => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'));
@@ -61,7 +62,7 @@ const html = `<!doctype html>
   <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="stylesheet" href="/styles.css">
   <script type="application/ld+json">${JSON.stringify(structured).replaceAll('<', '\\u003c')}</script>
 </head><body><a class="skip-link" href="#main-content">本文へスキップ</a>
-  <header class="site-header"><div class="wrap header-inner"><a class="brand" href="/" aria-label="モンサバ攻略DB トップ"><span class="brand-main">モンサバ攻略DB</span><span class="brand-sub">非公式</span></a><nav aria-label="主要メニュー"></nav></div></header>
+  ${renderHeader('/beginner-guide/')}
   <main id="main-content">
     <section class="page-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="パンくず"><a href="/">トップ</a><span>›</span><span>初心者ガイド</span></nav><div class="family-page-head"><div><span class="attribute">最終更新 ${LAST_MODIFIED.replaceAll('-', '/')}</span><h1>${title}</h1><p>確認済みデータだけを使い、次に見る場所を順番に案内します。</p></div><a class="ghost-button" href="/consult/">攻略相談所で相談</a></div><p class="article-byline">運営・データ確認：<a href="/about/">おぢ</a></p></div></section>
     <section class="wrap static-section beginner-first"><p class="section-kicker visible-kicker">まずこれ</p><h2 class="page-h2">初心者が進む4ステップ</h2><ol class="beginner-steps"><li><a href="#normal"><b>STEP 1</b><span>通常ステージ</span></a></li><li><a href="#training"><b>STEP 2</b><span>最初の育成</span></a></li><li><a href="#t3"><b>STEP 3</b><span>最初のT3</span></a></li><li><a href="#contents"><b>STEP 4</b><span>コンテンツ攻略</span></a></li></ol></section>

@@ -11,6 +11,7 @@ const heroes = [
   ...Array.from({length:7}, (_, index) => `/assets/heroes/IMG_${6940 + index}.webp`),
   '/assets/heroes/top-main.webp',
   '/assets/heroes/evolution-main.webp',
+  ...['top-main-480.webp', 'top-main-768.webp', 'evolution-main-480.webp', 'evolution-main-768.webp', 'IMG_6941-480.webp', 'IMG_6941-768.webp', 'IMG_6942-480.webp', 'IMG_6942-768.webp', 'IMG_6943-480.webp', 'IMG_6943-768.webp', 'IMG_6944-480.webp', 'IMG_6945-480.webp'].map((file) => `/assets/heroes/responsive/${file}`),
   '/favicon.ico',
   '/favicon-32x32.png',
   '/apple-touch-icon.png',

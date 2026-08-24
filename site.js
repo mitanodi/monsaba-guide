@@ -14,18 +14,8 @@
   const nav = inner?.querySelector('nav');
   if (!header || !inner || !nav) return;
 
-  nav.id = 'global-navigation';
+  nav.id ||= 'global-navigation';
   nav.setAttribute('aria-label', '主要メニュー');
-  nav.innerHTML = [
-    ['/#tatari', 'タタ図鑑', ''],
-    ['/tata-tier/', 'タタTier', ''],
-    ['/evolution-priority/', '進化優先度', ''],
-    ['/#content-guides', 'コンテンツ攻略', ''],
-    ['/friends/', 'フレンド掲示板', ''],
-    ['/consult/', '攻略相談', ''],
-    ['/search/', '検索', ''],
-    ['/beginner-guide/', '初心者ガイド', 'mobile-only-nav-link']
-  ].map(([href, label, className]) => `<a href="${href}"${className ? ` class="${className}"` : ''}>${label}</a>`).join('');
 
   const path = location.pathname;
   const currentHref = path.startsWith('/tata/') ? '/#tatari'
@@ -112,7 +102,10 @@
     script.src = src;
     document.head.appendChild(script);
   };
-  if (location.hostname.endsWith('.vercel.app')) {
+  const analyticsHost = location.hostname === 'monster-survival.com'
+    || location.hostname === 'www.monster-survival.com'
+    || location.hostname.endsWith('.vercel.app');
+  if (analyticsHost) {
     loadVercelScript('va', 'vaq', '/_vercel/insights/script.js');
     loadVercelScript('si', 'siq', '/_vercel/speed-insights/script.js');
   }

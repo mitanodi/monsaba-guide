@@ -108,6 +108,8 @@ for (const family of tatari.families || []) {
   expect(html.includes(`${family.familyName}系のおすすめ用途`), `${file}: おすすめ用途がありません`);
   expect(html.includes(`${family.familyName}の進化先`), `${file}: 進化先がありません`);
   expect(html.includes(`${family.familyName}系のスキル一覧`), `${file}: スキル一覧がありません`);
+  expect(html.includes('このページで扱う進化'), `${file}: 進化名称の静的索引がありません`);
+  for (const evolution of family.evolutions) expect(html.includes(`T${evolution.stage}</b> ${evolution.name}`), `${file}: T${evolution.stage} ${evolution.name} が進化索引にありません`);
   expect(html.includes('data-monetization-slot="tata_mid" hidden'), `${file}: 非表示の将来広告枠がありません`);
   const imageMatch = html.match(/<meta property="og:image" content="([^"]+)"/);
   expect(Boolean(imageMatch), `${file}: og:image がありません`);
@@ -117,12 +119,42 @@ for (const family of tatari.families || []) {
   }
 }
 
-for (const label of ['タタ図鑑', 'タタTier', '進化優先度', 'コンテンツ攻略', '攻略相談', '検索', '初心者ガイド', 'フレンド掲示板']) expect(read('site.js').includes(label), `共通ヘッダーに ${label} がありません`);
+const sharedLayout = read('scripts/shared-layout.mjs');
+for (const label of ['タタ図鑑', 'タタTier', '進化優先度', 'コンテンツ攻略', '攻略相談', '検索', '初心者ガイド', 'フレンド掲示板']) expect(sharedLayout.includes(label), `共通ヘッダーに ${label} がありません`);
 const siteJs = read('site.js');
-expect(siteJs.includes("['/friends/', 'フレンド掲示板', '']"), 'フレンド掲示板がPC常設ナビになっていません');
-expect(siteJs.indexOf("['/#content-guides'") < siteJs.indexOf("['/friends/'") && siteJs.indexOf("['/friends/'") < siteJs.indexOf("['/consult/'"), '共通ナビのフレンド掲示板の並びが不正です');
+expect(sharedLayout.includes("href: '/friends/', label: 'フレンド掲示板'"), 'フレンド掲示板がPC常設ナビになっていません');
+expect(sharedLayout.indexOf("href: '/#content-guides'") < sharedLayout.indexOf("href: '/friends/'") && sharedLayout.indexOf("href: '/friends/'") < sharedLayout.indexOf("href: '/consult/'"), '共通ナビのフレンド掲示板の並びが不正です');
 expect(read('site.js').includes("aria-current', 'page'"), 'aria-current 共通処理がありません');
 expect(read('site.js').includes('/_vercel/insights/script.js') && read('site.js').includes('/_vercel/speed-insights/script.js'), 'Vercel計測スクリプトが不足');
+expect(siteJs.includes("hostname === 'monster-survival.com'") && siteJs.includes("hostname.endsWith('.vercel.app')") && !siteJs.includes("hostname === 'localhost'"), 'Vercel計測対象hostが不正です');
+
+for (const file of htmlFiles) {
+  const html = read(file);
+  expect(html.includes('id="global-navigation"'), `${file}: 初期HTMLに共通navがありません`);
+  expect(html.includes('フレンド掲示板'), `${file}: 初期HTMLの共通navが不完全です`);
+}
+const topHtml = read('index.html');
+expect((topHtml.match(/data-family="/g) || []).length === 63, 'TOP図鑑の静的HTMLが63系統ではありません');
+expect((read('tata-tier/index.html').match(/class="overall-card"/g) || []).length > 0, 'Tierの静的HTMLがありません');
+expect((read('evolution-priority/index.html').match(/class="evolution-card"/g) || []).length > 0, '進化優先度の静的HTMLがありません');
+expect(topHtml.includes('data-official-x') && topHtml.includes('https://x.com/monsaba_jp') && topHtml.includes('/official-x.js'), 'TOPの公式Xセクションが不足しています');
+const xScript = read('official-x.js');
+expect(xScript.includes('IntersectionObserver') && xScript.includes('https://platform.twitter.com/widgets.js'), '公式Xの遅延読込が不足しています');
+expect((xScript.match(/platform\.twitter\.com\/widgets\.js/g) || []).length === 2, '公式X widgets.js参照の想定が変わっています');
+expect(read('privacy/index.html').includes('Xの埋め込みコンテンツ') && read('privacy/index.html').includes('X側のCookie'), 'PrivacyのX埋め込み説明が不足しています');
+
+for (const [file, hero] of Object.entries({
+  'index.html': 'top-main.webp',
+  'evolution-priority/index.html': 'evolution-main.webp',
+  'zombie-rush/index.html': 'IMG_6941.webp',
+  'boss-rally/index.html': 'IMG_6942.webp',
+  'badge-dojo/index.html': 'IMG_6943.webp',
+  'normal-guide/index.html': 'IMG_6945.webp'
+})) {
+  const html = read(file);
+  expect(html.includes(`srcset="/assets/heroes/responsive/${hero.replace('.webp', '')}-480.webp`), `${file}: Hero srcsetがありません`);
+  expect(html.includes('sizes="(max-width: 820px)'), `${file}: Hero sizesがありません`);
+}
 
 const vercel = json('vercel.json');
 const redirect = (vercel.redirects || []).find((item) => item.source === '/attribute/earth/' && item.destination === '/attribute/rock/');
@@ -152,6 +184,7 @@ expect(!sitemap.includes('/attribute/earth/'), 'sitemap.xml に旧 earth URL が
 expect(sitemap.includes(`${BASE_URL}/attribute/rock/`), 'sitemap.xml に rock URL がありません');
 for (const route of ['/beginner-guide/', '/friends/', '/about/', '/search/', '/updates/', '/privacy/', '/about-data/']) expect(sitemap.includes(`${BASE_URL}${route}`), `sitemap.xml に ${route} がありません`);
 expect(!sitemap.includes('/404'), 'sitemap.xml に404が含まれています');
+expect((sitemap.match(/<loc>/g) || []).length === (sitemap.match(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g) || []).length, 'sitemap.xmlの全URLに有効なlastmodが必要です');
 expect(read('robots.txt').includes(`Sitemap: ${BASE_URL}/sitemap.xml`), 'robots.txt のSitemap URLが不正');
 
 const expectedSlots = ['article_after_summary', 'article_mid', 'article_bottom', 'tata_mid', 'beginner_mid'];

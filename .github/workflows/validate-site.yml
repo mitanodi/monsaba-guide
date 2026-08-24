@@ -21,10 +21,6 @@ jobs:
       - run: npm run check:syntax
       - run: npm run test:friends
       - run: npm run validate:data
-      - run: npm run generate:tata
-      - run: git diff --exit-code -- tata
-      - run: npm run generate:beginner
-      - run: git diff --exit-code -- beginner-guide
-      - run: npm run generate:sitemap
-      - run: git diff --exit-code -- sitemap.xml
+      - run: npm run generate:site
+      - run: git diff --exit-code
       - run: npm run validate:site
