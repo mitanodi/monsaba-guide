@@ -158,12 +158,17 @@ for (const family of renamedFamilies) {
 const sharedLayout = read('scripts/shared-layout.mjs');
 for (const label of ['タタ図鑑', 'タタTier', '進化優先度', '攻略ハブ', '比較', '攻略相談', '検索', '初心者ガイド', 'フレンド掲示板']) expect(sharedLayout.includes(label), `共通ヘッダーに ${label} がありません`);
 const siteJs = read('site.js');
+const stylesCss = read('styles.css');
 expect(sharedLayout.includes("href: '/friends/', label: 'フレンド掲示板' })"), 'フレンド掲示板がPC常設ナビになっていません');
 expect(sharedLayout.indexOf("href: '/consult/'") < sharedLayout.indexOf("href: '/friends/'") && sharedLayout.indexOf("href: '/friends/'") < sharedLayout.indexOf("href: '/search/'"), '共通ナビの攻略相談・フレンド掲示板・検索の並びが不正です');
 expect(sharedLayout.indexOf("href: '/guides/'") < sharedLayout.indexOf("href: '/compare/'") && sharedLayout.indexOf("href: '/compare/'") < sharedLayout.indexOf("href: '/consult/'"), '共通ナビの攻略ハブ・比較・相談の並びが不正です');
 expect(read('site.js').includes("aria-current', 'page'"), 'aria-current 共通処理がありません');
 expect(read('site.js').includes('/_vercel/insights/script.js') && read('site.js').includes('/_vercel/speed-insights/script.js'), 'Vercel計測スクリプトが不足');
 expect(siteJs.includes("hostname === 'monster-survival.com'") && siteJs.includes("hostname.endsWith('.vercel.app')") && !siteJs.includes("hostname === 'localhost'"), 'Vercel計測対象hostが不正です');
+expect(stylesCss.includes('@media(max-width:820px)') && stylesCss.includes('grid-template-columns:repeat(2,minmax(0,1fr))'), 'mobile navが820px以下の2列gridではありません');
+expect(stylesCss.includes('.site-header nav a:last-child{grid-column:1/-1}'), 'mobile navの最後の項目が全幅ではありません');
+expect(stylesCss.includes('min-height:44px') && stylesCss.includes('.site-header nav a[aria-current="page"]'), 'mobile navのタップ高さまたはactive表示が不足しています');
+expect(read('site.js').includes("matchMedia('(min-width: 821px)')"), '821px以上でmobile navを閉じる回帰処理がありません');
 
 for (const file of htmlFiles) {
   const html = read(file);
