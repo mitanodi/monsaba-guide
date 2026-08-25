@@ -3164,12 +3164,12 @@
     },
     "hikaru": {
       "familyId": "hikaru",
-      "familyName": "ヒカル",
+      "familyName": "ピカル",
       "attribute": "雷",
       "stages": [
         {
           "stage": 1,
-          "tataName": "ヒカル",
+          "tataName": "ピカル",
           "skillName": "スパークシールド",
           "description": "一番前の仲間1体に「静電気シールド」を付与し、シールド消失時に範囲ダメージを与える。",
           "values": [
@@ -3201,7 +3201,7 @@
         },
         {
           "stage": 2,
-          "tataName": "ホルタル",
+          "tataName": "ボルタル",
           "skillName": "ミラージュシールド",
           "description": "静電気シールドに加え、継続的にダメージと短時間の「束縛」を与える。",
           "values": [
@@ -3250,7 +3250,7 @@
         },
         {
           "stage": 3,
-          "tataName": "ルシフタル",
+          "tataName": "ルシフェル",
           "skillName": "シャイニングシールド",
           "description": "静電気シールドを付与し、継続的な麻痺ダメージと短時間の束縛を与える。",
           "values": [

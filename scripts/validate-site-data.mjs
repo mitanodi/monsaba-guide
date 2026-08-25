@@ -53,6 +53,10 @@ const bowzuhebi = ratings.overall?.byFamily?.nenbutsuhebi;
 for (const [mode, expected] of Object.entries({ tier: 'SS', normal: 'SS', zombie: 'SS', dojo: 'SS', beginner: 'SS' })) {
   expect(bowzuhebi?.[mode] === expected, `nenbutsuhebi ${mode}: ${bowzuhebi?.[mode] || '未設定'} / expected ${expected}`);
 }
+const pikaru = (tatari.families || []).find((family) => family.id === 'hikaru');
+const pikaruNames = ['ピカル', 'ボルタル', 'ルシフェル', 'ルミナリオン'];
+expect(JSON.stringify(pikaru?.evolutions?.map((stage) => stage.name)) === JSON.stringify(pikaruNames), `hikaru進化列: ${pikaru?.evolutions?.map((stage) => stage.name).join(' → ')}`);
+expect(getFamilyDisplayLabel(pikaru) === 'ピカル系', 'hikaruの表示系統名がピカル系ではありません');
 
 const overallGroups = ratings.overall?.groups || [];
 const overallIds = overallGroups.flatMap((group) => group.ids || []);
@@ -154,6 +158,10 @@ for (const family of renamedFamilies) {
   const legacyLabel = `${family.familyName}系`;
   for (const file of htmlFiles) expect(!read(file).includes(legacyLabel), `${file}: legacy系統表示 ${legacyLabel} が残っています`);
 }
+for (const file of htmlFiles) {
+  const html = read(file);
+  for (const wrongName of ['ヒカル系', 'ホルタル', 'ルシフタル']) expect(!html.includes(wrongName), `${file}: 旧ピカル系表示 ${wrongName} が残っています`);
+}
 
 const sharedLayout = read('scripts/shared-layout.mjs');
 for (const label of ['タタ図鑑', 'タタTier', '進化優先度', '攻略ハブ', '比較', '攻略相談', '検索', '初心者ガイド', 'フレンド掲示板']) expect(sharedLayout.includes(label), `共通ヘッダーに ${label} がありません`);
@@ -252,27 +260,35 @@ expect(sitemap.includes(`${BASE_URL}/attribute/rock/`), 'sitemap.xml に rock UR
 for (const route of ['/beginner-guide/', '/friends/', '/about/', '/search/', '/guides/', '/faq/', '/updates/', '/updates/2026-08-26/', '/privacy/', '/about-data/']) expect(sitemap.includes(`${BASE_URL}${route}`), `sitemap.xml に ${route} がありません`);
 expect(!sitemap.includes(`${BASE_URL}/compare/`), 'noindexの比較ページをsitemapへ含めないでください');
 expect(!sitemap.includes('/404'), 'sitemap.xml に404が含まれています');
-expect((sitemap.match(/<loc>/g) || []).length === (sitemap.match(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g) || []).length, 'sitemap.xmlの全URLに有効なlastmodが必要です');
+expect((sitemap.match(/<loc>/g) || []).length === (sitemap.match(/<lastmod>\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}\+09:00)?<\/lastmod>/g) || []).length, 'sitemap.xmlの全URLに有効なlastmodが必要です');
 expect(read('robots.txt').includes(`Sitemap: ${BASE_URL}/sitemap.xml`), 'robots.txt のSitemap URLが不正');
 
-const expectedSlots = ['article_after_summary', 'article_mid', 'article_bottom', 'tata_mid', 'beginner_mid'];
+const expectedSlots = ['article_after_summary', 'article_mid', 'article_bottom', 'tata_mid', 'beginner_mid', 'affiliate_top', 'affiliate_mid', 'affiliate_bottom', 'affiliate_floating'];
 expect(monetization.adsEnabled === false, 'monetization: adsEnabled は false を維持してください');
 expect(monetization.affiliateEnabled === true, 'monetization: affiliateEnabled は true を維持してください');
 expect(expectedSlots.every((slot) => monetization.slots?.includes(slot)), 'monetization: 固定slot IDが不足しています');
+expect(monetization.affiliateDensity === 'high', 'monetization: affiliateDensity は high で開始してください');
+expect(monetization.stickyAffiliateEnabled === true && monetization.slideAffiliateEnabled === true && monetization.bottomAffiliateEnabled === true, 'monetization: 固定affiliate設定が不足しています');
+expect(monetization.slideAffiliateSide === 'right' && monetization.slideAffiliateDelaySeconds === 10, 'monetization: 右slideまたはdelayが不正です');
+expect(monetization.bottomAffiliateDelaySeconds === 7 && monetization.floatingAffiliateSessionLimit === 1, 'monetization: bottom delayまたはsession上限が不正です');
+expect(monetization.desktopRailAffiliateEnabled === true && monetization.desktopRailAffiliateMinWidth >= 1600, 'monetization: desktop railの安全幅設定が不足しています');
 expect(!publicFiles.map(read).join('\n').match(/adsbygoogle|doubleclick\.net|googlesyndication/i), '未承認の通常広告が混入しています');
-const expectedAffiliatePages = Object.freeze({
-  'beginner-guide/index.html': 'point_income_003',
-  'evolution-priority/index.html': 'macromill_002',
-  'index.html': 'warau_003',
-  'normal-guide/index.html': 'ipsos_isay_001'
-});
-const affiliatePages = htmlFiles.filter((file) => read(file).includes('data-affiliate-offer='));
-expect(JSON.stringify(affiliatePages.sort()) === JSON.stringify(Object.keys(expectedAffiliatePages).sort()), `affiliate掲載範囲が不正: ${affiliatePages.join(', ')}`);
-for (const [file, offer] of Object.entries(expectedAffiliatePages)) {
-  expect(read(file).includes(`data-affiliate-offer="${offer}"`), `${file}: affiliate案件が不正です`);
-  expect((read(file).match(/data-affiliate-offer=/g) || []).length === 1, `${file}: affiliate広告は1件だけにしてください`);
-  expect(read(file).includes('/monetization.js'), `${file}: monetization.jsがありません`);
+const matchesAffiliatePath = (pattern, route) => pattern.endsWith('*') ? route.startsWith(pattern.slice(0, -1)) : route === pattern;
+const routeForHtmlFile = (file) => file === 'index.html' ? '/' : file.endsWith('/index.html') ? `/${file.slice(0, -10)}` : `/${file}`;
+const affiliateEligibleFiles = htmlFiles.filter((file) => monetization.pageProfiles?.some((rule) => matchesAffiliatePath(rule.match, routeForHtmlFile(file))));
+expect(affiliateEligibleFiles.length === 79, `affiliate対象ページ数: ${affiliateEligibleFiles.length}`);
+for (const file of affiliateEligibleFiles) expect(read(file).includes('/monetization.js'), `${file}: monetization.jsがありません`);
+for (const route of ['/privacy/', '/about/', '/about-data/', '/updates/', '/search/', '/consult/', '/faq/']) {
+  expect(!monetization.pageProfiles?.some((rule) => matchesAffiliatePath(rule.match, route)), `affiliate非対象ページ ${route} が有効です`);
 }
+expect(read('monetization.js').includes("link.rel = 'sponsored nofollow noopener'"), 'affiliate rel生成が不正です');
+expect(read('monetization.js').includes("aria-label', '広告を閉じる'"), '固定広告のclose UIがありません');
+expect(read('monetization.js').includes('SESSION_COUNT_KEY') && read('monetization.js').includes('sessionCanShow'), '固定広告のsession制御がありません');
+expect(read('monetization.js').includes("'.site-header.nav-open") && read('monetization.js').includes('document.activeElement'), '固定広告の操作中抑止がありません');
+expect(read('styles.css').includes('safe-area-inset-bottom') && read('styles.css').includes('translate(110%,-50%)') && read('styles.css').includes('translate(-50%,110%)'), '固定広告のsafe areaまたはslide animationが不足しています');
+expect(read('growth.js').includes("'affiliate_impression'") && read('growth.js').includes('intersectionRatio < 0.5'), 'affiliate impression計測が不足しています');
+expect(fs.existsSync(path.join(root, 'docs/ad-placement-audit.md')) && read('docs/ad-placement-audit.md').includes('広告対象ページ数: 79'), '広告配置監査が未生成です');
+expect(fs.existsSync(path.join(root, 'docs/a8-ad-url-submission.csv')), 'A8追加URL提出CSVがありません');
 const a8Offers = [
   ['s00000025908001', 'https://px.a8.net/svt/ejp?a8mat=4BADDF+YJ6MY+5JWO+5YZ75', 'https://www28.a8.net/svt/bgt?aid=260824371058&wid=002&eno=01&mid=s00000025908001003000&mc=1', 'https://www16.a8.net/0.gif?a8mat=4BADDF+YJ6MY+5JWO+5YZ75', 300, 250],
   ['s00000018660003', 'https://px.a8.net/svt/ejp?a8mat=4BADDF+XCBFE+3ZZC+HXKQP', 'https://www25.a8.net/svt/bgt?aid=260824371056&wid=002&eno=01&mid=s00000018660003012000&mc=1', 'https://www11.a8.net/0.gif?a8mat=4BADDF+XCBFE+3ZZC+HXKQP', 468, 60],

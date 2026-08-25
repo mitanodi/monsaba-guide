@@ -16,14 +16,17 @@
     "generate:nav": "node scripts/update-shared-navigation.mjs",
     "generate:footer": "node scripts/update-shared-footer.mjs",
     "generate:foundations": "node scripts/update-growth-foundations.mjs",
+    "generate:freshness": "node scripts/update-content-timestamps.mjs",
     "generate:heroes": "node scripts/update-responsive-heroes.mjs",
+    "generate:affiliate-audit": "node scripts/generate-ad-placement-audit.mjs",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
-    "generate:site": "npm run generate:tata && npm run generate:beginner && npm run generate:core && npm run generate:updates && npm run generate:growth && npm run generate:nav && npm run generate:footer && npm run generate:foundations && npm run generate:heroes && npm run generate:sitemap",
+    "generate:site": "npm run generate:tata && npm run generate:beginner && npm run generate:core && npm run generate:updates && npm run generate:growth && npm run generate:nav && npm run generate:footer && npm run generate:foundations && npm run generate:freshness && npm run generate:heroes && npm run generate:affiliate-audit && npm run generate:sitemap",
     "smoke:local": "node scripts/smoke-http.mjs",
     "test:friends": "node --test tests/friends.test.mjs",
     "test:official-x": "node --test tests/official-x.test.mjs",
     "test:family-display": "node --test tests/family-display.test.mjs",
-    "test": "npm run test:friends && npm run test:official-x && npm run test:family-display"
+    "test:affiliate": "node --test tests/affiliate-monetization.test.mjs",
+    "test": "npm run test:friends && npm run test:official-x && npm run test:family-display && npm run test:affiliate"
   },
   "dependencies": {
     "@upstash/redis": "^1.38.2"

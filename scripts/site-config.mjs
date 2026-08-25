@@ -1,5 +1,11 @@
 export const BASE_URL = 'https://monster-survival.com';
-export const LAST_MODIFIED = '2026-08-24';
+export const LAST_MODIFIED = '2026-08-25T17:57:25+09:00';
+export const formatJapanDateTime = (value) => {
+  const match = String(value).match(/^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}:\d{2}:\d{2})\+09:00)?$/);
+  if (!match) throw new TypeError(`invalid Japan date/time: ${value}`);
+  const [, year, month, day, time] = match;
+  return `${year}/${Number(month)}/${Number(day)}${time ? ` ${time} JST` : ''}`;
+};
 
 export const ATTRIBUTE_META = Object.freeze({
   草: Object.freeze({ slug: 'grass', icon: '🌿' }),

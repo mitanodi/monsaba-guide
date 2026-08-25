@@ -3583,24 +3583,25 @@
     },
     {
       "id": "hikaru",
-      "familyName": "ヒカル",
+      "familyName": "ピカル",
+      "searchAliases": ["ヒカル", "ホルタル", "ルシフタル", "ヒカル系"],
       "attribute": "雷",
       "evolutions": [
         {
           "stage": 1,
-          "name": "ヒカル",
+          "name": "ピカル",
           "source": "IMG_6474.png",
           "image": "assets/monsters/IMG_6474.webp"
         },
         {
           "stage": 2,
-          "name": "ホルタル",
+          "name": "ボルタル",
           "source": "IMG_6477.png",
           "image": "assets/monsters/IMG_6477.webp"
         },
         {
           "stage": 3,
-          "name": "ルシフタル",
+          "name": "ルシフェル",
           "source": "IMG_6478.png",
           "image": "assets/monsters/IMG_6478.webp"
         },

@@ -15,6 +15,7 @@
       "tata_compare_view",
       "external_link_click",
       "affiliate_click",
+      "affiliate_impression",
       "ad_click",
       "cta_click"
     ]

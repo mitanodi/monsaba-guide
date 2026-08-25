@@ -2,7 +2,7 @@
   const allowedEvents = new Set([
     'nav_click', 'internal_link_click', 'related_content_click', 'site_search',
     'search_result_click', 'filter_use', 'tata_compare_start', 'tata_compare_view',
-    'external_link_click', 'affiliate_click', 'ad_click', 'cta_click'
+    'external_link_click', 'affiliate_click', 'affiliate_impression', 'ad_click', 'cta_click'
   ]);
   const safeValue = (value) => typeof value === 'number' || typeof value === 'boolean'
     ? value
@@ -15,6 +15,33 @@
     return true;
   };
   window.MONSABA_TRACK = Object.freeze({ event: track });
+
+  const deviceClass = () => window.innerWidth <= 820 ? 'mobile' : window.innerWidth < 1200 ? 'tablet' : 'desktop';
+  const affiliateProperties = (ad) => {
+    const slot = ad?.closest('[data-monetization-slot]');
+    return {
+      offer_id: ad?.dataset.offerId || slot?.dataset.affiliateOffer || 'unknown',
+      page: location.pathname,
+      placement: ad?.dataset.affiliatePlacement || slot?.dataset.affiliatePlacement || 'unknown',
+      placement_id: slot?.dataset.monetizationSlot || 'unknown',
+      device_class: deviceClass()
+    };
+  };
+  const measuredImpressions = new WeakSet();
+  const impressionObserver = 'IntersectionObserver' in window ? new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting || entry.intersectionRatio < 0.5 || measuredImpressions.has(entry.target)) continue;
+      measuredImpressions.add(entry.target);
+      impressionObserver.unobserve(entry.target);
+      track('affiliate_impression', affiliateProperties(entry.target));
+    }
+  }, { threshold: [0.5] }) : null;
+  const observeAffiliate = (element) => {
+    if (!(element instanceof Element) || !element.matches('.affiliate-ad') || measuredImpressions.has(element)) return;
+    impressionObserver?.observe(element);
+  };
+  document.querySelectorAll('.affiliate-ad').forEach(observeAffiliate);
+  document.addEventListener('monsaba:affiliate-rendered', (event) => observeAffiliate(event.detail?.element));
 
   const destinationType = (url) => {
     const path = url.pathname;
@@ -33,7 +60,7 @@
     try { url = new URL(link.href, location.href); } catch { return; }
     const common = { destination_type: destinationType(url), source_type: document.body.dataset.pageType || 'page' };
     if (link.closest('.affiliate-ad')) {
-      track('affiliate_click', { offer_id: link.closest('[data-offer-id]')?.dataset.offerId || 'unknown', placement_id: link.closest('[data-monetization-slot]')?.dataset.monetizationSlot || 'unknown' });
+      track('affiliate_click', affiliateProperties(link.closest('.affiliate-ad')));
       return;
     }
     if (link.closest('[data-ad-slot]')) track('ad_click', { slot_id: link.closest('[data-ad-slot]').dataset.adSlot || 'unknown' });

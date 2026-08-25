@@ -84,6 +84,10 @@ const bowzuhebi = ratings.overall?.byFamily?.nenbutsuhebi;
 for (const [mode, expected] of Object.entries({ tier: 'SS', normal: 'SS', zombie: 'SS', dojo: 'SS', beginner: 'SS' })) {
   fail(bowzuhebi?.[mode] === expected, `tier-ratings.json: nenbutsuhebi ${mode} must be ${expected}`);
 }
+const pikaru = families.find((family) => family.id === 'hikaru');
+const pikaruNames = ['ピカル', 'ボルタル', 'ルシフェル', 'ルミナリオン'];
+fail(JSON.stringify(pikaru?.evolutions?.map((stage) => stage.name)) === JSON.stringify(pikaruNames), `tatari.json: hikaru進化列は${pikaruNames.join(' → ')}である必要があります`);
+fail(JSON.stringify(skills.byFamily?.hikaru?.stages?.map((stage) => stage.tataName)) === JSON.stringify(pikaruNames), `tata-skills.json: hikaru進化列は${pikaruNames.join(' → ')}である必要があります`);
 
 function validateReferences(value, file, trail = file) {
   if (Array.isArray(value)) {

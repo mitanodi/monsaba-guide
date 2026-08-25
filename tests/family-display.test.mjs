@@ -30,3 +30,11 @@ test('Bowzuhebi has SS overall and all four mode tiers', () => {
     { tier: 'SS', normal: 'SS', zombie: 'SS', dojo: 'SS', beginner: 'SS' }
   );
 });
+
+test('Pikaru keeps the public hikaru slug while using the corrected four-stage names', () => {
+  const family = tatari.families.find((item) => item.id === 'hikaru');
+  assert.ok(family);
+  assert.deepEqual(family.evolutions.map((stage) => stage.name), ['ピカル', 'ボルタル', 'ルシフェル', 'ルミナリオン']);
+  assert.equal(getFamilyDisplayLabel(family), 'ピカル系');
+  for (const legacy of ['ヒカル', 'ホルタル', 'ルシフタル']) assert.ok(getFamilySearchAliases(family).includes(legacy));
+});

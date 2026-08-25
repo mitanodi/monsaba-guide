@@ -16,6 +16,7 @@
       family?.familyName ? `${family.familyName}系` : '',
       getFamilyDisplayName(family),
       getFamilyDisplayLabel(family),
+      ...(family?.searchAliases || []),
       ...(family?.evolutions || []).flatMap((evolution) => [evolution?.name, evolution?.name ? `${evolution.name}系` : ''])
     ];
     return [...new Set(names.filter((name) => typeof name === 'string' && name.trim()).map((name) => name.trim()))];

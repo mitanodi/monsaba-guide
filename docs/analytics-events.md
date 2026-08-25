@@ -21,6 +21,7 @@
 | `tata_compare_view` | 2体比較成立 | mode, 左右の属性 | 自由入力 |
 | `external_link_click` | 外部リンク | destination host | 完全URLのquery |
 | `affiliate_click` | A8リンク | offer id, placement id | 成果・購入内容 |
+| `affiliate_impression` | A8バナーが50%以上表示された最初の1回 | offer id, page, placement, device class | 個人情報・検索語・UID |
 | `ad_click` | 将来のAdSlot | slot id | 広告識別子の推測 |
 | `cta_click` | button/ghost button | CTA id, destination type | 文面全文 |
 

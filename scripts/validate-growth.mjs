@@ -104,7 +104,7 @@ expect(!homeHtml.includes('X_API_BEARER_TOKEN') && !officialXScript.includes('X_
 expect(officialXScript.includes('IntersectionObserver'), '公式X: 遅延読み込みを維持してください');
 
 const growthConfig = json('data/growth-config.json');
-const requiredEvents = ['page_view', 'nav_click', 'internal_link_click', 'related_content_click', 'site_search', 'search_result_click', 'filter_use', 'tata_compare_start', 'tata_compare_view', 'external_link_click', 'affiliate_click', 'ad_click', 'cta_click'];
+const requiredEvents = ['page_view', 'nav_click', 'internal_link_click', 'related_content_click', 'site_search', 'search_result_click', 'filter_use', 'tata_compare_start', 'tata_compare_view', 'external_link_click', 'affiliate_click', 'affiliate_impression', 'ad_click', 'cta_click'];
 expect(growthConfig.analytics?.automaticPageView === true, 'Analyticsの自動page_view設定がありません');
 expect(requiredEvents.every((event) => growthConfig.analytics?.events?.includes(event)), 'Analyticsイベント定義が不足しています');
 const growthScript = read('growth.js');
@@ -117,21 +117,24 @@ const isCovered = (route) => freshnessKeys.some((key) => key === route || (key.e
 for (const route of indexable) expect(isCovered(route), `${route}: freshness管理がありません`);
 for (const [route, override] of Object.entries(freshness.routes || {})) {
   const value = { ...freshness.default, ...override };
-  for (const field of ['published', 'updated', 'verified']) expect(/^\d{4}-\d{2}-\d{2}$/.test(value[field] || ''), `${route}: ${field}が不正です`);
+  for (const field of ['published', 'verified']) expect(/^\d{4}-\d{2}-\d{2}$/.test(value[field] || ''), `${route}: ${field}が不正です`);
+  expect(/^\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}\+09:00)?$/.test(value.updated || ''), `${route}: updatedが不正です`);
 }
 
 const monetization = json('data/monetization.json');
 const offers = json('data/affiliate-offers.json').offers || [];
 expect(monetization.adsEnabled === false && monetization.affiliateEnabled === true, '既存の収益化flagを維持してください');
+expect(monetization.affiliateDensity === 'high' && monetization.floatingAffiliateSessionLimit === 1, 'affiliate密度またはsession上限が不正です');
 expect(new Set(offers.map((offer) => offer.id)).size === offers.length, 'affiliate offer idが重複しています');
+const matchesTarget = (pattern, route) => pattern.endsWith('*') ? route.startsWith(pattern.slice(0, -1)) : route === pattern;
 for (const offer of offers) {
   for (const field of ['id', 'name', 'destination', 'targetPages', 'start', 'disclosure', 'enabled', 'trackingId', 'placementId', 'mediaSource', 'trackingPixel']) expect(offer[field] !== undefined && offer[field] !== '', `${offer.id || 'offer'}: ${field}がありません`);
   expect(/^https:\/\//.test(offer.destination) && /^https:\/\//.test(offer.mediaSource) && /^https:\/\//.test(offer.trackingPixel), `${offer.id}: URLがHTTPSではありません`);
   if (offer.end) expect(offer.start <= offer.end, `${offer.id}: 掲載期間が逆転しています`);
-  for (const route of offer.targetPages || []) {
-    const file = routeFiles.get(route);
-    expect(Boolean(file), `${offer.id}: target page ${route}がありません`);
-    if (file) expect(read(file).includes(`data-affiliate-offer="${offer.id}"`), `${offer.id}: ${route}の掲載slotと一致しません`);
+  for (const pattern of offer.targetPages || []) {
+    const matchedRoutes = [...routeFiles.keys()].filter((route) => matchesTarget(pattern, route));
+    expect(matchedRoutes.length > 0, `${offer.id}: target page ${pattern}がありません`);
+    for (const route of matchedRoutes) expect(read(routeFiles.get(route)).includes('/monetization.js'), `${offer.id}: ${route}にmonetization.jsがありません`);
   }
 }
 expect(read('monetization.js').includes("rel = 'sponsored nofollow noopener'"), 'affiliateリンクのrelが不足しています');

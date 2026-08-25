@@ -1,12 +1,66 @@
 {
-  "version": 1,
+  "version": 2,
   "adsEnabled": false,
   "affiliateEnabled": true,
+  "affiliateDensity": "high",
+  "stickyAffiliateEnabled": true,
+  "slideAffiliateEnabled": true,
+  "slideAffiliateSide": "right",
+  "slideAffiliateDelaySeconds": 10,
+  "slideAffiliateMinWidth": 1200,
+  "bottomAffiliateEnabled": true,
+  "bottomAffiliateDelaySeconds": 7,
+  "floatingAffiliateSessionLimit": 1,
+  "desktopRailAffiliateEnabled": true,
+  "desktopRailAffiliateMinWidth": 1600,
+  "desktopRailPages": {
+    "/evolution-priority/": "macromill_002"
+  },
   "slots": [
     "article_after_summary",
     "article_mid",
     "article_bottom",
     "tata_mid",
-    "beginner_mid"
-  ]
+    "beginner_mid",
+    "affiliate_top",
+    "affiliate_mid",
+    "affiliate_bottom",
+    "affiliate_floating"
+  ],
+  "pageProfiles": [
+    { "match": "/", "profile": "major" },
+    { "match": "/tata-tier/", "profile": "major" },
+    { "match": "/evolution-priority/", "profile": "major" },
+    { "match": "/zombie-rush/", "profile": "major" },
+    { "match": "/normal-guide/", "profile": "major" },
+    { "match": "/boss-rally/", "profile": "major" },
+    { "match": "/badge-dojo/", "profile": "major" },
+    { "match": "/beginner-guide/", "profile": "major" },
+    { "match": "/guides/", "profile": "major" },
+    { "match": "/friends/", "profile": "compact" },
+    { "match": "/attribute/*", "profile": "compact" },
+    { "match": "/tata/*", "profile": "detail" }
+  ],
+  "profiles": {
+    "major": {
+      "placements": [
+        { "placement": "top", "slotId": "affiliate_top", "anchor": "after_hero", "offerIds": ["warau_003"] },
+        { "placement": "mid", "slotId": "affiliate_mid", "anchor": "middle", "offerIds": ["point_income_003", "ipsos_isay_001"] }
+      ]
+    },
+    "compact": {
+      "placements": [
+        { "placement": "mid", "slotId": "affiliate_mid", "anchor": "middle", "offerIds": ["point_income_003", "ipsos_isay_001"] }
+      ]
+    },
+    "detail": {
+      "placements": [
+        { "placement": "mid", "slotId": "tata_mid", "anchor": "middle", "offerIds": ["point_income_003", "ipsos_isay_001"] }
+      ]
+    }
+  },
+  "floating": {
+    "slideOfferIds": ["point_income_003", "ipsos_isay_001"],
+    "bottomOfferIds": ["warau_003"]
+  }
 }

@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { BASE_URL, LAST_MODIFIED } from './site-config.mjs';
+import { BASE_URL, LAST_MODIFIED, formatJapanDateTime } from './site-config.mjs';
 import { renderHeader } from './shared-layout.mjs';
 import '../family-display.js';
 
@@ -67,7 +67,7 @@ const html = `<!doctype html>
 </head><body><a class="skip-link" href="#main-content">本文へスキップ</a>
   ${renderHeader('/beginner-guide/')}
   <main id="main-content">
-    <section class="page-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="パンくず"><a href="/">トップ</a><span>›</span><span>初心者ガイド</span></nav><div class="family-page-head"><div><span class="attribute">最終更新 ${LAST_MODIFIED.replaceAll('-', '/')}</span><h1>${title}</h1><p>確認済みデータだけを使い、次に見る場所を順番に案内します。</p></div><a class="ghost-button" href="/consult/">攻略相談所で相談</a></div><p class="article-byline">運営・データ確認：<a href="/about/">おぢ</a></p></div></section>
+    <section class="page-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="パンくず"><a href="/">トップ</a><span>›</span><span>初心者ガイド</span></nav><div class="family-page-head"><div><span class="attribute">最終更新 ${formatJapanDateTime(LAST_MODIFIED)}</span><h1>${title}</h1><p>確認済みデータだけを使い、次に見る場所を順番に案内します。</p></div><a class="ghost-button" href="/consult/">攻略相談所で相談</a></div><p class="article-byline">運営・データ確認：<a href="/about/">おぢ</a></p></div></section>
     <section class="wrap static-section beginner-first"><p class="section-kicker visible-kicker">まずこれ</p><h2 class="page-h2">初心者が進む4ステップ</h2><ol class="beginner-steps"><li><a href="#normal"><b>STEP 1</b><span>通常ステージ</span></a></li><li><a href="#training"><b>STEP 2</b><span>最初の育成</span></a></li><li><a href="#t3"><b>STEP 3</b><span>最初のT3</span></a></li><li><a href="#contents"><b>STEP 4</b><span>コンテンツ攻略</span></a></li></ol></section>
     <div class="monetization-slot" data-monetization-slot="article_after_summary" hidden></div>
     <section class="wrap static-section prose-page"><h2 class="page-h2">1. 最初に何をやればいい？</h2><p>まず通常ステージで、時間切れ・全滅・配置のどこに困っているかを切り分けます。その後、確認済みの初心者評価と進化優先度から育成候補を選びます。</p></section>

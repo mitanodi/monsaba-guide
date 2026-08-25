@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { BASE_URL } from './site-config.mjs';
+import { formatJapanDateTime } from './site-config.mjs';
 import { renderHeader, renderFooter, renderBreadcrumb } from './shared-layout.mjs';
 import { renderSeoHead, safeJsonLd, breadcrumbSchema, absoluteUrl } from './seo-helpers.mjs';
 
@@ -8,7 +9,10 @@ const root = path.resolve(import.meta.dirname, '..');
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 const freshness = JSON.parse(fs.readFileSync(path.join(root, 'data', 'page-freshness.json'), 'utf8'));
 const tatari = JSON.parse(fs.readFileSync(path.join(root, 'data', 'tatari.json'), 'utf8'));
-const statusFor = (route) => ({ ...freshness.default, ...(freshness.routes[route] || {}) });
+const statusFor = (route) => {
+  const wildcard = Object.entries(freshness.routes).find(([key]) => key.endsWith('*') && route.startsWith(key.slice(0, -1)))?.[1] || {};
+  return { ...freshness.default, ...wildcard, ...(freshness.routes[route] || {}) };
+};
 const write = (route, html) => {
   const directory = path.join(root, route.slice(1));
   fs.mkdirSync(directory, { recursive: true });
@@ -23,7 +27,7 @@ function pageShell({ route, title, description, body, structured, robots, script
   <link rel="icon" href="/favicon.ico" sizes="any" /><link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" /><link rel="apple-touch-icon" href="/apple-touch-icon.png" /><link rel="manifest" href="/site.webmanifest" /><link rel="stylesheet" href="/styles.css?v=20260825-growth" />
   <script type="application/ld+json">${safeJsonLd(structured)}</script></head>
 <body data-page-type="${pageType}"><a class="skip-link" href="#main-content">本文へスキップ</a>${renderHeader(route)}<main id="main-content">${body}
-  <section class="wrap source-note page-freshness"><strong>情報の状態</strong><p><span class="trust-label is-verified">確認済み</span> 最終更新 <time datetime="${status.updated}">${status.updated.replaceAll('-', '/')}</time> / データ確認 <time datetime="${status.verified}">${status.verified.replaceAll('-', '/')}</time></p>${status.pending?.length ? `<p><span class="trust-label is-pending">確認中</span> ${status.pending.map(esc).join(' / ')}</p>` : ''}<a href="/about-data/">更新・確認方針を見る</a></section>
+  <section class="wrap source-note page-freshness"><strong>情報の状態</strong><p><span class="trust-label is-verified">確認済み</span> 最終更新 <time datetime="${status.updated}">${formatJapanDateTime(status.updated)}</time> / データ確認 <time datetime="${status.verified}">${formatJapanDateTime(status.verified)}</time></p>${status.pending?.length ? `<p><span class="trust-label is-pending">確認中</span> ${status.pending.map(esc).join(' / ')}</p>` : ''}<a href="/about-data/">更新・確認方針を見る</a></section>
 </main>${renderFooter('63系統 / 224体')}<script src="/site.js"></script>${scripts.map((src) => `<script src="${src}" defer></script>`).join('')}<script src="/growth.js" defer></script></body></html>`;
 }
 
