@@ -25,6 +25,7 @@ const tatari = json('data/tatari.json');
 const skills = json('data/tata-skills.json');
 const ratings = json('data/tier-ratings.json');
 const monetization = json('data/monetization.json');
+const affiliateOffers = json('data/affiliate-offers.json');
 const seasonOne = json('data/zombie-rush/seasons/season-1.json');
 for (const [label, values] of [
   ['tatari.json', (tatari.families || []).map((family) => family.attribute)],
@@ -84,7 +85,7 @@ for (const file of htmlFiles) {
       canonicalOwners.set(canonical, file);
     }
   }
-  if (html.includes('class="site-header"')) expect(html.includes('src="/site.js"'), `${file}: 共通サイトスクリプトがありません`);
+  if (html.includes('class="site-header"')) expect(/<script\s+src="(?:\/|\.\/)site\.js(?:\?[^"#]*)?"/.test(html), `${file}: 共通サイトスクリプトがありません`);
   if (html.includes('<footer')) {
     expect(html.includes('href="/friends/"'), `${file}: footerにフレンド掲示板リンクがありません`);
     expect((html.match(/https:\/\/x\.com\/odi_monsaba/g) || []).length === 1, `${file}: X問い合わせリンクが1件ではありません`);
@@ -130,10 +131,10 @@ for (const family of tatari.families || []) {
 }
 
 const sharedLayout = read('scripts/shared-layout.mjs');
-for (const label of ['タタ図鑑', 'タタTier', '進化優先度', 'コンテンツ攻略', '攻略相談', '検索', '初心者ガイド', 'フレンド掲示板']) expect(sharedLayout.includes(label), `共通ヘッダーに ${label} がありません`);
+for (const label of ['タタ図鑑', 'タタTier', '進化優先度', '攻略ハブ', '比較', '攻略相談', '検索', '初心者ガイド', 'フレンド掲示板']) expect(sharedLayout.includes(label), `共通ヘッダーに ${label} がありません`);
 const siteJs = read('site.js');
 expect(sharedLayout.includes("href: '/friends/', label: 'フレンド掲示板'"), 'フレンド掲示板がPC常設ナビになっていません');
-expect(sharedLayout.indexOf("href: '/#content-guides'") < sharedLayout.indexOf("href: '/friends/'") && sharedLayout.indexOf("href: '/friends/'") < sharedLayout.indexOf("href: '/consult/'"), '共通ナビのフレンド掲示板の並びが不正です');
+expect(sharedLayout.indexOf("href: '/guides/'") < sharedLayout.indexOf("href: '/compare/'") && sharedLayout.indexOf("href: '/compare/'") < sharedLayout.indexOf("href: '/consult/'"), '共通ナビの攻略ハブ・比較・相談の並びが不正です');
 expect(read('site.js').includes("aria-current', 'page'"), 'aria-current 共通処理がありません');
 expect(read('site.js').includes('/_vercel/insights/script.js') && read('site.js').includes('/_vercel/speed-insights/script.js'), 'Vercel計測スクリプトが不足');
 expect(siteJs.includes("hostname === 'monster-survival.com'") && siteJs.includes("hostname.endsWith('.vercel.app')") && !siteJs.includes("hostname === 'localhost'"), 'Vercel計測対象hostが不正です');
@@ -207,7 +208,8 @@ expect(brokenLinks.length === 0, `存在しない内部リンク:\n${brokenLinks
 const sitemap = read('sitemap.xml');
 expect(!sitemap.includes('/attribute/earth/'), 'sitemap.xml に旧 earth URL が残っています');
 expect(sitemap.includes(`${BASE_URL}/attribute/rock/`), 'sitemap.xml に rock URL がありません');
-for (const route of ['/beginner-guide/', '/friends/', '/about/', '/search/', '/updates/', '/updates/2026-08-26/', '/privacy/', '/about-data/']) expect(sitemap.includes(`${BASE_URL}${route}`), `sitemap.xml に ${route} がありません`);
+for (const route of ['/beginner-guide/', '/friends/', '/about/', '/search/', '/guides/', '/faq/', '/updates/', '/updates/2026-08-26/', '/privacy/', '/about-data/']) expect(sitemap.includes(`${BASE_URL}${route}`), `sitemap.xml に ${route} がありません`);
+expect(!sitemap.includes(`${BASE_URL}/compare/`), 'noindexの比較ページをsitemapへ含めないでください');
 expect(!sitemap.includes('/404'), 'sitemap.xml に404が含まれています');
 expect((sitemap.match(/<loc>/g) || []).length === (sitemap.match(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g) || []).length, 'sitemap.xmlの全URLに有効なlastmodが必要です');
 expect(read('robots.txt').includes(`Sitemap: ${BASE_URL}/sitemap.xml`), 'robots.txt のSitemap URLが不正');
@@ -230,7 +232,6 @@ for (const [file, offer] of Object.entries(expectedAffiliatePages)) {
   expect((read(file).match(/data-affiliate-offer=/g) || []).length === 1, `${file}: affiliate広告は1件だけにしてください`);
   expect(read(file).includes('/monetization.js'), `${file}: monetization.jsがありません`);
 }
-const monetizationScript = read('monetization.js');
 const a8Offers = [
   ['s00000025908001', 'https://px.a8.net/svt/ejp?a8mat=4BADDF+YJ6MY+5JWO+5YZ75', 'https://www28.a8.net/svt/bgt?aid=260824371058&wid=002&eno=01&mid=s00000025908001003000&mc=1', 'https://www16.a8.net/0.gif?a8mat=4BADDF+YJ6MY+5JWO+5YZ75', 300, 250],
   ['s00000018660003', 'https://px.a8.net/svt/ejp?a8mat=4BADDF+XCBFE+3ZZC+HXKQP', 'https://www25.a8.net/svt/bgt?aid=260824371056&wid=002&eno=01&mid=s00000018660003012000&mc=1', 'https://www11.a8.net/0.gif?a8mat=4BADDF+XCBFE+3ZZC+HXKQP', 468, 60],
@@ -238,13 +239,14 @@ const a8Offers = [
   ['s00000018951001', 'https://px.a8.net/svt/ejp?a8mat=4BADDE+G8NPLM+4286+62U35', 'https://www21.a8.net/svt/bgt?aid=260824370982&wid=002&eno=01&mid=s00000018951001021000&mc=1', 'https://www11.a8.net/0.gif?a8mat=4BADDE+G8NPLM+4286+62U35', 250, 250]
 ];
 for (const [programId, href, banner, tracking, width, height] of a8Offers) {
-  expect(monetizationScript.includes(`offerId: '${programId}'`), `A8 program ID ${programId} がありません`);
-  expect(monetizationScript.includes(href), `A8リンクURL ${programId} が不正です`);
-  expect(monetizationScript.includes(banner), `A8バナーURL ${programId} が不正です`);
-  expect(monetizationScript.includes(tracking), `A8計測タグ ${programId} が不正です`);
-  expect(monetizationScript.includes(`width="${width}" height="${height}"`), `A8画像寸法 ${programId} が不正です`);
+  const offer = affiliateOffers.offers?.find((item) => item.trackingId === programId);
+  expect(Boolean(offer), `A8 program ID ${programId} がありません`);
+  expect(offer?.destination === href, `A8リンクURL ${programId} が不正です`);
+  expect(offer?.mediaSource === banner, `A8バナーURL ${programId} が不正です`);
+  expect(offer?.trackingPixel === tracking, `A8計測タグ ${programId} が不正です`);
+  expect(offer?.width === width && offer?.height === height, `A8画像寸法 ${programId} が不正です`);
 }
-expect((monetizationScript.match(/width="1" height="1"/g) || []).length === a8Offers.length, 'A8 1x1計測画像が不足しています');
+expect(read('monetization.js').includes("pixel.width = 1") && read('monetization.js').includes("pixel.height = 1"), 'A8 1x1計測画像の生成処理が不足しています');
 expect(read('site.js').includes('当サイトはアフィリエイト広告を利用しています。'), '共通footerのaffiliate開示がありません');
 expect(read('privacy/index.html').includes('A8.netのアフィリエイトプログラム') && read('privacy/index.html').includes('Cookieや類似の識別技術'), 'privacyのaffiliate説明が不足しています');
 for (const file of htmlFiles) {

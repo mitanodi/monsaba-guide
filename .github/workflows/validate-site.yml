@@ -26,3 +26,4 @@ jobs:
       - run: npm run generate:site
       - run: git diff --exit-code
       - run: npm run validate:site
+      - run: npm run validate:growth

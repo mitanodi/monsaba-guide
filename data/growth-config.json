@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "analytics": {
+    "provider": "vercel-web-analytics",
+    "automaticPageView": true,
+    "events": [
+      "page_view",
+      "nav_click",
+      "internal_link_click",
+      "related_content_click",
+      "site_search",
+      "search_result_click",
+      "filter_use",
+      "tata_compare_start",
+      "tata_compare_view",
+      "external_link_click",
+      "affiliate_click",
+      "ad_click",
+      "cta_click"
+    ]
+  },
+  "experiments": {
+    "detail_compare_cta": {
+      "enabled": false,
+      "variants": ["compare", "consult"]
+    }
+  }
+}

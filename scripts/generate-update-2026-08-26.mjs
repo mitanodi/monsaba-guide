@@ -96,7 +96,7 @@ const html = `<!doctype html>
       <section class="source-note"><strong>情報源と今後の確認</strong><p>ユーザーがゲーム内で直接確認した「アップデートのお知らせ」を最優先ソースとして整理しました。第三者情報から数値を補っていません。特にトラーニー「火焔爆裂」は公式告知の160% → 230%を掲載しています。</p><p>公式告知の「ワンブー」は現DBの「クンブー」、「フクロウグモ」は「フクロクモ」、「ライマー」は「ライメー」に対応する可能性がありますが、既存DB名は変更していません。実装後のゲーム内表示と進化系統を再確認します。</p></section>
     </section>
   </main>
-  <footer><div class="wrap footer-inner"><div><strong>モンサバ攻略DB</strong><span>モンスターサバイバル 非公式攻略サイト</span></div><div class="footer-side"><nav class="footer-links" aria-label="サイト情報"><a href="/about/">サイトについて</a><a href="/about-data/">データ方針</a><a href="/updates/">更新履歴</a><a href="/privacy/">プライバシー</a><a href="/friends/">フレンド掲示板</a></nav><p class="footer-contact">お問い合わせ・ご連絡は <a href="https://x.com/odi_monsaba" target="_blank" rel="noopener noreferrer">おぢ（@odi_monsaba）X</a> まで。フォローもよろしくお願いします。</p><div class="footer-meta">8/26アップデート予定</div></div></div></footer><script src="/site.js"></script>
+  <footer><div class="wrap footer-inner"><div><strong>モンサバ攻略DB</strong><span>モンスターサバイバル 非公式攻略サイト</span></div><div class="footer-side"><nav class="footer-links" aria-label="サイト情報"><a href="/about/">サイトについて</a><a href="/about-data/">データ方針</a><a href="/updates/">更新履歴</a><a href="/privacy/">プライバシー</a><a href="/friends/">フレンド掲示板</a></nav><p class="footer-contact">お問い合わせ・ご連絡は <a href="https://x.com/odi_monsaba" target="_blank" rel="noopener noreferrer">おぢ（@odi_monsaba）X</a> まで。フォローもよろしくお願いします。</p><div class="footer-meta">8/26アップデート予定</div></div></div></footer><script src="/site.js"></script><script src="/growth.js" defer></script>
 </body></html>`;
 
 const outputDirectory = path.join(root, 'updates', '2026-08-26');

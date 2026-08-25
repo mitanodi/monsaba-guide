@@ -12,14 +12,17 @@
 - 総合Tier: `/tata-tier/`
 - 進化優先度: `/evolution-priority/`
 - 攻略相談所: `/consult/`
+- タタ2体比較: `/compare/`（共有URL、`noindex`）
+- コンテンツ攻略ハブ: `/guides/`
+- よくある質問: `/faq/`
 - コンテンツ攻略: `/zombie-rush/`, `/boss-rally/`, `/badge-dojo/`, `/normal-guide/`
-- 属性別: `/attribute/{grass,water,fire,thunder,rock}/`
+- 属性ハブ・属性別: `/attribute/`, `/attribute/{grass,water,fire,thunder,rock}/`
 - 個別タタ: `/tata/{familyId}/`
 - 更新履歴・データ方針・プライバシー: `/updates/`, `/about-data/`, `/privacy/`
 
 ## データ
 
-主要ゲームJSONは `data/tatari.json`, `data/tata-skills.json`, `data/tier-ratings.json`, `data/evolution-priority.json`, `data/content-guides.json` です。Seasonごとに変わるゾンビラッシュ専用スキルは `data/zombie-rush/seasons/` に分離し、通常スキルDBへ混在させません。収益化設定は `data/monetization.json` に分離し、通常広告は無効、承認済みのA8.netアフィリエイト枠だけを限定表示しています。タタ名・進化・スキルは確認済みスクリーンショット、攻略は収録済み公開情報、Tierは当サイト独自の暫定評価を基準とし、不明内容は推測で補いません。
+主要ゲームJSONは `data/tatari.json`, `data/tata-skills.json`, `data/tier-ratings.json`, `data/evolution-priority.json`, `data/content-guides.json` です。Seasonごとに変わるゾンビラッシュ専用スキルは `data/zombie-rush/seasons/` に分離し、通常スキルDBへ混在させません。収益化設定は `data/monetization.json`、実在する承認済み案件は `data/affiliate-offers.json`、計測・A/B flagは `data/growth-config.json`、ページ確認日は `data/page-freshness.json` で中央管理します。通常広告は無効、承認済みのA8.netアフィリエイト枠だけを限定表示しています。タタ名・進化・スキルは確認済みスクリーンショット、攻略は収録済み公開情報、Tierは当サイト独自の暫定評価を基準とし、不明内容は推測で補いません。
 
 ## ローカル確認
 
@@ -42,7 +45,7 @@ npm.cmd run validate
 node scripts/update-base-url.mjs --from https://monster-survival.com --to https://example.com --dry-run
 ```
 
-掲示板のサーバー接続には `@upstash/redis` を使用します。`npm.cmd test` で掲示板のvalidation・削除・スパム対策を含む単体テストを実行できます。GitHub Actionsでも構文、5 JSON、生成差分、内部リンク、SEO、掲示板テストを検証します。`adsEnabled` は無効のまま、`affiliateEnabled` で承認済みアフィリエイト枠を制御します。
+掲示板のサーバー接続には `@upstash/redis` を使用します。`npm.cmd test` で掲示板のvalidation・削除・スパム対策を含む単体テストを実行できます。GitHub Actionsでは構文、主要JSON、生成差分、内部リンク、SEO、孤立ページ、構造化データ、Analytics定義、鮮度管理、アフィリエイト設定、掲示板テストを検証します。`adsEnabled` は無効のまま、`affiliateEnabled` で承認済みアフィリエイト枠を制御します。
 
 掲示板の接続情報と管理用秘密値はVercelの環境変数で管理し、`.env*` はGitへ追加しません。投稿は30日で期限切れになり、投稿者の削除tokenはブラウザだけに保存されます。
 

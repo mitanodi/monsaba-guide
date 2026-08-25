@@ -44,6 +44,11 @@ function dependenciesFor(route, htmlFile) {
   return [...new Set(dependencies)];
 }
 const seasonOne = JSON.parse(fs.readFileSync(path.join(root, 'data', 'zombie-rush', 'seasons', 'season-1.json'), 'utf8'));
+const freshness = JSON.parse(fs.readFileSync(path.join(root, 'data', 'page-freshness.json'), 'utf8'));
+function freshnessDate(route) {
+  const key = Object.keys(freshness.routes || {}).find((item) => item === route || (item.endsWith('*') && route.startsWith(item.slice(0, -1))));
+  return { ...freshness.default, ...(key ? freshness.routes[key] : {}) }.updated;
+}
 const explicitContentDate = (route) => ['/updates/', '/zombie-rush/', '/tata-tier/', '/updates/2026-08-26/'].includes(route) ? seasonOne.meta.noticeConfirmedDate : null;
 const tatari = JSON.parse(fs.readFileSync(path.join(root, 'data', 'tatari.json'), 'utf8'));
 const tataRoutes = (tatari.families || []).map((family) => `/tata/${family.id}/`);
@@ -55,7 +60,7 @@ const pages = walk(root)
   .filter(({ route }) => route !== '/attribute/earth/')
   .sort((a, b) => (rank.get(a.route) ?? 1000) - (rank.get(b.route) ?? 1000) || a.route.localeCompare(b.route));
 const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map(({ file: htmlFile, route }) => {
-  const lastmod = [...dependenciesFor(route, htmlFile).map(gitDate), explicitContentDate(route)].filter(Boolean).sort().at(-1);
+  const lastmod = [...dependenciesFor(route, htmlFile).map(gitDate), explicitContentDate(route), freshnessDate(route)].filter(Boolean).sort().at(-1);
   return `  <url><loc>${BASE_URL}${route}</loc><lastmod>${lastmod}</lastmod></url>`;
 }).join('\n')}\n</urlset>\n`;
 const file = path.join(root, 'sitemap.xml');

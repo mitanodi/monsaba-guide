@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "default": {
+    "published": "2026-08-24",
+    "updated": "2026-08-24",
+    "verified": "2026-08-24",
+    "gameVersion": "2026-08-24確認環境",
+    "status": "verified",
+    "pending": []
+  },
+  "routes": {
+    "/": {},
+    "/tata/*": {},
+    "/attribute/*": {},
+    "/tata-tier/": { "updated": "2026-08-25", "verified": "2026-08-25", "pending": ["Zombie Rush Season 1開始後の再評価"] },
+    "/evolution-priority/": {},
+    "/guides/": { "published": "2026-08-25", "updated": "2026-08-25", "verified": "2026-08-25" },
+    "/zombie-rush/": { "updated": "2026-08-25", "verified": "2026-08-25", "pending": ["Season 1開始後の実戦再評価"] },
+    "/boss-rally/": {},
+    "/badge-dojo/": {},
+    "/normal-guide/": {},
+    "/beginner-guide/": {},
+    "/compare/": { "published": "2026-08-25", "updated": "2026-08-25", "verified": "2026-08-25" },
+    "/consult/": {},
+    "/search/": {},
+    "/faq/": { "published": "2026-08-25", "updated": "2026-08-25", "verified": "2026-08-25" },
+    "/updates/": { "updated": "2026-08-25", "verified": "2026-08-25" },
+    "/updates/2026-08-26/": { "published": "2026-08-25", "updated": "2026-08-25", "verified": "2026-08-25", "status": "scheduled", "pending": ["2026-08-26実装後のゲーム内確認"] },
+    "/about/": {},
+    "/about-data/": {},
+    "/privacy/": {},
+    "/friends/": {}
+  }
+}

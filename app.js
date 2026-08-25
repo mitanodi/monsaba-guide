@@ -3,6 +3,7 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const attrIcon=Object.fromEntries(Object.entries(ATTRIBUTE_META).map(([attr,meta])=>[attr,meta.icon]));
 const thumb=src=>String(src||'').replace('assets/monsters/','assets/thumbs/');
+let searchEventTimer;
 
 async function boot(){
   const res=await fetch('./data/tatari.json',{cache:'no-store'});
@@ -18,7 +19,7 @@ async function boot(){
   bind(); renderMeta(); renderFilters(); renderCards(); renderSelect(); renderDetail();
 }
 function bind(){
-  $('#search').addEventListener('input',e=>{state.query=e.target.value;syncQuery();renderCards()});
+  $('#search').addEventListener('input',e=>{state.query=e.target.value;syncQuery();renderCards();clearTimeout(searchEventTimer);searchEventTimer=setTimeout(()=>{const rows=filteredFamilies();window.MONSABA_TRACK?.event('site_search',{query_length:[...state.query.trim()].length,result_count:rows.length,search_surface:'tata_directory'})},600)});
   $('#sort').addEventListener('change',e=>{state.sort=e.target.value;syncQuery();renderCards()});
   $('#clearFilters').addEventListener('click',()=>{state.query='';state.attribute='すべて';state.sort='default';$('#search').value='';$('#sort').value='default';syncQuery();renderFilters();renderCards()});
   $('#familySelect').addEventListener('change',e=>selectFamily(e.target.value,true));
