@@ -9,7 +9,7 @@
     "pending": []
   },
   "routes": {
-    "/": {},
+    "/": { "updated": "2026-08-25" },
     "/tata/*": {},
     "/attribute/*": {},
     "/tata-tier/": { "updated": "2026-08-25", "verified": "2026-08-25", "pending": ["Zombie Rush Season 1開始後の再評価"] },

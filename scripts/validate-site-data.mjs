@@ -105,7 +105,9 @@ for (const route of majorRoutes) {
   expect(html.includes(`<meta name="twitter:image" content="${expectedImage}"`), `${file}: twitter:image がHeroと不一致`);
   expect(/<meta property="og:image:alt" content="[^"]+"/.test(html), `${file}: og:image:alt がありません`);
   expect(html.includes(`"image":"${BASE_URL}/`), `${file}: JSON-LD image がありません`);
-  expect(/"mainEntityOfPage":/.test(html) && /"dateModified":/.test(html), `${file}: JSON-LD主要項目が不足`);
+  const hasPageRelationship = /"mainEntityOfPage":/.test(html)
+    || (route === '/' && /"@type":"WebPage"/.test(html) && /"isPartOf":/.test(html));
+  expect(hasPageRelationship && /"dateModified":/.test(html), `${file}: JSON-LD主要項目が不足`);
 }
 
 for (const family of tatari.families || []) {
@@ -165,8 +167,9 @@ expect(read('tata-tier/index.html').includes('この予定変更だけを理由�
 expect(read('search/search.js').includes("href:'/updates/2026-08-26/'"), 'サイト内検索に8/26アップデート予定がありません');
 expect(topHtml.includes('data-official-x') && topHtml.includes('https://x.com/monsaba_jp') && topHtml.includes('/official-x.js'), 'TOPの公式Xセクションが不足しています');
 const xScript = read('official-x.js');
-expect(xScript.includes('IntersectionObserver') && xScript.includes('https://platform.twitter.com/widgets.js'), '公式Xの遅延読込が不足しています');
-expect((xScript.match(/platform\.twitter\.com\/widgets\.js/g) || []).length === 2, '公式X widgets.js参照の想定が変わっています');
+expect(xScript.includes('IntersectionObserver') && xScript.includes("script.src = 'https://platform.x.com/widgets.js'"), '公式Xの遅延読込が不足しています');
+expect(xScript.includes('window.twttr.ready') && xScript.includes('twttr.widgets.load(container)'), '公式X widgets.jsの安全な初期化が不足しています');
+expect(xScript.includes('getBoundingClientRect()') && xScript.includes("style.visibility !== 'hidden'"), '公式Xの可視性検証が不足しています');
 expect(read('privacy/index.html').includes('Xの埋め込みコンテンツ') && read('privacy/index.html').includes('X側のCookie'), 'PrivacyのX埋め込み説明が不足しています');
 
 for (const [file, hero] of Object.entries({

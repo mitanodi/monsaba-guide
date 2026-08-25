@@ -57,6 +57,47 @@ expect(!read('sitemap.xml').includes('https://monster-survival.com/compare/'), '
 expect(read('faq/index.html').includes('"@type":"FAQPage"'), 'FAQPage structured dataがありません');
 expect(read('guides/index.html').includes('"@type":"ItemList"'), '攻略ハブのItemListがありません');
 
+// ブランド検索でトップと更新履歴の役割が逆転しないためのSEO regression。
+const homeHtml = read('index.html');
+const updatesHtml = read('updates/index.html');
+const extractJsonLd = (html) => [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((match) => JSON.parse(match[1]));
+const homeGraph = extractJsonLd(homeHtml).flatMap((value) => value['@graph'] || [value]);
+const updatesGraph = extractJsonLd(updatesHtml).flatMap((value) => value['@graph'] || [value]);
+const websiteSchema = homeGraph.find((node) => node['@type'] === 'WebSite');
+const homePageSchema = homeGraph.find((node) => node['@type'] === 'WebPage');
+const updatesPageSchema = updatesGraph.find((node) => node['@type'] === 'WebPage');
+const homeTitle = 'モンサバ攻略DB｜タタ図鑑・Tier・進化・スキル一覧';
+expect(homeHtml.includes(`<title>${homeTitle}</title>`), 'トップ: titleのブランド名・ページ役割が不正です');
+expect(homeHtml.includes(`<meta property="og:title" content="${homeTitle}"`), 'トップ: og:titleがtitleと一致しません');
+expect(homeHtml.includes('<link rel="canonical" href="https://monster-survival.com/"'), 'トップ: 自己canonicalが不正です');
+expect(homeHtml.includes(`<h1>${homeTitle}</h1>`), 'トップ: H1からサイト代表ページだと判別できません');
+expect(homeHtml.includes('<meta property="og:site_name" content="モンサバ攻略DB"'), 'トップ: og:site_nameが不正です');
+expect(homeHtml.includes('<a class="brand" href="/" aria-label="モンサバ攻略DB トップ"'), 'トップ: ブランドリンクが不正です');
+expect(websiteSchema?.name === 'モンサバ攻略DB', 'トップ: WebSite nameはサイト名だけにしてください');
+expect(websiteSchema?.alternateName === 'モンサバ攻略', 'トップ: WebSite alternateNameが不正です');
+expect(websiteSchema?.url === 'https://monster-survival.com/', 'トップ: WebSite urlが不正です');
+expect(homePageSchema?.name === homeTitle, 'トップ: WebPage nameがページtitleと一致しません');
+expect(homePageSchema?.isPartOf?.['@id'] === websiteSchema?.['@id'], 'トップ: WebPageとWebSiteの関連付けが不正です');
+expect((homeGraph.filter((node) => node['@type'] === 'WebSite')).length === 1, 'トップ: WebSite schemaは1件だけにしてください');
+expect(updatesHtml.includes('<title>更新履歴｜モンサバ攻略DB</title>'), '更新履歴: titleのページ役割が不正です');
+expect(updatesHtml.includes('<h1>更新履歴</h1>'), '更新履歴: H1はページ役割を主役にしてください');
+expect(updatesHtml.includes('<link rel="canonical" href="https://monster-survival.com/updates/"'), '更新履歴: 自己canonicalが不正です');
+expect(!/<meta name="robots" content="[^"]*noindex/i.test(updatesHtml), '更新履歴: indexableを維持してください');
+expect(updatesPageSchema?.name === '更新履歴｜モンサバ攻略DB', '更新履歴: WebPage nameが不正です');
+const sitemap = read('sitemap.xml');
+expect(sitemap.includes('<loc>https://monster-survival.com/</loc>'), 'sitemap: トップがありません');
+expect(sitemap.includes('<loc>https://monster-survival.com/updates/</loc>'), 'sitemap: 更新履歴がありません');
+
+// 公式Xは遅延読み込みを維持しつつ、不可視iframeを成功扱いしない。
+const officialXScript = read('official-x.js');
+expect(homeHtml.includes('href="https://x.com/monsaba_jp?ref_src=twsrc%5Etfw"'), '公式X: タイムラインURLが不正です');
+expect(homeHtml.includes('data-dnt="true"') && homeHtml.includes('data-theme="dark"'), '公式X: privacy/theme設定が不足しています');
+expect(homeHtml.includes('公式タイムラインを表示できません。') && homeHtml.includes('公式Xで最新情報を見る'), '公式X: 明示的fallbackがありません');
+expect(officialXScript.includes("script.src = 'https://platform.x.com/widgets.js'"), '公式X: 現行widgets.js URLを使用してください');
+expect(officialXScript.includes('window.twttr.ready') && officialXScript.includes('twttr.widgets.load(container)'), '公式X: twttr.ready/widgets.loadが不足しています');
+expect(officialXScript.includes('getBoundingClientRect()') && officialXScript.includes("style.visibility !== 'hidden'"), '公式X: 可視性を確認せず成功扱いしています');
+expect(officialXScript.includes('IntersectionObserver'), '公式X: 遅延読み込みを維持してください');
+
 const growthConfig = json('data/growth-config.json');
 const requiredEvents = ['page_view', 'nav_click', 'internal_link_click', 'related_content_click', 'site_search', 'search_result_click', 'filter_use', 'tata_compare_start', 'tata_compare_view', 'external_link_click', 'affiliate_click', 'ad_click', 'cta_click'];
 expect(growthConfig.analytics?.automaticPageView === true, 'Analyticsの自動page_view設定がありません');
