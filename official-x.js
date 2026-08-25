@@ -6,7 +6,10 @@
   const status = feed.querySelector('.official-x-status');
   const list = feed.querySelector('.official-x-post-list');
   const fallback = feed.querySelector('.official-x-fallback');
+  const REFRESH_INTERVAL = 60 * 60 * 1000;
   let started = false;
+  let loading = false;
+  let lastLoadedAt = 0;
 
   const setLinkSafety = (link) => {
     link.target = '_blank';
@@ -85,9 +88,11 @@
     && Array.isArray(post.media);
 
   const loadPosts = async () => {
-    if (started) return;
+    if (loading) return;
     started = true;
-    if (status) status.textContent = '公式Xの最新投稿を読み込んでいます…';
+    loading = true;
+    const hasCurrentPosts = Boolean(list?.children.length);
+    if (!hasCurrentPosts && status) status.textContent = '公式Xの最新投稿を読み込んでいます…';
 
     const controller = new AbortController();
     const timeout = window.setTimeout(() => controller.abort(), 10000);
@@ -99,18 +104,35 @@
       const payload = await response.json();
       const posts = Array.isArray(payload.posts) ? payload.posts.slice(0, 5) : [];
       if (!response.ok || !payload.ok || !posts.length || !posts.every(isValidPost)) throw new Error('Official X feed unavailable');
-      for (const post of posts) list.append(createPost(post));
+      const nextPosts = document.createDocumentFragment();
+      for (const post of posts) nextPosts.append(createPost(post));
+      list.replaceChildren(nextPosts);
       list.hidden = false;
       feed.classList.add('is-loaded');
+      feed.classList.remove('is-unavailable');
       feed.setAttribute('aria-busy', 'false');
       if (status) status.hidden = true;
       if (fallback) fallback.hidden = true;
+      lastLoadedAt = Date.now();
     } catch {
-      showFallback();
+      if (!hasCurrentPosts) showFallback();
     } finally {
+      loading = false;
       window.clearTimeout(timeout);
     }
   };
+
+  window.setInterval(() => {
+    if (started && document.visibilityState === 'visible') loadPosts();
+  }, REFRESH_INTERVAL);
+
+  document.addEventListener('visibilitychange', () => {
+    if (started && document.visibilityState === 'visible' && Date.now() - lastLoadedAt >= REFRESH_INTERVAL) loadPosts();
+  });
+
+  window.addEventListener('online', () => {
+    if (started && Date.now() - lastLoadedAt >= REFRESH_INTERVAL) loadPosts();
+  });
 
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {

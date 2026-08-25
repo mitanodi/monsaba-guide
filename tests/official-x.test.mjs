@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 import handler, { clearOfficialXMemoryCache } from '../api/official-x.js';
 import { fetchOfficialXPosts, OfficialXError } from '../lib/official-x-core.js';
@@ -99,4 +100,12 @@ test('Vercel APIは認証未設定時に秘密値名を返さず短時間cache�
   assert.equal(JSON.stringify(apiResponse.body).includes('X_API_BEARER_TOKEN'), false);
   assert.match(apiResponse.headers.get('vercel-cdn-cache-control'), /s-maxage=300/);
   assert.equal(apiResponse.headers.get('x-robots-tag'), 'noindex, nofollow');
+});
+
+test('表示済みの公式X投稿を1時間ごとに安全に差し替える', async () => {
+  const script = await readFile(new URL('../official-x.js', import.meta.url), 'utf8');
+  assert.match(script, /const REFRESH_INTERVAL = 60 \* 60 \* 1000;/);
+  assert.match(script, /window\.setInterval\([\s\S]*loadPosts\(\)[\s\S]*REFRESH_INTERVAL\);/);
+  assert.match(script, /list\.replaceChildren\(nextPosts\);/);
+  assert.match(script, /document\.visibilityState === 'visible'/);
 });
