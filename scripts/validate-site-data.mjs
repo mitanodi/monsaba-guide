@@ -135,7 +135,8 @@ for (const family of tatari.families || []) {
 const sharedLayout = read('scripts/shared-layout.mjs');
 for (const label of ['タタ図鑑', 'タタTier', '進化優先度', '攻略ハブ', '比較', '攻略相談', '検索', '初心者ガイド', 'フレンド掲示板']) expect(sharedLayout.includes(label), `共通ヘッダーに ${label} がありません`);
 const siteJs = read('site.js');
-expect(sharedLayout.includes("href: '/friends/', label: 'フレンド掲示板'"), 'フレンド掲示板がPC常設ナビになっていません');
+expect(sharedLayout.includes("href: '/friends/', label: 'フレンド掲示板' })"), 'フレンド掲示板がPC常設ナビになっていません');
+expect(sharedLayout.indexOf("href: '/consult/'") < sharedLayout.indexOf("href: '/friends/'") && sharedLayout.indexOf("href: '/friends/'") < sharedLayout.indexOf("href: '/search/'"), '共通ナビの攻略相談・フレンド掲示板・検索の並びが不正です');
 expect(sharedLayout.indexOf("href: '/guides/'") < sharedLayout.indexOf("href: '/compare/'") && sharedLayout.indexOf("href: '/compare/'") < sharedLayout.indexOf("href: '/consult/'"), '共通ナビの攻略ハブ・比較・相談の並びが不正です');
 expect(read('site.js').includes("aria-current', 'page'"), 'aria-current 共通処理がありません');
 expect(read('site.js').includes('/_vercel/insights/script.js') && read('site.js').includes('/_vercel/speed-insights/script.js'), 'Vercel計測スクリプトが不足');
@@ -145,6 +146,9 @@ for (const file of htmlFiles) {
   const html = read(file);
   expect(html.includes('id="global-navigation"'), `${file}: 初期HTMLに共通navがありません`);
   expect(html.includes('フレンド掲示板'), `${file}: 初期HTMLの共通navが不完全です`);
+  const header = html.match(/<header class="site-header">[\s\S]*?<\/header>/)?.[0] || '';
+  expect((header.match(/href="\/friends\/"/g) || []).length === 1, `${file}: ヘッダーのフレンド掲示板が重複しています`);
+  expect(!/href="\/friends\/" class="mobile-only-nav-link"/.test(header), `${file}: フレンド掲示板がPCで非表示です`);
 }
 const topHtml = read('index.html');
 expect((topHtml.match(/data-family="/g) || []).length === 63, 'TOP図鑑の静的HTMLが63系統ではありません');
@@ -165,12 +169,18 @@ expect((seasonOne.tataSkillBalance || []).length === 35, 'Season 1専用スキ�
 expect(read('zombie-rush/index.html').includes('現在のTierと1000キル編成例は旧環境の評価です'), 'ゾンビラッシュに旧環境評価の注意がありません');
 expect(read('tata-tier/index.html').includes('この予定変更だけを理由に総合Tier・通常・道場・ボスラリー評価は変更しません'), '総合Tierに専用調整の注意がありません');
 expect(read('search/search.js').includes("href:'/updates/2026-08-26/'"), 'サイト内検索に8/26アップデート予定がありません');
-expect(topHtml.includes('data-official-x') && topHtml.includes('https://x.com/monsaba_jp') && topHtml.includes('/official-x.js'), 'TOPの公式Xセクションが不足しています');
+expect(topHtml.includes('data-official-x') && topHtml.includes('data-x-feed') && topHtml.includes('https://x.com/monsaba_jp') && topHtml.includes('/official-x.js'), 'TOPの公式Xセクションが不足しています');
 const xScript = read('official-x.js');
-expect(xScript.includes('IntersectionObserver') && xScript.includes("script.src = 'https://platform.x.com/widgets.js'"), '公式Xの遅延読込が不足しています');
-expect(xScript.includes('window.twttr.ready') && xScript.includes('twttr.widgets.load(container)'), '公式X widgets.jsの安全な初期化が不足しています');
-expect(xScript.includes('getBoundingClientRect()') && xScript.includes("style.visibility !== 'hidden'"), '公式Xの可視性検証が不足しています');
-expect(read('privacy/index.html').includes('Xの埋め込みコンテンツ') && read('privacy/index.html').includes('X側のCookie'), 'PrivacyのX埋め込み説明が不足しています');
+const officialXApi = read('api/official-x.js');
+const officialXCore = read('lib/official-x-core.js');
+expect(xScript.includes('IntersectionObserver') && xScript.includes("fetch('/api/official-x'"), '公式X APIの遅延読込が不足しています');
+expect(xScript.includes("text.textContent = post.text") && xScript.includes("link.textContent = 'Xで投稿を見る'"), '公式X投稿カードの安全な描画が不足しています');
+expect(!xScript.includes('widgets.js') && !topHtml.includes('twitter-timeline'), '不安定なX Timeline Widgetが残っています');
+expect(officialXCore.includes('/2/users/${userId}/tweets') && officialXCore.includes("'replies,retweets'") && officialXCore.includes('postCount: 5'), '公式X APIの取得条件が不正です');
+expect(officialXApi.includes('process.env.X_API_BEARER_TOKEN') && officialXApi.includes('process.env.X_OFFICIAL_USER_ID'), '公式X APIのサーバー環境変数が不足しています');
+expect(officialXApi.includes('Vercel-CDN-Cache-Control') && officialXCore.includes('cacheSeconds: 60 * 60'), '公式X APIのVercel cacheが不足しています');
+expect(!topHtml.includes('X_API_BEARER_TOKEN') && !xScript.includes('X_API_BEARER_TOKEN'), 'X API秘密値名をブラウザへ露出しています');
+expect(read('privacy/index.html').includes('当サイトのサーバーからX APIへ問い合わせ') && read('privacy/index.html').includes('認証情報を閲覧者のブラウザへ送ることはありません'), 'PrivacyのX API説明が不足しています');
 
 for (const [file, hero] of Object.entries({
   'index.html': 'top-main.webp',

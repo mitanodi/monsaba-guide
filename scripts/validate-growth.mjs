@@ -88,14 +88,19 @@ const sitemap = read('sitemap.xml');
 expect(sitemap.includes('<loc>https://monster-survival.com/</loc>'), 'sitemap: トップがありません');
 expect(sitemap.includes('<loc>https://monster-survival.com/updates/</loc>'), 'sitemap: 更新履歴がありません');
 
-// 公式Xは遅延読み込みを維持しつつ、不可視iframeを成功扱いしない。
+// 公式XはTimeline Widgetではなく、サーバー側X APIから実投稿を描画する。
 const officialXScript = read('official-x.js');
-expect(homeHtml.includes('href="https://x.com/monsaba_jp?ref_src=twsrc%5Etfw"'), '公式X: タイムラインURLが不正です');
-expect(homeHtml.includes('data-dnt="true"') && homeHtml.includes('data-theme="dark"'), '公式X: privacy/theme設定が不足しています');
-expect(homeHtml.includes('公式タイムラインを表示できません。') && homeHtml.includes('公式Xで最新情報を見る'), '公式X: 明示的fallbackがありません');
-expect(officialXScript.includes("script.src = 'https://platform.x.com/widgets.js'"), '公式X: 現行widgets.js URLを使用してください');
-expect(officialXScript.includes('window.twttr.ready') && officialXScript.includes('twttr.widgets.load(container)'), '公式X: twttr.ready/widgets.loadが不足しています');
-expect(officialXScript.includes('getBoundingClientRect()') && officialXScript.includes("style.visibility !== 'hidden'"), '公式X: 可視性を確認せず成功扱いしています');
+const officialXApi = read('api/official-x.js');
+const officialXCore = read('lib/official-x-core.js');
+expect(homeHtml.includes('href="https://x.com/monsaba_jp"'), '公式X: アカウントURLが不正です');
+expect(homeHtml.includes('X公式投稿・公式一次情報') && homeHtml.includes('当サイトによる整理記事・更新履歴'), '公式X: 一次情報とサイト記事の区別が不足しています');
+expect(homeHtml.includes('公式Xの投稿を表示できません。') && homeHtml.includes('公式Xで最新情報を見る'), '公式X: 明示的fallbackがありません');
+expect(officialXScript.includes("fetch('/api/official-x'") && officialXScript.includes('createPost(post)'), '公式X: API投稿カード描画が不足しています');
+expect(officialXScript.includes("text.textContent = post.text") && !officialXScript.includes('innerHTML'), '公式X: 投稿本文は改変・HTML解釈せず描画してください');
+expect(officialXCore.includes('/2/users/${userId}/tweets') && officialXCore.includes("timelineUrl.searchParams.set('max_results', String(OFFICIAL_X_CONFIG.postCount))"), '公式X: API endpoint・件数が不正です');
+expect(officialXCore.includes("timelineUrl.searchParams.set('exclude', 'replies,retweets')"), '公式X: replies/reposts除外がありません');
+expect(officialXApi.includes('Vercel-CDN-Cache-Control') && officialXCore.includes('cacheSeconds: 60 * 60'), '公式X: 1時間cacheがありません');
+expect(!homeHtml.includes('X_API_BEARER_TOKEN') && !officialXScript.includes('X_API_BEARER_TOKEN'), '公式X: Bearer Tokenをブラウザへ露出しています');
 expect(officialXScript.includes('IntersectionObserver'), '公式X: 遅延読み込みを維持してください');
 
 const growthConfig = json('data/growth-config.json');

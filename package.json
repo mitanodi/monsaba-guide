@@ -21,7 +21,8 @@
     "generate:site": "npm run generate:tata && npm run generate:beginner && npm run generate:core && npm run generate:updates && npm run generate:growth && npm run generate:nav && npm run generate:footer && npm run generate:foundations && npm run generate:heroes && npm run generate:sitemap",
     "smoke:local": "node scripts/smoke-http.mjs",
     "test:friends": "node --test tests/friends.test.mjs",
-    "test": "npm run test:friends"
+    "test:official-x": "node --test tests/official-x.test.mjs",
+    "test": "npm run test:friends && npm run test:official-x"
   },
   "dependencies": {
     "@upstash/redis": "^1.38.2"

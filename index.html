@@ -22,13 +22,13 @@
   <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
-  <link rel="stylesheet" href="./styles.css?v=20260825-x-brand" />
+  <link rel="stylesheet" href="./styles.css?v=20260825-x-api" />
   <meta property="og:image" content="https://monster-survival.com/assets/heroes/top-main.webp" />
   <meta name="twitter:image" content="https://monster-survival.com/assets/heroes/top-main.webp" />
   <meta property="og:image:alt" content="モンサバ攻略DB｜タタ図鑑・Tier・進化・スキル一覧のページ画像" />
 </head>
 <body><a class="skip-link" href="#main-content">本文へスキップ</a>
-  <header class="site-header"><div class="wrap header-inner"><a class="brand" href="/" aria-label="モンサバ攻略DB トップ"><span class="brand-main">モンサバ攻略DB</span><span class="brand-sub">非公式</span></a><nav id="global-navigation" aria-label="主要メニュー"><a href="/#tatari">タタ図鑑</a><a href="/tata-tier/">タタTier</a><a href="/evolution-priority/">進化優先度</a><a href="/guides/">攻略ハブ</a><a href="/compare/">比較</a><a href="/consult/">攻略相談</a><a href="/search/">検索</a><a href="/beginner-guide/" class="mobile-only-nav-link">初心者ガイド</a><a href="/friends/" class="mobile-only-nav-link">フレンド掲示板</a></nav></div></header>
+  <header class="site-header"><div class="wrap header-inner"><a class="brand" href="/" aria-label="モンサバ攻略DB トップ"><span class="brand-main">モンサバ攻略DB</span><span class="brand-sub">非公式</span></a><nav id="global-navigation" aria-label="主要メニュー"><a href="/#tatari">タタ図鑑</a><a href="/tata-tier/">タタTier</a><a href="/evolution-priority/">進化優先度</a><a href="/guides/">攻略ハブ</a><a href="/compare/">比較</a><a href="/consult/">攻略相談</a><a href="/friends/">フレンド掲示板</a><a href="/search/">検索</a><a href="/beginner-guide/" class="mobile-only-nav-link">初心者ガイド</a></nav></div></header>
 
   <main id="main-content">
     <section class="hero">
@@ -167,16 +167,18 @@
     <section class="wrap static-section official-x-section" aria-labelledby="official-x-title" data-official-x>
       <div class="section-head simple-head">
         <div>
+          <span class="visible-kicker">X公式投稿・公式一次情報</span>
           <h2 id="official-x-title">モンスターサバイバル公式 最新情報</h2>
           <p>アップデート・イベント・キャンペーン・メンテナンスなど、公式X（@monsaba_jp）の最新情報を確認できます。</p>
         </div>
         <a class="ghost-button compact-button" href="https://x.com/monsaba_jp" target="_blank" rel="noopener noreferrer">公式Xを見る</a>
       </div>
-      <div class="official-x-embed" data-x-timeline aria-live="polite">
-        <a class="twitter-timeline" data-lang="ja" data-height="600" data-dnt="true" data-theme="dark" href="https://x.com/monsaba_jp?ref_src=twsrc%5Etfw">モンスターサバイバル公式X（@monsaba_jp）の投稿を見る</a>
+      <div class="official-x-feed" data-x-feed aria-live="polite" aria-busy="true">
         <p class="official-x-status">公式タイムラインは、この欄が画面へ近づいた時に読み込みます。</p>
-        <p class="official-x-fallback" hidden>公式タイムラインを表示できません。<a href="https://x.com/monsaba_jp" target="_blank" rel="noopener noreferrer">公式Xで最新情報を見る</a></p>
+        <div class="official-x-post-list" hidden></div>
+        <p class="official-x-fallback" hidden>公式Xの投稿を表示できません。<a href="https://x.com/monsaba_jp" target="_blank" rel="noopener noreferrer">公式Xで最新情報を見る</a></p>
       </div>
+      <p class="official-x-source-note"><strong>X公式投稿：</strong>公式アカウントが発信した一次情報です。<a href="/updates/">当サイトによる整理記事・更新履歴</a>とは区別して掲載します。</p>
       <noscript><p class="official-x-fallback">タイムラインの表示にはJavaScriptが必要です。<a href="https://x.com/monsaba_jp">モンスターサバイバル公式X</a>で最新情報を確認できます。</p></noscript>
     </section>
 
@@ -205,7 +207,7 @@
     </div>
   </footer>
   <script src="./app.js?v=20260825-growth" defer></script>
-  <script src="/official-x.js?v=20260825-x-fix" defer></script>
+  <script src="/official-x.js?v=20260825-x-api" defer></script>
   <script src="/site.js?v=20260825-growth"></script>
   <script src="/monetization.js?v=20260825-growth"></script>
 <script src="/growth.js?v=20260825-growth" defer></script></body>

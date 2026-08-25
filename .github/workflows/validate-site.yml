@@ -21,7 +21,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run check:syntax
-      - run: npm run test:friends
+      - run: npm test
       - run: npm run validate:data
       - run: npm run generate:site
       - run: git diff --exit-code

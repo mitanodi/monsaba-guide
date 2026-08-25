@@ -1,117 +1,125 @@
 (() => {
   const section = document.querySelector('[data-official-x]');
-  const container = section?.querySelector('[data-x-timeline]');
-  if (!section || !container) return;
+  const feed = section?.querySelector('[data-x-feed]');
+  if (!section || !feed) return;
 
+  const status = feed.querySelector('.official-x-status');
+  const list = feed.querySelector('.official-x-post-list');
+  const fallback = feed.querySelector('.official-x-fallback');
   let started = false;
-  let settled = false;
-  let renderedObserver;
-  let renderTimeout;
-  const status = container.querySelector('.official-x-status');
-  const fallback = container.querySelector('.official-x-fallback');
-  const widgetSelector = 'iframe[id^="twitter-widget"], iframe[title*="Timeline"]';
 
-  const hasVisibleTimeline = () => {
-    const frame = container.querySelector(widgetSelector);
-    if (!frame) return false;
-    const rect = frame.getBoundingClientRect();
-    const style = window.getComputedStyle(frame);
-    return rect.width >= 240
-      && rect.height >= 300
-      && style.display !== 'none'
-      && style.visibility !== 'hidden'
-      && style.opacity !== '0';
+  const setLinkSafety = (link) => {
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
   };
 
-  const cleanUp = () => {
-    renderedObserver?.disconnect();
-    window.clearTimeout(renderTimeout);
+  const formatDate = (value) => new Intl.DateTimeFormat('ja-JP', {
+    dateStyle: 'medium',
+    timeStyle: 'short',
+    timeZone: 'Asia/Tokyo',
+  }).format(new Date(value));
+
+  const createMedia = (media, postUrl) => {
+    const link = document.createElement('a');
+    link.className = 'official-x-media-link';
+    link.href = postUrl;
+    setLinkSafety(link);
+    const image = document.createElement('img');
+    image.src = media.url;
+    image.alt = media.altText || '公式X投稿の画像';
+    image.loading = 'lazy';
+    image.decoding = 'async';
+    image.referrerPolicy = 'no-referrer';
+    if (media.width) image.width = media.width;
+    if (media.height) image.height = media.height;
+    link.append(image);
+    return link;
   };
 
-  const markLoaded = () => {
-    if (settled || !hasVisibleTimeline()) return;
-    settled = true;
-    container.classList.add('is-loaded');
-    container.classList.remove('is-unavailable');
-    if (status) status.hidden = true;
-    if (fallback) fallback.hidden = true;
-    cleanUp();
-  };
+  const createPost = (post) => {
+    const article = document.createElement('article');
+    article.className = 'official-x-post';
 
-  const markUnavailable = () => {
-    if (settled) return;
-    if (hasVisibleTimeline()) {
-      markLoaded();
-      return;
+    const header = document.createElement('header');
+    const account = document.createElement('strong');
+    account.textContent = 'モンスターサバイバル公式 @monsaba_jp';
+    const time = document.createElement('time');
+    time.dateTime = post.createdAt;
+    time.textContent = formatDate(post.createdAt);
+    header.append(account, time);
+
+    const text = document.createElement('p');
+    text.className = 'official-x-post-text';
+    text.textContent = post.text;
+    article.append(header, text);
+
+    if (post.media.length) {
+      const media = document.createElement('div');
+      media.className = 'official-x-media';
+      for (const item of post.media) media.append(createMedia(item, post.url));
+      article.append(media);
     }
-    settled = true;
-    container.classList.add('is-unavailable');
-    container.classList.remove('is-loaded');
+
+    const link = document.createElement('a');
+    link.className = 'official-x-post-link';
+    link.href = post.url;
+    link.textContent = 'Xで投稿を見る';
+    setLinkSafety(link);
+    article.append(link);
+    return article;
+  };
+
+  const showFallback = () => {
+    feed.classList.add('is-unavailable');
+    feed.setAttribute('aria-busy', 'false');
     if (status) status.hidden = true;
+    if (list) list.hidden = true;
     if (fallback) fallback.hidden = false;
-    cleanUp();
   };
 
-  const watchForRenderedTimeline = () => {
-    renderedObserver = new MutationObserver(markLoaded);
-    renderedObserver.observe(container, {
-      attributes: true,
-      attributeFilter: ['class', 'style'],
-      childList: true,
-      subtree: true,
-    });
-    renderTimeout = window.setTimeout(markUnavailable, 15000);
-  };
+  const isValidPost = (post) => post
+    && /^\d+$/.test(String(post.id || ''))
+    && typeof post.text === 'string'
+    && !Number.isNaN(Date.parse(post.createdAt))
+    && new RegExp('^https://x\\.com/monsaba_jp/status/' + post.id + '$').test(post.url)
+    && Array.isArray(post.media);
 
-  const requestWidgetRender = () => {
-    if (!window.twttr?.ready) return;
-    window.twttr.ready((twttr) => {
-      if (settled) return;
-      try {
-        twttr.widgets.load(container);
-        twttr.events?.bind?.('rendered', (event) => {
-          if (container.contains(event.target)) window.requestAnimationFrame(markLoaded);
-        });
-      } catch {
-        markUnavailable();
-      }
-    });
-  };
-
-  const loadTimeline = () => {
+  const loadPosts = async () => {
     if (started) return;
     started = true;
-    if (status) status.textContent = '公式タイムラインを読み込んでいます…';
-    watchForRenderedTimeline();
+    if (status) status.textContent = '公式Xの最新投稿を読み込んでいます…';
 
-    const existing = document.querySelector('script[src*="platform.twitter.com/widgets.js"], script[src*="platform.x.com/widgets.js"]');
-    if (existing) {
-      if (window.twttr?.ready) requestWidgetRender();
-      else {
-        existing.addEventListener('load', requestWidgetRender, { once: true });
-        existing.addEventListener('error', markUnavailable, { once: true });
-      }
-      return;
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 10000);
+    try {
+      const response = await fetch('/api/official-x', {
+        headers: { Accept: 'application/json' },
+        signal: controller.signal,
+      });
+      const payload = await response.json();
+      const posts = Array.isArray(payload.posts) ? payload.posts.slice(0, 5) : [];
+      if (!response.ok || !payload.ok || !posts.length || !posts.every(isValidPost)) throw new Error('Official X feed unavailable');
+      for (const post of posts) list.append(createPost(post));
+      list.hidden = false;
+      feed.classList.add('is-loaded');
+      feed.setAttribute('aria-busy', 'false');
+      if (status) status.hidden = true;
+      if (fallback) fallback.hidden = true;
+    } catch {
+      showFallback();
+    } finally {
+      window.clearTimeout(timeout);
     }
-
-    const script = document.createElement('script');
-    script.id = 'x-wjs';
-    script.src = 'https://platform.x.com/widgets.js';
-    script.async = true;
-    script.charset = 'utf-8';
-    script.addEventListener('load', requestWidgetRender, { once: true });
-    script.addEventListener('error', markUnavailable, { once: true });
-    document.head.append(script);
   };
 
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
       if (!entries.some((entry) => entry.isIntersecting)) return;
       observer.disconnect();
-      loadTimeline();
+      loadPosts();
     }, { rootMargin: '600px 0px' });
     observer.observe(section);
   } else {
-    window.addEventListener('load', loadTimeline, { once: true });
+    window.addEventListener('load', loadPosts, { once: true });
   }
 })();

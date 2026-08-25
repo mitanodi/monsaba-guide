@@ -3,7 +3,7 @@ import path from 'node:path';
 import { renderHeader } from './shared-layout.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
-const ignored = new Set(['.git', '.github', '.vercel', 'node_modules']);
+const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'promo']);
 const files = [];
 function walk(directory) {
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {

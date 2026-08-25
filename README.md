@@ -57,6 +57,18 @@ node scripts/update-base-url.mjs --from https://monster-survival.com --to https:
 4. 公開向けの変更内容を `/updates/` に記録し、`main` へpushする。
 5. GitHub Actions成功後、既存Vercel ProjectのProductionと対象ページを確認する。
 
+## 公式X投稿フィード
+
+トップページの公式X投稿は `/api/official-x` がX API v2から取得し、ブラウザへは整形済みの公開投稿だけを返します。Bearer TokenをHTMLやクライアントJSへ置かないでください。
+
+- 必須：Vercel Sensitive Environment Variable `X_API_BEARER_TOKEN`
+- 任意：`X_OFFICIAL_USER_ID`（設定するとusername lookupを省略できます）
+- 対象：Production。必要に応じてPreviewにも同じ名前を別途設定します。
+- 取得：`GET /2/users/:id/tweets`、最大5件、replies・retweets除外
+- cache：Vercel CDN 1時間、stale-while-revalidate / stale-if-error 1日
+
+User ID未設定時は `GET /2/users/by/username/monsaba_jp` で解決します。初回のAPI応答に含まれる公開User IDを `X_OFFICIAL_USER_ID` として保存すれば、それ以降のlookupをなくせます。秘密値は`.env*`やRepositoryへ追加せず、Vercel Dashboardまたは `vercel env add X_API_BEARER_TOKEN production --sensitive` で登録し、登録後にProductionを再デプロイします。
+
 ## Deployment
 
 `main` へpushすると、既存のVercel Project `monsaba-guide` が自動でProduction Deploymentを作成します。新しいVercel Projectは作成しません。canonical・robots・sitemap・OG・JSON-LDは `https://monster-survival.com/` を正とします。旧 `monsaba-guide.vercel.app` と `www.monster-survival.com` は正式URLへ恒久リダイレクトします。
