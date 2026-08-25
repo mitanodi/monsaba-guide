@@ -22,7 +22,10 @@ walk(root);
 let changed = 0;
 for (const file of files) {
   const source = fs.readFileSync(file, 'utf8');
-  const next = source.replace(/<header class="site-header">[\s\S]*?<\/header>/, renderHeader(routeFor(file)));
+  let next = source.replace(/<header class="site-header">[\s\S]*?<\/header>/, renderHeader(routeFor(file)));
+  if (!next.includes('src="/family-display.js"')) {
+    next = next.replace(/<script src="\/site\.js/, '<script src="/family-display.js"></script><script src="/site.js');
+  }
   if (next === source && !source.includes(renderHeader(routeFor(file)))) throw new Error(`${path.relative(root, file)}: 共通headerを更新できません`);
   if (next !== source) {
     fs.writeFileSync(file, next);

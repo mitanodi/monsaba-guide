@@ -2,6 +2,7 @@ const attrIcon=Object.fromEntries(Object.entries(ATTRIBUTE_META).map(([attr,meta
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const thumb=src=>`/${String(src||'').replace('assets/monsters/','assets/thumbs/')}`;
+const {getFamilyDisplayName,getFamilyDisplayLabel}=MONSABA_FAMILY;
 let tierGroups=[];
 let comments={};
 let adoption={};
@@ -22,8 +23,8 @@ async function bootZombieRush(){
   const byId=new Map(families.map(f=>[f.id,f]));
   const ranked=new Set(tierGroups.flatMap(g=>g.ids));
   $('#tierRoot').innerHTML=tierGroups.map(group=>renderTier(group,byId)).join('');
-  const unrated=families.filter(f=>!ranked.has(f.id)).sort((a,b)=>a.familyName.localeCompare(b.familyName,'ja'));
-  $('#unratedList').innerHTML=unrated.map(f=>`<a href="/tata/${encodeURIComponent(f.id)}/">${esc(f.familyName)}系</a>`).join('');
+  const unrated=families.filter(f=>!ranked.has(f.id)).sort((a,b)=>getFamilyDisplayName(a).localeCompare(getFamilyDisplayName(b),'ja'));
+  $('#unratedList').innerHTML=unrated.map(f=>`<a href="/tata/${encodeURIComponent(f.id)}/">${esc(getFamilyDisplayLabel(f))}</a>`).join('');
 }
 
 async function fetchJson(path){
@@ -50,7 +51,7 @@ function renderCard(f,rank){
     <div class="tier-image"><img loading="lazy" src="${esc(thumb(first.image))}" alt="${esc(first.name)}"></div>
     <div class="tier-body">
       <div class="tier-meta"><span class="tier-badge">${esc(rank)}</span><span>${attrIcon[f.attribute]||''} ${esc(f.attribute)}属性</span></div>
-      <h4>${esc(f.familyName)}系</h4>
+      <h4>${esc(getFamilyDisplayLabel(f))}</h4>
       ${annotations[f.id]?`<p class="tier-annotation">${esc(annotations[f.id])}</p>`:''}
       ${adoption[f.id]?`<p class="adoption-rate">1000キル以上編成 採用率 ${esc(adoption[f.id])}</p>`:''}
       <p class="tier-chain">${chain}</p>

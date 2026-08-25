@@ -22,7 +22,8 @@
     "smoke:local": "node scripts/smoke-http.mjs",
     "test:friends": "node --test tests/friends.test.mjs",
     "test:official-x": "node --test tests/official-x.test.mjs",
-    "test": "npm run test:friends && npm run test:official-x"
+    "test:family-display": "node --test tests/family-display.test.mjs",
+    "test": "npm run test:friends && npm run test:official-x && npm run test:family-display"
   },
   "dependencies": {
     "@upstash/redis": "^1.38.2"

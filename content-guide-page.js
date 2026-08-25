@@ -2,6 +2,7 @@ const $ = (selector) => document.querySelector(selector);
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const attrIcon = Object.fromEntries(Object.entries(ATTRIBUTE_META).map(([attr,meta]) => [attr,meta.icon]));
 const tierScore = {SSS:0, SS:1, S:2, A:3, '－':9};
+const { getFamilyDisplayName, getFamilyDisplayLabel } = MONSABA_FAMILY;
 const roleWords = {
   火力:['火力','ダメージ','燃焼','連撃','貫通'],
   範囲攻撃:['範囲','広範囲','複数','全体'],
@@ -121,7 +122,7 @@ function renderDojo(){
       .filter(f => f.attribute === attr)
       .map(f => ({family:f, tier: state.ratings.overall?.byFamily?.[f.id]?.dojo, overall: state.ratings.overall?.byFamily?.[f.id]}))
       .filter(x => x.tier)
-      .sort((a,b) => (tierScore[a.tier] - tierScore[b.tier]) || a.family.familyName.localeCompare(b.family.familyName, 'ja'))
+      .sort((a,b) => (tierScore[a.tier] - tierScore[b.tier]) || getFamilyDisplayName(a.family).localeCompare(getFamilyDisplayName(b.family), 'ja'))
       .slice(0, 5)
       .map(x => pickRow(x.family.id, `道場${x.tier}`, [`当サイト道場評価`, ...(x.overall?.roles || [])]));
     return `<article class="content-card">
@@ -167,7 +168,7 @@ function matchCandidates({attribute = null, traits = [], mode = 'overall', limit
     const tier = mode === 'zombie' ? (zombie?.tier || overall?.zombie) : mode === 'overall' ? overall?.tier : overall?.[mode];
     return {family, tier, overallTier: overall?.tier, roles: overall?.roles || [], hit, reasons};
   }).filter(item => item.hit && (!owned || owned.includes(item.family.id)))
-    .sort((a,b) => (tierScore[a.tier || a.overallTier || '－'] - tierScore[b.tier || b.overallTier || '－']) || a.family.familyName.localeCompare(b.family.familyName, 'ja'))
+    .sort((a,b) => (tierScore[a.tier || a.overallTier || '－'] - tierScore[b.tier || b.overallTier || '－']) || getFamilyDisplayName(a.family).localeCompare(getFamilyDisplayName(b.family), 'ja'))
     .slice(0, limit);
 }
 
@@ -188,7 +189,7 @@ function candidateList(candidates){
 function pickRow(id, tier, reasons = []){
   const family = state.families.find(f => f.id === id);
   if(!family) return '';
-  return `<a class="consult-pick-row" href="/tata/${esc(id)}/"><span><b>${esc(family.familyName)}系</b><small>候補理由：${esc(reasons.join(' / ') || '評価データあり')}</small></span><em>${esc(tier || '評価保留')}</em></a>`;
+  return `<a class="consult-pick-row" href="/tata/${esc(id)}/"><span><b>${esc(getFamilyDisplayLabel(family))}</b><small>候補理由：${esc(reasons.join(' / ') || '評価データあり')}</small></span><em>${esc(tier || '評価保留')}</em></a>`;
 }
 
 function dojoRow(item, reason){

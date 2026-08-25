@@ -2,6 +2,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { BASE_URL, LAST_MODIFIED } from './site-config.mjs';
 import { renderHeader } from './shared-layout.mjs';
+import '../family-display.js';
+
+const { getFamilyDisplayLabel } = globalThis.MONSABA_FAMILY;
 
 const root = path.resolve(import.meta.dirname, '..');
 const readJson = (file) => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'));
@@ -14,7 +17,7 @@ const familyMap = new Map((tatari.families || []).map((family) => [family.id, fa
 const familyLink = (id) => {
   const family = familyMap.get(id);
   if (!family) throw new Error(`unknown familyId: ${id}`);
-  return `<a href="/tata/${esc(id)}/">${esc(family.familyName)}系</a>`;
+  return `<a href="/tata/${esc(id)}/">${esc(getFamilyDisplayLabel(family))}</a>`;
 };
 
 const beginnerRatings = Object.entries(ratings.overall?.byFamily || {})
@@ -82,7 +85,7 @@ const html = `<!doctype html>
     <section class="wrap source-note"><strong>情報の扱い</strong><p>タタDB、当サイト暫定評価、進化優先度、公開攻略情報を区別して整理しています。不明な内容は推測していません。</p><p>参考情報：${sourceUrls.map((source) => `<a href="${esc(source)}" target="_blank" rel="noopener noreferrer">公開攻略Wiki（外部）</a>`).join(' / ')}</p><a href="/about-data/">データ更新方針を見る</a></section>
   </main>
   <footer><div class="wrap footer-inner"><div><strong>モンサバ攻略DB</strong><span>モンスターサバイバル 非公式攻略サイト</span></div><div class="footer-side"><nav class="footer-links" aria-label="サイト情報"><a href="/about/">サイトについて</a><a href="/about-data/">データ方針</a><a href="/updates/">更新履歴</a><a href="/privacy/">プライバシー</a><a href="/friends/">フレンド掲示板</a></nav><p class="footer-contact">お問い合わせ・ご連絡は <a href="https://x.com/odi_monsaba" target="_blank" rel="noopener noreferrer">おぢ（@odi_monsaba）X</a> まで。フォローもよろしくお願いします。</p><div class="footer-meta">初心者ガイド</div></div></div></footer>
-  <script src="/site.js"></script><script src="/monetization.js"></script><script src="/growth.js" defer></script>
+  <script src="/family-display.js"></script><script src="/site.js"></script><script src="/monetization.js"></script><script src="/growth.js" defer></script>
 </body></html>`;
 
 const directory = path.join(root, 'beginner-guide');

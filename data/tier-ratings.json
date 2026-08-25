@@ -13,7 +13,7 @@
       "yanzaru": { "tier": "SSS", "normal": "SS", "zombie": "SSS", "dojo": "SS", "beginner": "SS", "roles": ["火力", "分身", "前線補助"], "comment": "進化で分身数が増える火力枠。第3進化以降の戦力上昇が大きい。" },
       "nekoori": { "tier": "SS", "normal": "SSS", "zombie": "A", "dojo": "SSS", "beginner": "SSS", "roles": ["遠距離火力", "減速", "貫通"], "comment": "低コストで第3進化を狙いやすい。減速・広範囲攻撃・貫通で序盤から使いやすい。" },
       "denjika": { "tier": "SSS", "normal": "SS", "zombie": "SSS", "dojo": "SS", "beginner": "S", "roles": ["貫通", "麻痺", "CC"], "comment": "貫通・麻痺・束縛による火力とCCを両立。海外のOverall・Boss・Dojo評価と国内評価が重なり、複数モードで長く使える。" },
-      "nenbutsuhebi": { "tier": "SS", "roles": ["遠距離火力", "無限貫通", "スタン"], "comment": "T3で高速音波が無限貫通になり、スタンも持つ。国内外で高評価の資料がある一方、最新Tier間の評価差が大きいため総合SSの暫定評価。" },
+      "nenbutsuhebi": { "tier": "SS", "normal": "SS", "zombie": "SS", "dojo": "SS", "beginner": "SS", "roles": ["遠距離火力", "無限貫通", "スタン"], "comment": "T3の高速音波は無限貫通し、3%スタンで並ぶ複数敵へ火力を出せる。道場の直線配置、現環境ZRの専用支援・範囲性能、F2P・初心者での扱いやすさを踏まえた、Season 1実装前の全モードSS暫定独自評価。" },
       "birimori": { "tier": "SS", "normal": "SS", "zombie": "SSS", "dojo": "SS", "beginner": "S", "roles": ["被ダメ増加", "範囲支援"], "comment": "敵への被ダメージ増加で味方の火力を伸ばせる。範囲支援役としてゾンビラッシュでも扱いやすい。" },
       "biripiyo": { "tier": "SS", "normal": "SS", "zombie": "SS", "dojo": "SS", "beginner": "S", "roles": ["攻撃バフ", "被ダメ軽減", "サポート"], "comment": "味方への攻撃力増加と被ダメージ軽減を同時に付与。サポート性能が非常に高い。" },
       "marushu": { "tier": "SS", "normal": "SS", "zombie": "SS", "dojo": "SS", "beginner": "S", "roles": ["攻撃速度バフ", "被ダメ増加", "防御補助"], "comment": "攻撃速度強化、被ダメージ増加、被ダメージ軽減を持つ。編成全体への貢献度が高い。" },

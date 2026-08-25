@@ -4,6 +4,7 @@ const attrPath = Object.fromEntries(Object.entries(ATTRIBUTE_META).map(([attr,me
 const modeLabels = {overall:'総合', normal:'通常', zombie:'ゾンビ', bossRally:'ボスラリー', dojo:'道場', beginner:'初心者'};
 const tierScore = {SSS:0, SS:1, S:2, A:3, '－':9};
 const priorityScore = {'最優先候補':0, '優先候補':1, '用途次第':2, '評価保留':3};
+const {getFamilyDisplayName,getFamilyDisplayLabel,getFamilySearchAliases}=MONSABA_FAMILY;
 let state = {families:[], skills:{}, ratings:{}, evolution:{}, content:{}, aliases:[], transitions:[]};
 let flowState = {};
 let flowHistory = [];
@@ -139,7 +140,7 @@ async function fetchJson(path){
 function buildAliases(){
   const aliases = [];
   for(const family of state.families){
-    const names = new Set([family.id, family.familyName, `${family.familyName}系`]);
+    const names = new Set(getFamilySearchAliases(family));
     for(const evo of family.evolutions || []) names.add(evo.name);
     for(const stage of state.skills[family.id]?.stages || []) {
       names.add(stage.tataName);
@@ -492,7 +493,7 @@ function handleBossAction(action){
 
 function showOwnedPicker(){
   const selected = new Set(readOwnedFamilies());
-  const buttons = state.families.map(f => `<button type="button" data-action="ownedToggle" data-value="${esc(f.id)}" class="${selected.has(f.id) ? 'is-selected' : ''}"><b>${esc(f.familyName)}系</b><small>${esc(f.evolutions.map(e => e.name).join(' / '))}</small></button>`).join('');
+  const buttons = state.families.map(f => `<button type="button" data-action="ownedToggle" data-value="${esc(f.id)}" class="${selected.has(f.id) ? 'is-selected' : ''}"><b>${esc(getFamilyDisplayLabel(f))}</b><small>${esc(f.evolutions.map(e => e.name).join(' / '))}</small></button>`).join('');
   setGuide(`<h2>手持ちだけに絞る</h2><p>持っている系統を選んでください。この端末のブラウザ内だけに保存し、サーバーには送信しません。</p><div class="guide-button-grid family-grid owned-grid">${buttons}</div><div class="guide-actions"><button type="button" data-action="applyOwned">選択した手持ちで候補を見る</button><button type="button" data-action="ownedReset">手持ちをリセット</button><button type="button" data-action="back">← 戻る</button></div>`, false);
 }
 
@@ -569,12 +570,12 @@ function openFamilyDeepLink(params){
   }
   const flow = params.get('flow');
   if(flow === 'detail'){
-    flowState = {route:'detailView', category:'detail', familyId, detailStage:null, crumbs:['性能確認', `${family.familyName}系`]};
+    flowState = {route:'detailView', category:'detail', familyId, detailStage:null, crumbs:['性能確認', getFamilyDisplayLabel(family)]};
     return showDetailViewMenu(false);
   }
   const stages = state.skills[familyId]?.stages || [];
   const requestedStage = Number(params.get('stage'));
-  flowState = {route:'evolutionStage', category:'evolution', familyId, crumbs:['進化相談', `${family.familyName}系`]};
+  flowState = {route:'evolutionStage', category:'evolution', familyId, crumbs:['進化相談', getFamilyDisplayLabel(family)]};
   if(Number.isInteger(requestedStage) && stages.some(stage => stage.stage === requestedStage)){
     const stageData = stages.find(stage => stage.stage === requestedStage);
     flowState.currentStage = requestedStage;
@@ -631,8 +632,8 @@ function startEvolutionFlow(){
 
 function renderFamilyPicker(action, title, withBack = true){
   const buttons = state.families.map(f => {
-    const names = [f.id, f.familyName, ...f.evolutions.map(e => e.name), ...(state.skills[f.id]?.stages || []).map(s => s.tataName)].join(' ');
-    return `<button type="button" data-action="${esc(action)}" data-value="${esc(f.id)}" data-family-id="${esc(f.id)}" data-search="${esc(normalize(names))}"><b>${esc(f.familyName)}系</b><small>${esc(f.evolutions.map(e => e.name).join(' / '))}</small></button>`;
+    const names = [...getFamilySearchAliases(f), ...(state.skills[f.id]?.stages || []).map(s => s.tataName)].join(' ');
+    return `<button type="button" data-action="${esc(action)}" data-value="${esc(f.id)}" data-family-id="${esc(f.id)}" data-search="${esc(normalize(names))}"><b>${esc(getFamilyDisplayLabel(f))}</b><small>${esc(f.evolutions.map(e => e.name).join(' / '))}</small></button>`;
   }).join('');
   setGuide(`<h2>${esc(title)}</h2><div class="family-picker"><input type="search" data-family-filter placeholder="タタ名で検索（例：スタピョン、ガルルデン）" aria-label="タタ名で検索" /><div class="guide-button-grid family-grid">${buttons}</div></div>`, withBack);
 }
@@ -641,7 +642,7 @@ function handleFamilySelect(familyId){
   pushHistory();
   flowState.familyId = familyId;
   flowState.route = 'evolutionStage';
-  flowState.crumbs = ['進化相談', `${getFamily(familyId).familyName}系`];
+  flowState.crumbs = ['進化相談', getFamilyDisplayLabel(getFamily(familyId))];
   showStageMenu(false);
 }
 
@@ -649,7 +650,7 @@ function showStageMenu(withBack = true){
   const family = getFamily(flowState.familyId);
   const stages = state.skills[flowState.familyId]?.stages || [];
   const buttons = stages.map(s => `<button type="button" data-action="selectStage" data-value="${s.stage}">T${s.stage} ${esc(s.tataName)}</button>`).join('');
-  setGuide(`<h2>現在どこまで進化していますか？</h2><p>${esc(family.familyName)}系</p><div class="guide-button-grid">${buttons}</div>`, withBack);
+  setGuide(`<h2>現在どこまで進化していますか？</h2><p>${esc(getFamilyDisplayLabel(family))}</p><div class="guide-button-grid">${buttons}</div>`, withBack);
 }
 
 function handleStageSelect(stage){
@@ -657,7 +658,7 @@ function handleStageSelect(stage){
   const stageData = state.skills[flowState.familyId]?.stages.find(s => s.stage === stage);
   flowState.currentStage = stage;
   flowState.route = 'evolutionPurpose';
-  flowState.crumbs = ['進化相談', `${getFamily(flowState.familyId).familyName}系`, `T${stage} ${stageData?.tataName || ''}`];
+  flowState.crumbs = ['進化相談', getFamilyDisplayLabel(getFamily(flowState.familyId)), `T${stage} ${stageData?.tataName || ''}`];
   showEvolutionPurposeMenu(false);
 }
 
@@ -708,11 +709,11 @@ function handleCompareFamily(familyId){
   flowState.compareIds = [...(flowState.compareIds || []), familyId];
   if(flowState.compareIds.length === 1){
     flowState.route = 'compareB';
-    flowState.crumbs = ['タタ比較', `${getFamily(familyId).familyName}系`];
+    flowState.crumbs = ['タタ比較', getFamilyDisplayLabel(getFamily(familyId))];
     return renderFamilyPicker('compareFamily', '2体目を選択', false);
   }
   flowState.route = 'compareMode';
-  flowState.crumbs = ['タタ比較', ...flowState.compareIds.map(id => `${getFamily(id).familyName}系`)];
+  flowState.crumbs = ['タタ比較', ...flowState.compareIds.map(id => getFamilyDisplayLabel(getFamily(id)))];
   showCompareModeMenu(false);
 }
 
@@ -737,7 +738,7 @@ function handleDetailFamily(familyId){
   flowState.detailStage = selectedStage;
   flowState.familyId = familyId;
   flowState.route = 'detailView';
-  flowState.crumbs = ['性能確認', `${getFamily(familyId).familyName}系`];
+  flowState.crumbs = ['性能確認', getFamilyDisplayLabel(getFamily(familyId))];
   showDetailViewMenu(false);
 }
 
@@ -841,14 +842,14 @@ function answerDetail(familyId, mode){
   const roles = overall?.roles || [];
   const features = detailFeatures(overall, latest).slice(0, 5);
   return {
-    html: `<h2>${esc(family.familyName)}系</h2>
+    html: `<h2>${esc(getFamilyDisplayLabel(family))}</h2>
       ${chainHtml(family)}
       <div class="consult-badges">${badge('総合Tier', overall?.tier || '評価保留')}${badge('ゾンビラッシュ', zombie?.tier || overall?.zombie || '－')}${mode !== 'overall' ? badge(modeLabels[mode], modeTier(familyId, mode) || '－') : ''}</div>
       ${roles.length ? `<h3>主な役割</h3>${tagList(roles)}` : ''}
       <h3>特徴</h3>
       ${features.length ? list(features) : '<p>このタタの特徴は、現在の共通データだけでは十分に整理できていません。</p>'}
       ${overall?.comment ? `<p class="consult-note">${esc(overall.comment)}</p>` : ''}
-      ${relatedLinks([{label:`${family.familyName}系詳細`, href:`/tata/${familyId}/`}, {label:'総合タタTier', href:'/tata-tier/'}, {label:'進化優先度', href:'/evolution-priority/'}])}`
+      ${relatedLinks([{label:`${getFamilyDisplayLabel(family)}詳細`, href:`/tata/${familyId}/`}, {label:'総合タタTier', href:'/tata-tier/'}, {label:'進化優先度', href:'/evolution-priority/'}])}`
   };
 }
 
@@ -867,7 +868,7 @@ function answerEvolution(familyId, q, mode, diffOnly){
   if(!familyId) return answerUnknown();
   const stage = currentStageFromQuestion(familyId, q);
   const tx = state.transitions.find(t => t.family.id === familyId && t.from.stage === stage);
-  if(!tx) return {html:`<h2>${esc(getFamily(familyId).familyName)}系</h2><p>この段階から先の進化データは見つかりませんでした。</p>${relatedLinks([{label:'進化優先度', href:'/evolution-priority/'}])}`};
+  if(!tx) return {html:`<h2>${esc(getFamilyDisplayLabel(getFamily(familyId)))}</h2><p>この段階から先の進化データは見つかりませんでした。</p>${relatedLinks([{label:'進化優先度', href:'/evolution-priority/'}])}`};
   const overall = state.ratings.overall?.byFamily?.[familyId];
   const zombie = state.ratings.zombieRush?.byFamily?.[familyId];
   const zombieAura = mode === 'zombie' && tx.from.stage === 3 && tx.to.stage === 4 ? `<p class="consult-warning">${esc(state.evolution.modeNotes?.zombieRush?.message || 'ゾンビラッシュでは第4進化のオーラは無効です。')}</p>` : '';
@@ -884,7 +885,7 @@ function answerEvolution(familyId, q, mode, diffOnly){
       ${zombieAura}
       ${conclusion}
       <p class="consult-note">${esc(tx.meta.reason)}</p>
-      ${relatedLinks([{label:`${tx.family.familyName}系詳細`, href:`/tata/${familyId}/`}, {label:'進化優先度', href:'/evolution-priority/'}, {label:'進化差分一覧', href:'/evolution-priority/#transition-list'}])}`
+      ${relatedLinks([{label:`${getFamilyDisplayLabel(tx.family)}詳細`, href:`/tata/${familyId}/`}, {label:'進化優先度', href:'/evolution-priority/'}, {label:'進化差分一覧', href:'/evolution-priority/#transition-list'}])}`
   };
 }
 
@@ -904,18 +905,18 @@ function answerCompare(ids, mode){
     const overall = state.ratings.overall?.byFamily?.[id];
     const zombie = state.ratings.zombieRush?.byFamily?.[id];
     return `<article>
-      <h3>${esc(f.familyName)}系</h3>
+      <h3>${esc(getFamilyDisplayLabel(f))}</h3>
       <div class="consult-badges">${badge('総合', overall?.tier || '評価保留')}${badge('ゾンビ', zombie?.tier || overall?.zombie || '－')}${mode !== 'overall' && mode !== 'zombie' ? badge(modeLabels[mode], modeTier(id, mode) || '－') : ''}</div>
       ${overall?.roles?.length ? tagList(overall.roles) : '<p>役割データは評価保留です。</p>'}
       <a href="/tata/${esc(id)}/">詳しく見る</a>
     </article>`;
   }).join('');
   return {
-    html: `<h2>${esc(getFamily(a).familyName)}系と${esc(getFamily(b).familyName)}系の比較</h2>
+    html: `<h2>${esc(getFamilyDisplayLabel(getFamily(a)))}と${esc(getFamilyDisplayLabel(getFamily(b)))}の比較</h2>
       <div class="consult-compare-grid">${rows}</div>
       <h3>見方</h3>
       <p>${compareConclusion(a, b, mode)}</p>
-      ${relatedLinks([{label:`${getFamily(a).familyName}系詳細`, href:`/tata/${a}/`}, {label:`${getFamily(b).familyName}系詳細`, href:`/tata/${b}/`}, {label:'総合タタTier', href:'/tata-tier/'}])}`
+      ${relatedLinks([{label:`${getFamilyDisplayLabel(getFamily(a))}詳細`, href:`/tata/${a}/`}, {label:`${getFamilyDisplayLabel(getFamily(b))}詳細`, href:`/tata/${b}/`}, {label:'総合タタTier', href:'/tata-tier/'}])}`
   };
 }
 
@@ -927,12 +928,12 @@ function compareConclusion(a, b, mode){
   const rolesB = (state.ratings.overall?.byFamily?.[b]?.roles || []).join(' / ') || '役割データなし';
   const scoreA = safeTierScore(ta);
   const scoreB = safeTierScore(tb);
-  if(scoreA == null && scoreB == null) return `両方とも現在このモードの評価が保留のため、Tierだけでは直接比較できません。${fa.familyName}系は${rolesA}、${fb.familyName}系は${rolesB}という役割差を確認してください。`;
-  if(scoreA != null && scoreB == null) return `${fa.familyName}系は現在${ta}評価。${fb.familyName}系はこのモードの評価が保留のため、Tierだけでは直接比較できません。評価保留は弱いという意味ではありません。`;
-  if(scoreA == null && scoreB != null) return `${fb.familyName}系は現在${tb}評価。${fa.familyName}系はこのモードの評価が保留のため、Tierだけでは直接比較できません。評価保留は弱いという意味ではありません。`;
-  if(scoreA < scoreB) return `${modeLabels[mode]}を重視するなら${fa.familyName}系が優先候補です。ただし、${fb.familyName}系は${rolesB}が欲しい時に候補になります。`;
-  if(scoreB < scoreA) return `${modeLabels[mode]}を重視するなら${fb.familyName}系が優先候補です。ただし、${fa.familyName}系は${rolesA}が欲しい時に候補になります。`;
-  return `評価は近いため、${fa.familyName}系は${rolesA}、${fb.familyName}系は${rolesB}という役割差で選びます。`;
+  if(scoreA == null && scoreB == null) return `両方とも現在このモードの評価が保留のため、Tierだけでは直接比較できません。${getFamilyDisplayLabel(fa)}は${rolesA}、${getFamilyDisplayLabel(fb)}は${rolesB}という役割差を確認してください。`;
+  if(scoreA != null && scoreB == null) return `${getFamilyDisplayLabel(fa)}は現在${ta}評価。${getFamilyDisplayLabel(fb)}はこのモードの評価が保留のため、Tierだけでは直接比較できません。評価保留は弱いという意味ではありません。`;
+  if(scoreA == null && scoreB != null) return `${getFamilyDisplayLabel(fb)}は現在${tb}評価。${getFamilyDisplayLabel(fa)}はこのモードの評価が保留のため、Tierだけでは直接比較できません。評価保留は弱いという意味ではありません。`;
+  if(scoreA < scoreB) return `${modeLabels[mode]}を重視するなら${getFamilyDisplayLabel(fa)}が優先候補です。ただし、${getFamilyDisplayLabel(fb)}は${rolesB}が欲しい時に候補になります。`;
+  if(scoreB < scoreA) return `${modeLabels[mode]}を重視するなら${getFamilyDisplayLabel(fb)}が優先候補です。ただし、${getFamilyDisplayLabel(fa)}は${rolesA}が欲しい時に候補になります。`;
+  return `評価は近いため、${getFamilyDisplayLabel(fa)}は${rolesA}、${getFamilyDisplayLabel(fb)}は${rolesB}という役割差で選びます。`;
 }
 
 function tierForCompare(id, mode){
@@ -950,7 +951,7 @@ function answerAttribute(attr, mode){
   if(!attr) return answerUnknown();
   const families = state.families.filter(f => f.attribute === attr);
   const scored = families.map(f => ({family:f, tier: mode === 'overall' ? state.ratings.overall?.byFamily?.[f.id]?.tier : modeTier(f.id, mode), overall: state.ratings.overall?.byFamily?.[f.id]}))
-    .sort((a,b) => (tierScore[a.tier || '－'] - tierScore[b.tier || '－']) || (tierScore[a.overall?.tier || '－'] - tierScore[b.overall?.tier || '－']) || a.family.familyName.localeCompare(b.family.familyName, 'ja'));
+    .sort((a,b) => (tierScore[a.tier || '－'] - tierScore[b.tier || '－']) || (tierScore[a.overall?.tier || '－'] - tierScore[b.overall?.tier || '－']) || getFamilyDisplayName(a.family).localeCompare(getFamilyDisplayName(b.family), 'ja'));
   const picks = scored.slice(0, 5);
   return {
     html: `<h2>${esc(attr)}属性おすすめ</h2>
@@ -1020,7 +1021,7 @@ function answerEvolutionDirect(familyId, currentStage, mode){
   const tx = state.transitions.find(t => t.family.id === familyId && t.from.stage === currentStage);
   if(!tx) {
     return {
-      html: `<h2>${esc(family.familyName)}系</h2><p>現在のサイトDBでは、この段階から先の進化データは収録されていません。</p>${relatedLinks([{label:`${family.familyName}系詳細`, href:`/tata/${familyId}/`}, {label:'進化優先度', href:'/evolution-priority/'}])}`
+      html: `<h2>${esc(getFamilyDisplayLabel(family))}</h2><p>現在のサイトDBでは、この段階から先の進化データは収録されていません。</p>${relatedLinks([{label:`${getFamilyDisplayLabel(family)}詳細`, href:`/tata/${familyId}/`}, {label:'進化優先度', href:'/evolution-priority/'}])}`
     };
   }
   const overall = state.ratings.overall?.byFamily?.[familyId];
@@ -1040,7 +1041,7 @@ function answerEvolutionDirect(familyId, currentStage, mode){
       ${zombieAura}
       <h3>短い結論</h3>
       <p>${esc(tx.meta.reason)}</p>
-      ${relatedLinks([{label:`${family.familyName}系を詳しく見る`, href:`/tata/${familyId}/`}, {label:'もう1体と比較する', href:'#'}, {label:'ゾンビラッシュ攻略を見る', href:'/zombie-rush/'}])}`
+      ${relatedLinks([{label:`${getFamilyDisplayLabel(family)}を詳しく見る`, href:`/tata/${familyId}/`}, {label:'もう1体と比較する', href:'#'}, {label:'ゾンビラッシュ攻略を見る', href:'/zombie-rush/'}])}`
   };
 }
 
@@ -1049,7 +1050,7 @@ function answerModeCandidates(mode, includeEvolution = false){
     .filter(item => item.overall || item.zombie)
     .map(item => ({...item, tier: mode === 'zombie' ? (item.zombie?.tier || item.overall?.zombie) : mode === 'overall' ? item.overall?.tier : item.overall?.[mode]}))
     .filter(item => item.tier)
-    .sort((a,b) => (tierScore[a.tier || '－'] - tierScore[b.tier || '－']) || (tierScore[a.overall?.tier || '－'] - tierScore[b.overall?.tier || '－']) || a.family.familyName.localeCompare(b.family.familyName, 'ja'))
+    .sort((a,b) => (tierScore[a.tier || '－'] - tierScore[b.tier || '－']) || (tierScore[a.overall?.tier || '－'] - tierScore[b.overall?.tier || '－']) || getFamilyDisplayName(a.family).localeCompare(getFamilyDisplayName(b.family), 'ja'))
     .slice(0, 8);
   const evo = includeEvolution ? `<h3>進化面の目安</h3><p>ゾンビラッシュ目的でも、進化優先度はT3ロードマップや次進化の差分を合わせて判断します。</p>` : '';
   return {
@@ -1154,19 +1155,19 @@ function getCandidates({mode = 'overall', attribute = null, roles = [], ownedIds
     const tier = mode === 'zombie' ? (zombie?.tier || overall?.zombie) : mode === 'overall' ? overall?.tier : overall?.[mode];
     return {family:f, overall, zombie, tier, reasons, hit: needed === 0 ? !!tier : reasons.length >= needed};
   }).filter(item => item.hit && (!requireTier || item.tier) && (!ownedIds || ownedIds.includes(item.family.id)) && !excludeIds.includes(item.family.id))
-    .sort((a,b) => (tierScore[a.tier || a.overall?.tier || '－'] - tierScore[b.tier || b.overall?.tier || '－']) || a.family.familyName.localeCompare(b.family.familyName, 'ja'))
+    .sort((a,b) => (tierScore[a.tier || a.overall?.tier || '－'] - tierScore[b.tier || b.overall?.tier || '－']) || getFamilyDisplayName(a.family).localeCompare(getFamilyDisplayName(b.family), 'ja'))
     .slice(0, limit);
 }
 
 function pickCandidateRow(item){
   const reasons = item.reasons.length ? item.reasons : ['評価データあり'];
-  return `<a class="consult-pick-row" href="/tata/${esc(item.family.id)}/"><span><b>${esc(item.family.familyName)}系</b><small>候補理由：${esc(reasons.join(' / '))}${item.overall?.roles?.length ? ` / ${esc(item.overall.roles.join(' / '))}` : ''}</small></span><em>${esc(item.tier || item.overall?.tier || '評価保留')}</em></a>`;
+  return `<a class="consult-pick-row" href="/tata/${esc(item.family.id)}/"><span><b>${esc(getFamilyDisplayLabel(item.family))}</b><small>候補理由：${esc(reasons.join(' / '))}${item.overall?.roles?.length ? ` / ${esc(item.overall.roles.join(' / '))}` : ''}</small></span><em>${esc(item.tier || item.overall?.tier || '評価保留')}</em></a>`;
 }
 
 function dojoCandidateRow(item, label){
   if(!item.familyId) return `<div class="consult-pick-row"><span><b>${esc(item.sourceName)}</b><small>DB familyIdへ安全に紐付けできません</small></span><em>確認中</em></div>`;
   const family = getFamily(item.familyId);
-  return `<a class="consult-pick-row" href="/tata/${esc(item.familyId)}/"><span><b>${esc(family?.familyName || item.sourceName)}系</b><small>${esc(label)} / 公開表記：${esc(item.sourceName)}</small></span><em>${esc(item.slot || '候補')}</em></a>`;
+  return `<a class="consult-pick-row" href="/tata/${esc(item.familyId)}/"><span><b>${esc(family ? getFamilyDisplayLabel(family) : `${item.sourceName}系`)}</b><small>${esc(label)} / 公開表記：${esc(item.sourceName)}</small></span><em>${esc(item.slot || '候補')}</em></a>`;
 }
 
 function conditionLabels(rec){
@@ -1210,17 +1211,17 @@ function answerDetailView(familyId, view){
   const zombie = state.ratings.zombieRush?.byFamily?.[familyId];
   if(view === 'basic' && detailStage) {
     return {html:`<h2>T${stage.stage} ${esc(stage.tataName)}の基本性能</h2>
-      <div class="consult-badges">${badge('属性', family.attribute)}${badge('系統', `${family.familyName}系`)}${badge('総合Tier', `${overall?.tier || '評価保留'}（${family.familyName}系全体の評価）`)}${badge('ゾンビ', zombie?.tier || overall?.zombie || '－')}</div>
+      <div class="consult-badges">${badge('属性', family.attribute)}${badge('系統', getFamilyDisplayLabel(family))}${badge('総合Tier', `${overall?.tier || '評価保留'}（${getFamilyDisplayLabel(family)}全体の評価）`)}${badge('ゾンビ', zombie?.tier || overall?.zombie || '－')}</div>
       <h3>スキル</h3><p><b>${esc(stage.skillName)}</b></p>
       <h3>説明</h3><p>${esc(stage.description)}</p>
       <h3>数値</h3>${deltaValueList(stage.values)}
       <h3>進化ルート</h3>${chainHtml(family)}
-      ${relatedLinks([{label:`${family.familyName}系詳細`, href:`/tata/${familyId}/`}, {label:'総合タタTier', href:'/tata-tier/'}])}`};
+      ${relatedLinks([{label:`${getFamilyDisplayLabel(family)}詳細`, href:`/tata/${familyId}/`}, {label:'総合タタTier', href:'/tata-tier/'}])}`};
   }
   if(view === 'skill') {
-    return {html:`<h2>T${stage.stage} ${esc(stage.tataName)}のスキル</h2><h3>${esc(stage.skillName)}</h3><p>${esc(stage.description)}</p>${deltaValueList(stage.values)}${relatedLinks([{label:`${family.familyName}系詳細`, href:`/tata/${familyId}/`}])}`};
+    return {html:`<h2>T${stage.stage} ${esc(stage.tataName)}のスキル</h2><h3>${esc(stage.skillName)}</h3><p>${esc(stage.description)}</p>${deltaValueList(stage.values)}${relatedLinks([{label:`${getFamilyDisplayLabel(family)}詳細`, href:`/tata/${familyId}/`}])}`};
   }
-  if(view === 'route') return {html:`<h2>${esc(family.familyName)}系の進化ルート</h2>${chainHtml(family)}${relatedLinks([{label:`${family.familyName}系詳細`, href:`/tata/${familyId}/`}])}`};
+  if(view === 'route') return {html:`<h2>${esc(getFamilyDisplayLabel(family))}の進化ルート</h2>${chainHtml(family)}${relatedLinks([{label:`${getFamilyDisplayLabel(family)}詳細`, href:`/tata/${familyId}/`}])}`};
   if(view === 'tier') return answerDetail(familyId, 'overall');
   return answerDetail(familyId, 'overall');
 }
@@ -1256,8 +1257,8 @@ function answerUnknown(raw){
 function pickRow(id, tier, roles, rate){
   const family = getFamily(id);
   if(!family) return '';
-  const first = state.skills[id]?.stages?.[0]?.tataName || family.familyName;
-  return `<a class="consult-pick-row" href="/tata/${esc(id)}/"><span><b>${esc(family.familyName)}系</b><small>${esc(first)}${roles?.length ? ` / ${esc(roles.join(' / '))}` : ''}</small></span><em>${esc(tier || '評価保留')}${rate ? ` / 採用率 ${esc(rate)}` : ''}</em></a>`;
+  const first = state.skills[id]?.stages?.[0]?.tataName || getFamilyDisplayName(family);
+  return `<a class="consult-pick-row" href="/tata/${esc(id)}/"><span><b>${esc(getFamilyDisplayLabel(family))}</b><small>${esc(first)}${roles?.length ? ` / ${esc(roles.join(' / '))}` : ''}</small></span><em>${esc(tier || '評価保留')}${rate ? ` / 採用率 ${esc(rate)}` : ''}</em></a>`;
 }
 
 function deltaHtml(delta){

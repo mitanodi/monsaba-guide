@@ -3,7 +3,7 @@ const ATTRIBUTE_GUIDES={
     key:'grass',attr:'草',icon:'🌿',path:'grass',count:13,bodyCount:46,
     title:'草属性おすすめ・育成優先度',
     lead:'モンサバ 草属性の13系統を収録。回復・妨害・前衛役を中心に、育成目安をまとめています。',
-    summary:'草属性はヒマワリン系を軸に、タケパンダ系・マルッシュ系・コマキリ系など役割の違う候補を組み合わせる属性です。現時点の当サイト評価に基づく育成目安で、絶対的な順位ではありません。',
+    summary:'草属性はヒマワリン系を軸に、コパンダ系・マルッシュ系・コマキリ系など役割の違う候補を組み合わせる属性です。現時点の当サイト評価に基づく育成目安で、絶対的な順位ではありません。',
     recommendations:[
       {title:'総合的に優先',type:'ordered',ids:['himawarin','marushu','takepanda','komakiri','furuggu']},
       {title:'ゾンビラッシュ',type:'ordered',ids:['himawarin','takepanda','marushu']},
@@ -26,7 +26,7 @@ const ATTRIBUTE_GUIDES={
     key:'water',attr:'水',icon:'💧',path:'water',count:12,bodyCount:42,
     title:'水属性おすすめ・育成優先度',
     lead:'モンサバ 水属性の12系統を収録。火力・耐久・サポート性能を比較して育成候補を整理しています。',
-    summary:'水属性はネコオリ系の序盤性能、タフペン系の前衛、ウミミ系・シズクチョウ系のゾンビラッシュ適性が分かりやすい属性です。用途ごとの不足役割を見て選びます。',
+    summary:'水属性はネコオリ系の序盤性能、トコペン系の前衛、ウミミ系・シズクジ系のゾンビラッシュ適性が分かりやすい属性です。用途ごとの不足役割を見て選びます。',
     recommendations:[
       {title:'総合的に優先',type:'ordered',ids:['nekoori','tafupen','boruzarashi','potakage','umimi','shizukuchou']},
       {title:'ゾンビラッシュ',type:'ordered',ids:['umimi','shizukuchou','tafupen','boruzarashi']},
@@ -35,7 +35,7 @@ const ATTRIBUTE_GUIDES={
       {title:'道場',type:'ordered',ids:['nekoori','potakage','shizukuchou','tafupen']}
     ],
     priorityIds:['nekoori','tafupen','boruzarashi','umimi'],
-    faq:{title:'シズクチョウ系は第3進化まで行くべき？',id:'shizukuchou',body:'睡眠と減速によるCCが強く、ゾンビラッシュ・道場の評価が高い候補です。火力役を先に確保した後、足止めを厚くしたいなら優先度が上がります。'},
+    faq:{title:'シズクジ系は第3進化まで行くべき？',id:'shizukuchou',body:'睡眠と減速によるCCが強く、ゾンビラッシュ・道場の評価が高い候補です。火力役を先に確保した後、足止めを厚くしたいなら優先度が上がります。'},
     compare:{a:'nekoori',b:'tafupen',title:'ネコオリ vs タフペン',aLabel:'遠距離火力・減速・貫通',bLabel:'タンク・シールド・前衛',conclusion:'序盤を早く進めたいならネコオリ。前衛が落ちやすい、耐久を補いたいならタフペン。'},
     evoPoints:[
       {id:'nekoori',text:'低コストで第3進化を狙いやすく、減速・広範囲攻撃・貫通で序盤から扱いやすい。'},
@@ -49,7 +49,7 @@ const ATTRIBUTE_GUIDES={
     key:'fire',attr:'火',icon:'🔥',path:'fire',count:13,bodyCount:47,
     title:'火属性おすすめ・育成優先度',
     lead:'モンサバ 火属性の13系統を収録。火力・サポート性能を比較して育成候補を整理しています。',
-    summary:'火属性はフレイムシ系の汎用性が高く、フレービ系・マッチバ系・ヒモリ系など火力候補も多い属性です。ゾンビラッシュだけでなく通常攻略・道場で評価が変わります。',
+    summary:'火属性はヒノムシ系の汎用性が高く、ヒエビ系・ヒバイヌ系・ヒモリ系など火力候補も多い属性です。ゾンビラッシュだけでなく通常攻略・道場で評価が変わります。',
     recommendations:[
       {title:'総合的に優先',type:'ordered',ids:['fureimuji','fureebi','matchiba','hinyao','himori']},
       {title:'ゾンビラッシュ',type:'ordered',ids:['fureimuji','hinyao','korokon','fureebi','himori']},
@@ -72,7 +72,7 @@ const ATTRIBUTE_GUIDES={
     key:'thunder',attr:'雷',icon:'⚡',path:'thunder',count:13,bodyCount:47,
     title:'雷属性おすすめ・育成優先度',
     lead:'モンサバ 雷属性の13系統 / 47体を収録。おすすめタタと育成目安をまとめています。',
-    summary:'雷属性はプラビ系・デンジカ系・ビリモリ系・ビリピヨ系の役割がはっきりしています。回復、麻痺、被ダメージ増加、バフのどれが足りないかで育成先を選びます。',
+    summary:'雷属性はプラビ系・ビリジカ系・ビリモ系・ビリピヨ系の役割がはっきりしています。回復、麻痺、被ダメージ増加、バフのどれが足りないかで育成先を選びます。',
     recommendations:[
       {title:'総合的に優先',type:'ordered',ids:['purabi','denjika','birimori','biripiyo']},
       {title:'ゾンビラッシュ優先',type:'ordered',ids:['purabi','denjika','birimori','biripiyo']},
@@ -113,6 +113,7 @@ const ATTRIBUTE_GUIDES={
     roleNotes:{yanzaru:'火力 / 分身 / 前線補助',guuhog:'火力',rokubuhi:'前衛候補',kowagaru:'前衛候補',tsubutsumuri:'耐久候補',mumukaba:'妨害候補',mogurin:'前衛候補',korotama:'範囲火力',rokuju:'範囲火力',gantoru:'前衛 / 耐久候補',nenbutsuhebi:'妨害候補',doriruu:'前衛 / 火力候補'}
   }
 };
+const {getFamilyDisplayLabel}=MONSABA_FAMILY;
 
 const attrNav=Object.entries(ATTRIBUTE_META).map(([attr,meta])=>[meta.slug,meta.icon,attr]);
 const rankOrder={SSS:0,SS:1,S:2,A:3,'－':4};
@@ -175,7 +176,7 @@ function renderPriority(guide,families,overall,zombie){
     const roles=(o?.roles&&o.roles.length?o.roles:(guide.roleNotes[id]||'').split(' / ').filter(Boolean));
     const comment=o?.comment||roleComment(guide,id);
     return `<article class="priority-tata-card">
-      <div class="priority-tata-head"><h3>${esc(f.familyName)}系</h3><div>${badge('総合',o?.tier)}${z?.tier?badge('ゾンビ',z.tier):''}</div></div>
+      <div class="priority-tata-head"><h3>${esc(getFamilyDisplayLabel(f))}</h3><div>${badge('総合',o?.tier)}${z?.tier?badge('ゾンビ',z.tier):''}</div></div>
       <p class="tier-chain">${chain(f)}</p>
       <ul class="role-tags as-list">${roles.map(r=>`<li>${esc(r)}</li>`).join('')}</ul>
       <p>${esc(comment)}</p>
@@ -216,9 +217,9 @@ function renderCards(guide,families,overall,zombie,skillsByFamily){
     const first=f.evolutions[0]||{};
     const skill=latestSkillName(skillsByFamily[f.id])||'スキル確認';
     return `<a class="card static-card" href="/tata/${encodeURIComponent(f.id)}/" data-family-id="${esc(f.id)}">
-      <div class="card-image"><img src="${esc(thumb(first.image))}" alt="${esc(first.name||f.familyName)}" loading="lazy"></div>
+      <div class="card-image"><img src="${esc(thumb(first.image))}" alt="${esc(first.name||getFamilyDisplayLabel(f))}" loading="lazy"></div>
       <div class="card-body"><div class="card-top"><span class="attribute">${guide.icon} ${guide.attr}属性</span><span class="source-state">${f.evolutions.length}段階</span></div>
-      <h2>${esc(f.familyName)}系</h2><div class="tier-inline">${badge('総合',overall[f.id]?.tier)}${zombie[f.id]?.tier?badge('ゾンビ',zombie[f.id].tier):''}</div>
+      <h2>${esc(getFamilyDisplayLabel(f))}</h2><div class="tier-inline">${badge('総合',overall[f.id]?.tier)}${zombie[f.id]?.tier?badge('ゾンビ',zombie[f.id].tier):''}</div>
       <div class="chain">${chain(f)}</div><span class="skill-chip">${esc(skill)}</span></div>
     </a>`;
   }).join('');
@@ -234,7 +235,7 @@ function chain(f){return f.evolutions.map(e=>e.name).join(' → ');}
 function familyLink(id){return `<a href="/tata/${encodeURIComponent(id)}/">${esc(nameById(id))}系</a>`;}
 function nameById(id){
   const f=currentFamilies.find(x=>x.id===id);
-  return f?.familyName||id;
+  return f ? getFamilyDisplayLabel(f) : id;
 }
 function roleComment(guide,id){return `${guide.roleNotes[id]||'役割を確認中'}。現時点では評価データと個別スキルを見て育成を判断します。`;}
 

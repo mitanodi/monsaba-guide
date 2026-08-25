@@ -1,5 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import '../family-display.js';
+
+const { getFamilyDisplayName, getFamilySearchAliases } = globalThis.MONSABA_FAMILY;
 
 const root = path.resolve(import.meta.dirname, '..');
 const files = ['tatari.json', 'tata-skills.json', 'tier-ratings.json', 'evolution-priority.json', 'content-guides.json'];
@@ -39,6 +42,10 @@ for (const family of families) {
   fail(['草', '水', '火', '雷', '岩'].includes(family.attribute), `${family.id}: invalid attribute ${family.attribute}`);
   fail(Array.isArray(family.evolutions) && family.evolutions.length > 0, `${family.id}: evolutions are required`);
   const stages = family.evolutions || [];
+  fail(getFamilyDisplayName(family) === stages[0]?.name, `${family.id}: display family name must equal evolutions[0].name`);
+  const searchAliases = getFamilySearchAliases(family);
+  for (const evolution of stages) fail(searchAliases.includes(evolution.name), `${family.id}: search alias missing ${evolution.name}`);
+  fail(searchAliases.includes(family.familyName), `${family.id}: legacy familyName search alias is missing`);
   evolutionCount += stages.length;
   fail(new Set(stages.map((stage) => stage.stage)).size === stages.length, `${family.id}: duplicate evolution stage`);
   for (const stage of stages) {
@@ -72,6 +79,11 @@ for (const [familyId, skillFamily] of Object.entries(skills.byFamily || {})) {
   fail(stages.length === (sourceFamily?.evolutions?.length || 0), `${familyId}: stage count differs between JSON files`);
 }
 fail(skillStageCount === 224, `tata-skills.json: stage count ${skillStageCount}, expected 224`);
+
+const bowzuhebi = ratings.overall?.byFamily?.nenbutsuhebi;
+for (const [mode, expected] of Object.entries({ tier: 'SS', normal: 'SS', zombie: 'SS', dojo: 'SS', beginner: 'SS' })) {
+  fail(bowzuhebi?.[mode] === expected, `tier-ratings.json: nenbutsuhebi ${mode} must be ${expected}`);
+}
 
 function validateReferences(value, file, trail = file) {
   if (Array.isArray(value)) {

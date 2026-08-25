@@ -2,13 +2,14 @@ const $ = (selector) => document.querySelector(selector);
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 const modeLabels = { overall: '総合', normal: '通常', zombie: 'ゾンビラッシュ', dojo: '道場', beginner: '初心者' };
 const tierScore = { SSS: 0, SS: 1, S: 2, A: 3, '－': 9 };
+const { getFamilyDisplayLabel } = MONSABA_FAMILY;
 let state = {};
 
 async function json(url) { const response = await fetch(url, { cache: 'no-store' }); if (!response.ok) throw new Error(`${url} ${response.status}`); return response.json(); }
 async function boot() {
   const [tatari, skills, ratings, evolution] = await Promise.all(['/data/tatari.json', '/data/tata-skills.json', '/data/tier-ratings.json', '/data/evolution-priority.json'].map(json));
   state = { families: tatari.families || [], skills: skills.byFamily || {}, ratings, evolution };
-  const options = state.families.map((family) => `<option value="${esc(family.id)}">${esc(family.familyName)}系（${esc(family.evolutions.map((item) => item.name).join('・'))}）</option>`).join('');
+  const options = state.families.map((family) => `<option value="${esc(family.id)}">${esc(getFamilyDisplayLabel(family))}（${esc(family.evolutions.map((item) => item.name).join('・'))}）</option>`).join('');
   $('#compareA').insertAdjacentHTML('beforeend', options);
   $('#compareB').insertAdjacentHTML('beforeend', options);
   const params = new URLSearchParams(location.search);
@@ -39,7 +40,7 @@ function suitability(id, mode) {
 function card(item, mode) {
   const rating = overall(item.id);
   const stages = state.skills[item.id]?.stages || [];
-  return `<article class="compare-family-card"><h3><a href="/tata/${esc(item.id)}/">${esc(item.familyName)}系</a></h3><dl>
+  return `<article class="compare-family-card"><h3><a href="/tata/${esc(item.id)}/">${esc(getFamilyDisplayLabel(item))}</a></h3><dl>
     <div><dt>属性</dt><dd>${esc(item.attribute)}属性</dd></div>
     <div><dt>${esc(modeLabels[mode])}Tier</dt><dd><span class="tier-badge">${esc(tier(item.id, mode) || '評価保留')}</span></dd></div>
     <div><dt>役割</dt><dd>${esc((rating.roles || []).join(' / ') || '確認中')}</dd></div>
@@ -53,14 +54,14 @@ function conclusion(a, b, mode) {
   const left = tier(a.id, mode) || '－'; const right = tier(b.id, mode) || '－';
   if (left === '－' || right === '－' || left === right) return `${modeLabels[mode]}Tierだけでは優先順位を決められません。役割・属性・進化差分を確認してください。`;
   const winner = tierScore[left] < tierScore[right] ? a : b;
-  return `${modeLabels[mode]}の現在評価では${winner.familyName}系が上位です。Tierだけでなく、手持ちの不足役割と進化条件も合わせて判断してください。`;
+  return `${modeLabels[mode]}の現在評価では${getFamilyDisplayLabel(winner)}が上位です。Tierだけでなく、手持ちの不足役割と進化条件も合わせて判断してください。`;
 }
 function render(updateUrl) {
   const a = family($('#compareA').value); const b = family($('#compareB').value); const mode = $('#compareMode').value;
   if (!a || !b) { $('#compareMessage').textContent = '比較する2体を選んでください。'; $('#compareResult').replaceChildren(); return; }
   if (a.id === b.id) { $('#compareMessage').textContent = '異なる2体を選んでください。'; $('#compareResult').replaceChildren(); return; }
   if (updateUrl) history.replaceState(null, '', `/compare/?a=${encodeURIComponent(a.id)}&b=${encodeURIComponent(b.id)}&mode=${encodeURIComponent(mode)}`);
-  $('#compareMessage').textContent = `${a.familyName}系と${b.familyName}系を${modeLabels[mode]}用途で比較しています。`;
+  $('#compareMessage').textContent = `${getFamilyDisplayLabel(a)}と${getFamilyDisplayLabel(b)}を${modeLabels[mode]}用途で比較しています。`;
   $('#compareResult').innerHTML = `<div class="compare-result-grid">${card(a, mode)}${card(b, mode)}</div><aside class="summary-box compare-conclusion"><strong>比較の結論</strong><p>${esc(conclusion(a, b, mode))}</p><button id="copyCompareUrl" type="button" class="ghost-button">比較URLをコピー</button></aside>`;
   $('#copyCompareUrl').addEventListener('click', async () => { try { await navigator.clipboard.writeText(location.href); $('#compareMessage').textContent = '比較URLをコピーしました。'; } catch { $('#compareMessage').textContent = 'アドレスバーのURLをコピーして共有してください。'; } });
   window.MONSABA_TRACK?.event('tata_compare_view', { mode, left_attribute: a.attribute, right_attribute: b.attribute });

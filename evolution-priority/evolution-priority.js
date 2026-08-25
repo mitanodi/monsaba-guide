@@ -4,6 +4,7 @@ const priorityOrder={'最優先候補':0,'優先候補':1,'用途次第':2,'評�
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const thumb=src=>`/${String(src||'').replace('assets/monsters/','assets/thumbs/')}`;
+const {getFamilyDisplayName,getFamilyDisplayLabel,getFamilySearchAliases}=MONSABA_FAMILY;
 let state={families:[],skills:{},ratings:{},priority:{},transitions:[]};
 
 async function boot(){
@@ -97,11 +98,11 @@ function roadmapItem(item){
   const t3=sf?.stages.find(s=>s.stage===3);
   const first=sf?.stages[0];
   const note=item.familyId==='gantoru'?`<small>初期：${esc(first?.tataName||'コロカメ')}</small>`:'';
-  return `<a class="mini-family-row" href="/tata/${esc(item.familyId)}/"><img src="${esc(thumb(f.evolutions[0]?.image))}" alt="${esc(first?.tataName||f.familyName)}"><span><b>${esc(f.familyName)}系</b>${note}<em>T3：${esc(t3?.tataName)} / ${item.requiredStars}星</em></span></a>`;
+  return `<a class="mini-family-row" href="/tata/${esc(item.familyId)}/"><img src="${esc(thumb(f.evolutions[0]?.image))}" alt="${esc(first?.tataName||getFamilyDisplayName(f))}"><span><b>${esc(getFamilyDisplayLabel(f))}</b>${note}<em>T3：${esc(t3?.tataName)} / ${item.requiredStars}星</em></span></a>`;
 }
 
 function renderDiagnosisControls(){
-  $('#familySelect').innerHTML=state.families.map(f=>`<option value="${esc(f.id)}">${esc(f.familyName)}系（${f.evolutions.map(e=>e.name).join(' / ')}）</option>`).join('');
+  $('#familySelect').innerHTML=state.families.map(f=>`<option value="${esc(f.id)}">${esc(getFamilyDisplayLabel(f))}（${f.evolutions.map(e=>e.name).join(' / ')}）</option>`).join('');
   $('#familySelect').value='purabi';
   updateStageOptions();
   $('#stageSelect').value='2';
@@ -154,7 +155,7 @@ function renderLongTerm(){
   $('#longTermGrid').innerHTML=state.priority.longTermRecommended.map(item=>{
     const f=family(item.familyId);
     const first=state.skills[item.familyId]?.stages[0];
-    return `<article class="priority-tata-card"><div class="priority-tata-head"><h3>${esc(f.familyName)}系</h3><div>${badge('総合',state.ratings.overall?.byFamily?.[f.id]?.tier)}</div></div><p class="tier-chain">${chain(f)}</p><p>${esc(item.reason)}</p><a class="detail-link" href="/tata/${esc(f.id)}/">詳しく見る</a>${first?.tataName!==f.familyName?`<p class="tier-chain">初期：${esc(first?.tataName)}</p>`:''}</article>`;
+    return `<article class="priority-tata-card"><div class="priority-tata-head"><h3>${esc(getFamilyDisplayLabel(f))}</h3><div>${badge('総合',state.ratings.overall?.byFamily?.[f.id]?.tier)}</div></div><p class="tier-chain">${chain(f)}</p><p>${esc(item.reason)}</p><a class="detail-link" href="/tata/${esc(f.id)}/">詳しく見る</a></article>`;
   }).join('');
 }
 
@@ -173,12 +174,12 @@ function renderTransitionList(){
     if(priority==='top'&&t.priority!=='最優先候補') return false;
     if(priority==='priority'&&!['最優先候補','優先候補'].includes(t.priority)) return false;
     if(q){
-      const hay=[t.family.id,t.family.familyName,...t.family.evolutions.map(e=>e.name),...state.skills[t.family.id].stages.map(s=>s.skillName)].join(' ').toLowerCase();
+      const hay=[...getFamilySearchAliases(t.family),...state.skills[t.family.id].stages.map(s=>s.skillName)].join(' ').toLowerCase();
       if(!hay.includes(q)) return false;
     }
     return true;
   });
-  list.sort((a,b)=>(priorityOrder[a.priority]-priorityOrder[b.priority])||a.family.familyName.localeCompare(b.family.familyName,'ja'));
+  list.sort((a,b)=>(priorityOrder[a.priority]-priorityOrder[b.priority])||getFamilyDisplayName(a.family).localeCompare(getFamilyDisplayName(b.family),'ja'));
   $('#transitionGrid').innerHTML=list.length?list.map(t=>transitionCard(t,false)).join(''):'<div class="empty">条件に合う進化差分がありません。</div>';
 }
 
@@ -187,7 +188,7 @@ function transitionCard(tx,compact){
   const z=state.ratings.zombieRush?.byFamily?.[tx.family.id]?.tier;
   const zombieAura=mode==='zombie'&&tx.from.stage===3&&tx.to.stage===4?`<div class="notice-line">ゾンビラッシュではT4オーラ無効</div>`:'';
   return `<article class="evolution-card" data-family-id="${esc(tx.family.id)}">
-    <div class="evolution-card-head"><img src="${esc(thumb(tx.family.evolutions[0]?.image))}" alt="${esc(tx.family.familyName)}"><div><span class="attribute">${attrIcon[tx.family.attribute]||''} ${esc(tx.family.attribute)}属性</span><h3>${esc(tx.family.familyName)}系</h3><p>${esc(tx.from.tataName)} → ${esc(tx.to.tataName)}</p></div></div>
+    <div class="evolution-card-head"><img src="${esc(thumb(tx.family.evolutions[0]?.image))}" alt="${esc(getFamilyDisplayName(tx.family))}"><div><span class="attribute">${attrIcon[tx.family.attribute]||''} ${esc(tx.family.attribute)}属性</span><h3>${esc(getFamilyDisplayLabel(tx.family))}</h3><p>${esc(tx.from.tataName)} → ${esc(tx.to.tataName)}</p></div></div>
     <div class="tier-inline">${badge('進化',tx.priority)}${badge('総合',state.ratings.overall?.byFamily?.[tx.family.id]?.tier)}${z?badge('ゾンビ',z):''}${modeTierFor(tx.family.id,mode)?badge(modeLabels[mode],modeTierFor(tx.family.id,mode)):''}</div>
     <p class="evolution-headline">${esc(tx.headline)}</p>
     ${deltaHtml(tx.delta)}

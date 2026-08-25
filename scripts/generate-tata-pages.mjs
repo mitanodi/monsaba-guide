@@ -2,6 +2,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { ATTRIBUTE_META, BASE_URL, LAST_MODIFIED } from './site-config.mjs';
 import { renderHeader, renderFooter } from './shared-layout.mjs';
+import '../family-display.js';
+
+const { getFamilyDisplayName, getFamilyDisplayLabel } = globalThis.MONSABA_FAMILY;
 
 const root = path.resolve(import.meta.dirname, '..');
 const readJson = (file) => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'));
@@ -55,6 +58,8 @@ function verifiedChanges(stages) {
 }
 
 function renderPage(family, index) {
+  const displayName = getFamilyDisplayName(family);
+  const displayLabel = getFamilyDisplayLabel(family);
   const stageData = skills.byFamily?.[family.id]?.stages || [];
   const overall = ratings.overall?.byFamily?.[family.id];
   const zombie = ratings.zombieRush?.byFamily?.[family.id];
@@ -67,11 +72,11 @@ function renderPage(family, index) {
   const chain = family.evolutions.map((item) => item.name).join(' → ');
   const { roadmap, transitions } = priorityEntries(family.id);
   const changes = verifiedChanges(stageData);
-  const evolvedNames = family.evolutions.slice(1).map((item) => item.name).filter((name) => name !== family.familyName);
+  const evolvedNames = family.evolutions.slice(1).map((item) => item.name);
   const titleNames = [...new Set([evolvedNames[0], evolvedNames.at(-1)].filter(Boolean))];
-  const title = `モンサバ ${family.familyName}系${titleNames.length ? `（${titleNames.join('・')}）` : ''}は強い？進化・スキル・用途`;
+  const title = `モンサバ ${displayLabel}${titleNames.length ? `（${titleNames.join('・')}）` : ''}は強い？進化・スキル・用途`;
   const roleText = roles.length ? ` 主な役割は${roles.join('・')}。` : '';
-  const description = `モンサバの${family.familyName}系（${chain}）の進化先、スキル、確認済み数値${evaluations.length ? '、Tierと用途評価' : ''}を掲載。${roleText}`.trim();
+  const description = `モンサバの${displayLabel}（${chain}）の進化先、スキル、確認済み数値${evaluations.length ? '、Tierと用途評価' : ''}を掲載。${roleText}`.trim();
   const image = `${BASE_URL}${thumb(family.evolutions.at(-1)?.image || family.evolutions[0]?.image)}`;
   const previous = families[index - 1];
   const next = families[index + 1];
@@ -82,20 +87,20 @@ function renderPage(family, index) {
         '@type': 'WebPage', '@id': url, url, name: title, description, image,
         mainEntityOfPage: { '@type': 'WebPage', '@id': url },
         dateModified: LAST_MODIFIED, inLanguage: 'ja',
-        about: { '@type': 'Thing', name: `${family.familyName}系`, alternateName: family.evolutions.map((item) => item.name), description }
+        about: { '@type': 'Thing', name: displayLabel, alternateName: [...new Set([family.familyName, ...family.evolutions.map((item) => item.name)])], description }
       },
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'モンサバ攻略DB', item: `${BASE_URL}/` },
           { '@type': 'ListItem', position: 2, name: 'タタ図鑑', item: `${BASE_URL}/#tatari` },
-          { '@type': 'ListItem', position: 3, name: `${family.familyName}系` }
+          { '@type': 'ListItem', position: 3, name: displayLabel }
         ]
       }
     ]
   };
   const evolutionCards = family.evolutions.map((evolution) => `<article class="evo-card static-evo"><img src="${esc(thumb(evolution.image))}" width="160" height="160" alt="${esc(evolution.name)}" loading="lazy" decoding="async"><div><small>T${evolution.stage}</small><strong>${esc(evolution.name)}</strong></div></article>`).join('');
-  const evolutionIndex = `<section class="wrap tata-stage-index" aria-labelledby="stage-index-title"><h2 id="stage-index-title">このページで扱う進化</h2><ol>${family.evolutions.map((evolution) => `<li><a href="#stage-${evolution.stage}"><b>T${evolution.stage}</b> ${esc(evolution.name)}</a></li>`).join('')}</ol><p>${esc(family.familyName)}系のT1〜T${family.evolutions.length}について、進化先・スキル・確認済み数値をまとめています。</p></section>`;
+  const evolutionIndex = `<section class="wrap tata-stage-index" aria-labelledby="stage-index-title"><h2 id="stage-index-title">このページで扱う進化</h2><ol>${family.evolutions.map((evolution) => `<li><a href="#stage-${evolution.stage}"><b>T${evolution.stage}</b> ${esc(evolution.name)}</a></li>`).join('')}</ol><p>${esc(displayLabel)}のT1〜T${family.evolutions.length}について、進化先・スキル・確認済み数値をまとめています。</p></section>`;
   const skillBlocks = stageData.map((stage) => `<section class="skill-block" id="stage-${stage.stage}"><div class="skill-head"><div><small>第${stage.stage}進化：${esc(stage.tataName)}</small><h2>${esc(stage.skillName)}</h2></div><p class="skill-summary">${esc(stage.description || '説明データは収録されていません。')}</p></div>${stage.values?.length ? `<div class="stats-grid">${stage.values.map((value) => `<div class="stat-cell"><span>${esc(value.label)}</span><b>${esc(value.value)}</b></div>`).join('')}</div>` : '<p class="section-note">確認済み数値は収録されていません。</p>'}${stage.sources?.length ? `<details class="source-details"><summary>参照スクショ</summary><div class="sources">${stage.sources.map(esc).join(' / ')}</div></details>` : ''}</section>`).join('');
   const ratingAnswer = overall?.comment || zombie?.comment || (evaluations.length ? `${evaluations.map(([label, value]) => `${label} ${value}`).join('、')}として評価しています。` : '現在評価情報を収集中です。');
   const purposeAnswer = evaluations.length
@@ -107,7 +112,7 @@ function renderPage(family, index) {
   const changeAnswer = changes.length
     ? `<div class="evolution-change-list">${changes.map(({ before, after, items }) => `<article><h3>T${before.stage} ${esc(before.tataName)} → T${after.stage} ${esc(after.tataName)}</h3>${items.length ? `<ul class="plain-list">${items.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>` : '<p>確認済み数値・スキル名の差分はありません。説明全文はスキル一覧で確認できます。</p>'}</article>`).join('')}</div>`
     : '<p class="section-note">現在評価情報を収集中です。</p>';
-  const quickAnswers = `<section class="wrap static-section tata-quick-answers" aria-labelledby="quick-answer-title"><p class="section-kicker visible-kicker">クイック回答</p><p class="trust-label-row"><span class="trust-label is-independent">独自評価</span><span class="trust-label is-verified">ゲーム内データ確認済み</span></p><h2 id="quick-answer-title" class="page-h2">${esc(family.familyName)}は強い？</h2><p>${esc(ratingAnswer)}</p><p class="quick-purpose-label">このタタは何向け？</p><h2 class="page-h2">${esc(family.familyName)}系のおすすめ用途</h2>${purposeAnswer}${roles.length ? `<h3>主な役割</h3><div class="role-tags tata-role-tags">${roles.map((role) => `<span>${esc(role)}</span>`).join('')}</div>` : '<p class="section-note"><span class="trust-label is-pending">確認中</span> 役割情報は現在収集中です。</p>'}<p class="rating-hold-note">評価保留は弱いという意味ではなく、順位を付ける根拠が不足している状態です。</p><h2 class="page-h2">${esc(family.familyName)}は進化するべき？</h2>${priorityAnswer}</section>`;
+  const quickAnswers = `<section class="wrap static-section tata-quick-answers" aria-labelledby="quick-answer-title"><p class="section-kicker visible-kicker">クイック回答</p><p class="trust-label-row"><span class="trust-label is-independent">独自評価</span><span class="trust-label is-verified">ゲーム内データ確認済み</span></p><h2 id="quick-answer-title" class="page-h2">${esc(displayName)}は強い？</h2><p>${esc(ratingAnswer)}</p><p class="quick-purpose-label">このタタは何向け？</p><h2 class="page-h2">${esc(displayLabel)}のおすすめ用途</h2>${purposeAnswer}${roles.length ? `<h3>主な役割</h3><div class="role-tags tata-role-tags">${roles.map((role) => `<span>${esc(role)}</span>`).join('')}</div>` : '<p class="section-note"><span class="trust-label is-pending">確認中</span> 役割情報は現在収集中です。</p>'}<p class="rating-hold-note">評価保留は弱いという意味ではなく、順位を付ける根拠が不足している状態です。</p><h2 class="page-h2">${esc(displayName)}は進化するべき？</h2>${priorityAnswer}</section>`;
   const evolutionLinks = family.evolutions.slice(0, -1).map((stage) => `<a class="ghost-button" href="/consult/?flow=evolution&amp;family=${encodeURIComponent(family.id)}&amp;stage=${stage.stage}">T${stage.stage} ${esc(stage.name)}から次の進化を相談</a>`).join('');
   const modeLinks = [
     [`/${`attribute/${attr.slug}`}/`, `${family.attribute}属性のタタを見る`],
@@ -127,8 +132,8 @@ function renderPage(family, index) {
     if (overall?.tier && itemRating?.tier === overall.tier) { score += 2; reasons.push(`総合${overall.tier}評価`); }
     if (sharedRoles.length) { score += sharedRoles.length * 2; reasons.push(`共通役割：${sharedRoles.join('・')}`); }
     return { item, score, reasons };
-  }).filter((entry) => entry.score > 0).sort((a, b) => b.score - a.score || a.item.familyName.localeCompare(b.item.familyName, 'ja')).slice(0, 3);
-  const relatedHtml = relatedFamilies.length ? `<div class="related-content related-tata-grid">${relatedFamilies.map(({ item, reasons }) => `<article><h3><a href="/tata/${encodeURIComponent(item.id)}/">${esc(item.familyName)}系</a></h3><p>関連理由：${esc(reasons.join(' / '))}</p><a class="ghost-button" href="/compare/?a=${encodeURIComponent(family.id)}&amp;b=${encodeURIComponent(item.id)}">この2体を比較</a></article>`).join('')}</div>` : '<p>関連度を確認できるタタは現在ありません。</p>';
+  }).filter((entry) => entry.score > 0).sort((a, b) => b.score - a.score || getFamilyDisplayName(a.item).localeCompare(getFamilyDisplayName(b.item), 'ja')).slice(0, 3);
+  const relatedHtml = relatedFamilies.length ? `<div class="related-content related-tata-grid">${relatedFamilies.map(({ item, reasons }) => `<article><h3><a href="/tata/${encodeURIComponent(item.id)}/">${esc(getFamilyDisplayLabel(item))}</a></h3><p>関連理由：${esc(reasons.join(' / '))}</p><a class="ghost-button" href="/compare/?a=${encodeURIComponent(family.id)}&amp;b=${encodeURIComponent(item.id)}">この2体を比較</a></article>`).join('')}</div>` : '<p>関連度を確認できるタタは現在ありません。</p>';
   return `<!doctype html>
 <html lang="ja">
 <head>
@@ -145,7 +150,7 @@ function renderPage(family, index) {
   <meta property="og:description" content="${esc(description)}" />
   <meta property="og:url" content="${url}" />
   <meta property="og:image" content="${image}" />
-  <meta property="og:image:alt" content="${esc(family.familyName)}系の代表画像" />
+  <meta property="og:image:alt" content="${esc(displayLabel)}の代表画像" />
   <meta property="og:locale" content="ja_JP" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="${image}" />
@@ -159,21 +164,21 @@ function renderPage(family, index) {
 <body data-page-type="tata_detail"><a class="skip-link" href="#main-content">本文へスキップ</a>
   ${renderHeader(route)}
   <main id="main-content">
-    <section class="page-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="パンくず"><a href="/">トップ</a><span>›</span><a href="/#tatari">タタ図鑑</a><span>›</span><span>${esc(family.familyName)}系</span></nav><div class="family-page-head tata-page-head"><div><span class="attribute">${attr.icon} ${family.attribute}属性</span><h1>${esc(family.familyName)}系</h1><p>${esc(chain)}</p>${roles.length ? `<div class="role-tags tata-role-tags">${roles.map((role) => `<span>${esc(role)}</span>`).join('')}</div>` : ''}</div><div class="tata-hero-actions"><a class="button" href="/consult/?flow=detail&amp;family=${encodeURIComponent(family.id)}">このタタを攻略相談所で相談</a><a class="ghost-button" href="/attribute/${attr.slug}/">同じ属性のタタを見る</a></div></div></div></section>
+    <section class="page-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="パンくず"><a href="/">トップ</a><span>›</span><a href="/#tatari">タタ図鑑</a><span>›</span><span>${esc(displayLabel)}</span></nav><div class="family-page-head tata-page-head"><div><span class="attribute">${attr.icon} ${family.attribute}属性</span><h1>${esc(displayLabel)}</h1><p>${esc(chain)}</p>${roles.length ? `<div class="role-tags tata-role-tags">${roles.map((role) => `<span>${esc(role)}</span>`).join('')}</div>` : ''}</div><div class="tata-hero-actions"><a class="button" href="/consult/?flow=detail&amp;family=${encodeURIComponent(family.id)}">このタタを攻略相談所で相談</a><a class="ghost-button" href="/attribute/${attr.slug}/">同じ属性のタタを見る</a></div></div></div></section>
 ${evolutionIndex}
 ${quickAnswers}
-    <section class="wrap static-section"><h2 class="page-h2">${esc(family.familyName)}の進化先</h2><div class="evolution-row static-row" role="region" tabindex="0" aria-label="${esc(family.familyName)}系の全進化ルート">${evolutionCards}</div></section>
+    <section class="wrap static-section"><h2 class="page-h2">${esc(displayName)}の進化先</h2><div class="evolution-row static-row" role="region" tabindex="0" aria-label="${esc(displayLabel)}の全進化ルート">${evolutionCards}</div></section>
     <section class="wrap static-section"><h2 class="page-h2">進化すると何が変わる？</h2>${changeAnswer}</section>
     <div class="monetization-slot" data-monetization-slot="tata_mid" hidden></div>
-    <section class="wrap static-section"><h2 class="page-h2">${esc(family.familyName)}系のスキル一覧</h2><div class="skills static-skills">${skillBlocks}</div></section>
+    <section class="wrap static-section"><h2 class="page-h2">${esc(displayLabel)}のスキル一覧</h2><div class="skills static-skills">${skillBlocks}</div></section>
 ${evolutionLinks ? `<section class="wrap static-section tata-consult-cta"><h2 class="page-h2">次の進化を相談する</h2><p class="section-note">現在の進化段階を選んだ状態で攻略相談所を開きます。</p><div class="tata-consult-links">${evolutionLinks}</div></section>` : ''}
     <section class="wrap static-section"><h2 class="page-h2">関連するタタ</h2><p class="section-note">属性・Tier・役割の一致度から、確認済みデータだけで関連候補を表示しています。</p>${relatedHtml}</section>
     <section class="wrap static-section"><h2 class="page-h2">次に見るページ</h2><p class="section-note">各ページへの案内です。このタタが各コンテンツの最上位候補であることを示すものではありません。</p><div class="attribute-guide-nav tata-related-links"><a href="/compare/?a=${encodeURIComponent(family.id)}">別のタタと比較</a><a href="/#family-${encodeURIComponent(family.id)}">図鑑で進化・スキルを比較</a><a href="/consult/?flow=detail&amp;family=${encodeURIComponent(family.id)}">攻略相談所で相談</a>${modeLinks.map(([href, label]) => `<a href="${href}">${esc(label)}</a>`).join('')}</div></section>
-    <nav class="wrap tata-family-nav" aria-label="前後のタタ系統">${previous ? `<a href="/tata/${previous.id}/"><span>← 前の系統</span><b>${esc(previous.familyName)}系</b></a>` : '<span></span>'}${next ? `<a href="/tata/${next.id}/"><span>次の系統 →</span><b>${esc(next.familyName)}系</b></a>` : '<span></span>'}</nav>
+    <nav class="wrap tata-family-nav" aria-label="前後のタタ系統">${previous ? `<a href="/tata/${previous.id}/"><span>← 前の系統</span><b>${esc(getFamilyDisplayLabel(previous))}</b></a>` : '<span></span>'}${next ? `<a href="/tata/${next.id}/"><span>次の系統 →</span><b>${esc(getFamilyDisplayLabel(next))}</b></a>` : '<span></span>'}</nav>
     <section class="wrap source-note"><strong>掲載データについて</strong><p>タタ名・進化・スキルと数値は、ゲーム内スクリーンショットで確認できた内容を掲載しています。読めない内容は推測で補完していません。Tierは当サイト独自の暫定評価です。</p><p class="article-byline">運営・データ確認：<a href="/about/">おぢ</a></p><a href="/about-data/">データ更新方針を見る</a></section>
   </main>
   ${renderFooter('63系統 / 224体')}
-  <script src="/site.js"></script><script src="/monetization.js"></script><script src="/growth.js" defer></script>
+  <script src="/family-display.js"></script><script src="/site.js"></script><script src="/monetization.js"></script><script src="/growth.js" defer></script>
 </body>
 </html>
 `;

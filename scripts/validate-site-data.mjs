@@ -1,6 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { BASE_URL, HERO_BY_ROUTE } from './site-config.mjs';
+import '../family-display.js';
+
+const { getFamilyDisplayName, getFamilyDisplayLabel, getFamilySearchAliases } = globalThis.MONSABA_FAMILY;
 
 const root = path.resolve(import.meta.dirname, '..');
 const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
@@ -8,7 +11,7 @@ const json = (file) => JSON.parse(read(file));
 const errors = [];
 const LEGACY_BASE_URL = 'https://monsaba-guide.vercel.app';
 const expect = (condition, message) => { if (!condition) errors.push(message); };
-const ignored = new Set(['.git', '.github', '.vercel', '.agents', 'node_modules', 'assets']);
+const ignored = new Set(['.git', '.github', '.vercel', '.agents', 'node_modules', 'assets', 'promo']);
 const textExtensions = new Set(['.html', '.js', '.json', '.xml', '.txt', '.webmanifest']);
 const textFiles = [];
 function walk(directory) {
@@ -38,6 +41,18 @@ const counts = Object.fromEntries(['草', '水', '火', '雷', '岩'].map((attri
 for (const family of tatari.families || []) counts[family.attribute] = (counts[family.attribute] || 0) + 1;
 expect(JSON.stringify(counts) === JSON.stringify({草:13, 水:12, 火:13, 雷:13, 岩:12}), `属性系統数: ${JSON.stringify(counts)}`);
 expect((tatari.families || []).length === 63, `総系統数: ${(tatari.families || []).length}`);
+const renamedFamilies = (tatari.families || []).filter((family) => family.familyName !== getFamilyDisplayName(family));
+expect(renamedFamilies.length === 32, `初期形態名とlegacy familyNameが異なる系統数: ${renamedFamilies.length}`);
+for (const family of tatari.families || []) {
+  expect(getFamilyDisplayName(family) === family.evolutions[0]?.name, `${family.id}: 表示名が初期形態名と不一致`);
+  const aliases = getFamilySearchAliases(family);
+  for (const evolution of family.evolutions || []) expect(aliases.includes(evolution.name), `${family.id}: 検索aliasに ${evolution.name} がありません`);
+  expect(aliases.includes(family.familyName), `${family.id}: legacy familyName検索aliasがありません`);
+}
+const bowzuhebi = ratings.overall?.byFamily?.nenbutsuhebi;
+for (const [mode, expected] of Object.entries({ tier: 'SS', normal: 'SS', zombie: 'SS', dojo: 'SS', beginner: 'SS' })) {
+  expect(bowzuhebi?.[mode] === expected, `nenbutsuhebi ${mode}: ${bowzuhebi?.[mode] || '未設定'} / expected ${expected}`);
+}
 
 const overallGroups = ratings.overall?.groups || [];
 const overallIds = overallGroups.flatMap((group) => group.ids || []);
@@ -86,6 +101,7 @@ for (const file of htmlFiles) {
     }
   }
   if (html.includes('class="site-header"')) expect(/<script\s+src="(?:\/|\.\/)site\.js(?:\?[^"#]*)?"/.test(html), `${file}: 共通サイトスクリプトがありません`);
+  if (html.includes('class="site-header"')) expect(html.includes('src="/family-display.js"'), `${file}: 系統表示名の共通スクリプトがありません`);
   if (html.includes('<footer')) {
     expect(html.includes('href="/friends/"'), `${file}: footerにフレンド掲示板リンクがありません`);
     expect((html.match(/https:\/\/x\.com\/odi_monsaba/g) || []).length === 1, `${file}: X問い合わせリンクが1件ではありません`);
@@ -115,12 +131,14 @@ for (const family of tatari.families || []) {
   expect(fs.existsSync(path.join(root, file)), `${file}: 個別ページがありません`);
   if (!fs.existsSync(path.join(root, file))) continue;
   const html = read(file);
-  expect(html.includes(`${family.familyName}系`), `${file}: family名がありません`);
+  const displayName = getFamilyDisplayName(family);
+  const displayLabel = getFamilyDisplayLabel(family);
+  expect(html.includes(displayLabel), `${file}: 初期形態の系統名がありません`);
   expect(html.includes(`${BASE_URL}/tata/${family.id}/`), `${file}: 固有canonical/URLがありません`);
-  expect(html.includes(`${family.familyName}は強い？`), `${file}: 強さのクイック回答がありません`);
-  expect(html.includes(`${family.familyName}系のおすすめ用途`), `${file}: おすすめ用途がありません`);
-  expect(html.includes(`${family.familyName}の進化先`), `${file}: 進化先がありません`);
-  expect(html.includes(`${family.familyName}系のスキル一覧`), `${file}: スキル一覧がありません`);
+  expect(html.includes(`${displayName}は強い？`), `${file}: 強さのクイック回答がありません`);
+  expect(html.includes(`${displayLabel}のおすすめ用途`), `${file}: おすすめ用途がありません`);
+  expect(html.includes(`${displayName}の進化先`), `${file}: 進化先がありません`);
+  expect(html.includes(`${displayLabel}のスキル一覧`), `${file}: スキル一覧がありません`);
   expect(html.includes('このページで扱う進化'), `${file}: 進化名称の静的索引がありません`);
   for (const evolution of family.evolutions) expect(html.includes(`T${evolution.stage}</b> ${evolution.name}`), `${file}: T${evolution.stage} ${evolution.name} が進化索引にありません`);
   expect(html.includes('data-monetization-slot="tata_mid" hidden'), `${file}: 非表示の将来広告枠がありません`);
@@ -130,6 +148,11 @@ for (const family of tatari.families || []) {
     const localImage = imageMatch[1].replace(`${BASE_URL}/`, '');
     expect(fs.existsSync(path.join(root, localImage)), `${file}: og:image 実体がありません`);
   }
+}
+
+for (const family of renamedFamilies) {
+  const legacyLabel = `${family.familyName}系`;
+  for (const file of htmlFiles) expect(!read(file).includes(legacyLabel), `${file}: legacy系統表示 ${legacyLabel} が残っています`);
 }
 
 const sharedLayout = read('scripts/shared-layout.mjs');

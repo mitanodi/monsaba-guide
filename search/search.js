@@ -1,5 +1,6 @@
 const $ = (selector) => document.querySelector(selector);
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[char]);
+const { getFamilyDisplayLabel, getFamilySearchAliases } = MONSABA_FAMILY;
 const normalize = (value) => {
   let text = String(value ?? '').toLowerCase().normalize('NFKC').replaceAll('土属性', '岩属性').trim();
   if (text === '土') text = '岩';
@@ -40,7 +41,7 @@ async function boot() {
   ratings = ratingData.overall?.byFamily || {};
   const suggestions = new Set(pages.map((page) => page.title));
   for (const family of families) {
-    suggestions.add(`${family.familyName}系`); suggestions.add(`${family.attribute}属性`);
+    getFamilySearchAliases(family).forEach((name) => suggestions.add(name)); suggestions.add(`${family.attribute}属性`);
     family.evolutions.forEach((item) => suggestions.add(item.name));
     (skills[family.id]?.stages || []).forEach((stage) => suggestions.add(stage.skillName));
     (ratings[family.id]?.roles || []).forEach((role) => suggestions.add(role));
@@ -70,7 +71,7 @@ function runSearch(rawQuery, updateUrl = true) {
     $('#searchResults').innerHTML = `<nav class="attribute-guide-nav" aria-label="主要ページ">${pages.slice(0, 9).map((page) => `<a href="${page.href}">${esc(page.title)}</a>`).join('')}</nav>`;
     return 0;
   }
-  const familyResults = families.filter((family) => contains(query, family.familyName, `${family.attribute}属性`, family.id, ratings[family.id]?.tier, ratings[family.id]?.roles));
+  const familyResults = families.filter((family) => contains(query, getFamilySearchAliases(family), `${family.attribute}属性`, ratings[family.id]?.tier, ratings[family.id]?.roles));
   const evolutionResults = [];
   const skillResults = [];
   for (const family of families) {
@@ -83,9 +84,9 @@ function runSearch(rawQuery, updateUrl = true) {
   const total = familyResults.length + evolutionResults.length + skillResults.length + pageResults.length;
   $('#searchStatus').textContent = `「${raw}」の検索結果：${total}件`;
   const sections = [
-    section('タタ', familyResults, (family) => resultLink(`/tata/${encodeURIComponent(family.id)}/`, `${family.familyName}系`, `${family.attribute}属性 / ${family.evolutions.map((item) => item.name).join(' → ')}`)),
-    section('進化名', evolutionResults, (item) => resultLink(`/tata/${encodeURIComponent(item.family.id)}/`, `${item.family.familyName}系`, item.matches.join(' / '))),
-    section('スキル', skillResults, (item) => resultLink(`/tata/${encodeURIComponent(item.family.id)}/`, `${item.family.familyName}系`, item.matches.join(' / '))),
+    section('タタ', familyResults, (family) => resultLink(`/tata/${encodeURIComponent(family.id)}/`, getFamilyDisplayLabel(family), `${family.attribute}属性 / ${family.evolutions.map((item) => item.name).join(' → ')}`)),
+    section('進化名', evolutionResults, (item) => resultLink(`/tata/${encodeURIComponent(item.family.id)}/`, getFamilyDisplayLabel(item.family), item.matches.join(' / '))),
+    section('スキル', skillResults, (item) => resultLink(`/tata/${encodeURIComponent(item.family.id)}/`, getFamilyDisplayLabel(item.family), item.matches.join(' / '))),
     section('攻略ページ', pageResults, (page) => resultLink(page.href, page.title, page.description))
   ].join('');
   $('#searchResults').innerHTML = total ? sections : '<div class="empty"><p>一致する情報がありません。別の名称や正式な属性名で検索してください。</p><nav class="attribute-guide-nav" aria-label="代替の探し方"><a href="/consult/">条件から攻略相談</a><a href="/tata-tier/">Tierから探す</a><a href="/attribute/grass/">属性から探す</a><a href="/guides/">攻略目的から探す</a></nav></div>';

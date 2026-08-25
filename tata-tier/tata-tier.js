@@ -5,6 +5,7 @@ const rankOrder={SSS:0,SS:1,S:2,A:3,'－':4};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const thumb=src=>`/${String(src||'').replace('assets/monsters/','assets/thumbs/')}`;
+const {getFamilyDisplayName,getFamilyDisplayLabel}=MONSABA_FAMILY;
 
 let allFamilies=[];
 let rankedItems=[];
@@ -34,7 +35,7 @@ async function bootTataTier(){
       return {id,family,group,groupIndex,order,assessment:assessments[id]};
     })
   );
-  holdFamilies=allFamilies.filter(f=>!seen.has(f.id)).sort((a,b)=>a.familyName.localeCompare(b.familyName,'ja'));
+  holdFamilies=allFamilies.filter(f=>!seen.has(f.id)).sort((a,b)=>getFamilyDisplayName(a).localeCompare(getFamilyDisplayName(b),'ja'));
   render();
   window.__tataTierState={families:allFamilies,rankedItems,holdFamilies,overallTierGroups,assessments};
 }
@@ -81,7 +82,7 @@ function render(){
       <div class="overall-cards">${sorted.map(renderCard).join('')||'<div class="empty">該当するタタがありません。</div>'}</div>
     </section>`;
   }
-  $('#holdList').innerHTML=visibleHold.map(f=>`<a href="/tata/${encodeURIComponent(f.id)}/">${esc(f.familyName)}系</a>`).join('')||'<span class="empty-inline">該当するタタがありません。</span>';
+  $('#holdList').innerHTML=visibleHold.map(f=>`<a href="/tata/${encodeURIComponent(f.id)}/">${esc(getFamilyDisplayLabel(f))}</a>`).join('')||'<span class="empty-inline">該当するタタがありません。</span>';
 }
 
 function renderCard(item){
@@ -90,13 +91,13 @@ function renderCard(item){
   const first=f.evolutions[0]||{};
   const chain=f.evolutions.map(e=>esc(e.name)).join(' → ');
   return `<article class="overall-card" data-id="${esc(f.id)}" data-attribute="${esc(f.attribute)}" data-overall="${esc(group.rank)}">
-    <a class="overall-image" href="/tata/${encodeURIComponent(f.id)}/"><img loading="lazy" src="${esc(thumb(first.image))}" alt="${esc(first.name||f.familyName)}"></a>
+    <a class="overall-image" href="/tata/${encodeURIComponent(f.id)}/"><img loading="lazy" src="${esc(thumb(first.image))}" alt="${esc(first.name||getFamilyDisplayName(f))}"></a>
     <div class="overall-body">
       <div class="overall-top">
         <span class="tier-badge rank-${esc(group.rank.toLowerCase())}">${esc(group.rank)}</span>
         <span class="attribute">${attrIcon[f.attribute]||''} ${esc(f.attribute)}属性</span>
       </div>
-      <h3><a href="/tata/${encodeURIComponent(f.id)}/">${esc(f.familyName)}系</a></h3>
+      <h3><a href="/tata/${encodeURIComponent(f.id)}/">${esc(getFamilyDisplayLabel(f))}</a></h3>
       <p class="tier-chain">${chain}</p>
       <div class="mode-ranks" aria-label="モード別評価">
         ${modeRank('通常',a.normal)}${modeRank('ゾンビ',a.zombie)}${modeRank('道場',a.dojo)}${modeRank('初心者',a.beginner)}
