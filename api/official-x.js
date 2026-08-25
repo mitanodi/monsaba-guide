@@ -50,6 +50,12 @@ export default async function handler(request, response) {
     return send(response, 200, payload, true);
   } catch (error) {
     const known = error instanceof OfficialXError;
+    if (known && error.diagnostics) {
+      console.warn('[official-x] X API request failed', {
+        code: error.code,
+        ...error.diagnostics,
+      });
+    }
     return send(response, known ? error.status : 503, {
       ok: false,
       error: {

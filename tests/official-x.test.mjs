@@ -3,7 +3,7 @@ import test from 'node:test';
 import handler, { clearOfficialXMemoryCache } from '../api/official-x.js';
 import { fetchOfficialXPosts, OfficialXError } from '../lib/official-x-core.js';
 
-const response = (payload, ok = true) => ({ ok, async json() { return payload; } });
+const response = (payload, ok = true, status = ok ? 200 : 401) => ({ ok, status, async json() { return payload; } });
 
 test('設定済みUser IDから通常投稿5件だけを要求し、本文と安全な画像を返す', async () => {
   const calls = [];
@@ -55,7 +55,15 @@ test('User ID未設定時だけusername lookupを1回行う', async () => {
 test('Bearer Tokenなし・不正User ID・X API失敗を安全に拒否する', async () => {
   await assert.rejects(fetchOfficialXPosts(), (error) => error instanceof OfficialXError && error.code === 'X_API_NOT_CONFIGURED');
   await assert.rejects(fetchOfficialXPosts({ bearerToken: 'token', configuredUserId: 'not-an-id', fetchImpl: async () => response({}) }), (error) => error.code === 'X_API_CONFIG_INVALID');
-  await assert.rejects(fetchOfficialXPosts({ bearerToken: 'token', configuredUserId: '123', fetchImpl: async () => response({ detail: 'secret upstream detail' }, false) }), (error) => error.code === 'X_API_UNAVAILABLE' && !error.message.includes('secret upstream detail'));
+  await assert.rejects(fetchOfficialXPosts({ bearerToken: 'token', configuredUserId: '123', fetchImpl: async () => response({ title: 'Unauthorized', detail: 'secret upstream detail' }, false, 401) }), (error) => {
+    const serialized = JSON.stringify(error.diagnostics);
+    return error.code === 'X_API_UNAVAILABLE'
+      && error.diagnostics.upstreamStatus === 401
+      && error.diagnostics.upstreamCode === 'Unauthorized'
+      && !error.message.includes('secret upstream detail')
+      && !serialized.includes('secret upstream detail')
+      && !serialized.includes('token');
+  });
 });
 
 function mockApiResponse() {
