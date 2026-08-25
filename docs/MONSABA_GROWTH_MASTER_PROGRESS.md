@@ -2,10 +2,13 @@
 
 ## STATUS
 
-- Overall: IMPLEMENTATION COMPLETE / DELIVERY VALIDATION IN PROGRESS
+- Overall: COMPLETE
 - Started: 2026-08-25
+- Completed: 2026-08-25
 - Branch: `main`
 - Baseline commit: `c1071a82ff68dce4076ca877f2827654648056ca`
+- Implementation commit: `771272c742da8f238039d88cf873b84da6b0e62e`
+- Sitemap commit: `406136f3342005ad41f492663bca8962ed62e0c1`
 - Protected untracked asset: `promo/`（変更・追加・コミット対象外）
 - Baseline validation: `npm.cmd run validate` / `npm.cmd test` ともに成功
 - Protected data baseline:
@@ -58,3 +61,6 @@
 - 2026-08-25: 30タスクの実装・文書化を完了。39 JavaScript、主要データ、89 HTML、87 indexable URL、orphan 0、Friends API 18テストが成功。
 - 2026-08-25: 主要画面を320 / 375 / 768 / 1024 / 1366pxで52組み合わせ確認。H1・main・横幅超過・比較2カードに異常なし。
 - 2026-08-25: 検索「麻痺」7件、比較swapとURL更新、A8リンク/pixel/rel、adsEnabled=falseを実DOMで確認。
+- 2026-08-25: GitHub Actions run `32805294646` success。既存Vercel Project `monsaba-guide` のGit連携Production `dpl_BaUSbDV6Rp2Y6GG7XMHuGfnM7Qav` READYを確認。
+- 2026-08-25: `https://monster-survival.com` で87ページ / 5 JSON / 26 Hero、Friends API、earth redirect、custom 404を確認。本番52 responsive組み合わせで横幅超過0、console error 0。
+- 2026-08-25: GitHub ActionsのNode 20廃止警告を解消するため、公式Node 24対応のcheckout/setup-node v6へ更新。
