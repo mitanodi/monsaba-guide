@@ -80,7 +80,7 @@ footer{background:#27303b;color:#d0d5dd;padding:22px 0}.footer-inner{display:fle
   .site-header nav{display:none;position:absolute;top:calc(100% - 1px);right:0;width:min(320px,100%);padding:6px;background:#fff;border:1px solid var(--line);border-radius:0 0 7px 7px;box-shadow:0 8px 18px rgba(29,41,57,.12)}
   .site-header.nav-open nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}
   .site-header nav a{display:flex;align-items:center;justify-content:center;min-width:0;min-height:44px;padding:7px 10px;border:1px solid #e4e8ed;border-radius:4px;background:#fafbfc;line-height:1.35;text-align:center}
-  .site-header nav a:last-child{grid-column:1/-1}
+  .site-header nav .desktop-only-nav-link{display:none!important}
   .site-header nav a:hover,.site-header nav a:focus-visible{border-color:#c6d2df;background:#f3f7fb}
   .site-header nav a[aria-current="page"]{border-color:#adc7e0;background:var(--soft-blue)}
 }

@@ -2,7 +2,11 @@ export const GLOBAL_NAV_ITEMS = Object.freeze([
   Object.freeze({ href: '/#tatari', label: 'タタ図鑑' }),
   Object.freeze({ href: '/tata-tier/', label: 'タタTier' }),
   Object.freeze({ href: '/evolution-priority/', label: '進化優先度' }),
-  Object.freeze({ href: '/guides/', label: '攻略ハブ' }),
+  Object.freeze({ href: '/guides/', label: '攻略ハブ', className: 'desktop-only-nav-link' }),
+  Object.freeze({ href: '/normal-guide/', label: '通常ステージ', className: 'mobile-only-nav-link' }),
+  Object.freeze({ href: '/zombie-rush/', label: 'ゾンビラッシュ', className: 'mobile-only-nav-link' }),
+  Object.freeze({ href: '/boss-rally/', label: 'ボスラリー', className: 'mobile-only-nav-link' }),
+  Object.freeze({ href: '/badge-dojo/', label: 'バッジ道場', className: 'mobile-only-nav-link' }),
   Object.freeze({ href: '/compare/', label: '比較' }),
   Object.freeze({ href: '/consult/', label: '攻略相談' }),
   Object.freeze({ href: '/friends/', label: 'フレンド掲示板' }),
@@ -10,15 +14,19 @@ export const GLOBAL_NAV_ITEMS = Object.freeze([
   Object.freeze({ href: '/beginner-guide/', label: '初心者ガイド', className: 'mobile-only-nav-link' })
 ]);
 
-const currentNavHref = (route) => {
-  if (route.startsWith('/tata/') || route.startsWith('/attribute/')) return '/#tatari';
-  if (['/guides/', '/zombie-rush/', '/boss-rally/', '/badge-dojo/', '/normal-guide/'].some((item) => route.startsWith(item))) return '/guides/';
-  return GLOBAL_NAV_ITEMS.find((item) => !item.href.includes('#') && route.startsWith(item.href))?.href || null;
+const currentNavHrefs = (route) => {
+  if (route.startsWith('/tata/') || route.startsWith('/attribute/')) return new Set(['/#tatari']);
+  const guideRoute = ['/normal-guide/', '/zombie-rush/', '/boss-rally/', '/badge-dojo/']
+    .find((item) => route.startsWith(item));
+  if (guideRoute) return new Set(['/guides/', guideRoute]);
+  if (route.startsWith('/guides/')) return new Set(['/guides/']);
+  const current = GLOBAL_NAV_ITEMS.find((item) => !item.href.includes('#') && route.startsWith(item.href))?.href;
+  return new Set(current ? [current] : []);
 };
 
 export function renderGlobalNav(route = '/') {
-  const current = currentNavHref(route);
-  return `<nav id="global-navigation" aria-label="主要メニュー">${GLOBAL_NAV_ITEMS.map(({ href, label, className }) => `<a href="${href}"${className ? ` class="${className}"` : ''}${current === href ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</nav>`;
+  const current = currentNavHrefs(route);
+  return `<nav id="global-navigation" aria-label="主要メニュー">${GLOBAL_NAV_ITEMS.map(({ href, label, className }) => `<a href="${href}"${className ? ` class="${className}"` : ''}${current.has(href) ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</nav>`;
 }
 
 export function renderHeader(route = '/') {
