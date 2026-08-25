@@ -75,12 +75,84 @@ function renderCard(f,rank){
 function renderPrediction(prediction,season,byId){
   const predictions=new Map((prediction.predictions||[]).map(item=>[item.familyId,item]));
   const officialByFamily=new Map((season.tataSkillBalance||[]).map(item=>[item.familyId,item]));
+  renderPredictionAccuracy(prediction);
   $('#predictionTierRoot').innerHTML=(prediction.tiers||[]).map(group=>renderPredictionTier(group,predictions,officialByFamily,byId)).join('');
   $('#predictionRiseRoot').innerHTML=renderRanking(prediction.rankings?.rising||[],predictions,byId);
   $('#predictionFallRoot').innerHTML=renderRanking(prediction.rankings?.falling||[],predictions,byId);
   $('#predictionAdoptionRoot').innerHTML=(prediction.adoptionPredictions||[]).map(item=>renderAdoption(item,byId)).join('');
   $('#predictionChipRoot').innerHTML=renderChipEnvironment(prediction.chipEnvironment||{},season.chipBalance||[]);
   $('#predictionHoldRoot').innerHTML=(prediction.holds||[]).map(item=>renderHold(item,byId)).join('');
+}
+
+function renderPredictionAccuracy(prediction){
+  const stats=calculatePredictionAccuracy(prediction);
+  $('#predictionExactRate').textContent=formatPredictionRate(stats.exactRate);
+  $('#predictionWithinOneRate').textContent=formatPredictionRate(stats.withinOneRate);
+  $('#predictionJudged').textContent=`${stats.judged} / ${stats.total}`;
+  $('#predictionAccuracyStatus').textContent=stats.status;
+  $('#predictionAccuracyNote').textContent=stats.judged===0
+    ?'0%は全予測が外れたという意味ではなく、まだ実装前で答え合わせが0件のためです。8/26実装後、実戦Tier確定に合わせて更新します。'
+    :`未判定の${stats.total-stats.judged}系統は分母に含めず、判定済み${stats.judged}系統をもとに自動計算しています。`;
+}
+
+function calculatePredictionAccuracy(prediction){
+  const tierOrder=prediction.comparisonConfig?.tierOrder||['SSS','SS','S','A'];
+  const items=(prediction.predictions||[]).map(item=>({
+    result:resolvePredictionResult(item,tierOrder),
+    movementResult:resolveMovementResult(item,tierOrder)
+  }));
+  const judgedItems=items.filter(item=>item.result!=='pending');
+  const exact=judgedItems.filter(item=>item.result==='exact').length;
+  const withinOne=judgedItems.filter(item=>item.result==='exact'||item.result==='off_by_one').length;
+  const movementJudged=items.filter(item=>item.movementResult!=='pending');
+  return {
+    total:items.length,
+    judged:judgedItems.length,
+    exact,
+    offByOne:judgedItems.filter(item=>item.result==='off_by_one').length,
+    miss:judgedItems.filter(item=>item.result==='miss').length,
+    exactRate:judgedItems.length?exact/judgedItems.length*100:0,
+    withinOneRate:judgedItems.length?withinOne/judgedItems.length*100:0,
+    movementJudged:movementJudged.length,
+    movementExact:movementJudged.filter(item=>item.movementResult==='exact').length,
+    status:judgedItems.length===0?'答え合わせ前':judgedItems.length===items.length?'答え合わせ完了':'答え合わせ中'
+  };
+}
+
+function resolvePredictionResult(item,tierOrder){
+  if(!item.actualTier) return 'pending';
+  const predictedIndex=tierOrder.indexOf(item.predictedTier);
+  const actualIndex=tierOrder.indexOf(item.actualTier);
+  if(predictedIndex<0||actualIndex<0) return ['exact','off_by_one','miss'].includes(item.result)?item.result:'pending';
+  const difference=Math.abs(predictedIndex-actualIndex);
+  return difference===0?'exact':difference===1?'off_by_one':'miss';
+}
+
+function resolveMovementResult(item,tierOrder){
+  if(!item.actualTier) return 'pending';
+  const predictedDirection=predictionMovementDirection(item.movement);
+  const actualDirection=item.comparison?.actualMovement||tierMovementDirection(item.baselineTier,item.actualTier,tierOrder);
+  if(!predictedDirection||!actualDirection) return item.comparison?.movementResult||'pending';
+  return predictedDirection===actualDirection?'exact':'miss';
+}
+
+function predictionMovementDirection(movement){
+  if(['大幅上昇','上昇'].includes(movement)) return 'up';
+  if(movement==='維持') return 'same';
+  if(['下降','大幅下降','実質下降'].includes(movement)) return 'down';
+  return null;
+}
+
+function tierMovementDirection(baselineTier,actualTier,tierOrder){
+  const normalizedBaseline=baselineTier==='A相当'?'A':baselineTier;
+  const baselineIndex=tierOrder.indexOf(normalizedBaseline);
+  const actualIndex=tierOrder.indexOf(actualTier);
+  if(baselineIndex<0||actualIndex<0) return null;
+  return actualIndex<baselineIndex?'up':actualIndex>baselineIndex?'down':'same';
+}
+
+function formatPredictionRate(value){
+  return `${Number.isInteger(value)?value:value.toFixed(1)}%`;
 }
 
 function renderPredictionTier(group,predictions,officialByFamily,byId){

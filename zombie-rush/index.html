@@ -215,6 +215,20 @@
         <p>このAI予測はこのページの現在の実戦Tierを上書きせず、実装後の答え合わせ用データとして別管理しています。</p>
       </div>
 
+      <section id="prediction-accuracy" class="prediction-accuracy-card" aria-labelledby="prediction-accuracy-title">
+        <header class="prediction-accuracy-head">
+          <div><span class="prediction-inline-label">実装後に更新</span><h3 id="prediction-accuracy-title">AI予測的中率</h3></div>
+          <p>Season 1実戦Tierとの答え合わせ状況</p>
+        </header>
+        <div class="prediction-accuracy-grid">
+          <div class="prediction-accuracy-primary"><span>完全的中率</span><strong id="predictionExactRate">0%</strong></div>
+          <div class="prediction-accuracy-metric"><span>±1 Tier以内</span><strong id="predictionWithinOneRate">0%</strong></div>
+          <div class="prediction-accuracy-metric"><span>判定済み</span><strong id="predictionJudged">0 / 35</strong></div>
+          <div class="prediction-accuracy-metric"><span>ステータス</span><strong id="predictionAccuracyStatus">答え合わせ前</strong></div>
+        </div>
+        <p id="predictionAccuracyNote" class="prediction-accuracy-note">0%は全予測が外れたという意味ではなく、まだ実装前で答え合わせが0件のためです。8/26実装後、実戦Tier確定に合わせて更新します。</p>
+      </section>
+
       <nav class="prediction-jump" aria-label="AI予測Tier内メニュー">
         <a href="#prediction-tiers">予測Tier</a>
         <a href="#prediction-rankings">上昇・下降TOP5</a>

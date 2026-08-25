@@ -32,6 +32,9 @@ expect(prediction.meta?.scope==='zombie-rush-only','AI予測の対象範囲がZo
 expect(prediction.meta?.officialDataPath==='/data/zombie-rush/seasons/season-1.json','公式データとAI予測の参照分離が不正です');
 expect(prediction.meta?.disclaimer?.includes('公式Tierではなく')&&prediction.meta?.disclaimer?.includes('実装後の実戦結果'),'AI予測の注意文が不足しています');
 expect(prediction.meta?.adoptionDisclaimer?.includes('実測・統計・公式データではありません'),'AI予測採用率の注意文が不足しています');
+expect(JSON.stringify(prediction.comparisonConfig?.resultValues)==='["pending","exact","off_by_one","miss"]','的中結果の値定義が不正です');
+expect(JSON.stringify(prediction.comparisonConfig?.actualMovementValues)==='["up","same","down"]','実戦の上昇・維持・下降値定義が不正です');
+expect(prediction.comparisonConfig?.pendingExcludedFromDenominator===true,'未判定を的中率の分母から除外する定義がありません');
 
 expect((season.tataSkillBalance||[]).length===35,'公式Season 1専用スキル調整が35系統ではありません');
 expect(predictions.length===35,'AI予測対象が35系統ではありません');
@@ -53,7 +56,8 @@ for(const item of predictions){
   expect(Boolean(family),`${item.familyId}: tatari.jsonに系統がありません`);
   expect(Boolean(family?.evolutions?.[0]?.name),`${item.familyId}: stage 1名がありません`);
   expect(group?.rank===item.predictedTier,`${item.familyId}: Tier所属とpredictedTierが一致しません`);
-  expect(item.actualTier===null&&item.comparison?.status==='pending',`${item.familyId}: 実装前なのに実戦Tierが確定しています`);
+  expect(item.actualTier===null&&item.result==='pending',`${item.familyId}: 実装前なのに実戦Tierまたはresultが確定しています`);
+  expect(item.comparison?.actualMovement===null&&item.comparison?.movementResult==='pending',`${item.familyId}: 実装前なのに上昇・維持・下降判定が確定しています`);
   expect(['大幅上昇','上昇','維持','下降','大幅下降','実質下降'].includes(item.movement),`${item.familyId}: 変動表記が不正です`);
 }
 
@@ -75,10 +79,18 @@ expect(kaen?.before==='160%'&&kaen?.after==='230%','トラーニー火焔爆裂�
 expect(html.includes('id="prediction"')&&html.includes('Season 1 AI予測Tier'),'AI予測Tierセクションがありません');
 expect(html.includes('AI予測')&&html.includes('実装前予測'),'目立つAI予測ラベルがありません');
 expect(html.includes('公式Tier・実戦確認済みTierではありません'),'公式Tierではない注意表示がありません');
+expect(html.includes('id="prediction-accuracy"')&&html.includes('AI予測的中率'),'AI予測的中率カードがありません');
+expect(html.includes('id="predictionExactRate">0%</strong>')&&html.includes('id="predictionJudged">0 / 35</strong>'),'実装前の完全的中率0%・判定済み0/35表示がありません');
+expect(html.includes('id="predictionAccuracyStatus">答え合わせ前</strong>'),'実装前の答え合わせ前表示がありません');
+expect(html.includes('0%は全予測が外れたという意味ではなく'),'0%の誤解防止説明がありません');
 expect(html.includes('AI予測採用率')&&html.includes('実測・統計・公式データではなく'),'採用率の非実測表示がありません');
 expect(html.includes('<link rel="canonical" href="https://monster-survival.com/zombie-rush/"'),'Zombie Rush URL/canonicalが変更されています');
 expect(html.includes('/zombie-rush/prediction.css'),'AI予測専用スタイルが読み込まれていません');
 expect(script.includes('movementMeta')&&script.includes("'大幅上昇':{symbol:'⬆'")&&script.includes("'大幅下降':{symbol:'⬇'"),'変動が色だけでなく記号と文字で表示されていません');
+expect(script.includes('calculatePredictionAccuracy')&&script.includes("item.result!=='pending'"),'未判定を除外する的中率自動計算がありません');
+expect(script.includes("difference===0?'exact':difference===1?'off_by_one':'miss'"),'完全一致・1段階差・2段階以上の自動判定がありません');
+expect(script.includes('resolveMovementResult')&&script.includes('tierMovementDirection'),'上昇・維持・下降の答え合わせ設計がありません');
+expect(styles.includes('.prediction-accuracy-card'),'AI予測的中率カードの専用デザインがありません');
 expect(styles.includes('@media(max-width:760px)')&&styles.includes('@media(max-width:430px)')&&styles.includes('minmax(0,1fr)'),'AI予測UIのレスポンシブ対策が不足しています');
 
 expect(Boolean(tierRatings.zombieRush?.groups)&&!tierRatings.zombieRush?.prediction,'現在のZombie Rush実戦TierへAI予測が混入しています');
@@ -89,4 +101,4 @@ if(errors.length){
   process.exit(1);
 }
 
-console.log('Zombie Rush Season 1 AI予測検証成功: 35系統 / Tier重複なし / stage 1名表示 / 公式データ分離 / 保留・採用率・比較設計正常');
+console.log('Zombie Rush Season 1 AI予測検証成功: 35系統 / Tier重複なし / stage 1名表示 / 公式データ分離 / 的中率・変動比較・保留・採用率正常');

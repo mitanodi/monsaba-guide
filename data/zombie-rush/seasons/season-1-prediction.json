@@ -1,6 +1,6 @@
 {
   "meta": {
-    "schemaVersion": 1,
+    "schemaVersion": 2,
     "predictionId": "season-1-ai-prelaunch-2026-08-25",
     "seasonId": "season-1",
     "status": "pre-implementation-prediction",
@@ -16,9 +16,16 @@
   "comparisonConfig": {
     "tierOrder": ["SSS", "SS", "S", "A"],
     "actualTierField": "actualTier",
+    "resultField": "result",
+    "resultValues": ["pending", "exact", "off_by_one", "miss"],
     "tierDeltaField": "comparison.tierDelta",
-    "accuracyField": "comparison.accuracy",
-    "accuracyValues": ["○", "△", "×"]
+    "actualMovementField": "comparison.actualMovement",
+    "actualMovementValues": ["up", "same", "down"],
+    "movementResultField": "comparison.movementResult",
+    "movementResultValues": ["pending", "exact", "miss"],
+    "exactRateDefinition": "exact / judged * 100",
+    "withinOneRateDefinition": "(exact + off_by_one) / judged * 100",
+    "pendingExcludedFromDenominator": true
   },
   "tiers": [
     { "rank": "SSS", "label": "最上位予測", "ids": ["denrou", "sukedako", "himori", "rokuju", "denjika"] },
@@ -34,7 +41,8 @@
       "movement": "大幅上昇",
       "evaluation": "発動頻度と瞬間火力の両方が大幅上昇しており、Season 1最大級の上昇候補。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "sukedako",
@@ -44,7 +52,8 @@
       "evaluation": "直接強化幅が大きく、新T4のロードパス次第ではSeason 1最上位候補。SSS予測だが要実戦確認。",
       "flags": ["新T4ロードパス", "要実戦確認"],
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "himori",
@@ -53,7 +62,8 @@
       "movement": "大幅上昇",
       "evaluation": "基礎火力・追撃率・追加火力がすべて大幅強化。現環境より明確に採用価値が上がると予測。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "rokuju",
@@ -62,7 +72,8 @@
       "movement": "大幅上昇",
       "evaluation": "火力とCCを同時に強化。川の境界線の減速弱体化により、自前CCの価値が相対的に高まる可能性がある。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "denjika",
@@ -71,7 +82,8 @@
       "movement": "維持",
       "evaluation": "火力・発動率は弱体化する一方で麻痺性能は強化。貫通＋CCという根本役割が強いためSSS維持予想。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "takepanda",
@@ -80,7 +92,8 @@
       "movement": "下降",
       "evaluation": "弱体化はあるが、減速・継続ダメージ・竹林による集団制圧という役割自体は依然強い。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "fureebi",
@@ -89,7 +102,8 @@
       "movement": "上昇",
       "evaluation": "爆裂パンチと散裂パンチの大幅な倍率上昇により、主力級への上昇を予測。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "kowagaru",
@@ -98,7 +112,8 @@
       "movement": "大幅上昇",
       "evaluation": "調整幅が非常に大きく、火力・反撃・生存性能がすべて上昇。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "nemukurage",
@@ -107,7 +122,8 @@
       "movement": "大幅上昇",
       "evaluation": "ダメージ・発動率・スタン確率が同時に上がり、範囲火力とCCの両面で採用価値が高まる予測。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "haamitora",
@@ -116,7 +132,8 @@
       "movement": "大幅上昇",
       "evaluation": "火焔爆裂は公式ゲーム内告知の230%を採用。2つの主要火力強化により大幅上昇を予測。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "togegyo",
@@ -125,7 +142,8 @@
       "movement": "大幅上昇",
       "evaluation": "攻撃倍率とHPシールドが強化され、火力と生存補助の両方で主力級候補。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "fukurogumo",
@@ -134,7 +152,8 @@
       "movement": "上昇",
       "evaluation": "緑の泡と束縛の発動率、追加火力がそろって強化。既存DBのstage 1名「フクロクモ」で評価。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "pupunku",
@@ -143,7 +162,8 @@
       "movement": "大幅上昇",
       "evaluation": "フレイムボールの発動率倍増と爆竹フェスの倍率倍増を重く評価。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "shiiparusu",
@@ -152,7 +172,8 @@
       "movement": "上昇",
       "evaluation": "2種の雷火力が強化。正式名称確認前のため既存DBのstage 1名「ライメー」で評価。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "boruzarashi",
@@ -161,7 +182,8 @@
       "movement": "上昇",
       "evaluation": "高圧ウォーターボールと大波乗りの安定した火力強化によりSSを予測。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "purabi",
@@ -170,7 +192,8 @@
       "movement": "下降",
       "evaluation": "明確な弱体化だが、回復・バフ・生存補助の役割は依然重要。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "umimi",
@@ -179,7 +202,8 @@
       "movement": "下降",
       "evaluation": "超被ダメージ増加の弱体化で評価を一段下げるが、被ダメージ補助の役割は残ると予測。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "yanzaru",
@@ -188,7 +212,8 @@
       "movement": "下降",
       "evaluation": "分身の耐久とゾンビ荒らしの火力が下がるため一段下降。ただし主力火力としての採用余地は残る。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "himawarin",
@@ -197,7 +222,8 @@
       "movement": "下降",
       "evaluation": "弱体化幅は大きいが、バンテージ弱体化で環境全体の回復性能が落ちる可能性があり、ヒーラー需要は残ると予測。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "shizukuchou",
@@ -206,7 +232,8 @@
       "movement": "大幅下降",
       "evaluation": "旧SSS勢で最も評価を落とす候補。火力・発動頻度・CCが同時弱体化するが、睡眠・減速役は残るためS予測。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "fureimuji",
@@ -215,7 +242,8 @@
       "movement": "大幅下降",
       "evaluation": "主力火力と全ステータス支援が同時に半減級の弱体化となり、大幅下降を予測。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "birimori",
@@ -224,7 +252,8 @@
       "movement": "大幅下降",
       "evaluation": "ダメージ増加支援と2つの火力倍率が大幅に下がり、旧SSSからSへ下降予測。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "biripiyo",
@@ -233,7 +262,8 @@
       "movement": "下降",
       "evaluation": "被ダメージ減少と攻撃力増加が半減し、自己強化の価値が低下すると予測。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "hinyao",
@@ -242,7 +272,8 @@
       "movement": "下降",
       "evaluation": "スイープオーブ系列の主要倍率が大きく下がるため、主力級から一段下降予測。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "mogurin",
@@ -251,7 +282,8 @@
       "movement": "上昇",
       "evaluation": "煙玉と霧の発動性能、追加火力がそろって強化され、有力候補へ上昇予測。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "potakage",
@@ -260,7 +292,8 @@
       "movement": "上昇",
       "evaluation": "減速発動率と秘術・渦隠れの火力が上がり、CC兼火力として評価上昇。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "erekineko",
@@ -269,7 +302,8 @@
       "movement": "上昇",
       "evaluation": "散財豪雨の素直な倍率強化を反映し、S候補と予測。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "tsubaruka",
@@ -278,7 +312,8 @@
       "movement": "上昇",
       "evaluation": "ピンポイント誘導の大幅強化を中心に、単体処理能力の上昇を予測。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "doriruu",
@@ -287,7 +322,8 @@
       "movement": "上昇",
       "evaluation": "防御貫通の発動率と対強敵シールドが強化され、高難易度での安定性上昇を予測。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "riifuro",
@@ -296,7 +332,8 @@
       "movement": "上昇",
       "evaluation": "バンテージ弱体化で回復役の相対価値が上がる可能性も含め、波動ヒール強化を高く評価。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "mumukaba",
@@ -305,7 +342,8 @@
       "movement": "上昇",
       "evaluation": "ピンクハグと心の障壁の基本回数増加で、継続的な支援性能が上がると予測。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "nekoori",
@@ -314,7 +352,8 @@
       "movement": "上昇",
       "evaluation": "凍結確率とアイスフラワー火力が同時強化。川の境界線弱体化後の自前CCとして相対評価も上がる予測。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "matchiba",
@@ -323,7 +362,8 @@
       "movement": "上昇",
       "evaluation": "フレイムサークルとヘルインフェルノの倍率上昇により、火力枠としてS候補。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "gaoden",
@@ -332,7 +372,8 @@
       "movement": "実質下降",
       "evaluation": "Tier表記はA維持予想だが、火力とノックバックの弱体化により同じA内でも優先度低下。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     },
     {
       "familyId": "kunbuu",
@@ -341,7 +382,8 @@
       "movement": "実質下降",
       "evaluation": "複数の主要性能が大幅弱体化。A維持でも実質的には下位候補。正式確認前のため既存DBのstage 1名「クンブー」で評価。",
       "actualTier": null,
-      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+      "result": "pending",
+      "comparison": { "tierDelta": null, "actualMovement": null, "movementResult": "pending" }
     }
   ],
   "rankings": {
