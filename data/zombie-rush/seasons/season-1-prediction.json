@@ -1,0 +1,388 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "predictionId": "season-1-ai-prelaunch-2026-08-25",
+    "seasonId": "season-1",
+    "status": "pre-implementation-prediction",
+    "predictionAsOf": "2026-08-25",
+    "effectiveDate": "2026-08-26",
+    "label": "Season 1 AI予測Tier",
+    "scope": "zombie-rush-only",
+    "disclaimer": "2026年8月25日時点。8/26公式アップデート告知の数値、現在の採用率、既存スキル性能、チップ変更をもとにAIが予測した事前Tierです。公式Tierではなく、実装後の実戦結果により変更します。",
+    "adoptionDisclaimer": "AI予測採用率は実測・統計・公式データではありません。旧環境の限定的な攻略編成サンプルを参考にした予測レンジです。",
+    "officialDataPath": "/data/zombie-rush/seasons/season-1.json",
+    "baselineTierPath": "/data/tier-ratings.json"
+  },
+  "comparisonConfig": {
+    "tierOrder": ["SSS", "SS", "S", "A"],
+    "actualTierField": "actualTier",
+    "tierDeltaField": "comparison.tierDelta",
+    "accuracyField": "comparison.accuracy",
+    "accuracyValues": ["○", "△", "×"]
+  },
+  "tiers": [
+    { "rank": "SSS", "label": "最上位予測", "ids": ["denrou", "sukedako", "himori", "rokuju", "denjika"] },
+    { "rank": "SS", "label": "主力級予測", "ids": ["takepanda", "fureebi", "kowagaru", "nemukurage", "haamitora", "togegyo", "fukurogumo", "pupunku", "shiiparusu", "boruzarashi", "purabi", "umimi", "yanzaru", "himawarin"] },
+    { "rank": "S", "label": "有力候補予測", "ids": ["shizukuchou", "fureimuji", "birimori", "biripiyo", "hinyao", "mogurin", "potakage", "erekineko", "tsubaruka", "doriruu", "riifuro", "mumukaba", "nekoori", "matchiba"] },
+    { "rank": "A", "label": "編成次第予測", "ids": ["gaoden", "kunbuu"] }
+  ],
+  "predictions": [
+    {
+      "familyId": "denrou",
+      "baselineTier": "S",
+      "predictedTier": "SSS",
+      "movement": "大幅上昇",
+      "evaluation": "発動頻度と瞬間火力の両方が大幅上昇しており、Season 1最大級の上昇候補。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "sukedako",
+      "baselineTier": "未評価",
+      "predictedTier": "SSS",
+      "movement": "大幅上昇",
+      "evaluation": "直接強化幅が大きく、新T4のロードパス次第ではSeason 1最上位候補。SSS予測だが要実戦確認。",
+      "flags": ["新T4ロードパス", "要実戦確認"],
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "himori",
+      "baselineTier": "A相当",
+      "predictedTier": "SSS",
+      "movement": "大幅上昇",
+      "evaluation": "基礎火力・追撃率・追加火力がすべて大幅強化。現環境より明確に採用価値が上がると予測。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "rokuju",
+      "baselineTier": "未評価",
+      "predictedTier": "SSS",
+      "movement": "大幅上昇",
+      "evaluation": "火力とCCを同時に強化。川の境界線の減速弱体化により、自前CCの価値が相対的に高まる可能性がある。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "denjika",
+      "baselineTier": "SSS",
+      "predictedTier": "SSS",
+      "movement": "維持",
+      "evaluation": "火力・発動率は弱体化する一方で麻痺性能は強化。貫通＋CCという根本役割が強いためSSS維持予想。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "takepanda",
+      "baselineTier": "SSS",
+      "predictedTier": "SS",
+      "movement": "下降",
+      "evaluation": "弱体化はあるが、減速・継続ダメージ・竹林による集団制圧という役割自体は依然強い。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "fureebi",
+      "baselineTier": "S",
+      "predictedTier": "SS",
+      "movement": "上昇",
+      "evaluation": "爆裂パンチと散裂パンチの大幅な倍率上昇により、主力級への上昇を予測。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "kowagaru",
+      "baselineTier": "未評価",
+      "predictedTier": "SS",
+      "movement": "大幅上昇",
+      "evaluation": "調整幅が非常に大きく、火力・反撃・生存性能がすべて上昇。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "nemukurage",
+      "baselineTier": "未評価",
+      "predictedTier": "SS",
+      "movement": "大幅上昇",
+      "evaluation": "ダメージ・発動率・スタン確率が同時に上がり、範囲火力とCCの両面で採用価値が高まる予測。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "haamitora",
+      "baselineTier": "未評価",
+      "predictedTier": "SS",
+      "movement": "大幅上昇",
+      "evaluation": "火焔爆裂は公式ゲーム内告知の230%を採用。2つの主要火力強化により大幅上昇を予測。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "togegyo",
+      "baselineTier": "未評価",
+      "predictedTier": "SS",
+      "movement": "大幅上昇",
+      "evaluation": "攻撃倍率とHPシールドが強化され、火力と生存補助の両方で主力級候補。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "fukurogumo",
+      "baselineTier": "A相当",
+      "predictedTier": "SS",
+      "movement": "上昇",
+      "evaluation": "緑の泡と束縛の発動率、追加火力がそろって強化。既存DBのstage 1名「フクロクモ」で評価。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "pupunku",
+      "baselineTier": "未評価",
+      "predictedTier": "SS",
+      "movement": "大幅上昇",
+      "evaluation": "フレイムボールの発動率倍増と爆竹フェスの倍率倍増を重く評価。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "shiiparusu",
+      "baselineTier": "S",
+      "predictedTier": "SS",
+      "movement": "上昇",
+      "evaluation": "2種の雷火力が強化。正式名称確認前のため既存DBのstage 1名「ライメー」で評価。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "boruzarashi",
+      "baselineTier": "S",
+      "predictedTier": "SS",
+      "movement": "上昇",
+      "evaluation": "高圧ウォーターボールと大波乗りの安定した火力強化によりSSを予測。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "purabi",
+      "baselineTier": "SSS",
+      "predictedTier": "SS",
+      "movement": "下降",
+      "evaluation": "明確な弱体化だが、回復・バフ・生存補助の役割は依然重要。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "umimi",
+      "baselineTier": "SSS",
+      "predictedTier": "SS",
+      "movement": "下降",
+      "evaluation": "超被ダメージ増加の弱体化で評価を一段下げるが、被ダメージ補助の役割は残ると予測。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "yanzaru",
+      "baselineTier": "SSS",
+      "predictedTier": "SS",
+      "movement": "下降",
+      "evaluation": "分身の耐久とゾンビ荒らしの火力が下がるため一段下降。ただし主力火力としての採用余地は残る。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "himawarin",
+      "baselineTier": "SSS",
+      "predictedTier": "SS",
+      "movement": "下降",
+      "evaluation": "弱体化幅は大きいが、バンテージ弱体化で環境全体の回復性能が落ちる可能性があり、ヒーラー需要は残ると予測。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "shizukuchou",
+      "baselineTier": "SSS",
+      "predictedTier": "S",
+      "movement": "大幅下降",
+      "evaluation": "旧SSS勢で最も評価を落とす候補。火力・発動頻度・CCが同時弱体化するが、睡眠・減速役は残るためS予測。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "fureimuji",
+      "baselineTier": "SSS",
+      "predictedTier": "S",
+      "movement": "大幅下降",
+      "evaluation": "主力火力と全ステータス支援が同時に半減級の弱体化となり、大幅下降を予測。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "birimori",
+      "baselineTier": "SSS",
+      "predictedTier": "S",
+      "movement": "大幅下降",
+      "evaluation": "ダメージ増加支援と2つの火力倍率が大幅に下がり、旧SSSからSへ下降予測。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "biripiyo",
+      "baselineTier": "SS",
+      "predictedTier": "S",
+      "movement": "下降",
+      "evaluation": "被ダメージ減少と攻撃力増加が半減し、自己強化の価値が低下すると予測。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "hinyao",
+      "baselineTier": "SS",
+      "predictedTier": "S",
+      "movement": "下降",
+      "evaluation": "スイープオーブ系列の主要倍率が大きく下がるため、主力級から一段下降予測。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "mogurin",
+      "baselineTier": "未評価",
+      "predictedTier": "S",
+      "movement": "上昇",
+      "evaluation": "煙玉と霧の発動性能、追加火力がそろって強化され、有力候補へ上昇予測。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "potakage",
+      "baselineTier": "A相当",
+      "predictedTier": "S",
+      "movement": "上昇",
+      "evaluation": "減速発動率と秘術・渦隠れの火力が上がり、CC兼火力として評価上昇。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "erekineko",
+      "baselineTier": "未評価",
+      "predictedTier": "S",
+      "movement": "上昇",
+      "evaluation": "散財豪雨の素直な倍率強化を反映し、S候補と予測。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "tsubaruka",
+      "baselineTier": "未評価",
+      "predictedTier": "S",
+      "movement": "上昇",
+      "evaluation": "ピンポイント誘導の大幅強化を中心に、単体処理能力の上昇を予測。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "doriruu",
+      "baselineTier": "未評価",
+      "predictedTier": "S",
+      "movement": "上昇",
+      "evaluation": "防御貫通の発動率と対強敵シールドが強化され、高難易度での安定性上昇を予測。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "riifuro",
+      "baselineTier": "A",
+      "predictedTier": "S",
+      "movement": "上昇",
+      "evaluation": "バンテージ弱体化で回復役の相対価値が上がる可能性も含め、波動ヒール強化を高く評価。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "mumukaba",
+      "baselineTier": "未評価",
+      "predictedTier": "S",
+      "movement": "上昇",
+      "evaluation": "ピンクハグと心の障壁の基本回数増加で、継続的な支援性能が上がると予測。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "nekoori",
+      "baselineTier": "A相当",
+      "predictedTier": "S",
+      "movement": "上昇",
+      "evaluation": "凍結確率とアイスフラワー火力が同時強化。川の境界線弱体化後の自前CCとして相対評価も上がる予測。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "matchiba",
+      "baselineTier": "A相当",
+      "predictedTier": "S",
+      "movement": "上昇",
+      "evaluation": "フレイムサークルとヘルインフェルノの倍率上昇により、火力枠としてS候補。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "gaoden",
+      "baselineTier": "A",
+      "predictedTier": "A",
+      "movement": "実質下降",
+      "evaluation": "Tier表記はA維持予想だが、火力とノックバックの弱体化により同じA内でも優先度低下。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    },
+    {
+      "familyId": "kunbuu",
+      "baselineTier": "A",
+      "predictedTier": "A",
+      "movement": "実質下降",
+      "evaluation": "複数の主要性能が大幅弱体化。A維持でも実質的には下位候補。正式確認前のため既存DBのstage 1名「クンブー」で評価。",
+      "actualTier": null,
+      "comparison": { "tierDelta": null, "accuracy": null, "status": "pending" }
+    }
+  ],
+  "rankings": {
+    "rising": ["denrou", "sukedako", "himori", "rokuju", "kowagaru"],
+    "falling": ["shizukuchou", "fureimuji", "birimori", "himawarin", "yanzaru"]
+  },
+  "adoptionPredictions": [
+    { "familyId": "denrou", "baselineAdoption": "低～中採用", "predictedRange": "75～100%" },
+    { "familyId": "shizukuchou", "baselineAdoption": "100%", "predictedRange": "25～50%" },
+    { "familyId": "yanzaru", "baselineAdoption": "100%", "predictedRange": "50～75%" },
+    { "familyId": "fureimuji", "baselineAdoption": "100%", "predictedRange": "25～50%" },
+    { "familyId": "himawarin", "baselineAdoption": "100%", "predictedRange": "50～75%" },
+    { "familyId": "denjika", "baselineAdoption": "100%", "predictedRange": "75～100%" },
+    { "familyId": "takepanda", "baselineAdoption": "100%", "predictedRange": "50～75%" },
+    { "familyId": "umimi", "baselineAdoption": "100%", "predictedRange": "50～75%" },
+    { "familyId": "purabi", "baselineAdoption": "100%", "predictedRange": "50～75%" },
+    { "familyId": "birimori", "baselineAdoption": "100%", "predictedRange": "25～50%" }
+  ],
+  "chipEnvironment": {
+    "selectedChipNames": ["ガラス大砲", "マーベリック", "アップグレード", "シャッフル", "戦略的移動", "バンテージ", "川の境界線"],
+    "commentary": [
+      "ガラス大砲とマーベリックの強化で、火力系タタの伸びしろが拡大する予測。",
+      "アップグレードの対象がLv3以下へ広がり、Lv3時点の専用性能が強いタタを早く仕上げやすくなる可能性がある。",
+      "バンテージ弱体化でヒーラー需要、川の境界線弱体化で自前CC持ちの相対価値が残ると予測。",
+      "シャッフルと戦略的移動の強化は、序中盤の育成加速と攻撃タイミングの選択肢を増やす可能性がある。"
+    ]
+  },
+  "holds": [
+    {
+      "id": "pakuma",
+      "displayLabel": "パクマ",
+      "status": "AI評価保留",
+      "reason": "進化名・通常スキル・Zombie Rush専用スキル詳細・数値・画像が未確認。",
+      "nextAction": "実装後確認予定"
+    },
+    {
+      "id": "nenbutsuhebi",
+      "familyId": "nenbutsuhebi",
+      "status": "AI評価保留",
+      "reason": "新T4「ナムアミダイジャ」の実性能が未確認。",
+      "nextAction": "新T4実装確認後に再評価"
+    }
+  ]
+}
