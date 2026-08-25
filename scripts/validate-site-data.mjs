@@ -305,6 +305,14 @@ for (const [programId, href, banner, tracking, width, height] of a8Offers) {
 }
 expect(read('monetization.js').includes("pixel.width = 1") && read('monetization.js').includes("pixel.height = 1"), 'A8 1x1計測画像の生成処理が不足しています');
 expect(read('site.js').includes('当サイトはアフィリエイト広告を利用しています。'), '共通footerのaffiliate開示がありません');
+expect(siteJs.includes("(max-width: 820px) and (pointer: coarse)") && siteJs.includes('navigator.maxTouchPoints > 0'), 'Pull to Refreshのスマホ限定条件がありません');
+expect(siteJs.includes('const PULL_THRESHOLD = 72') && siteJs.includes("pullReady = deltaY >= PULL_THRESHOLD"), 'Pull to Refreshの72px閾値がありません');
+expect(siteJs.includes('引っ張って更新') && siteJs.includes('離して更新') && siteJs.includes('location.reload()'), 'Pull to Refreshの表示文言または更新処理がありません');
+expect(siteJs.includes("{ passive: false }") && siteJs.includes('event.preventDefault()') && siteJs.includes('absoluteY > absoluteX * 1.25'), 'Pull to Refreshの標準更新・横スワイプ競合対策がありません');
+expect(siteJs.includes("header.classList.contains('nav-open')") && siteJs.includes("target.closest('.floating-affiliate')") && siteJs.includes("target.closest('form,input,textarea,select,option,button"), 'Pull to Refreshの操作中抑止条件が不足しています');
+expect(siteJs.includes('window.scrollY <= 0') && siteJs.includes('pullReloading'), 'Pull to Refreshの最上部限定または二重更新防止がありません');
+expect(stylesCss.includes('safe-area-inset-top') && stylesCss.includes('max-width:calc(100vw - 24px)') && stylesCss.includes('overscroll-behavior-y:none'), 'Pull to Refreshのsafe-area・横幅・標準更新競合対策がありません');
+expect(stylesCss.includes('@media(prefers-reduced-motion:reduce){.pull-to-refresh'), 'Pull to Refreshのreduced-motion対応がありません');
 expect(read('privacy/index.html').includes('A8.netのアフィリエイトプログラム') && read('privacy/index.html').includes('Cookieや類似の識別技術'), 'privacyのaffiliate説明が不足しています');
 for (const file of htmlFiles) {
   const html = read(file);

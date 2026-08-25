@@ -75,6 +75,130 @@
   topButton.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   updateTopButton();
 
+  const pullToRefreshMedia = window.matchMedia('(max-width: 820px) and (pointer: coarse)');
+  const PULL_THRESHOLD = 72;
+  const PULL_DIRECTION_LOCK = 8;
+  let pullIndicator = null;
+  let pullLabel = null;
+  let pullStartX = 0;
+  let pullStartY = 0;
+  let pullTracking = false;
+  let pullDirection = null;
+  let pullReady = false;
+  let pullReloading = false;
+
+  const supportsPullToRefresh = () => pullToRefreshMedia.matches && navigator.maxTouchPoints > 0;
+  const isAtPageTop = () => window.scrollY <= 0 && document.documentElement.scrollTop <= 0;
+  const isFormInteraction = (target) => target instanceof Element
+    && Boolean(target.closest('form,input,textarea,select,option,button,[contenteditable]:not([contenteditable="false"])'));
+  const isFixedAdInteraction = (target) => target instanceof Element
+    && Boolean(target.closest('.floating-affiliate'));
+  const pullToRefreshIsBlocked = (target) => header.classList.contains('nav-open')
+    || isFormInteraction(target)
+    || isFormInteraction(document.activeElement)
+    || isFixedAdInteraction(target)
+    || isFixedAdInteraction(document.activeElement);
+
+  const ensurePullIndicator = () => {
+    const supported = supportsPullToRefresh();
+    document.documentElement.classList.toggle('pull-to-refresh-enabled', supported);
+    if (!supported || pullIndicator) return;
+    pullIndicator = document.createElement('div');
+    pullIndicator.className = 'pull-to-refresh';
+    pullIndicator.setAttribute('role', 'status');
+    pullIndicator.setAttribute('aria-live', 'polite');
+    pullIndicator.setAttribute('aria-hidden', 'true');
+    pullIndicator.innerHTML = '<span class="pull-to-refresh-icon" aria-hidden="true">↓</span><span class="pull-to-refresh-text">引っ張って更新</span>';
+    pullLabel = pullIndicator.querySelector('.pull-to-refresh-text');
+    document.body.appendChild(pullIndicator);
+  };
+
+  const resetPullToRefresh = () => {
+    pullTracking = false;
+    pullDirection = null;
+    pullReady = false;
+    if (!pullIndicator || pullReloading) return;
+    pullIndicator.classList.remove('is-visible', 'is-ready');
+    pullIndicator.style.removeProperty('--pull-distance');
+    pullIndicator.setAttribute('aria-hidden', 'true');
+    if (pullLabel) pullLabel.textContent = '引っ張って更新';
+  };
+
+  const cancelPullToRefresh = () => {
+    resetPullToRefresh();
+    ensurePullIndicator();
+  };
+
+  window.addEventListener('touchstart', (event) => {
+    ensurePullIndicator();
+    if (!supportsPullToRefresh() || pullReloading || event.touches.length !== 1
+      || !isAtPageTop() || pullToRefreshIsBlocked(event.target)) {
+      resetPullToRefresh();
+      return;
+    }
+    const touch = event.touches[0];
+    pullStartX = touch.clientX;
+    pullStartY = touch.clientY;
+    pullTracking = true;
+    pullDirection = null;
+    pullReady = false;
+  }, { passive: true });
+
+  window.addEventListener('touchmove', (event) => {
+    if (!pullTracking || event.touches.length !== 1) return;
+    if (!supportsPullToRefresh() || !isAtPageTop() || pullToRefreshIsBlocked(event.target)) {
+      cancelPullToRefresh();
+      return;
+    }
+    const touch = event.touches[0];
+    const deltaX = touch.clientX - pullStartX;
+    const deltaY = touch.clientY - pullStartY;
+    const absoluteX = Math.abs(deltaX);
+    const absoluteY = Math.abs(deltaY);
+    if (!pullDirection && Math.max(absoluteX, absoluteY) >= PULL_DIRECTION_LOCK) {
+      pullDirection = absoluteY > absoluteX * 1.25 && deltaY > 0 ? 'vertical' : 'blocked';
+    }
+    if (pullDirection === 'blocked' || deltaY <= 0) {
+      cancelPullToRefresh();
+      return;
+    }
+    if (pullDirection !== 'vertical') return;
+
+    // Custom操作が確定した後だけ標準overscrollを止め、通常スクロールや横スワイプを妨げない。
+    event.preventDefault();
+    pullReady = deltaY >= PULL_THRESHOLD;
+    const pullDistance = Math.min(22, Math.max(0, deltaY - PULL_DIRECTION_LOCK) * 0.3);
+    pullIndicator?.style.setProperty('--pull-distance', `${pullDistance}px`);
+    pullIndicator?.classList.add('is-visible');
+    pullIndicator?.classList.toggle('is-ready', pullReady);
+    pullIndicator?.setAttribute('aria-hidden', 'false');
+    if (pullLabel) pullLabel.textContent = pullReady ? '離して更新' : '引っ張って更新';
+  }, { passive: false });
+
+  window.addEventListener('touchend', (event) => {
+    if (!pullTracking) return;
+    const shouldReload = pullReady && supportsPullToRefresh() && isAtPageTop()
+      && !pullToRefreshIsBlocked(event.target);
+    if (!shouldReload) {
+      resetPullToRefresh();
+      return;
+    }
+    pullTracking = false;
+    pullReloading = true;
+    pullIndicator?.classList.add('is-visible', 'is-loading');
+    pullIndicator?.classList.remove('is-ready');
+    if (pullLabel) pullLabel.textContent = '更新中…';
+    window.requestAnimationFrame(() => location.reload());
+  }, { passive: true });
+  window.addEventListener('touchcancel', resetPullToRefresh, { passive: true });
+  window.addEventListener('pageshow', () => {
+    pullReloading = false;
+    pullIndicator?.classList.remove('is-loading');
+    resetPullToRefresh();
+  });
+  pullToRefreshMedia.addEventListener('change', cancelPullToRefresh);
+  ensurePullIndicator();
+
   const footer = document.querySelector('footer .footer-inner');
   if (footer && !footer.querySelector('.footer-links')) {
     const side = document.createElement('div');
