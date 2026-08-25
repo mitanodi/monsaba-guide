@@ -13,7 +13,7 @@ test('設定済みUser IDから通常投稿5件だけを要求し、本文と安
       data: [{
         id: '1234567890',
         text: '短い本文',
-        note_tweet: { text: '改変しない長文\n2行目' },
+        note_post: { text: '改変しない長文\n2行目' },
         created_at: '2026-08-25T01:02:03.000Z',
         attachments: { media_keys: ['photo-1', 'unsafe-1'] },
       }],
@@ -30,7 +30,8 @@ test('設定済みUser IDから通常投稿5件だけを要求し、本文と安
   assert.equal(url.pathname, '/2/users/999/tweets');
   assert.equal(url.searchParams.get('max_results'), '5');
   assert.equal(url.searchParams.get('exclude'), 'replies,retweets');
-  assert.match(url.searchParams.get('tweet.fields'), /note_tweet/);
+  assert.equal(url.searchParams.has('tweet.fields'), false);
+  assert.match(url.searchParams.get('post.fields'), /note_post/);
   assert.match(url.searchParams.get('expansions'), /attachments\.media_keys/);
   assert.equal(calls[0].options.headers.Authorization, 'Bearer server-secret');
   assert.equal(result.posts[0].text, '改変しない長文\n2行目');
