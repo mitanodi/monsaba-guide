@@ -4,6 +4,17 @@ import { execFileSync } from 'node:child_process';
 import { BASE_URL, LAST_MODIFIED } from './site-config.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
+const retrySignal = new Int32Array(new SharedArrayBuffer(4));
+function readUtf8(file) {
+  for (let attempt = 0; attempt < 5; attempt += 1) {
+    try {
+      return fs.readFileSync(file, 'utf8');
+    } catch (error) {
+      if (!['EBUSY', 'EPERM'].includes(error.code) || attempt === 4) throw error;
+      Atomics.wait(retrySignal, 0, 0, 50 * (attempt + 1));
+    }
+  }
+}
 const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'assets', 'data', 'scripts']);
 function walk(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -43,19 +54,19 @@ function dependenciesFor(route, htmlFile) {
   if (route === '/updates/2026-08-26/') dependencies.push('scripts/generate-update-2026-08-26.mjs');
   return [...new Set(dependencies)];
 }
-const seasonOne = JSON.parse(fs.readFileSync(path.join(root, 'data', 'zombie-rush', 'seasons', 'season-1.json'), 'utf8'));
-const freshness = JSON.parse(fs.readFileSync(path.join(root, 'data', 'page-freshness.json'), 'utf8'));
+const seasonOne = JSON.parse(readUtf8(path.join(root, 'data', 'zombie-rush', 'seasons', 'season-1.json')));
+const freshness = JSON.parse(readUtf8(path.join(root, 'data', 'page-freshness.json')));
 function freshnessDate(route) {
   const key = Object.keys(freshness.routes || {}).find((item) => item === route || (item.endsWith('*') && route.startsWith(item.slice(0, -1))));
   return { ...freshness.default, ...(key ? freshness.routes[key] : {}) }.updated;
 }
 const explicitContentDate = (route) => ['/updates/', '/zombie-rush/', '/tata-tier/', '/updates/2026-08-26/'].includes(route) ? seasonOne.meta.noticeConfirmedDate : null;
-const tatari = JSON.parse(fs.readFileSync(path.join(root, 'data', 'tatari.json'), 'utf8'));
+const tatari = JSON.parse(readUtf8(path.join(root, 'data', 'tatari.json')));
 const tataRoutes = (tatari.families || []).map((family) => `/tata/${family.id}/`);
 const preferred = ['/', '/beginner-guide/', '/friends/', '/search/', '/tata-tier/', '/evolution-priority/', '/consult/', '/zombie-rush/', '/boss-rally/', '/badge-dojo/', '/normal-guide/', '/updates/', '/updates/2026-08-26/', '/about/', '/about-data/', '/privacy/', '/attribute/grass/', '/attribute/water/', '/attribute/fire/', '/attribute/thunder/', '/attribute/rock/', ...tataRoutes];
 const rank = new Map(preferred.map((route, index) => [route, index]));
 const pages = walk(root)
-  .filter((file) => !/<meta name="robots" content="[^\"]*noindex/i.test(fs.readFileSync(file, 'utf8')))
+  .filter((file) => !/<meta name="robots" content="[^\"]*noindex/i.test(readUtf8(file)))
   .map((file) => ({ file, route: routeFor(file) }))
   .filter(({ route }) => route !== '/attribute/earth/')
   .sort((a, b) => (rank.get(a.route) ?? 1000) - (rank.get(b.route) ?? 1000) || a.route.localeCompare(b.route));
@@ -65,7 +76,7 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.s
 }).join('\n')}\n</urlset>\n`;
 const file = path.join(root, 'sitemap.xml');
 if (process.argv.includes('--check')) {
-  if (!fs.existsSync(file) || fs.readFileSync(file, 'utf8') !== xml) {
+  if (!fs.existsSync(file) || readUtf8(file) !== xml) {
     console.error('sitemap.xml が生成結果と一致しません。');
     process.exit(1);
   }
