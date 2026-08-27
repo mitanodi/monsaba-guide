@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "exceptions": [
+    {
+      "path": "docs/stale-content-policy.md",
+      "reason": "検出対象の表現を方針説明の例として掲載するため"
+    }
+  ]
+}

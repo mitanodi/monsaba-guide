@@ -56,8 +56,18 @@ for(const item of predictions){
   expect(Boolean(family),`${item.familyId}: tatari.jsonに系統がありません`);
   expect(Boolean(family?.evolutions?.[0]?.name),`${item.familyId}: stage 1名がありません`);
   expect(group?.rank===item.predictedTier,`${item.familyId}: Tier所属とpredictedTierが一致しません`);
-  expect(item.actualTier===null&&item.result==='pending',`${item.familyId}: 実装前なのに実戦Tierまたはresultが確定しています`);
-  expect(item.comparison?.actualMovement===null&&item.comparison?.movementResult==='pending',`${item.familyId}: 実装前なのに上昇・維持・下降判定が確定しています`);
+  if(item.actualTier===null){
+    expect(item.result==='pending',`${item.familyId}: actualTier未判定なのにresultがpendingではありません`);
+    expect(item.comparison?.actualMovement===null&&item.comparison?.movementResult==='pending',`${item.familyId}: actualTier未判定なのに移動判定があります`);
+  }else{
+    const order=prediction.comparisonConfig.tierOrder;
+    const difference=Math.abs(order.indexOf(item.predictedTier)-order.indexOf(item.actualTier));
+    const expectedResult=difference===0?'exact':difference===1?'off_by_one':'miss';
+    expect(order.includes(item.actualTier),`${item.familyId}: actualTierが許可Tierではありません`);
+    expect(item.result===expectedResult,`${item.familyId}: predictedTierとactualTierに対するresultが不正です`);
+    expect(['up','same','down'].includes(item.comparison?.actualMovement),`${item.familyId}: 判定済みactualMovementが不正です`);
+    expect(['exact','miss'].includes(item.comparison?.movementResult),`${item.familyId}: 判定済みmovementResultが不正です`);
+  }
   expect(['大幅上昇','上昇','維持','下降','大幅下降','実質下降'].includes(item.movement),`${item.familyId}: 変動表記が不正です`);
 }
 
@@ -82,7 +92,7 @@ expect(html.includes('公式Tier・実戦確認済みTierではありません')
 expect(html.includes('id="prediction-accuracy"')&&html.includes('AI予測的中率'),'AI予測的中率カードがありません');
 expect(html.includes('id="predictionExactRate">0%</strong>')&&html.includes('id="predictionJudged">0 / 35</strong>'),'実装前の完全的中率0%・判定済み0/35表示がありません');
 expect(html.includes('id="predictionAccuracyStatus">答え合わせ前</strong>'),'実装前の答え合わせ前表示がありません');
-expect(html.includes('0%は全予測が外れたという意味ではなく'),'0%の誤解防止説明がありません');
+expect(html.includes('0%は全予測が外れたという意味ではありません'),'0%の誤解防止説明がありません');
 expect(html.includes('AI予測採用率')&&html.includes('実測・統計・公式データではなく'),'採用率の非実測表示がありません');
 expect(html.includes('<link rel="canonical" href="https://monster-survival.com/zombie-rush/"'),'Zombie Rush URL/canonicalが変更されています');
 expect(html.includes('/zombie-rush/prediction.css'),'AI予測専用スタイルが読み込まれていません');

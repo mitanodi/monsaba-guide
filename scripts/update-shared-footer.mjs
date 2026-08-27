@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { renderFooter } from './shared-layout.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const contact = '<p class="footer-contact">お問い合わせ・ご連絡は <a href="https://x.com/odi_monsaba" target="_blank" rel="noopener noreferrer">おぢ（@odi_monsaba）X</a> まで。フォローもよろしくお願いします。</p>';
@@ -18,10 +19,12 @@ function walk(directory) {
 let changed = 0;
 for (const file of walk(root)) {
   let html = fs.readFileSync(file, 'utf8');
-  if (!html.includes('class="footer-links"')) continue;
   const before = html;
-  html = html.replace(/<nav class="footer-links"[\s\S]*?<\/nav>/, links);
-  if (!html.includes('class="footer-contact"')) html = html.replace(links, `${links}${contact}`);
+  if (html.includes('<footer') && !html.includes('class="footer-links"')) html = html.replace(/<footer[\s\S]*?<\/footer>/, renderFooter(''));
+  else if (html.includes('class="footer-links"')) {
+    html = html.replace(/<nav class="footer-links"[\s\S]*?<\/nav>/, links);
+    if (!html.includes('class="footer-contact"')) html = html.replace(links, `${links}${contact}`);
+  }
   if (html === before) continue;
   fs.writeFileSync(file, html);
   changed += 1;

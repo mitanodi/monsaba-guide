@@ -12,6 +12,7 @@ const tatari = readJson('data/tatari.json');
 const skills = readJson('data/tata-skills.json');
 const ratings = readJson('data/tier-ratings.json');
 const evolutionPriority = readJson('data/evolution-priority.json');
+const acquisition = readJson('data/tata-acquisition.json');
 const families = tatari.families || [];
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 const jsonLd = (value) => JSON.stringify(value).replaceAll('<', '\\u003c');
@@ -161,14 +162,15 @@ function renderPage(family, index) {
   <link rel="stylesheet" href="/styles.css" />
   <script type="application/ld+json">${jsonLd(structured)}</script>
 </head>
-<body data-page-type="tata_detail"><a class="skip-link" href="#main-content">本文へスキップ</a>
+<body data-page-type="tata_detail" data-family-id="${esc(family.id)}" data-family-name="${esc(displayLabel)}"><a class="skip-link" href="#main-content">本文へスキップ</a>
   ${renderHeader(route)}
   <main id="main-content">
-    <section class="page-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="パンくず"><a href="/">トップ</a><span>›</span><a href="/#tatari">タタ図鑑</a><span>›</span><span>${esc(displayLabel)}</span></nav><div class="family-page-head tata-page-head"><div><span class="attribute">${attr.icon} ${family.attribute}属性</span><h1>${esc(displayLabel)}</h1><p>${esc(chain)}</p>${roles.length ? `<div class="role-tags tata-role-tags">${roles.map((role) => `<span>${esc(role)}</span>`).join('')}</div>` : ''}</div><div class="tata-hero-actions"><a class="button" href="/consult/?flow=detail&amp;family=${encodeURIComponent(family.id)}">このタタを攻略相談所で相談</a><a class="ghost-button" href="/attribute/${attr.slug}/">同じ属性のタタを見る</a></div></div></div></section>
+    <section class="page-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="パンくず"><a href="/">トップ</a><span>›</span><a href="/#tatari">タタ図鑑</a><span>›</span><span>${esc(displayLabel)}</span></nav><div class="family-page-head tata-page-head"><div><span class="attribute">${attr.icon} ${family.attribute}属性</span><h1>${esc(displayLabel)}</h1><p>${esc(chain)}</p>${roles.length ? `<div class="role-tags tata-role-tags">${roles.map((role) => `<span>${esc(role)}</span>`).join('')}</div>` : ''}</div><div class="tata-hero-actions"><button class="ghost-button tata-favorite-button" type="button" aria-pressed="false">☆ お気に入り</button><a class="button" href="/consult/?flow=detail&amp;family=${encodeURIComponent(family.id)}">このタタを攻略相談所で相談</a><a class="ghost-button" href="/attribute/${attr.slug}/">同じ属性のタタを見る</a></div></div></div></section>
 ${evolutionIndex}
 ${quickAnswers}
     <section class="wrap static-section"><h2 class="page-h2">${esc(displayName)}の進化先</h2><div class="evolution-row static-row" role="region" tabindex="0" aria-label="${esc(displayLabel)}の全進化ルート">${evolutionCards}</div></section>
     <section class="wrap static-section"><h2 class="page-h2">進化すると何が変わる？</h2>${changeAnswer}</section>
+${acquisition.byFamily?.[family.id]?.verificationStatus === 'verified' ? `<section class="wrap static-section"><h2 class="page-h2">入手方法</h2><p>${esc(acquisition.byFamily[family.id].method)}</p></section>` : ''}
     <div class="monetization-slot" data-monetization-slot="tata_mid" hidden></div>
     <section class="wrap static-section"><h2 class="page-h2">${esc(displayLabel)}のスキル一覧</h2><div class="skills static-skills">${skillBlocks}</div></section>
 ${evolutionLinks ? `<section class="wrap static-section tata-consult-cta"><h2 class="page-h2">次の進化を相談する</h2><p class="section-note">現在の進化段階を選んだ状態で攻略相談所を開きます。</p><div class="tata-consult-links">${evolutionLinks}</div></section>` : ''}

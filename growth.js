@@ -2,7 +2,8 @@
   const allowedEvents = new Set([
     'nav_click', 'internal_link_click', 'related_content_click', 'site_search',
     'search_result_click', 'filter_use', 'tata_compare_start', 'tata_compare_view',
-    'external_link_click', 'affiliate_click', 'affiliate_impression', 'ad_click', 'cta_click'
+    'external_link_click', 'affiliate_click', 'affiliate_impression', 'ad_click', 'cta_click',
+    'event_tool_use', 'favorite', 'friend_uid_copy'
   ]);
   const safeValue = (value) => typeof value === 'number' || typeof value === 'boolean'
     ? value
@@ -15,6 +16,7 @@
     return true;
   };
   window.MONSABA_TRACK = Object.freeze({ event: track });
+  window.monsabaTrack = (name, properties) => track(name, properties);
 
   const deviceClass = () => window.innerWidth <= 820 ? 'mobile' : window.innerWidth < 1200 ? 'tablet' : 'desktop';
   const affiliateProperties = (ad) => {

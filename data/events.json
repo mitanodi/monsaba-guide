@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "updated": "2026-08-28",
+  "events": [
+    { "id": "treasure-hunt", "name": "オタカラ探し", "status": "periodic", "href": "/events/treasure-hunt/", "verificationStatus": "tool-only-no-game-values" },
+    { "id": "magic-farm", "name": "魔法の農場", "status": "periodic", "summary": "8/26公式告知でリメイク内容が案内されています。", "verificationStatus": "official-notice-confirmed-details-pending" },
+    { "id": "surprise-roulette", "name": "サプライズルーレット", "status": "periodic", "summary": "8/26公式告知で段階追加と手動レベルアップが案内されています。", "verificationStatus": "official-notice-confirmed-details-pending" }
+  ]
+}

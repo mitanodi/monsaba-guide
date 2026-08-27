@@ -24,7 +24,7 @@ fail(skills.byFamily && typeof skills.byFamily === 'object' && !Array.isArray(sk
 fail(ratings.overall && typeof ratings.overall === 'object', 'tier-ratings.json: overall is required');
 fail(evolution.version !== undefined && evolution.t3Roadmap, 'evolution-priority.json: version and t3Roadmap are required');
 fail(guides.version !== undefined && guides.sources && guides.modes, 'content-guides.json: version, sources and modes are required');
-fail(seasonOne.meta?.status === 'scheduled', 'season-1.json: status must remain scheduled before release confirmation');
+fail(seasonOne.meta?.status === 'implemented-details-verifying', 'season-1.json: status must reflect implementation with details still verifying');
 fail(seasonOne.meta?.sourceType === 'official-in-game-notice', 'season-1.json: sourceType must be official-in-game-notice');
 fail(seasonOne.meta?.scope === 'zombie-rush-only', 'season-1.json: scope must be zombie-rush-only');
 fail(seasonOne.meta?.effectiveDate === '2026-08-26', 'season-1.json: effectiveDate must be 2026-08-26');

@@ -12,10 +12,30 @@ async function boot() {
   const options = state.families.map((family) => `<option value="${esc(family.id)}">${esc(getFamilyDisplayLabel(family))}（${esc(family.evolutions.map((item) => item.name).join('・'))}）</option>`).join('');
   $('#compareA').insertAdjacentHTML('beforeend', options);
   $('#compareB').insertAdjacentHTML('beforeend', options);
+  const candidateLabels = new Map();
+  for (const item of state.families) {
+    candidateLabels.set(getFamilyDisplayLabel(item), item.id);
+    for (const stage of item.evolutions) candidateLabels.set(stage.name, item.id);
+  }
+  $('#compareCandidates').innerHTML = [...candidateLabels.keys()].map((label) => `<option value="${esc(label)}"></option>`).join('');
+  const bindSearch = (inputSelector, selectSelector) => {
+    const input = $(inputSelector), select = $(selectSelector);
+    input.addEventListener('input', () => {
+      const raw = input.value.trim();
+      const exact = candidateLabels.get(raw);
+      const partials = raw ? state.families.filter((item) => [getFamilyDisplayLabel(item), ...item.evolutions.map((stage) => stage.name)].some((name) => name.includes(raw))) : [];
+      if (exact || partials.length === 1) { select.value = exact || partials[0].id; startEvent(); }
+    });
+    select.addEventListener('change', () => { const selected = family(select.value); input.value = selected ? getFamilyDisplayLabel(selected) : ''; });
+  };
+  bindSearch('#compareASearch', '#compareA');
+  bindSearch('#compareBSearch', '#compareB');
   const params = new URLSearchParams(location.search);
   for (const [selector, key] of [['#compareA', 'a'], ['#compareB', 'b'], ['#compareMode', 'mode']]) if (params.get(key)) $(selector).value = params.get(key);
+  if ($('#compareA').value) $('#compareASearch').value = getFamilyDisplayLabel(family($('#compareA').value));
+  if ($('#compareB').value) $('#compareBSearch').value = getFamilyDisplayLabel(family($('#compareB').value));
   $('#compareForm').addEventListener('submit', (event) => { event.preventDefault(); render(true); });
-  $('#swapCompare').addEventListener('click', () => { const a = $('#compareA').value; $('#compareA').value = $('#compareB').value; $('#compareB').value = a; render(true); });
+  $('#swapCompare').addEventListener('click', () => { const a = $('#compareA').value; $('#compareA').value = $('#compareB').value; $('#compareB').value = a; $('#compareASearch').value=$('#compareA').value?getFamilyDisplayLabel(family($('#compareA').value)):''; $('#compareBSearch').value=$('#compareB').value?getFamilyDisplayLabel(family($('#compareB').value)):''; render(true); });
   $('#compareA').addEventListener('change', startEvent);
   $('#compareB').addEventListener('change', startEvent);
   if ($('#compareA').value && $('#compareB').value) render(false);

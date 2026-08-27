@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "default": {
     "published": "2026-08-24",
     "updated": "2026-08-24",
@@ -9,26 +9,31 @@
     "pending": []
   },
   "routes": {
-    "/": { "updated": "2026-08-25T17:57:25+09:00" },
-    "/tata/*": { "updated": "2026-08-25T17:57:25+09:00" },
+    "/": { "updated": "2026-08-28", "verified": "2026-08-28" },
+    "/tata/*": { "updated": "2026-08-28", "verified": "2026-08-28" },
     "/attribute/*": { "updated": "2026-08-25T17:57:25+09:00" },
-    "/tata-tier/": { "updated": "2026-08-25T17:57:25+09:00", "verified": "2026-08-25", "pending": ["Zombie Rush Season 1開始後の再評価"] },
+    "/tata-tier/": { "updated": "2026-08-28", "verified": "2026-08-28", "pending": ["Zombie Rush Season 1の実戦データ蓄積後に再評価"] },
     "/evolution-priority/": { "updated": "2026-08-25T17:57:25+09:00" },
     "/guides/": { "published": "2026-08-25", "updated": "2026-08-25T17:57:25+09:00", "verified": "2026-08-25" },
-    "/zombie-rush/": { "updated": "2026-08-25T17:57:25+09:00", "verified": "2026-08-25", "pending": ["Season 1開始後の実戦再評価"] },
+    "/zombie-rush/": { "updated": "2026-08-28", "verified": "2026-08-28", "status": "implemented-details-verifying", "pending": ["Season 1の十分な実戦データに基づくTier判定", "ゲーム内の報酬しきい値の具体値"] },
     "/boss-rally/": { "updated": "2026-08-25T17:57:25+09:00" },
     "/badge-dojo/": { "updated": "2026-08-25T17:57:25+09:00" },
     "/normal-guide/": { "updated": "2026-08-25T17:57:25+09:00" },
     "/beginner-guide/": { "updated": "2026-08-25T17:57:25+09:00" },
-    "/compare/": { "published": "2026-08-25", "updated": "2026-08-25T17:57:25+09:00", "verified": "2026-08-25" },
-    "/consult/": { "updated": "2026-08-25T17:57:25+09:00" },
-    "/search/": { "updated": "2026-08-25T17:57:25+09:00" },
-    "/faq/": { "published": "2026-08-25", "updated": "2026-08-25", "verified": "2026-08-25" },
-    "/updates/": { "updated": "2026-08-25", "verified": "2026-08-25" },
-    "/updates/2026-08-26/": { "published": "2026-08-25", "updated": "2026-08-25", "verified": "2026-08-25", "status": "scheduled", "pending": ["2026-08-26実装後のゲーム内確認"] },
+    "/compare/": { "published": "2026-08-25", "updated": "2026-08-28", "verified": "2026-08-28" },
+    "/consult/": { "updated": "2026-08-28", "verified": "2026-08-28" },
+    "/search/": { "updated": "2026-08-28", "verified": "2026-08-28" },
+    "/faq/": { "published": "2026-08-25", "updated": "2026-08-28", "verified": "2026-08-28" },
+    "/updates/": { "updated": "2026-08-28", "verified": "2026-08-28" },
+    "/updates/2026-08-26/": { "published": "2026-08-25", "updated": "2026-08-28", "verified": "2026-08-28", "status": "implemented-details-verifying", "pending": ["パクマのT2/T3名称・通常スキル・専用スキル数値のゲーム内確認", "ロードパスとナムアミダイジャの進化画面・スキル詳細確認"] },
     "/about/": {},
     "/about-data/": {},
     "/privacy/": {},
-    "/friends/": { "updated": "2026-08-25T17:57:25+09:00" }
+    "/friends/": { "updated": "2026-08-28", "verified": "2026-08-28" },
+    "/stages/": { "published": "2026-08-28", "updated": "2026-08-28", "verified": "2026-08-28" },
+    "/evolution/*": { "published": "2026-08-28", "updated": "2026-08-28", "verified": "2026-08-28" },
+    "/roles/*": { "published": "2026-08-28", "updated": "2026-08-28", "verified": "2026-08-28" },
+    "/events/*": { "published": "2026-08-28", "updated": "2026-08-28", "verified": "2026-08-28" },
+    "/compare-guides/*": { "published": "2026-08-28", "updated": "2026-08-28", "verified": "2026-08-28" }
   }
 }

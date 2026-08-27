@@ -6,7 +6,13 @@ import '../family-display.js';
 const { getFamilyDisplayName, getFamilyDisplayLabel, getFamilySearchAliases } = globalThis.MONSABA_FAMILY;
 
 const root = path.resolve(import.meta.dirname, '..');
-const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
+const read = (file) => {
+  const target = path.join(root, file);
+  for (let attempt = 0; attempt < 12; attempt += 1) {
+    try { return fs.readFileSync(target, 'utf8'); }
+    catch (error) { if (error.code !== 'EBUSY' || attempt === 11) throw error; Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 40); }
+  }
+};
 const json = (file) => JSON.parse(read(file));
 const errors = [];
 const LEGACY_BASE_URL = 'https://monsaba-guide.vercel.app';
@@ -105,7 +111,7 @@ for (const file of htmlFiles) {
     }
   }
   if (html.includes('class="site-header"')) expect(/<script\s+src="(?:\/|\.\/)site\.js(?:\?[^"#]*)?"/.test(html), `${file}: 共通サイトスクリプトがありません`);
-  if (html.includes('class="site-header"')) expect(html.includes('src="/family-display.js"'), `${file}: 系統表示名の共通スクリプトがありません`);
+  if (html.includes('class="site-header"')) expect(/src="\/family-display\.js(?:\?[^"#]*)?"/.test(html), `${file}: 系統表示名の共通スクリプトがありません`);
   if (html.includes('<footer')) {
     expect(html.includes('href="/friends/"'), `${file}: footerにフレンド掲示板リンクがありません`);
     expect((html.match(/https:\/\/x\.com\/odi_monsaba/g) || []).length === 1, `${file}: X問い合わせリンクが1件ではありません`);
@@ -202,14 +208,14 @@ expect((tierHtml.match(/class="tier-chart-row /g) || []).length === 4, 'Tierチ�
 expect(tierHtml.includes('ビリジカ系') && tierHtml.includes('シズクジ系'), 'Tierチャートの日本名表示が不正です');
 expect((read('evolution-priority/index.html').match(/class="evolution-card"/g) || []).length > 0, '進化優先度の静的HTMLがありません');
 const updatePreviewHtml = read('updates/2026-08-26/index.html');
-expect(updatePreviewHtml.includes('2026年8月26日 実装予定'), '8/26アップデートページに予定表記がありません');
-expect(updatePreviewHtml.includes('公式ゲーム内告知'), '8/26アップデートページに公式情報源の表示がありません');
+expect(updatePreviewHtml.includes('2026年8月26日 実装済み・詳細確認中'), '8/26アップデートページに公開後ステータスがありません');
+expect(updatePreviewHtml.includes('公式ゲーム内') && updatePreviewHtml.includes('公式X投稿'), '8/26アップデートページに公式情報源の表示がありません');
 expect(updatePreviewHtml.includes('ゾンビラッシュ専用スキル') && updatePreviewHtml.includes('通常スキルではありません'), '専用スキルと通常スキルの区別が不足しています');
 expect((updatePreviewHtml.match(/class="zr-balance-card"/g) || []).length === 35, '専用スキル調整カードが35体ではありません');
 expect(updatePreviewHtml.includes('160%') && updatePreviewHtml.includes('230%') && updatePreviewHtml.includes('火焔爆裂'), 'トラーニー火焔爆裂の公式値が不足しています');
-expect(seasonOne.meta?.status === 'scheduled' && seasonOne.meta?.scope === 'zombie-rush-only', 'Season 1データの予定状態・範囲が不正です');
+expect(seasonOne.meta?.status === 'implemented-details-verifying' && seasonOne.meta?.scope === 'zombie-rush-only', 'Season 1データの公開後状態・範囲が不正です');
 expect((seasonOne.tataSkillBalance || []).length === 35, 'Season 1専用スキル対象が35体ではありません');
-expect(read('zombie-rush/index.html').includes('現在のTierと1000キル編成例は旧環境の評価です'), 'ゾンビラッシュに旧環境評価の注意がありません');
+expect(read('zombie-rush/index.html').includes('旧環境Tier') && read('zombie-rush/index.html').includes('Season 1実戦Tier'), 'ゾンビラッシュの新旧Tier分離がありません');
 expect(read('tata-tier/index.html').includes('この予定変更だけを理由に総合Tier・通常・道場・ボスラリー評価は変更しません'), '総合Tierに専用調整の注意がありません');
 expect(read('search/search.js').includes("href:'/updates/2026-08-26/'"), 'サイト内検索に8/26アップデート予定がありません');
 expect(topHtml.includes('data-official-x') && topHtml.includes('data-x-feed') && topHtml.includes('https://x.com/monsaba_jp') && topHtml.includes('/official-x.js'), 'TOPの公式Xセクションが不足しています');

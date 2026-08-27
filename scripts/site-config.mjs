@@ -1,5 +1,5 @@
 export const BASE_URL = 'https://monster-survival.com';
-export const LAST_MODIFIED = '2026-08-25T17:57:25+09:00';
+export const LAST_MODIFIED = '2026-08-28T00:00:00+09:00';
 export const formatJapanDateTime = (value) => {
   const match = String(value).match(/^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}:\d{2}:\d{2})\+09:00)?$/);
   if (!match) throw new TypeError(`invalid Japan date/time: ${value}`);

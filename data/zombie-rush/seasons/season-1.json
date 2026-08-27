@@ -1,8 +1,8 @@
 {
   "meta": {
-    "schemaVersion": 1,
+    "schemaVersion": 2,
     "seasonId": "season-1",
-    "status": "scheduled",
+    "status": "implemented-details-verifying",
     "sourceType": "official-in-game-notice",
     "noticeConfirmedDate": "2026-08-25",
     "effectiveDate": "2026-08-26",
@@ -11,7 +11,12 @@
       "endsAt": "2026-08-26T10:30:00Z"
     },
     "scope": "zombie-rush-only",
-    "notice": "公式ゲーム内告知をもとにした8月26日実装予定データ。通常スキルには適用しない。"
+    "notice": "公式ゲーム内告知で8月26日アップデートとして案内された実装内容。公開後の実戦評価と一部のゲーム内詳細は確認中。通常スキルには適用しない。",
+    "implementationEvidence": {
+      "status": "official-update-announcement-published",
+      "checkedAt": "2026-08-28",
+      "note": "公式告知の実装内容と、8月27日の公式パクマ紹介投稿を確認。ゲーム内表示が必要な詳細は別途確認待ち。"
+    }
   },
   "newTatari": {
     "name": "パクマ",
@@ -29,8 +34,15 @@
     "roundsPerGame": 25,
     "zombiesPerGame": 750,
     "maximumDifficulty": 4,
+    "operationDurationHours": 3,
+    "aggregationDurationHours": 1,
     "chipSystemPermanent": true,
     "rankingBasis": ["最高難易度", "キル数"],
+    "matchmaking": "近いトレーナーレベルを優先",
+    "rewardThreshold": "必要キル数を引き下げ（具体値は告知画像で未記載）",
+    "followUpAttacks": true,
+    "allParticipantsRewardedAfterCompletion": true,
+    "battleRecords": "直近一定回数まで確認・シェア可能",
     "features": [
       "シーズンごとにタタとチップのバランスを調整",
       "選択難易度をクリアすると次の難易度が解放",
@@ -38,7 +50,12 @@
       "シーズンランキングを追加",
       "シーズン限定アイコンフレームを獲得可能",
       "直近一定回数までのシーズン戦績を確認可能",
-      "戦績をシェア可能"
+      "戦績をシェア可能",
+      "作戦時間を2時間から3時間へ延長（集計時間は1時間）",
+      "作戦完了後も追加攻撃可能",
+      "作戦終了時に全参加者が報酬を獲得",
+      "近いトレーナーレベルを優先してマッチング",
+      "おすすめチームメイトをオフラインのフレンドより上に表示"
     ]
   },
   "chipBalance": [

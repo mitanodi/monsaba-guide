@@ -7,6 +7,7 @@ export const GLOBAL_NAV_ITEMS = Object.freeze([
   Object.freeze({ href: '/zombie-rush/', label: 'ゾンビラッシュ', className: 'mobile-only-nav-link' }),
   Object.freeze({ href: '/boss-rally/', label: 'ボスラリー', className: 'mobile-only-nav-link' }),
   Object.freeze({ href: '/badge-dojo/', label: 'バッジ道場', className: 'mobile-only-nav-link' }),
+  Object.freeze({ href: '/events/', label: 'イベント' }),
   Object.freeze({ href: '/compare/', label: '比較' }),
   Object.freeze({ href: '/consult/', label: '攻略相談' }),
   Object.freeze({ href: '/friends/', label: 'フレンド掲示板' }),
@@ -26,7 +27,8 @@ const currentNavHrefs = (route) => {
 
 export function renderGlobalNav(route = '/') {
   const current = currentNavHrefs(route);
-  return `<nav id="global-navigation" aria-label="主要メニュー">${GLOBAL_NAV_ITEMS.map(({ href, label, className }) => `<a href="${href}"${className ? ` class="${className}"` : ''}${current.has(href) ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</nav>`;
+  const labels = new Map([[0, 'タタ'], [3, '攻略'], [9, 'ツール'], [11, 'コミュニティ']]);
+  return `<nav id="global-navigation" aria-label="主要メニュー">${GLOBAL_NAV_ITEMS.map(({ href, label, className }, index) => `${labels.has(index) ? `<span class="mobile-nav-group-label">${labels.get(index)}</span>` : ''}<a href="${href}"${className ? ` class="${className}"` : ''}${current.has(href) ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</nav>`;
 }
 
 export function renderHeader(route = '/') {

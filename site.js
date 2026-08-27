@@ -217,6 +217,47 @@
     footerSide.insertBefore(disclosure, meta || null);
   }
 
+  const readPersonal = (key) => {
+    try { const value = JSON.parse(localStorage.getItem(key)); return Array.isArray(value) ? value : []; }
+    catch { return []; }
+  };
+  const writePersonal = (key, value) => localStorage.setItem(key, JSON.stringify(value.slice(0, 10)));
+  const familyId = document.body.dataset.familyId;
+  const familyName = document.body.dataset.familyName;
+  if (familyId && familyName) {
+    const recentKey = 'monsaba-recent-tata-v1';
+    const recent = readPersonal(recentKey).filter((item) => item.id !== familyId);
+    writePersonal(recentKey, [{ id: familyId, name: familyName, href: location.pathname }, ...recent]);
+    const favoriteKey = 'monsaba-favorites-v1';
+    const favoriteButton = document.querySelector('.tata-favorite-button');
+    const syncFavorite = () => {
+      const active = readPersonal(favoriteKey).some((item) => item.id === familyId);
+      if (!favoriteButton) return;
+      favoriteButton.setAttribute('aria-pressed', String(active));
+      favoriteButton.textContent = `${active ? '★' : '☆'} お気に入り`;
+    };
+    favoriteButton?.addEventListener('click', () => {
+      const favorites = readPersonal(favoriteKey);
+      const active = favorites.some((item) => item.id === familyId);
+      writePersonal(favoriteKey, active ? favorites.filter((item) => item.id !== familyId) : [{ id: familyId, name: familyName, href: location.pathname }, ...favorites]);
+      syncFavorite();
+      window.MONSABA_TRACK?.event('favorite', { action: active ? 'remove' : 'add' });
+    });
+    syncFavorite();
+  }
+  const personalPanel = document.querySelector('#personalTataPanel');
+  const personalLinks = document.querySelector('#personalTataLinks');
+  if (personalPanel && personalLinks) {
+    const favorites = readPersonal('monsaba-favorites-v1');
+    const recent = readPersonal('monsaba-recent-tata-v1');
+    const combined = [...favorites.map((item) => ({ ...item, prefix: '★' })), ...recent.map((item) => ({ ...item, prefix: '最近' }))]
+      .filter((item, index, all) => all.findIndex((other) => other.id === item.id) === index).slice(0, 8);
+    if (combined.length) {
+      personalPanel.hidden = false;
+      personalLinks.innerHTML = combined.map((item) => `<a href="${item.href}">${item.prefix} ${item.name}</a>`).join('');
+    }
+  }
+
   const loadVercelScript = (queueName, queueKey, src) => {
     if (document.querySelector(`script[src="${src}"]`)) return;
     window[queueName] = window[queueName] || function (...args) {

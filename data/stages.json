@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "updated": "2026-08-28",
+  "status": "foundation-ready",
+  "guides": [],
+  "requiredFields": ["chapter", "stage", "failureCauses", "timeoutMeasures", "wipeMeasures", "placement", "recommendedRoles", "relatedFamilyIds", "references", "verificationStatus"]
+}

@@ -109,6 +109,7 @@ function boot() {
     copyButton.addEventListener('click', async () => {
       const copied = await copyUid(post.uid, navigator.clipboard, () => selectUid(uid));
       live.textContent = copied ? 'コピーしました' : 'UIDを選択しました。手動でコピーしてください。';
+      window.MONSABA_TRACK?.event('friend_uid_copy', { result: copied ? 'copied' : 'selected' });
     });
     uidRow.append(uidLabel, uid, copyButton);
     card.append(head, uidRow);

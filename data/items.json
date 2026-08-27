@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "updated": "2026-08-28",
+  "status": "awaiting-confirmed-data",
+  "items": [],
+  "requiredFields": ["id", "name", "uses", "sources", "relatedContent", "verificationStatus"]
+}

@@ -1,7 +1,7 @@
 # A8広告配置監査
 
 生成元: `data/monetization.json` / `data/affiliate-offers.json`
-対象: 公開HTML 89ページ（404を含む）
+対象: 公開HTML 110ページ（404を含む）
 監査日: 2026-08-25
 
 ## Before
@@ -25,15 +25,36 @@
 | https://monster-survival.com/badge-dojo/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/beginner-guide/ | 1 | ポイントインカム | 本文下部 | desktop / mobile | 表示 |
 | https://monster-survival.com/boss-rally/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/compare-guides/purabi-vs-denjika/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/compare/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/consult/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/events/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/events/treasure-hunt/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/evolution-priority/ | 1 | マクロミル | 本文下部 | desktop only | 820px以下は非表示 |
+| https://monster-survival.com/evolution/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/evolution/t3/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/evolution/t4/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/faq/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/favorites/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/friends/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/guides/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/items/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/normal-guide/ | 1 | Ipsos iSay | 本文下部 | desktop / mobile | 表示 |
 | https://monster-survival.com/privacy/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/roles/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/roles/area-damage/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/roles/buff/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/roles/debuff/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/roles/heal/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/roles/paralysis/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/roles/pierce/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/roles/shield/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/roles/slow/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/roles/stun/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/roles/tank/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/search/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/stages/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/systems/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata-tier/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/atatama/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/batarisu/ | 0 | — | — | — | 非表示 |
@@ -125,15 +146,36 @@
 | https://monster-survival.com/badge-dojo/ | 最大3 | ワラウ（top）、ポイントインカム / Ipsos iSay（mid）、ワラウ（mobile bottom）/ ポイントインカム・Ipsos iSay（desktop slide） | top / mid / floating | desktop / mobile | 表示（固定広告は1セッション1回） |
 | https://monster-survival.com/beginner-guide/ | 最大3 | ワラウ（top）、ポイントインカム / Ipsos iSay（mid）、ワラウ（mobile bottom）/ ポイントインカム・Ipsos iSay（desktop slide） | top / mid / floating | desktop / mobile | 表示（固定広告は1セッション1回） |
 | https://monster-survival.com/boss-rally/ | 最大3 | ワラウ（top）、ポイントインカム / Ipsos iSay（mid）、ワラウ（mobile bottom）/ ポイントインカム・Ipsos iSay（desktop slide） | top / mid / floating | desktop / mobile | 表示（固定広告は1セッション1回） |
+| https://monster-survival.com/compare-guides/purabi-vs-denjika/ | 0 | — | — | — | 対象外 |
 | https://monster-survival.com/compare/ | 0 | — | — | — | 対象外 |
 | https://monster-survival.com/consult/ | 0 | — | — | — | 対象外 |
+| https://monster-survival.com/events/ | 0 | — | — | — | 対象外 |
+| https://monster-survival.com/events/treasure-hunt/ | 0 | — | — | — | 対象外 |
 | https://monster-survival.com/evolution-priority/ | 最大3 | ワラウ（top）、ポイントインカム / Ipsos iSay（mid）、ワラウ（mobile bottom）/ ポイントインカム・Ipsos iSay（desktop slide）、マクロミル（1920px級 desktop rail） | top / mid / floating / rail | desktop / mobile | 表示（固定広告は1セッション1回） |
+| https://monster-survival.com/evolution/ | 0 | — | — | — | 対象外 |
+| https://monster-survival.com/evolution/t3/ | 0 | — | — | — | 対象外 |
+| https://monster-survival.com/evolution/t4/ | 0 | — | — | — | 対象外 |
 | https://monster-survival.com/faq/ | 0 | — | — | — | 対象外 |
+| https://monster-survival.com/favorites/ | 0 | — | — | — | 対象外 |
 | https://monster-survival.com/friends/ | 最大2 | ポイントインカム / Ipsos iSay（mid）、ワラウ（mobile bottom）/ ポイントインカム・Ipsos iSay（desktop slide） | mid / floating | desktop / mobile | 表示（固定広告は1セッション1回） |
 | https://monster-survival.com/guides/ | 最大3 | ワラウ（top）、ポイントインカム / Ipsos iSay（mid）、ワラウ（mobile bottom）/ ポイントインカム・Ipsos iSay（desktop slide） | top / mid / floating | desktop / mobile | 表示（固定広告は1セッション1回） |
+| https://monster-survival.com/items/ | 0 | — | — | — | 対象外 |
 | https://monster-survival.com/normal-guide/ | 最大3 | ワラウ（top）、ポイントインカム / Ipsos iSay（mid）、ワラウ（mobile bottom）/ ポイントインカム・Ipsos iSay（desktop slide） | top / mid / floating | desktop / mobile | 表示（固定広告は1セッション1回） |
 | https://monster-survival.com/privacy/ | 0 | — | — | — | 対象外 |
+| https://monster-survival.com/roles/ | 0 | — | — | — | 対象外 |
+| https://monster-survival.com/roles/area-damage/ | 0 | — | — | — | 対象外 |
+| https://monster-survival.com/roles/buff/ | 0 | — | — | — | 対象外 |
+| https://monster-survival.com/roles/debuff/ | 0 | — | — | — | 対象外 |
+| https://monster-survival.com/roles/heal/ | 0 | — | — | — | 対象外 |
+| https://monster-survival.com/roles/paralysis/ | 0 | — | — | — | 対象外 |
+| https://monster-survival.com/roles/pierce/ | 0 | — | — | — | 対象外 |
+| https://monster-survival.com/roles/shield/ | 0 | — | — | — | 対象外 |
+| https://monster-survival.com/roles/slow/ | 0 | — | — | — | 対象外 |
+| https://monster-survival.com/roles/stun/ | 0 | — | — | — | 対象外 |
+| https://monster-survival.com/roles/tank/ | 0 | — | — | — | 対象外 |
 | https://monster-survival.com/search/ | 0 | — | — | — | 対象外 |
+| https://monster-survival.com/stages/ | 0 | — | — | — | 対象外 |
+| https://monster-survival.com/systems/ | 0 | — | — | — | 対象外 |
 | https://monster-survival.com/tata-tier/ | 最大3 | ワラウ（top）、ポイントインカム / Ipsos iSay（mid）、ワラウ（mobile bottom）/ ポイントインカム・Ipsos iSay（desktop slide） | top / mid / floating | desktop / mobile | 表示（固定広告は1セッション1回） |
 | https://monster-survival.com/tata/atatama/ | 最大2 | ポイントインカム / Ipsos iSay（mid）、ワラウ（mobile bottom）/ ポイントインカム・Ipsos iSay（desktop slide） | mid / floating | desktop / mobile | 表示（固定広告は1セッション1回） |
 | https://monster-survival.com/tata/batarisu/ | 最大2 | ポイントインカム / Ipsos iSay（mid）、ワラウ（mobile bottom）/ ポイントインカム・Ipsos iSay（desktop slide） | mid / floating | desktop / mobile | 表示（固定広告は1セッション1回） |

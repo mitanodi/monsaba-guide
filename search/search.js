@@ -4,7 +4,24 @@ const { getFamilyDisplayLabel, getFamilySearchAliases } = MONSABA_FAMILY;
 const normalize = (value) => {
   let text = String(value ?? '').toLowerCase().normalize('NFKC').replaceAll('土属性', '岩属性').trim();
   if (text === '土') text = '岩';
-  return text.replace(/[\s　・ーｰ]/g, '');
+  return text.replace(/[ァ-ヶ]/g, (char) => String.fromCharCode(char.charCodeAt(0) - 0x60)).replace(/[\s　・ーｰ]/g, '');
+};
+const distance = (a, b) => {
+  const row = Array.from({ length: b.length + 1 }, (_, index) => index);
+  for (let i = 1; i <= a.length; i += 1) {
+    let diagonal = row[0]; row[0] = i;
+    for (let j = 1; j <= b.length; j += 1) {
+      const old = row[j]; row[j] = Math.min(row[j] + 1, row[j - 1] + 1, diagonal + (a[i - 1] === b[j - 1] ? 0 : 1)); diagonal = old;
+    }
+  }
+  return row[b.length];
+};
+const fuzzyMatch = (query, value) => {
+  const candidate = normalize(value);
+  if (!candidate) return false;
+  if (candidate.includes(query) || query.includes(candidate)) return true;
+  if (query.length < 3) return false;
+  return distance(query, candidate.slice(0, Math.max(query.length, candidate.length))) <= Math.max(1, Math.floor(query.length / 6));
 };
 const pages = [
   { title:'モンサバ初心者攻略', href:'/beginner-guide/', description:'最初にやること・おすすめタタ・育成順', keywords:'初心者 序盤 最初 はじめ 初めて t3 育成順' },
@@ -17,10 +34,14 @@ const pages = [
   { title:'タタ2体比較', href:'/compare/', description:'属性・Tier・役割・スキル・進化を横並び比較', keywords:'比較 どっち vs 適性' },
   { title:'モンサバ攻略FAQ', href:'/faq/', description:'進化・属性・Tier・比較の短い回答', keywords:'faq よくある質問 次に進化 どの属性' },
   { title:'ゾンビラッシュ攻略', href:'/zombie-rush/', description:'高Wave・おすすめTier・注意ゾンビ', keywords:'ゾンビラッシュ wave' },
-  { title:'8/26アップデート予定', href:'/updates/2026-08-26/', description:'パクマ・ゾンビラッシュSeason 1・新T4・バランス調整', keywords:'アップデート アプデ 8月26日 パクマ season1 シーズン1 ロードパス ナムアミダイジャ' },
+  { title:'8/26アップデート実装内容', href:'/updates/2026-08-26/', description:'パクマ・ゾンビラッシュSeason 1・新T4・バランス調整', keywords:'アップデート アプデ 8月26日 パクマ season1 シーズン1 ロードパス ナムアミダイジャ' },
   { title:'ボスラリー攻略', href:'/boss-rally/', description:'ボス別の特徴と対策', keywords:'ボスラリー ボス' },
   { title:'バッジ道場攻略', href:'/badge-dojo/', description:'属性別・配置・役割', keywords:'バッジ 道場 dojo' },
   { title:'通常ステージ攻略', href:'/normal-guide/', description:'時間切れ・全滅・配置・通常ボス', keywords:'通常 ステージ マップ' },
+  { title:'ステージ別攻略', href:'/stages/', description:'Chapter・Stage番号から探す', keywords:'chapter stage 2-50 4-70 5-30 7-70' },
+  { title:'進化条件・進化試練DB', href:'/evolution/', description:'T1からT4の進化差分と条件', keywords:'進化条件 進化試練 必要星数 t1 t2 t3 t4' },
+  { title:'状態異常・役割別タタ', href:'/roles/', description:'麻痺・スタン・回復・タンクなどから探す', keywords:'麻痺 スタン 束縛 睡眠 減速 貫通 回復 タンク シールド バフ デバフ 範囲火力' },
+  { title:'イベント攻略', href:'/events/', description:'オタカラ探し・魔法の農場・ルーレット', keywords:'イベント オタカラ 宝 魔法 農場 ルーレット' },
   ...Object.entries(ATTRIBUTE_META).map(([attribute, meta]) => ({ title:`${attribute}属性攻略`, href:`/attribute/${meta.slug}/`, description:`${attribute}属性のタタと育成候補`, keywords:`${attribute}属性 属性` }))
 ];
 
@@ -55,7 +76,7 @@ async function boot() {
 }
 
 function contains(query, ...values) {
-  return values.flat(Infinity).some((value) => normalize(value).includes(query));
+  return values.flat(Infinity).some((value) => fuzzyMatch(query, value));
 }
 
 function runSearch(rawQuery, updateUrl = true) {

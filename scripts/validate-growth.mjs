@@ -4,7 +4,13 @@ import path from 'node:path';
 const root = path.resolve(import.meta.dirname, '..');
 const errors = [];
 const expect = (condition, message) => { if (!condition) errors.push(message); };
-const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
+const read = (file) => {
+  const target = path.join(root, file);
+  for (let attempt = 0; attempt < 12; attempt += 1) {
+    try { return fs.readFileSync(target, 'utf8'); }
+    catch (error) { if (error.code !== 'EBUSY' || attempt === 11) throw error; Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 40); }
+  }
+};
 const json = (file) => JSON.parse(read(file));
 const ignored = new Set(['.git', '.github', '.vercel', '.agents', 'node_modules', 'assets', 'data', 'scripts', 'promo']);
 function walk(directory) {

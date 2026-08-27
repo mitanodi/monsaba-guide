@@ -82,7 +82,7 @@ write(compareRoute, pageShell({
     breadcrumbSchema(compareCrumbs)
   ] },
   body: `<section class="page-hero"><div class="wrap">${renderBreadcrumb(compareCrumbs)}<div class="family-page-head"><div><span class="visible-kicker">URL共有対応・検索結果には登録しません</span><h1>タタ2体を比較</h1><p>確認済みDBと当サイトの暫定評価を横並びで確認します。</p></div></div></div></section>
-  <section class="wrap static-section compare-tool" aria-labelledby="compare-form-title"><h2 id="compare-form-title" class="page-h2">比較するタタを選ぶ</h2><form id="compareForm" class="compare-controls"><label class="compare-a">1体目<select id="compareA" required><option value="">選択してください</option></select></label><button id="swapCompare" type="button" class="ghost-button" aria-label="1体目と2体目を入れ替える">⇄ 入れ替え</button><label class="compare-b">2体目<select id="compareB" required><option value="">選択してください</option></select></label><label class="compare-mode">用途<select id="compareMode"><option value="overall">総合</option><option value="normal">通常</option><option value="zombie">ゾンビラッシュ</option><option value="dojo">道場</option><option value="beginner">初心者</option></select></label><button class="button" type="submit" data-cta-id="compare_view">比較する</button></form><p id="compareMessage" class="section-note" role="status" aria-live="polite"></p><div id="compareResult"></div></section>
+  <section class="wrap static-section compare-tool" aria-labelledby="compare-form-title"><h2 id="compare-form-title" class="page-h2">比較するタタを選ぶ</h2><form id="compareForm" class="compare-controls"><datalist id="compareCandidates"></datalist><label class="compare-a">1体目を検索<input id="compareASearch" list="compareCandidates" autocomplete="off" placeholder="例：ビリ" aria-describedby="compareSearchHelp"><select id="compareA" required aria-label="1体目の候補"><option value="">選択してください</option></select></label><button id="swapCompare" type="button" class="ghost-button" aria-label="1体目と2体目を入れ替える">⇄ 入れ替え</button><label class="compare-b">2体目を検索<input id="compareBSearch" list="compareCandidates" autocomplete="off" placeholder="例：プラビ" aria-describedby="compareSearchHelp"><select id="compareB" required aria-label="2体目の候補"><option value="">選択してください</option></select></label><p id="compareSearchHelp" class="section-note">入力候補は矢印キー・Enterまたはタップで選択できます。下の選択欄も利用できます。</p><label class="compare-mode">用途<select id="compareMode"><option value="overall">総合</option><option value="normal">通常</option><option value="zombie">ゾンビラッシュ</option><option value="dojo">道場</option><option value="beginner">初心者</option></select></label><button class="button" type="submit" data-cta-id="compare_view">比較する</button></form><p id="compareMessage" class="section-note" role="status" aria-live="polite"></p><div id="compareResult"></div></section>
   <section class="wrap static-section next-reading"><h2 class="page-h2">比較後の判断</h2><div class="attribute-guide-nav"><a href="/evolution-priority/">進化優先度を確認</a><a href="/consult/?flow=evolution">進化相談</a><a href="/tata-tier/">Tier全体を見る</a></div></section>`
 }));
 
@@ -92,6 +92,13 @@ const faqs = [
   ['2体ならどっちを育てる？', '属性、用途別Tier、役割、進化差分を同じ条件で比べます。タタ比較はURLで共有でき、比較結果ページ自体は検索登録しません。', '/compare/', '2体を比較する'],
   ['Tierはどう見ればいい？', 'Tierは公式ランキングではなく当サイトの暫定評価です。総合だけで決めず、通常・ゾンビラッシュ・道場・初心者の用途別評価も確認してください。', '/tata-tier/', 'Tierの見方を確認'],
   ['Zombie Rush専用変更は総合Tierに影響する？', '専用変更だけを理由に総合Tierを自動変更しません。Season 1開始後に実戦を確認し、モードごとの評価を再検討します。', '/zombie-rush/', 'Zombie Rushの注意を見る']
+  ,['最初のT3は誰がおすすめ？', '既存進化データでは、ネコオリ系・ヒモリ系・フルググ系がT3まで6星の最優先候補です。手持ちと目的でも変わります。', '/evolution/t3/', 'T3おすすめを見る']
+  ,['T4は誰から進化させる？', 'T4は必要星数と大きな変化を確認して選びます。根拠が揃った高インパクト進化だけをT4おすすめに掲載しています。', '/evolution/t4/', 'T4おすすめを見る']
+  ,['Zombie Rushで属性オーラは効く？', '現在の確認済み情報では、第4進化の属性オーラはZombie Rushでは無効として扱っています。専用Lv3・Lv5・Lv7スキルや基礎性能を重視します。', '/zombie-rush/', 'Zombie Rush攻略を見る']
+  ,['ビリジカ系とプラビ系はどっち？', '貫通・麻痺・CCが必要ならビリジカ系、回復・バフ・生存補助が必要ならプラビ系が候補です。攻略モードと不足役割で選びます。', '/compare-guides/purabi-vs-denjika/', '比較記事を見る']
+  ,['麻痺持ちのタタは？', '既存Tier DBの役割ラベルから、麻痺役を自動抽出した一覧を用意しています。個別ページでスキル本文も確認してください。', '/roles/paralysis/', '麻痺役を見る']
+  ,['バッジ道場のおすすめは？', '属性、前線維持、単体火力など条件で変わります。道場ページの属性別候補と配置の考え方を確認してください。', '/badge-dojo/', 'バッジ道場攻略を見る']
+  ,['ボスラリーのおすすめは？', 'ボスごとの条件と必要役割で候補が変わります。確認済み条件と一致するタタだけを絞り込んでください。', '/boss-rally/', 'ボスラリー攻略を見る']
 ];
 const faqRoute = '/faq/';
 const faqCrumbs = [{ label: 'トップ', href: '/' }, { label: 'FAQ' }];

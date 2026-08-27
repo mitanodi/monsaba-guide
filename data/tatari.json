@@ -9941,6 +9941,7 @@
     {
       "id": "shiiparusu",
       "familyName": "シーパルス",
+      "searchAliases": ["ライマー", "ライマー系"],
       "attribute": "雷",
       "evolutions": [
         {

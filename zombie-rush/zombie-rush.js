@@ -75,6 +75,7 @@ function renderCard(f,rank){
 function renderPrediction(prediction,season,byId){
   const predictions=new Map((prediction.predictions||[]).map(item=>[item.familyId,item]));
   const officialByFamily=new Map((season.tataSkillBalance||[]).map(item=>[item.familyId,item]));
+  renderSeasonActualTier(prediction,byId);
   renderPredictionAccuracy(prediction);
   $('#predictionTierRoot').innerHTML=(prediction.tiers||[]).map(group=>renderPredictionTier(group,predictions,officialByFamily,byId)).join('');
   $('#predictionRiseRoot').innerHTML=renderRanking(prediction.rankings?.rising||[],predictions,byId);
@@ -84,6 +85,20 @@ function renderPrediction(prediction,season,byId){
   $('#predictionHoldRoot').innerHTML=(prediction.holds||[]).map(item=>renderHold(item,byId)).join('');
 }
 
+function renderSeasonActualTier(prediction,byId){
+  const root=$('#seasonActualRoot');
+  if(!root) return;
+  const judged=(prediction.predictions||[]).filter(item=>item.actualTier);
+  if(!judged.length){
+    root.innerHTML=`<div class="empty">現在は判定済み0 / ${(prediction.predictions||[]).length}系統です。難易度・編成・キル数を含む複数の実戦記録を確認中です。</div>`;
+    return;
+  }
+  root.innerHTML=(prediction.comparisonConfig?.tierOrder||['SSS','SS','S','A']).map(rank=>{
+    const ids=judged.filter(item=>item.actualTier===rank).map(item=>item.familyId);
+    return ids.length?renderTier({rank,label:'Season 1実戦評価',ids},byId):'';
+  }).join('');
+}
+
 function renderPredictionAccuracy(prediction){
   const stats=calculatePredictionAccuracy(prediction);
   $('#predictionExactRate').textContent=formatPredictionRate(stats.exactRate);
@@ -91,7 +106,7 @@ function renderPredictionAccuracy(prediction){
   $('#predictionJudged').textContent=`${stats.judged} / ${stats.total}`;
   $('#predictionAccuracyStatus').textContent=stats.status;
   $('#predictionAccuracyNote').textContent=stats.judged===0
-    ?'0%は全予測が外れたという意味ではなく、まだ実装前で答え合わせが0件のためです。8/26実装後、実戦Tier確定に合わせて更新します。'
+    ?'0%は全予測が外れたという意味ではありません。Season 1公開後の十分な実戦データがまだ揃っていないため、判定を保留しています。'
     :`未判定の${stats.total-stats.judged}系統は分母に含めず、判定済み${stats.judged}系統をもとに自動計算しています。`;
 }
 
@@ -193,7 +208,7 @@ function renderPredictionCard(family,prediction,official){
     </header>
     ${flags?`<div class="prediction-flags">${flags}</div>`:''}
     <div class="prediction-skill-block">
-      <strong>8/26予定の主な変更</strong>
+      <strong>8/26実装の主な変更</strong>
       <ul>${renderOfficialSkills(official.skills||[])}</ul>
     </div>
     <p class="prediction-evaluation"><strong>AI評価：</strong>${esc(prediction.evaluation)}</p>

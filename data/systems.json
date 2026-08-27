@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "updated": "2026-08-28",
+  "status": "foundation-ready",
+  "systems": [
+    {
+      "id": "food-processing",
+      "name": "食材加工場",
+      "summary": "8/26公式告知で精巧な弁当箱のクッキー必要数変更が案内された施設。",
+      "verificationStatus": "official-notice-confirmed-details-pending"
+    }
+  ]
+}
