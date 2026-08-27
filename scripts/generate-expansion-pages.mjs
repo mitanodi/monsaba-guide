@@ -3,6 +3,7 @@ import path from 'node:path';
 import '../family-display.js';
 import { renderHeader, renderFooter, renderBreadcrumb } from './shared-layout.mjs';
 import { renderSeoHead, safeJsonLd, breadcrumbSchema, absoluteUrl } from './seo-helpers.mjs';
+import { formatJapanDateTime, LAST_MODIFIED } from './site-config.mjs';
 
 const root=path.resolve(import.meta.dirname,'..');
 const read=name=>JSON.parse(fs.readFileSync(path.join(root,'data',name),'utf8'));
@@ -13,14 +14,22 @@ const stages=read('stages.json');
 const items=read('items.json');
 const systems=read('systems.json');
 const events=read('events.json');
+const freshness=read('page-freshness.json');
 const byId=new Map(tatari.families.map(f=>[f.id,f]));
 const {getFamilyDisplayLabel}=globalThis.MONSABA_FAMILY;
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const matches=(pattern,route)=>pattern.endsWith('*')?route.startsWith(pattern.slice(0,-1)):route===pattern;
+const updatedFor=route=>{
+  const exact=freshness.routes?.[route];
+  const wildcard=Object.entries(freshness.routes||{}).find(([pattern])=>pattern.endsWith('*')&&matches(pattern,route))?.[1];
+  return exact?.updated||wildcard?.updated||LAST_MODIFIED.slice(0,10);
+};
 const write=(route,html)=>{const dir=path.join(root,route.slice(1));fs.mkdirSync(dir,{recursive:true});const output=html.replace('<link rel="icon" href="/favicon.ico">','<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png">');fs.writeFileSync(path.join(dir,'index.html'),output)};
 const shell=({route,title,description,body,robots='index,follow,max-image-preview:large',type='CollectionPage'})=>{
   const crumbs=[{label:'トップ',href:'/'},{label:title.split('｜')[0]}];
-  const graph=[{'@type':type,'@id':absoluteUrl(route),url:absoluteUrl(route),name:title,description,dateModified:'2026-08-28',inLanguage:'ja'},breadcrumbSchema(crumbs)];
-  return `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${renderSeoHead({title,description,route,robots})}<link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/styles.css"><script type="application/ld+json">${safeJsonLd({'@context':'https://schema.org','@graph':graph})}</script></head><body data-page-type="expansion"><a class="skip-link" href="#main-content">本文へスキップ</a>${renderHeader(route)}<main id="main-content"><section class="page-hero"><div class="wrap">${renderBreadcrumb(crumbs)}<div class="family-page-head"><div><span class="visible-kicker">確認済みデータを優先</span><h1>${esc(title.split('｜')[0])}</h1><p>${esc(description)}</p></div></div></div></section>${body}<section class="wrap source-note page-freshness"><strong>情報の状態</strong><p><span class="trust-label is-verified">更新済み</span> 最終更新 <time datetime="2026-08-28">2026/8/28</time></p><a href="/about-data/">データ方針を見る</a></section></main>${renderFooter('63系統 / 224体')}<script src="/family-display.js"></script><script src="/site.js"></script><script src="/growth.js" defer></script></body></html>`;
+  const updated=updatedFor(route);
+  const graph=[{'@type':type,'@id':absoluteUrl(route),url:absoluteUrl(route),name:title,description,dateModified:updated,inLanguage:'ja'},breadcrumbSchema(crumbs)];
+  return `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${renderSeoHead({title,description,route,robots})}<link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/styles.css"><script type="application/ld+json">${safeJsonLd({'@context':'https://schema.org','@graph':graph})}</script></head><body data-page-type="expansion"><a class="skip-link" href="#main-content">本文へスキップ</a>${renderHeader(route)}<main id="main-content"><section class="page-hero"><div class="wrap">${renderBreadcrumb(crumbs)}<div class="family-page-head"><div><span class="visible-kicker">確認済みデータを優先</span><h1>${esc(title.split('｜')[0])}</h1><p>${esc(description)}</p></div></div></div></section>${body}<section class="wrap source-note page-freshness"><strong>情報の状態</strong><p><span class="trust-label is-verified">更新済み</span> 最終更新 <time datetime="${updated}">${formatJapanDateTime(updated)}</time></p><a href="/about-data/">データ方針を見る</a></section></main>${renderFooter('63系統 / 224体')}<script src="/family-display.js"></script><script src="/site.js"></script><script src="/growth.js" defer></script></body></html>`;
 };
 const card=(title,text,href,label='詳しく見る')=>`<article class="guide-hub-card"><h3>${esc(title)}</h3><p>${esc(text)}</p>${href?`<a class="ghost-button" href="${href}">${esc(label)}</a>`:''}</article>`;
 
