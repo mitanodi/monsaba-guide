@@ -27,7 +27,15 @@ for (const [relative, pairs] of Object.entries(replacements)) {
   const file = path.join(root, relative);
   let source = fs.readFileSync(file, 'utf8');
   const before = source;
-  for (const [from, to] of pairs) source = source.replaceAll(from, to);
+  for (const [from, to] of pairs) {
+    if (to.startsWith(from)) {
+      const suffix = to.slice(from.length);
+      while (suffix && source.includes(`${from}${suffix}${suffix}`)) {
+        source = source.replaceAll(`${from}${suffix}${suffix}`, `${from}${suffix}`);
+      }
+    }
+    if (!source.includes(to)) source = source.replaceAll(from, to);
+  }
   if (source !== before) {
     fs.writeFileSync(file, source);
     changed += 1;
