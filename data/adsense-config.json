@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "enabled": false,
+  "publisherId": null,
+  "autoAds": false,
+  "excludedPages": [
+    "/search/",
+    "/compare/",
+    "/consult/",
+    "/friends/"
+  ]
+}

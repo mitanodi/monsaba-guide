@@ -73,6 +73,13 @@ test('UID・ユーザー名・ひとことのHTMLを拒否する', () => {
   }
 });
 
+test('ユーザー名・ひとことへのURL投稿を拒否する', () => {
+  for (const body of [{ uid: 'u', username: 'https://example.com' }, { uid: 'u', comment: 'www.example.comを見て' }]) {
+    assert.throws(() => validatePostBody(body), (error) => error.code === 'URL_NOT_ALLOWED');
+  }
+  assert.doesNotThrow(() => validatePostBody({ uid: 'UID-URL-LIKE', comment: 'よろしくお願いします' }));
+});
+
 test('honeypotを拒否する', () => assert.throws(() => validatePostBody({ uid: 'u', website: 'bot' }), (error) => error.code === 'SPAM_DETECTED'));
 
 test('正しい削除tokenだけで削除でき、再削除は404になる', async () => {

@@ -28,6 +28,7 @@ const ruleFor = (route) => config.pageProfiles.find((rule) => matches(rule.match
 const files = walk(root).sort((a, b) => toRoute(a).localeCompare(toRoute(b), 'ja'));
 const routes = files.map(toRoute);
 const eligibleRoutes = routes.filter((route) => ruleFor(route));
+const dynamicRoutes = config.affiliateDensity === 'low' ? [] : eligibleRoutes;
 const baseline = new Map([
   ['/', ['1', 'ワラウ', '本文下部', 'desktop / mobile', '表示']],
   ['/beginner-guide/', ['1', 'ポイントインカム', '本文下部', 'desktop / mobile', '表示']],
@@ -41,22 +42,16 @@ const beforeRows = routes.map((route) => {
 });
 
 const afterRows = routes.map((route) => {
-  const rule = ruleFor(route);
-  if (!rule) return `| ${BASE_URL}${route} | 0 | — | — | — | 対象外 |`;
-  const profile = config.profiles[rule.profile];
-  const inline = profile.placements.map((placement) => `${placement.offerIds.map((id) => offerNames.get(id)).join(' / ')}（${placement.placement}）`).join('、');
-  const floating = 'ワラウ（mobile bottom）/ ポイントインカム・Ipsos iSay（desktop slide）';
-  const rail = route === '/evolution-priority/' ? '、マクロミル（1920px級 desktop rail）' : '';
-  const count = profile.placements.length + 1;
-  const positions = `${profile.placements.map((placement) => placement.placement).join(' / ')} / floating${rail ? ' / rail' : ''}`;
-  return `| ${BASE_URL}${route} | 最大${count} | ${inline}、${floating}${rail} | ${positions} | desktop / mobile | 表示（固定広告は1セッション1回） |`;
+  const row = baseline.get(route);
+  if (!row) return `| ${BASE_URL}${route} | 0 | — | — | — | 非表示 |`;
+  return `| ${BASE_URL}${route} | ${row.join(' | ')} |`;
 });
 
 const audit = `# A8広告配置監査
 
 生成元: \`data/monetization.json\` / \`data/affiliate-offers.json\`
 対象: 公開HTML ${routes.length}ページ（404を含む）
-監査日: 2026-08-25
+監査日: 2026-08-28
 
 ## Before
 
@@ -70,11 +65,11 @@ ${beforeRows.join('\n')}
 
 ## After
 
-- 広告対象ページ数: ${eligibleRoutes.length}
-- インライン枠数: ${eligibleRoutes.reduce((total, route) => total + config.profiles[ruleFor(route).profile].placements.length, 0)}
-- 固定広告候補枠数: ${eligibleRoutes.length}（実表示は1セッション最大${config.floatingAffiliateSessionLimit}回）
-- Desktop rail: /evolution-priority/ の1600px以上のみ。表示時は固定slideを出さない。
-- 通常広告: 引き続きOFF。空の通常広告枠は表示しない。
+- A8表示ページ数: ${baseline.size}（既存の静的な記事下広告のみ）
+- A8広告枠数: ${baseline.size}（1ページ最大1枠）
+- 動的インライン枠: ${dynamicRoutes.length}（\`affiliateDensity: low\` のため0）
+- Sticky / slide / bottom floating / desktop rail: すべてOFF
+- Google AdSense: 引き続きOFF。Publisher ID未設定のため配信コードなし。
 
 | URL | 広告数 | 案件 | 位置 | desktop/mobile | 表示可否 |
 |---|---:|---|---|---|---|
@@ -97,7 +92,7 @@ const originalTargets = new Map([
 ]);
 const submissionRows = [];
 for (const offer of offers.filter((offer) => originalTargets.has(offer.id))) {
-  for (const route of eligibleRoutes) {
+  for (const route of dynamicRoutes) {
     if (originalTargets.get(offer.id).has(route)) continue;
     submissionRows.push(`${offer.trackingId},${BASE_URL}${route}`);
   }
@@ -105,4 +100,4 @@ for (const offer of offers.filter((offer) => originalTargets.has(offer.id))) {
 
 fs.writeFileSync(path.join(root, 'docs', 'ad-placement-audit.md'), audit);
 fs.writeFileSync(path.join(root, 'docs', 'a8-ad-url-submission.csv'), `${submissionRows.join('\n')}\n`);
-console.log(`広告配置監査を生成しました: ${routes.length} pages / before ${baseline.size} / after ${eligibleRoutes.length} / A8追加URL ${submissionRows.length}`);
+console.log(`広告配置監査を生成しました: ${routes.length} pages / before ${baseline.size} / after ${baseline.size} / A8追加URL ${submissionRows.length}`);

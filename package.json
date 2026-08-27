@@ -32,7 +32,8 @@
     "test:official-x": "node --test tests/official-x.test.mjs",
     "test:family-display": "node --test tests/family-display.test.mjs",
     "test:affiliate": "node --test tests/affiliate-monetization.test.mjs",
-    "test": "npm run test:friends && npm run test:official-x && npm run test:family-display && npm run test:affiliate"
+    "test:adsense": "node --test tests/adsense-preflight.test.mjs",
+    "test": "npm run test:friends && npm run test:official-x && npm run test:family-display && npm run test:affiliate && npm run test:adsense"
   },
   "dependencies": {
     "@upstash/redis": "^1.38.2"

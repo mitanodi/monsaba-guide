@@ -270,7 +270,8 @@ expect(brokenLinks.length === 0, `存在しない内部リンク:\n${brokenLinks
 const sitemap = read('sitemap.xml');
 expect(!sitemap.includes('/attribute/earth/'), 'sitemap.xml に旧 earth URL が残っています');
 expect(sitemap.includes(`${BASE_URL}/attribute/rock/`), 'sitemap.xml に rock URL がありません');
-for (const route of ['/beginner-guide/', '/friends/', '/about/', '/search/', '/guides/', '/faq/', '/updates/', '/updates/2026-08-26/', '/privacy/', '/about-data/']) expect(sitemap.includes(`${BASE_URL}${route}`), `sitemap.xml に ${route} がありません`);
+for (const route of ['/beginner-guide/', '/friends/', '/about/', '/guides/', '/faq/', '/updates/', '/updates/2026-08-26/', '/privacy/', '/about-data/']) expect(sitemap.includes(`${BASE_URL}${route}`), `sitemap.xml に ${route} がありません`);
+expect(!sitemap.includes(`${BASE_URL}/search/`), 'noindexの検索ページをsitemapへ含めないでください');
 expect(!sitemap.includes(`${BASE_URL}/compare/`), 'noindexの比較ページをsitemapへ含めないでください');
 expect(!sitemap.includes('/404'), 'sitemap.xml に404が含まれています');
 expect((sitemap.match(/<loc>/g) || []).length === (sitemap.match(/<lastmod>\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}\+09:00)?<\/lastmod>/g) || []).length, 'sitemap.xmlの全URLに有効なlastmodが必要です');
@@ -280,11 +281,11 @@ const expectedSlots = ['article_after_summary', 'article_mid', 'article_bottom',
 expect(monetization.adsEnabled === false, 'monetization: adsEnabled は false を維持してください');
 expect(monetization.affiliateEnabled === true, 'monetization: affiliateEnabled は true を維持してください');
 expect(expectedSlots.every((slot) => monetization.slots?.includes(slot)), 'monetization: 固定slot IDが不足しています');
-expect(monetization.affiliateDensity === 'high', 'monetization: affiliateDensity は high で開始してください');
-expect(monetization.stickyAffiliateEnabled === true && monetization.slideAffiliateEnabled === true && monetization.bottomAffiliateEnabled === true, 'monetization: 固定affiliate設定が不足しています');
+expect(monetization.affiliateDensity === 'low', 'monetization: affiliateDensity は審査前の low を維持してください');
+expect(monetization.stickyAffiliateEnabled === false && monetization.slideAffiliateEnabled === false && monetization.bottomAffiliateEnabled === false, 'monetization: 審査前は固定affiliateを停止してください');
 expect(monetization.slideAffiliateSide === 'right' && monetization.slideAffiliateDelaySeconds === 10, 'monetization: 右slideまたはdelayが不正です');
 expect(monetization.bottomAffiliateDelaySeconds === 7 && monetization.floatingAffiliateSessionLimit === 1, 'monetization: bottom delayまたはsession上限が不正です');
-expect(monetization.desktopRailAffiliateEnabled === true && monetization.desktopRailAffiliateMinWidth >= 1600, 'monetization: desktop railの安全幅設定が不足しています');
+expect(monetization.desktopRailAffiliateEnabled === false && monetization.desktopRailAffiliateMinWidth >= 1600, 'monetization: desktop railは審査前OFF・安全幅設定維持が必要です');
 expect(!publicFiles.map(read).join('\n').match(/adsbygoogle|doubleclick\.net|googlesyndication/i), '未承認の通常広告が混入しています');
 const matchesAffiliatePath = (pattern, route) => pattern.endsWith('*') ? route.startsWith(pattern.slice(0, -1)) : route === pattern;
 const routeForHtmlFile = (file) => file === 'index.html' ? '/' : file.endsWith('/index.html') ? `/${file.slice(0, -10)}` : `/${file}`;
@@ -300,7 +301,7 @@ expect(read('monetization.js').includes('SESSION_COUNT_KEY') && read('monetizati
 expect(read('monetization.js').includes("'.site-header.nav-open") && read('monetization.js').includes('document.activeElement'), '固定広告の操作中抑止がありません');
 expect(read('styles.css').includes('safe-area-inset-bottom') && read('styles.css').includes('translate(110%,-50%)') && read('styles.css').includes('translate(-50%,110%)'), '固定広告のsafe areaまたはslide animationが不足しています');
 expect(read('growth.js').includes("'affiliate_impression'") && read('growth.js').includes('intersectionRatio < 0.5'), 'affiliate impression計測が不足しています');
-expect(fs.existsSync(path.join(root, 'docs/ad-placement-audit.md')) && read('docs/ad-placement-audit.md').includes('広告対象ページ数: 79'), '広告配置監査が未生成です');
+expect(fs.existsSync(path.join(root, 'docs/ad-placement-audit.md')) && read('docs/ad-placement-audit.md').includes('A8表示ページ数: 4'), '審査前の広告配置監査が未生成です');
 expect(fs.existsSync(path.join(root, 'docs/a8-ad-url-submission.csv')), 'A8追加URL提出CSVがありません');
 const a8Offers = [
   ['s00000025908001', 'https://px.a8.net/svt/ejp?a8mat=4BADDF+YJ6MY+5JWO+5YZ75', 'https://www28.a8.net/svt/bgt?aid=260824371058&wid=002&eno=01&mid=s00000025908001003000&mc=1', 'https://www16.a8.net/0.gif?a8mat=4BADDF+YJ6MY+5JWO+5YZ75', 300, 250],

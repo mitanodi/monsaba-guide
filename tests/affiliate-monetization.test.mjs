@@ -25,6 +25,7 @@ test('keeps all four protected A8 destinations, banners, pixels and sizes unchan
   };
   for (const offer of offers) assert.deepEqual([offer.destination, offer.mediaSource, offer.trackingPixel, offer.width, offer.height], expected[offer.id]);
   assert.match(read('monetization.js'), /link\.rel = 'sponsored nofollow noopener'/);
+  assert.match(read('monetization.js'), /renderPresetPlacements\(config, offers\)/);
   assert.match(read('monetization.js'), /pixel\.width = 1/);
   assert.match(read('monetization.js'), /pixel\.height = 1/);
 });
@@ -37,10 +38,14 @@ test('limits affiliate delivery to configured long-form routes and keeps policy 
   for (const route of ['/privacy/', '/about/', '/updates/', '/search/', '/consult/']) assert.equal(api.isPageAllowed(warau, route), false, route);
 });
 
-test('uses high density, delayed right slide, delayed bottom banner and one floating ad per session', () => {
+test('uses AdSense-review density with every floating affiliate placement disabled', () => {
   assert.equal(config.adsEnabled, false);
   assert.equal(config.affiliateEnabled, true);
-  assert.equal(config.affiliateDensity, 'high');
+  assert.equal(config.affiliateDensity, 'low');
+  assert.equal(config.stickyAffiliateEnabled, false);
+  assert.equal(config.slideAffiliateEnabled, false);
+  assert.equal(config.bottomAffiliateEnabled, false);
+  assert.equal(config.desktopRailAffiliateEnabled, false);
   assert.equal(config.slideAffiliateSide, 'right');
   assert.equal(config.slideAffiliateDelaySeconds, 10);
   assert.equal(config.bottomAffiliateDelaySeconds, 7);

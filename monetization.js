@@ -186,6 +186,23 @@
     }
   };
 
+  const renderPresetPlacements = (config, offers) => {
+    if (!config.affiliateEnabled) return;
+    for (const slot of document.querySelectorAll('[data-affiliate-offer]')) {
+      const offer = offers.get(slot.dataset.affiliateOffer);
+      const placement = slot.dataset.affiliatePlacement || 'article_bottom';
+      const ad = createAffiliateAd(offer, placement);
+      if (!ad) { slot.hidden = true; continue; }
+      ad.querySelector('.affiliate-ad-media>a>img')?.addEventListener('error', () => { slot.hidden = true; });
+      slot.replaceChildren(ad);
+      slot.dataset.affiliateRendered = 'true';
+      slot.removeAttribute('aria-busy');
+      slot.hidden = false;
+      renderedOfferIds.add(offer.id);
+      dispatchRendered(ad);
+    }
+  };
+
   const renderDesktopRail = (config, offers) => {
     if (!config.desktopRailAffiliateEnabled || runtime.innerWidth < Number(config.desktopRailAffiliateMinWidth || 1600)) return false;
     const offer = offers.get(config.desktopRailPages?.[pathname]);
@@ -313,6 +330,7 @@
       return true;
     };
     const profile = config.affiliateEnabled ? findProfile(config) : null;
+    renderPresetPlacements(config, offers);
     renderInlinePlacements(config, offers, profile);
     renderDesktopRail(config, offers);
     scheduleFloating(config, offers, profile);

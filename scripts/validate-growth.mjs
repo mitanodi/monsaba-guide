@@ -60,6 +60,8 @@ for (const file of htmlFiles) {
 for (const route of indexable) if (route !== '/') expect(inbound.get(route) > 0, `孤立ページ: ${route}`);
 expect(read('compare/index.html').includes('content="noindex,follow"'), 'compare: noindex,followがありません');
 expect(!read('sitemap.xml').includes('https://monster-survival.com/compare/'), 'compare: sitemapへ含まれています');
+expect(read('search/index.html').includes('content="noindex,follow"'), 'search: noindex,followがありません');
+expect(!read('sitemap.xml').includes('https://monster-survival.com/search/'), 'search: sitemapへ含まれています');
 expect(read('faq/index.html').includes('"@type":"FAQPage"'), 'FAQPage structured dataがありません');
 expect(read('guides/index.html').includes('"@type":"ItemList"'), '攻略ハブのItemListがありません');
 
@@ -130,7 +132,8 @@ for (const [route, override] of Object.entries(freshness.routes || {})) {
 const monetization = json('data/monetization.json');
 const offers = json('data/affiliate-offers.json').offers || [];
 expect(monetization.adsEnabled === false && monetization.affiliateEnabled === true, '既存の収益化flagを維持してください');
-expect(monetization.affiliateDensity === 'high' && monetization.floatingAffiliateSessionLimit === 1, 'affiliate密度またはsession上限が不正です');
+expect(monetization.affiliateDensity === 'low' && monetization.floatingAffiliateSessionLimit === 1, 'affiliate密度またはsession上限が不正です');
+expect(monetization.stickyAffiliateEnabled === false && monetization.slideAffiliateEnabled === false && monetization.bottomAffiliateEnabled === false && monetization.desktopRailAffiliateEnabled === false, '審査前の固定affiliate停止設定が不正です');
 expect(new Set(offers.map((offer) => offer.id)).size === offers.length, 'affiliate offer idが重複しています');
 const matchesTarget = (pattern, route) => pattern.endsWith('*') ? route.startsWith(pattern.slice(0, -1)) : route === pattern;
 for (const offer of offers) {
