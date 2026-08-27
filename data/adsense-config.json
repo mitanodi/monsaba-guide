@@ -1,7 +1,7 @@
 {
   "version": 1,
   "enabled": false,
-  "publisherId": null,
+  "publisherId": "pub-2710725734378326",
   "autoAds": false,
   "excludedPages": [
     "/search/",

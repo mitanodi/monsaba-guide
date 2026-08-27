@@ -12,7 +12,7 @@
 - [x] indexableページのorphan 0
 - [x] 320〜1920pxのレスポンシブ設計
 - [ ] ProductionのCore Web Vitalsを人間がSearch Console / Vercelで再確認
-- [ ] Publisher ID取得後に`/ads.txt`を追加し、HTTP 200・`text/plain`を確認
+- [x] 正式Publisher IDで`/ads.txt`を追加（ProductionのHTTP 200・`text/plain`確認はデプロイ後）
 
 ## Content
 
@@ -32,9 +32,9 @@
 - [x] desktop rail A8を無効化
 - [x] 既存の静的A8は1ページ最大1枠
 - [x] A8のリンク・バナー・計測pixelを変更しない
-- [x] AdSenseは`enabled: false`、Publisher IDは`null`
+- [x] 正式Publisher IDを保存し、AdSenseは`enabled: false`、Auto Adsは`false`
 - [x] `/search/`、`/compare/`、`/consult/`、`/friends/`をAdSense除外候補へ登録
-- [x] AdSenseコードと仮Publisher IDをProductionへ入れない
+- [x] AdSense広告配信コードと仮Publisher IDをProductionへ入れない
 
 ## UGC / Privacy
 
@@ -48,9 +48,9 @@
 ## Human Verification
 
 - [ ] AdSenseアカウント作成・正しいGoogleアカウント確認
-- [ ] Google Publisher ID取得
-- [ ] Googleが指定したサイト確認方法を実施
-- [ ] Googleが指定した正確なads.txt行を追加
+- [x] Google Publisher ID取得
+- [x] Googleが指定した正確なads.txt行を追加
+- [ ] AdSense管理画面で「コードを配置しました」相当の確認操作
 - [ ] AdSense管理画面でサイト・ads.txt認識を確認
 - [ ] Googleの最新Consent / Privacy要件を確認
 - [ ] Farlight Gamesへゲーム画像の広告収益化許諾を確認（`docs/copyright-verification.md`）

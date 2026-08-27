@@ -34,15 +34,22 @@ test('search is noindex, self-canonical, outside sitemap and keeps legacy alias 
   assert.equal(globalThis.MONSABA_FAMILY.getFamilyDisplayLabel(family), 'ライメー系');
 });
 
-test('AdSense remains disabled without a fabricated publisher ID and excludes tool/UGC pages', () => {
+test('AdSense ownership verification uses the official ads.txt while delivery remains disabled', () => {
   const config = json('data/adsense-config.json');
   assert.equal(config.enabled, false);
-  assert.equal(config.publisherId, null);
+  assert.equal(config.publisherId, 'pub-2710725734378326');
   assert.equal(config.autoAds, false);
   assert.deepEqual(config.excludedPages, ['/search/', '/compare/', '/consult/', '/friends/']);
+  const adsTxt = read('ads.txt');
+  assert.equal(adsTxt.trim(), 'google.com, pub-2710725734378326, DIRECT, f08c47fec0942fa0');
+  assert.equal(adsTxt.trim().split(', ').length, 4);
+  assert.ok(adsTxt.endsWith('\n'));
+  assert.equal(json('vercel.json').headers.some((rule) => rule.source === '/ads.txt' && rule.headers.some((header) => header.key === 'Content-Type' && /^text\/plain(?:; charset=utf-8)?$/i.test(header.value))), true);
   const publicSource = walk(root).map(read).join('\n');
-  assert.doesNotMatch(publicSource, /adsbygoogle|pagead2\.googlesyndication\.com|(?:ca-)?pub-\d{16}/i);
-  assert.equal(fs.existsSync(path.join(root, 'ads.txt')), false, 'Publisher ID取得前にads.txtを公開しないでください');
+  assert.doesNotMatch(publicSource, /adsbygoogle|pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/i);
+  const textFiles = execFileSync('git', ['ls-files', '-z'], { cwd: root }).toString('utf8').split('\0').filter((file) => /\.(?:html|js|mjs|json|md|txt|xml|css)$/i.test(file));
+  const repositoryText = [...textFiles, 'ads.txt'].filter((file, index, files) => files.indexOf(file) === index && fs.existsSync(path.join(root, file))).map(read).join('\n');
+  assert.doesNotMatch(repositoryText, /pub-(?:X{8,}|0{8,}|1234567890123456)/i);
 });
 
 test('A8 delivery is low-density and all fixed/floating placements are disabled', () => {
