@@ -12,7 +12,8 @@
     "validate:master": "node scripts/validate-master-improvements.mjs",
     "validate:i18n": "node scripts/validate-i18n.mjs",
     "validate:translation-quality": "node scripts/validate-translation-quality.mjs",
-    "validate": "npm run check:syntax && npm run validate:data && npm run validate:site && npm run validate:growth && npm run validate:zombie-prediction && npm run validate:stale && npm run validate:master && npm run validate:i18n && npm run validate:translation-quality && node scripts/generate-sitemap.mjs --check",
+    "validate:og": "node scripts/validate-og-cards.mjs",
+    "validate": "npm run check:syntax && npm run validate:data && npm run validate:site && npm run validate:growth && npm run validate:zombie-prediction && npm run validate:stale && npm run validate:master && npm run validate:i18n && npm run validate:translation-quality && npm run validate:og && node scripts/generate-sitemap.mjs --check",
     "generate:tata": "node scripts/generate-tata-pages.mjs",
     "generate:beginner": "node scripts/generate-beginner-guide.mjs",
     "generate:updates": "node scripts/generate-update-2026-08-26.mjs",
@@ -29,9 +30,10 @@
     "generate:affiliate-audit": "node scripts/generate-ad-placement-audit.mjs",
     "generate:asset-version": "node scripts/update-asset-version.mjs",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
+    "generate:og": "node scripts/generate-og-cards.mjs",
     "polish:i18n": "node scripts/polish-i18n-dictionaries.mjs",
     "generate:i18n": "npm run polish:i18n && node scripts/generate-i18n-pages.mjs",
-    "generate:site": "npm run generate:tata && npm run generate:beginner && npm run generate:core && npm run generate:updates && npm run generate:growth && npm run generate:expansion && npm run generate:copy && npm run generate:nav && npm run generate:footer && npm run generate:foundations && npm run generate:ga4 && npm run generate:freshness && npm run generate:heroes && npm run generate:affiliate-audit && npm run generate:asset-version && npm run generate:i18n && npm run generate:sitemap",
+    "generate:site": "npm run generate:tata && npm run generate:beginner && npm run generate:core && npm run generate:updates && npm run generate:growth && npm run generate:expansion && npm run generate:copy && npm run generate:nav && npm run generate:footer && npm run generate:foundations && npm run generate:ga4 && npm run generate:freshness && npm run generate:heroes && npm run generate:affiliate-audit && npm run generate:asset-version && npm run generate:i18n && npm run generate:og && npm run generate:sitemap",
     "smoke:local": "node scripts/smoke-http.mjs",
     "test:friends": "node --test tests/friends.test.mjs",
     "test:board": "node --test tests/board.test.mjs",
@@ -43,9 +45,13 @@
     "test:personal-tools": "node --test tests/personal-tools.test.mjs",
     "test:treasure-hunt": "node --test tests/treasure-hunt.test.mjs",
     "test:i18n": "node --test tests/i18n.test.mjs",
-    "test": "npm run test:friends && npm run test:board && npm run test:official-x && npm run test:family-display && npm run test:affiliate && npm run test:adsense && npm run test:ga4 && npm run test:personal-tools && npm run test:treasure-hunt && npm run test:i18n"
+    "test:og": "node --test tests/og-cards.test.mjs",
+    "test": "npm run test:friends && npm run test:board && npm run test:official-x && npm run test:family-display && npm run test:affiliate && npm run test:adsense && npm run test:ga4 && npm run test:personal-tools && npm run test:treasure-hunt && npm run test:i18n && npm run test:og"
   },
   "dependencies": {
     "@upstash/redis": "^1.38.2"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.4"
   }
 }

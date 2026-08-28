@@ -182,7 +182,7 @@ function localizeHtml(source, sourceRoute, locale, missing) {
   let html = source;
   html = html.replace(/<script\b([^>]*application\/ld\+json[^>]*)>([\s\S]*?)<\/script>/gi, (_, attributes, json) => `<script${attributes}>${localizeJsonLd(json, locale, translate)}</script>`);
   const blocks = [];
-  html = html.replace(/<(?:script|style)\b[\s\S]*?<\/(?:script|style)>|<!--[\s\S]*?-->/gi, (block) => {
+  html = html.replace(/<meta\b[^>]*\bdata-og-card\b[^>]*>|<(?:script|style)\b[\s\S]*?<\/(?:script|style)>|<!--[\s\S]*?-->/gi, (block) => {
     const token = `<i18n-block data-index="${blocks.length}"></i18n-block>`;
     blocks.push(block);
     return token;

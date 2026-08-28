@@ -1,0 +1,197 @@
+{
+  "templateVersion": "2026-08-29.2",
+  "baseUrl": "https://monster-survival.com",
+  "sourceIcon": "assets/icons/icon-512.png",
+  "locales": {
+    "ja": {
+      "directory": "ja",
+      "ogLocale": "ja_JP",
+      "siteName": "モンサバ攻略DB",
+      "unofficial": "非公式攻略サイト"
+    },
+    "en": {
+      "directory": "en",
+      "ogLocale": "en_US",
+      "siteName": "Clash of Critters Guide DB",
+      "unofficial": "Unofficial Guide"
+    },
+    "zh-CN": {
+      "directory": "zh-cn",
+      "ogLocale": "zh_CN",
+      "siteName": "Clash of Critters 攻略数据库",
+      "unofficial": "非官方攻略站"
+    }
+  },
+  "pages": [
+    {
+      "key": "top",
+      "accent": "#2f6fb2",
+      "accentDark": "#24588e",
+      "symbol": "DB",
+      "routes": {
+        "ja": "/",
+        "en": "/en/",
+        "zh-CN": "/zh-cn/"
+      },
+      "content": {
+        "ja": {
+          "title": "タタ図鑑・Tier・進化・スキル",
+          "description": "63系統・224体を収録した非公式攻略データベース",
+          "badge": "63系統  /  224体",
+          "ogTitle": "モンサバ攻略DB｜タタ図鑑・Tier・進化・スキル一覧",
+          "ogDescription": "モンサバの63系統・224体を収録。タタTier、進化先、スキル効果・数値を確認できる非公式攻略データベース。"
+        },
+        "en": {
+          "title": "Tatari Database, Tiers & Skills",
+          "description": "Unofficial guide covering 63 Tatari families and 224 Tatari",
+          "badge": "63 families  /  224 Tatari",
+          "ogTitle": "Clash of Critters Guide DB | Tatari Database, Tiers & Skills",
+          "ogDescription": "An unofficial Clash of Critters guide covering 63 Tatari families and 224 Tatari, with tier ratings, evolutions and skill data."
+        },
+        "zh-CN": {
+          "title": "Tatari 图鉴、Tier 与技能",
+          "description": "收录 63 个 Tatari 系列、共 224 个 Tatari 的非官方攻略站",
+          "badge": "63 个系列  /  224 个 Tatari",
+          "ogTitle": "Clash of Critters 攻略数据库｜Tatari 图鉴、Tier 与技能",
+          "ogDescription": "收录 63 个 Tatari 系列、共 224 个 Tatari，可查询 Tier、进化路线和技能数据的非官方 Clash of Critters 攻略站。"
+        }
+      }
+    },
+    {
+      "key": "tata-tier",
+      "accent": "#d88b24",
+      "accentDark": "#9a5c10",
+      "symbol": "S",
+      "routes": {
+        "ja": "/tata-tier/",
+        "en": "/en/tata-tier/",
+        "zh-CN": "/zh-cn/tata-tier/"
+      },
+      "content": {
+        "ja": {
+          "title": "タタTier",
+          "description": "総合評価・用途別Tier・育成おすすめ",
+          "badge": "63系統を比較",
+          "ogTitle": "モンサバ タタTier｜総合評価・育成おすすめ",
+          "ogDescription": "通常ステージ、Zombie Rush、バッジ道場、初心者の育てやすさを含めて比較するモンサバのタタTier。"
+        },
+        "en": {
+          "title": "Tatari Tier List",
+          "description": "Overall rankings, mode ratings and build recommendations",
+          "badge": "63 families compared",
+          "ogTitle": "Clash of Critters Tatari Tier List | Rankings & Build Picks",
+          "ogDescription": "Compare overall Tatari rankings, mode-specific ratings and build recommendations for Clash of Critters."
+        },
+        "zh-CN": {
+          "title": "Tatari Tier 榜",
+          "description": "综合评价、玩法 Tier 与培养推荐",
+          "badge": "比较 63 个系列",
+          "ogTitle": "Clash of Critters Tatari Tier 榜｜综合评价与培养推荐",
+          "ogDescription": "对比 Clash of Critters Tatari 的综合排名、各玩法 Tier 与培养推荐。"
+        }
+      }
+    },
+    {
+      "key": "zombie-rush",
+      "accent": "#c9475d",
+      "accentDark": "#8e2538",
+      "symbol": "ZR",
+      "routes": {
+        "ja": "/zombie-rush/",
+        "en": "/en/zombie-rush/",
+        "zh-CN": "/zh-cn/zombie-rush/"
+      },
+      "content": {
+        "ja": {
+          "title": "Zombie Rush 攻略",
+          "description": "Season 1 Tier・高Wave編成・育成順",
+          "badge": "実戦確認とAI予測を区別",
+          "ogTitle": "モンサバ Zombie Rush攻略｜Season 1 Tier・高Wave編成",
+          "ogDescription": "Zombie Rush Season 1の実戦確認、保存済みAI予測、タタTier、高Wave編成と育成順を分けて掲載。"
+        },
+        "en": {
+          "title": "Zombie Rush Guide",
+          "description": "Season 1 tiers, high-wave teams and upgrade priorities",
+          "badge": "Verified results vs. AI predictions",
+          "ogTitle": "Clash of Critters Zombie Rush Guide | Season 1 Tiers & Teams",
+          "ogDescription": "Track verified Season 1 results, saved AI predictions, Tatari tiers, high-wave teams and upgrade priorities."
+        },
+        "zh-CN": {
+          "title": "Zombie Rush 攻略",
+          "description": "第 1 赛季 Tier、高波阵容与培养顺序",
+          "badge": "区分实战结果与 AI 预测",
+          "ogTitle": "Clash of Critters Zombie Rush 攻略｜第 1 赛季 Tier 与阵容",
+          "ogDescription": "分别整理第 1 赛季实战结果、已保存的 AI 预测、Tatari Tier、高波阵容与培养顺序。"
+        }
+      }
+    },
+    {
+      "key": "team-builder",
+      "accent": "#178b78",
+      "accentDark": "#0d6254",
+      "symbol": "15",
+      "routes": {
+        "ja": "/team-builder/",
+        "en": "/en/team-builder/",
+        "zh-CN": "/zh-cn/team-builder/"
+      },
+      "content": {
+        "ja": {
+          "title": "モンサバ編成メーカー",
+          "description": "15枠の編成を作成・診断・保存・共有",
+          "badge": "ブラウザだけで使える無料ツール",
+          "ogTitle": "モンサバ編成メーカー｜15枠の編成を作成・診断・共有",
+          "ogDescription": "15枠のモンサバ編成を作成し、役割診断、端末保存、URL共有、攻略相談ができる無料ツール。"
+        },
+        "en": {
+          "title": "Clash of Critters Team Builder",
+          "description": "Create, analyze, save and share 15-slot teams",
+          "badge": "Free browser-based tool",
+          "ogTitle": "Clash of Critters Team Builder | Create & Share 15-Slot Teams",
+          "ogDescription": "Create a 15-slot team, analyze its roles, save it on your device, share a URL and ask the community for feedback."
+        },
+        "zh-CN": {
+          "title": "Clash of Critters 阵容编辑器",
+          "description": "创建、分析、保存并分享 15 格阵容",
+          "badge": "免费浏览器工具",
+          "ogTitle": "Clash of Critters 阵容编辑器｜创建并分享 15 格阵容",
+          "ogDescription": "创建 15 格阵容，分析定位构成，保存到设备、分享链接，并在攻略问答区征求建议。"
+        }
+      }
+    },
+    {
+      "key": "treasure-hunt",
+      "accent": "#7255b7",
+      "accentDark": "#493288",
+      "symbol": "◆",
+      "routes": {
+        "ja": "/events/treasure-hunt/",
+        "en": "/en/events/treasure-hunt/",
+        "zh-CN": "/zh-cn/events/treasure-hunt/"
+      },
+      "content": {
+        "ja": {
+          "title": "オタカラ探しソルバー",
+          "description": "残り配置からおすすめマスの確率を計算",
+          "badge": "Undo・端末保存対応",
+          "ogTitle": "モンサバ オタカラ探しソルバー｜おすすめマス確率計算",
+          "ogDescription": "空白・宝ヒット・発見済みを入力し、残りの有効配置から各マスの宝確率とおすすめマスを計算。"
+        },
+        "en": {
+          "title": "Treasure Hunt Solver",
+          "description": "Calculate the best next tile from remaining layouts",
+          "badge": "Undo and on-device save",
+          "ogTitle": "Clash of Critters Treasure Hunt Solver | Best-Tile Probability",
+          "ogDescription": "Enter misses, treasure hits and found tiles to calculate treasure probabilities and the best next tile from every valid layout."
+        },
+        "zh-CN": {
+          "title": "寻宝求解器",
+          "description": "根据剩余布局计算下一步推荐位置",
+          "badge": "支持撤销与设备保存",
+          "ogTitle": "Clash of Critters 寻宝求解器｜最佳方格概率计算",
+          "ogDescription": "输入未命中、命中宝物与已找到方格，根据剩余有效布局计算每格宝物概率和下一步推荐。"
+        }
+      }
+    }
+  ]
+}

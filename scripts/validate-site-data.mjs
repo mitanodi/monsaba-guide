@@ -125,12 +125,23 @@ for (const file of htmlFiles) {
 }
 
 const majorRoutes = ['/', '/zombie-rush/', '/boss-rally/', '/badge-dojo/', '/tata-tier/', '/consult/', '/normal-guide/', '/evolution-priority/'];
+const dedicatedOgCard = Object.freeze({
+  '/': 'top',
+  '/zombie-rush/': 'zombie-rush',
+  '/tata-tier/': 'tata-tier'
+});
 for (const route of majorRoutes) {
   const file = route === '/' ? 'index.html' : `${route.slice(1)}index.html`;
   const html = read(file);
   const expectedImage = `${BASE_URL}${HERO_BY_ROUTE[route]}`;
-  expect(html.includes(`<meta property="og:image" content="${expectedImage}"`), `${file}: og:image がHeroと不一致`);
-  expect(html.includes(`<meta name="twitter:image" content="${expectedImage}"`), `${file}: twitter:image がHeroと不一致`);
+  const imagePattern = dedicatedOgCard[route]
+    ? new RegExp(`<meta property="og:image" content="${BASE_URL}/assets/og/ja/${dedicatedOgCard[route]}-[a-f0-9]{12}\\.png"`)
+    : new RegExp(`<meta property="og:image" content="${expectedImage.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"`);
+  const twitterImagePattern = dedicatedOgCard[route]
+    ? new RegExp(`<meta name="twitter:image" content="${BASE_URL}/assets/og/ja/${dedicatedOgCard[route]}-[a-f0-9]{12}\\.png"`)
+    : new RegExp(`<meta name="twitter:image" content="${expectedImage.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"`);
+  expect(imagePattern.test(html), `${file}: og:image が期待画像と不一致`);
+  expect(twitterImagePattern.test(html), `${file}: twitter:image が期待画像と不一致`);
   expect(/<meta property="og:image:alt" content="[^"]+"/.test(html), `${file}: og:image:alt がありません`);
   expect(html.includes(`"image":"${BASE_URL}/`), `${file}: JSON-LD image がありません`);
   const hasPageRelationship = /"mainEntityOfPage":/.test(html)
