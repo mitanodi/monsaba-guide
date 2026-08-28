@@ -131,5 +131,7 @@ test('full site generation is idempotent', { timeout: 120000 }, () => {
   const npmCli = process.env.npm_execpath;
   assert.ok(npmCli, 'npm executable path is unavailable');
   execFileSync(process.execPath, [npmCli, 'run', 'generate:site'], { cwd: root, stdio: 'pipe', timeout: 110000 });
-  assert.equal(digest(), before, 'generate:site changed tracked output; run generation and commit the result');
+  const after = digest();
+  const changed = after === before ? '' : execFileSync('git', ['diff', '--name-only'], { cwd: root, encoding: 'utf8' }).trim();
+  assert.equal(after, before, `generate:site changed tracked output; run generation and commit the result\n${changed}`);
 });
