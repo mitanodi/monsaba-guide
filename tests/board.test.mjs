@@ -185,6 +185,7 @@ test('簡易投稿UI、質問例、折りたたみ、PC・スマホ導線を備�
   assert.match(main, /id="board-question-details"/); assert.match(main, /data-board-example=/);
   assert.match(main, /id="board-floating-question"/); assert.match(main, /id="board-unanswered-quick"/);
   assert.match(thread, /id="board-open-answer"/); assert.match(thread, /id="board-answer-form" class="board-form" hidden/);
+  assert.match(read('board/board.css'), /\.board-form\[hidden\]\{display:none\}/);
   assert.match(client, /form\.elements\.content\.focus/); assert.match(client, /POSTED_THREAD_NOTICE_KEY/);
   const shared = read('scripts/shared-layout.mjs');
   assert.match(shared, /href: '\/board\/', label: '質問掲示板' \}/); assert.doesNotMatch(shared, /href: '\/board\/'[^\n]*mobile-only-nav-link/);

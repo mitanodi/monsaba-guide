@@ -9,6 +9,7 @@
 .board-list-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:.5rem}
 .board-icon-button{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;border:1px solid #ccd7e2;border-radius:50%;background:#fff;color:#26384d;font-size:1.5rem;cursor:pointer}
 .board-form{display:grid;gap:1rem;margin-top:1rem}
+.board-form[hidden]{display:none}
 .board-form label,.board-filters label{display:grid;gap:.35rem;font-weight:700;color:#293a4e}
 .board-form input,.board-form textarea,.board-form select,.board-filters input,.board-filters select,.board-dialog select{box-sizing:border-box;width:100%;min-height:46px;padding:.7rem .8rem;border:1px solid #aebdcb;border-radius:10px;background:#fff;color:#17263a;font:inherit}
 .board-form textarea{resize:vertical;line-height:1.65}
