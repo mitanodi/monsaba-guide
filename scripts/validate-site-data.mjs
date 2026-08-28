@@ -114,8 +114,10 @@ for (const file of htmlFiles) {
   if (html.includes('class="site-header"')) expect(/src="\/family-display\.js(?:\?[^"#]*)?"/.test(html), `${file}: 系統表示名の共通スクリプトがありません`);
   if (html.includes('<footer')) {
     expect(html.includes('href="/friends/"'), `${file}: footerにフレンド掲示板リンクがありません`);
-    expect((html.match(/https:\/\/x\.com\/odi_monsaba/g) || []).length === 1, `${file}: X問い合わせリンクが1件ではありません`);
-    expect(/href="https:\/\/x\.com\/odi_monsaba" target="_blank" rel="noopener noreferrer"/.test(html), `${file}: Xリンクの安全属性が不足`);
+    const xContactLinks = html.match(/href="https:\/\/x\.com\/odi_monsaba" target="_blank" rel="noopener noreferrer"/g) || [];
+    const expectedXLinks = file === 'about/index.html' ? 2 : 1;
+    expect(xContactLinks.length === expectedXLinks, `${file}: 安全なX問い合わせリンクが${expectedXLinks}件ではありません`);
+    expect(!html.includes('href="#contact"'), `${file}: X問い合わせがページ内リンクのままです`);
   }
   for (const match of html.matchAll(/<a\b[^>]*target="_blank"[^>]*>/g)) {
     expect(/rel="[^"]*noopener[^"]*noreferrer[^"]*"/.test(match[0]), `${file}: target=_blank のrelが不足`);
