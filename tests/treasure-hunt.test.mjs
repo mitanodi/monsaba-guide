@@ -172,6 +172,8 @@ test('計算中表示とbutton無効化を持つ', () => {
   assert.match(js, /button\.disabled = value/);
   assert.match(js, /計算中…/);
   assert.match(js, /aria-busy/);
+  assert.match(js, /mobileCalculate\.id = 'calculateMobile'/);
+  assert.match(js, /max-width: 760px/);
 });
 
 test('Analyticsへ盤面・宝位置・specを送らない', () => {

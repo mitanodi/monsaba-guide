@@ -144,6 +144,17 @@ function boot() {
   const board = $('#board');
   if (!board) return;
   board.setAttribute('role', 'group');
+  const mobileCalculate = document.createElement('button');
+  const mobileViewport = window.matchMedia('(max-width: 760px)');
+  mobileCalculate.id = 'calculateMobile';
+  mobileCalculate.className = 'button';
+  mobileCalculate.type = 'button';
+  mobileCalculate.textContent = '確率を計算';
+  Object.assign(mobileCalculate.style, { width: '100%', minHeight: '44px', marginTop: '8px' });
+  const syncMobileCalculate = () => { mobileCalculate.hidden = !mobileViewport.matches; };
+  mobileViewport.addEventListener?.('change', syncMobileCalculate);
+  syncMobileCalculate();
+  $('.input-palette').append(mobileCalculate);
 
   let model = createDefaultModel();
   let history = [];
@@ -317,9 +328,10 @@ function boot() {
   }
   function setCalculating(value) {
     calculating = value;
-    const button = $('#calculate');
-    button.disabled = value;
-    button.textContent = value ? '計算中…' : '確率を計算';
+    [$('#calculate'), $('#calculateMobile')].forEach((button) => {
+      button.disabled = value;
+      button.textContent = value ? '計算中…' : '確率を計算';
+    });
     board.setAttribute('aria-busy', String(value));
   }
   function calculate() {
@@ -376,6 +388,7 @@ function boot() {
   $('#showRecommendations').addEventListener('change', (event) => syncPreference('showRecommendations', event.target.checked));
   $('#autoCalculate').addEventListener('change', (event) => syncPreference('autoCalculate', event.target.checked));
   $('#calculate').addEventListener('click', calculate);
+  $('#calculateMobile').addEventListener('click', calculate);
   $('#undo').addEventListener('click', () => {
     const snapshot = history.pop();
     if (!snapshot) return;
