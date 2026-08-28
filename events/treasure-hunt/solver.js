@@ -1,8 +1,13 @@
 export const STORAGE_KEY = 'monsaba-treasure-solver-v1';
-export const STORAGE_VERSION = 2;
+export const STORAGE_VERSION = 3;
 export const STATES = ['unknown', 'miss', 'hit', 'found'];
 export const STATE_LABELS = { unknown: '未確認', miss: '空白', hit: '宝ヒット', found: '発見済み' };
 export const STATE_MARKS = { unknown: '?', miss: '×', hit: '◆', found: '✓' };
+export const SHAPE_KEYS = Object.freeze(
+  Array.from({ length: 4 }, (_, widthIndex) => (
+    Array.from({ length: 4 }, (_, heightIndex) => `${widthIndex + 1}x${heightIndex + 1}`)
+  )).flat()
+);
 const DEFAULT_SPEC = '2x2:1, 1x3:1';
 const DEFAULT_PREFERENCES = {
   inputMode: 'miss',
@@ -11,11 +16,52 @@ const DEFAULT_PREFERENCES = {
   autoCalculate: false
 };
 
+export function createDefaultShapeCounts() {
+  return Object.fromEntries(SHAPE_KEYS.map((key) => [key, key === '2x2' || key === '1x3' ? 1 : 0]));
+}
+
+export function normalizeShapeCounts(value) {
+  return Object.fromEntries(SHAPE_KEYS.map((key) => {
+    const count = Number(value?.[key]);
+    return [key, Number.isInteger(count) ? Math.min(3, Math.max(0, count)) : 0];
+  }));
+}
+
+export function shapeCountsToSpec(value) {
+  const counts = normalizeShapeCounts(value);
+  return SHAPE_KEYS.filter((key) => counts[key] > 0).map((key) => `${key}:${counts[key]}`).join(', ');
+}
+
+export function parseShapeCountsSpec(text) {
+  const counts = normalizeShapeCounts();
+  const source = String(text ?? '').trim();
+  if (!source) return counts;
+  const seen = new Set();
+  for (const part of source.split(',')) {
+    const match = part.trim().match(/^([1-4])x([1-4]):([0-3])$/i);
+    if (!match) return null;
+    const key = `${Number(match[1])}x${Number(match[2])}`;
+    if (seen.has(key)) return null;
+    seen.add(key);
+    counts[key] = Number(match[3]);
+  }
+  return counts;
+}
+
+export function adjustShapeCount(value, key, delta) {
+  if (!SHAPE_KEYS.includes(key)) throw new Error(`未対応の宝形状です: ${key}`);
+  const counts = normalizeShapeCounts(value);
+  counts[key] = Math.min(3, Math.max(0, counts[key] + Number(delta || 0)));
+  return counts;
+}
+
 export function createDefaultModel(size = 6) {
   return {
     version: STORAGE_VERSION,
     size,
     spec: DEFAULT_SPEC,
+    shapeCounts: createDefaultShapeCounts(),
+    shapeMode: 'picker',
     cells: Array(size * size).fill('unknown'),
     preferences: { ...DEFAULT_PREFERENCES }
   };
@@ -26,10 +72,20 @@ export function normalizeModel(value) {
   const cells = Array.isArray(value?.cells) && value.cells.length === size * size
     ? value.cells.map((state) => STATES.includes(state) ? state : 'unknown')
     : Array(size * size).fill('unknown');
+  const hasSpec = typeof value?.spec === 'string';
+  const rawSpec = hasSpec ? value.spec.trim() : DEFAULT_SPEC;
+  const parsedCounts = parseShapeCountsSpec(rawSpec);
+  const shapeCounts = parsedCounts || (
+    value?.shapeCounts && typeof value.shapeCounts === 'object'
+      ? normalizeShapeCounts(value.shapeCounts)
+      : createDefaultShapeCounts()
+  );
   return {
     version: STORAGE_VERSION,
     size,
-    spec: typeof value?.spec === 'string' && value.spec.trim() ? value.spec.trim() : DEFAULT_SPEC,
+    spec: rawSpec,
+    shapeCounts,
+    shapeMode: parsedCounts ? 'picker' : 'advanced',
     cells,
     preferences: {
       inputMode: STATES.includes(value?.preferences?.inputMode) ? value.preferences.inputMode : DEFAULT_PREFERENCES.inputMode,
@@ -42,18 +98,24 @@ export function normalizeModel(value) {
 
 export function parseSpec(text, size) {
   const shapes = [];
-  for (const part of String(text || '').split(',')) {
+  const seen = new Set();
+  const specText = String(text || '').trim();
+  if (!specText) throw new Error('宝を1個以上入力してください。');
+  for (const part of specText.split(',')) {
     const source = part.trim();
     const match = source.match(/^(\d+)x(\d+):(\d+)$/i);
     if (!match) throw new Error(`形式を確認してください: ${source}`);
     const width = Number(match[1]);
     const height = Number(match[2]);
     const count = Number(match[3]);
-    if (width < 1 || height < 1 || count < 1 || width > size || height > size || count > 8) {
-      throw new Error('宝の形・個数が盤面の範囲外です。');
+    const key = `${width}x${height}`;
+    if (width < 1 || height < 1 || count < 1 || width > 8 || height > 8 || count > 8) {
+      throw new Error('宝の形・個数が対応範囲外です。');
     }
+    if (seen.has(key)) throw new Error(`同じ形状が重複しています: ${key}`);
+    seen.add(key);
     for (let index = 0; index < count; index += 1) {
-      shapes.push({ w: width, h: height, id: `${width}x${height}-${index}` });
+      shapes.push({ w: width, h: height, id: `${key}-${index}` });
     }
   }
   if (!shapes.length) throw new Error('宝を1個以上入力してください。');
@@ -77,6 +139,11 @@ function placementsForShape(shape, model) {
 export function solveTreasureModel(rawModel, cap = 20000) {
   const model = normalizeModel(rawModel);
   const shapes = parseSpec(model.spec, model.size);
+  const treasureArea = shapes.reduce((sum, shape) => sum + (shape.w * shape.h), 0);
+  const availableArea = model.cells.filter((state) => state !== 'miss').length;
+  if (treasureArea > availableArea) {
+    return { configurations: 0, capped: false, probabilities: [], topCandidates: [], bestIndices: [], shapes };
+  }
   const candidates = shapes.map((shape) => placementsForShape(shape, model));
   if (candidates.some((list) => list.length === 0)) {
     return { configurations: 0, capped: false, probabilities: [], topCandidates: [], bestIndices: [], shapes };
@@ -85,27 +152,45 @@ export function solveTreasureModel(rawModel, cap = 20000) {
     state === 'hit' || state === 'found' ? [index] : []
   )));
   const configurations = [];
+  const searchLimit = Math.max(100000, cap * 10);
+  let visitedNodes = 0;
+  let searchLimited = false;
+  const remainingCoverage = Array(shapes.length + 1);
+  remainingCoverage[shapes.length] = new Set();
+  for (let depth = shapes.length - 1; depth >= 0; depth -= 1) {
+    remainingCoverage[depth] = new Set(remainingCoverage[depth + 1]);
+    candidates[depth].forEach((placement) => placement.forEach((cell) => remainingCoverage[depth].add(cell)));
+  }
 
-  function backtrack(depth, used, chosen) {
-    if (configurations.length >= cap) return;
+  function backtrack(depth, used, chosen, chosenPlacementIndices) {
+    visitedNodes += 1;
+    if (visitedNodes > searchLimit) {
+      searchLimited = true;
+      return;
+    }
+    if (configurations.length >= cap || searchLimited) return;
     if (depth === shapes.length) {
       if ([...required].every((cell) => used.has(cell))) configurations.push(chosen.flat());
       return;
     }
-    for (const placement of candidates[depth]) {
+    const sameAsPrevious = depth > 0
+      && shapes[depth].w === shapes[depth - 1].w
+      && shapes[depth].h === shapes[depth - 1].h;
+    const startIndex = sameAsPrevious ? chosenPlacementIndices[depth - 1] + 1 : 0;
+    for (let placementIndex = startIndex; placementIndex < candidates[depth].length; placementIndex += 1) {
+      const placement = candidates[depth][placementIndex];
       if (placement.some((cell) => used.has(cell))) continue;
       const next = new Set(used);
       placement.forEach((cell) => next.add(cell));
-      const remainingCells = candidates.slice(depth + 1).flat().flat();
-      if ([...required].some((cell) => !next.has(cell) && !remainingCells.includes(cell))) continue;
-      backtrack(depth + 1, next, [...chosen, placement]);
-      if (configurations.length >= cap) break;
+      if ([...required].some((cell) => !next.has(cell) && !remainingCoverage[depth + 1].has(cell))) continue;
+      backtrack(depth + 1, next, [...chosen, placement], [...chosenPlacementIndices, placementIndex]);
+      if (configurations.length >= cap || searchLimited) break;
     }
   }
 
-  backtrack(0, new Set(), []);
+  backtrack(0, new Set(), [], []);
   if (!configurations.length) {
-    return { configurations: 0, capped: false, probabilities: [], topCandidates: [], bestIndices: [], shapes };
+    return { configurations: 0, capped: searchLimited, probabilities: [], topCandidates: [], bestIndices: [], shapes };
   }
   const tally = Array(model.cells.length).fill(0);
   configurations.forEach((cells) => new Set(cells).forEach((cell) => { tally[cell] += 1; }));
@@ -129,7 +214,7 @@ export function solveTreasureModel(rawModel, cap = 20000) {
   );
   return {
     configurations: configurations.length,
-    capped: configurations.length >= cap,
+    capped: configurations.length >= cap || searchLimited,
     probabilities,
     topCandidates,
     bestIndices,
@@ -161,6 +246,7 @@ function boot() {
   let lastResult = null;
   let selectedCandidateIndex = null;
   let calculateTimer = null;
+  let specSyncTimer = null;
   let calculating = false;
 
   function save() {
@@ -206,6 +292,118 @@ function boot() {
       button.querySelector('.mode-selected').textContent = selected ? '✓ 選択中' : '';
     });
     $('#inputModeStatus').textContent = `現在：${STATE_LABELS[model.preferences.inputMode]}を入力中`;
+    renderShapePicker();
+  }
+  function showPickerStatus(message, error = false) {
+    const status = $('#treasurePickerStatus');
+    status.textContent = message;
+    status.classList.toggle('is-error', error);
+  }
+  function createShapePreview(width, height) {
+    const preview = document.createElement('span');
+    preview.className = 'shape-preview';
+    preview.setAttribute('aria-hidden', 'true');
+    preview.style.setProperty('--shape-width', width);
+    preview.style.setProperty('--shape-height', height);
+    for (let index = 0; index < width * height; index += 1) preview.append(document.createElement('i'));
+    return preview;
+  }
+  function renderShapePicker() {
+    const grid = $('#shapeGrid');
+    const list = $('#currentTreasures');
+    if (!grid || !list) return;
+    grid.innerHTML = '';
+    for (const key of SHAPE_KEYS) {
+      const [width, height] = key.split('x').map(Number);
+      const count = model.shapeCounts[key];
+      const option = document.createElement('div');
+      option.className = 'shape-option';
+      option.classList.toggle('is-selected', count > 0);
+      option.dataset.shape = key;
+
+      const add = document.createElement('button');
+      add.type = 'button';
+      add.className = 'shape-add';
+      add.dataset.shapeAdd = key;
+      add.setAttribute('aria-label', `${width}×${height}の宝を1個追加。現在${count}個`);
+      const label = document.createElement('strong');
+      label.textContent = `${width}×${height}`;
+      const countLabel = document.createElement('span');
+      countLabel.className = 'shape-count';
+      countLabel.textContent = `${count}個`;
+      add.append(createShapePreview(width, height), label, countLabel);
+      add.addEventListener('click', () => changeShapeCount(key, 1));
+
+      const minus = document.createElement('button');
+      minus.type = 'button';
+      minus.className = 'shape-minus';
+      minus.dataset.shapeMinus = key;
+      minus.disabled = count === 0;
+      minus.setAttribute('aria-label', `${width}×${height}の宝を1個減らす`);
+      minus.textContent = '−';
+      minus.addEventListener('click', () => changeShapeCount(key, -1));
+      option.append(add, minus);
+      grid.append(option);
+    }
+
+    list.innerHTML = '';
+    const selected = SHAPE_KEYS.filter((key) => model.shapeCounts[key] > 0);
+    if (!selected.length) {
+      const empty = document.createElement('li');
+      empty.className = 'treasure-summary-empty';
+      empty.textContent = '宝が選ばれていません';
+      list.append(empty);
+    } else {
+      selected.forEach((key) => {
+        const [width, height] = key.split('x');
+        const item = document.createElement('li');
+        item.textContent = `${width}×${height} ×${model.shapeCounts[key]}`;
+        list.append(item);
+      });
+    }
+    const total = SHAPE_KEYS.reduce((sum, key) => sum + model.shapeCounts[key], 0);
+    $('#treasureTotal').textContent = `合計：${total}個`;
+    $('#treasurePicker').classList.toggle('is-advanced-spec', model.shapeMode === 'advanced');
+  }
+  function commitTreasureChange(message) {
+    model.shapeMode = 'picker';
+    model.spec = shapeCountsToSpec(model.shapeCounts);
+    $('#treasureSpec').value = model.spec;
+    save();
+    clearResult();
+    buildBoard();
+    renderShapePicker();
+    showPickerStatus(message);
+    if (model.preferences.autoCalculate) scheduleCalculate();
+  }
+  function changeShapeCount(key, delta) {
+    const current = model.shapeCounts[key];
+    if (delta > 0 && current >= 3) {
+      showPickerStatus('この形状は最大3個まで設定できます', true);
+      return;
+    }
+    model.shapeCounts = adjustShapeCount(model.shapeCounts, key, delta);
+    const [width, height] = key.split('x');
+    commitTreasureChange(`${width}×${height}を${delta > 0 ? '追加' : '1個減ら'}しました`);
+  }
+  function syncSpecFromTextarea() {
+    const text = $('#treasureSpec').value.trim();
+    const parsed = parseShapeCountsSpec(text);
+    if (parsed) {
+      model.shapeCounts = parsed;
+      model.shapeMode = 'picker';
+      model.spec = shapeCountsToSpec(parsed);
+      $('#treasureSpec').value = model.spec;
+      showPickerStatus('カスタム設定を宝形状へ反映しました');
+    } else {
+      model.shapeMode = 'advanced';
+      model.spec = text;
+      showPickerStatus('特殊specを上級者設定として使用します。形状カードを押すと通常設定へ戻ります。');
+    }
+    save();
+    clearResult();
+    buildBoard();
+    renderShapePicker();
   }
   function buildBoard() {
     board.style.setProperty('--board-size', model.size);
@@ -269,6 +467,15 @@ function boot() {
     );
     $('#undo').classList.add('is-attention');
     $('#undo').focus({ preventScroll: true });
+  }
+  function showSearchLimit() {
+    clearResult();
+    buildBoard();
+    showStatus(
+      '探索上限に達しました',
+      '条件が複雑すぎるため計算を安全に停止しました。宝の数を減らすか、盤面情報を追加してください。',
+      true
+    );
   }
   function renderResult(result) {
     lastResult = result;
@@ -336,14 +543,14 @@ function boot() {
   }
   function calculate() {
     if (calculating) return;
-    model.spec = $('#treasureSpec').value.trim();
-    save();
+    syncSpecFromTextarea();
     setCalculating(true);
     showStatus('計算中…', '入力条件に合う宝配置を確認しています。');
     window.setTimeout(() => {
       try {
         const result = solveTreasureModel(model);
-        if (!result.configurations) showContradiction();
+        if (!result.configurations && result.capped) showSearchLimit();
+        else if (!result.configurations) showContradiction();
         else renderResult(result);
         window.monsabaTrack?.('event_tool_use', { tool: 'treasure_hunt', action: 'calculate' });
       } catch (error) {
@@ -377,12 +584,21 @@ function boot() {
     clearResult();
     buildBoard();
   });
+  $('#treasureSpec').addEventListener('input', () => {
+    window.clearTimeout(specSyncTimer);
+    specSyncTimer = window.setTimeout(() => {
+      syncSpecFromTextarea();
+      if (model.preferences.autoCalculate) scheduleCalculate();
+    }, 300);
+  });
   $('#treasureSpec').addEventListener('change', () => {
-    model.spec = $('#treasureSpec').value.trim();
-    save();
-    clearResult();
-    buildBoard();
+    window.clearTimeout(specSyncTimer);
+    syncSpecFromTextarea();
     if (model.preferences.autoCalculate) scheduleCalculate();
+  });
+  $('#clearTreasureSettings').addEventListener('click', () => {
+    model.shapeCounts = normalizeShapeCounts();
+    commitTreasureChange('宝形状と個数だけをクリアしました');
   });
   $('#showProbability').addEventListener('change', (event) => syncPreference('showProbability', event.target.checked));
   $('#showRecommendations').addEventListener('change', (event) => syncPreference('showRecommendations', event.target.checked));
