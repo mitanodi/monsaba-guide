@@ -31,8 +31,12 @@ function memoryStore() {
       answers.set(answer.id, structuredClone(answer));
       const thread = threads.get(answer.threadId); thread.answerCount += 1; thread.latestAnswerAt = answer.createdAt; thread.updatedAt = answer.createdAt;
     },
+    async updateAnswer(answer) { answers.set(answer.id, structuredClone(answer)); },
+    async hasAnswerChildren(threadId, answerId) {
+      return [...answers.values()].some((item) => item.threadId === threadId && item.parentAnswerId === answerId && ['active', 'deleted'].includes(item.status));
+    },
     async listAnswers(threadId, { offset, limit }) {
-      const values = [...answers.values()].filter((item) => item.threadId === threadId && item.status === 'active').sort((a, b) => a.createdAt.localeCompare(b.createdAt));
+      const values = [...answers.values()].filter((item) => item.threadId === threadId && ['active', 'deleted'].includes(item.status)).sort((a, b) => a.createdAt.localeCompare(b.createdAt));
       const page = values.slice(offset, offset + limit + 1);
       return { answers: page.slice(0, limit).map((item) => structuredClone(item)), hasMore: page.length > limit, consumed: Math.min(page.length, limit) };
     },
@@ -97,8 +101,57 @@ test('手入力タイトルと既存カテゴリを維持し、回答は本文�
   assert.equal(legacy.title, validThread.title);
   assert.equal(legacy.category, '進化');
   assert.deepEqual(validateAnswerBody({ threadId: 'existing-thread', content: '匿名で回答します。' }), {
-    threadId: 'existing-thread', content: '匿名で回答します。', name: ''
+    threadId: 'existing-thread', content: '匿名で回答します。', name: '', parentAnswerId: null, threadOwnerToken: ''
   });
+});
+
+test('回答への返信と返信への返信を後方互換形式で保存する', async () => {
+  const { service } = serviceFixture();
+  const question = await service.createThread(validThread, '192.0.2.40');
+  const answer = await service.createAnswer({ threadId: question.thread.id, content: '最初の回答です' }, '192.0.2.41');
+  const reply = await service.createAnswer({ threadId: question.thread.id, parentAnswerId: answer.answer.id, content: '回答への返信です' }, '192.0.2.42');
+  const nested = await service.createAnswer({ threadId: question.thread.id, parentAnswerId: reply.answer.id, content: '返信への返信です' }, '192.0.2.43');
+  const loaded = await service.getThread(question.thread.id);
+  assert.equal(answer.answer.parentAnswerId, null);
+  assert.equal(reply.answer.parentAnswerId, answer.answer.id);
+  assert.equal(nested.answer.parentAnswerId, reply.answer.id);
+  assert.deepEqual(loaded.answers.map((item) => item.id), [answer.answer.id, reply.answer.id, nested.answer.id]);
+  assert.equal(loaded.thread.answerCount, 3);
+});
+
+test('存在しない返信先と別threadの返信先を400拒否する', async () => {
+  const { service } = serviceFixture();
+  const first = await service.createThread(validThread, '192.0.2.44');
+  const second = await service.createThread({ ...validThread, title: '別スレッド' }, '192.0.2.45');
+  const parent = await service.createAnswer({ threadId: first.thread.id, content: '親回答' }, '192.0.2.46');
+  await assert.rejects(
+    service.createAnswer({ threadId: first.thread.id, parentAnswerId: 'missing', content: '返信' }, '192.0.2.47'),
+    (error) => error.code === 'PARENT_ANSWER_NOT_FOUND' && error.status === 400
+  );
+  await assert.rejects(
+    service.createAnswer({ threadId: second.thread.id, parentAnswerId: parent.answer.id, content: '返信' }, '192.0.2.48'),
+    (error) => error.code === 'PARENT_THREAD_MISMATCH' && error.status === 400
+  );
+});
+
+test('既存回答はparentなしのトップレベル回答として読める', async () => {
+  const { service, store } = serviceFixture();
+  const question = await service.createThread(validThread, '192.0.2.49');
+  store.answers.set('legacy-answer', { id: 'legacy-answer', threadId: question.thread.id, content: '既存回答', name: '', createdAt: '2026-08-28T01:00:00.000Z', status: 'active', deleteTokenHash: 'legacy' });
+  store.threads.get(question.thread.id).answerCount = 1;
+  const loaded = await service.getThread(question.thread.id);
+  assert.equal(loaded.answers[0].parentAnswerId, null);
+  assert.equal(loaded.answers[0].deleted, false);
+});
+
+test('質問者tokenは保存せず質問者フラグだけを付ける', async () => {
+  const { service, store } = serviceFixture();
+  const question = await service.createThread(validThread, '192.0.2.50');
+  const own = await service.createAnswer({ threadId: question.thread.id, content: '質問者から補足', threadOwnerToken: question.deleteToken }, '192.0.2.51');
+  const other = await service.createAnswer({ threadId: question.thread.id, content: '別の回答', threadOwnerToken: 'wrong-token' }, '192.0.2.52');
+  assert.equal(own.answer.isQuestioner, true);
+  assert.equal(other.answer.isQuestioner, false);
+  assert.doesNotMatch(JSON.stringify([...store.answers.values()]), new RegExp(question.deleteToken));
 });
 
 test('honeypotとHTML/XSS文字列を拒否し、UIはtextContentだけで表示する', () => {
@@ -124,6 +177,32 @@ test('回答者tokenと管理者tokenで投稿を削除できる', async () => {
   await service.remove({ type: 'answer', id: second.answer.id }, 'test-admin-secret'); assert.equal(store.answers.size, 0);
 });
 
+test('子返信がある親削除はtombstone、子なし削除は物理削除になる', async () => {
+  const { service, store } = serviceFixture();
+  const question = await service.createThread(validThread, '192.0.2.53');
+  const parent = await service.createAnswer({ threadId: question.thread.id, content: '親回答', name: '回答者' }, '192.0.2.54');
+  const child = await service.createAnswer({ threadId: question.thread.id, parentAnswerId: parent.answer.id, content: '子返信' }, '192.0.2.55');
+  const removedParent = await service.remove({ type: 'answer', id: parent.answer.id, deleteToken: parent.deleteToken });
+  assert.equal(removedParent.tombstone, true);
+  const loaded = await service.getThread(question.thread.id);
+  assert.equal(loaded.answers[0].deleted, true);
+  assert.equal(loaded.answers[0].content, undefined);
+  assert.equal(loaded.answers[1].parentAnswerId, parent.answer.id);
+  const removedChild = await service.remove({ type: 'answer', id: child.answer.id }, 'test-admin-secret');
+  assert.equal(removedChild.tombstone, false);
+  assert.equal(store.answers.has(child.answer.id), false);
+});
+
+test('返信も通報対象になり即時削除されない', async () => {
+  const { service, store } = serviceFixture();
+  const question = await service.createThread(validThread, '192.0.2.56');
+  const parent = await service.createAnswer({ threadId: question.thread.id, content: '親回答' }, '192.0.2.57');
+  const reply = await service.createAnswer({ threadId: question.thread.id, parentAnswerId: parent.answer.id, content: '通報確認返信' }, '192.0.2.58');
+  await service.report({ targetType: 'answer', targetId: reply.answer.id, reason: '不適切内容' }, '192.0.2.59');
+  assert.equal(store.answers.get(reply.answer.id).status, 'active');
+  assert.equal(store.reports.size, 1);
+});
+
 test('通報は保存するが自動削除せず、同一対象への重複通報を拒否する', async () => {
   const { service, store } = serviceFixture(); const question = await service.createThread(validThread, '192.0.2.8');
   assert.deepEqual(await service.report({ targetType: 'thread', targetId: question.thread.id, reason: 'スパム', website: '' }, '192.0.2.9'), { accepted: true });
@@ -141,8 +220,9 @@ test('質問・回答のrate limitは用途別に作動する', async () => {
 });
 
 test('保存レコードに生IPもIP hashも含めない', async () => {
-  const { service, store } = serviceFixture(); await service.createThread(validThread, '203.0.113.99');
-  const serialized = JSON.stringify([...store.threads.values()]);
+  const { service, store } = serviceFixture(); const question = await service.createThread(validThread, '203.0.113.99');
+  await service.createAnswer({ threadId: question.thread.id, content: 'IP非保存確認' }, '203.0.113.98');
+  const serialized = JSON.stringify({ threads: [...store.threads.values()], answers: [...store.answers.values()] });
   assert.doesNotMatch(serialized, /203\.0\.113\.99/); assert.doesNotMatch(serialized, /ipAddress|ipHash|rawIp/i);
 });
 
@@ -165,7 +245,7 @@ test('掲示板のSEO、広告除外、Privacy、匿名Analyticsを維持する'
   assert.match(main, /<meta name="robots" content="index,follow/); assert.match(thread, /<meta name="robots" content="noindex,follow"/);
   assert.doesNotMatch(main + thread, /monetization\.js|data-affiliate-offer|a8mat|adsbygoogle/i);
   const excluded = JSON.parse(read('data/adsense-config.json')).excludedPages; assert.ok(excluded.includes('/board/')); assert.ok(excluded.includes('/board/*'));
-  const privacy = read('privacy/index.html'); for (const phrase of ['質問・回答へ個人情報を書かない', '生のIPアドレスを保存せず', '通報', '自動削除', 'タイトル・本文・回答・名前・検索語・投稿ID・IPアドレスは送りません']) assert.ok(privacy.includes(phrase), phrase);
+  const privacy = read('privacy/index.html'); for (const phrase of ['質問・回答・返信へ個人情報を書かない', '生のIPアドレスを保存せず', '通報', '自動削除', 'タイトル・本文・回答・返信・名前・検索語・投稿ID・返信先ID・IPアドレスは送りません']) assert.ok(privacy.includes(phrase), phrase);
   assert.doesNotMatch(analytics, /track\([^\n]*(title|content|name|targetId|postId|search_query|query:)/);
   for (const event of ['board_view', 'board_question_submit', 'board_answer_submit', 'board_filter_use', 'board_report', 'board_resolved']) assert.ok(read('growth.js').includes(`'${event}'`), event);
 });
@@ -195,10 +275,25 @@ test('簡易投稿UI、質問例、折りたたみ、PC・スマホ導線を備�
 
 test('Board追加Analyticsは本文・タイトル・名前・投稿IDを送らない', () => {
   const client = read('board/board.js'); const growth = read('growth.js'); const config = JSON.parse(read('data/growth-config.json'));
-  for (const event of ['board_quick_question_open', 'board_question_example_use']) {
+  for (const event of ['board_quick_question_open', 'board_question_example_use', 'board_reply_open', 'board_reply_submit']) {
     assert.ok(growth.includes(`'${event}'`)); assert.ok(config.analytics.events.includes(event));
   }
-  assert.doesNotMatch(client, /track\([^\n]*(title|content|name|thread_id|post_id|query|tata)/i);
+  assert.doesNotMatch(client, /track\([^\n]*(title|content|name|thread_id|post_id|parent|query|tata)/i);
+});
+
+test('返信UIは単一フォーム・最大3段表示・plain text描画を維持する', () => {
+  const thread = read('board/thread/index.html'); const client = read('board/board.js'); const css = read('board/board.css');
+  assert.match(thread, /id="board-reply-form"[^>]*hidden/);
+  assert.match(thread, /name="parentAnswerId" type="hidden"/);
+  assert.match(thread, /返信内容[\s\S]*name="content" required maxlength="1200"/);
+  assert.match(client, /Math\.min\(depth, 3\)/);
+  assert.match(client, /parentAnswerId/);
+  assert.match(client, /この投稿は削除されました/);
+  assert.match(client, /質問者/);
+  assert.match(client, /あなたの投稿/);
+  assert.match(css, /board-answer-card\.is-reply/);
+  assert.match(css, /overflow-wrap:anywhere/);
+  assert.doesNotMatch(client, /innerHTML\s*=/);
 });
 
 test('friendsの分離、掲示板prefix、保持方針、管理ドキュメントを確認する', () => {

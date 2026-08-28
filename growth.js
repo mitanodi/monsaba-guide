@@ -5,7 +5,7 @@
     'external_link_click', 'affiliate_click', 'affiliate_impression', 'ad_click', 'cta_click',
     'event_tool_use', 'favorite', 'friend_uid_copy', 'board_view', 'board_question_submit',
     'board_answer_submit', 'board_filter_use', 'board_report', 'board_resolved',
-    'board_quick_question_open', 'board_question_example_use'
+    'board_quick_question_open', 'board_question_example_use', 'board_reply_open', 'board_reply_submit'
   ]);
   const safeValue = (value) => typeof value === 'number' || typeof value === 'boolean'
     ? value

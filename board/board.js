@@ -61,7 +61,9 @@ function excerpt(value, length = 150) {
 }
 
 function setupCounters(root = document) {
-  for (const [name, outputId, max] of [['title', 'board-title-count', 80], ['content', root.querySelector('#board-answer-count') ? 'board-answer-count' : 'board-content-count', root.querySelector('#board-answer-count') ? 1200 : 1600]]) {
+  const contentOutput = root.querySelector('#board-reply-count') ? 'board-reply-count' : root.querySelector('#board-answer-count') ? 'board-answer-count' : 'board-content-count';
+  const contentMax = contentOutput === 'board-content-count' ? 1600 : 1200;
+  for (const [name, outputId, max] of [['title', 'board-title-count', 80], ['content', contentOutput, contentMax]]) {
     const input = root.querySelector(`[name="${name}"]`);
     const output = root.querySelector(`#${outputId}`);
     if (!input || !output) continue;
@@ -258,27 +260,58 @@ function bootThread() {
   const answerForm = document.querySelector('#board-answer-form');
   const openAnswer = document.querySelector('#board-open-answer');
   const answerMessage = document.querySelector('#board-answer-message');
+  const replyForm = document.querySelector('#board-reply-form');
+  const replyClose = document.querySelector('#board-reply-close');
+  const replyMessage = document.querySelector('#board-reply-message');
   const openReport = setupReportDialog();
   let nextCursor = null;
   let thread = null;
+  let loadedAnswers = [];
+  let replyTargetId = '';
+  let replyTargetDepth = 0;
+  const replyDrafts = new Map();
   let threadTokens = loadTokens(THREAD_TOKENS_KEY);
   let answerTokens = loadTokens(ANSWER_TOKENS_KEY);
 
-  async function removePost(type, postId, token, node) {
-    if (!confirm(type === 'thread' ? 'この質問と回答を削除しますか？' : 'この回答を削除しますか？')) return;
+  function threadOwnerToken() { return threadTokens[id] || ''; }
+  function preserveReplyDraft() {
+    if (!replyTargetId || !replyForm) return;
+    replyDrafts.set(replyTargetId, {
+      content: replyForm.elements.content.value,
+      name: replyForm.elements.name.value
+    });
+  }
+  function closeReply({ preserve = true } = {}) {
+    if (!replyForm) return;
+    if (preserve) preserveReplyDraft();
+    replyTargetId = '';
+    replyForm.hidden = true;
+    replyForm.elements.parentAnswerId.value = '';
+    document.querySelectorAll('[data-reply-button]').forEach((button) => button.setAttribute('aria-expanded', 'false'));
+  }
+  function smoothBehavior() {
+    return matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+  }
+  async function removePost(type, postId, token) {
+    if (!confirm(type === 'thread' ? 'この質問と回答・返信を削除しますか？' : 'この回答または返信を削除しますか？')) return;
     try {
-      await request(`${API_URL}?type=${type}&id=${encodeURIComponent(postId)}`, jsonOptions({ type, id: postId, deleteToken: token }, 'DELETE'));
+      const payload = await request(`${API_URL}?type=${type}&id=${encodeURIComponent(postId)}`, jsonOptions({ type, id: postId, deleteToken: token }, 'DELETE'));
       if (type === 'thread') { delete threadTokens[postId]; saveTokens(THREAD_TOKENS_KEY, threadTokens); location.assign('/board/'); }
-      else { delete answerTokens[postId]; saveTokens(ANSWER_TOKENS_KEY, answerTokens); node.remove(); setMessage(message, '回答を削除しました。'); }
+      else {
+        delete answerTokens[postId]; saveTokens(ANSWER_TOKENS_KEY, answerTokens);
+        closeReply({ preserve: false });
+        await loadThread({ resetAnswers: true });
+        setMessage(message, payload.tombstone ? '投稿を削除しました。返信があるため削除済み表示を残しています。' : '投稿を削除しました。');
+      }
     } catch (error) { setMessage(message, error.message, true); }
   }
-  function actionsFor(type, postId, node) {
+  function actionsFor(type, postId) {
     const actions = element('div', 'board-actions');
     actions.appendChild(reportButton(openReport, type, postId));
     const token = type === 'thread' ? threadTokens[postId] : answerTokens[postId];
     if (token) {
       const remove = element('button', 'board-text-button board-danger', type === 'thread' ? '質問を削除' : '回答を削除');
-      remove.type = 'button'; remove.addEventListener('click', () => removePost(type, postId, token, node)); actions.appendChild(remove);
+      remove.type = 'button'; remove.addEventListener('click', () => removePost(type, postId, token)); actions.appendChild(remove);
     }
     return actions;
   }
@@ -293,7 +326,7 @@ function bootThread() {
     container.append(title, meta);
     if (value.context) container.appendChild(element('p', 'board-context', `使用タタ・レベルなど：${value.context}`));
     container.appendChild(element('p', 'board-question-body', value.content));
-    const actions = actionsFor('thread', value.id, container);
+    const actions = actionsFor('thread', value.id);
     if (threadTokens[value.id]) {
       const resolve = element('button', 'ghost-button', value.resolved ? '未解決に戻す' : '解決済みにする');
       resolve.type = 'button'; resolve.addEventListener('click', async () => {
@@ -307,21 +340,107 @@ function bootThread() {
     }
     container.appendChild(actions); container.setAttribute('aria-busy', 'false');
   }
-  function renderAnswer(value) {
-    const card = element('article', 'board-answer-card');
+  function openReply(value, depth) {
+    if (!replyForm) return;
+    if (replyTargetId && replyTargetId !== value.id) preserveReplyDraft();
+    replyTargetId = value.id;
+    replyTargetDepth = depth;
+    replyForm.elements.parentAnswerId.value = value.id;
+    const draft = replyDrafts.get(value.id) || { content: '', name: '' };
+    replyForm.elements.content.value = draft.content;
+    replyForm.elements.name.value = draft.name;
+    replyForm.style.setProperty('--reply-indent', `${Math.min(depth + 1, 3) * 18}px`);
+    replyForm.hidden = false;
+    answerForm.hidden = true;
+    openAnswer?.setAttribute('aria-expanded', 'false');
+    if (openAnswer) openAnswer.textContent = '回答を書く';
+    setMessage(replyMessage, '');
+    replyForm.elements.content.dispatchEvent(new Event('input', { bubbles: true }));
+    renderAnswers();
+    const movedForm = document.querySelector('#board-reply-form');
+    movedForm?.elements.content.focus({ preventScroll: true });
+    movedForm?.scrollIntoView({ behavior: smoothBehavior(), block: 'nearest' });
+    track('board_reply_open', { category: thread?.category || 'unknown', reply_depth: Math.min(depth + 1, 3) });
+  }
+  function renderAnswer(value, depth, byId) {
+    const cappedDepth = Math.min(depth, 3);
+    const card = element('article', `board-answer-card${depth ? ' is-reply' : ''}${value.deleted ? ' is-deleted' : ''}`);
+    card.dataset.answerId = value.id;
+    card.style.setProperty('--reply-indent', `${cappedDepth * 18}px`);
     const meta = element('div', 'board-meta');
-    meta.append(element('strong', '', value.name || '匿名'), timeNode(value.createdAt, '投稿日 '));
-    card.append(meta, element('p', 'board-answer-body', value.content), actionsFor('answer', value.id, card));
+    meta.append(element('strong', '', value.deleted ? '削除された投稿' : value.name || '匿名'), timeNode(value.createdAt, '投稿日 '));
+    if (!value.deleted && value.isQuestioner) meta.append(element('span', 'board-badge is-questioner', '質問者'));
+    if (!value.deleted && answerTokens[value.id]) meta.append(element('span', 'board-badge is-own', 'あなたの投稿'));
+    card.appendChild(meta);
+    if (value.parentAnswerId) {
+      const parent = byId.get(value.parentAnswerId);
+      const parentName = parent?.deleted ? '削除された投稿' : `${parent?.name || '匿名'}さん`;
+      card.appendChild(element('p', 'board-reply-to', `↳ ${parentName}への返信`));
+    }
+    card.appendChild(element('p', value.deleted ? 'board-answer-body board-tombstone' : 'board-answer-body', value.deleted ? 'この投稿は削除されました' : value.content));
+    if (!value.deleted) {
+      const actions = actionsFor('answer', value.id);
+      const reply = element('button', 'board-text-button board-reply-button', '返信する');
+      reply.type = 'button';
+      reply.dataset.replyButton = value.id;
+      reply.setAttribute('aria-controls', 'board-reply-form');
+      reply.setAttribute('aria-expanded', String(replyTargetId === value.id));
+      reply.addEventListener('click', () => openReply(value, depth));
+      actions.prepend(reply);
+      card.appendChild(actions);
+    }
     return card;
   }
-  async function loadThread({ answersOnly = false } = {}) {
+  function orderedAnswers(values) {
+    const byId = new Map(values.map((value) => [value.id, value]));
+    const children = new Map();
+    const roots = [];
+    values.forEach((value) => {
+      if (value.parentAnswerId && byId.has(value.parentAnswerId)) {
+        const list = children.get(value.parentAnswerId) || [];
+        list.push(value); children.set(value.parentAnswerId, list);
+      } else roots.push(value);
+    });
+    const ordered = [];
+    const stack = roots.slice().reverse().map((value) => ({ value, depth: 0 }));
+    while (stack.length) {
+      const item = stack.pop(); ordered.push(item);
+      const replies = children.get(item.value.id) || [];
+      for (let index = replies.length - 1; index >= 0; index -= 1) stack.push({ value: replies[index], depth: item.depth + 1 });
+    }
+    return { ordered, byId };
+  }
+  function renderAnswers({ highlightId = '' } = {}) {
+    if (replyForm?.isConnected) answerSection.insertBefore(replyForm, more);
+    answers.replaceChildren();
+    const { ordered, byId } = orderedAnswers(loadedAnswers);
+    ordered.forEach(({ value, depth }) => answers.appendChild(renderAnswer(value, depth, byId)));
+    if (!ordered.length) answers.appendChild(element('p', '', 'まだ回答はありません。分かる方は回答してみましょう。'));
+    if (replyTargetId) {
+      const target = answers.querySelector(`[data-answer-id="${CSS.escape(replyTargetId)}"]`);
+      if (target) {
+        target.after(replyForm);
+        replyForm.hidden = false;
+      } else closeReply();
+    }
+    if (highlightId) {
+      const added = answers.querySelector(`[data-answer-id="${CSS.escape(highlightId)}"]`);
+      if (added) {
+        added.classList.add('is-new');
+        added.scrollIntoView({ behavior: smoothBehavior(), block: 'center' });
+        setTimeout(() => added.classList.remove('is-new'), 2200);
+      }
+    }
+  }
+  async function loadThread({ answersOnly = false, resetAnswers = false } = {}) {
     if (!id) { container.replaceChildren(element('p', '', '質問IDが指定されていません。')); container.setAttribute('aria-busy', 'false'); return; }
     try {
+      if (resetAnswers) { nextCursor = null; loadedAnswers = []; answersOnly = false; }
       const query = new URLSearchParams({ thread: id }); if (answersOnly && nextCursor) query.set('cursor', nextCursor);
       const payload = await request(`${API_URL}?${query}`);
       thread = payload.thread;
       if (!answersOnly) {
-        renderQuestion(thread); answers.replaceChildren(); answerSection.hidden = false; answerPanel.hidden = false;
+        renderQuestion(thread); loadedAnswers = []; answerSection.hidden = false; answerPanel.hidden = false;
         try {
           if (sessionStorage.getItem(POSTED_THREAD_NOTICE_KEY) === thread.id) {
             setMessage(message, '質問を投稿しました！ 回答が付くまであとで見返せるよう、この端末に質問情報を保存しました。');
@@ -329,10 +448,11 @@ function bootThread() {
           }
         } catch { /* 表示は継続できる */ }
       }
-      payload.answers.forEach((answer) => answers.appendChild(renderAnswer(answer)));
+      const known = new Set(loadedAnswers.map((answer) => answer.id));
+      payload.answers.forEach((answer) => { if (!known.has(answer.id)) loadedAnswers.push(answer); });
+      renderAnswers();
       nextCursor = payload.nextCursor; more.hidden = !nextCursor;
-      document.querySelector('#board-answer-summary').textContent = `${thread.answerCount}件の回答`;
-      if (!answers.querySelector('.board-answer-card')) answers.replaceChildren(element('p', '', 'まだ回答はありません。分かる方は回答してみましょう。'));
+      document.querySelector('#board-answer-summary').textContent = `${thread.answerCount}件の回答・返信`;
     } catch (error) { container.replaceChildren(element('p', '', '質問を読み込めませんでした。削除済みの可能性があります。')); container.setAttribute('aria-busy', 'false'); setMessage(message, error.message, true); }
   }
   answerForm.addEventListener('submit', async (event) => {
@@ -340,23 +460,47 @@ function bootThread() {
     const submit = document.querySelector('#board-answer-submit'); submit.disabled = true; setMessage(answerMessage, '回答を投稿しています…');
     const body = Object.fromEntries(new FormData(answerForm).entries());
     try {
-      const payload = await request(API_URL, jsonOptions({ action: 'create_answer', threadId: id, ...body }));
+      const payload = await request(API_URL, jsonOptions({ action: 'create_answer', threadId: id, threadOwnerToken: threadOwnerToken(), ...body }));
       answerTokens[payload.answer.id] = payload.deleteToken; saveTokens(ANSWER_TOKENS_KEY, answerTokens);
       track('board_answer_submit', { category: thread?.category || 'unknown' });
       answerForm.reset(); setupCounters(answerForm); setMessage(answerMessage, '回答を投稿しました。');
-      nextCursor = null; await loadThread();
+      loadedAnswers.push(payload.answer); thread.answerCount += 1; thread.latestAnswerAt = payload.answer.createdAt;
+      renderQuestion(thread); renderAnswers({ highlightId: payload.answer.id });
+      document.querySelector('#board-answer-summary').textContent = `${thread.answerCount}件の回答・返信`;
     } catch (error) { setMessage(answerMessage, error.message, true); }
     finally { submit.disabled = false; }
   });
   openAnswer?.addEventListener('click', () => {
     const show = answerForm.hidden;
+    if (show) closeReply();
     answerForm.hidden = !show;
     openAnswer.setAttribute('aria-expanded', String(show));
     openAnswer.textContent = show ? '回答欄を閉じる' : '回答を書く';
     if (show) answerForm.elements.content.focus();
   });
+  replyClose?.addEventListener('click', () => closeReply());
+  replyForm?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const parentAnswerId = replyTargetId;
+    if (!parentAnswerId) return;
+    const submit = document.querySelector('#board-reply-submit');
+    submit.disabled = true; setMessage(replyMessage, '返信を投稿しています…');
+    const body = Object.fromEntries(new FormData(replyForm).entries());
+    try {
+      const payload = await request(API_URL, jsonOptions({ action: 'create_answer', threadId: id, threadOwnerToken: threadOwnerToken(), ...body, parentAnswerId }));
+      answerTokens[payload.answer.id] = payload.deleteToken; saveTokens(ANSWER_TOKENS_KEY, answerTokens);
+      replyDrafts.delete(parentAnswerId);
+      replyForm.reset(); setupCounters(replyForm); replyTargetId = ''; replyForm.hidden = true;
+      loadedAnswers.push(payload.answer); thread.answerCount += 1; thread.latestAnswerAt = payload.answer.createdAt;
+      renderQuestion(thread); renderAnswers({ highlightId: payload.answer.id });
+      document.querySelector('#board-answer-summary').textContent = `${thread.answerCount}件の回答・返信`;
+      setMessage(message, '返信を投稿しました。');
+      track('board_reply_submit', { category: thread?.category || 'unknown', reply_depth: Math.min(replyTargetDepth + 1, 3) });
+    } catch (error) { setMessage(replyMessage, error.message, true); }
+    finally { submit.disabled = false; }
+  });
   more.addEventListener('click', () => loadThread({ answersOnly: true }));
-  setupCounters(answerForm); track('board_view', { view: 'thread' }); loadThread();
+  setupCounters(answerForm); setupCounters(replyForm); track('board_view', { view: 'thread' }); loadThread();
 }
 
 if (typeof document !== 'undefined') { bootList(); bootThread(); }

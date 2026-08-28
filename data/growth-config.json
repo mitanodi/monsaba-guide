@@ -25,7 +25,9 @@
       "board_report",
       "board_resolved",
       "board_quick_question_open",
-      "board_question_example_use"
+      "board_question_example_use",
+      "board_reply_open",
+      "board_reply_submit"
     ]
   },
   "experiments": {
