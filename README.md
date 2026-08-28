@@ -7,6 +7,7 @@
 - トップ・タタ図鑑: `/`
 - 初心者ガイド: `/beginner-guide/`
 - フレンド募集掲示板: `/friends/`（Vercel Functions + Upstash Redis）
+- モンサバ質問掲示板: `/board/`（質問・回答・解決済み・通報・投稿者/管理者削除）
 - サイト・運営者について: `/about/`
 - サイト内検索: `/search/`
 - 総合Tier: `/tata-tier/`
@@ -47,7 +48,7 @@ node scripts/update-base-url.mjs --from https://monster-survival.com --to https:
 
 掲示板のサーバー接続には `@upstash/redis` を使用します。`npm.cmd test` で掲示板のvalidation・削除・スパム対策を含む単体テストを実行できます。GitHub Actionsでは構文、主要JSON、生成差分、内部リンク、SEO、孤立ページ、構造化データ、Analytics定義、鮮度管理、アフィリエイト設定、掲示板テストを検証します。`adsEnabled` は無効のまま、`affiliateEnabled` で承認済みアフィリエイト枠を制御します。
 
-掲示板の接続情報と管理用秘密値はVercelの環境変数で管理し、`.env*` はGitへ追加しません。投稿は30日で期限切れになり、投稿者の削除tokenはブラウザだけに保存されます。
+掲示板の接続情報と管理用秘密値はVercelの環境変数で管理し、`.env*` はGitへ追加しません。フレンド投稿は30日で期限切れになり、質問・回答は原則保持します。投稿者の削除tokenはブラウザだけに保存されます。質問掲示板は `BOARD_IP_HASH_SECRET` / `BOARD_ADMIN_TOKEN` を優先し、未設定時は既存 `FRIENDS_IP_HASH_SECRET` / `FRIENDS_ADMIN_TOKEN` を安全に流用します。秘密値はRepositoryやクライアントへ置きません。
 
 ## 公式情報の更新フロー
 

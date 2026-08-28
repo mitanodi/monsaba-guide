@@ -7,6 +7,8 @@
     "/search/",
     "/compare/",
     "/consult/",
-    "/friends/"
+    "/friends/",
+    "/board/",
+    "/board/*"
   ]
 }

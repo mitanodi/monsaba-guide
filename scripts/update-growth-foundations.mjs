@@ -15,12 +15,14 @@ function walk(directory) {
 
 let changed = 0;
 for (const file of walk(root)) {
+  const route = `/${path.relative(root, path.dirname(file)).replaceAll('\\', '/')}/`.replace('//', '/');
   let html = fs.readFileSync(file, 'utf8');
   const before = html;
   if (!html.includes('/growth.js')) html = html.replace('</body>', '<script src="/growth.js" defer></script></body>');
-  if (!html.includes('/monetization.js')) {
+  if (!route.startsWith('/board/') && !html.includes('/monetization.js')) {
     html = html.replace(/(<script src="\/growth\.js(?:\?[^\"]*)?" defer><\/script>)/, '<script src="/monetization.js" defer></script>$1');
   }
+  if (route.startsWith('/board/')) html = html.replace(/<script src="\/monetization\.js(?:\?[^\"]*)?" defer><\/script>/g, '');
   for (const asset of ['styles.css', 'app.js', 'site.js', 'monetization.js', 'growth.js', 'search/search.js', 'compare/compare.js']) {
     html = html.replaceAll(`"/${asset}"`, `"/${asset}?v=${assetVersion}"`);
     html = html.replaceAll(`"./${asset}"`, `"./${asset}?v=${assetVersion}"`);

@@ -29,11 +29,12 @@
     "generate:site": "npm run generate:tata && npm run generate:beginner && npm run generate:core && npm run generate:updates && npm run generate:growth && npm run generate:expansion && npm run generate:copy && npm run generate:nav && npm run generate:footer && npm run generate:foundations && npm run generate:freshness && npm run generate:heroes && npm run generate:affiliate-audit && npm run generate:asset-version && npm run generate:sitemap",
     "smoke:local": "node scripts/smoke-http.mjs",
     "test:friends": "node --test tests/friends.test.mjs",
+    "test:board": "node --test tests/board.test.mjs",
     "test:official-x": "node --test tests/official-x.test.mjs",
     "test:family-display": "node --test tests/family-display.test.mjs",
     "test:affiliate": "node --test tests/affiliate-monetization.test.mjs",
     "test:adsense": "node --test tests/adsense-preflight.test.mjs",
-    "test": "npm run test:friends && npm run test:official-x && npm run test:family-display && npm run test:affiliate && npm run test:adsense"
+    "test": "npm run test:friends && npm run test:board && npm run test:official-x && npm run test:family-display && npm run test:affiliate && npm run test:adsense"
   },
   "dependencies": {
     "@upstash/redis": "^1.38.2"

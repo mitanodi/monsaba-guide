@@ -15,7 +15,7 @@ function readUtf8(file) {
     }
   }
 }
-const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'assets', 'data', 'scripts']);
+const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'assets', 'data', 'scripts', 'promo']);
 function walk(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     if (ignored.has(entry.name)) return [];

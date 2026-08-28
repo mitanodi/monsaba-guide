@@ -11,7 +11,7 @@ const heroes = Object.freeze({
   'IMG_6944.webp': [480, 707],
   'IMG_6945.webp': [480, 707]
 });
-const ignored = new Set(['.git', '.github', '.vercel', 'node_modules']);
+const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'promo']);
 
 function walk(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {

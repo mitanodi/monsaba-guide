@@ -11,6 +11,12 @@
 | Event | 発火 | 送る値 | 送らない値 |
 |---|---|---|---|
 | `page_view` | Vercel自動 | Vercel既定の匿名ページ情報 | 独自の重複page view |
+| `board_view` | 質問掲示板表示 | `view`（list/thread） | 投稿ID、質問・回答本文、名前 |
+| `board_question_submit` | 質問投稿成功 | `category` | タイトル、本文、名前、IP |
+| `board_answer_submit` | 回答投稿成功 | `category` | 回答本文、名前、投稿ID |
+| `board_filter_use` | 絞り込み実行 | `category`、`sort`、`unanswered` | 検索語 |
+| `board_report` | 通報受付 | `target_type`、`reason` | 対象投稿ID、投稿内容 |
+| `board_resolved` | 解決状態変更 | `resolved` | 質問ID、削除token |
 | `nav_click` | header nav | destination type, source type | link text全文 |
 | `internal_link_click` | same-origin link | destination type, source type | query入力本文 |
 | `related_content_click` | related/next-reading | destination type | タタの所持状況 |

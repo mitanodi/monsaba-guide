@@ -3,7 +3,8 @@
     'nav_click', 'internal_link_click', 'related_content_click', 'site_search',
     'search_result_click', 'filter_use', 'tata_compare_start', 'tata_compare_view',
     'external_link_click', 'affiliate_click', 'affiliate_impression', 'ad_click', 'cta_click',
-    'event_tool_use', 'favorite', 'friend_uid_copy'
+    'event_tool_use', 'favorite', 'friend_uid_copy', 'board_view', 'board_question_submit',
+    'board_answer_submit', 'board_filter_use', 'board_report', 'board_resolved'
   ]);
   const safeValue = (value) => typeof value === 'number' || typeof value === 'boolean'
     ? value

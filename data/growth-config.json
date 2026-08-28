@@ -17,7 +17,13 @@
       "affiliate_click",
       "affiliate_impression",
       "ad_click",
-      "cta_click"
+      "cta_click",
+      "board_view",
+      "board_question_submit",
+      "board_answer_submit",
+      "board_filter_use",
+      "board_report",
+      "board_resolved"
     ]
   },
   "experiments": {

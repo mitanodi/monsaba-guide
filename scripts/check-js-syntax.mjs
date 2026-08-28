@@ -3,7 +3,7 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 
 const root = path.resolve(import.meta.dirname, '..');
-const ignored = new Set(['.git', '.vercel', 'node_modules', 'assets', 'data']);
+const ignored = new Set(['.git', '.vercel', 'node_modules', 'assets', 'data', 'promo']);
 function walk(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     if (ignored.has(entry.name)) return [];

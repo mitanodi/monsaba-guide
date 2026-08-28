@@ -30,6 +30,7 @@
     "/about-data/": {},
     "/privacy/": { "updated": "2026-08-28T07:53:10+09:00", "verified": "2026-08-28" },
     "/friends/": { "updated": "2026-08-28T07:53:10+09:00", "verified": "2026-08-28" },
+    "/board/": { "published": "2026-08-28", "updated": "2026-08-28", "verified": "2026-08-28" },
     "/stages/": { "published": "2026-08-28", "updated": "2026-08-28", "verified": "2026-08-28" },
     "/evolution/*": { "published": "2026-08-28", "updated": "2026-08-28", "verified": "2026-08-28" },
     "/roles/*": { "published": "2026-08-28", "updated": "2026-08-28T07:53:10+09:00", "verified": "2026-08-28" },

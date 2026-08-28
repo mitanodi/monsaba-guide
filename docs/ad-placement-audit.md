@@ -1,7 +1,7 @@
 # A8広告配置監査
 
 生成元: `data/monetization.json` / `data/affiliate-offers.json`
-対象: 公開HTML 110ページ（404を含む）
+対象: 公開HTML 112ページ（404を含む）
 監査日: 2026-08-28
 
 ## Before
@@ -24,6 +24,8 @@
 | https://monster-survival.com/attribute/water/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/badge-dojo/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/beginner-guide/ | 1 | ポイントインカム | 本文下部 | desktop / mobile | 表示 |
+| https://monster-survival.com/board/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/board/thread/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/boss-rally/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/compare-guides/purabi-vs-denjika/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/compare/ | 0 | — | — | — | 非表示 |
@@ -145,6 +147,8 @@
 | https://monster-survival.com/attribute/water/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/badge-dojo/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/beginner-guide/ | 1 | ポイントインカム | 本文下部 | desktop / mobile | 表示 |
+| https://monster-survival.com/board/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/board/thread/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/boss-rally/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/compare-guides/purabi-vs-denjika/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/compare/ | 0 | — | — | — | 非表示 |
