@@ -20,13 +20,14 @@
     "generate:nav": "node scripts/update-shared-navigation.mjs",
     "generate:footer": "node scripts/update-shared-footer.mjs",
     "generate:foundations": "node scripts/update-growth-foundations.mjs",
+    "generate:ga4": "node scripts/update-ga4-tag.mjs",
     "generate:copy": "node scripts/update-static-copy.mjs",
     "generate:freshness": "node scripts/update-content-timestamps.mjs",
     "generate:heroes": "node scripts/update-responsive-heroes.mjs",
     "generate:affiliate-audit": "node scripts/generate-ad-placement-audit.mjs",
     "generate:asset-version": "node scripts/update-asset-version.mjs",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
-    "generate:site": "npm run generate:tata && npm run generate:beginner && npm run generate:core && npm run generate:updates && npm run generate:growth && npm run generate:expansion && npm run generate:copy && npm run generate:nav && npm run generate:footer && npm run generate:foundations && npm run generate:freshness && npm run generate:heroes && npm run generate:affiliate-audit && npm run generate:asset-version && npm run generate:sitemap",
+    "generate:site": "npm run generate:tata && npm run generate:beginner && npm run generate:core && npm run generate:updates && npm run generate:growth && npm run generate:expansion && npm run generate:copy && npm run generate:nav && npm run generate:footer && npm run generate:foundations && npm run generate:ga4 && npm run generate:freshness && npm run generate:heroes && npm run generate:affiliate-audit && npm run generate:asset-version && npm run generate:sitemap",
     "smoke:local": "node scripts/smoke-http.mjs",
     "test:friends": "node --test tests/friends.test.mjs",
     "test:board": "node --test tests/board.test.mjs",
@@ -34,7 +35,8 @@
     "test:family-display": "node --test tests/family-display.test.mjs",
     "test:affiliate": "node --test tests/affiliate-monetization.test.mjs",
     "test:adsense": "node --test tests/adsense-preflight.test.mjs",
-    "test": "npm run test:friends && npm run test:board && npm run test:official-x && npm run test:family-display && npm run test:affiliate && npm run test:adsense"
+    "test:ga4": "node --test tests/ga4.test.mjs",
+    "test": "npm run test:friends && npm run test:board && npm run test:official-x && npm run test:family-display && npm run test:affiliate && npm run test:adsense && npm run test:ga4"
   },
   "dependencies": {
     "@upstash/redis": "^1.38.2"

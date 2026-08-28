@@ -2,6 +2,8 @@
   "version": 1,
   "analytics": {
     "provider": "vercel-web-analytics",
+    "providers": ["vercel-web-analytics", "google-analytics-4"],
+    "ga4MeasurementId": "G-PTV8TYNYMR",
     "automaticPageView": true,
     "events": [
       "page_view",

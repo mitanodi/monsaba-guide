@@ -28,7 +28,7 @@
     "/updates/2026-08-26/": { "published": "2026-08-25", "updated": "2026-08-28", "verified": "2026-08-28", "status": "implemented-details-verifying", "pending": ["パクマのT2/T3名称・通常スキル・専用スキル数値のゲーム内確認", "ロードパスとナムアミダイジャの進化画面・スキル詳細確認"] },
     "/about/": { "updated": "2026-08-28T17:19:45+09:00", "verified": "2026-08-28" },
     "/about-data/": {},
-    "/privacy/": { "updated": "2026-08-28T07:53:10+09:00", "verified": "2026-08-28" },
+    "/privacy/": { "updated": "2026-08-28T21:27:22+09:00", "verified": "2026-08-28" },
     "/friends/": { "updated": "2026-08-28T07:53:10+09:00", "verified": "2026-08-28" },
     "/board/": { "published": "2026-08-28", "updated": "2026-08-28", "verified": "2026-08-28" },
     "/stages/": { "published": "2026-08-28", "updated": "2026-08-28", "verified": "2026-08-28" },

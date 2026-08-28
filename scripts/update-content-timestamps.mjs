@@ -35,6 +35,7 @@ for (const file of walk(root)) {
   let html = fs.readFileSync(file, 'utf8');
   const before = html;
   html = html.replaceAll(/"dateModified":"\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}\+09:00)?"/g, `"dateModified":"${updated}"`);
+  html = html.replaceAll(/最終更新：\d{4}\/\d{1,2}\/\d{1,2}(?:\s+\d{2}:\d{2}:\d{2}\s+JST)?/g, `最終更新：${formatJapanDateTime(updated)}`);
   html = html.replaceAll(/最終更新\s+\d{4}\/\d{1,2}\/\d{1,2}(?:\s+\d{2}:\d{2}:\d{2}\s+JST)?/g, `最終更新 ${formatJapanDateTime(updated)}`);
   html = html.replaceAll(/最終更新\s+<time datetime="[^"]+">[^<]+<\/time>/g, `最終更新 <time datetime="${updated}">${formatJapanDateTime(updated)}</time>`);
   html = html.replaceAll(/最終更新：\d{4}年\d{1,2}月\d{1,2}日(?:\s+\d{2}:\d{2}:\d{2}\s+JST)?/g, `最終更新：${formatJapanDateTime(updated)}`);

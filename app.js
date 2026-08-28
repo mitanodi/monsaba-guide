@@ -11,7 +11,7 @@ async function boot(){
   if(!res.ok) throw new Error(`data load ${res.status}`);
   const data=await res.json(); state.families=data.families||[]; state.meta=data.meta||{};
   const params=new URLSearchParams(location.search);
-  state.query=params.get('q')||''; state.attribute=params.get('attribute')||'すべて'; state.sort=params.get('sort')||'default';
+  state.query=window.__MONSABA_PRIVATE_SEARCH__?.q||''; state.attribute=params.get('attribute')||'すべて'; state.sort=params.get('sort')||'default';
   if(!['すべて',...new Set(state.families.map(f=>f.attribute))].includes(state.attribute)) state.attribute='すべて';
   if(!['default','name','stages'].includes(state.sort)) state.sort='default';
   state.selectedId=location.hash.startsWith('#family-')?location.hash.slice(8):state.families[0]?.id;
@@ -27,7 +27,7 @@ function bind(){
   window.addEventListener('hashchange',()=>{if(location.hash.startsWith('#family-'))selectFamily(location.hash.slice(8),false)});
 }
 function syncQuery(){
-  const p=new URLSearchParams(); if(state.query.trim())p.set('q',state.query.trim()); if(state.attribute!=='すべて')p.set('attribute',state.attribute); if(state.sort!=='default')p.set('sort',state.sort);
+  const p=new URLSearchParams(); if(state.attribute!=='すべて')p.set('attribute',state.attribute); if(state.sort!=='default')p.set('sort',state.sort);
   const q=p.toString(); try{history.replaceState(null,'',`${location.pathname}${q?'?'+q:''}${location.hash}`)}catch(_){};
 }
 function renderMeta(){

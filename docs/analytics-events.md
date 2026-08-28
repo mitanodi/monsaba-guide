@@ -2,15 +2,15 @@
 
 ## 方針
 
-既存のVercel Web Analyticsを継続し、別のAnalytics製品や二重のpage view計測を追加しない。`page_view` はVercelの既存スクリプトによる自動計測を正とする。custom eventは `growth.js` の1か所から送る。
+既存のVercel Web AnalyticsとSpeed Insightsを継続し、Google Analytics 4（GA4）を併用する。各製品の自動page viewを1回ずつ利用し、customの`page_view`は送らない。custom eventは`growth.js`の1か所からVercelとGA4へ送り、GA4側はイベント別allowlistにあるpropertyだけを許可する。
 
-検索入力文字列、自由質問、UID、ユーザー名、手持ちタタ一覧、投稿内容、削除token、IPアドレスは送信しない。custom propertyは最大8項目、文字列は80文字まで、入れ子を使わない。
+検索入力文字列、自由質問、UID、タタ名、ユーザー名、手持ちタタ一覧、投稿内容、投稿ID、削除token、IPアドレスは送信しない。GA4へ渡すpage locationとreferrerはクエリ・フラグメントを除いたorigin + pathnameに固定する。`q` / `s` / `search` / `query` / `keyword` はGoogle tag読込前にURLから除外し、初期検索語はページ内メモリだけで検索UIへ引き渡す。Google側の拡張計測設定に依存せず `search_term` の自動送信を防ぐ。custom propertyは最大8項目、文字列は80文字まで、入れ子を使わない。
 
 ## Event map
 
 | Event | 発火 | 送る値 | 送らない値 |
 |---|---|---|---|
-| `page_view` | Vercel自動 | Vercel既定の匿名ページ情報 | 独自の重複page view |
+| `page_view` | Vercel / GA4自動 | 各サービス既定の匿名ページ情報（GA4はqueryなし） | 独自の重複page view |
 | `board_view` | 質問掲示板表示 | `view`（list/thread） | 投稿ID、質問・回答本文、名前 |
 | `board_question_submit` | 質問投稿成功 | `category` | タイトル、本文、名前、IP |
 | `board_answer_submit` | 回答投稿成功 | `category` | 回答本文、名前、投稿ID |

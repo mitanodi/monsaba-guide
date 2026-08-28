@@ -70,7 +70,7 @@ async function boot() {
   $('#siteSearchSuggestions').innerHTML = [...suggestions].slice(0, 500).map((value) => `<option value="${esc(value)}"></option>`).join('');
   $('#siteSearchForm').addEventListener('submit', (event) => { event.preventDefault(); const total = runSearch($('#siteSearchInput').value); window.MONSABA_TRACK?.event('site_search', { query_length: [...$('#siteSearchInput').value.trim()].length, result_count: total }); });
   $('#siteSearchInput').addEventListener('input', (event) => runSearch(event.target.value));
-  const initial = new URLSearchParams(location.search).get('q') || '';
+  const initial = window.__MONSABA_PRIVATE_SEARCH__?.q || '';
   $('#siteSearchInput').value = initial;
   runSearch(initial, false);
 }
@@ -84,7 +84,7 @@ function runSearch(rawQuery, updateUrl = true) {
   const query = normalize(raw);
   if (updateUrl) {
     const url = new URL(location.href);
-    if (raw) url.searchParams.set('q', raw); else url.searchParams.delete('q');
+    url.searchParams.delete('q');
     history.replaceState(null, '', url);
   }
   if (!query) {

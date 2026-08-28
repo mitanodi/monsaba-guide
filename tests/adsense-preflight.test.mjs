@@ -83,10 +83,12 @@ test('Privacy describes future AdSense use without claiming it is active', () =>
 test('meaningfully changed pages retain the exact review timestamp after generation', () => {
   const expected = json('data/page-freshness.json').routes['/search/'].updated;
   assert.equal(expected, '2026-08-28T07:53:10+09:00');
-  for (const file of ['search/index.html', 'privacy/index.html', 'friends/index.html', 'roles/paralysis/index.html', 'roles/heal/index.html']) {
+  for (const file of ['search/index.html', 'friends/index.html', 'roles/paralysis/index.html', 'roles/heal/index.html']) {
     assert.ok(read(file).includes(expected), `${file}: 秒単位の更新時刻が失われています`);
   }
-  assert.match(read('privacy/index.html'), /最終更新：2026\/8\/28 07:53:10 JST/);
+  const privacyExpected = json('data/page-freshness.json').routes['/privacy/'].updated;
+  assert.ok(read('privacy/index.html').includes(privacyExpected));
+  assert.match(read('privacy/index.html'), /最終更新：2026\/8\/28 21:27:22 JST/);
 });
 
 test('every active role guide has substantive original context, mode guidance and evidence links', () => {

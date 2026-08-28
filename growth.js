@@ -7,6 +7,34 @@
     'board_answer_submit', 'board_filter_use', 'board_report', 'board_resolved',
     'board_quick_question_open', 'board_question_example_use', 'board_reply_open', 'board_reply_submit'
   ]);
+  const ga4AllowedProperties = Object.freeze({
+    nav_click: ['destination_type', 'source_type'],
+    internal_link_click: ['destination_type', 'source_type'],
+    related_content_click: ['destination_type', 'source_type'],
+    site_search: ['query_length', 'result_count', 'search_surface'],
+    search_result_click: ['destination_type', 'source_type'],
+    filter_use: ['filter_id', 'page_type'],
+    tata_compare_start: ['source'],
+    tata_compare_view: ['mode', 'left_attribute', 'right_attribute'],
+    external_link_click: ['destination_host'],
+    affiliate_click: ['offer_id', 'page', 'placement', 'placement_id', 'device_class'],
+    affiliate_impression: ['offer_id', 'page', 'placement', 'placement_id', 'device_class'],
+    ad_click: ['slot_id'],
+    cta_click: ['destination_type', 'source_type', 'cta_id'],
+    event_tool_use: ['tool', 'action'],
+    favorite: ['action'],
+    friend_uid_copy: ['result'],
+    board_view: ['view'],
+    board_question_submit: ['category'],
+    board_answer_submit: ['category'],
+    board_filter_use: ['category', 'sort', 'unanswered'],
+    board_report: ['target_type', 'reason'],
+    board_resolved: ['resolved'],
+    board_quick_question_open: ['source'],
+    board_question_example_use: ['source'],
+    board_reply_open: ['category', 'reply_depth'],
+    board_reply_submit: ['category', 'reply_depth']
+  });
   const safeValue = (value) => typeof value === 'number' || typeof value === 'boolean'
     ? value
     : String(value ?? '').replace(/[\r\n\t]/g, ' ').slice(0, 80);
@@ -14,6 +42,12 @@
     if (!allowedEvents.has(name)) return false;
     const safe = Object.fromEntries(Object.entries(properties).slice(0, 8).map(([key, value]) => [key, safeValue(value)]));
     if (typeof window.va === 'function') window.va('event', name, safe);
+    if (typeof window.gtag === 'function') {
+      const allowed = ga4AllowedProperties[name] || [];
+      const ga4Safe = Object.fromEntries(allowed.filter((key) => Object.hasOwn(safe, key)).map((key) => [key, safe[key]]));
+      ga4Safe.page_location = `${location.origin}${location.pathname}`;
+      window.gtag('event', name, ga4Safe);
+    }
     document.dispatchEvent(new CustomEvent('monsaba:analytics', { detail: { name, properties: safe } }));
     return true;
   };
