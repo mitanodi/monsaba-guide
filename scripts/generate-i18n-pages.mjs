@@ -1,12 +1,15 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { BASE_URL } from './site-config.mjs';
+import { polishTranslation } from './i18n-quality.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const config = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/config.json'), 'utf8'));
 const overrides = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/overrides.json'), 'utf8'));
 const glossary = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/glossary.json'), 'utf8'));
 for (const term of glossary.terms) for (const locale of ['en', 'zh-CN']) overrides[locale][term.ja] = term[locale];
+const qualityOverrides = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/quality-overrides.json'), 'utf8'));
+for (const locale of ['en', 'zh-CN']) Object.assign(overrides[locale], qualityOverrides[locale]);
 const notices = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/notices.json'), 'utf8'));
 const assetVersion = JSON.parse(fs.readFileSync(path.join(root, 'data/asset-build.json'), 'utf8')).version;
 const locales = ['en', 'zh-CN'];
@@ -53,14 +56,14 @@ const alternateMarkup = (sourceRoute) => {
   return links.map(([hreflang, route]) => `<link rel="alternate" hreflang="${hreflang}" href="${absolute(route)}" data-i18n-alternate>`).join('');
 };
 
-function normalizeTranslation(value, locale) {
+function normalizeTranslation(value, locale, source = '') {
   let result = String(value || '').trim();
   if (locale === 'en') {
-    result = result.replace(/\bTata(?:'s)?\b/g, 'Tatari').replace(/\bTatas\b/g, 'Tataris').replace(/\bOtakara\b/g, 'Treasure Hunt').replace(/Monster Survival/g, 'Clash of Critters');
+    result = result.replace(/\bTata(?:'s)?\b/g, 'Tatari').replace(/\bTatas\b/g, 'Tatari').replace(/\bOtakara\b/g, 'Treasure Hunt').replace(/Monster Survival/g, 'Clash of Critters');
   } else {
     result = result.replaceAll('塔塔', 'Tatari').replaceAll('怪物生存', 'Clash of Critters').replaceAll('Otakara', '寻宝');
   }
-  return result;
+  return polishTranslation(result, locale, source);
 }
 
 function formatDates(value, locale) {
@@ -76,9 +79,15 @@ function translator(locale, missing) {
     const raw = String(source);
     const trimmed = raw.replace(/\s+/g, ' ').trim();
     if (!trimmed || !japanese.test(trimmed)) return raw;
+    if (trimmed === '系統') return raw.replace(trimmed, locale === 'en' ? ' families' : ' 个系列');
+    if (trimmed === '体') return raw.replace(trimmed, locale === 'en' ? ' Tatari' : ' 个 Tatari');
+    if (trimmed === '属性') return raw.replace(trimmed, locale === 'en' ? ' attributes' : '种属性');
     const familyCompare = trimmed.match(/^(.+?)系を比較表示$/);
     const familyPage = trimmed.match(/^(.+?)系の個別ページを見る$/);
     const familyOnly = trimmed.match(/^(.+?)系$/);
+    const familySeoTitle = trimmed.match(/^モンサバ (.+?)系（.+?）は強い？進化・スキル・用途$/);
+    const familySeoDescription = trimmed.match(/^モンサバの(.+?)系（(.+?)）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。\s*主な役割は(.+?)。$/);
+    const familyDataSummary = trimmed.match(/^(.+?)系のT1〜T(\d)について、進化先・スキル・確認済み数値をまとめています。$/);
     const tierLabel = trimmed.match(/^(総合|通常|ゾンビ|道場|初心者) (SSS|SS|S|A|B|評価保留)$/);
     const tataPatterns = [
       [/^(.+?)は強い？$/, (name) => `Is ${name} strong?`],
@@ -93,6 +102,20 @@ function translator(locale, missing) {
     if (locale === 'en' && familyCompare) return raw.replace(trimmed, `Compare the ${familyCompare[1]} family`);
     if (locale === 'en' && familyPage) return raw.replace(trimmed, `View the ${familyPage[1]} family page`);
     if (locale === 'en' && familyOnly) return raw.replace(trimmed, `${familyOnly[1]} family`);
+    if (familySeoTitle) return raw.replace(trimmed, locale === 'en'
+      ? `Clash of Critters ${familySeoTitle[1]} Family Guide | Evolutions, Skills & Uses`
+      : `Clash of Critters ${familySeoTitle[1]} 系列攻略｜进化、技能与用途`);
+    if (familySeoDescription) {
+      const roleSource = familySeoDescription[3];
+      const roleValue = overrides[locale]?.[roleSource] || translations[locale][roleSource] || roleSource;
+      const roles = normalizeTranslation(roleValue, locale, `主な役割は${roleSource}`);
+      return raw.replace(trimmed, locale === 'en'
+        ? `Guide to the ${familySeoDescription[1]} family (${familySeoDescription[2]}), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: ${roles}.`
+        : `${familySeoDescription[1]} 系列（${familySeoDescription[2]}）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：${roles}。`);
+    }
+    if (familyDataSummary) return raw.replace(trimmed, locale === 'en'
+      ? `Verified evolution paths, skills and values for the ${familyDataSummary[1]} family from T1 to T${familyDataSummary[2]}.`
+      : `${familyDataSummary[1]} 系列从 T1 到 T${familyDataSummary[2]} 的已确认进化路线、技能和数值。`);
     if (tierLabel) {
       const labels = locale === 'en' ? { 総合: 'Overall', 通常: 'Normal', ゾンビ: 'Zombie', 道場: 'Dojo', 初心者: 'Beginner', 評価保留: 'Pending' } : { 総合: '综合', 通常: '普通', ゾンビ: 'Zombie', 道場: '道场', 初心者: '新手', 評価保留: '待评估' };
       return raw.replace(trimmed, `${labels[tierLabel[1]]} ${labels[tierLabel[2]] || tierLabel[2]}`);
@@ -108,7 +131,7 @@ function translator(locale, missing) {
       missing.add(trimmed);
       return raw;
     }
-    return formatDates(raw.replace(trimmed, normalizeTranslation(value, locale)), locale);
+    return formatDates(raw.replace(trimmed, normalizeTranslation(value, locale, trimmed)), locale);
   };
 }
 
@@ -223,10 +246,10 @@ function writeRuntime(locale) {
   const dictionary = {};
   for (const source of sources) {
     const value = overrides[locale]?.[source] || translations[locale][source];
-    if (value) dictionary[source] = normalizeTranslation(value, locale);
+    if (value) dictionary[source] = normalizeTranslation(value, locale, source);
   }
   for (const [source, value] of Object.entries(overrides[locale] || {})) {
-    if (japanese.test(source)) dictionary[source] = normalizeTranslation(value, locale);
+    if (japanese.test(source)) dictionary[source] = normalizeTranslation(value, locale, source);
   }
   const phrases = Object.entries(dictionary).filter(([source]) => source.length >= 2 && source.length <= 40).sort(([a], [b]) => b.length - a.length);
   const properNames = new Set();

@@ -22,5 +22,25 @@
     { "ja": "バフ", "en": "Buff", "zh-CN": "增益" },
     { "ja": "デバフ", "en": "Debuff", "zh-CN": "减益" }
   ],
+  "quality": {
+    "en": {
+      "family": "Use family for タタ系統; never strain, system or lineage.",
+      "Tatari": "Treat Tatari as an unchanged game term in singular and plural contexts.",
+      "database": "Use Tatari Database or database for 図鑑; never picture book.",
+      "roster": "Use roster or owned Tatari for 手持ち; never handheld.",
+      "team": "Use team, team build or team setup for 編成; never organization.",
+      "Guide Assistant": "Use Guide Assistant for 攻略相談所; never consultation center.",
+      "database coverage": "Use database coverage or included for 収録; never recording."
+    },
+    "zh-CN": {
+      "系列": "系統统一译为系列，不使用株、菌株或系统作为角色系列计数单位。",
+      "Tatari": "Tatari 是游戏专有名词，不译为塔塔。",
+      "图鉴": "図鑑译为图鉴，不使用图画书。",
+      "持有角色": "手持ち按语境译为持有角色、已拥有或我的 Tatari，不使用手持式。",
+      "阵容": "編成译为阵容，不使用组织。",
+      "攻略助手": "攻略相談所译为攻略助手，不使用策略咨询中心。",
+      "数据收录情况": "収録按语境译为收录或数据收录情况，不使用录音。"
+    }
+  },
   "policy": "Unverified Tatari, skill, zombie, item and event names remain in their verified source-language spelling."
 }

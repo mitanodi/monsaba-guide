@@ -16,6 +16,22 @@
     if (!translated && familyCount) translated = payload.locale === 'en'
       ? `${familyCount[1]} / ${familyCount[2]} families shown`
       : `显示 ${familyCount[1]} / ${familyCount[2]} 个系列`;
+    const selectedTotal = trimmed.match(/^合計[:：]\s*(\d+)個$/);
+    if (!translated && selectedTotal) translated = payload.locale === 'en'
+      ? `Total: ${selectedTotal[1]} selected`
+      : `合计：${selectedTotal[1]} 个`;
+    const currentInput = trimmed.match(/^現在[:：]\s*(.+?)を入力中$/);
+    if (!translated && currentInput) translated = payload.locale === 'en'
+      ? `Current input: ${translate(currentInput[1]).trim()}`
+      : `当前输入：${translate(currentInput[1]).trim()}`;
+    const standaloneFamilyCount = trimmed.match(/^(\d+)系統$/);
+    if (!translated && standaloneFamilyCount) translated = payload.locale === 'en'
+      ? `${standaloneFamilyCount[1]} families`
+      : `${standaloneFamilyCount[1]} 个系列`;
+    const standaloneSelectedCount = trimmed.match(/^(\d+)個$/);
+    if (!translated && standaloneSelectedCount) translated = payload.locale === 'en'
+      ? `${standaloneSelectedCount[1]} selected`
+      : `${standaloneSelectedCount[1]} 个`;
     if (!translated && /[\u3040-\u30ff\u3400-\u9fff]/.test(trimmed)) {
       const protectedValues = [];
       translated = trimmed;
@@ -25,11 +41,13 @@
         protectedValues.push([token, name]);
         translated = translated.replaceAll(name, token);
       });
+      const hasJapaneseFamilySuffix = /__MNSB_NAME_\d+__系(?!列)/.test(translated);
+      if (payload.locale === 'zh-CN' && !/[\u3040-\u30ff]/.test(translated) && !hasJapaneseFamilySuffix) return value;
       for (const [from, to] of phrases) translated = translated.includes(from) ? translated.replaceAll(from, to) : translated;
       if (payload.locale === 'en') {
-        translated = translated.replaceAll('系', ' family').replace(/(\d+)個/g, '$1 selected');
+        translated = translated.replace(/(__MNSB_NAME_\d+__)系(?!列)/g, '$1 family').replace(/(\d+)個/g, '$1 selected');
       } else {
-        translated = translated.replaceAll('系', '系列').replace(/(\d+)個/g, '$1 个');
+        translated = translated.replace(/(__MNSB_NAME_\d+__)系(?!列)/g, '$1系列').replace(/(\d+)個/g, '$1 个');
       }
       protectedValues.forEach(([token, name]) => { translated = translated.replaceAll(token, name); });
     }
