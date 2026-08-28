@@ -2,6 +2,7 @@ const API_URL = '/api/board';
 const THREAD_TOKENS_KEY = 'monsabaBoardThreadTokens:v1';
 const ANSWER_TOKENS_KEY = 'monsabaBoardAnswerTokens:v1';
 const POSTED_THREAD_NOTICE_KEY = 'monsabaBoardPostedThread:v1';
+const TEAM_HANDOFF_KEY = 'monsabaBoardTeamHandoff:v1';
 
 export function characterCount(value) { return [...String(value || '')].length; }
 export function element(tag, className, text) {
@@ -156,6 +157,20 @@ function bootList() {
     categoryMore.textContent = expanded ? 'カテゴリを閉じる' : 'ほかのカテゴリを見る';
     categoryExtra.hidden = !expanded;
   });
+
+  try {
+    const handoff = JSON.parse(sessionStorage.getItem(TEAM_HANDOFF_KEY) || 'null');
+    if (handoff?.version === 1 && typeof handoff.content === 'string' && characterCount(handoff.content) <= 1600 && handoff.content.trim()) {
+      sessionStorage.removeItem(TEAM_HANDOFF_KEY);
+      toggleForm(true);
+      form.elements.content.value = handoff.content;
+      form.elements.content.dispatchEvent(new Event('input', { bubbles: true }));
+      selectCategory('編成');
+      setMessage(formMessage, '編成内容を入力しました。確認・編集してから投稿してください。');
+    }
+  } catch {
+    sessionStorage.removeItem(TEAM_HANDOFF_KEY);
+  }
   form.querySelectorAll('[data-board-example]').forEach((button) => button.addEventListener('click', () => {
     form.elements.content.value = button.dataset.boardExample;
     form.elements.content.dispatchEvent(new Event('input', { bubbles: true }));

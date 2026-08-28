@@ -160,12 +160,13 @@ function renderPage(family, index) {
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
   <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/my-tools.css" />
   <script type="application/ld+json">${jsonLd(structured)}</script>
 </head>
 <body data-page-type="tata_detail" data-family-id="${esc(family.id)}" data-family-name="${esc(displayLabel)}"><a class="skip-link" href="#main-content">本文へスキップ</a>
   ${renderHeader(route)}
   <main id="main-content">
-    <section class="page-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="パンくず"><a href="/">トップ</a><span>›</span><a href="/#tatari">タタ図鑑</a><span>›</span><span>${esc(displayLabel)}</span></nav><div class="family-page-head tata-page-head"><div><span class="attribute">${attr.icon} ${family.attribute}属性</span><h1>${esc(displayLabel)}</h1><p>${esc(chain)}</p>${roles.length ? `<div class="role-tags tata-role-tags">${roles.map((role) => `<span>${esc(role)}</span>`).join('')}</div>` : ''}</div><div class="tata-hero-actions"><button class="ghost-button tata-favorite-button" type="button" aria-pressed="false">☆ お気に入り</button><a class="button" href="/consult/?flow=detail&amp;family=${encodeURIComponent(family.id)}">このタタを攻略相談所で相談</a><a class="ghost-button" href="/attribute/${attr.slug}/">同じ属性のタタを見る</a></div></div></div></section>
+    <section class="page-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="パンくず"><a href="/">トップ</a><span>›</span><a href="/#tatari">タタ図鑑</a><span>›</span><span>${esc(displayLabel)}</span></nav><div class="family-page-head tata-page-head"><div><span class="attribute">${attr.icon} ${family.attribute}属性</span><h1>${esc(displayLabel)}</h1><p>${esc(chain)}</p>${roles.length ? `<div class="role-tags tata-role-tags">${roles.map((role) => `<span>${esc(role)}</span>`).join('')}</div>` : ''}</div><div class="tata-hero-actions"><button class="ghost-button tata-favorite-button" type="button" aria-pressed="false">☆ お気に入り</button><button class="ghost-button tata-roster-button" type="button">マイモンサバへ登録</button><a class="button" href="/consult/?flow=detail&amp;family=${encodeURIComponent(family.id)}">このタタを攻略相談所で相談</a><a class="ghost-button" href="/attribute/${attr.slug}/">同じ属性のタタを見る</a></div></div></div></section>
 ${evolutionIndex}
 ${quickAnswers}
     <section class="wrap static-section"><h2 class="page-h2">${esc(displayName)}の進化先</h2><div class="evolution-row static-row" role="region" tabindex="0" aria-label="${esc(displayLabel)}の全進化ルート">${evolutionCards}</div></section>
@@ -180,7 +181,8 @@ ${evolutionLinks ? `<section class="wrap static-section tata-consult-cta"><h2 cl
     <section class="wrap source-note"><strong>掲載データについて</strong><p>タタ名・進化・スキルと数値は、ゲーム内スクリーンショットで確認できた内容を掲載しています。読めない内容は推測で補完していません。Tierは当サイト独自の暫定評価です。</p><p class="article-byline">運営・データ確認：<a href="/about/">おぢ</a></p><a href="/about-data/">データ更新方針を見る</a></section>
   </main>
   ${renderFooter('63系統 / 224体')}
-  <script src="/family-display.js"></script><script src="/site.js"></script><script src="/monetization.js"></script><script src="/growth.js" defer></script>
+  <dialog id="tata-roster-dialog" class="tata-roster-dialog" aria-labelledby="tata-roster-title"><form method="dialog"><h2 id="tata-roster-title">マイモンサバへ登録</h2><p>この端末だけに所持状況を保存します。</p><div id="tata-roster-stages" class="stage-picker"></div><p id="tata-roster-message" class="tool-status" role="status" aria-live="polite"></p><button class="ghost-button" value="close">閉じる</button></form></dialog>
+  <script src="/family-display.js"></script><script src="/site.js"></script><script src="/monetization.js"></script><script src="/growth.js" defer></script><script type="module" src="/tata-roster.js"></script>
 </body>
 </html>
 `;

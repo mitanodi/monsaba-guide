@@ -126,7 +126,8 @@ test('AdSense・ads.txt・Board除外・A8非表示を維持する', () => {
   const adsense = json('data/adsense-config.json');
   assert.equal(adsense.enabled, false);
   assert.equal(adsense.autoAds, false);
-  assert.deepEqual(adsense.excludedPages.slice(-2), ['/board/', '/board/*']);
+  assert.ok(adsense.excludedPages.includes('/board/'));
+  assert.ok(adsense.excludedPages.includes('/board/*'));
   assert.equal(read('ads.txt').trim(), 'google.com, pub-2710725734378326, DIRECT, f08c47fec0942fa0');
   assert.doesNotMatch(read('board/index.html') + read('board/thread/index.html'), /monetization\.js|data-affiliate-offer|a8mat|adsbygoogle/i);
 });

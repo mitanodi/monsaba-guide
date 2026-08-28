@@ -1,0 +1,65 @@
+<!doctype html><html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>マイモンサバ｜手持ちタタ・進化状況を端末内で管理</title>
+<meta name="description" content="モンサバの手持ちタタとT1〜T4の進化状況を端末内だけで管理し、役割バランスや次の育成候補を確認できます。">
+<meta name="robots" content="noindex,follow"><meta name="theme-color" content="#2f6fb2">
+<link rel="canonical" href="https://monster-survival.com/my-monsaba/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="モンサバ攻略DB"><meta property="og:title" content="マイモンサバ｜手持ちタタ管理"><meta property="og:description" content="手持ちと進化状況をブラウザ内だけで管理する個人攻略ツールです。"><meta property="og:url" content="https://monster-survival.com/my-monsaba/"><meta property="og:image" content="https://monster-survival.com/assets/heroes/top-main.webp"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="stylesheet" href="/styles.css?v=fc50e7dbafb2"><link rel="stylesheet" href="/my-tools.css?v=fc50e7dbafb2">
+<!-- monsaba-ga4:start -->
+<script data-monsaba-ga4="privacy">
+  (function protectPrivateSearchParameters() {
+    var privateSearch = {};
+    var privateKeys = ['q', 's', 'search', 'query', 'keyword'];
+    var currentUrl = new URL(window.location.href);
+    privateKeys.forEach(function removePrivateParameter(key) {
+      if (!currentUrl.searchParams.has(key)) return;
+      privateSearch[key] = currentUrl.searchParams.get(key) || '';
+      currentUrl.searchParams.delete(key);
+    });
+    Object.defineProperty(window, '__MONSABA_PRIVATE_SEARCH__', {
+      value: Object.freeze(privateSearch), enumerable: false, configurable: false
+    });
+    if (Object.keys(privateSearch).length) {
+      window.history.replaceState(window.history.state, '', currentUrl.pathname + currentUrl.search + currentUrl.hash);
+    }
+  })();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PTV8TYNYMR" data-monsaba-ga4="loader"></script>
+<script data-monsaba-ga4="config">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){window.dataLayer.push(arguments);}
+  window.gtag = window.gtag || gtag;
+  function monsabaSafeAnalyticsUrl(value) {
+    try {
+      var url = new URL(value, window.location.href);
+      return url.origin + url.pathname;
+    } catch (error) {
+      return '';
+    }
+  }
+  var monsabaPageLocation = monsabaSafeAnalyticsUrl(window.location.href);
+  var monsabaPageReferrer = document.referrer ? monsabaSafeAnalyticsUrl(document.referrer) : '';
+  window.gtag('js', new Date());
+  window.gtag('set', { page_location: monsabaPageLocation, page_referrer: monsabaPageReferrer });
+  window.gtag('config', 'G-PTV8TYNYMR', {
+    page_location: monsabaPageLocation,
+    page_referrer: monsabaPageReferrer,
+    anonymize_ip: true,
+    allow_google_signals: false,
+    allow_ad_personalization_signals: false
+  });
+</script>
+<!-- monsaba-ga4:end -->
+</head><body data-page-type="my_monsaba"><a class="skip-link" href="#main-content">本文へスキップ</a>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="/" aria-label="モンサバ攻略DB トップ"><span class="brand-main">モンサバ攻略DB</span><span class="brand-sub">非公式</span></a><nav id="global-navigation" aria-label="主要メニュー"><span class="mobile-nav-group-label">タタ</span><a href="/#tatari">タタ図鑑</a><a href="/tata-tier/">タタTier</a><a href="/evolution-priority/">進化優先度</a><span class="mobile-nav-group-label">攻略</span><a href="/guides/" class="desktop-only-nav-link">攻略ハブ</a><a href="/normal-guide/" class="mobile-only-nav-link">通常ステージ</a><a href="/zombie-rush/" class="mobile-only-nav-link">ゾンビラッシュ</a><a href="/boss-rally/" class="mobile-only-nav-link">ボスラリー</a><a href="/badge-dojo/" class="mobile-only-nav-link">バッジ道場</a><a href="/events/">イベント</a><span class="mobile-nav-group-label">ツール</span><a href="/search/" class="mobile-only-nav-link">検索</a><a href="/compare/">比較</a><a href="/consult/">攻略相談</a><a href="/my-monsaba/" aria-current="page">マイモンサバ</a><a href="/team-builder/" class="mobile-only-nav-link">編成メーカー</a><span class="mobile-nav-group-label">コミュニティ</span><a href="/friends/">フレンド掲示板</a><a href="/board/">質問掲示板</a><a href="/beginner-guide/" class="mobile-only-nav-link">初心者ガイド</a></nav></div></header><main id="main-content">
+<section class="page-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="パンくず"><a href="/">トップ</a><span aria-hidden="true">›</span><span>マイモンサバ</span></nav><div class="family-page-head"><div><span class="privacy-chip">端末内だけに保存</span><h1>マイモンサバ</h1><p>自分の手持ちと進化状況を登録して、役割バランスや次に育てる候補を確認できます。</p></div><a class="button" href="/team-builder/?roster=1">手持ちで編成を作る</a></div></div></section>
+<div class="wrap personal-tool-shell">
+<section class="tool-panel" aria-labelledby="roster-summary-title"><div class="personal-tool-intro"><div><h2 id="roster-summary-title">手持ちダッシュボード</h2><p>数字はこの端末に登録したデータから計算します。ゲーム内データやアカウントとは連携しません。</p></div><span id="roster-save-state" class="tool-status" role="status" aria-live="polite"></span></div><div id="roster-summary" class="roster-summary-grid"></div><div id="roster-attributes" class="attribute-counts"></div></section>
+<section class="tool-panel" aria-labelledby="roster-register-title"><h2 id="roster-register-title">高速登録</h2><div class="tool-toolbar"><label class="grow">タタを検索<input id="roster-search" type="search" autocomplete="off" placeholder="進化名・系統名・旧表記でも検索"></label><label><input id="roster-owned-only" type="checkbox"> 所持のみ表示</label></div><div id="roster-attribute-filters" class="tool-filter-chips" role="group" aria-label="属性で絞り込み"><button type="button" data-attribute="" aria-pressed="true">すべて</button><button type="button" data-attribute="草" aria-pressed="false">草</button><button type="button" data-attribute="水" aria-pressed="false">水</button><button type="button" data-attribute="火" aria-pressed="false">火</button><button type="button" data-attribute="雷" aria-pressed="false">雷</button><button type="button" data-attribute="岩" aria-pressed="false">岩</button></div><p id="roster-result-status" class="tool-status" role="status" aria-live="polite"></p><div id="roster-grid" class="roster-grid"></div></section>
+<section class="tool-panel" aria-labelledby="role-analysis-title"><h2 id="role-analysis-title">手持ちの役割バランス</h2><p>既存DBの役割ラベルから相対的な登録数を表示します。「不足」はゲーム上の必須数を示すものではありません。</p><div id="roster-role-analysis" class="role-coverage-grid"></div></section>
+<section class="tool-panel" aria-labelledby="growth-candidates-title"><h2 id="growth-candidates-title">次に育てる候補</h2><p>既存の総合Tier・進化優先度・確認済み進化差分だけを根拠に最大5件表示します。</p><div id="roster-growth-candidates" class="candidate-grid"></div></section>
+<section class="tool-panel" aria-labelledby="mode-candidates-title"><h2 id="mode-candidates-title">モード別・手持ち候補</h2><div class="tool-toolbar"><label>確認するモード<select id="roster-mode"><option value="normal">通常</option><option value="zombie">Zombie Rush</option><option value="dojo">バッジ道場</option><option value="boss">ボスラリー</option><option value="beginner">初心者</option></select></label></div><p>既存の用途別評価だけを表示します。専用評価がないモードは「評価データ不足」とします。</p><div id="roster-mode-candidates" class="mode-candidate-grid"></div></section>
+<section class="tool-panel" aria-labelledby="roster-backup-title"><h2 id="roster-backup-title">バックアップと削除</h2><p>JSONには手持ち段階・お気に入り・育成中だけを含み、掲示板tokenなどは含めません。</p><div class="tool-actions"><button id="roster-export" class="button" type="button">バックアップ</button><label class="ghost-button" for="roster-import">バックアップを復元</label><input id="roster-import" class="visually-hidden-file" type="file" accept="application/json,.json"><button id="roster-clear" class="ghost-button" type="button">マイデータを削除</button></div><p id="roster-backup-status" class="tool-status" role="status" aria-live="polite"></p></section>
+</div></main><footer><div class="wrap footer-inner"><div><strong>モンサバ攻略DB</strong><span>モンスターサバイバル 非公式攻略サイト</span></div><div class="footer-side"><nav class="footer-links" aria-label="サイト情報"><a href="/attribute/">属性別</a><a href="/guides/">攻略ハブ</a><a href="/compare/">タタ比較</a><a href="/my-monsaba/">マイモンサバ</a><a href="/team-builder/">編成メーカー</a><a href="/faq/">FAQ</a><a href="/about/">サイトについて</a><a href="/about-data/">データ方針</a><a href="/updates/">更新履歴</a><a href="/privacy/">プライバシー</a><a href="/friends/">フレンド掲示板</a><a href="/board/">質問掲示板</a></nav><p class="footer-contact">お問い合わせ・ご連絡は <a href="https://x.com/odi_monsaba" target="_blank" rel="noopener noreferrer">おぢ（@odi_monsaba）X</a> まで。フォローもよろしくお願いします。</p><div class="footer-meta"></div></div></div></footer>
+<script src="/family-display.js?v=fc50e7dbafb2"></script><script src="/site.js?v=fc50e7dbafb2"></script><script type="module" src="/my-monsaba/my-monsaba.js?v=fc50e7dbafb2"></script><script src="/monetization.js?v=fc50e7dbafb2" defer></script><script src="/growth.js?v=fc50e7dbafb2" defer></script></body></html>

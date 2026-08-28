@@ -9,6 +9,8 @@
     "/consult/",
     "/friends/",
     "/board/",
-    "/board/*"
+    "/board/*",
+    "/my-monsaba/",
+    "/team-builder/"
   ]
 }

@@ -49,7 +49,7 @@ test('AdSense ownership verification uses the official ads.txt while delivery re
   assert.equal(config.enabled, false);
   assert.equal(config.publisherId, 'pub-2710725734378326');
   assert.equal(config.autoAds, false);
-  assert.deepEqual(config.excludedPages, ['/search/', '/compare/', '/consult/', '/friends/', '/board/', '/board/*']);
+  assert.deepEqual(config.excludedPages, ['/search/', '/compare/', '/consult/', '/friends/', '/board/', '/board/*', '/my-monsaba/', '/team-builder/']);
   const adsTxt = read('ads.txt');
   assert.equal(adsTxt.trim(), 'google.com, pub-2710725734378326, DIRECT, f08c47fec0942fa0');
   assert.equal(adsTxt.trim().split(', ').length, 4);

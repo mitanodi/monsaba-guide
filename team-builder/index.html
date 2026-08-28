@@ -1,0 +1,66 @@
+<!doctype html><html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>モンサバ編成メーカー｜15枠の編成を作成・保存・共有</title>
+<meta name="description" content="モンサバのタタを15枠へ配置し、役割・用途別Tierを確認しながら編成メモを保存、URL・画像・テキストで共有できます。">
+<meta name="robots" content="index,follow,max-image-preview:large"><meta name="theme-color" content="#2f6fb2">
+<link rel="canonical" href="https://monster-survival.com/team-builder/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="モンサバ攻略DB"><meta property="og:title" content="モンサバ編成メーカー｜15枠の編成を作成・共有"><meta property="og:description" content="15枠の編成メモを作り、役割診断・保存・共有・掲示板相談ができます。"><meta property="og:url" content="https://monster-survival.com/team-builder/"><meta property="og:image" content="https://monster-survival.com/assets/heroes/top-main.webp"><meta property="og:locale" content="ja_JP"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="stylesheet" href="/styles.css?v=fc50e7dbafb2"><link rel="stylesheet" href="/my-tools.css?v=fc50e7dbafb2">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"モンサバ編成メーカー","url":"https://monster-survival.com/team-builder/","applicationCategory":"GameApplication","operatingSystem":"Web browser","description":"モンサバの15枠編成メモをブラウザ内で作成・保存・共有できる非公式ツールです。"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"モンサバ攻略DB","item":"https://monster-survival.com/"},{"@type":"ListItem","position":2,"name":"モンサバ編成メーカー"}]}]}</script>
+<!-- monsaba-ga4:start -->
+<script data-monsaba-ga4="privacy">
+  (function protectPrivateSearchParameters() {
+    var privateSearch = {};
+    var privateKeys = ['q', 's', 'search', 'query', 'keyword'];
+    var currentUrl = new URL(window.location.href);
+    privateKeys.forEach(function removePrivateParameter(key) {
+      if (!currentUrl.searchParams.has(key)) return;
+      privateSearch[key] = currentUrl.searchParams.get(key) || '';
+      currentUrl.searchParams.delete(key);
+    });
+    Object.defineProperty(window, '__MONSABA_PRIVATE_SEARCH__', {
+      value: Object.freeze(privateSearch), enumerable: false, configurable: false
+    });
+    if (Object.keys(privateSearch).length) {
+      window.history.replaceState(window.history.state, '', currentUrl.pathname + currentUrl.search + currentUrl.hash);
+    }
+  })();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PTV8TYNYMR" data-monsaba-ga4="loader"></script>
+<script data-monsaba-ga4="config">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){window.dataLayer.push(arguments);}
+  window.gtag = window.gtag || gtag;
+  function monsabaSafeAnalyticsUrl(value) {
+    try {
+      var url = new URL(value, window.location.href);
+      return url.origin + url.pathname;
+    } catch (error) {
+      return '';
+    }
+  }
+  var monsabaPageLocation = monsabaSafeAnalyticsUrl(window.location.href);
+  var monsabaPageReferrer = document.referrer ? monsabaSafeAnalyticsUrl(document.referrer) : '';
+  window.gtag('js', new Date());
+  window.gtag('set', { page_location: monsabaPageLocation, page_referrer: monsabaPageReferrer });
+  window.gtag('config', 'G-PTV8TYNYMR', {
+    page_location: monsabaPageLocation,
+    page_referrer: monsabaPageReferrer,
+    anonymize_ip: true,
+    allow_google_signals: false,
+    allow_ad_personalization_signals: false
+  });
+</script>
+<!-- monsaba-ga4:end -->
+</head><body data-page-type="team_builder"><a class="skip-link" href="#main-content">本文へスキップ</a><header class="site-header"><div class="wrap header-inner"><a class="brand" href="/" aria-label="モンサバ攻略DB トップ"><span class="brand-main">モンサバ攻略DB</span><span class="brand-sub">非公式</span></a><nav id="global-navigation" aria-label="主要メニュー"><span class="mobile-nav-group-label">タタ</span><a href="/#tatari">タタ図鑑</a><a href="/tata-tier/">タタTier</a><a href="/evolution-priority/">進化優先度</a><span class="mobile-nav-group-label">攻略</span><a href="/guides/" class="desktop-only-nav-link">攻略ハブ</a><a href="/normal-guide/" class="mobile-only-nav-link">通常ステージ</a><a href="/zombie-rush/" class="mobile-only-nav-link">ゾンビラッシュ</a><a href="/boss-rally/" class="mobile-only-nav-link">ボスラリー</a><a href="/badge-dojo/" class="mobile-only-nav-link">バッジ道場</a><a href="/events/">イベント</a><span class="mobile-nav-group-label">ツール</span><a href="/search/" class="mobile-only-nav-link">検索</a><a href="/compare/">比較</a><a href="/consult/">攻略相談</a><a href="/my-monsaba/">マイモンサバ</a><a href="/team-builder/" class="mobile-only-nav-link" aria-current="page">編成メーカー</a><span class="mobile-nav-group-label">コミュニティ</span><a href="/friends/">フレンド掲示板</a><a href="/board/">質問掲示板</a><a href="/beginner-guide/" class="mobile-only-nav-link">初心者ガイド</a></nav></div></header>
+<main id="main-content"><section class="page-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="パンくず"><a href="/">トップ</a><span aria-hidden="true">›</span><span>編成メーカー</span></nav><div class="family-page-head"><div><span class="privacy-chip">編成は端末内で処理</span><h1>モンサバ編成メーカー</h1><p>タタを15枠へ配置し、役割バランスを見ながら編成メモを作成・保存・共有できます。</p></div><a class="ghost-button" href="/my-monsaba/">手持ちを登録する</a></div></div></section>
+<div class="wrap personal-tool-shell">
+<section class="tool-panel" aria-labelledby="team-settings-title"><h2 id="team-settings-title">編成設定</h2><div class="tool-toolbar"><label class="grow">編成名 <span class="optional">任意・40文字まで</span><input id="team-name" type="text" maxlength="40" autocomplete="off" placeholder="例：Zombie Rush用"></label><label>モード<select id="team-mode"><option value="free">自由編成</option><option value="normal">通常</option><option value="zombie">Zombie Rush</option><option value="dojo">バッジ道場</option><option value="boss">ボスラリー</option></select></label><label><input id="team-owned-only" type="checkbox"> マイモンサバの手持ちだけ表示</label></div><p class="tool-status">これはゲーム盤面を断定するものではなく、汎用5×3の「編成メモ用15枠」です。</p></section>
+<div class="team-layout"><section class="tool-panel" aria-labelledby="team-board-title"><div class="section-head simple-head"><div><h2 id="team-board-title">15枠編成メモ</h2><p>空き枠をタップしてタタを選択。ドラッグ操作は不要です。</p></div><button id="team-clear" class="ghost-button" type="button">編成を空にする</button></div><div id="team-board" class="team-board" aria-label="15枠編成盤"></div><p id="team-message" class="tool-status" role="status" aria-live="polite"></p></section>
+<aside class="tool-panel team-diagnosis" aria-labelledby="team-diagnosis-title"><h2 id="team-diagnosis-title">編成診断</h2><p>編成データから見た参考情報です。確定攻略や必須構成ではありません。</p><h3>役割構成</h3><div id="team-role-counts" class="diagnosis-counts"></div><h3>モード評価</h3><div id="team-tier-counts" class="diagnosis-counts"></div><ul id="team-notes" class="diagnosis-notes"></ul></aside></div>
+<section class="tool-panel" aria-labelledby="team-save-title"><h2 id="team-save-title">保存・共有</h2><div class="tool-actions"><button id="team-save" class="button" type="button">この編成を保存</button><button id="team-share" class="ghost-button" type="button">共有URLをコピー</button><button id="team-image" class="ghost-button" type="button">画像にして共有</button><button id="team-text" class="ghost-button" type="button">編成をテキストでコピー</button><button id="team-board-consult" class="ghost-button" type="button">この編成を質問掲示板で相談</button></div><p id="team-action-status" class="tool-status" role="status" aria-live="polite"></p><canvas id="team-share-canvas" width="1200" height="675" hidden></canvas></section>
+<section class="tool-panel" aria-labelledby="saved-teams-title"><h2 id="saved-teams-title">保存した編成</h2><p>この端末に最大10件保存します。</p><div id="saved-team-list" class="saved-team-list"></div></section>
+<section class="tool-panel prose-page" aria-labelledby="team-help-title"><h2 id="team-help-title">編成メーカーの使い方</h2><ol class="number-list"><li>15枠から空き枠を選び、進化段階を指定してタタを配置します。</li><li>通常・Zombie Rush・道場などのモードを選ぶと、既存Tierの分布と役割構成を確認できます。</li><li>端末内へ保存するか、hash形式の共有URL・画像・テキストを作成できます。</li><li>判断に迷った場合は、内容を確認・編集してから質問掲示板へ投稿できます。自動投稿はしません。</li></ol><p>共有URLにはfamily ID・進化段階・配置・モードだけを含みます。編成内容を当サイトのサーバーやAnalyticsへ送信しません。</p></section>
+</div></main><footer><div class="wrap footer-inner"><div><strong>モンサバ攻略DB</strong><span>モンスターサバイバル 非公式攻略サイト</span></div><div class="footer-side"><nav class="footer-links" aria-label="サイト情報"><a href="/attribute/">属性別</a><a href="/guides/">攻略ハブ</a><a href="/compare/">タタ比較</a><a href="/my-monsaba/">マイモンサバ</a><a href="/team-builder/">編成メーカー</a><a href="/faq/">FAQ</a><a href="/about/">サイトについて</a><a href="/about-data/">データ方針</a><a href="/updates/">更新履歴</a><a href="/privacy/">プライバシー</a><a href="/friends/">フレンド掲示板</a><a href="/board/">質問掲示板</a></nav><p class="footer-contact">お問い合わせ・ご連絡は <a href="https://x.com/odi_monsaba" target="_blank" rel="noopener noreferrer">おぢ（@odi_monsaba）X</a> まで。フォローもよろしくお願いします。</p><div class="footer-meta"></div></div></div></footer>
+<dialog id="team-picker-dialog" class="team-dialog"><div class="team-dialog-inner"><div class="team-dialog-head"><div><h2>配置するタタを選択</h2><p id="team-picker-slot-label">選択中の枠</p></div><button id="team-picker-close" class="team-dialog-close" type="button" aria-label="閉じる">×</button></div><div class="tool-toolbar"><label class="grow">タタ検索<input id="team-picker-search" type="search" autocomplete="off" placeholder="進化名・系統名・旧表記"></label></div><div id="team-picker-list" class="team-picker-list"></div></div></dialog>
+<script src="/family-display.js?v=fc50e7dbafb2"></script><script src="/site.js?v=fc50e7dbafb2"></script><script type="module" src="/team-builder/team-builder.js?v=fc50e7dbafb2"></script><script src="/monetization.js?v=fc50e7dbafb2" defer></script><script src="/growth.js?v=fc50e7dbafb2" defer></script></body></html>

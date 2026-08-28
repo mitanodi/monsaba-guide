@@ -1,7 +1,7 @@
 # A8広告配置監査
 
 生成元: `data/monetization.json` / `data/affiliate-offers.json`
-対象: 公開HTML 112ページ（404を含む）
+対象: 公開HTML 114ページ（404を含む）
 監査日: 2026-08-28
 
 ## Before
@@ -41,6 +41,7 @@
 | https://monster-survival.com/friends/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/guides/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/items/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/my-monsaba/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/normal-guide/ | 1 | Ipsos iSay | 本文下部 | desktop / mobile | 表示 |
 | https://monster-survival.com/privacy/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/roles/ | 0 | — | — | — | 非表示 |
@@ -121,6 +122,7 @@
 | https://monster-survival.com/tata/yaminome/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/yanzaru/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/yotsubird/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/team-builder/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/updates/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/updates/2026-08-26/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/zombie-rush/ | 0 | — | — | — | 非表示 |
@@ -164,6 +166,7 @@
 | https://monster-survival.com/friends/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/guides/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/items/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/my-monsaba/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/normal-guide/ | 1 | Ipsos iSay | 本文下部 | desktop / mobile | 表示 |
 | https://monster-survival.com/privacy/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/roles/ | 0 | — | — | — | 非表示 |
@@ -244,6 +247,7 @@
 | https://monster-survival.com/tata/yaminome/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/yanzaru/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/yotsubird/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/team-builder/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/updates/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/updates/2026-08-26/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/zombie-rush/ | 0 | — | — | — | 非表示 |

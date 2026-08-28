@@ -29,7 +29,12 @@
       "board_quick_question_open",
       "board_question_example_use",
       "board_reply_open",
-      "board_reply_submit"
+      "board_reply_submit",
+      "my_roster_update",
+      "team_builder_open",
+      "team_builder_save",
+      "team_builder_share",
+      "team_builder_export_image"
     ]
   },
   "experiments": {
