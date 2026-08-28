@@ -7,7 +7,7 @@ const {getFamilyDisplayName,getFamilyDisplayLabel,getFamilySearchAliases}=MONSAB
 let searchEventTimer;
 
 async function boot(){
-  const res=await fetch('./data/tatari.json',{cache:'no-store'});
+  const res=await fetch('/data/tatari.json',{cache:'no-store'});
   if(!res.ok) throw new Error(`data load ${res.status}`);
   const data=await res.json(); state.families=data.families||[]; state.meta=data.meta||{};
   const params=new URLSearchParams(location.search);

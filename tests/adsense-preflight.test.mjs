@@ -19,7 +19,9 @@ function readWithRetry(file, encoding) {
 }
 const read = (file) => readWithRetry(path.join(root, file), 'utf8');
 const json = (file) => JSON.parse(read(file));
-const ignored = new Set(['.git', '.vercel', 'node_modules', 'assets', 'data', 'scripts', 'promo']);
+// Existing A8 placement density is defined against the Japanese source pages.
+// Localized pages mirror those placements and must not be counted as new slots.
+const ignored = new Set(['.git', '.vercel', 'node_modules', 'assets', 'data', 'scripts', 'promo', 'en', 'zh-cn', 'i18n']);
 
 function walk(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {

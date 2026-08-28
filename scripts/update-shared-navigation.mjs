@@ -3,7 +3,7 @@ import path from 'node:path';
 import { renderHeader } from './shared-layout.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
-const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'promo']);
+const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'promo', 'en', 'zh-cn']);
 const files = [];
 const retrySignal = new Int32Array(new SharedArrayBuffer(4));
 function read(file) { for (let attempt = 0; attempt < 12; attempt += 1) { try { return fs.readFileSync(file, 'utf8'); } catch (error) { if (!['EBUSY', 'EPERM'].includes(error.code) || attempt === 11) throw error; Atomics.wait(retrySignal, 0, 0, 40 * (attempt + 1)); } } }

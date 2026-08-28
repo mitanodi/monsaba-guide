@@ -4,7 +4,7 @@ import { formatJapanDateTime } from './site-config.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const freshness = JSON.parse(fs.readFileSync(path.join(root, 'data', 'page-freshness.json'), 'utf8'));
-const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'assets', 'data', 'scripts', 'promo']);
+const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'assets', 'data', 'scripts', 'promo', 'en', 'zh-cn', 'i18n']);
 const matches = (pattern, route) => pattern.endsWith('*') ? route.startsWith(pattern.slice(0, -1)) : route === pattern;
 const toRoute = (file) => {
   const relative = path.relative(root, file).replaceAll('\\', '/');

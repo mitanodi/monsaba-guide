@@ -1,0 +1,18 @@
+{
+  "board": {
+    "en": "User questions, answers and replies are displayed in their original language and are not sent to an external translation service.",
+    "zh-CN": "用户的问题、回答与回复均按原文显示，不会发送到外部翻译服务。"
+  },
+  "friends": {
+    "en": "Friend posts are shared across all language pages and displayed in their original language.",
+    "zh-CN": "好友招募内容在所有语言页面共用，并按原文显示。"
+  },
+  "privacy": {
+    "en": "This translation is provided for convenience. The Japanese version is the original policy text.",
+    "zh-CN": "本译文仅为方便阅读而提供，日文版为政策原文。"
+  },
+  "consult": {
+    "en": "This beta tool is not a generative-AI chatbot. It answers only from local JSON data stored on this site.",
+    "zh-CN": "此 beta 工具并非生成式 AI 聊天机器人，仅根据本站的本地 JSON 数据回答。"
+  }
+}

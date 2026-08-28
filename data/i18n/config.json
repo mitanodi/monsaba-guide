@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "sourceLocale": "ja",
+  "updated": "2026-08-29",
+  "locales": {
+    "ja": { "prefix": "", "htmlLang": "ja", "hreflang": "ja", "ogLocale": "ja_JP", "label": "日本語" },
+    "en": { "prefix": "/en", "htmlLang": "en", "hreflang": "en", "ogLocale": "en_US", "label": "English" },
+    "zh-CN": { "prefix": "/zh-cn", "htmlLang": "zh-CN", "hreflang": "zh-Hans", "ogLocale": "zh_CN", "label": "简体中文" }
+  },
+  "xDefault": "ja",
+  "preferenceKey": "monsabaLanguage:v1"
+}

@@ -139,3 +139,10 @@ footer{background:#27303b;color:#d0d5dd;padding:22px 0}.footer-inner{display:fle
 
 .community-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px}
 @media(max-width:700px){.community-actions{width:100%;justify-content:stretch}.community-actions>a{flex:1 1 180px}}
+
+/* Locale switcher: one compact control on desktop and a full-width row in the mobile menu. */
+.language-switcher{display:flex;align-items:center;gap:5px;margin-left:-8px}.language-switcher label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.language-switcher select{min-height:44px;max-width:104px;border:1px solid #cfd6df;border-radius:5px;background:#fff;color:#344054;padding:0 24px 0 8px;font-size:11px;font-weight:800;cursor:pointer}
+html[lang="en"] body,html[lang="zh-CN"] body{font-family:system-ui,-apple-system,"Segoe UI","Noto Sans","Noto Sans SC","Yu Gothic",Meiryo,sans-serif}
+@media(min-width:821px) and (max-width:1180px){.language-switcher select{max-width:82px;padding-left:6px}.site-header nav{gap:8px}}
+@media(max-width:820px){.language-switcher{grid-column:1/-1;display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:center;margin:5px 0 0;padding:7px 6px 2px;border-top:1px solid var(--line)}.language-switcher label{position:static;width:auto;height:auto;overflow:visible;clip-path:none;color:#667085;font-size:11px;font-weight:800}.language-switcher select{width:100%;max-width:none}.site-header.nav-open nav{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.i18n-locale-notice{margin-top:14px;margin-bottom:0;padding:10px 12px;border:1px solid #d7e1eb;border-radius:6px;background:#f8fbfe;color:#475467;font-size:12px}

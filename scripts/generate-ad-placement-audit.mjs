@@ -6,7 +6,7 @@ const root = path.resolve(import.meta.dirname, '..');
 const config = JSON.parse(fs.readFileSync(path.join(root, 'data', 'monetization.json'), 'utf8'));
 const offers = JSON.parse(fs.readFileSync(path.join(root, 'data', 'affiliate-offers.json'), 'utf8')).offers || [];
 const offerNames = new Map(offers.map((offer) => [offer.id, offer.name]));
-const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'assets', 'data', 'scripts', 'promo']);
+const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'assets', 'data', 'scripts', 'promo', 'en', 'zh-cn', 'i18n']);
 
 function walk(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {

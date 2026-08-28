@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "officialGameName": { "ja": "モンスターサバイバル", "en": "Clash of Critters", "zh-CN": "Clash of Critters" },
+  "terms": [
+    { "ja": "草属性", "en": "Grass", "zh-CN": "草属性" },
+    { "ja": "水属性", "en": "Water", "zh-CN": "水属性" },
+    { "ja": "火属性", "en": "Fire", "zh-CN": "火属性" },
+    { "ja": "雷属性", "en": "Thunder", "zh-CN": "雷属性" },
+    { "ja": "岩属性", "en": "Rock", "zh-CN": "岩属性" },
+    { "ja": "進化", "en": "Evolution", "zh-CN": "进化" },
+    { "ja": "進化優先度", "en": "Evolution Priority", "zh-CN": "进化优先级" },
+    { "ja": "タタ図鑑", "en": "Tatari Database", "zh-CN": "Tatari 图鉴" },
+    { "ja": "総合Tier", "en": "Overall Tier", "zh-CN": "综合 Tier" },
+    { "ja": "初心者", "en": "Beginner", "zh-CN": "新手" },
+    { "ja": "回復", "en": "Healing", "zh-CN": "治疗" },
+    { "ja": "タンク", "en": "Tank", "zh-CN": "坦克" },
+    { "ja": "麻痺", "en": "Paralysis", "zh-CN": "麻痹" },
+    { "ja": "スタン", "en": "Stun", "zh-CN": "眩晕" },
+    { "ja": "減速", "en": "Slow", "zh-CN": "减速" },
+    { "ja": "貫通", "en": "Piercing", "zh-CN": "穿透" },
+    { "ja": "範囲攻撃", "en": "Area Damage", "zh-CN": "范围伤害" },
+    { "ja": "バフ", "en": "Buff", "zh-CN": "增益" },
+    { "ja": "デバフ", "en": "Debuff", "zh-CN": "减益" }
+  ],
+  "policy": "Unverified Tatari, skill, zombie, item and event names remain in their verified source-language spelling."
+}

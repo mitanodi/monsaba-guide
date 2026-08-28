@@ -6,7 +6,7 @@ export const GA4_START_MARKER = '<!-- monsaba-ga4:start -->';
 export const GA4_END_MARKER = '<!-- monsaba-ga4:end -->';
 
 const root = path.resolve(import.meta.dirname, '..');
-const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'assets', 'data', 'scripts', 'promo']);
+const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'assets', 'data', 'scripts', 'promo', 'en', 'zh-cn', 'i18n']);
 const taggedBlockPattern = /(?:\r?\n)?<!-- monsaba-ga4:start -->[\s\S]*?<!-- monsaba-ga4:end -->(?:\r?\n)?/g;
 
 export const renderGa4Tag = () => `${GA4_START_MARKER}

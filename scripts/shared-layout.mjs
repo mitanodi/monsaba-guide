@@ -31,7 +31,8 @@ const currentNavHrefs = (route) => {
 export function renderGlobalNav(route = '/') {
   const current = currentNavHrefs(route);
   const labels = new Map([[0, 'タタ'], [3, '攻略'], [9, 'ツール'], [14, 'コミュニティ']]);
-  return `<nav id="global-navigation" aria-label="主要メニュー">${GLOBAL_NAV_ITEMS.map(({ href, label, className }, index) => `${labels.has(index) ? `<span class="mobile-nav-group-label">${labels.get(index)}</span>` : ''}<a href="${href}"${className ? ` class="${className}"` : ''}${current.has(href) ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</nav>`;
+  const languageSwitcher = '<div class="language-switcher"><label for="site-language">言語</label><select id="site-language" aria-label="表示言語"><option value="ja" selected>日本語</option><option value="en">English</option><option value="zh-CN">简体中文</option></select></div>';
+  return `<nav id="global-navigation" aria-label="主要メニュー">${GLOBAL_NAV_ITEMS.map(({ href, label, className }, index) => `${labels.has(index) ? `<span class="mobile-nav-group-label">${labels.get(index)}</span>` : ''}<a href="${href}"${className ? ` class="${className}"` : ''}${current.has(href) ? ' aria-current="page"' : ''}>${label}</a>`).join('')}${languageSwitcher}</nav>`;
 }
 
 export function renderHeader(route = '/') {

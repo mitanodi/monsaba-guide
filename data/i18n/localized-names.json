@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "policy": "Only names verified in official Farlight sources may be added. Unverified Tatari, skill, zombie, item and event names stay in their Japanese source spelling.",
+  "official": {
+    "game": {
+      "ja": "モンスターサバイバル",
+      "en": "Clash of Critters",
+      "source": "official",
+      "verified": true
+    }
+  },
+  "tatari": {},
+  "skills": {},
+  "zombies": {
+    "sandworm": { "sourceName": "サンドワームゾンビ", "verified": false },
+    "snow-fist": { "sourceName": "スノーフィストゾンビ", "verified": false },
+    "door": { "sourceName": "ドアゾンビ", "verified": false }
+  },
+  "unverifiedSourceTerms": ["ナムアミダイジャ"],
+  "items": {},
+  "events": {
+    "magic-farm": { "sourceName": "魔法の農場", "verified": false },
+    "magic-farm-remake": { "sourceName": "魔法の農場リメイク", "verified": false },
+    "surprise-roulette": { "sourceName": "サプライズルーレット", "verified": false }
+  }
+}

@@ -3,7 +3,7 @@ import path from 'node:path';
 
 const root = path.resolve(import.meta.dirname, '..');
 const assetVersion = '20260825-affiliate';
-const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'assets', 'data', 'scripts', 'promo']);
+const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'assets', 'data', 'scripts', 'promo', 'en', 'zh-cn', 'i18n']);
 function walk(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     if (ignored.has(entry.name)) return [];

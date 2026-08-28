@@ -12,7 +12,7 @@ if (from === to) throw new Error('--from と --to には異なるoriginを指定
 if (!dryRun && !args.has('--apply')) throw new Error('実変更には --apply が必要です。確認だけなら --dry-run を指定してください。');
 
 const extensions = new Set(['.html', '.xml', '.txt', '.mjs', '.js', '.webmanifest']);
-const ignored = new Set(['.git', '.vercel', 'node_modules', 'assets', 'data', 'promo']);
+const ignored = new Set(['.git', '.vercel', 'node_modules', 'assets', 'data', 'promo', 'en', 'zh-cn', 'i18n']);
 function walk(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     if (ignored.has(entry.name)) return [];

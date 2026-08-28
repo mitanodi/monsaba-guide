@@ -6,7 +6,7 @@ const japanToday = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Tokyo', ye
 const today = new Date(`${process.env.CONTENT_CURRENT_DATE || japanToday}T00:00:00Z`);
 const exceptions = JSON.parse(fs.readFileSync(path.join(root, 'data', 'stale-content-exceptions.json'), 'utf8'));
 const exempt = new Set((exceptions.exceptions || []).map((item) => item.path));
-const ignored = new Set(['.git', '.vercel', 'node_modules', 'promo']);
+const ignored = new Set(['.git', '.vercel', 'node_modules', 'promo', 'en', 'zh-cn', 'i18n']);
 const extensions = new Set(['.html', '.js', '.mjs', '.json', '.md']);
 const staleWords = /(実装予定|開始予定|明日実装|実装後に確認|実装後更新|メンテナンス予定)/;
 const datedSource = '(?:20\\d{2}[年\\/-])?(\\d{1,2})[月\\/-](\\d{1,2})日?';

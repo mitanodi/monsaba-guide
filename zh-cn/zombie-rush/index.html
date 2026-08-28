@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clash of Critters Zombie Rush 第 1 季 AI 预测层 |僵尸突袭策略</title>
+  <meta name="description" content="Clash of Critters 的《Zombie Rush》第 1 季策略。 8月25日保存的实战层、旧环境层、AI预测层的确认状态，并分别发布答案。" />
+  <meta name="theme-color" content="#2f6fb2" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://monster-survival.com/zh-cn/zombie-rush/"><link rel="alternate" hreflang="ja" href="https://monster-survival.com/zombie-rush/" data-i18n-alternate><link rel="alternate" hreflang="en" href="https://monster-survival.com/en/zombie-rush/" data-i18n-alternate><link rel="alternate" hreflang="zh-Hans" href="https://monster-survival.com/zh-cn/zombie-rush/" data-i18n-alternate><link rel="alternate" hreflang="x-default" href="https://monster-survival.com/zombie-rush/" data-i18n-alternate><meta property="og:locale:alternate" content="ja_JP" data-i18n-alternate><meta property="og:locale:alternate" content="en_US" data-i18n-alternate>
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Clash of Critters 攻略数据库" />
+  <meta property="og:title" content="Clash of Critters Zombie Rush 第 1 季 AI 预测层 |僵尸突袭策略" />
+  <meta property="og:description" content="Zombie Rush 第一季的实战确认状态、旧环境等级、保存的AI预测和答案单独发布。" />
+  <meta property="og:url" content="https://monster-survival.com/zh-cn/zombie-rush/" />
+  <meta property="og:image" content="https://monster-survival.com/assets/heroes/IMG_6941.webp" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://monster-survival.com/assets/heroes/IMG_6941.webp" />
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://monster-survival.com/zh-cn/zombie-rush/",
+      "url": "https://monster-survival.com/zh-cn/zombie-rush/",
+      "name": "Clash of Critters Zombie Rush 第 1 季 AI 预测层 |僵尸突袭策略",
+      "headline": "Clash of Critters Zombie Rush 第 1 季 AI 预测层 |僵尸突袭策略",
+      "description": "Clash of Critters 的《Zombie Rush》第 1 季策略。 8月25日保存的实战层、旧环境层、AI预测层的确认状态，并分别发布答案。",
+      "image": "https://monster-survival.com/assets/heroes/IMG_6941.webp",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://monster-survival.com/zh-cn/zombie-rush/"
+      },
+      "dateModified": "2026-08-28",
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Clash of Critters 攻略数据库",
+          "item": "https://monster-survival.com/zh-cn/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "僵尸冲刺策略"
+        }
+      ]
+    }
+  ]
+}</script>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="stylesheet" href="/styles.css?v=41b60e118b73" />
+  <link rel="stylesheet" href="/zombie-rush/prediction.css?v=41b60e118b73" />
+  <meta property="og:image:alt" content="Clash of Critters 僵尸冲锋策略|推荐的 Tata Tier/High Wave 形成页面图像" />
+<!-- monsaba-ga4:start -->
+<script data-monsaba-ga4="privacy">
+  (function protectPrivateSearchParameters() {
+    var privateSearch = {};
+    var privateKeys = ['q', 's', 'search', 'query', 'keyword'];
+    var currentUrl = new URL(window.location.href);
+    privateKeys.forEach(function removePrivateParameter(key) {
+      if (!currentUrl.searchParams.has(key)) return;
+      privateSearch[key] = currentUrl.searchParams.get(key) || '';
+      currentUrl.searchParams.delete(key);
+    });
+    Object.defineProperty(window, '__MONSABA_PRIVATE_SEARCH__', {
+      value: Object.freeze(privateSearch), enumerable: false, configurable: false
+    });
+    if (Object.keys(privateSearch).length) {
+      window.history.replaceState(window.history.state, '', currentUrl.pathname + currentUrl.search + currentUrl.hash);
+    }
+  })();
+</script>
+<script src="/i18n/zh-cn-runtime.js?v=41b60e118b73" defer></script><script src="/i18n-runtime.js?v=41b60e118b73" defer></script><script async src="https://www.googletagmanager.com/gtag/js?id=G-PTV8TYNYMR" data-monsaba-ga4="loader"></script>
+<script data-monsaba-ga4="config">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){window.dataLayer.push(arguments);}
+  window.gtag = window.gtag || gtag;
+  function monsabaSafeAnalyticsUrl(value) {
+    try {
+      var url = new URL(value, window.location.href);
+      return url.origin + url.pathname;
+    } catch (error) {
+      return '';
+    }
+  }
+  var monsabaPageLocation = monsabaSafeAnalyticsUrl(window.location.href);
+  var monsabaPageReferrer = document.referrer ? monsabaSafeAnalyticsUrl(document.referrer) : '';
+  window.gtag('js', new Date());
+  window.gtag('set', { page_location: monsabaPageLocation, page_referrer: monsabaPageReferrer });
+  window.gtag('config', 'G-PTV8TYNYMR', {
+    page_location: monsabaPageLocation,
+    page_referrer: monsabaPageReferrer,
+    anonymize_ip: true,
+    allow_google_signals: false,
+    allow_ad_personalization_signals: false
+  });
+</script>
+<!-- monsaba-ga4:end -->
+</head>
+<body data-locale="zh-CN"><a class="skip-link" href="#main-content">跳到正文</a>
+  <header class="site-header"><div class="wrap header-inner"><a class="brand" href="/zh-cn/" aria-label="Clash of Critters 攻略数据库 顶部"><span class="brand-main">Clash of Critters 攻略数据库</span><span class="brand-sub">非官方</span></a><nav id="global-navigation" aria-label="主导航"><span class="mobile-nav-group-label">Tatari</span><a href="/zh-cn/#tatari">Tatari 图鉴</a><a href="/zh-cn/tata-tier/">Tatari Tier 榜</a><a href="/zh-cn/evolution-priority/">进化优先级</a><span class="mobile-nav-group-label">攻略</span><a href="/zh-cn/guides/" class="desktop-only-nav-link" aria-current="page">攻略中心</a><a href="/zh-cn/normal-guide/" class="mobile-only-nav-link">普通关卡</a><a href="/zh-cn/zombie-rush/" class="mobile-only-nav-link" aria-current="page">Zombie Rush</a><a href="/zh-cn/boss-rally/" class="mobile-only-nav-link">Boss Rally</a><a href="/zh-cn/badge-dojo/" class="mobile-only-nav-link">Badge Dojo</a><a href="/zh-cn/events/">活动</a><span class="mobile-nav-group-label">工具</span><a href="/zh-cn/search/" class="mobile-only-nav-link">搜索</a><a href="/zh-cn/compare/">比较</a><a href="/zh-cn/consult/">攻略助手</a><a href="/zh-cn/my-monsaba/">我的 Monsaba</a><a href="/zh-cn/team-builder/" class="mobile-only-nav-link">阵容编辑器</a><span class="mobile-nav-group-label">社区</span><a href="/zh-cn/friends/">好友招募板</a><a href="/zh-cn/board/">问答板</a><a href="/zh-cn/beginner-guide/" class="mobile-only-nav-link">新手指南</a><div class="language-switcher"><label for="site-language">语言</label><select id="site-language" aria-label="显示语言"><option value="ja">日本語</option><option value="en">English</option><option value="zh-CN" selected>简体中文</option></select></div></nav></div></header>
+
+  <main id="main-content">
+    <section class="page-hero zombie-hero">
+      <div class="wrap">
+        <nav class="breadcrumbs" aria-label="面包屑"><a href="/zh-cn/">首页</a><span>›</span><span>僵尸冲刺策略</span></nav>
+        <div class="page-hero-layout">
+          <div class="family-page-head">
+            <div>
+              <span class="attribute">最后更新于2026年8月28日</span>
+              <h1>Zombie Rush 攻略与推荐 Tatari Tier</h1>
+              <p>在大浪中，不仅要有火力，而且不能杀掉先锋。</p>
+            </div>
+            <a class="ghost-button" href="#tier">查看等级表</a>
+          </div>
+          <figure class="hero-media hero-media-zombie">
+            <img src="/assets/heroes/IMG_6941.webp" width="1320" height="1667" alt="Zombie Rush 游戏画面" fetchpriority="high" decoding="async" srcset="/assets/heroes/responsive/IMG_6941-480.webp 480w, /assets/heroes/responsive/IMG_6941-768.webp 768w, /assets/heroes/IMG_6941.webp 1320w" sizes="(max-width: 820px) calc(100vw - 22px), 707px">
+          </figure>
+        </div>
+      </div>
+    </section>
+    <p class="wrap article-byline">管理/数据确认：<a href="/zh-cn/about/">おぢ</a></p>
+
+    <section class="wrap zombie-summary" aria-label="结论">
+      <div class="summary-box">
+        <strong>结论</strong>
+        <p>加厚先锋、恢复、CC，打造坚不可摧的形态，将主力火力延伸至Lv7。僵尸冲锋中第四进化光环无效，请根据自己的特殊技能和角色选择。</p>
+      </div>
+      <div class="summary-links">
+        <a href="#basic">策略的基础</a>
+        <a href="#danger">小心僵尸</a>
+        <a href="#prediction">第一季AI预测等级</a>
+        <a href="#purabi-denjika">プラビ系列对比ビリジカ系列</a>
+        <a href="/zh-cn/tata-tier/">总体Tatari等级</a>
+      </div>
+    </section>
+
+    <section class="wrap zombie-entry tier-entry">
+      <div>
+        <strong>总体Tatari等级</strong>
+        <p>如果您想查看训练优先级，包括除 Zombie Rush 之外的训练优先级，请单击此处。</p>
+      </div>
+      <a class="ghost-button compact-button" href="/zh-cn/tata-tier/">查看总体等级</a>
+    </section>
+
+    <section class="wrap zombie-entry consult-entry">
+      <div>
+        <strong>如果您对僵尸阵型感到困惑</strong>
+        <p>您可以从网站上的数据中查看Tata比较和Zombie Rush评价。</p>
+      </div>
+      <a class="ghost-button compact-button" href="/zh-cn/consult/">战略咨询中心</a>
+    </section>
+
+    <section class="wrap static-section zr-season-preview" aria-label="Zombie Rush 第 1 季实施状态">
+      <div class="alert-box"><strong>Zombie Rush 第一季已实施/确认实际战斗等级</strong><p>赛季系统、难度等级1至4、25轮、750体、排名、筹码、3小时的操作时间等已在官方公告中确认。在收集到足够的战斗数据之前，不会强制确定第 1 赛季的战斗等级。</p><div class="season-preview-actions"><a class="ghost-button compact-button" href="#prediction">查看保存的AI预测</a><a class="ghost-button compact-button" href="/zh-cn/updates/2026-08-26/">参见实施细节</a></div></div>
+    </section>
+
+    <section id="basic" class="wrap static-section">
+      <h2 class="page-h2">策略的基础</h2>
+      <div class="guide-grid">
+        <article class="guide-panel">
+          <h3>基础训练顺序</h3>
+          <ol class="number-list">
+            <li>3名先导者升至Lv7</li>
+            <li>主火力Lv7</li>
+            <li>恢复/支援Lv7</li>
+            <li>加强休息</li>
+          </ol>
+        </article>
+        <article class="guide-panel">
+          <h3>复活的概念</h3>
+          <ul class="plain-list">
+            <li>升级和复活使用相同的战斗点数。</li>
+            <li>在高浪中，如果开始反复击打，则很难恢复。</li>
+            <li>基本上，优先采用厚前锋、后追、CC的“不死”阵型。</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="formation-block formation-block-wide">
+        <div>
+          <h3>推荐阵型：3×3+1（左右划分）</h3>
+          <p>在“Zombie Rush”中，两个人共享六个水平行。基本规则是你负责一侧三排，不要打乱前锋、中卫、后卫的角色。然而，与其有一个固定的安排，不如考虑根据头目和特殊僵尸来移动它。</p>
+        </div>
+        <div class="battle-layout" aria-label="3×3+1左右划分队形图">
+          <div class="battle-direction"><span>敌方</span><span aria-hidden="true">↓</span></div>
+          <div class="battle-sides">
+            <div class="side-board self-side">
+              <div class="side-title">我的3行</div>
+              <div class="role-row"><b>前卫</b><span>坦克</span><span>坦克</span><span>坦克</span></div>
+              <div class="role-row"><b>崔</b><span>Firepower</span><span>CC</span><span>Firepower</span></div>
+              <div class="role-row"><b>后防护装置</b><span>Firepower</span><span>治疗</span><span>支持</span></div>
+              <div class="plus-one">+1:打击/支持</div>
+            </div>
+            <div class="split-line" aria-hidden="true"></div>
+            <div class="side-board partner-side">
+              <div class="side-title">伙伴的3行(左/右颠倒)</div>
+              <div class="role-row"><b>前卫</b><span>坦克</span><span>坦克</span><span>坦克</span></div>
+              <div class="role-row"><b>崔</b><span>Firepower</span><span>CC</span><span>Firepower</span></div>
+              <div class="role-row"><b>后防护装置</b><span>支持</span><span>治疗</span><span>Firepower</span></div>
+              <div class="plus-one">+1:打击/支持</div>
+            </div>
+          </div>
+          <div class="battle-direction rear"><span aria-hidden="true">↑</span><span>向后</span></div>
+          <p class="mobile-formation-note">在智能手机上，主要显示您身边的基本表单。另一边也有同样的想法，左右颠倒。</p>
+        </div>
+      </div>
+
+      <div class="notice-box">
+        <h3>当boss出现时，处理优先于形成。</h3>
+        <p>在高浪中，如果你留下一个boss，它会与下一个boss重叠，很容易无法一次性处理完。当boss出现时，即使暂时打破阵型，也要集中火力并快速击败它。目的并不是继续防守固定阵型。</p>
+      </div>
+
+      <div class="tech-block">
+        <div>
+          <h3>高波定位技术：高炉僵尸</h3>
+          <p>高炉丧尸射程较远，如果保持正常位置，不会上前处理，需要时间。暂时降低出现的车道Tatari并引导敌人前进。当他们上前时，回到原来的阵线，迅速集中攻击对付他们。</p>
+        </div>
+        <div class="shift-steps" aria-label="高炉僵尸引导程序">
+          <span>正常</span>
+          <span>降低线</span>
+          <span>敌人前进</span>
+          <span>返回线</span>
+        </div>
+      </div>
+
+      <article class="guide-panel priority-panel">
+        <h3>击杀数超过1000的编队中的训练优先级的示例</h3>
+        <p class="small-note">这是公共策略信息的高杀伤形成中介绍的一个例子。请根据你所拥有的、你的阵型、波浪情况来调整，而不是绝对的发展顺序。</p>
+        <ol class="priority-chain">
+          <li><a href="/zh-cn/tata/yanzaru/">サルタイセイ</a></li>
+          <li><a href="/zh-cn/tata/denjika/">マグネクス</a></li>
+          <li><a href="/zh-cn/tata/birimori/">ヴァンパルス</a></li>
+          <li><a href="/zh-cn/tata/korokon/">キツネビア</a></li>
+          <li><a href="/zh-cn/tata/umimi/">アクアリーナ</a></li>
+          <li><a href="/zh-cn/tata/biripiyo/">ビリビバシ</a></li>
+          <li>猫玉玛</li>
+          <li><a href="/zh-cn/tata/fureimuji/">バタブレイズ</a></li>
+          <li>冲浪警告</li>
+          <li><a href="/zh-cn/tata/shizukuchou/">ミストリア</a></li>
+          <li><a href="/zh-cn/tata/purabi/">アストラビット</a></li>
+        </ol>
+      </article>
+
+      <article class="guide-panel w31-panel">
+        <h3>W31:将スタピョン提升至Lv5的时机</h3>
+        <p>在高杀阵型示例中，当第31波的剩余时间约为20至16秒时，<a href="/zh-cn/tata/purabi/">アストラビット(プラビ系列)</a>参考攻略介绍了将该 Tatari 提升至 Lv.5 的打法。プラビ系的 Lv.5 强化是承受 Boss Rush 的重要环节。最佳时机会因环境和阵容而异，请仅作为参考。</p>
+      </article>
+    </section>
+
+    <section class="wrap static-section">
+      <div class="alert-box">
+        <strong>僵尸冲锋中第四进化属性光环无效</strong>
+        <p>由于是第四次进化，因此不会自动具有高等级，而是专注于Lv3/Lv5/Lv7技能和专门针对僵尸冲锋的基本性能。</p>
+      </div>
+    </section>
+
+    <section id="season-tier" class="wrap static-section">
+      <div class="section-head simple-head"><div><span class="visible-kicker">最新一季</span><h2>第一季实战段位</h2><p>仅对具有充分实战记录证据的菌株进行评判。它不会根据预测值自动确定。</p></div></div>
+      <div id="seasonActualRoot" class="tier-root"><div class="empty">目前，0/35菌株已被确定。我们目前正在检查多项战斗记录，包括难度、构成和击杀数。</div></div>
+    </section>
+
+    <section id="tier" class="wrap static-section">
+      <div class="section-head simple-head">
+        <div>
+          <h2>旧环境层</h2>
+          <p>参考公开的8个人和120个高性能阵型的统计，根据采用率重新安排了该站点的舞台。这不是官方排名。</p>
+        </div>
+      </div>
+      <p class="tier-season-warning"><strong>旧环境等级：</strong>这是第一赛季开始前整理的历史，不与第一赛季实战段位混在一起，保存下来供对比。</p>
+      <div id="tierRoot" class="tier-root" aria-live="polite"><div class="empty">正在加载层表...</div></div>
+      <details class="unrated-box">
+        <summary>查看未评估/信息收集Tatari</summary>
+        <div id="unratedList" class="unrated-list"></div>
+      </details>
+    </section>
+
+    <section id="prediction" class="wrap static-section prediction-section" aria-labelledby="prediction-title">
+      <div class="prediction-hero">
+        <div>
+          <div class="prediction-label-row"><span class="prediction-main-label">AI预测</span><span class="prediction-pre-label">实施前预测</span></div>
+          <h2 id="prediction-title">第一季AI预测等级</h2>
+          <p>这是8月25日通过35个专用技能和筹码调整创建的第1赛季等级，并保存为固定预测历史。</p>
+        </div>
+        <div class="prediction-date"><span>预测基准日期</span><strong>2026/8/25</strong></div>
+      </div>
+
+      <div class="prediction-disclaimer" role="note">
+        <strong>这不是官方等级或经过战斗确认的等级。</strong>
+        <p>这是根据截至2026年8月25日官方公布的数值、旧环境采用率、现有技能性能和芯片变化进行的提前预测。这不是官方级别。</p>
+        <p>预测本身不被重写，但实际层和结果在单独的字段中被管理并与实际结果进行比较。</p>
+      </div>
+
+      <section id="prediction-accuracy" class="prediction-accuracy-card" aria-labelledby="prediction-accuracy-title">
+        <header class="prediction-accuracy-head">
+          <div><span class="prediction-inline-label">确认实战数据</span><h3 id="prediction-accuracy-title">AI预测准确率</h3></div>
+          <p>答案与第一季实战等级匹配状态</p>
+        </header>
+        <div class="prediction-accuracy-grid">
+          <div class="prediction-accuracy-primary"><span>完美的准确性</span><strong id="predictionExactRate">0%</strong></div>
+          <div class="prediction-accuracy-metric"><span>±1层以内</span><strong id="predictionWithinOneRate">0%</strong></div>
+          <div class="prediction-accuracy-metric"><span>确定</span><strong id="predictionJudged">0 / 35</strong></div>
+          <div class="prediction-accuracy-metric"><span>状态</span><strong id="predictionAccuracyStatus">答案匹配之前</strong></div>
+        </div>
+        <p id="predictionAccuracyNote" class="prediction-accuracy-note">0%并不意味着所有预测都是错误的。由于第一季发布后我们尚未收集到足够的实战数据，因此正在等待判决。</p>
+      </section>
+
+      <nav class="prediction-jump" aria-label="AI预测层菜单">
+        <a href="#prediction-tiers">预测层</a>
+        <a href="#prediction-rankings">上升/下降TOP5</a>
+        <a href="#prediction-adoption">AI预测采用率</a>
+        <a href="#prediction-holds">评估待定</a>
+      </nav>
+
+      <div id="prediction-tiers">
+        <div id="predictionTierRoot" class="prediction-tier-root" aria-live="polite"><div class="empty">正在加载AI预测层...</div></div>
+      </div>
+
+      <section id="prediction-rankings" class="prediction-subsection">
+        <div class="prediction-subhead"><span class="prediction-inline-label">AI预测</span><h3>波动排名</h3></div>
+        <div class="prediction-ranking-grid">
+          <article class="prediction-ranking-card is-rise"><h4>大幅增长预测TOP5</h4><div id="predictionRiseRoot"></div></article>
+          <article class="prediction-ranking-card is-fall"><h4>大幅下滑预测TOP5</h4><div id="predictionFallRoot"></div></article>
+        </div>
+      </section>
+
+      <section id="prediction-adoption" class="prediction-subsection">
+        <div class="prediction-subhead"><span class="prediction-inline-label">非实际测量</span><h3>AI预测采用率</h3></div>
+        <p class="prediction-note">旧环境的采用率是基于策略形成的有限样本的值。 AI预测的采用率并非实测、统计或官方数据，而是实施前的预测范围。</p>
+        <div id="predictionAdoptionRoot" class="prediction-adoption-grid"></div>
+      </section>
+
+      <section class="prediction-subsection">
+        <div class="prediction-subhead"><span class="prediction-inline-label">预测依据</span><h3>芯片环境的变化</h3></div>
+        <p class="prediction-note">从官方公布的芯片变化来看，我们也考虑到了Tatari的相对评价，Tatari火力强劲，自带CC、治疗者、Lv3性能。</p>
+        <div id="predictionChipRoot"></div>
+      </section>
+
+      <section id="prediction-holds" class="prediction-subsection">
+        <div class="prediction-subhead"><span class="prediction-inline-label">需要实际测试</span><h3>AI评估待定</h3></div>
+        <div id="predictionHoldRoot" class="prediction-hold-grid"></div>
+      </section>
+    </section>
+
+    <section id="danger" class="wrap static-section">
+      <h2 class="page-h2">小心僵尸及对策</h2>
+      <div class="table-wrap">
+        <table class="zombie-table">
+          <thead><tr><th>僵尸</th><th>注意事项</th><th>措施</th></tr></thead>
+          <tbody>
+            <tr><th>矿工僵尸</th><td>潜入后方。小心后卫倒塌。</td><td>将先锋/CC留在后卫周围并立即处理任何逃脱的个体。</td></tr>
+            <tr><th>门僵尸</th><td>High resistance to long-range attacks.</td><td>涉及近距离战斗机的处理。</td></tr>
+            <tr><th>サンドワームゾンビ</th><td>向前拉后防护罩。</td><td>立即将被拉动的Tatari恢复到其原始位置。</td></tr>
+            <tr><th>スノーフィストゾンビ</th><td>完全冻结是危险的。</td><td>在它靠近之前用高火力+麻痹来阻止它。 ビリジカ 系列是候选产品。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="purabi-denjika" class="wrap static-section">
+      <h2 class="page-h2">プラビ系列对比ビリジカ系列</h2>
+      <div class="compare-cards">
+        <article class="choice-card">
+          <h3>プラビ系列(T2:スタピョン)</h3>
+          <ul class="plain-list"><li>治疗</li><li>增益</li><li>无敌</li><li>稳定生存</li></ul>
+          <p>对于那些想要为政党奠定基础的人。</p>
+        </article>
+        <article class="choice-card">
+          <h3>ビリジカ系列</h3>
+          <ul class="plain-list"><li>穿透</li><li>麻痹</li><li>批量处理</li><li>雪拳对策</li></ul>
+          <p>对于那些想要增加火力并忍住的人。</p>
+        </article>
+      </div>
+      <p class="conclusion-line">两者都是《Zombie Rush》中的SSS。首先填补缺失的角色。</p>
+    </section>
+
+    <section class="wrap static-section next-reading"><h2 class="page-h2">下一页</h2><div class="attribute-guide-nav"><a href="/zh-cn/tata-tier/">比较推荐Tatari</a><a href="/zh-cn/#tatari">查看个人Tatari</a><a href="/zh-cn/consult/?flow=content&amp;mode=zombieRush">战略咨询中心咨询</a></div></section>
+    <section class="wrap source-note">
+      <strong>参考及更新政策</strong>
+      <p>我们参考公共策略信息和高杀伤形成示例来组织该信息以及该站点上记录的数据。等级可能会因环境变化而改变。</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div><strong>Clash of Critters 攻略数据库</strong><span>Clash of Critters 非官方攻略站</span></div>
+      <div class="footer-side"><nav class="footer-links" aria-label="站点信息"><a href="/zh-cn/attribute/">按属性</a><a href="/zh-cn/guides/">攻略中心</a><a href="/zh-cn/compare/">Tatari 比较</a><a href="/zh-cn/my-monsaba/">我的 Monsaba</a><a href="/zh-cn/team-builder/">阵容编辑器</a><a href="/zh-cn/faq/">FAQ</a><a href="/zh-cn/about/">关于本站</a><a href="/zh-cn/about-data/">数据方针</a><a href="/zh-cn/updates/">更新记录</a><a href="/zh-cn/privacy/">隐私政策</a><a href="/zh-cn/friends/">好友招募板</a><a href="/zh-cn/board/">问答板</a></nav><p class="footer-contact">如需查询和沟通，请联系我们。 <a href="https://x.com/odi_monsaba" target="_blank" rel="noopener noreferrer">おぢ（@odi_monsaba）的 X</a> 。也欢迎关注我们。</p><div class="footer-meta">僵尸冲刺策略</div></div>
+    </div>
+  </footer>
+  <script src="/zombie-rush/zombie-rush.js?v=41b60e118b73" defer></script>
+  <script src="/family-display.js?v=41b60e118b73"></script><script src="/site.js?v=41b60e118b73"></script>
+<script src="/monetization.js?v=41b60e118b73" defer></script><script src="/growth.js?v=41b60e118b73" defer></script></body>
+</html>

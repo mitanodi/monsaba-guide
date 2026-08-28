@@ -17,7 +17,7 @@ const json = (file) => JSON.parse(read(file));
 const errors = [];
 const LEGACY_BASE_URL = 'https://monsaba-guide.vercel.app';
 const expect = (condition, message) => { if (!condition) errors.push(message); };
-const ignored = new Set(['.git', '.github', '.vercel', '.agents', 'node_modules', 'assets', 'promo']);
+const ignored = new Set(['.git', '.github', '.vercel', '.agents', 'node_modules', 'assets', 'promo', 'en', 'zh-cn', 'i18n']);
 const textExtensions = new Set(['.html', '.js', '.json', '.xml', '.txt', '.webmanifest']);
 const textFiles = [];
 function walk(directory) {

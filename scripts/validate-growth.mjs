@@ -12,7 +12,7 @@ const read = (file) => {
   }
 };
 const json = (file) => JSON.parse(read(file));
-const ignored = new Set(['.git', '.github', '.vercel', '.agents', 'node_modules', 'assets', 'data', 'scripts', 'promo']);
+const ignored = new Set(['.git', '.github', '.vercel', '.agents', 'node_modules', 'assets', 'data', 'scripts', 'promo', 'en', 'zh-cn']);
 function walk(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     if (ignored.has(entry.name)) return [];

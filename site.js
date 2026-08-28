@@ -14,8 +14,24 @@
   const nav = inner?.querySelector('nav');
   if (!header || !inner || !nav) return;
 
+  const locale = document.documentElement.lang === 'zh-CN' ? 'zh-CN' : document.documentElement.lang === 'en' ? 'en' : 'ja';
+  const ui = (source) => window.monsabaI18n?.translate(source) || source;
+  const languageSelect = nav.querySelector('#site-language');
+  if (languageSelect) {
+    languageSelect.value = locale;
+    languageSelect.addEventListener('change', () => {
+      const toLocale = languageSelect.value;
+      localStorage.setItem('monsabaLanguage:v1', toLocale);
+      const sourcePath = location.pathname.replace(/^\/(?:en|zh-cn)(?=\/)/, '') || '/';
+      const prefix = toLocale === 'en' ? '/en' : toLocale === 'zh-CN' ? '/zh-cn' : '';
+      const nextPath = sourcePath === '/' ? `${prefix}/` || '/' : `${prefix}${sourcePath}`;
+      if (typeof window.gtag === 'function') window.gtag('event', 'language_switch', { from_locale: locale, to_locale: toLocale });
+      location.assign(`${nextPath}${location.search}${location.hash}`);
+    });
+  }
+
   nav.id ||= 'global-navigation';
-  nav.setAttribute('aria-label', '主要メニュー');
+  nav.setAttribute('aria-label', ui('主要メニュー'));
 
   const path = location.pathname;
   const currentHref = path.startsWith('/tata/') ? '/#tatari'
@@ -37,14 +53,14 @@
   button.type = 'button';
   button.setAttribute('aria-expanded', 'false');
   button.setAttribute('aria-controls', nav.id);
-  button.setAttribute('aria-label', 'メニューを開く');
+  button.setAttribute('aria-label', ui('メニューを開く'));
   button.textContent = '☰';
   inner.insertBefore(button, nav);
 
   const closeMenu = ({ restoreFocus = false } = {}) => {
     header.classList.remove('nav-open');
     button.setAttribute('aria-expanded', 'false');
-    button.setAttribute('aria-label', 'メニューを開く');
+    button.setAttribute('aria-label', ui('メニューを開く'));
     if (restoreFocus) button.focus();
   };
 
@@ -52,7 +68,7 @@
     const willOpen = button.getAttribute('aria-expanded') !== 'true';
     header.classList.toggle('nav-open', willOpen);
     button.setAttribute('aria-expanded', String(willOpen));
-    button.setAttribute('aria-label', willOpen ? 'メニューを閉じる' : 'メニューを開く');
+    button.setAttribute('aria-label', ui(willOpen ? 'メニューを閉じる' : 'メニューを開く'));
     if (willOpen) nav.querySelector('a')?.focus();
   });
   nav.addEventListener('click', (event) => {
@@ -68,8 +84,8 @@
   const topButton = document.createElement('button');
   topButton.className = 'back-to-top';
   topButton.type = 'button';
-  topButton.textContent = '↑ 上へ';
-  topButton.setAttribute('aria-label', 'ページ上部へ戻る');
+  topButton.textContent = ui('↑ 上へ');
+  topButton.setAttribute('aria-label', ui('ページ上部へ戻る'));
   document.body.appendChild(topButton);
   const updateTopButton = () => topButton.classList.toggle('is-visible', window.scrollY > 600);
   window.addEventListener('scroll', updateTopButton, { passive: true });

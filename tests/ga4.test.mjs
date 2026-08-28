@@ -6,7 +6,16 @@ import test from 'node:test';
 const root = path.resolve(import.meta.dirname, '..');
 const measurementId = 'G-PTV8TYNYMR';
 const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'promo']);
-const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
+const retrySignal = new Int32Array(new SharedArrayBuffer(4));
+const read = (file) => {
+  for (let attempt = 0; attempt < 12; attempt += 1) {
+    try { return fs.readFileSync(path.join(root, file), 'utf8'); }
+    catch (error) {
+      if (!['EBUSY', 'EPERM'].includes(error.code) || attempt === 11) throw error;
+      Atomics.wait(retrySignal, 0, 0, 40 * (attempt + 1));
+    }
+  }
+};
 const json = (file) => JSON.parse(read(file));
 
 function walkHtml(directory = root) {

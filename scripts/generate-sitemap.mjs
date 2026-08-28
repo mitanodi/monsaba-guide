@@ -57,11 +57,17 @@ function dependenciesFor(route, htmlFile) {
 }
 const seasonOne = JSON.parse(readUtf8(path.join(root, 'data', 'zombie-rush', 'seasons', 'season-1.json')));
 const freshness = JSON.parse(readUtf8(path.join(root, 'data', 'page-freshness.json')));
+const i18n = JSON.parse(readUtf8(path.join(root, 'data', 'i18n', 'config.json')));
+const sourceRouteFor = (route) => route.replace(/^\/(?:en|zh-cn)(?=\/)/, '') || '/';
 function freshnessDate(route) {
   const key = Object.keys(freshness.routes || {}).find((item) => item === route || (item.endsWith('*') && route.startsWith(item.slice(0, -1))));
   return { ...freshness.default, ...(key ? freshness.routes[key] : {}) }.updated;
 }
-const explicitContentDate = (route) => ['/updates/', '/zombie-rush/', '/tata-tier/', '/updates/2026-08-26/'].includes(route) ? seasonOne.meta.noticeConfirmedDate : null;
+const explicitContentDate = (route) => {
+  const sourceRoute = sourceRouteFor(route);
+  if (route !== sourceRoute) return i18n.updated;
+  return ['/updates/', '/zombie-rush/', '/tata-tier/', '/updates/2026-08-26/'].includes(sourceRoute) ? seasonOne.meta.noticeConfirmedDate : null;
+};
 const tatari = JSON.parse(readUtf8(path.join(root, 'data', 'tatari.json')));
 const tataRoutes = (tatari.families || []).map((family) => `/tata/${family.id}/`);
 const preferred = ['/', '/beginner-guide/', '/friends/', '/search/', '/tata-tier/', '/evolution-priority/', '/consult/', '/zombie-rush/', '/boss-rally/', '/badge-dojo/', '/normal-guide/', '/updates/', '/updates/2026-08-26/', '/about/', '/about-data/', '/privacy/', '/attribute/grass/', '/attribute/water/', '/attribute/fire/', '/attribute/thunder/', '/attribute/rock/', ...tataRoutes];
@@ -71,9 +77,15 @@ const pages = walk(root)
   .map((file) => ({ file, route: routeFor(file) }))
   .filter(({ route }) => route !== '/attribute/earth/')
   .sort((a, b) => (rank.get(a.route) ?? 1000) - (rank.get(b.route) ?? 1000) || a.route.localeCompare(b.route));
-const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map(({ file: htmlFile, route }) => {
+const alternatesFor = (route) => {
+  const source = sourceRouteFor(route);
+  const localized = (prefix) => source === '/' ? `/${prefix}/` : `/${prefix}${source}`;
+  return [['ja', source], ['en', localized('en')], ['zh-Hans', localized('zh-cn')], ['x-default', source]];
+};
+const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${pages.map(({ file: htmlFile, route }) => {
   const lastmod = [...dependenciesFor(route, htmlFile).map(gitDate), explicitContentDate(route), freshnessDate(route)].filter(Boolean).sort().at(-1);
-  return `  <url><loc>${BASE_URL}${route}</loc><lastmod>${lastmod}</lastmod></url>`;
+  const alternates = alternatesFor(route).map(([lang, alternate]) => `<xhtml:link rel="alternate" hreflang="${lang}" href="${BASE_URL}${alternate}"/>`).join('');
+  return `  <url><loc>${BASE_URL}${route}</loc><lastmod>${lastmod}</lastmod>${alternates}</url>`;
 }).join('\n')}\n</urlset>\n`;
 const file = path.join(root, 'sitemap.xml');
 if (process.argv.includes('--check')) {
