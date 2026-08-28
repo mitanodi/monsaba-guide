@@ -28,6 +28,7 @@
     : path.startsWith('/compare/') ? '/compare/'
     : path.startsWith('/beginner-guide/') ? '/beginner-guide/'
     : path.startsWith('/friends/') ? '/friends/'
+    : path.startsWith('/board/') ? '/board/'
     : null;
   if (currentHref) nav.querySelector(`a[href="${currentHref}"]`)?.setAttribute('aria-current', 'page');
 

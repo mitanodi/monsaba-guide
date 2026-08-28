@@ -58,6 +58,25 @@ test('質問投稿・取得・検索・未回答フィルターが動く', async
   assert.equal((await service.listThreads({ query: 'T3', unanswered: true })).threads.length, 1);
 });
 
+test('質問本文だけで投稿でき、タイトルとカテゴリをサーバー側で補完する', async () => {
+  const { service } = serviceFixture();
+  const content = 'ヒマワリンとプラビならどっちを先に進化した方がいい？';
+  const created = await service.createThread({ content, website: '' }, '192.0.2.30');
+  assert.equal(created.thread.title, content.normalize('NFKC'));
+  assert.equal(created.thread.category, 'その他');
+  assert.equal(created.thread.name, '');
+  assert.equal(created.thread.context, '');
+});
+
+test('自動タイトルは改行を正規化して80文字以内に安全に収める', () => {
+  const content = `  ${'あ'.repeat(40)}\n${'い'.repeat(40)}  `;
+  const result = validateThreadBody({ content });
+  assert.equal(result.title.includes('\n'), false);
+  assert.ok([...result.title].length <= BOARD_CONFIG.maxTitleLength);
+  assert.ok(result.title.endsWith('…'));
+  assert.equal(result.category, 'その他');
+});
+
 test('回答投稿・取得で回答数と最新回答日時を更新する', async () => {
   const { service } = serviceFixture(); const question = await service.createThread(validThread, '192.0.2.2');
   const result = await service.createAnswer({ threadId: question.thread.id, content: '手持ちと必要星数も確認しましょう。', name: '回答者', website: '' }, '192.0.2.3');
@@ -65,12 +84,21 @@ test('回答投稿・取得で回答数と最新回答日時を更新する', as
   assert.equal(result.answer.content, '手持ちと必要星数も確認しましょう。'); assert.equal(loaded.thread.answerCount, 1); assert.equal(loaded.answers.length, 1); assert.ok(loaded.thread.latestAnswerAt);
 });
 
-test('空投稿、タイトル・本文・名前の上限超過を拒否する', () => {
-  assert.throws(() => validateThreadBody({ ...validThread, title: '' }), BoardError);
+test('空本文、タイトル・本文・名前の上限超過を拒否する', () => {
+  assert.throws(() => validateThreadBody({ ...validThread, title: '', content: '   ' }), BoardError);
   assert.throws(() => validateThreadBody({ ...validThread, title: 'あ'.repeat(81) }), /80文字以内/);
   assert.throws(() => validateThreadBody({ ...validThread, content: 'あ'.repeat(1601) }), /1600文字以内/);
   assert.throws(() => validateThreadBody({ ...validThread, name: 'あ'.repeat(31) }), /30文字以内/);
   assert.throws(() => validateAnswerBody({ threadId: 'x', content: 'あ'.repeat(1201), name: '' }), /1200文字以内/);
+});
+
+test('手入力タイトルと既存カテゴリを維持し、回答は本文だけで投稿できる', () => {
+  const legacy = validateThreadBody(validThread);
+  assert.equal(legacy.title, validThread.title);
+  assert.equal(legacy.category, '進化');
+  assert.deepEqual(validateAnswerBody({ threadId: 'existing-thread', content: '匿名で回答します。' }), {
+    threadId: 'existing-thread', content: '匿名で回答します。', name: ''
+  });
 });
 
 test('honeypotとHTML/XSS文字列を拒否し、UIはtextContentだけで表示する', () => {
@@ -147,6 +175,29 @@ test('掲示板はsitemapに本体だけ含み、導線・レスポンシブ条�
   assert.match(sitemap, /https:\/\/monster-survival\.com\/board\//); assert.doesNotMatch(sitemap, /\/board\/thread\//);
   assert.match(read('index.html'), /href="\/board\/"/); assert.match(read('consult/index.html'), /href="\/board\/"/); assert.match(read('scripts/shared-layout.mjs'), /href: '\/board\/'/);
   const css = read('board/board.css'); assert.match(css, /@media\(max-width:820px\)/); assert.match(css, /@media\(max-width:430px\)/); assert.match(css, /min-height:44px/); assert.doesNotMatch(css, /min-width:\s*[5-9]\d\dpx/);
+});
+
+test('簡易投稿UI、質問例、折りたたみ、PC・スマホ導線を備える', () => {
+  const main = read('board/index.html'); const thread = read('board/thread/index.html'); const client = read('board/board.js');
+  assert.match(main, /name="content" required maxlength="1600"/);
+  assert.match(main, /name="title" maxlength="80"/); assert.doesNotMatch(main, /name="title" required/);
+  assert.match(main, /name="category" type="hidden" value=""/); assert.doesNotMatch(main, /name="category"[^>]*required/);
+  assert.match(main, /id="board-question-details"/); assert.match(main, /data-board-example=/);
+  assert.match(main, /id="board-floating-question"/); assert.match(main, /id="board-unanswered-quick"/);
+  assert.match(thread, /id="board-open-answer"/); assert.match(thread, /id="board-answer-form" class="board-form" hidden/);
+  assert.match(client, /form\.elements\.content\.focus/); assert.match(client, /POSTED_THREAD_NOTICE_KEY/);
+  const shared = read('scripts/shared-layout.mjs');
+  assert.match(shared, /href: '\/board\/', label: '質問掲示板' \}/); assert.doesNotMatch(shared, /href: '\/board\/'[^\n]*mobile-only-nav-link/);
+  assert.match(read('site.js'), /path\.startsWith\('\/board\/'\) \? '\/board\/'/);
+  assert.match(read('board/board.css'), /site-header\.nav-open~\.board-floating-question/);
+});
+
+test('Board追加Analyticsは本文・タイトル・名前・投稿IDを送らない', () => {
+  const client = read('board/board.js'); const growth = read('growth.js'); const config = JSON.parse(read('data/growth-config.json'));
+  for (const event of ['board_quick_question_open', 'board_question_example_use']) {
+    assert.ok(growth.includes(`'${event}'`)); assert.ok(config.analytics.events.includes(event));
+  }
+  assert.doesNotMatch(client, /track\([^\n]*(title|content|name|thread_id|post_id|query|tata)/i);
 });
 
 test('friendsの分離、掲示板prefix、保持方針、管理ドキュメントを確認する', () => {

@@ -6,7 +6,19 @@ import '../family-display.js';
 const { getFamilyDisplayName, getFamilyDisplayLabel } = globalThis.MONSABA_FAMILY;
 
 const root = path.resolve(import.meta.dirname, '..');
-const readJson = (file) => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'));
+const retrySignal = new Int32Array(new SharedArrayBuffer(4));
+function withFileRetry(operation) {
+  for (let attempt = 0; attempt < 12; attempt++) {
+    try { return operation(); }
+    catch (error) {
+      if (!['EBUSY', 'EPERM'].includes(error.code) || attempt === 11) throw error;
+      Atomics.wait(retrySignal, 0, 0, 40 * (attempt + 1));
+    }
+  }
+}
+const readFile = (file, encoding) => withFileRetry(() => fs.readFileSync(file, encoding));
+const writeFile = (file, value) => withFileRetry(() => fs.writeFileSync(file, value));
+const readJson = (file) => JSON.parse(readFile(path.join(root, file), 'utf8'));
 const tatari = readJson('data/tatari.json');
 const skills = readJson('data/tata-skills.json');
 const ratings = readJson('data/tier-ratings.json');
@@ -19,10 +31,10 @@ const icon = (attribute) => ATTRIBUTE_META[attribute]?.icon || '';
 
 function replaceMarker(file, name, html) {
   const absolute = path.join(root, file);
-  const source = fs.readFileSync(absolute, 'utf8');
+  const source = readFile(absolute, 'utf8');
   const pattern = new RegExp(`(<!-- STATIC:${name}:START -->)[\\s\\S]*?(<!-- STATIC:${name}:END -->)`);
   if (!pattern.test(source)) throw new Error(`${file}: ${name} markerがありません`);
-  fs.writeFileSync(absolute, source.replace(pattern, `$1${html}$2`));
+  writeFile(absolute, source.replace(pattern, `$1${html}$2`));
 }
 
 function topCard(family) {

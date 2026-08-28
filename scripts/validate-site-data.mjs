@@ -179,8 +179,8 @@ expect(sharedLayout.includes("href: '/friends/', label: 'フレンド掲示板' 
 expect(sharedLayout.indexOf("href: '/consult/'") < sharedLayout.indexOf("href: '/friends/'") && sharedLayout.indexOf("href: '/friends/'") < sharedLayout.indexOf("href: '/search/'"), '共通ナビの攻略相談・フレンド掲示板・検索の並びが不正です');
 expect(sharedLayout.indexOf("href: '/guides/'") < sharedLayout.indexOf("href: '/compare/'") && sharedLayout.indexOf("href: '/compare/'") < sharedLayout.indexOf("href: '/consult/'"), '共通ナビの攻略ハブ・比較・相談の並びが不正です');
 const mobileGuideNavItems = [['/normal-guide/', '通常ステージ'], ['/zombie-rush/', 'ゾンビラッシュ'], ['/boss-rally/', 'ボスラリー'], ['/badge-dojo/', 'バッジ道場']];
-expect(sharedLayout.includes("href: '/guides/', label: '攻略ハブ', className: 'desktop-only-nav-link'") && mobileGuideNavItems.every(([href, label]) => sharedLayout.includes(`href: '${href}', label: '${label}', className: 'mobile-only-nav-link'`)) && (sharedLayout.match(/className: 'mobile-only-nav-link'/g) || []).length === 6, 'PC攻略ハブ・スマホ攻略リンク・質問掲示板の表示区分が不正です');
-expect(sharedLayout.includes("href: '/board/', label: '質問掲示板', className: 'mobile-only-nav-link'") && sharedLayout.includes("href: '/friends/', label: 'フレンド掲示板'"), 'コミュニティnavのPC・スマホ表示区分が不正です');
+expect(sharedLayout.includes("href: '/guides/', label: '攻略ハブ', className: 'desktop-only-nav-link'") && mobileGuideNavItems.every(([href, label]) => sharedLayout.includes(`href: '${href}', label: '${label}', className: 'mobile-only-nav-link'`)) && (sharedLayout.match(/className: 'mobile-only-nav-link'/g) || []).length === 5, 'PC攻略ハブ・スマホ攻略リンクの表示区分が不正です');
+expect(sharedLayout.includes("href: '/board/', label: '質問掲示板' })") && sharedLayout.includes("href: '/friends/', label: 'フレンド掲示板'"), 'コミュニティnavにフレンド掲示板・質問掲示板がありません');
 expect(read('site.js').includes("aria-current', 'page'"), 'aria-current 共通処理がありません');
 expect(read('site.js').includes('/_vercel/insights/script.js') && read('site.js').includes('/_vercel/speed-insights/script.js'), 'Vercel計測スクリプトが不足');
 expect(siteJs.includes("hostname === 'monster-survival.com'") && siteJs.includes("hostname.endsWith('.vercel.app')") && !siteJs.includes("hostname === 'localhost'"), 'Vercel計測対象hostが不正です');

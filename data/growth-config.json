@@ -23,7 +23,9 @@
       "board_answer_submit",
       "board_filter_use",
       "board_report",
-      "board_resolved"
+      "board_resolved",
+      "board_quick_question_open",
+      "board_question_example_use"
     ]
   },
   "experiments": {

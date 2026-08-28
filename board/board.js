@@ -1,6 +1,7 @@
 const API_URL = '/api/board';
 const THREAD_TOKENS_KEY = 'monsabaBoardThreadTokens:v1';
 const ANSWER_TOKENS_KEY = 'monsabaBoardAnswerTokens:v1';
+const POSTED_THREAD_NOTICE_KEY = 'monsabaBoardPostedThread:v1';
 
 export function characterCount(value) { return [...String(value || '')].length; }
 export function element(tag, className, text) {
@@ -74,6 +75,7 @@ function setupReportDialog() {
   const form = document.querySelector('#board-report-form');
   if (!dialog || !form) return () => {};
   const message = document.querySelector('#board-report-message');
+  dialog.addEventListener('close', () => document.body.classList.remove('board-dialog-open'));
   document.querySelector('[data-dialog-close]')?.addEventListener('click', () => dialog.close());
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -94,6 +96,7 @@ function setupReportDialog() {
     form.elements.targetType.value = targetType;
     form.elements.targetId.value = targetId;
     setMessage(message, '');
+    document.body.classList.add('board-dialog-open');
     dialog.showModal();
   };
 }
@@ -110,11 +113,13 @@ function bootList() {
   if (!list) return;
   const openButton = document.querySelector('#board-open-form');
   const closeButton = document.querySelector('#board-close-form');
+  const floatingButton = document.querySelector('#board-floating-question');
   const panel = document.querySelector('#board-question-panel');
   const form = document.querySelector('#board-question-form');
   const filterForm = document.querySelector('#board-filter-form');
   const more = document.querySelector('#board-more');
   const reload = document.querySelector('#board-reload');
+  const unansweredQuick = document.querySelector('#board-unanswered-quick');
   const listMessage = document.querySelector('#board-list-message');
   const formMessage = document.querySelector('#board-question-message');
   const openReport = setupReportDialog();
@@ -124,10 +129,43 @@ function bootList() {
   function toggleForm(show) {
     panel.hidden = !show;
     openButton.setAttribute('aria-expanded', String(show));
-    if (show) { panel.scrollIntoView({ behavior: 'smooth', block: 'start' }); form.elements.title.focus({ preventScroll: true }); }
+    if (floatingButton) floatingButton.hidden = show;
+    if (show) { panel.scrollIntoView({ behavior: 'smooth', block: 'start' }); form.elements.content.focus({ preventScroll: true }); }
   }
   openButton.addEventListener('click', () => toggleForm(panel.hidden));
+  floatingButton?.addEventListener('click', () => { track('board_quick_question_open', { source: 'floating_button' }); toggleForm(true); });
   closeButton.addEventListener('click', () => toggleForm(false));
+
+  const categoryInput = form.elements.category;
+  const categoryStatus = document.querySelector('#board-category-status');
+  const categoryButtons = [...form.querySelectorAll('[data-board-category]')];
+  const selectCategory = (value = '') => {
+    const selected = categoryInput.value === value ? '' : value;
+    categoryInput.value = selected;
+    categoryButtons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.boardCategory === selected)));
+    categoryStatus.textContent = selected ? `選択中：${selected}` : '未選択（その他として投稿）';
+  };
+  categoryButtons.forEach((button) => button.addEventListener('click', () => selectCategory(button.dataset.boardCategory)));
+  const categoryMore = document.querySelector('#board-category-more');
+  const categoryExtra = document.querySelector('#board-category-extra');
+  categoryMore?.addEventListener('click', () => {
+    const expanded = categoryMore.getAttribute('aria-expanded') !== 'true';
+    categoryMore.setAttribute('aria-expanded', String(expanded));
+    categoryMore.textContent = expanded ? 'カテゴリを閉じる' : 'ほかのカテゴリを見る';
+    categoryExtra.hidden = !expanded;
+  });
+  form.querySelectorAll('[data-board-example]').forEach((button) => button.addEventListener('click', () => {
+    form.elements.content.value = button.dataset.boardExample;
+    form.elements.content.dispatchEvent(new Event('input', { bubbles: true }));
+    form.elements.content.focus();
+    track('board_question_example_use', { source: 'preset' });
+  }));
+  form.addEventListener('focusin', (event) => {
+    if (event.target.matches('input,textarea,select')) document.body.classList.add('board-input-active');
+  });
+  form.addEventListener('focusout', () => setTimeout(() => {
+    if (!form.contains(document.activeElement)) document.body.classList.remove('board-input-active');
+  }, 0));
 
   function createThreadCard(thread) {
     const card = element('article', 'board-card');
@@ -182,6 +220,7 @@ function bootList() {
       const payload = await request(API_URL, jsonOptions({ action: 'create_thread', ...body }));
       threadTokens[payload.thread.id] = payload.deleteToken;
       saveTokens(THREAD_TOKENS_KEY, threadTokens);
+      try { sessionStorage.setItem(POSTED_THREAD_NOTICE_KEY, payload.thread.id); } catch { /* 投稿は完了済み */ }
       track('board_question_submit', { category: payload.thread.category });
       location.assign(`/board/thread/?id=${encodeURIComponent(payload.thread.id)}`);
     } catch (error) { setMessage(formMessage, error.message, true); submit.disabled = false; }
@@ -192,6 +231,14 @@ function bootList() {
     track('board_filter_use', { category: data.get('category') || 'all', sort: data.get('sort') || 'new', unanswered: Boolean(data.get('unanswered')) });
     load({ reset: true });
   });
+  unansweredQuick?.addEventListener('click', () => {
+    const checkbox = filterForm.elements.unanswered;
+    checkbox.checked = !checkbox.checked;
+    unansweredQuick.setAttribute('aria-pressed', String(checkbox.checked));
+    track('board_filter_use', { category: filterForm.elements.category.value || 'all', sort: filterForm.elements.sort.value || 'new', unanswered: checkbox.checked });
+    load({ reset: true });
+  });
+  filterForm.elements.unanswered.addEventListener('change', () => unansweredQuick?.setAttribute('aria-pressed', String(filterForm.elements.unanswered.checked)));
   reload.addEventListener('click', () => load({ reset: true }));
   more.addEventListener('click', () => load());
   setupCounters(form);
@@ -209,6 +256,7 @@ function bootThread() {
   const answers = document.querySelector('#board-answers');
   const more = document.querySelector('#board-answers-more');
   const answerForm = document.querySelector('#board-answer-form');
+  const openAnswer = document.querySelector('#board-open-answer');
   const answerMessage = document.querySelector('#board-answer-message');
   const openReport = setupReportDialog();
   let nextCursor = null;
@@ -262,7 +310,7 @@ function bootThread() {
   function renderAnswer(value) {
     const card = element('article', 'board-answer-card');
     const meta = element('div', 'board-meta');
-    meta.append(element('strong', '', value.name || '名前未設定'), timeNode(value.createdAt, '投稿日 '));
+    meta.append(element('strong', '', value.name || '匿名'), timeNode(value.createdAt, '投稿日 '));
     card.append(meta, element('p', 'board-answer-body', value.content), actionsFor('answer', value.id, card));
     return card;
   }
@@ -272,7 +320,15 @@ function bootThread() {
       const query = new URLSearchParams({ thread: id }); if (answersOnly && nextCursor) query.set('cursor', nextCursor);
       const payload = await request(`${API_URL}?${query}`);
       thread = payload.thread;
-      if (!answersOnly) { renderQuestion(thread); answers.replaceChildren(); answerSection.hidden = false; answerPanel.hidden = false; }
+      if (!answersOnly) {
+        renderQuestion(thread); answers.replaceChildren(); answerSection.hidden = false; answerPanel.hidden = false;
+        try {
+          if (sessionStorage.getItem(POSTED_THREAD_NOTICE_KEY) === thread.id) {
+            setMessage(message, '質問を投稿しました！ 回答が付くまであとで見返せるよう、この端末に質問情報を保存しました。');
+            sessionStorage.removeItem(POSTED_THREAD_NOTICE_KEY);
+          }
+        } catch { /* 表示は継続できる */ }
+      }
       payload.answers.forEach((answer) => answers.appendChild(renderAnswer(answer)));
       nextCursor = payload.nextCursor; more.hidden = !nextCursor;
       document.querySelector('#board-answer-summary').textContent = `${thread.answerCount}件の回答`;
@@ -291,6 +347,13 @@ function bootThread() {
       nextCursor = null; await loadThread();
     } catch (error) { setMessage(answerMessage, error.message, true); }
     finally { submit.disabled = false; }
+  });
+  openAnswer?.addEventListener('click', () => {
+    const show = answerForm.hidden;
+    answerForm.hidden = !show;
+    openAnswer.setAttribute('aria-expanded', String(show));
+    openAnswer.textContent = show ? '回答欄を閉じる' : '回答を書く';
+    if (show) answerForm.elements.content.focus();
   });
   more.addEventListener('click', () => loadThread({ answersOnly: true }));
   setupCounters(answerForm); track('board_view', { view: 'thread' }); loadThread();

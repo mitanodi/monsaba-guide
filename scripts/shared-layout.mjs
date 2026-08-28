@@ -11,7 +11,7 @@ export const GLOBAL_NAV_ITEMS = Object.freeze([
   Object.freeze({ href: '/compare/', label: '比較' }),
   Object.freeze({ href: '/consult/', label: '攻略相談' }),
   Object.freeze({ href: '/friends/', label: 'フレンド掲示板' }),
-  Object.freeze({ href: '/board/', label: '質問掲示板', className: 'mobile-only-nav-link' }),
+  Object.freeze({ href: '/board/', label: '質問掲示板' }),
   Object.freeze({ href: '/search/', label: '検索' }),
   Object.freeze({ href: '/beginner-guide/', label: '初心者ガイド', className: 'mobile-only-nav-link' })
 ]);

@@ -7,7 +7,17 @@ import test from 'node:test';
 import '../family-display.js';
 
 const root = path.resolve(import.meta.dirname, '..');
-const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
+const retrySignal = new Int32Array(new SharedArrayBuffer(4));
+function readWithRetry(file, encoding) {
+  for (let attempt = 0; attempt < 12; attempt++) {
+    try { return fs.readFileSync(file, encoding); }
+    catch (error) {
+      if (!['EBUSY', 'EPERM'].includes(error.code) || attempt === 11) throw error;
+      Atomics.wait(retrySignal, 0, 0, 40 * (attempt + 1));
+    }
+  }
+}
+const read = (file) => readWithRetry(path.join(root, file), 'utf8');
 const json = (file) => JSON.parse(read(file));
 const ignored = new Set(['.git', '.vercel', 'node_modules', 'assets', 'data', 'scripts', 'promo']);
 
@@ -123,14 +133,23 @@ test('full site generation is idempotent', { timeout: 120000 }, () => {
     for (const file of tracked) {
       const target = path.join(root, file);
       hash.update(file);
-      hash.update(fs.readFileSync(target));
+      hash.update(readWithRetry(target));
     }
     return hash.digest('hex');
   };
   const before = digest();
   const npmCli = process.env.npm_execpath;
   assert.ok(npmCli, 'npm executable path is unavailable');
-  execFileSync(process.execPath, [npmCli, 'run', 'generate:site'], { cwd: root, stdio: 'pipe', timeout: 110000 });
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      execFileSync(process.execPath, [npmCli, 'run', 'generate:site'], { cwd: root, stdio: 'pipe', timeout: 110000 });
+      break;
+    } catch (error) {
+      const output = `${error.stderr || ''}\n${error.stdout || ''}`;
+      if (!/EBUSY|EPERM/.test(output) || attempt === 2) throw error;
+      Atomics.wait(retrySignal, 0, 0, 200 * (attempt + 1));
+    }
+  }
   const after = digest();
   const changed = after === before ? '' : execFileSync('git', ['diff', '--name-only'], { cwd: root, encoding: 'utf8' }).trim();
   assert.equal(after, before, `generate:site changed tracked output; run generation and commit the result\n${changed}`);
