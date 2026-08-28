@@ -37,7 +37,8 @@
     "test:adsense": "node --test tests/adsense-preflight.test.mjs",
     "test:ga4": "node --test tests/ga4.test.mjs",
     "test:personal-tools": "node --test tests/personal-tools.test.mjs",
-    "test": "npm run test:friends && npm run test:board && npm run test:official-x && npm run test:family-display && npm run test:affiliate && npm run test:adsense && npm run test:ga4 && npm run test:personal-tools"
+    "test:treasure-hunt": "node --test tests/treasure-hunt.test.mjs",
+    "test": "npm run test:friends && npm run test:board && npm run test:official-x && npm run test:family-display && npm run test:affiliate && npm run test:adsense && npm run test:ga4 && npm run test:personal-tools && npm run test:treasure-hunt"
   },
   "dependencies": {
     "@upstash/redis": "^1.38.2"
