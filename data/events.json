@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updated": "2026-08-30",
+  "updated": "2026-08-31",
   "events": [
     {
       "id": "running-party",
@@ -69,15 +69,17 @@
       "verifiedAt": "2026-08-30"
     },
     {
-      "id": "card-album",
-      "name": "カードアルバム",
+      "id": "summer-party",
+      "name": "サマーパーティ",
       "status": "periodic",
-      "href": "/events/card-album/",
-      "summary": "1セット9枚。金カードは交換不可で、重複カードは星へ変換される周期イベント。",
-      "verificationStatus": "externally-confirmed",
-      "sourceType": "community",
-      "sourceUrl": "https://monster-survival.games-wiki.com/events/card-album",
-      "verifiedAt": "2026-08-30"
+      "href": "/events/summer-party/",
+      "summary": "15セット・135カード枠。カードパック、交換、スター、カードコレクションを進めるイベント。",
+      "verificationStatus": "verified",
+      "sourceType": "in_game",
+      "source": "ユーザー提供ゲーム内スクリーンショット",
+      "evidence": "23ページPDF",
+      "sourceStatus": "verified",
+      "verifiedAt": "2026-08-31"
     },
     {
       "id": "zombie-siege",

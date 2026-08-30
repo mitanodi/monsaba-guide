@@ -28,7 +28,7 @@ const alternateValue = (html, hreflang) => {
   return tag?.match(/\bhref=["']([^"']+)["']/i)?.[1] || '';
 };
 
-const requiredKeys = ['top', 'tata-tier', 'zombie-rush', 'team-builder', 'treasure-hunt', 'pakuma', 'zombie-rush-chips', 'evolution-trials', 'update-2026-08-30', 'gift-codes'];
+const requiredKeys = ['top', 'tata-tier', 'zombie-rush', 'team-builder', 'treasure-hunt', 'pakuma', 'zombie-rush-chips', 'evolution-trials', 'update-2026-08-30', 'gift-codes', 'summer-party'];
 if (config.pages.length !== requiredKeys.length || Object.keys(config.locales).length !== 3) errors.push(`OG card config must define ${requiredKeys.length} pages and 3 locales.`);
 for (const key of requiredKeys) if (!config.pages.some((page) => page.key === key)) errors.push(`OG card config is missing ${key}.`);
 

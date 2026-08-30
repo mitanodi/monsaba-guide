@@ -6,6 +6,21 @@
       "source": "/attribute/earth/",
       "destination": "/attribute/rock/",
       "permanent": true
+    },
+    {
+      "source": "/events/card-album/",
+      "destination": "/events/summer-party/",
+      "permanent": true
+    },
+    {
+      "source": "/en/events/card-album/",
+      "destination": "/en/events/summer-party/",
+      "permanent": true
+    },
+    {
+      "source": "/zh-cn/events/card-album/",
+      "destination": "/zh-cn/events/summer-party/",
+      "permanent": true
     }
   ],
   "headers": [

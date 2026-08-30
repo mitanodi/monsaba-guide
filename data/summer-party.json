@@ -1,0 +1,273 @@
+{
+  "version": 1,
+  "eventId": "summer-party",
+  "officialDisplayName": "サマーパーティ",
+  "seasonCheckedAt": "2026-08-31",
+  "sourceType": "in_game",
+  "source": "ユーザー提供ゲーム内スクリーンショット",
+  "evidence": "23ページPDF",
+  "sourceStatus": "verified",
+  "album": {
+    "setCount": 15,
+    "cardsPerSet": 9,
+    "totalSlots": 135,
+    "sets": [
+      {
+        "setId": "chi-shell",
+        "name": "チーシェルセット",
+        "completionReward": { "displayedAmounts": [300, 1], "itemNames": [null, null], "status": "item_names_pending" },
+        "cards": [
+          { "cardNo": 1, "name": "勇気がほしい", "stars": 1, "cardType": "white" },
+          { "cardNo": 2, "name": "ビンの中の秘密", "stars": 1, "cardType": "white" },
+          { "cardNo": 3, "name": "サニービーチ", "stars": 1, "cardType": "white" },
+          { "cardNo": 4, "name": "アイスに避難", "stars": 1, "cardType": "white" },
+          { "cardNo": 5, "name": "憧れのマイホーム", "stars": 1, "cardType": "white" },
+          { "cardNo": 6, "name": "飛んできたボール", "stars": 1, "cardType": "white" },
+          { "cardNo": 7, "name": "巨大広告", "stars": 1, "cardType": "white" },
+          { "cardNo": 8, "name": "勇気のジャンプ", "stars": 1, "cardType": "white" },
+          { "cardNo": 9, "name": "出航だ", "stars": 2, "cardType": "white" }
+        ]
+      },
+      {
+        "setId": "noromazu",
+        "name": "ノロマズセット",
+        "completionReward": { "displayedAmounts": [10, 1], "itemNames": [null, null], "status": "item_names_pending" },
+        "cards": [
+          { "cardNo": 10, "name": "処理落ち", "stars": 1, "cardType": "white" },
+          { "cardNo": 11, "name": "ニャリ", "stars": 1, "cardType": "white" },
+          { "cardNo": 12, "name": "メイク、どう？", "stars": 1, "cardType": "white" },
+          { "cardNo": 13, "name": "ノローマインド", "stars": 1, "cardType": "white" },
+          { "cardNo": 14, "name": "見事な食いつき", "stars": 1, "cardType": "white" },
+          { "cardNo": 15, "name": "ノロナマ波", "stars": 1, "cardType": "white" },
+          { "cardNo": 16, "name": "ヘルプミー", "stars": 1, "cardType": "white" },
+          { "cardNo": 17, "name": "スイカをガブリ", "stars": 2, "cardType": "white" },
+          { "cardNo": 18, "name": "波乗りノロニー", "stars": 2, "cardType": "white" }
+        ]
+      },
+      {
+        "setId": "madobuhi",
+        "name": "マドブヒセット",
+        "completionReward": { "displayedAmounts": [15, 1], "itemNames": [null, null], "status": "item_names_pending" },
+        "cards": [
+          { "cardNo": 19, "name": "泥沼で大はしゃぎ", "stars": 1, "cardType": "white" },
+          { "cardNo": 20, "name": "ブレーキが遅い", "stars": 1, "cardType": "white" },
+          { "cardNo": 21, "name": "スキンシップ", "stars": 1, "cardType": "white" },
+          { "cardNo": 22, "name": "日焼け対策", "stars": 1, "cardType": "white" },
+          { "cardNo": 23, "name": "海ではったり", "stars": 1, "cardType": "white" },
+          { "cardNo": 24, "name": "ココナッツ狩り", "stars": 2, "cardType": "white" },
+          { "cardNo": 25, "name": "泥沼でお風呂", "stars": 2, "cardType": "white" },
+          { "cardNo": 26, "name": "ひとりロック", "stars": 2, "cardType": "white" },
+          { "cardNo": 27, "name": "熱烈なファン", "stars": 2, "cardType": "white" }
+        ]
+      },
+      {
+        "setId": "biripiyo",
+        "name": "ビリピヨセット",
+        "completionReward": { "displayedAmounts": [5, 2], "itemNames": [null, null], "status": "item_names_pending" },
+        "cards": [
+          { "cardNo": 28, "name": "歌わないで", "stars": 1, "cardType": "white" },
+          { "cardNo": 29, "name": "豪快に呑み込む", "stars": 1, "cardType": "white" },
+          { "cardNo": 30, "name": "エレキボーカル", "stars": 1, "cardType": "white" },
+          { "cardNo": 31, "name": "オタカラ探し", "stars": 1, "cardType": "white" },
+          { "cardNo": 32, "name": "異物じゃない？", "stars": 1, "cardType": "white" },
+          { "cardNo": 33, "name": "鬼ごっこ", "stars": 2, "cardType": "white" },
+          { "cardNo": 34, "name": "ひそひそ話", "stars": 2, "cardType": "white" },
+          { "cardNo": 35, "name": "ポスターの表紙", "stars": 3, "cardType": "white" },
+          { "cardNo": 36, "name": "いてよ友達！", "stars": 3, "cardType": "white" }
+        ]
+      },
+      {
+        "setId": "namia-shika",
+        "name": "ナミアシカセット",
+        "completionReward": { "displayedAmounts": [500, 2], "itemNames": [null, null], "status": "item_names_pending" },
+        "cards": [
+          { "cardNo": 37, "name": "いっしょに避暑", "stars": 1, "cardType": "white" },
+          { "cardNo": 38, "name": "ひとり寝", "stars": 1, "cardType": "white" },
+          { "cardNo": 39, "name": "水中にライオン？", "stars": 1, "cardType": "white" },
+          { "cardNo": 40, "name": "浅瀬で背泳ぎ", "stars": 1, "cardType": "white" },
+          { "cardNo": 41, "name": "岩礁でひと休み", "stars": 2, "cardType": "white" },
+          { "cardNo": 42, "name": "みんなへとへと", "stars": 2, "cardType": "white" },
+          { "cardNo": 43, "name": "ママ、あれ買って", "stars": 2, "cardType": "white" },
+          { "cardNo": 44, "name": "ボールショー", "stars": 3, "cardType": "white" },
+          { "cardNo": 45, "name": "のんびりな夏", "stars": 3, "cardType": "white" }
+        ]
+      },
+      {
+        "setId": "birimo",
+        "name": "ビリモセット",
+        "completionReward": { "displayedAmounts": [20, 2], "itemNames": [null, null], "status": "item_names_pending" },
+        "cards": [
+          { "cardNo": 46, "name": "おっ、おばけー！", "stars": 1, "cardType": "white" },
+          { "cardNo": 47, "name": "高いの怖い", "stars": 1, "cardType": "white" },
+          { "cardNo": 48, "name": "洗濯物の夜干し", "stars": 1, "cardType": "white" },
+          { "cardNo": 49, "name": "絵画コレクター", "stars": 2, "cardType": "white" },
+          { "cardNo": 50, "name": "一緒にお買い物", "stars": 2, "cardType": "white" },
+          { "cardNo": 51, "name": "闇の支配者", "stars": 2, "cardType": "white" },
+          { "cardNo": 52, "name": "ケーキ作り", "stars": 3, "cardType": "white" },
+          { "cardNo": 53, "name": "紙工作", "stars": 3, "cardType": "white" },
+          { "cardNo": 54, "name": "闇の中でぐっすり", "stars": 3, "cardType": "white" }
+        ]
+      },
+      {
+        "setId": "beropaka",
+        "name": "ベロパカセット",
+        "completionReward": { "displayedAmounts": [700, 3], "itemNames": [null, null], "status": "item_names_pending" },
+        "cards": [
+          { "cardNo": 55, "name": "ぼーっとする時間", "stars": 1, "cardType": "white" },
+          { "cardNo": 56, "name": "オーリャ", "stars": 1, "cardType": "white" },
+          { "cardNo": 57, "name": "レコードに夢中", "stars": 2, "cardType": "white" },
+          { "cardNo": 58, "name": "音楽愛好会", "stars": 2, "cardType": "white" },
+          { "cardNo": 59, "name": "ビーチツーリング", "stars": 2, "cardType": "white" },
+          { "cardNo": 60, "name": "アロハパーティ", "stars": 3, "cardType": "white" },
+          { "cardNo": 61, "name": "新曲づくり", "stars": 3, "cardType": "white" },
+          { "cardNo": 62, "name": "友とドライブ", "stars": 3, "cardType": "white" },
+          { "cardNo": 63, "name": null, "stars": 4, "cardType": "white", "status": "pending" }
+        ]
+      },
+      {
+        "setId": "nemukurage",
+        "name": "ネムクラゲセット",
+        "completionReward": { "displayedAmounts": [30, 3], "itemNames": [null, null], "status": "item_names_pending" },
+        "cards": [
+          { "cardNo": 64, "name": "海でプカプカ", "stars": 1, "cardType": "white" },
+          { "cardNo": 65, "name": "泡でお昼寝", "stars": 1, "cardType": "white" },
+          { "cardNo": 66, "name": "ひとりのファンへ", "stars": 2, "cardType": "white" },
+          { "cardNo": 67, "name": "何味にする？", "stars": 2, "cardType": "white" },
+          { "cardNo": 68, "name": "浮遊体験", "stars": 2, "cardType": "white" },
+          { "cardNo": 69, "name": "アイスター", "stars": 3, "cardType": "white" },
+          { "cardNo": 70, "name": "突然のピンチ", "stars": 3, "cardType": "white" },
+          { "cardNo": 71, "name": "海底のたからもの", "stars": 4, "cardType": "white" },
+          { "cardNo": 72, "name": null, "stars": 4, "cardType": "gold", "status": "pending" }
+        ]
+      },
+      {
+        "setId": "himori",
+        "name": "ヒモリセット",
+        "completionReward": { "displayedAmounts": [900, 3], "itemNames": [null, null], "status": "item_names_pending" },
+        "cards": [
+          { "cardNo": 73, "name": "水風呂でひんやり", "stars": 1, "cardType": "white" },
+          { "cardNo": 74, "name": "かくれんぼ", "stars": 2, "cardType": "white" },
+          { "cardNo": 75, "name": "ホタルの散歩道", "stars": 2, "cardType": "white" },
+          { "cardNo": 76, "name": "セミ取り", "stars": 2, "cardType": "white" },
+          { "cardNo": 77, "name": "雨降る湖", "stars": 3, "cardType": "white" },
+          { "cardNo": 78, "name": "アイスをパクリ", "stars": 3, "cardType": "white" },
+          { "cardNo": 79, "name": "田んぼで水遊び", "stars": 3, "cardType": "white" },
+          { "cardNo": 80, "name": "昼下がりのそよ風", "stars": 4, "cardType": "white" },
+          { "cardNo": 81, "name": "涼しい夢", "stars": 4, "cardType": "gold" }
+        ]
+      },
+      {
+        "setId": "korokame",
+        "name": "コロカメセット",
+        "completionReward": { "displayedAmounts": [8, 4], "itemNames": [null, null], "status": "item_names_pending" },
+        "cards": [
+          { "cardNo": 82, "name": "海の向こう", "stars": 1, "cardType": "white" },
+          { "cardNo": 83, "name": "水泳の練習", "stars": 2, "cardType": "white" },
+          { "cardNo": 84, "name": "スイカを背負って", "stars": 2, "cardType": "white" },
+          { "cardNo": 85, "name": "ウサギとカメ", "stars": 3, "cardType": "white" },
+          { "cardNo": 86, "name": "木の下で雨宿り", "stars": 3, "cardType": "white" },
+          { "cardNo": 87, "name": "夕焼け小焼け", "stars": 3, "cardType": "white" },
+          { "cardNo": 88, "name": null, "stars": 4, "cardType": "gold", "status": "pending" },
+          { "cardNo": 89, "name": "岩に擬態", "stars": 4, "cardType": "white" },
+          { "cardNo": 90, "name": null, "stars": 5, "cardType": "white", "status": "pending" }
+        ]
+      },
+      {
+        "setId": "hiebi",
+        "name": "ヒエビセット",
+        "completionReward": { "displayedAmounts": [10, 4], "itemNames": [null, null], "status": "item_names_pending" },
+        "cards": [
+          { "cardNo": 91, "name": "試合前の追い込み", "stars": 2, "cardType": "white" },
+          { "cardNo": 92, "name": "ドリアンいかが？", "stars": 2, "cardType": "white" },
+          { "cardNo": 93, "name": "反応トレーニング", "stars": 3, "cardType": "white" },
+          { "cardNo": 94, "name": "全力スパイク", "stars": 3, "cardType": "white" },
+          { "cardNo": 95, "name": "瓦割り", "stars": 3, "cardType": "white" },
+          { "cardNo": 96, "name": null, "stars": 4, "cardType": "gold", "status": "pending" },
+          { "cardNo": 97, "name": "筋トレ仲間", "stars": 4, "cardType": "white" },
+          { "cardNo": 98, "name": null, "stars": 4, "cardType": "white", "status": "pending" },
+          { "cardNo": 99, "name": null, "stars": 5, "cardType": "gold", "status": "pending" }
+        ]
+      },
+      {
+        "setId": "mogurin",
+        "name": "モグリンセット",
+        "completionReward": { "displayedAmounts": [1200, 4], "itemNames": [null, null], "status": "item_names_pending" },
+        "cards": [
+          { "cardNo": 100, "name": "エースパイロット", "stars": 2, "cardType": "white" },
+          { "cardNo": 101, "name": "地下工事", "stars": 2, "cardType": "white" },
+          { "cardNo": 102, "name": "洞窟暮らし", "stars": 3, "cardType": "white" },
+          { "cardNo": 103, "name": "強制外出", "stars": 3, "cardType": "white" },
+          { "cardNo": 104, "name": "ディスノート", "stars": 4, "cardType": "white" },
+          { "cardNo": 105, "name": null, "stars": 4, "cardType": "white", "status": "pending" },
+          { "cardNo": 106, "name": null, "stars": 4, "cardType": "gold", "status": "pending" },
+          { "cardNo": 107, "name": "盗み飲み", "stars": 5, "cardType": "white" },
+          { "cardNo": 108, "name": null, "stars": 5, "cardType": "gold", "status": "pending" }
+        ]
+      },
+      {
+        "setId": "yaminome",
+        "name": "ヤミノメセット",
+        "completionReward": { "displayedAmounts": [50, 5], "itemNames": [null, null], "status": "item_names_pending" },
+        "cards": [
+          { "cardNo": 109, "name": "大切にお世話", "stars": 2, "cardType": "white" },
+          { "cardNo": 110, "name": "甘い誘惑", "stars": 3, "cardType": "white" },
+          { "cardNo": 111, "name": "虹との出会い", "stars": 4, "cardType": "gold" },
+          { "cardNo": 112, "name": null, "stars": 4, "cardType": "white", "status": "pending" },
+          { "cardNo": 113, "name": null, "stars": 4, "cardType": "gold", "status": "pending" },
+          { "cardNo": 114, "name": null, "stars": 4, "cardType": "white", "status": "pending" },
+          { "cardNo": 115, "name": null, "stars": 5, "cardType": "white", "status": "pending" },
+          { "cardNo": 116, "name": null, "stars": 5, "cardType": "white", "status": "pending" },
+          { "cardNo": 117, "name": null, "stars": 5, "cardType": "gold", "status": "pending" }
+        ]
+      },
+      {
+        "setId": "tsuyokani",
+        "name": "ツヨカニセット",
+        "completionReward": { "displayedAmounts": [15, 5], "itemNames": [null, null], "status": "item_names_pending" },
+        "cards": [
+          { "cardNo": 118, "name": "エコロジスト", "stars": 3, "cardType": "white" },
+          { "cardNo": 119, "name": "いい夢見よう", "stars": 3, "cardType": "white" },
+          { "cardNo": 120, "name": null, "stars": 4, "cardType": "white", "status": "pending" },
+          { "cardNo": 121, "name": null, "stars": 4, "cardType": "gold", "status": "pending" },
+          { "cardNo": 122, "name": "とったどー！", "stars": 4, "cardType": "white" },
+          { "cardNo": 123, "name": "ボディビル対決", "stars": 5, "cardType": "gold" },
+          { "cardNo": 124, "name": "ハサミ攻撃！", "stars": 5, "cardType": "white" },
+          { "cardNo": 125, "name": "釣りマスター", "stars": 5, "cardType": "gold" },
+          { "cardNo": 126, "name": "ビーチサロン", "stars": 5, "cardType": "white" }
+        ]
+      },
+      {
+        "setId": "marusshu",
+        "name": "マルッシュセット",
+        "completionReward": { "displayedAmounts": [10, 5], "itemNames": [null, null], "status": "item_names_pending" },
+        "cards": [
+          { "cardNo": 127, "name": "アイス落とした", "stars": 3, "cardType": "white" },
+          { "cardNo": 128, "name": "ゲリラ豪雨", "stars": 4, "cardType": "white" },
+          { "cardNo": 129, "name": "夢のような夏", "stars": 4, "cardType": "white" },
+          { "cardNo": 130, "name": null, "stars": 4, "cardType": "gold", "status": "pending" },
+          { "cardNo": 131, "name": "遺跡めぐり", "stars": 4, "cardType": "white" },
+          { "cardNo": 132, "name": null, "stars": 5, "cardType": "white", "status": "pending" },
+          { "cardNo": 133, "name": null, "stars": 5, "cardType": "gold", "status": "pending" },
+          { "cardNo": 134, "name": "キノコの儀式", "stars": 5, "cardType": "white" },
+          { "cardNo": 135, "name": "日焼け対策", "stars": 5, "cardType": "gold" }
+        ]
+      }
+    ]
+  },
+  "packs": [
+    { "id": "normal", "cardCount": 2, "guarantee": null, "probabilities": { "1_white": 50, "2_white": 31.5, "3_white": 15, "4_white": 2, "4_gold": 1, "5_white": 0.3, "5_gold": 0.2 } },
+    { "id": "advance", "cardCount": 3, "guarantee": null, "probabilities": { "1_white": 40, "2_white": 30, "3_white": 20, "4_white": 6, "4_gold": 2.2, "5_white": 1.2, "5_gold": 0.6 } },
+    { "id": "premium", "cardCount": 4, "guarantee": "one_3_star_or_higher", "probabilities": { "1_white": 15, "2_white": 22.5, "3_white": 37.5, "4_white": 11, "4_gold": 7.5, "5_white": 4, "5_gold": 2.5 } },
+    { "id": "deluxe", "cardCount": 5, "guarantee": "one_unowned_or_one_gold_if_all_owned", "probabilities": { "1_white": 15, "2_white": 22.5, "3_white": 37.5, "4_white": 11, "4_gold": 7.5, "5_white": 4, "5_gold": 2.5 } }
+  ],
+  "collection": {
+    "featureName": "カードコレクション",
+    "loaderName": "カードローダー",
+    "galleryName": "思い出ギャラリー",
+    "loaderPriceMarbles": 100,
+    "unusedLoadersCarryOver": true
+  },
+  "privacy": {
+    "excludedPersonalFields": ["overallProgress", "ownedCounts", "duplicateCounts", "remainingTimeAtCapture", "accountCurrency"]
+  }
+}

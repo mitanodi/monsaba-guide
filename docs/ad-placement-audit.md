@@ -31,12 +31,12 @@
 | https://monster-survival.com/compare/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/consult/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/events/ | 0 | — | — | — | 非表示 |
-| https://monster-survival.com/events/card-album/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/events/fishing-tournament/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/events/island-treasure/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/events/magic-farm/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/events/running-party/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/events/running-star/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/events/summer-party/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/events/surprise-roulette/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/events/treasure-hunt/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/events/zombie-siege/ | 0 | — | — | — | 非表示 |
@@ -169,12 +169,12 @@
 | https://monster-survival.com/compare/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/consult/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/events/ | 0 | — | — | — | 非表示 |
-| https://monster-survival.com/events/card-album/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/events/fishing-tournament/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/events/island-treasure/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/events/magic-farm/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/events/running-party/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/events/running-star/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/events/summer-party/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/events/surprise-roulette/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/events/treasure-hunt/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/events/zombie-siege/ | 0 | — | — | — | 非表示 |

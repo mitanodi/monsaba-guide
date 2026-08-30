@@ -51,12 +51,11 @@ const eventDetails = {
   'magic-farm': ['8月26日リメイク後', '現在は作物の総重量を競います。肥料で最大5倍の会心が発生し、招待したタタのボーナスがあります。旧来の収穫・餌やり中心の説明は旧仕様です。', '作物ごとの重量と現行報酬は確認待ちです。'],
   'fishing-tournament': ['海域・コイン・QTE', '対象海域で釣りを行い、金・銀コインとQTEを使って進行します。', '現行の魚一覧と報酬は確認待ちです。'],
   'treasure-hunt': ['4本の鍵と盤面拡張', '同じメンバーを再利用でき、盤面を開くたびにコストが5ずつ増えます。爆弾の扱いを含めて開ける順を考えます。', '独自ソルバーで候補手順を比較できます。'],
-  'card-album': ['1セット9枚', '金カードは交換できません。重複カードは星へ変換され、セット完成を目指します。', '配布枚数や開催ごとの報酬は確認待ちです。'],
   'zombie-siege': ['一時閉鎖中', '現在利用できないため、過去の遊び方は旧仕様としてのみ残します。', '再開後の仕様は公式告知とゲーム内画面で再確認します。'],
   'surprise-roulette': ['公式告知確認', '8月26日の公式更新で段階追加と手動レベルアップが案内されました。', '各段階の詳細数値はゲーム内確認待ちです。']
 };
 for (const event of events.events) {
-  if (event.id === 'treasure-hunt') continue;
+  if (event.id === 'treasure-hunt' || event.id === 'summer-party') continue;
   const [heading, current, pending] = eventDetails[event.id];
   const legacy = event.id === 'zombie-siege';
   write(`/events/${event.id}/`, shell({
@@ -130,7 +129,6 @@ const localizedEvents = {
     'magic-farm':['Magic Farm Guide','The post-August 26 version scores total crop weight, with fertilizer criticals and invited Tatari bonuses.','Current rules','Compete by total crop weight. Fertilizer can produce critical results up to 5×, and invited Tatari provide bonuses. Older harvest-and-feed descriptions are legacy rules.','Pending','Per-crop weights and current rewards need confirmation.'],
     'fishing-tournament':['Fishing Tournament Guide','A periodic event using fishing areas, gold and silver coins, and QTEs.','Current rules','Fish in the designated area and progress through coin use and QTEs.','Pending','The current fish list and rewards need confirmation.'],
     'treasure-hunt':['Treasure Hunt Guide','Use four keys, expanding boards, increasing costs and bombs to plan the opening order.','Current rules','The same member can be reused. Each board opening raises the cost by 5, and bombs affect the route.','Tool','Use the independent solver to compare candidate routes.'],
-    'card-album':['Card Album Guide','Complete nine-card sets; gold cards cannot be traded and duplicates become stars.','Current rules','Each set has nine cards. Gold cards cannot be traded, and duplicate cards convert to stars.','Pending','Distribution counts and event-specific rewards need confirmation.'],
     'zombie-siege':['Zombie Siege Guide','This event is temporarily closed, so older mechanics are kept only as legacy information.','Legacy rules','The mode is currently unavailable. Previous mechanics are not presented as current rules.','Pending','Recheck official notices and in-game screens after it returns.'],
     'surprise-roulette':['Surprise Roulette Guide','The August 26 official update announced added stages and manual level-up.','Official notice','The official update announced additional stages and manual level-up.','Pending','Detailed values for each stage need an in-game check.']
   },
@@ -141,13 +139,12 @@ const localizedEvents = {
     'magic-farm':['魔法农场攻略','8月26日改版后以作物总重量计分，并含肥料暴击与邀请塔塔加成。','当前规则','按作物总重量竞争。肥料最多可触发5倍暴击，邀请塔塔会提供加成；旧的收获与喂食说明属于旧规则。','待确认','各作物重量与当前奖励仍待确认。'],
     'fishing-tournament':['钓鱼大赛攻略','使用海域、金币、银币与QTE推进的周期活动。','当前规则','在指定海域钓鱼，并通过硬币与QTE推进。','待确认','当前鱼类一览与奖励仍待确认。'],
     'treasure-hunt':['寻宝攻略','结合4把钥匙、盘面扩张、费用递增与炸弹规划开启顺序。','当前规则','可重复使用同一成员；每次开启盘面费用增加5，炸弹会影响路线。','工具','可使用本站独立求解器比较候选路线。'],
-    'card-album':['卡片相册攻略','每套9张，金卡不可交换，重复卡会转换为星。','当前规则','每套包含9张卡。金卡不可交换，重复卡会转换为星。','待确认','发放数量与各期奖励仍待确认。'],
     'zombie-siege':['僵尸围城攻略','活动暂时关闭，因此旧玩法只作为历史信息保留。','旧规则','该模式当前不可用，过去玩法不会作为当前规则展示。','待确认','重新开放后需核对官方公告与游戏内画面。'],
     'surprise-roulette':['惊喜轮盘攻略','8月26日官方更新已公告新增阶段与手动升级。','官方公告','官方更新已公告新增阶段与手动升级。','待确认','各阶段详细数值仍需游戏内确认。']
   }
 };
 for (const locale of Object.keys(localeConfig)) for (const event of events.events) {
-  if (event.id === 'treasure-hunt') continue;
+  if (event.id === 'treasure-hunt' || event.id === 'summer-party') continue;
   const [title, description, currentLabel, current, pendingLabel, pending] = localizedEvents[locale][event.id];
   write(`${localeConfig[locale].prefix}/events/${event.id}/`, localizedShell(locale, { route: `/events/${event.id}/`, title, description, type: 'Article', body: `<article class="wrap static-section"><div class="event-status-grid"><article><h2>${currentLabel}</h2><p>${current}</p></article><article><h2>${pendingLabel}</h2><p>${pending}</p></article></div><h2 class="page-h2">Source</h2><p><a href="${esc(event.sourceUrl)}" target="_blank" rel="noopener noreferrer">Community strategy source</a>, checked Aug 30, 2026. This page is independently written and does not label community information as official.</p><a href="${localeConfig[locale].prefix}/events/">${locale === 'en' ? 'Back to events' : '返回活动攻略'}</a></article>` }));
 }

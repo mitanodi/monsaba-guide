@@ -330,6 +330,22 @@
       }
     },
     {
+      "key": "summer-party",
+      "accent": "#ef8d34",
+      "accentDark": "#a94f18",
+      "symbol": "135",
+      "routes": {
+        "ja": "/events/summer-party/",
+        "en": "/en/events/summer-party/",
+        "zh-CN": "/zh-cn/events/summer-party/"
+      },
+      "content": {
+        "ja": { "title": "サマーパーティ攻略", "description": "カード / パック / 交換 / 確率", "badge": "15セット・135カード枠", "ogTitle": "モンサバ サマーパーティ攻略｜カード・パック・交換・確率", "ogDescription": "ゲーム内一次証拠から、15セット、135カード枠、4パック、排出率、交換、スター、カードコレクションを解説。" },
+        "en": { "title": "Summer Party Guide", "description": "Album, packs, exchange and rates", "badge": "15 sets / 135 card slots", "ogTitle": "Clash of Critters Summer Party Guide", "ogDescription": "In-game verified guide to 15 sets, 135 card slots, four packs, pull rates, exchanges, Stars and Card Collection." },
+        "zh-CN": { "title": "夏日派对攻略", "description": "卡册、卡包、交换与概率", "badge": "15套 / 135个卡位", "ogTitle": "Clash of Critters 夏日派对攻略", "ogDescription": "依据游戏内第一手证据整理15套、135个卡位、4种卡包、概率、交换、星星与卡片收藏。" }
+      }
+    },
+    {
       "key": "gift-codes",
       "accent": "#d88b24",
       "accentDark": "#9a5c10",
