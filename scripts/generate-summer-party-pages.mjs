@@ -20,10 +20,11 @@ const locales = {
     title: 'モンサバ サマーパーティ攻略｜カードアルバム・パック確率・交換',
     h1: 'サマーパーティ攻略', subtitle: 'カードアルバム・カード交換・カードコレクション',
     description: 'モンサバのサマーパーティをゲーム内情報から解説。15セットのカードアルバム、カードパック、排出確率、カード交換、スター、カードコレクションの仕様を掲載。',
-    checked: '2026年8月31日ゲーム内確認', verified: 'ゲーム内確認済み', pending: '確認中',
+    checked: '2026年8月31日ゲーム内確認', verified: 'ゲーム内確認済み', pendingLabel: `カード名${pendingNames}件確認中`, skipLink: '本文へスキップ',
     setLabel: 'セット', cardLabel: 'カード枠', album: 'アルバム', collection: 'カードコレクション',
     informationModel: '用語と機能の整理', informationIntro: 'サマーパーティがイベント名です。アルバムはカードを集める機能、カードコレクションはお気に入りカードを装飾して展示する別機能です。',
-    albumRules: 'アルバムの基本ルール', packTypes: 'カードパック4種類', rates: 'カード排出確率',
+    albumRules: 'アルバムの基本ルール', packTypes: 'カードパック4種類', packStatLabel: 'カードパック種類', rates: 'カード排出確率',
+    albumComponents: 'カードセット・カードパック・交換・スター・セット報酬', collectionComponents: 'カードローダー・思い出ギャラリー・装飾カード',
     exchange: 'カード交換・プレゼント', sets: '15セット・135カード枠', setNote: 'カード名は日本語ゲーム画面で読めたものだけを掲載。未所持で名称が隠れていた枠は「未確認カード」としています。取得数やセット進捗は掲載していません。',
     reward: 'セット完成報酬', rewardPending: '画面上の表示数値', rewardCaution: 'アイテム名は画像だけで断定せず確認中',
     no: 'No.', name: 'カード名', rarity: 'レアリティ', type: '種別', white: '白カード', gold: '金カード', unknown: '未確認カード',
@@ -42,10 +43,11 @@ const locales = {
     title: 'Clash of Critters Summer Party Guide | Album, Pack Rates & Exchange',
     h1: 'Summer Party Guide', subtitle: 'Card Album, Card Exchange and Card Collection',
     description: 'A guide to the Summer Party event based on in-game evidence, covering 15 album sets, 135 card slots, four card packs, pull rates, exchange rules, Stars and Card Collection.',
-    checked: 'Verified in game on August 31, 2026', verified: 'Verified in game', pending: 'Pending',
+    checked: 'Verified in game on August 31, 2026', verified: 'Verified in game', pendingLabel: `${pendingNames} card names pending`, skipLink: 'Skip to content',
     setLabel: 'sets', cardLabel: 'card slots', album: 'Album', collection: 'Card Collection',
     informationModel: 'Event and feature names', informationIntro: 'Summer Party is the event. Album is the card-collecting feature. Card Collection is a separate feature for decorating favorite cards and displaying them in Memory Gallery.',
-    albumRules: 'Album rules', packTypes: 'Four card pack types', rates: 'Card pull rates',
+    albumRules: 'Album rules', packTypes: 'Four card pack types', packStatLabel: 'Card pack types', rates: 'Card pull rates',
+    albumComponents: 'Card sets · Card packs · Exchange · Stars · Set rewards', collectionComponents: 'Card Loader · Memory Gallery · Decorated cards',
     exchange: 'Card exchange and presents', sets: '15 sets and 135 card slots', setNote: 'Japanese card names are preserved only when visible in the supplied in-game screens. Hidden names remain pending. Account-specific duplicate counts and completion progress are excluded.',
     reward: 'Set completion reward', rewardPending: 'Numbers shown in game', rewardCaution: 'Item names remain pending rather than inferred from icons',
     no: 'No.', name: 'Card name', rarity: 'Rarity', type: 'Type', white: 'White card', gold: 'Gold card', unknown: 'Name pending',
@@ -64,10 +66,11 @@ const locales = {
     title: 'Clash of Critters 夏日派对攻略｜卡册、卡包概率与交换',
     h1: '夏日派对攻略', subtitle: '卡册、卡片交换与卡片收藏',
     description: '依据游戏内资料整理夏日派对：15套卡册、135个卡位、4种卡包、抽取概率、卡片交换、星星与卡片收藏。',
-    checked: '2026年8月31日游戏内确认', verified: '游戏内确认', pending: '待确认',
+    checked: '2026年8月31日游戏内确认', verified: '游戏内确认', pendingLabel: `${pendingNames} 个卡名待确认`, skipLink: '跳到正文',
     setLabel: '套', cardLabel: '个卡位', album: '卡册', collection: '卡片收藏',
     informationModel: '活动与功能名称', informationIntro: '夏日派对是活动名称；卡册是收集卡片的功能；卡片收藏则是装饰喜欢的卡片并展示到回忆画廊的另一项功能。',
-    albumRules: '卡册基本规则', packTypes: '4种卡包', rates: '卡片抽取概率',
+    albumRules: '卡册基本规则', packTypes: '4种卡包', packStatLabel: '卡包种类', rates: '卡片抽取概率',
+    albumComponents: 'Card sets · Card packs · Exchange · Stars · Set rewards', collectionComponents: 'Card Loader · Memory Gallery · Decorated cards',
     exchange: '卡片交换与赠送', sets: '15套、135个卡位', setNote: '仅保留资料画面中可读的日文卡名；未持有而隐藏名称的卡位标为待确认。账号重复数量与完成进度均已排除。',
     reward: '整套完成奖励', rewardPending: '游戏内显示数值', rewardCaution: '不根据图标猜测道具名称，名称待确认',
     no: '编号', name: '卡名', rarity: '星级', type: '类型', white: '白卡', gold: '金卡', unknown: '卡名待确认',
@@ -160,10 +163,10 @@ function renderSets(t) {
 
 function body(locale, t) {
   return `<article class="wrap static-section summer-party-guide">
-    <div class="trust-label-row"><span class="trust-label is-verified">${esc(t.verified)}</span><span class="trust-label is-pending">${pendingNames} ${esc(t.pending)}</span></div>
+    <div class="trust-label-row"><span class="trust-label is-verified">${esc(t.verified)}</span><span class="trust-label is-pending">${esc(t.pendingLabel)}</span></div>
 ${t.notOfficialLocale ? `<div class="alert-box"><p>${esc(t.notOfficialLocale)}</p></div>` : ''}
-    <div class="summer-stats"><article><strong>15</strong><span>${esc(t.setLabel)}</span></article><article><strong>9</strong><span>${esc(t.cardLabel)} / ${esc(t.setLabel)}</span></article><article><strong>135</strong><span>${esc(t.cardLabel)}</span></article><article><strong>4</strong><span>${esc(t.packTypes)}</span></article></div>
-    <section aria-labelledby="summer-structure"><h2 id="summer-structure" class="page-h2">${esc(t.informationModel)}</h2><p>${esc(t.informationIntro)}</p><div class="summer-structure"><article><h3>${esc(t.album)}</h3><p>Card sets · Card packs · Exchange · Stars · Set rewards</p></article><article><h3>${esc(t.collection)}</h3><p>Card Loader · Memory Gallery · Decorated cards</p></article></div></section>
+    <div class="summer-stats"><article><strong>15</strong><span>${esc(t.setLabel)}</span></article><article><strong>9</strong><span>${esc(t.cardLabel)} / ${esc(t.setLabel)}</span></article><article><strong>135</strong><span>${esc(t.cardLabel)}</span></article><article><strong>4</strong><span>${esc(t.packStatLabel)}</span></article></div>
+    <section aria-labelledby="summer-structure"><h2 id="summer-structure" class="page-h2">${esc(t.informationModel)}</h2><p>${esc(t.informationIntro)}</p><div class="summer-structure"><article><h3>${esc(t.album)}</h3><p>${esc(t.albumComponents)}</p></article><article><h3>${esc(t.collection)}</h3><p>${esc(t.collectionComponents)}</p></article></div></section>
     <section aria-labelledby="summer-album"><h2 id="summer-album" class="page-h2">${esc(t.albumRules)}</h2>${orderedList(albumRules[locale])}</section>
     <section aria-labelledby="summer-packs"><h2 id="summer-packs" class="page-h2">${esc(t.packTypes)}</h2>${renderPackCards(t)}</section>
     <section aria-labelledby="summer-rates"><h2 id="summer-rates" class="page-h2">${esc(t.rates)}</h2>${renderRates(t)}</section>
@@ -175,7 +178,7 @@ ${t.notOfficialLocale ? `<div class="alert-box"><p>${esc(t.notOfficialLocale)}</
 }
 
 function localizedLayout(locale, tag) {
-  const source = fs.readFileSync(path.join(root, locale === 'en' ? 'en/search/index.html' : 'zh-cn/search/index.html'), 'utf8');
+  const source = fs.readFileSync(path.join(root, locale === 'en' ? 'en/index.html' : 'zh-cn/index.html'), 'utf8');
   return (source.match(new RegExp(`<${tag}[\\s\\S]*?<\\/${tag}>`))?.[0] || '').replaceAll(' aria-current="page"', '');
 }
 
@@ -195,7 +198,7 @@ function shell(locale, t) {
   const footer = locale === 'ja' ? renderFooter(`${tatari.families.length}系統 / ${tatari.families.flatMap((family) => family.evolutions).length}体`) : localizedLayout(locale, 'footer');
   const breadcrumb = locale === 'ja' ? renderBreadcrumb(crumbs) : `<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="${t.prefix}/">${esc(t.home)}</a><span aria-hidden="true">›</span><a href="${t.prefix}/events/">${esc(t.events)}</a><span aria-hidden="true">›</span><span>${esc(t.h1)}</span></nav>`;
   const runtime = locale === 'ja' ? '' : `<script src="/i18n/${locale === 'en' ? 'en' : 'zh-cn'}-runtime.js?v=${assetVersion}" defer></script><script src="/i18n-runtime.js?v=${assetVersion}" defer></script>`;
-  return `<!doctype html><html lang="${t.lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${head}${alternates}${ogAlternates}<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/assets/aug30-update.css"><script type="application/ld+json">${safeJsonLd({ '@context': 'https://schema.org', '@graph': graph })}</script>${renderGa4Tag()}</head><body data-locale="${locale}" data-page-type="summer-party"><a class="skip-link" href="#main-content">${locale === 'ja' ? '本文へスキップ' : 'Skip to content'}</a>${header}<main id="main-content"><section class="page-hero"><div class="wrap">${breadcrumb}<div class="family-page-head"><div><span class="visible-kicker">${esc(t.checked)}</span><h1>${esc(t.h1)}</h1><p>${esc(t.subtitle)}</p></div></div></div></section>${body(locale, t)}</main>${footer}${runtime}<script src="/family-display.js"></script><script src="/site.js"></script><script src="/growth.js" defer></script></body></html>`;
+  return `<!doctype html><html lang="${t.lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${head}${alternates}${ogAlternates}<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/assets/aug30-update.css"><script type="application/ld+json">${safeJsonLd({ '@context': 'https://schema.org', '@graph': graph })}</script>${renderGa4Tag()}</head><body data-locale="${locale}" data-page-type="summer-party"><a class="skip-link" href="#main-content">${esc(t.skipLink)}</a>${header}<main id="main-content"><section class="page-hero"><div class="wrap">${breadcrumb}<div class="family-page-head"><div><span class="visible-kicker">${esc(t.checked)}</span><h1>${esc(t.h1)}</h1><p>${esc(t.subtitle)}</p></div></div></div></section>${body(locale, t)}</main>${footer}${runtime}<script src="/family-display.js"></script><script src="/site.js"></script><script src="/growth.js" defer></script></body></html>`;
 }
 
 for (const [locale, t] of Object.entries(locales)) {

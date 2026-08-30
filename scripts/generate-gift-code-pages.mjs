@@ -40,7 +40,9 @@ function renderPage(locale) {
 }
 for (const locale of Object.keys(locales)) {
   const directory = path.join(root, locales[locale].dir, 'gift-codes');
+  const html = renderPage(locale);
+  const localizedHtml = locale === 'zh-CN' ? html.replace('>Skip to content</a>', '>跳到正文</a>') : html;
   fs.mkdirSync(directory, { recursive:true });
-  fs.writeFileSync(path.join(directory, 'index.html'), renderPage(locale));
+  fs.writeFileSync(path.join(directory, 'index.html'), localizedHtml);
 }
 console.log(`Gift code pages generated: ${data.active.length} active / ${data.expired.length} expired / 3 locales`);

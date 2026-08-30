@@ -1,6 +1,14 @@
 {
   "version": 2,
   "updated": "2026-08-31",
+  "communityRotation": {
+    "sourceStatus": "externally_confirmed",
+    "cadenceLabel": "合計3日ごとの基本ローテーションというコミュニティ情報",
+    "sequence": ["fishing-tournament", "treasure-hunt", "running-party", "zombie-siege", "magic-farm"],
+    "notGuaranteedSchedule": true,
+    "caveats": ["ゾンビ包囲戦の閉鎖・改修", "魔法の農場のリメイク", "日本版と海外版の差"],
+    "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/4.html"
+  },
   "events": [
     {
       "id": "running-party",
@@ -11,7 +19,11 @@
       "verificationStatus": "externally-confirmed",
       "sourceType": "community",
       "sourceUrl": "https://monster-survival.games-wiki.com/events/running-party",
-      "verifiedAt": "2026-08-30"
+      "verifiedAt": "2026-08-31",
+      "sourceStatus": "externally_confirmed",
+      "communityAliases": ["Marathon Party"],
+      "needsHumanVerification": true,
+      "humanVerification": ["イベントTOP", "ヘルプ全文", "全倍率", "ルーレット全マス", "スノーボード説明", "距離報酬", "ランキング報酬", "チーム共有状況", "終了日時"]
     },
     {
       "id": "running-star",
@@ -22,7 +34,10 @@
       "verificationStatus": "externally-confirmed",
       "sourceType": "community",
       "sourceUrl": "https://monster-survival.games-wiki.com/events/running-star",
-      "verifiedAt": "2026-08-30"
+      "verifiedAt": "2026-08-31",
+      "sourceStatus": "externally_confirmed",
+      "communityAliases": ["Marathon Star"],
+      "needsHumanVerification": true
     },
     {
       "id": "island-treasure",
@@ -33,7 +48,19 @@
       "verificationStatus": "externally-confirmed",
       "sourceType": "community",
       "sourceUrl": "https://monster-survival.games-wiki.com/events/island-treasure",
-      "verifiedAt": "2026-08-30"
+      "verifiedAt": "2026-08-31",
+      "sourceStatus": "externally_confirmed",
+      "communityAliases": ["Island Goldrush", "Deepsea Dive"],
+      "needsHumanVerification": true,
+      "territoryValues": [
+        { "name": "小さな草地", "pointsPerHour": 60, "hp": 100 },
+        { "name": "普通の草地", "pointsPerHour": 180, "hp": 160 },
+        { "name": "大きな草地", "pointsPerHour": 360, "hp": 320 },
+        { "name": "金鉱", "pointsPerHour": 600, "hp": 540 },
+        { "name": "大きな金鉱", "pointsPerHour": 960, "hp": 760 },
+        { "name": "巨大な金鉱", "pointsPerHour": 1800, "hp": 1000 }
+      ],
+      "humanVerification": ["深海の秘宝ヘルプ", "現行報酬", "疲労・濃縮ドリンク", "3ラウンド報酬"]
     },
     {
       "id": "magic-farm",
@@ -44,7 +71,12 @@
       "verificationStatus": "externally-confirmed",
       "sourceType": "community",
       "sourceUrl": "https://monster-survival.games-wiki.com/events/magic-farm",
-      "verifiedAt": "2026-08-30"
+      "verifiedAt": "2026-08-31",
+      "sourceStatus": "externally_confirmed",
+      "communityAliases": ["Cozy Farm"],
+      "legacyRuleStatus": "legacy",
+      "needsHumanVerification": true,
+      "humanVerification": ["現行UI", "重量ボーナス", "マイルストーン"]
     },
     {
       "id": "fishing-tournament",
@@ -55,7 +87,11 @@
       "verificationStatus": "externally-confirmed",
       "sourceType": "community",
       "sourceUrl": "https://monster-survival.games-wiki.com/events/fishing-tournament",
-      "verifiedAt": "2026-08-30"
+      "verifiedAt": "2026-08-31",
+      "sourceStatus": "externally_confirmed",
+      "communityAliases": ["Fishing Contest"],
+      "needsHumanVerification": true,
+      "humanVerification": ["現行海域魚一覧", "現行ランキング報酬", "釣り竿解放"]
     },
     {
       "id": "treasure-hunt",
@@ -66,7 +102,11 @@
       "verificationStatus": "externally-confirmed",
       "sourceType": "community",
       "sourceUrl": "https://monster-survival.games-wiki.com/events/treasure-hunt",
-      "verifiedAt": "2026-08-30"
+      "verifiedAt": "2026-08-31",
+      "sourceStatus": "externally_confirmed",
+      "communityAliases": ["Treasure Hunt"],
+      "needsHumanVerification": true,
+      "humanVerification": ["イベントTOP", "日本版4人選択画面", "鍵と中央宝箱", "盤面拡張", "爆弾効果", "終了日時"]
     },
     {
       "id": "summer-party",
@@ -79,7 +119,9 @@
       "source": "ユーザー提供ゲーム内スクリーンショット",
       "evidence": "23ページPDF",
       "sourceStatus": "verified",
-      "verifiedAt": "2026-08-31"
+      "verifiedAt": "2026-08-31",
+      "communityAliases": ["Summer Party", "Summer Bash"],
+      "externalCrossCheck": ["15セット", "135カード", "Card Packs", "Star Shop", "Trading"]
     },
     {
       "id": "zombie-siege",
@@ -90,7 +132,12 @@
       "verificationStatus": "legacy",
       "sourceType": "community",
       "sourceUrl": "https://monster-survival.games-wiki.com/events/zombie-siege",
-      "verifiedAt": "2026-08-30"
+      "verifiedAt": "2026-08-31",
+      "sourceStatus": "legacy",
+      "communityAliases": ["Zobo Shooter"],
+      "overseasStatus": "japan_implementation_pending",
+      "needsHumanVerification": true,
+      "humanVerification": ["日本版の現在状態"]
     },
     {
       "id": "surprise-roulette",
@@ -101,7 +148,10 @@
       "verificationStatus": "externally-confirmed",
       "sourceType": "community",
       "sourceUrl": "https://monster-survival.games-wiki.com/events/surprise-roulette",
-      "verifiedAt": "2026-08-30"
+      "verifiedAt": "2026-08-31",
+      "sourceStatus": "externally_confirmed",
+      "needsHumanVerification": true,
+      "humanVerification": ["現行ヘルプ", "段階・報酬"]
     }
   ]
 }

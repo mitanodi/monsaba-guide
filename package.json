@@ -55,7 +55,8 @@
     "test:og": "node --test tests/og-cards.test.mjs",
     "test:gift-codes": "node --test tests/gift-codes.test.mjs",
     "test:summer-party": "node --test tests/summer-party.test.mjs",
-    "test": "npm run test:friends && npm run test:board && npm run test:official-x && npm run test:family-display && npm run test:affiliate && npm run test:adsense && npm run test:ga4 && npm run test:personal-tools && npm run test:treasure-hunt && npm run test:i18n && npm run test:pdf-evidence && npm run test:gift-codes && npm run test:summer-party && npm run test:og"
+    "test:event-research": "node --test tests/event-research.test.mjs",
+    "test": "npm run test:friends && npm run test:board && npm run test:official-x && npm run test:family-display && npm run test:affiliate && npm run test:adsense && npm run test:ga4 && npm run test:personal-tools && npm run test:treasure-hunt && npm run test:i18n && npm run test:pdf-evidence && npm run test:gift-codes && npm run test:summer-party && npm run test:event-research && npm run test:og"
   },
   "dependencies": {
     "@upstash/redis": "^1.38.2"

@@ -24,7 +24,7 @@ const fuzzyMatch = (query, value) => {
   return distance(query, candidate.slice(0, Math.max(query.length, candidate.length))) <= Math.max(1, Math.floor(query.length / 6));
 };
 const pages = [
-  { title:'サマーパーティ攻略', href:'/events/summer-party/', description:'15セット・135カード枠、パック確率、交換、スター、カードコレクション', keywords:'サマーパーティ カードアルバム アルバム カードコレクション カードローダー 思い出ギャラリー カード交換 カードパック カード 確率 summer party album card collection card loader memory gallery 夏日派对 卡册 卡包 卡片交换' },
+  { title:'サマーパーティ攻略', href:'/events/summer-party/', description:'15セット・135カード枠、パック確率、交換、スター、カードコレクション', keywords:'サマーパーティ カードアルバム アルバム カードコレクション カードローダー 思い出ギャラリー カード交換 カードパック カード 確率 summer party Summer Bash album card collection card loader memory gallery 夏日派对 卡册 卡包 卡片交换' },
   { title:'モンサバ 最新ギフトコード一覧', href:'/gift-codes/', description:'2026年8月30日時点のギフトコード8種と入力方法', keywords:'ギフトコード gift code 兑换码 openfestc26 openfestb26 openfesta26 welcome2026 GoonBug HelloTatari WeeklyGift WelcomeGift' },
   { title:'モンサバ初心者攻略', href:'/beginner-guide/', description:'最初にやること・おすすめタタ・育成順', keywords:'初心者 序盤 最初 はじめ 初めて t3 育成順' },
   { title:'タタ図鑑', href:'/#tatari', description:'64系統の進化・スキル一覧', keywords:'タタ 図鑑 一覧 進化 スキル' },
@@ -47,6 +47,13 @@ const pages = [
   { title:'進化条件・進化試練DB', href:'/evolution/', description:'T1からT4の進化差分と条件', keywords:'進化条件 進化試練 必要星数 t1 t2 t3 t4' },
   { title:'状態異常・役割別タタ', href:'/roles/', description:'麻痺・スタン・回復・タンクなどから探す', keywords:'麻痺 スタン 束縛 睡眠 減速 貫通 回復 タンク シールド バフ デバフ 範囲火力' },
   { title:'イベント攻略', href:'/events/', description:'オタカラ探し・魔法の農場・ルーレット', keywords:'イベント オタカラ 宝 魔法 農場 ルーレット' },
+  { title:'ランニングパーティ攻略', href:'/events/running-party/', description:'4人の距離共有・スノーボード・倍率', keywords:'ランニングパーティ Marathon Party スノーボード ルーレット 距離 倍率' },
+  { title:'ランニングスター攻略', href:'/events/running-star/', description:'1人用ランニングイベント', keywords:'ランニングスター Marathon Star ソロ 距離' },
+  { title:'アイランドトレジャー攻略', href:'/events/island-treasure/', description:'領地・エナジードリンク・時間ポイント', keywords:'アイランドトレジャー Island Goldrush Deepsea Dive 深海の秘宝 領地 貝殻 疲労 濃縮ドリンク' },
+  { title:'魔法の農場攻略', href:'/events/magic-farm/', description:'総重量・肥料・招待タタ', keywords:'魔法の農場 Cozy Farm 総重量 肥料 クリティカル 重量ボーナス' },
+  { title:'釣り大会攻略', href:'/events/fishing-tournament/', description:'海域・釣り竿・金銀コイン・倍率', keywords:'釣り大会 Fishing Contest 釣り竿 ゴールドサカナコイン シルバーサカナコイン まき餌 QTE' },
+  { title:'オタカラ探し攻略・確率ソルバー', href:'/events/treasure-hunt/', description:'鍵・爆弾・盤面拡張を考慮した探索', keywords:'オタカラ探し Treasure Hunt 鍵 爆弾 盤面 拡張 つるはし' },
+  { title:'ゾンビ包囲戦の現在状態', href:'/events/zombie-siege/', description:'日本版閉鎖・旧仕様・海外改修を分離', keywords:'ゾンビ包囲戦 Zobo Shooter Bullet Coin 一時閉鎖 legacy' },
   ...Object.entries(ATTRIBUTE_META).map(([attribute, meta]) => ({ title:`${attribute}属性攻略`, href:`/attribute/${meta.slug}/`, description:`${attribute}属性のタタと育成候補`, keywords:`${attribute}属性 属性` }))
 ];
 
