@@ -92,6 +92,16 @@ function inject(file, key, html) {
   fs.writeFileSync(target, `${source.trimEnd()}\n`);
 }
 
+function removeInjected(file, key) {
+  const target = path.join(root, file);
+  let source = fs.readFileSync(target, 'utf8');
+  const start = `<!-- AUG30:${key}:START -->`;
+  const end = `<!-- AUG30:${key}:END -->`;
+  const pattern = new RegExp(`\\s*${start}[\\s\\S]*?${end}`, 'g');
+  source = source.replace(pattern, '');
+  fs.writeFileSync(target, `${source.trimEnd()}\n`);
+}
+
 inject('zombie-rush/index.html', 'CHIPS', `<section class="wrap static-section"><h2 class="page-h2">Zombie Rushチップ</h2><p>ゲーム内で確認した49種を、Rank・効果分類・名称で検索できます。通常スキルとは別データです。</p><a class="button" href="/zombie-rush/chips/">チップ図鑑を開く</a></section>`);
 inject('evolution/index.html', 'TRIALS', `<section class="wrap static-section"><h2 class="page-h2">全${familyCount}系統の進化試練</h2><p>外部確認と確認待ちを分け、系統・属性・条件から検索できます。</p><a class="button" href="/evolution/trials/">進化試練DBを開く</a></section>`);
 inject('index.html', 'LATEST', `<section class="wrap static-section"><h2 class="page-h2">2026年8月30日の大型更新</h2><div class="guide-hub-grid"><article class="guide-hub-card"><h3>パクマ系・新T4</h3><p>新規6形態を追加し、${familyCount}系統・${formCount}体へ更新しました。</p><a href="/updates/2026-08-30/">更新内容を見る</a></article><article class="guide-hub-card"><h3>Zombie Rushチップ</h3><p>ゲーム内確認済み49種を検索できます。</p><a href="/zombie-rush/chips/">チップ図鑑を見る</a></article><article class="guide-hub-card"><h3>進化試練・イベント</h3><p>全系統の試練検索と9イベントを更新しました。</p><a href="/evolution/trials/">進化試練を見る</a></article></div></section>`);
@@ -181,11 +191,14 @@ inject('zh-cn/zombie-rush/index.html', 'CHIPS_ZH', '<section class="wrap static-
 inject('en/evolution/index.html', 'TRIALS_EN', `<section class="wrap static-section"><h2>Evolution trials for all ${familyCount} families</h2><a class="button" href="/en/evolution/trials/">Open the trial database</a></section>`);
 inject('zh-cn/evolution/index.html', 'TRIALS_ZH', `<section class="wrap static-section"><h2>全部${familyCount}个系列的进化试炼</h2><a class="button" href="/zh-cn/evolution/trials/">打开试炼数据库</a></section>`);
 inject('events/treasure-hunt/index.html', 'EVENT_GUIDE', '<section class="wrap static-section"><h2 class="page-h2">オタカラ探しの進め方</h2><div class="trust-label-row"><span class="trust-label is-external">コミュニティ確認</span></div><div class="event-status-grid"><article><h3>鍵と中央宝箱</h3><p>開始後に4人を選び、1人の盤面でオタカラを3回見つけると鍵を1個獲得します。鍵4個で中央宝箱を開き、同じメンバーから複数の鍵も取得できます。</p></article><article><h3>コスト・爆弾・盤面拡張</h3><p>鍵ごとに必要アイテム数が5増え、盤面は最大3回拡張します。爆弾は追加で1〜3マスを掘ります。上の独自ソルバーで候補を比較してください。</p></article></div><div class="summary-box"><strong>Human Verification</strong><p>日本版の4人選択、鍵、中央宝箱、盤面拡張、爆弾効果、終了日時の画面を確認待ちです。</p></div><a href="/evolution/trials/">関連する進化試練を見る</a></section>');
-inject('en/events/treasure-hunt/index.html', 'EVENT_GUIDE_EN', '<section class="wrap static-section"><h2>How Treasure Hunt works</h2><div class="trust-label-row"><span class="trust-label is-external">Community-confirmed</span></div><div class="event-status-grid"><article><h3>Keys and central chest</h3><p>Choose four members after the event starts. Finding treasure three times on one member’s board awards a key; four keys open the central chest, and one member can provide multiple keys.</p></article><article><h3>Cost, bombs and expansion</h3><p>Each key raises the item cost by 5, boards expand up to three times, and bombs dig 1–3 extra cells. Use the independent solver above to compare candidates.</p></article></div><div class="summary-box"><strong>Human Verification</strong><p>Japanese team selection, key, chest, expansion, bomb and end-time screens are still needed.</p></div><a href="/en/evolution/trials/">Related evolution trials</a></section>');
-inject('zh-cn/events/treasure-hunt/index.html', 'EVENT_GUIDE_ZH', '<section class="wrap static-section"><h2>寻宝玩法</h2><div class="trust-label-row"><span class="trust-label is-external">社区信息确认</span></div><div class="event-status-grid"><article><h3>钥匙与中央宝箱</h3><p>活动开始后选择4名成员；在一名成员的盘面找到3次宝物可获得1把钥匙，4把钥匙开启中央宝箱，同一成员也可提供多把钥匙。</p></article><article><h3>成本、炸弹与扩张</h3><p>每把钥匙使道具成本增加5，盘面最多扩张3次，炸弹额外挖掘1–3格。可用上方独立求解器比较候选。</p></article></div><div class="summary-box"><strong>Human Verification</strong><p>仍需日文版队伍选择、钥匙、宝箱、扩张、炸弹与结束时间画面。</p></div><a href="/zh-cn/evolution/trials/">相关进化试炼</a></section>');
 inject('events/treasure-hunt/index.html', 'EVENT_FRESHNESS', `<section class="wrap source-note page-freshness"><strong>情報の状態</strong><p><span class="trust-label is-external">外部確認</span> イベント解説を独自に整理しています。</p><p>最終確認日：${japaneseDate(EVENT_RESEARCH_DATE)}</p><a href="/about-data/">データ方針を見る</a></section>`);
-inject('en/events/treasure-hunt/index.html', 'EVENT_FRESHNESS_EN', `<section class="wrap source-note page-freshness"><strong>Information status</strong><p><span class="trust-label is-external">Externally confirmed</span> The event guide is independently summarized.</p><p>Last checked: ${englishDate(EVENT_RESEARCH_DATE)}</p><a href="/en/about-data/">Data policy</a></section>`);
-inject('zh-cn/events/treasure-hunt/index.html', 'EVENT_FRESHNESS_ZH', `<section class="wrap source-note page-freshness"><strong>信息状态</strong><p><span class="trust-label is-external">外部确认</span> 本站独立整理活动说明。</p><p>最后确认：${japaneseDate(EVENT_RESEARCH_DATE)}</p><a href="/zh-cn/about-data/">数据方针</a></section>`);
+// Localized pages already contain translated copies of the shared blocks. Remove
+// legacy locale-specific blocks so each locale has exactly one guide and one
+// freshness section, including when regenerating from an older checkout.
+removeInjected('en/events/treasure-hunt/index.html', 'EVENT_GUIDE_EN');
+removeInjected('zh-cn/events/treasure-hunt/index.html', 'EVENT_GUIDE_ZH');
+removeInjected('en/events/treasure-hunt/index.html', 'EVENT_FRESHNESS_EN');
+removeInjected('zh-cn/events/treasure-hunt/index.html', 'EVENT_FRESHNESS_ZH');
 
 function synchronizeTreasurePage(file, locale) {
   const target = path.join(root, file);

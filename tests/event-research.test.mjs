@@ -97,3 +97,32 @@ test('Treasure Hunt uses the shared localized footer totals', () => {
     assert.match(html, /hreflang="zh-Hans"/);
   }
 });
+
+test('localized event guides and freshness sections appear exactly once', () => {
+  for (const locale of ['en', 'zh-cn']) {
+    for (const id of researchedEventIds) {
+      const relative = `${locale}/events/${id}/index.html`;
+      const html = read(relative);
+      assert.equal((html.match(/class="event-status-grid"/g) || []).length, 1, relative);
+      assert.equal((html.match(/>Human Verification</g) || []).length, 1, relative);
+      assert.equal((html.match(/class="wrap source-note page-freshness"/g) || []).length, 1, relative);
+    }
+  }
+});
+
+test('localized Treasure Hunt pages never mix shared and legacy locale markers', () => {
+  const cases = [
+    ['events/treasure-hunt/index.html', null],
+    ['en/events/treasure-hunt/index.html', 'EN'],
+    ['zh-cn/events/treasure-hunt/index.html', 'ZH']
+  ];
+  for (const [relative, localeMarker] of cases) {
+    const html = read(relative);
+    assert.equal((html.match(/AUG30:EVENT_GUIDE:START/g) || []).length, 1, relative);
+    assert.equal((html.match(/AUG30:EVENT_FRESHNESS:START/g) || []).length, 1, relative);
+    if (localeMarker) {
+      assert.doesNotMatch(html, new RegExp(`AUG30:EVENT_GUIDE_${localeMarker}:START`), relative);
+      assert.doesNotMatch(html, new RegExp(`AUG30:EVENT_FRESHNESS_${localeMarker}:START`), relative);
+    }
+  }
+});
