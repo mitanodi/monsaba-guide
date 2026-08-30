@@ -1,13 +1,14 @@
 export const STORAGE_KEY = 'monsaba-treasure-solver-v1';
-export const STORAGE_VERSION = 3;
+export const STORAGE_VERSION = 4;
 export const STATES = ['unknown', 'miss', 'hit', 'found'];
 export const STATE_LABELS = { unknown: '未確認', miss: '空白', hit: '宝ヒット', found: '発見済み' };
 export const STATE_MARKS = { unknown: '?', miss: '×', hit: '◆', found: '✓' };
-export const SHAPE_KEYS = Object.freeze(
-  Array.from({ length: 4 }, (_, widthIndex) => (
-    Array.from({ length: 4 }, (_, heightIndex) => `${widthIndex + 1}x${heightIndex + 1}`)
-  )).flat()
-);
+export const SHAPE_KEYS = Object.freeze([
+  '1x1', '1x2', '1x3', '1x4',
+  '2x2', '2x3', '2x4',
+  '3x3', '3x4',
+  '4x4'
+]);
 const DEFAULT_SPEC = '2x2:1, 1x3:1';
 const DEFAULT_PREFERENCES = {
   inputMode: 'miss',
@@ -20,11 +21,28 @@ export function createDefaultShapeCounts() {
   return Object.fromEntries(SHAPE_KEYS.map((key) => [key, key === '2x2' || key === '1x3' ? 1 : 0]));
 }
 
+export function canonicalShapeKey(width, height) {
+  const shorter = Math.min(Number(width), Number(height));
+  const longer = Math.max(Number(width), Number(height));
+  return `${shorter}x${longer}`;
+}
+
+export function orientationsForShape(shape) {
+  const orientations = [{ w: shape.w, h: shape.h }];
+  if (shape.w !== shape.h) orientations.push({ w: shape.h, h: shape.w });
+  return orientations;
+}
+
 export function normalizeShapeCounts(value) {
-  return Object.fromEntries(SHAPE_KEYS.map((key) => {
-    const count = Number(value?.[key]);
-    return [key, Number.isInteger(count) ? Math.min(3, Math.max(0, count)) : 0];
-  }));
+  const counts = Object.fromEntries(SHAPE_KEYS.map((key) => [key, 0]));
+  for (const [rawKey, rawCount] of Object.entries(value || {})) {
+    const match = rawKey.match(/^([1-4])x([1-4])$/i);
+    const count = Number(rawCount);
+    if (!match || !Number.isInteger(count)) continue;
+    const key = canonicalShapeKey(match[1], match[2]);
+    counts[key] = Math.min(3, Math.max(0, counts[key] + count));
+  }
+  return counts;
 }
 
 export function shapeCountsToSpec(value) {
@@ -36,22 +54,22 @@ export function parseShapeCountsSpec(text) {
   const counts = normalizeShapeCounts();
   const source = String(text ?? '').trim();
   if (!source) return counts;
-  const seen = new Set();
   for (const part of source.split(',')) {
     const match = part.trim().match(/^([1-4])x([1-4]):([0-3])$/i);
     if (!match) return null;
-    const key = `${Number(match[1])}x${Number(match[2])}`;
-    if (seen.has(key)) return null;
-    seen.add(key);
-    counts[key] = Number(match[3]);
+    const key = canonicalShapeKey(match[1], match[2]);
+    counts[key] += Number(match[3]);
+    if (counts[key] > 3) return null;
   }
   return counts;
 }
 
 export function adjustShapeCount(value, key, delta) {
-  if (!SHAPE_KEYS.includes(key)) throw new Error(`未対応の宝形状です: ${key}`);
+  const match = String(key).match(/^([1-4])x([1-4])$/i);
+  const canonicalKey = match ? canonicalShapeKey(match[1], match[2]) : '';
+  if (!SHAPE_KEYS.includes(canonicalKey)) throw new Error(`未対応の宝形状です: ${key}`);
   const counts = normalizeShapeCounts(value);
-  counts[key] = Math.min(3, Math.max(0, counts[key] + Number(delta || 0)));
+  counts[canonicalKey] = Math.min(3, Math.max(0, counts[canonicalKey] + Number(delta || 0)));
   return counts;
 }
 
@@ -80,10 +98,19 @@ export function normalizeModel(value) {
       ? normalizeShapeCounts(value.shapeCounts)
       : createDefaultShapeCounts()
   );
+  let normalizedSpec = rawSpec;
+  if (parsedCounts) normalizedSpec = shapeCountsToSpec(parsedCounts);
+  else {
+    try {
+      const grouped = new Map();
+      for (const shape of parseSpec(rawSpec, size)) grouped.set(shape.key, (grouped.get(shape.key) || 0) + 1);
+      normalizedSpec = [...grouped].map(([key, count]) => `${key}:${count}`).join(', ');
+    } catch { /* 入力エラーは計算時に案内するため、元のspecを保持 */ }
+  }
   return {
     version: STORAGE_VERSION,
     size,
-    spec: rawSpec,
+    spec: normalizedSpec,
     shapeCounts,
     shapeMode: parsedCounts ? 'picker' : 'advanced',
     cells,
@@ -98,7 +125,7 @@ export function normalizeModel(value) {
 
 export function parseSpec(text, size) {
   const shapes = [];
-  const seen = new Set();
+  const counts = new Map();
   const specText = String(text || '').trim();
   if (!specText) throw new Error('宝を1個以上入力してください。');
   for (const part of specText.split(',')) {
@@ -108,29 +135,40 @@ export function parseSpec(text, size) {
     const width = Number(match[1]);
     const height = Number(match[2]);
     const count = Number(match[3]);
-    const key = `${width}x${height}`;
     if (width < 1 || height < 1 || count < 1 || width > 8 || height > 8 || count > 8) {
       throw new Error('宝の形・個数が対応範囲外です。');
     }
-    if (seen.has(key)) throw new Error(`同じ形状が重複しています: ${key}`);
-    seen.add(key);
+    const key = canonicalShapeKey(width, height);
+    counts.set(key, (counts.get(key) || 0) + count);
+    if (counts.get(key) > 8) throw new Error(`同じ形状の個数が対応範囲外です: ${key}`);
+  }
+  for (const [key, count] of counts) {
+    const [width, height] = key.split('x').map(Number);
     for (let index = 0; index < count; index += 1) {
-      shapes.push({ w: width, h: height, id: `${key}-${index}` });
+      const shape = { w: width, h: height, key, id: `${key}-${index}` };
+      shapes.push({ ...shape, orientations: orientationsForShape(shape) });
     }
   }
   if (!shapes.length) throw new Error('宝を1個以上入力してください。');
-  return shapes.sort((a, b) => (b.w * b.h) - (a.w * a.h));
+  return shapes.sort((a, b) => (b.w * b.h) - (a.w * a.h) || a.key.localeCompare(b.key));
 }
 
 function placementsForShape(shape, model) {
   const placements = [];
-  for (let y = 0; y <= model.size - shape.h; y += 1) {
-    for (let x = 0; x <= model.size - shape.w; x += 1) {
-      const cells = [];
-      for (let dy = 0; dy < shape.h; dy += 1) {
-        for (let dx = 0; dx < shape.w; dx += 1) cells.push((y + dy) * model.size + x + dx);
+  const seen = new Set();
+  for (const orientation of shape.orientations) {
+    for (let y = 0; y <= model.size - orientation.h; y += 1) {
+      for (let x = 0; x <= model.size - orientation.w; x += 1) {
+        const cells = [];
+        for (let dy = 0; dy < orientation.h; dy += 1) {
+          for (let dx = 0; dx < orientation.w; dx += 1) cells.push((y + dy) * model.size + x + dx);
+        }
+        const placementKey = cells.join('.');
+        if (!seen.has(placementKey) && !cells.some((cell) => model.cells[cell] === 'miss')) {
+          seen.add(placementKey);
+          placements.push(cells);
+        }
       }
-      if (!cells.some((cell) => model.cells[cell] === 'miss')) placements.push(cells);
     }
   }
   return placements;
@@ -152,6 +190,7 @@ export function solveTreasureModel(rawModel, cap = 20000) {
     state === 'hit' || state === 'found' ? [index] : []
   )));
   const configurations = [];
+  const configurationKeys = new Set();
   const searchLimit = Math.max(100000, cap * 10);
   let visitedNodes = 0;
   let searchLimited = false;
@@ -170,12 +209,20 @@ export function solveTreasureModel(rawModel, cap = 20000) {
     }
     if (configurations.length >= cap || searchLimited) return;
     if (depth === shapes.length) {
-      if ([...required].every((cell) => used.has(cell))) configurations.push(chosen.flat());
+      if ([...required].every((cell) => used.has(cell))) {
+        const configurationKey = chosen
+          .map((placement, index) => `${shapes[index].key}:${placement.join('.')}`)
+          .sort()
+          .join('|');
+        if (!configurationKeys.has(configurationKey)) {
+          configurationKeys.add(configurationKey);
+          configurations.push(chosen.flat());
+        }
+      }
       return;
     }
     const sameAsPrevious = depth > 0
-      && shapes[depth].w === shapes[depth - 1].w
-      && shapes[depth].h === shapes[depth - 1].h;
+      && shapes[depth].key === shapes[depth - 1].key;
     const startIndex = sameAsPrevious ? chosenPlacementIndices[depth - 1] + 1 : 0;
     for (let placementIndex = startIndex; placementIndex < candidates[depth].length; placementIndex += 1) {
       const placement = candidates[depth][placementIndex];
@@ -228,6 +275,12 @@ function boot() {
   const $ = (selector) => document.querySelector(selector);
   const board = $('#board');
   if (!board) return;
+  const locale = document.documentElement.lang === 'en' ? 'en' : document.documentElement.lang === 'zh-CN' ? 'zh-CN' : 'ja';
+  const pickerText = {
+    ja: { rotatable: '回転可', empty: '宝が選ばれていません', total: (count) => `合計：${count}個`, add: (shape, count) => `${shape}の宝を1個追加。現在${count}個`, remove: (shape) => `${shape}の宝を1個減らす` },
+    en: { rotatable: 'Rotatable', empty: 'No treasures selected', total: (count) => `Total: ${count}`, add: (shape, count) => `Add one ${shape} treasure. Currently ${count}`, remove: (shape) => `Remove one ${shape} treasure` },
+    'zh-CN': { rotatable: '可旋转', empty: '尚未选择宝物', total: (count) => `合计：${count}个`, add: (shape, count) => `添加1个${shape}宝物。当前${count}个`, remove: (shape) => `减少1个${shape}宝物` }
+  }[locale];
   board.setAttribute('role', 'group');
   const mobileCalculate = document.createElement('button');
   const mobileViewport = window.matchMedia('(max-width: 760px)');
@@ -328,10 +381,20 @@ function boot() {
       add.setAttribute('aria-label', `${width}×${height}の宝を1個追加。現在${count}個`);
       const label = document.createElement('strong');
       label.textContent = `${width}×${height}`;
+      if (width !== height) {
+        const rotation = document.createElement('small');
+        rotation.className = 'shape-rotation';
+        rotation.textContent = `↻ ${pickerText.rotatable}`;
+        label.append(rotation);
+      }
       const countLabel = document.createElement('span');
       countLabel.className = 'shape-count';
       countLabel.textContent = `${count}個`;
+      if (locale === 'en') countLabel.textContent = `${count}`;
+      if (locale === 'zh-CN') countLabel.textContent = `${count}个`;
       add.append(createShapePreview(width, height), label, countLabel);
+      const shapeLabel = `${width}×${height}${width !== height ? ` (${pickerText.rotatable})` : ''}`;
+      add.setAttribute('aria-label', pickerText.add(shapeLabel, count));
       add.addEventListener('click', () => changeShapeCount(key, 1));
 
       const minus = document.createElement('button');
@@ -339,7 +402,7 @@ function boot() {
       minus.className = 'shape-minus';
       minus.dataset.shapeMinus = key;
       minus.disabled = count === 0;
-      minus.setAttribute('aria-label', `${width}×${height}の宝を1個減らす`);
+      minus.setAttribute('aria-label', pickerText.remove(shapeLabel));
       minus.textContent = '−';
       minus.addEventListener('click', () => changeShapeCount(key, -1));
       option.append(add, minus);
@@ -351,18 +414,18 @@ function boot() {
     if (!selected.length) {
       const empty = document.createElement('li');
       empty.className = 'treasure-summary-empty';
-      empty.textContent = '宝が選ばれていません';
+      empty.textContent = pickerText.empty;
       list.append(empty);
     } else {
       selected.forEach((key) => {
         const [width, height] = key.split('x');
         const item = document.createElement('li');
-        item.textContent = `${width}×${height} ×${model.shapeCounts[key]}`;
+        item.textContent = `${width}×${height}${width !== height ? `（${pickerText.rotatable}）` : ''} ×${model.shapeCounts[key]}`;
         list.append(item);
       });
     }
     const total = SHAPE_KEYS.reduce((sum, key) => sum + model.shapeCounts[key], 0);
-    $('#treasureTotal').textContent = `合計：${total}個`;
+    $('#treasureTotal').textContent = pickerText.total(total);
     $('#treasurePicker').classList.toggle('is-advanced-spec', model.shapeMode === 'advanced');
   }
   function commitTreasureChange(message) {

@@ -8,10 +8,12 @@ import {
   STATES,
   SHAPE_KEYS,
   adjustShapeCount,
+  canonicalShapeKey,
   createDefaultShapeCounts,
   createDefaultModel,
   normalizeModel,
   normalizeShapeCounts,
+  orientationsForShape,
   parseSpec,
   parseShapeCountsSpec,
   shapeCountsToSpec,
@@ -40,7 +42,7 @@ test('入力モードはaria-pressedと選択中表示を持つ', () => {
   assert.match(js, /setAttribute\('aria-pressed'/);
 });
 
-test('既存v1・v2保存データをv3へ後方互換変換する', () => {
+test('既存v1〜v3保存データをv4へ後方互換変換する', () => {
   const old = { size: 5, spec: '1x2:1', cells: Array(25).fill('miss') };
   const restored = normalizeModel(old);
   assert.equal(restored.version, STORAGE_VERSION);
@@ -48,7 +50,7 @@ test('既存v1・v2保存データをv3へ後方互換変換する', () => {
   assert.equal(restored.cells[0], 'miss');
   assert.equal(restored.preferences.inputMode, 'miss');
   assert.equal(restored.shapeCounts['1x2'], 1);
-  assert.equal(Object.keys(restored.shapeCounts).length, 16);
+  assert.equal(Object.keys(restored.shapeCounts).length, 10);
   assert.equal(STORAGE_KEY, 'monsaba-treasure-solver-v1');
 });
 
@@ -68,6 +70,7 @@ test('宝specを従来形式で解釈する', () => {
   const shapes = parseSpec('2x2:1, 1x3:1', 6);
   assert.equal(shapes.length, 2);
   assert.deepEqual(shapes.map(({ w, h }) => [w, h]), [[2, 2], [1, 3]]);
+  assert.deepEqual(shapes.map((shape) => shape.orientations.length), [1, 2]);
 });
 
 test('不正specを拒否し盤面より大きい形状は候補0で安全処理する', () => {
@@ -77,20 +80,22 @@ test('不正specを拒否し盤面より大きい形状は候補0で安全処理
   assert.equal(solveTreasureModel(model).configurations, 0);
 });
 
-test('同一形状を重複指定したspecを拒否する', () => {
-  assert.throws(() => parseSpec('2x2:1, 2x2:1', 6), /重複/);
+test('同一canonical形状の複数指定を物理個数として統合する', () => {
+  const shapes = parseSpec('1x3:1, 3x1:1', 6);
+  assert.equal(shapes.length, 2);
+  assert.ok(shapes.every((shape) => shape.key === '1x3'));
 });
 
-test('既存の既定計算は460候補を維持する', () => {
-  assert.equal(solveTreasureModel(createDefaultModel(6)).configurations, 460);
+test('既定計算は長方形の両orientationを含む920候補になる', () => {
+  assert.equal(solveTreasureModel(createDefaultModel(6)).configurations, 920);
 });
 
-test('既存418候補ケースを維持する', () => {
+test('空白を含む既定ケースも長方形の両orientationを使う', () => {
   const model = createDefaultModel(6);
   model.cells[0] = 'miss';
   const result = solveTreasureModel(model);
-  assert.equal(result.configurations, 418);
-  assert.equal(result.topCandidates[0].index, 13);
+  assert.equal(result.configurations, 836);
+  assert.equal(result.topCandidates[0].index, 14);
 });
 
 test('空白マスを宝配置から除外する', () => {
@@ -133,7 +138,7 @@ test('おすすめ候補は最大5件', () => {
 test('同率最高候補をすべて保持する', () => {
   const result = solveTreasureModel(createDefaultModel(6));
   assert.ok(result.bestIndices.length > 1);
-  assert.ok(result.topCandidates.every((candidate) => candidate.rank === 1));
+  assert.ok(result.topCandidates.filter((candidate) => result.bestIndices.includes(candidate.index)).every((candidate) => candidate.rank === 1));
   assert.match(js, /bestIndices\.includes\(index\)/);
 });
 
@@ -178,13 +183,12 @@ test('詳細設定へ既存カスタムspecを残す', () => {
   assert.match(html, /2x2:1, 1x3:1/);
 });
 
-test('16種類の宝形状pickerと宝設定だけのclear操作を公開する', () => {
-  assert.equal(SHAPE_KEYS.length, 16);
+test('10種類のcanonical宝形状pickerと宝設定だけのclear操作を公開する', () => {
+  assert.equal(SHAPE_KEYS.length, 10);
   assert.deepEqual(SHAPE_KEYS, [
     '1x1', '1x2', '1x3', '1x4',
-    '2x1', '2x2', '2x3', '2x4',
-    '3x1', '3x2', '3x3', '3x4',
-    '4x1', '4x2', '4x3', '4x4'
+    '2x2', '2x3', '2x4',
+    '3x3', '3x4', '4x4'
   ]);
   assert.match(html, /id="shapeGrid"/);
   assert.match(html, /id="clearTreasureSettings"/);
@@ -214,26 +218,121 @@ for (const key of SHAPE_KEYS) {
   });
 }
 
-test('4x2と2x4、1x4と4x1、3x4と4x3を別設定・別向きで保持する', () => {
+test('逆向き入力をcanonical形状へ統合する', () => {
   const counts = normalizeShapeCounts({ '4x2': 1, '2x4': 2, '1x4': 3, '4x1': 1, '3x4': 2, '4x3': 3 });
   const spec = shapeCountsToSpec(counts);
   const restored = parseShapeCountsSpec(spec);
-  for (const [left, right] of [['4x2', '2x4'], ['1x4', '4x1'], ['3x4', '4x3']]) {
-    assert.notEqual(restored[left], restored[right]);
-  }
+  assert.equal(spec, '1x4:3, 2x4:3, 3x4:3');
+  assert.equal(restored['1x4'], 3);
+  assert.equal(restored['2x4'], 3);
+  assert.equal(restored['3x4'], 3);
   const shapes = parseSpec('4x2:1, 2x4:1', 6);
-  assert.ok(shapes.some(({ w, h }) => w === 4 && h === 2));
-  assert.ok(shapes.some(({ w, h }) => w === 2 && h === 4));
+  assert.equal(shapes.length, 2);
+  assert.ok(shapes.every(({ w, h }) => w === 2 && h === 4));
 });
 
 test('picker specは0〜3を同期し0個を内部specから省く', () => {
   const parsed = parseShapeCountsSpec('4x2:2, 3x1:1, 1x1:0');
-  assert.equal(parsed['4x2'], 2);
-  assert.equal(parsed['3x1'], 1);
+  assert.equal(parsed['2x4'], 2);
+  assert.equal(parsed['1x3'], 1);
   assert.equal(parsed['1x1'], 0);
-  assert.equal(shapeCountsToSpec(parsed), '3x1:1, 4x2:2');
+  assert.equal(shapeCountsToSpec(parsed), '1x3:1, 2x4:2');
   assert.equal(parseShapeCountsSpec('4x2:4'), null);
-  assert.equal(parseShapeCountsSpec('4x2:1, 4x2:2'), null);
+  assert.equal(parseShapeCountsSpec('4x2:1, 2x4:2')['2x4'], 3);
+  assert.equal(parseShapeCountsSpec('4x2:2, 2x4:2'), null);
+});
+
+test('canonical shape IDとorientation一覧を返す', () => {
+  for (const [input, expected] of [
+    [[2, 1], '1x2'], [[3, 1], '1x3'], [[4, 1], '1x4'],
+    [[3, 2], '2x3'], [[4, 2], '2x4'], [[4, 3], '3x4']
+  ]) assert.equal(canonicalShapeKey(...input), expected);
+  assert.deepEqual(orientationsForShape({ w: 1, h: 3 }), [{ w: 1, h: 3 }, { w: 3, h: 1 }]);
+  assert.deepEqual(orientationsForShape({ w: 2, h: 2 }), [{ w: 2, h: 2 }]);
+});
+
+test('5x5単一宝は長方形2方向、正方形1方向を候補に含む', () => {
+  const configurations = (spec) => {
+    const model = createDefaultModel(5);
+    model.spec = spec;
+    return solveTreasureModel(model).configurations;
+  };
+  assert.equal(configurations('1x3:1'), 30);
+  assert.equal(configurations('1x2:1'), 40);
+  assert.equal(configurations('2x3:1'), 24);
+  assert.equal(configurations('2x2:1'), 16);
+});
+
+test('逆向きspecは同じcanonical specと確率結果になる', () => {
+  for (const [forward, reverse] of [
+    ['1x2:1', '2x1:1'], ['1x3:1', '3x1:1'], ['1x4:1', '4x1:1'],
+    ['2x3:1', '3x2:1'], ['2x4:1', '4x2:1'], ['3x4:1', '4x3:1']
+  ]) {
+    const left = createDefaultModel(5);
+    left.spec = forward;
+    const right = createDefaultModel(5);
+    right.spec = reverse;
+    assert.equal(normalizeModel(left).spec, normalizeModel(right).spec);
+    assert.deepEqual(solveTreasureModel(left).probabilities, solveTreasureModel(right).probabilities);
+  }
+});
+
+test('同一形状2個の順序入れ替えを二重カウントしない', () => {
+  const model = createDefaultModel(5);
+  model.spec = '1x2:2';
+  assert.equal(solveTreasureModel(model).configurations, 686);
+});
+
+test('未確認盤面の1x3確率は上下左右対称になる', () => {
+  const model = createDefaultModel(5);
+  model.spec = '1x3:1';
+  const { probabilities } = solveTreasureModel(model);
+  for (let row = 0; row < 5; row += 1) for (let column = 0; column < 5; column += 1) {
+    const index = row * 5 + column;
+    assert.equal(probabilities[index], probabilities[row * 5 + (4 - column)]);
+    assert.equal(probabilities[index], probabilities[(4 - row) * 5 + column]);
+  }
+});
+
+test('盤面入力を90度回転すると確率も90度回転する', () => {
+  const rotate = (index) => (index % 5) * 5 + (4 - Math.floor(index / 5));
+  const original = createDefaultModel(5);
+  original.spec = '1x3:1';
+  original.cells[0] = 'miss';
+  original.cells[7] = 'hit';
+  const rotated = createDefaultModel(5);
+  rotated.spec = '1x3:1';
+  original.cells.forEach((state, index) => { rotated.cells[rotate(index)] = state; });
+  const originalResult = solveTreasureModel(original);
+  const rotatedResult = solveTreasureModel(rotated);
+  assert.equal(originalResult.configurations, rotatedResult.configurations);
+  originalResult.probabilities.forEach((probability, index) => assert.equal(probability, rotatedResult.probabilities[rotate(index)]));
+});
+
+test('v3の両orientation保存を物理個数を保ってv4へ移行する', () => {
+  const saved = {
+    version: 3,
+    size: 5,
+    spec: '1x3:1, 3x1:1',
+    cells: Array(25).fill('unknown'),
+    preferences: { inputMode: 'hit', showProbability: false, showRecommendations: true, autoCalculate: true }
+  };
+  saved.cells[6] = 'found';
+  const migrated = normalizeModel(saved);
+  assert.equal(migrated.version, 4);
+  assert.equal(migrated.spec, '1x3:2');
+  assert.equal(migrated.shapeCounts['1x3'], 2);
+  assert.equal(migrated.cells[6], 'found');
+  assert.deepEqual(migrated.preferences, saved.preferences);
+});
+
+test('回転可能表示と3言語のUI文言を備える', () => {
+  assert.match(js, /shape-rotation/);
+  assert.match(js, /回転可/);
+  assert.match(js, /Rotatable/);
+  assert.match(js, /可旋转/);
+  assert.match(html, /長方形のお宝は縦・横どちらの向きも自動で計算します/);
+  assert.doesNotMatch(html, /幅×高さの向きは別々に扱います/);
 });
 
 test('既定宝は2x2と1x3を1個ずつ、全clearでは盤面を触らない', () => {
@@ -255,7 +354,7 @@ test('全形状0は計算不可でNaN・Infinityを返さない', () => {
   assert.equal(JSON.stringify(result).includes('Infinity'), false);
 });
 
-test('16形状を各3個にしても面積判定で安全に候補0を返す', () => {
+test('10形状を各3個にしても面積判定で安全に候補0を返す', () => {
   const model = createDefaultModel(8);
   model.spec = SHAPE_KEYS.map((key) => `${key}:3`).join(', ');
   const startedAt = performance.now();

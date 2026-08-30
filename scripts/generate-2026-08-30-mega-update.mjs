@@ -13,7 +13,18 @@ const events = read('events.json');
 const assetVersion = read('asset-build.json').version;
 const familyCount = tatari.families.length;
 const formCount = tatari.families.flatMap((family) => family.evolutions).length;
+const DEFAULT_CONTENT_DATE = '2026-08-30';
+const EVENT_RESEARCH_DATE = '2026-08-31';
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
+const dateParts = (value) => {
+  const [year, month, day] = value.split('-').map(Number);
+  return { year, month, day };
+};
+const japaneseDate = (value) => {
+  const { year, month, day } = dateParts(value);
+  return `${year}年${month}月${day}日`;
+};
+const englishDate = (value) => new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${value}T00:00:00Z`));
 const write = (route, html) => {
   const directory = path.join(root, route.slice(1));
   const withIcons = html.replace('<link rel="icon" href="/favicon.ico" sizes="any">', '<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png">');
@@ -23,12 +34,12 @@ const write = (route, html) => {
   fs.writeFileSync(path.join(directory, 'index.html'), withGrowth);
 };
 
-function shell({ route, title, description, body, type = 'CollectionPage', image = '/assets/heroes/top-main.webp' }) {
+function shell({ route, title, description, body, type = 'CollectionPage', image = '/assets/heroes/top-main.webp', updated = DEFAULT_CONTENT_DATE }) {
   const label = title.split('｜')[0];
   const crumbs = [{ label: 'トップ', href: '/' }, { label }];
-  const graph = [{ '@type': type, '@id': absoluteUrl(route), url: absoluteUrl(route), name: title, description, dateModified: '2026-08-30', inLanguage: 'ja' }, breadcrumbSchema(crumbs)];
+  const graph = [{ '@type': type, '@id': absoluteUrl(route), url: absoluteUrl(route), name: title, description, dateModified: updated, inLanguage: 'ja' }, breadcrumbSchema(crumbs)];
   const alternates = [['ja', route], ['en', `/en${route}`], ['zh-Hans', `/zh-cn${route}`], ['x-default', route]].map(([lang, href]) => `<link rel="alternate" hreflang="${lang}" href="${absoluteUrl(href)}" data-i18n-alternate>`).join('');
-  return `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${renderSeoHead({ title, description, route, image, type: type === 'Article' ? 'article' : 'website' })}${alternates}<link rel="icon" href="/favicon.ico" sizes="any"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/assets/aug30-update.css"><script type="application/ld+json">${safeJsonLd({ '@context': 'https://schema.org', '@graph': graph })}</script></head><body data-locale="ja" data-page-type="mega-update"><a class="skip-link" href="#main-content">本文へスキップ</a>${renderHeader(route)}<main id="main-content"><section class="page-hero"><div class="wrap">${renderBreadcrumb(crumbs)}<div class="family-page-head"><div><span class="visible-kicker">v0.46.1・2026年8月30日確認</span><h1>${esc(label)}</h1><p>${esc(description)}</p></div></div></div></section>${body}<section class="wrap source-note page-freshness"><strong>情報の状態</strong><p><span class="trust-label is-verified">ゲーム内確認</span> <span class="trust-label is-external">外部確認</span> <span class="trust-label is-pending">確認待ち</span></p><p>当サイトで一次証拠と外部情報を区別して独自に整理した内容です。最終確認日：2026年8月30日</p><a href="/about-data/">データ方針を見る</a></section></main>${renderFooter(`${familyCount}系統 / ${formCount}体`)}<script src="/family-display.js"></script><script src="/site.js"></script></body></html>`;
+  return `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${renderSeoHead({ title, description, route, image, type: type === 'Article' ? 'article' : 'website' })}${alternates}<link rel="icon" href="/favicon.ico" sizes="any"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/assets/aug30-update.css"><script type="application/ld+json">${safeJsonLd({ '@context': 'https://schema.org', '@graph': graph })}</script></head><body data-locale="ja" data-page-type="mega-update"><a class="skip-link" href="#main-content">本文へスキップ</a>${renderHeader(route)}<main id="main-content"><section class="page-hero"><div class="wrap">${renderBreadcrumb(crumbs)}<div class="family-page-head"><div><span class="visible-kicker">v0.46.1・${japaneseDate(updated)}確認</span><h1>${esc(label)}</h1><p>${esc(description)}</p></div></div></div></section>${body}<section class="wrap source-note page-freshness"><strong>情報の状態</strong><p><span class="trust-label is-verified">ゲーム内確認</span> <span class="trust-label is-external">外部確認</span> <span class="trust-label is-pending">確認待ち</span></p><p>当サイトで一次証拠と外部情報を区別して独自に整理した内容です。最終確認日：${japaneseDate(updated)}</p><a href="/about-data/">データ方針を見る</a></section></main>${renderFooter(`${familyCount}系統 / ${formCount}体`)}<script src="/family-display.js"></script><script src="/site.js"></script></body></html>`;
 }
 
 write('/zombie-rush/chips/', shell({
@@ -60,7 +71,7 @@ for (const event of events.events) {
   const legacy = event.id === 'zombie-siege';
   write(`/events/${event.id}/`, shell({
     route: `/events/${event.id}/`, title: `${event.name} 攻略｜モンサバ イベント`, description: event.summary,
-    type: 'Article',
+    type: 'Article', updated: EVENT_RESEARCH_DATE,
     body: `<article class="wrap static-section"><div class="trust-label-row"><span class="trust-label ${legacy ? 'is-pending' : 'is-external'}">${legacy ? '旧仕様・日本版確認待ち' : 'コミュニティ確認'}</span></div><h2 class="page-h2">${esc(heading)}</h2><div class="event-status-grid"><article><h3>${legacy ? '状態の分離' : '何をするイベントか'}</h3><p>${esc(current)}</p></article><article><h3>何を優先するか</h3><p>${esc(strategy)}</p></article></div><div class="summary-box"><strong>Human Verification</strong><p>${esc(pending)}</p></div><h2 class="page-h2">情報源</h2><p><a href="${esc(event.sourceUrl)}" target="_blank" rel="noopener noreferrer">国内攻略情報</a>を2026年8月31日に照合し、当サイトで独自に要約しました。画像・表・記事本文は転載せず、公式確認済みとは表示していません。</p><nav class="attribute-guide-nav"><a href="/events/">イベント攻略へ戻る</a><a href="/evolution/trials/">関連する進化試練を見る</a></nav></article>`
   }));
 }
@@ -94,16 +105,23 @@ const layout = (locale, tag) => {
   const sample = fs.readFileSync(path.join(root, localeConfig[locale].prefix.slice(1), 'index.html'), 'utf8');
   return (sample.match(new RegExp(`<${tag}[\\s\\S]*?<\\/${tag}>`))?.[0] || '').replaceAll(' aria-current="page"', '');
 };
-function localizedShell(locale, { route, title, description, body, type = 'CollectionPage', image = '/assets/heroes/top-main.webp' }) {
+function localizedShell(locale, { route, title, description, body, type = 'CollectionPage', image = '/assets/heroes/top-main.webp', updated = DEFAULT_CONTENT_DATE }) {
   const config = localeConfig[locale];
   const localRoute = `${config.prefix}${route}`;
   const alternates = [['ja', route], ['en', `/en${route}`], ['zh-Hans', `/zh-cn${route}`], ['x-default', route]].map(([lang, href]) => `<link rel="alternate" hreflang="${lang}" href="${absoluteUrl(href)}" data-i18n-alternate>`).join('');
   const ogAlternates = Object.values({ ja: 'ja_JP', en: 'en_US', 'zh-CN': 'zh_CN' }).filter((value) => value !== config.locale).map((value) => `<meta property="og:locale:alternate" content="${value}" data-i18n-alternate>`).join('');
-  const graph = [{ '@type': type, '@id': absoluteUrl(localRoute), url: absoluteUrl(localRoute), name: title, description, dateModified: '2026-08-30', inLanguage: config.lang }, breadcrumbSchema([{ label: config.top, href: config.prefix + '/' }, { label: title.split('｜')[0] }])];
+  const graph = [{ '@type': type, '@id': absoluteUrl(localRoute), url: absoluteUrl(localRoute), name: title, description, dateModified: updated, inLanguage: config.lang }, breadcrumbSchema([{ label: config.top, href: config.prefix + '/' }, { label: title.split('｜')[0] }])];
   const head = renderSeoHead({ title, description, route: localRoute, image, type: type === 'Article' ? 'article' : 'website' }).replace('ja_JP', config.locale).replaceAll('content="モンサバ攻略DB"', `content="${config.siteName}"`).replace(/(<link rel="canonical"[^>]*?)\s*\/>/, '$1>');
   const runtime = `<script src="/i18n/${config.prefix.slice(1)}-runtime.js?v=${assetVersion}" defer></script><script src="/i18n-runtime.js?v=${assetVersion}" defer></script>`;
   const skipLink = locale === 'zh-CN' ? '跳到正文' : 'Skip to content';
-  return `<!doctype html><html lang="${config.lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${head}${alternates}${ogAlternates}<link rel="icon" href="/favicon.ico" sizes="any"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/assets/aug30-update.css"><script type="application/ld+json">${safeJsonLd({ '@context': 'https://schema.org', '@graph': graph })}</script></head><body data-locale="${locale}" data-page-type="mega-update"><a class="skip-link" href="#main-content">${skipLink}</a>${layout(locale, 'header')}<main id="main-content"><section class="page-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="${config.prefix}/">${config.top}</a><span aria-hidden="true">›</span><span>${esc(title.split('｜')[0])}</span></nav><div class="family-page-head"><div><span class="visible-kicker">v0.46.1 · Aug 30, 2026</span><h1>${esc(title.split('｜')[0])}</h1><p>${esc(description)}</p></div></div></div></section>${body}<section class="wrap source-note page-freshness"><strong>${config.state}</strong><p><span class="trust-label is-verified">${config.verified}</span> <span class="trust-label is-external">${config.external}</span> <span class="trust-label is-pending">${config.pending}</span></p><p>${config.checked}</p><a href="${config.prefix}/about-data/">${config.policy}</a></section></main>${layout(locale, 'footer')}${runtime}<script src="/family-display.js"></script><script src="/site.js"></script></body></html>`;
+  const formattedDate = locale === 'en' ? englishDate(updated) : japaneseDate(updated);
+  const kicker = updated === DEFAULT_CONTENT_DATE
+    ? 'v0.46.1 · Aug 30, 2026'
+    : locale === 'en' ? `v0.46.1 · ${formattedDate}` : `v0.46.1・${formattedDate}确认`;
+  const checked = updated === DEFAULT_CONTENT_DATE
+    ? config.checked
+    : locale === 'en' ? `Last checked: ${formattedDate}` : `最后确认：${formattedDate}`;
+  return `<!doctype html><html lang="${config.lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${head}${alternates}${ogAlternates}<link rel="icon" href="/favicon.ico" sizes="any"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/assets/aug30-update.css"><script type="application/ld+json">${safeJsonLd({ '@context': 'https://schema.org', '@graph': graph })}</script></head><body data-locale="${locale}" data-page-type="mega-update"><a class="skip-link" href="#main-content">${skipLink}</a>${layout(locale, 'header')}<main id="main-content"><section class="page-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="${config.prefix}/">${config.top}</a><span aria-hidden="true">›</span><span>${esc(title.split('｜')[0])}</span></nav><div class="family-page-head"><div><span class="visible-kicker">${kicker}</span><h1>${esc(title.split('｜')[0])}</h1><p>${esc(description)}</p></div></div></div></section>${body}<section class="wrap source-note page-freshness"><strong>${config.state}</strong><p><span class="trust-label is-verified">${config.verified}</span> <span class="trust-label is-external">${config.external}</span> <span class="trust-label is-pending">${config.pending}</span></p><p>${checked}</p><a href="${config.prefix}/about-data/">${config.policy}</a></section></main>${layout(locale, 'footer')}${runtime}<script src="/family-display.js"></script><script src="/site.js"></script></body></html>`;
 }
 const localizedChip = {
   en: { title: 'Zombie Rush Chip Database | 49 effects and filters', description: 'Search all 49 chips verified from in-game screens by name, rank, attack, defense, healing, placement, randomness and level effects.', summary: '49 chips verified in game', note: 'This database is separate from normal Tatari skills. We are not publishing a chip tier list without sufficient battle evidence.', search: 'Search names and effects', placeholder: 'Water, healing, slot…', rank: 'Rank', category: 'Effect type', all: 'All', load: 'Loading data…', source: 'Sources', sourceText: 'In-game chip index: PDF pp.40–42. Individual effect popups: PDF pp.43–91.', back: 'Zombie Rush guide' },
@@ -147,7 +165,7 @@ const localizedEvents = {
 for (const locale of Object.keys(localeConfig)) for (const event of events.events) {
   if (event.id === 'treasure-hunt' || event.id === 'summer-party') continue;
   const [title, description, currentLabel, current, priorityLabel, priority, pending] = localizedEvents[locale][event.id];
-  write(`${localeConfig[locale].prefix}/events/${event.id}/`, localizedShell(locale, { route: `/events/${event.id}/`, title, description, type: 'Article', body: `<article class="wrap static-section"><div class="trust-label-row"><span class="trust-label is-external">${locale === 'en' ? 'Community-confirmed' : '社区信息确认'}</span></div><div class="event-status-grid"><article><h2>${currentLabel}</h2><p>${current}</p></article><article><h2>${priorityLabel}</h2><p>${priority}</p></article></div><div class="summary-box"><strong>Human Verification</strong><p>${pending}</p></div><h2 class="page-h2">${locale === 'en' ? 'Source' : '信息来源'}</h2><p><a href="${esc(event.sourceUrl)}" target="_blank" rel="noopener noreferrer">${locale === 'en' ? 'Community strategy source' : '社区攻略来源'}</a>, ${locale === 'en' ? 'checked Aug 31, 2026. Independently summarized; no source images, tables or article copy are reused.' : '于2026年8月31日核对。本站独立摘要，不转载来源图片、表格或文章内容。'}</p><nav class="attribute-guide-nav"><a href="${localeConfig[locale].prefix}/events/">${locale === 'en' ? 'Back to events' : '返回活动攻略'}</a><a href="${localeConfig[locale].prefix}/evolution/trials/">${locale === 'en' ? 'Related evolution trials' : '相关进化试炼'}</a></nav></article>` }));
+  write(`${localeConfig[locale].prefix}/events/${event.id}/`, localizedShell(locale, { route: `/events/${event.id}/`, title, description, type: 'Article', updated: EVENT_RESEARCH_DATE, body: `<article class="wrap static-section"><div class="trust-label-row"><span class="trust-label is-external">${locale === 'en' ? 'Community-confirmed' : '社区信息确认'}</span></div><div class="event-status-grid"><article><h2>${currentLabel}</h2><p>${current}</p></article><article><h2>${priorityLabel}</h2><p>${priority}</p></article></div><div class="summary-box"><strong>Human Verification</strong><p>${pending}</p></div><h2 class="page-h2">${locale === 'en' ? 'Source' : '信息来源'}</h2><p><a href="${esc(event.sourceUrl)}" target="_blank" rel="noopener noreferrer">${locale === 'en' ? 'Community strategy source' : '社区攻略来源'}</a>, ${locale === 'en' ? 'checked Aug 31, 2026. Independently summarized; no source images, tables or article copy are reused.' : '于2026年8月31日核对。本站独立摘要，不转载来源图片、表格或文章内容。'}</p><nav class="attribute-guide-nav"><a href="${localeConfig[locale].prefix}/events/">${locale === 'en' ? 'Back to events' : '返回活动攻略'}</a><a href="${localeConfig[locale].prefix}/evolution/trials/">${locale === 'en' ? 'Related evolution trials' : '相关进化试炼'}</a></nav></article>` }));
 }
 
 for (const locale of Object.keys(localeConfig)) {
@@ -165,6 +183,29 @@ inject('zh-cn/evolution/index.html', 'TRIALS_ZH', `<section class="wrap static-s
 inject('events/treasure-hunt/index.html', 'EVENT_GUIDE', '<section class="wrap static-section"><h2 class="page-h2">オタカラ探しの進め方</h2><div class="trust-label-row"><span class="trust-label is-external">コミュニティ確認</span></div><div class="event-status-grid"><article><h3>鍵と中央宝箱</h3><p>開始後に4人を選び、1人の盤面でオタカラを3回見つけると鍵を1個獲得します。鍵4個で中央宝箱を開き、同じメンバーから複数の鍵も取得できます。</p></article><article><h3>コスト・爆弾・盤面拡張</h3><p>鍵ごとに必要アイテム数が5増え、盤面は最大3回拡張します。爆弾は追加で1〜3マスを掘ります。上の独自ソルバーで候補を比較してください。</p></article></div><div class="summary-box"><strong>Human Verification</strong><p>日本版の4人選択、鍵、中央宝箱、盤面拡張、爆弾効果、終了日時の画面を確認待ちです。</p></div><a href="/evolution/trials/">関連する進化試練を見る</a></section>');
 inject('en/events/treasure-hunt/index.html', 'EVENT_GUIDE_EN', '<section class="wrap static-section"><h2>How Treasure Hunt works</h2><div class="trust-label-row"><span class="trust-label is-external">Community-confirmed</span></div><div class="event-status-grid"><article><h3>Keys and central chest</h3><p>Choose four members after the event starts. Finding treasure three times on one member’s board awards a key; four keys open the central chest, and one member can provide multiple keys.</p></article><article><h3>Cost, bombs and expansion</h3><p>Each key raises the item cost by 5, boards expand up to three times, and bombs dig 1–3 extra cells. Use the independent solver above to compare candidates.</p></article></div><div class="summary-box"><strong>Human Verification</strong><p>Japanese team selection, key, chest, expansion, bomb and end-time screens are still needed.</p></div><a href="/en/evolution/trials/">Related evolution trials</a></section>');
 inject('zh-cn/events/treasure-hunt/index.html', 'EVENT_GUIDE_ZH', '<section class="wrap static-section"><h2>寻宝玩法</h2><div class="trust-label-row"><span class="trust-label is-external">社区信息确认</span></div><div class="event-status-grid"><article><h3>钥匙与中央宝箱</h3><p>活动开始后选择4名成员；在一名成员的盘面找到3次宝物可获得1把钥匙，4把钥匙开启中央宝箱，同一成员也可提供多把钥匙。</p></article><article><h3>成本、炸弹与扩张</h3><p>每把钥匙使道具成本增加5，盘面最多扩张3次，炸弹额外挖掘1–3格。可用上方独立求解器比较候选。</p></article></div><div class="summary-box"><strong>Human Verification</strong><p>仍需日文版队伍选择、钥匙、宝箱、扩张、炸弹与结束时间画面。</p></div><a href="/zh-cn/evolution/trials/">相关进化试炼</a></section>');
+inject('events/treasure-hunt/index.html', 'EVENT_FRESHNESS', `<section class="wrap source-note page-freshness"><strong>情報の状態</strong><p><span class="trust-label is-external">外部確認</span> イベント解説を独自に整理しています。</p><p>最終確認日：${japaneseDate(EVENT_RESEARCH_DATE)}</p><a href="/about-data/">データ方針を見る</a></section>`);
+inject('en/events/treasure-hunt/index.html', 'EVENT_FRESHNESS_EN', `<section class="wrap source-note page-freshness"><strong>Information status</strong><p><span class="trust-label is-external">Externally confirmed</span> The event guide is independently summarized.</p><p>Last checked: ${englishDate(EVENT_RESEARCH_DATE)}</p><a href="/en/about-data/">Data policy</a></section>`);
+inject('zh-cn/events/treasure-hunt/index.html', 'EVENT_FRESHNESS_ZH', `<section class="wrap source-note page-freshness"><strong>信息状态</strong><p><span class="trust-label is-external">外部确认</span> 本站独立整理活动说明。</p><p>最后确认：${japaneseDate(EVENT_RESEARCH_DATE)}</p><a href="/zh-cn/about-data/">数据方针</a></section>`);
+
+function synchronizeTreasurePage(file, locale) {
+  const target = path.join(root, file);
+  let source = fs.readFileSync(target, 'utf8');
+  const kicker = locale === 'ja'
+    ? `独自アルゴリズム・端末内保存・${japaneseDate(EVENT_RESEARCH_DATE)}更新`
+    : locale === 'en'
+      ? `Independent algorithm · Saved on this device · Updated ${englishDate(EVENT_RESEARCH_DATE)}`
+      : `独立算法 · 数据保存在本设备 · ${japaneseDate(EVENT_RESEARCH_DATE)}更新`;
+  const footer = locale === 'ja' ? renderFooter(`${familyCount}系統 / ${formCount}体`) : layout(locale, 'footer');
+  source = source
+    .replace(/"dateModified"\s*:\s*"[^"]+"/, `"dateModified": "${EVENT_RESEARCH_DATE}"`)
+    .replace(/<span class="visible-kicker">[\s\S]*?<\/span>/, `<span class="visible-kicker">${kicker}</span>`)
+    .replace(/<footer[\s\S]*?<\/footer>/, footer);
+  fs.writeFileSync(target, `${source.trimEnd()}\n`);
+}
+
+synchronizeTreasurePage('events/treasure-hunt/index.html', 'ja');
+synchronizeTreasurePage('en/events/treasure-hunt/index.html', 'en');
+synchronizeTreasurePage('zh-cn/events/treasure-hunt/index.html', 'zh-CN');
 
 inject('events/index.html', 'EVENT_ROTATION', '<section class="wrap static-section"><h2 class="page-h2">コミュニティ確認の基本ローテーション</h2><p><span class="trust-label is-external">外部確認</span> 釣り大会 → オタカラ探し → ランニングパーティ → ゾンビ包囲戦 → 魔法の農場の順で、合計3日ごとに進むというコミュニティ情報です。閉鎖・リメイク・日本版差があるため、確定スケジュールではありません。実際の日程はゲーム内表示を優先してください。</p></section>');
 inject('en/events/index.html', 'EVENT_ROTATION_EN', '<section class="wrap static-section"><h2>Community-confirmed base rotation</h2><p><span class="trust-label is-external">Community information</span> Fishing Tournament → Treasure Hunt → Running Party → Zombie Siege → Magic Farm is reported as a three-day base rotation. Closures, remakes and regional differences mean this is not a guaranteed schedule; check the in-game calendar.</p></section>');

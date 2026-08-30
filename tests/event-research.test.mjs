@@ -6,6 +6,17 @@ import path from 'node:path';
 const root = path.resolve(import.meta.dirname, '..');
 const data = JSON.parse(fs.readFileSync(path.join(root, 'data/events.json'), 'utf8'));
 const byId = Object.fromEntries(data.events.map((event) => [event.id, event]));
+const read = (relative) => fs.readFileSync(path.join(root, relative), 'utf8');
+const researchedEventIds = [
+  'running-party',
+  'running-star',
+  'island-treasure',
+  'magic-farm',
+  'fishing-tournament',
+  'treasure-hunt',
+  'zombie-siege',
+  'surprise-roulette'
+];
 
 test('community rotation is explicitly non-guaranteed', () => {
   assert.equal(data.communityRotation.sourceStatus, 'externally_confirmed');
@@ -44,8 +55,45 @@ test('research record prioritizes the user-provided 23-page in-game evidence', (
 });
 
 test('event search exposes community aliases without replacing primary names', () => {
-  const search = fs.readFileSync(path.join(root, 'search/search.js'), 'utf8');
+  const search = read('search/search.js');
   for (const alias of ['Summer Bash', 'Marathon Party', 'Deepsea Dive', 'Cozy Farm', 'Fishing Contest', 'Treasure Hunt', 'Zobo Shooter']) {
     assert.ok(search.includes(alias), alias);
+  }
+});
+
+test('August 31 event research dates agree in every locale and sitemap', () => {
+  const locales = [
+    { prefix: '', checked: '最終確認日：2026年8月31日', kickerDate: '2026年8月31日' },
+    { prefix: 'en/', checked: 'Last checked: Aug 31, 2026', kickerDate: 'Aug 31, 2026' },
+    { prefix: 'zh-cn/', checked: '最后确认：2026年8月31日', kickerDate: '2026年8月31日' }
+  ];
+  const sitemap = read('sitemap.xml');
+  for (const id of researchedEventIds) {
+    for (const locale of locales) {
+      const relative = `${locale.prefix}events/${id}/index.html`;
+      const html = read(relative);
+      assert.match(html, /"dateModified"\s*:\s*"2026-08-31"/, relative);
+      assert.match(html, new RegExp(`<span class="visible-kicker">[^<]*${locale.kickerDate.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[^<]*<\\/span>`), relative);
+      assert.ok(html.includes(locale.checked), relative);
+      const route = `/${locale.prefix}events/${id}/`;
+      assert.ok(sitemap.includes(`<loc>https://monster-survival.com${route}</loc><lastmod>2026-08-31</lastmod>`), route);
+    }
+  }
+  assert.ok(sitemap.includes('<loc>https://monster-survival.com/events/</loc><lastmod>2026-08-30</lastmod>'));
+});
+
+test('Treasure Hunt uses the shared localized footer totals', () => {
+  const expected = [
+    ['events/treasure-hunt/index.html', '64系統 / 230体'],
+    ['en/events/treasure-hunt/index.html', '64 families / 230 Tatari'],
+    ['zh-cn/events/treasure-hunt/index.html', '64 个系列 / 230 个 Tatari']
+  ];
+  for (const [relative, footerMeta] of expected) {
+    const html = read(relative);
+    assert.ok(html.includes(`<div class="footer-meta">${footerMeta}</div>`), relative);
+    assert.doesNotMatch(html, /<div class="footer-meta"><\/div>/, relative);
+    assert.match(html, /hreflang="ja"/);
+    assert.match(html, /hreflang="en"/);
+    assert.match(html, /hreflang="zh-Hans"/);
   }
 });
