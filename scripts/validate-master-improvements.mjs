@@ -9,7 +9,7 @@ const stage=json('data/stages.json'),items=json('data/items.json'),acquisition=j
 expect(Array.isArray(stage.guides)&&stage.requiredFields.length===10,'stage guide schemaが不正です');
 expect(Array.isArray(items.items)&&items.items.length===0,'未確認アイテムを追加しています');
 expect(Object.keys(acquisition.byFamily||{}).length===0,'未確認の入手方法を追加しています');
-expect(read('events/treasure-hunt/solver.js').includes('function backtrack')&&read('events/treasure-hunt/solver.js').includes('localStorage'),'Treasure Hunt solverの制約探索または保存がありません');
+expect(read('events/treasure-hunt/solver.js').includes('function collectExactCounts')&&read('events/treasure-hunt/solver.js').includes('function collectWeightedSample')&&read('events/treasure-hunt/solver.js').includes('localStorage'),'Treasure Hunt solverの制約探索または保存がありません');
 expect(!read('events/treasure-hunt/solver.js').includes('adj-acent'),'参考サイトの実装参照が混入しています');
 expect(read('search/search.js').includes('distance =')&&read('data/tatari.json').includes('"ライマー"')&&read('data/tatari.json').includes('"ヒカル"'),'fuzzy/alias検索が不足しています');
 expect(read('compare/index.html').includes('compareASearch')&&read('compare/compare.js').includes('compareCandidates'),'比較検索UIがありません');

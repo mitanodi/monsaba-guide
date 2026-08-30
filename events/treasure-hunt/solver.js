@@ -16,6 +16,9 @@ const DEFAULT_PREFERENCES = {
   showRecommendations: true,
   autoCalculate: false
 };
+const DEFAULT_SAMPLE_BUDGET = 20000;
+const DEFAULT_EXACT_NODE_LIMIT = 250000;
+const DEFAULT_EXACT_CONFIGURATION_LIMIT = 200000;
 
 export function createDefaultShapeCounts() {
   return Object.fromEntries(SHAPE_KEYS.map((key) => [key, key === '2x2' || key === '1x3' ? 1 : 0]));
@@ -174,74 +177,145 @@ function placementsForShape(shape, model) {
   return placements;
 }
 
-export function solveTreasureModel(rawModel, cap = 20000) {
-  const model = normalizeModel(rawModel);
-  const shapes = parseSpec(model.spec, model.size);
-  const treasureArea = shapes.reduce((sum, shape) => sum + (shape.w * shape.h), 0);
-  const availableArea = model.cells.filter((state) => state !== 'miss').length;
-  if (treasureArea > availableArea) {
-    return { configurations: 0, capped: false, probabilities: [], topCandidates: [], bestIndices: [], shapes };
-  }
-  const candidates = shapes.map((shape) => placementsForShape(shape, model));
-  if (candidates.some((list) => list.length === 0)) {
-    return { configurations: 0, capped: false, probabilities: [], topCandidates: [], bestIndices: [], shapes };
-  }
-  const required = new Set(model.cells.flatMap((state, index) => (
-    state === 'hit' || state === 'found' ? [index] : []
-  )));
-  const configurations = [];
-  const configurationKeys = new Set();
-  const searchLimit = Math.max(100000, cap * 10);
-  let visitedNodes = 0;
-  let searchLimited = false;
-  const remainingCoverage = Array(shapes.length + 1);
-  remainingCoverage[shapes.length] = new Set();
-  for (let depth = shapes.length - 1; depth >= 0; depth -= 1) {
-    remainingCoverage[depth] = new Set(remainingCoverage[depth + 1]);
-    candidates[depth].forEach((placement) => placement.forEach((cell) => remainingCoverage[depth].add(cell)));
-  }
+function cellsToMask(cells) {
+  return cells.reduce((mask, cell) => mask | (1n << BigInt(cell)), 0n);
+}
 
-  function backtrack(depth, used, chosen, chosenPlacementIndices) {
+function deterministicSeed(model) {
+  const source = `${model.size}|${model.spec}|${model.cells.join(',')}`;
+  let hash = 2166136261;
+  for (let index = 0; index < source.length; index += 1) {
+    hash ^= source.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+}
+
+function createDeterministicRandom(seed) {
+  let state = seed >>> 0;
+  return () => {
+    state = (state + 0x6D2B79F5) >>> 0;
+    let value = state;
+    value = Math.imul(value ^ (value >>> 15), value | 1);
+    value ^= value + Math.imul(value ^ (value >>> 7), value | 61);
+    return ((value ^ (value >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function symmetryMaps(model) {
+  const size = model.size;
+  const transforms = [
+    (row, column) => [row, column],
+    (row, column) => [column, size - 1 - row],
+    (row, column) => [size - 1 - row, size - 1 - column],
+    (row, column) => [size - 1 - column, row],
+    (row, column) => [row, size - 1 - column],
+    (row, column) => [size - 1 - row, column],
+    (row, column) => [column, row],
+    (row, column) => [size - 1 - column, size - 1 - row]
+  ];
+  return transforms
+    .map((transform) => Array.from({ length: size * size }, (_, index) => {
+      const [row, column] = transform(Math.floor(index / size), index % size);
+      return row * size + column;
+    }))
+    .filter((map) => map.every((target, index) => model.cells[target] === model.cells[index]));
+}
+
+function enforceInputSymmetry(probabilities, model) {
+  const maps = symmetryMaps(model);
+  if (maps.length <= 1) return probabilities;
+  return probabilities.map((_, index) => (
+    maps.reduce((sum, map) => sum + probabilities[map[index]], 0) / maps.length
+  ));
+}
+
+function collectExactCounts({ shapes, candidates, requiredMask, remainingCoverage, cellCount, nodeLimit, configurationLimit }) {
+  const tally = Array(cellCount).fill(0);
+  const chosenPlacementIndices = Array(shapes.length).fill(-1);
+  let configurations = 0;
+  let visitedNodes = 0;
+  let limited = false;
+
+  function visit(depth, usedMask) {
     visitedNodes += 1;
-    if (visitedNodes > searchLimit) {
-      searchLimited = true;
+    if (visitedNodes > nodeLimit || limited) {
+      limited = true;
       return;
     }
-    if (configurations.length >= cap || searchLimited) return;
     if (depth === shapes.length) {
-      if ([...required].every((cell) => used.has(cell))) {
-        const configurationKey = chosen
-          .map((placement, index) => `${shapes[index].key}:${placement.join('.')}`)
-          .sort()
-          .join('|');
-        if (!configurationKeys.has(configurationKey)) {
-          configurationKeys.add(configurationKey);
-          configurations.push(chosen.flat());
-        }
+      if ((requiredMask & ~usedMask) !== 0n) return;
+      configurations += 1;
+      if (configurations > configurationLimit) {
+        limited = true;
+        return;
+      }
+      for (let cell = 0; cell < cellCount; cell += 1) {
+        if ((usedMask & (1n << BigInt(cell))) !== 0n) tally[cell] += 1;
       }
       return;
     }
-    const sameAsPrevious = depth > 0
-      && shapes[depth].key === shapes[depth - 1].key;
+    const sameAsPrevious = depth > 0 && shapes[depth].key === shapes[depth - 1].key;
     const startIndex = sameAsPrevious ? chosenPlacementIndices[depth - 1] + 1 : 0;
     for (let placementIndex = startIndex; placementIndex < candidates[depth].length; placementIndex += 1) {
       const placement = candidates[depth][placementIndex];
-      if (placement.some((cell) => used.has(cell))) continue;
-      const next = new Set(used);
-      placement.forEach((cell) => next.add(cell));
-      if ([...required].some((cell) => !next.has(cell) && !remainingCoverage[depth + 1].has(cell))) continue;
-      backtrack(depth + 1, next, [...chosen, placement], [...chosenPlacementIndices, placementIndex]);
-      if (configurations.length >= cap || searchLimited) break;
+      if ((usedMask & placement.mask) !== 0n) continue;
+      const nextMask = usedMask | placement.mask;
+      if ((requiredMask & ~nextMask & ~remainingCoverage[depth + 1]) !== 0n) continue;
+      chosenPlacementIndices[depth] = placementIndex;
+      visit(depth + 1, nextMask);
+      if (limited) return;
     }
   }
 
-  backtrack(0, new Set(), [], []);
-  if (!configurations.length) {
-    return { configurations: 0, capped: searchLimited, probabilities: [], topCandidates: [], bestIndices: [], shapes };
+  visit(0, 0n);
+  return { configurations, tally, visitedNodes, limited };
+}
+
+function collectWeightedSample({ model, shapes, candidates, requiredMask, remainingCoverage, cellCount, sampleBudget }) {
+  const random = createDeterministicRandom(deterministicSeed(model));
+  const tally = Array(cellCount).fill(0);
+  const chosenPlacementIndices = Array(shapes.length).fill(-1);
+  let totalWeight = 0;
+  let acceptedSamples = 0;
+
+  for (let sample = 0; sample < sampleBudget; sample += 1) {
+    chosenPlacementIndices.fill(-1);
+    let usedMask = 0n;
+    let weight = 1;
+    let valid = true;
+    for (let depth = 0; depth < shapes.length; depth += 1) {
+      const sameAsPrevious = depth > 0 && shapes[depth].key === shapes[depth - 1].key;
+      const startIndex = sameAsPrevious ? chosenPlacementIndices[depth - 1] + 1 : 0;
+      const viable = [];
+      for (let placementIndex = startIndex; placementIndex < candidates[depth].length; placementIndex += 1) {
+        const placement = candidates[depth][placementIndex];
+        if ((usedMask & placement.mask) !== 0n) continue;
+        const nextMask = usedMask | placement.mask;
+        if ((requiredMask & ~nextMask & ~remainingCoverage[depth + 1]) !== 0n) continue;
+        viable.push(placementIndex);
+      }
+      if (!viable.length) {
+        valid = false;
+        break;
+      }
+      const choice = viable[Math.floor(random() * viable.length)];
+      chosenPlacementIndices[depth] = choice;
+      usedMask |= candidates[depth][choice].mask;
+      weight *= viable.length;
+    }
+    if (!valid || (requiredMask & ~usedMask) !== 0n || !Number.isFinite(weight)) continue;
+    acceptedSamples += 1;
+    totalWeight += weight;
+    for (let cell = 0; cell < cellCount; cell += 1) {
+      if ((usedMask & (1n << BigInt(cell))) !== 0n) tally[cell] += weight;
+    }
   }
-  const tally = Array(model.cells.length).fill(0);
-  configurations.forEach((cells) => new Set(cells).forEach((cell) => { tally[cell] += 1; }));
-  const probabilities = tally.map((count) => count / configurations.length);
+
+  return { tally, totalWeight, acceptedSamples };
+}
+
+function finalizeResult({ model, shapes, treasureArea, configurations, probabilities, approximate, sampleSize = 0, acceptedSamples = 0, visitedNodes = 0 }) {
   const unknownCandidates = probabilities
     .map((probability, index) => ({ index, probability }))
     .filter((candidate) => model.cells[candidate.index] === 'unknown')
@@ -256,19 +330,105 @@ export function solveTreasureModel(rawModel, cap = 20000) {
   }));
   const remainingTreasureCells = Math.max(
     0,
-    shapes.reduce((sum, shape) => sum + (shape.w * shape.h), 0)
-      - model.cells.filter((state) => state === 'found').length
+    treasureArea - model.cells.filter((state) => state === 'found').length
   );
   return {
-    configurations: configurations.length,
-    capped: configurations.length >= cap || searchLimited,
+    configurations,
+    capped: approximate,
+    approximate,
+    sampleSize,
+    acceptedSamples,
+    visitedNodes,
     probabilities,
+    probabilityMass: probabilities.reduce((sum, probability) => sum + probability, 0),
+    treasureArea,
     topCandidates,
     bestIndices,
     bestProbability,
     remainingPickaxes: bestProbability > 0 ? Math.ceil(remainingTreasureCells / bestProbability) : null,
     shapes
   };
+}
+
+export function solveTreasureModel(rawModel, rawOptions = {}) {
+  const model = normalizeModel(rawModel);
+  const options = typeof rawOptions === 'number' ? { sampleBudget: rawOptions } : rawOptions;
+  const sampleBudget = Math.max(100, Math.min(100000, Number(options.sampleBudget) || DEFAULT_SAMPLE_BUDGET));
+  const exactNodeLimit = Math.max(1, Number(options.exactNodeLimit) || DEFAULT_EXACT_NODE_LIMIT);
+  const exactConfigurationLimit = Math.max(1, Number(options.exactConfigurationLimit) || DEFAULT_EXACT_CONFIGURATION_LIMIT);
+  const shapes = parseSpec(model.spec, model.size);
+  const treasureArea = shapes.reduce((sum, shape) => sum + (shape.w * shape.h), 0);
+  const availableArea = model.cells.filter((state) => state !== 'miss').length;
+  if (treasureArea > availableArea) {
+    return { configurations: 0, capped: false, approximate: false, probabilities: [], topCandidates: [], bestIndices: [], shapes, treasureArea, probabilityMass: 0 };
+  }
+  const candidates = shapes.map((shape) => placementsForShape(shape, model).map((cells) => ({ cells, mask: cellsToMask(cells) })));
+  if (candidates.some((list) => list.length === 0)) {
+    return { configurations: 0, capped: false, approximate: false, probabilities: [], topCandidates: [], bestIndices: [], shapes, treasureArea, probabilityMass: 0 };
+  }
+  const requiredMask = model.cells.reduce((mask, state, index) => (
+    state === 'hit' || state === 'found' ? mask | (1n << BigInt(index)) : mask
+  ), 0n);
+  const remainingCoverage = Array(shapes.length + 1);
+  remainingCoverage[shapes.length] = 0n;
+  for (let depth = shapes.length - 1; depth >= 0; depth -= 1) {
+    remainingCoverage[depth] = candidates[depth].reduce(
+      (mask, placement) => mask | placement.mask,
+      remainingCoverage[depth + 1]
+    );
+  }
+  const exact = collectExactCounts({
+    shapes,
+    candidates,
+    requiredMask,
+    remainingCoverage,
+    cellCount: model.cells.length,
+    nodeLimit: exactNodeLimit,
+    configurationLimit: exactConfigurationLimit
+  });
+  if (!exact.limited) {
+    if (!exact.configurations) {
+      return { configurations: 0, capped: false, approximate: false, probabilities: [], topCandidates: [], bestIndices: [], shapes, treasureArea, probabilityMass: 0, visitedNodes: exact.visitedNodes };
+    }
+    return finalizeResult({
+      model,
+      shapes,
+      treasureArea,
+      configurations: exact.configurations,
+      probabilities: exact.tally.map((count) => count / exact.configurations),
+      approximate: false,
+      visitedNodes: exact.visitedNodes
+    });
+  }
+
+  const sampled = collectWeightedSample({
+    model,
+    shapes,
+    candidates,
+    requiredMask,
+    remainingCoverage,
+    cellCount: model.cells.length,
+    sampleBudget
+  });
+  if (!sampled.totalWeight) {
+    return { configurations: 0, capped: true, approximate: true, probabilities: [], topCandidates: [], bestIndices: [], shapes, treasureArea, probabilityMass: 0, sampleSize: sampleBudget, acceptedSamples: 0, visitedNodes: exact.visitedNodes };
+  }
+  const probabilities = enforceInputSymmetry(
+    sampled.tally.map((weight) => weight / sampled.totalWeight),
+    model
+  );
+  const estimatedConfigurations = sampled.totalWeight / sampleBudget;
+  return finalizeResult({
+    model,
+    shapes,
+    treasureArea,
+    configurations: Math.max(1, Math.round(Math.min(Number.MAX_SAFE_INTEGER, estimatedConfigurations))),
+    probabilities,
+    approximate: true,
+    sampleSize: sampleBudget,
+    acceptedSamples: sampled.acceptedSamples,
+    visitedNodes: exact.visitedNodes
+  });
 }
 
 function boot() {
@@ -280,6 +440,38 @@ function boot() {
     ja: { rotatable: '回転可', empty: '宝が選ばれていません', total: (count) => `合計：${count}個`, add: (shape, count) => `${shape}の宝を1個追加。現在${count}個`, remove: (shape) => `${shape}の宝を1個減らす` },
     en: { rotatable: 'Rotatable', empty: 'No treasures selected', total: (count) => `Total: ${count}`, add: (shape, count) => `Add one ${shape} treasure. Currently ${count}`, remove: (shape) => `Remove one ${shape} treasure` },
     'zh-CN': { rotatable: '可旋转', empty: '尚未选择宝物', total: (count) => `合计：${count}个`, add: (shape, count) => `添加1个${shape}宝物。当前${count}个`, remove: (shape) => `减少1个${shape}宝物` }
+  }[locale];
+  const resultText = {
+    ja: {
+      calculate: '確率を計算', calculating: '計算中…', exactTitle: '正確に計算しました',
+      exactValue: (count) => `${count.toLocaleString('ja-JP')}通り`,
+      exactDetail: (count) => `${count.toLocaleString('ja-JP')}件の有効配置をすべて数えました。`,
+      approximateTitle: '偏りを抑えた概算です',
+      approximateValue: (count) => `${count.toLocaleString('ja-JP')}回サンプル（概算）`,
+      approximateDetail: (count) => `候補数が非常に多いため、固定seedの分岐重み付きサンプリングを${count.toLocaleString('ja-JP')}回行いました。`,
+      approximateNotice: '探索順の先頭候補は使用せず、決定的な分岐重み付きサンプリングと盤面対称性で偏りを抑えています。',
+      calculatingDetail: '入力条件に合う宝配置を確認しています。'
+    },
+    en: {
+      calculate: 'Calculate Probability', calculating: 'Calculating…', exactTitle: 'Calculated exactly',
+      exactValue: (count) => `${count.toLocaleString('en-US')} layouts`,
+      exactDetail: (count) => `Counted all ${count.toLocaleString('en-US')} valid layouts.`,
+      approximateTitle: 'Bias-reduced estimate',
+      approximateValue: (count) => `${count.toLocaleString('en-US')} samples (estimate)`,
+      approximateDetail: (count) => `The layout space is very large, so ${count.toLocaleString('en-US')} deterministic branch-weighted samples were used.`,
+      approximateNotice: 'The solver does not use the first layouts in traversal order. It reduces bias with deterministic branch weighting and board symmetries.',
+      calculatingDetail: 'Checking treasure layouts that match the board.'
+    },
+    'zh-CN': {
+      calculate: '计算概率', calculating: '计算中…', exactTitle: '已精确计算',
+      exactValue: (count) => `${count.toLocaleString('zh-CN')}种布局`,
+      exactDetail: (count) => `已统计全部${count.toLocaleString('zh-CN')}种有效布局。`,
+      approximateTitle: '已使用降低偏差的估算',
+      approximateValue: (count) => `${count.toLocaleString('zh-CN')}次采样（估算）`,
+      approximateDetail: (count) => `布局数量非常大，因此使用了${count.toLocaleString('zh-CN')}次固定种子的分支加权采样。`,
+      approximateNotice: '求解器不会使用遍历顺序中的前若干布局，而是通过固定种子的分支加权采样与棋盘对称性来降低偏差。',
+      calculatingDetail: '正在检查符合棋盘条件的宝物布局。'
+    }
   }[locale];
   board.setAttribute('role', 'group');
   const mobileCalculate = document.createElement('button');
@@ -547,9 +739,12 @@ function boot() {
     $('#undo').classList.remove('is-attention');
     $('#solverResults').hidden = false;
     $('#maxProbability').textContent = result.topCandidates.length ? `${(result.bestProbability * 100).toFixed(1)}%` : '—';
-    $('#validConfigurations').textContent = `${result.configurations.toLocaleString()}通り${result.capped ? '（概算）' : ''}`;
+    $('#validConfigurations').textContent = result.approximate
+      ? resultText.approximateValue(result.sampleSize)
+      : resultText.exactValue(result.configurations);
     $('#remainingPickaxes').textContent = result.remainingPickaxes == null ? '—' : `${result.remainingPickaxes}本`;
-    $('#estimateNotice').hidden = !result.capped;
+    $('#estimateNotice').hidden = !result.approximate;
+    $('#estimateNotice').textContent = resultText.approximateNotice;
     $('#tieSummary').textContent = result.bestIndices.length > 1
       ? `同率最高 ${result.bestIndices.length}マス：${result.bestIndices.map(coordinate).join('、')}`
       : result.bestIndices.length === 1 ? `最高候補：${coordinate(result.bestIndices[0])}` : '未確認マスがありません。';
@@ -577,10 +772,10 @@ function boot() {
       list.append(card);
     });
     showStatus(
-      result.capped ? '候補上限に達したため概算です' : '確率を計算しました',
-      result.capped
-        ? `${result.configurations.toLocaleString()}候補を利用して確率を算出しています。`
-        : `${result.configurations.toLocaleString()}件の有効配置から算出しました。`
+      result.approximate ? resultText.approximateTitle : resultText.exactTitle,
+      result.approximate
+        ? resultText.approximateDetail(result.sampleSize)
+        : resultText.exactDetail(result.configurations)
     );
   }
   function selectCandidate(index, sourceButton) {
@@ -600,7 +795,7 @@ function boot() {
     calculating = value;
     [$('#calculate'), $('#calculateMobile')].forEach((button) => {
       button.disabled = value;
-      button.textContent = value ? '計算中…' : '確率を計算';
+      button.textContent = value ? resultText.calculating : resultText.calculate;
     });
     board.setAttribute('aria-busy', String(value));
   }
@@ -608,7 +803,7 @@ function boot() {
     if (calculating) return;
     syncSpecFromTextarea();
     setCalculating(true);
-    showStatus('計算中…', '入力条件に合う宝配置を確認しています。');
+    showStatus(resultText.calculating, resultText.calculatingDetail);
     window.setTimeout(() => {
       try {
         const result = solveTreasureModel(model);

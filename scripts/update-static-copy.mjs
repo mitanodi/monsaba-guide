@@ -16,7 +16,9 @@ const replacements = {
     ['<link rel="icon" href="/favicon.ico">', '<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png">'],
     ['<meta property="og:url" content="https://monster-survival.com/events/treasure-hunt/">', '<meta property="og:url" content="https://monster-survival.com/events/treasure-hunt/"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="モンサバ オタカラ探しソルバー"><meta name="twitter:description" content="残り配置候補から各マスの宝確率とおすすめマスを計算。">'],
     ['形を押すたびに1個追加します（各形状3個まで）。幅×高さの向きは別々に扱います。', '形を押すたびに1個追加します（各形状3個まで）。長方形のお宝は縦・横どちらの向きも自動で計算します。1×2と2×1は同じお宝として扱います。'],
-    ['幅x高さ:個数で入力します。1×1〜4×4・0〜3個なら形状UIにも同期します。それ以外は特殊specとして保持します。', '短辺x長辺:個数で入力します。3x1など逆向きの入力も1x3へ自動統合し、長方形は縦・横の両方を計算します。']
+    ['幅x高さ:個数で入力します。1×1〜4×4・0〜3個なら形状UIにも同期します。それ以外は特殊specとして保持します。', '短辺x長辺:個数で入力します。3x1など逆向きの入力も1x3へ自動統合し、長方形は縦・横の両方を計算します。'],
+    ['候補上限に達したため、上限までの候補を使った概算です。', '候補数が非常に多いため、固定seedの分岐重み付きサンプリングで偏りを抑えた概算を表示しています。'],
+    ['宝の配置候補を独自に列挙し、入力条件と矛盾する候補を除外して確率を算出します。外部サイトのコード・HTML・CSSは使用していません。大きな盤面では上限までの有効候補を利用する概算になります。', '小〜中規模では有効配置をすべて数え、大規模では固定seedの分岐重み付きサンプリングと盤面対称性で偏りを抑えて確率を概算します。外部サイトのコード・HTML・CSSは使用していません。']
   ],
   'favorites/index.html': [
     ['<link rel="icon" href="/favicon.ico">', '<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png">'],

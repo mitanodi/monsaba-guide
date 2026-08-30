@@ -26,6 +26,68 @@ const html = read('events/treasure-hunt/index.html');
 const js = read('events/treasure-hunt/solver.js');
 const css = read('events/treasure-hunt/solver.css');
 
+function bruteForceOracle(rawModel) {
+  const model = normalizeModel(rawModel);
+  const shapes = parseSpec(model.spec, model.size);
+  const placements = shapes.map((shape) => {
+    const seen = new Set();
+    const candidates = [];
+    for (const orientation of shape.orientations) {
+      for (let row = 0; row <= model.size - orientation.h; row += 1) {
+        for (let column = 0; column <= model.size - orientation.w; column += 1) {
+          const cells = [];
+          for (let dy = 0; dy < orientation.h; dy += 1) {
+            for (let dx = 0; dx < orientation.w; dx += 1) cells.push((row + dy) * model.size + column + dx);
+          }
+          const key = cells.join('.');
+          if (!seen.has(key) && !cells.some((cell) => model.cells[cell] === 'miss')) {
+            seen.add(key);
+            candidates.push(cells);
+          }
+        }
+      }
+    }
+    return candidates;
+  });
+  const required = new Set(model.cells.flatMap((state, index) => state === 'hit' || state === 'found' ? [index] : []));
+  const selectedIndices = Array(shapes.length).fill(-1);
+  const tally = Array(model.cells.length).fill(0);
+  let configurations = 0;
+
+  function visit(depth, used) {
+    if (depth === shapes.length) {
+      if (![...required].every((cell) => used.has(cell))) return;
+      configurations += 1;
+      used.forEach((cell) => { tally[cell] += 1; });
+      return;
+    }
+    const sameShape = depth > 0 && shapes[depth].key === shapes[depth - 1].key;
+    const start = sameShape ? selectedIndices[depth - 1] + 1 : 0;
+    for (let index = start; index < placements[depth].length; index += 1) {
+      const placement = placements[depth][index];
+      if (placement.some((cell) => used.has(cell))) continue;
+      const next = new Set(used);
+      placement.forEach((cell) => next.add(cell));
+      selectedIndices[depth] = index;
+      visit(depth + 1, next);
+    }
+  }
+
+  visit(0, new Set());
+  return {
+    configurations,
+    probabilities: configurations ? tally.map((count) => count / configurations) : []
+  };
+}
+
+function seededRandom(seed) {
+  let state = seed >>> 0;
+  return () => {
+    state = Math.imul(state, 1664525) + 1013904223 >>> 0;
+    return state / 4294967296;
+  };
+}
+
 test('4つの入力モードを公開する', () => {
   assert.deepEqual(STATES, ['unknown', 'miss', 'hit', 'found']);
   for (const state of STATES) assert.match(html, new RegExp(`data-input-mode="${state}"`));
@@ -125,10 +187,15 @@ test('矛盾入力は候補0件になる', () => {
   assert.equal(solveTreasureModel(model).configurations, 0);
 });
 
-test('探索上限に達した場合は概算フラグを返す', () => {
-  const result = solveTreasureModel(createDefaultModel(6), 10);
-  assert.equal(result.configurations, 10);
+test('exact探索上限後は先頭N件でなく決定的な分岐重み付き概算へ移る', () => {
+  const result = solveTreasureModel(createDefaultModel(6), { sampleBudget: 500, exactNodeLimit: 1 });
+  assert.equal(result.approximate, true);
   assert.equal(result.capped, true);
+  assert.equal(result.sampleSize, 500);
+  assert.ok(result.acceptedSamples > 0);
+  assert.doesNotMatch(js, /configurations\.length\s*>=|configurations\.push\(/);
+  assert.match(js, /collectWeightedSample/);
+  assert.match(js, /createDeterministicRandom/);
 });
 
 test('おすすめ候補は最大5件', () => {
@@ -309,6 +376,75 @@ test('盤面入力を90度回転すると確率も90度回転する', () => {
   originalResult.probabilities.forEach((probability, index) => assert.equal(probability, rotatedResult.probabilities[rotate(index)]));
 });
 
+test('6x6大規模caseは確率質量24と全対称性を保ち先頭20,000偏りを持たない', () => {
+  const model = createDefaultModel(6);
+  model.spec = '1x3:2, 1x4:1, 2x2:2, 2x3:1';
+  const startedAt = performance.now();
+  const result = solveTreasureModel(model);
+  const elapsed = performance.now() - startedAt;
+  assert.equal(result.treasureArea, 24);
+  assert.ok(Math.abs(result.probabilityMass - 24) < 1e-9);
+  assert.ok(Math.abs(result.probabilityMass / 36 - (2 / 3)) < 1e-9);
+  assert.equal(result.approximate, true);
+  assert.equal(result.sampleSize, 20000);
+  assert.ok(Math.max(...result.probabilities) < 1);
+  for (let row = 0; row < 6; row += 1) for (let column = 0; column < 6; column += 1) {
+    const index = row * 6 + column;
+    assert.ok(Math.abs(result.probabilities[index] - result.probabilities[row * 6 + (5 - column)]) < 1e-15);
+    assert.ok(Math.abs(result.probabilities[index] - result.probabilities[(5 - row) * 6 + column]) < 1e-15);
+    assert.ok(Math.abs(result.probabilities[index] - result.probabilities[column * 6 + (5 - row)]) < 1e-15);
+  }
+  assert.ok(elapsed < 2000, `elapsed ${elapsed.toFixed(1)}ms`);
+});
+
+test('同じ入力のapproximationはreloadや実行順に依存せず完全にdeterministic', () => {
+  const model = createDefaultModel(6);
+  model.spec = '1x3:2, 1x4:1, 2x2:2, 2x3:1';
+  const options = { sampleBudget: 1000, exactNodeLimit: 1 };
+  assert.deepEqual(solveTreasureModel(model, options), solveTreasureModel(model, options));
+});
+
+test('optimized exact counterは小規模brute-force oracleと一致する', () => {
+  const cases = [
+    { spec: '1x3:1', cells: [[0, 'miss'], [7, 'hit']] },
+    { spec: '1x2:2', cells: [[4, 'miss']] },
+    { spec: '2x2:1, 1x1:1', cells: [[6, 'found']] },
+    { spec: '2x3:1', cells: [[12, 'hit'], [24, 'miss']] }
+  ];
+  for (const scenario of cases) {
+    const model = createDefaultModel(5);
+    model.spec = scenario.spec;
+    scenario.cells.forEach(([index, state]) => { model.cells[index] = state; });
+    const expected = bruteForceOracle(model);
+    const actual = solveTreasureModel(model);
+    assert.equal(actual.approximate, false, scenario.spec);
+    assert.equal(actual.configurations, expected.configurations, scenario.spec);
+    assert.deepEqual(actual.probabilities, expected.probabilities, scenario.spec);
+  }
+});
+
+test('固定seed randomized小規模caseがbrute-force oracleと一致する', () => {
+  const random = seededRandom(20260831);
+  const shapePool = ['1x1', '1x2', '1x3', '2x2'];
+  for (let caseIndex = 0; caseIndex < 40; caseIndex += 1) {
+    const model = createDefaultModel(5);
+    const first = shapePool[Math.floor(random() * shapePool.length)];
+    const second = shapePool[Math.floor(random() * shapePool.length)];
+    model.spec = first === second ? `${first}:2` : `${first}:1, ${second}:1`;
+    for (let index = 0; index < model.cells.length; index += 1) {
+      const roll = random();
+      if (roll < 0.025) model.cells[index] = 'miss';
+      else if (roll < 0.035) model.cells[index] = 'hit';
+      else if (roll < 0.04) model.cells[index] = 'found';
+    }
+    const expected = bruteForceOracle(model);
+    const actual = solveTreasureModel(model);
+    assert.equal(actual.approximate, false, `case ${caseIndex}`);
+    assert.equal(actual.configurations, expected.configurations, `case ${caseIndex}`);
+    assert.deepEqual(actual.probabilities, expected.probabilities, `case ${caseIndex}`);
+  }
+});
+
 test('v3の両orientation保存を物理個数を保ってv4へ移行する', () => {
   const saved = {
     version: 3,
@@ -361,7 +497,7 @@ test('10形状を各3個にしても面積判定で安全に候補0を返す', (
   const result = solveTreasureModel(model);
   assert.equal(result.configurations, 0);
   assert.ok(performance.now() - startedAt < 200);
-  assert.match(js, /searchLimit/);
+  assert.match(js, /DEFAULT_EXACT_NODE_LIMIT/);
   assert.match(js, /探索上限に達しました/);
 });
 
@@ -375,6 +511,13 @@ test('計算中表示とbutton無効化を持つ', () => {
   assert.match(js, /aria-busy/);
   assert.match(js, /mobileCalculate\.id = 'calculateMobile'/);
   assert.match(js, /max-width: 760px/);
+});
+
+test('exactと偏りを抑えたapproximationのUI文言を3言語で持つ', () => {
+  for (const text of ['正確に計算しました', 'Calculated exactly', '已精确计算']) assert.match(js, new RegExp(text));
+  for (const text of ['偏りを抑えた概算です', 'Bias-reduced estimate', '已使用降低偏差的估算']) assert.match(js, new RegExp(text));
+  assert.doesNotMatch(js, /候補上限に達したため概算です|候補を利用して確率を算出しています/);
+  assert.match(html, /固定seedの分岐重み付きサンプリング/);
 });
 
 test('Analyticsへ盤面・宝位置・specを送らない', () => {
