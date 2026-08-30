@@ -13,14 +13,16 @@
     "validate:i18n": "node scripts/validate-i18n.mjs",
     "validate:translation-quality": "node scripts/validate-translation-quality.mjs",
     "validate:og": "node scripts/validate-og-cards.mjs",
+    "validate:gift-codes": "node scripts/validate-gift-codes.mjs",
     "validate:2026-08-30": "node scripts/validate-aug30-update.mjs",
-    "validate": "npm run check:syntax && npm run validate:data && npm run validate:site && npm run validate:growth && npm run validate:zombie-prediction && npm run validate:stale && npm run validate:master && npm run validate:2026-08-30 && npm run validate:i18n && npm run validate:translation-quality && npm run validate:og && node scripts/generate-sitemap.mjs --check",
+    "validate": "npm run check:syntax && npm run validate:data && npm run validate:site && npm run validate:growth && npm run validate:zombie-prediction && npm run validate:stale && npm run validate:master && npm run validate:2026-08-30 && npm run validate:i18n && npm run validate:translation-quality && npm run validate:gift-codes && npm run validate:og && node scripts/generate-sitemap.mjs --check",
     "generate:tata": "node scripts/generate-tata-pages.mjs",
     "generate:beginner": "node scripts/generate-beginner-guide.mjs",
     "generate:updates": "node scripts/generate-update-2026-08-26.mjs",
     "generate:growth": "node scripts/generate-growth-pages.mjs",
     "generate:expansion": "node scripts/generate-expansion-pages.mjs",
     "generate:2026-08-30": "node scripts/generate-2026-08-30-mega-update.mjs",
+    "generate:gift-codes": "node scripts/generate-gift-code-pages.mjs",
     "generate:core": "node scripts/generate-core-pages.mjs",
     "generate:nav": "node scripts/update-shared-navigation.mjs",
     "generate:footer": "node scripts/update-shared-footer.mjs",
@@ -35,7 +37,7 @@
     "generate:og": "node scripts/generate-og-cards.mjs",
     "polish:i18n": "node scripts/polish-i18n-dictionaries.mjs",
     "generate:i18n": "npm run polish:i18n && node scripts/generate-i18n-pages.mjs",
-    "generate:site": "npm run generate:tata && npm run generate:beginner && npm run generate:core && npm run generate:updates && npm run generate:growth && npm run generate:expansion && npm run generate:copy && npm run generate:nav && npm run generate:footer && npm run generate:foundations && npm run generate:ga4 && npm run generate:freshness && npm run generate:heroes && npm run generate:affiliate-audit && npm run generate:asset-version && npm run generate:i18n && npm run generate:2026-08-30 && npm run generate:og && npm run generate:sitemap",
+    "generate:site": "npm run generate:tata && npm run generate:beginner && npm run generate:core && npm run generate:updates && npm run generate:growth && npm run generate:expansion && npm run generate:copy && npm run generate:nav && npm run generate:footer && npm run generate:foundations && npm run generate:ga4 && npm run generate:freshness && npm run generate:heroes && npm run generate:affiliate-audit && npm run generate:asset-version && npm run generate:i18n && npm run generate:2026-08-30 && npm run generate:gift-codes && npm run generate:og && npm run generate:sitemap",
     "smoke:local": "node scripts/smoke-http.mjs",
     "test:friends": "node --test tests/friends.test.mjs",
     "test:board": "node --test tests/board.test.mjs",
@@ -49,7 +51,8 @@
     "test:i18n": "node --test tests/i18n.test.mjs",
     "test:pdf-evidence": "node --test tests/pdf-evidence.test.mjs",
     "test:og": "node --test tests/og-cards.test.mjs",
-    "test": "npm run test:friends && npm run test:board && npm run test:official-x && npm run test:family-display && npm run test:affiliate && npm run test:adsense && npm run test:ga4 && npm run test:personal-tools && npm run test:treasure-hunt && npm run test:i18n && npm run test:pdf-evidence && npm run test:og"
+    "test:gift-codes": "node --test tests/gift-codes.test.mjs",
+    "test": "npm run test:friends && npm run test:board && npm run test:official-x && npm run test:family-display && npm run test:affiliate && npm run test:adsense && npm run test:ga4 && npm run test:personal-tools && npm run test:treasure-hunt && npm run test:i18n && npm run test:pdf-evidence && npm run test:gift-codes && npm run test:og"
   },
   "dependencies": {
     "@upstash/redis": "^1.38.2"

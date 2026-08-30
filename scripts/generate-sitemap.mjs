@@ -49,6 +49,7 @@ function dependenciesFor(route, htmlFile) {
   if (route.startsWith('/tata/')) dependencies.push('data/tatari.json', 'data/tata-skills.json', 'data/tier-ratings.json', 'data/evolution-priority.json', 'scripts/generate-tata-pages.mjs');
   if (route.startsWith('/attribute/')) dependencies.push('data/tatari.json', 'data/tata-skills.json');
   if (route === '/beginner-guide/') dependencies.push('data/tatari.json', 'data/tier-ratings.json', 'data/evolution-priority.json', 'data/content-guides.json', 'scripts/generate-beginner-guide.mjs');
+  if (route === '/gift-codes/') dependencies.push('data/gift-codes.json', 'scripts/generate-gift-code-pages.mjs');
   if (['/normal-guide/', '/zombie-rush/', '/boss-rally/', '/badge-dojo/'].includes(route)) dependencies.push('data/content-guides.json');
   if (['/updates/', '/zombie-rush/', '/tata-tier/', '/updates/2026-08-26/'].includes(route)) dependencies.push('data/zombie-rush/seasons/season-1.json');
   if (route === '/updates/2026-08-26/') dependencies.push('scripts/generate-update-2026-08-26.mjs');

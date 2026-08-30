@@ -328,6 +328,22 @@
           "ogDescription": "新增パクマ系列、新T4、49种Zombie Rush芯片、活动攻略与全部系列的进化试炼。"
         }
       }
+    },
+    {
+      "key": "gift-codes",
+      "accent": "#d88b24",
+      "accentDark": "#9a5c10",
+      "symbol": "🎁",
+      "routes": {
+        "ja": "/gift-codes/",
+        "en": "/en/gift-codes/",
+        "zh-CN": "/zh-cn/gift-codes/"
+      },
+      "content": {
+        "ja": { "title": "モンサバ 最新ギフトコード", "description": "2026年8月30日時点で確認されている8コード", "badge": "openfest系3コード追加", "ogTitle": "モンサバ ギフトコード最新一覧｜2026年8月", "ogDescription": "モンサバで利用可能として確認されているギフトコード8種と入力方法を掲載。" },
+        "en": { "title": "Clash of Critters Gift Codes", "description": "Eight codes listed as available on August 30, 2026", "badge": "3 new openfest codes", "ogTitle": "Clash of Critters Gift Codes | August 2026", "ogDescription": "Eight Clash of Critters gift codes listed as available, with copy buttons and redemption steps." },
+        "zh-CN": { "title": "Clash of Critters 最新兑换码", "description": "截至2026年8月30日确认的8个代码", "badge": "新增3个openfest代码", "ogTitle": "Clash of Critters 最新兑换码｜2026年8月", "ogDescription": "整理8个被列为可用的Clash of Critters兑换码、复制按钮与输入方法。" }
+      }
     }
   ]
 }

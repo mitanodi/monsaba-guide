@@ -32,6 +32,7 @@ function pageShell({ route, title, description, body, structured, robots, script
 }
 
 const guideItems = [
+  { href: '/gift-codes/', title: 'ギフトコード', feature: '最新8コード・報酬・期限の確認状態', roles: 'コードをそのままコピーして入力', next: '/gift-codes/' },
   { href: '/normal-guide/', title: '通常ステージ', feature: '時間切れ・全滅・配置の見直し', roles: '症状に合う役割を確認', next: '/consult/?flow=content&mode=normal' },
   { href: '/zombie-rush/', title: 'ゾンビラッシュ', feature: '高Wave・注意ゾンビ・旧環境Tier', roles: '範囲攻撃・妨害・回復などを確認', next: '/consult/?flow=content&mode=zombie' },
   { href: '/boss-rally/', title: 'ボスラリー', feature: 'ボスごとの確認済み条件', roles: '条件と一致する候補だけを抽出', next: '/consult/?flow=content&mode=bossRally' },

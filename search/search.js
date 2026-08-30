@@ -24,6 +24,7 @@ const fuzzyMatch = (query, value) => {
   return distance(query, candidate.slice(0, Math.max(query.length, candidate.length))) <= Math.max(1, Math.floor(query.length / 6));
 };
 const pages = [
+  { title:'モンサバ 最新ギフトコード一覧', href:'/gift-codes/', description:'2026年8月30日時点のギフトコード8種と入力方法', keywords:'ギフトコード gift code 兑换码 openfestc26 openfestb26 openfesta26 welcome2026 GoonBug HelloTatari WeeklyGift WelcomeGift' },
   { title:'モンサバ初心者攻略', href:'/beginner-guide/', description:'最初にやること・おすすめタタ・育成順', keywords:'初心者 序盤 最初 はじめ 初めて t3 育成順' },
   { title:'タタ図鑑', href:'/#tatari', description:'64系統の進化・スキル一覧', keywords:'タタ 図鑑 一覧 進化 スキル' },
   { title:'コンテンツ攻略ハブ', href:'/guides/', description:'通常・ゾンビラッシュ・ボスラリー・バッジ道場を目的から探す', keywords:'攻略 ハブ コンテンツ 適性 編成' },

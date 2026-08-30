@@ -32,7 +32,7 @@ const read = (file) => retry(() => fs.readFileSync(file, 'utf8'));
 const write = (file, value) => retry(() => fs.writeFileSync(file, value));
 const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'promo', 'en', 'zh-cn', 'assets', 'data', 'scripts']);
 const selfLocalized = new Set([
-  'zombie-rush/chips', 'evolution/trials', 'updates/2026-08-30',
+  'zombie-rush/chips', 'evolution/trials', 'updates/2026-08-30', 'gift-codes',
   ...['running-party','running-star','island-treasure','magic-farm','fishing-tournament','card-album','zombie-siege','surprise-roulette'].map((id) => `events/${id}`)
 ]);
 

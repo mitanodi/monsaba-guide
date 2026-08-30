@@ -99,7 +99,14 @@
     "64系統を一覧で見る": "Browse all 64 families",
     "現在確認できるイベント仕様": "Current event rules",
     "外部確認": "Externally confirmed",
-    "同じメンバーを再利用でき、盤面を開くたびにコストが5ずつ増えます。4本の鍵と爆弾を考慮し、上の独自ソルバーで次の候補を比較できます。": "Members can be reused, and each board opening increases the cost by 5. Use the independent solver above to compare the next candidate while accounting for four keys and bombs."
+    "同じメンバーを再利用でき、盤面を開くたびにコストが5ずつ増えます。4本の鍵と爆弾を考慮し、上の独自ソルバーで次の候補を比較できます。": "Members can be reused, and each board opening increases the cost by 5. Use the independent solver above to compare the next candidate while accounting for four keys and bombs.",
+    "最初に無料の": "Start by collecting the free",
+    "ギフトコード": "gift codes",
+    "を回収し、その後は通常ステージで、時間切れ・全滅・配置のどこに困っているかを切り分けます。確認済みの初心者評価と進化優先度から育成候補を選びます。": "Then identify whether normal-stage trouble comes from timing out, a full defeat, or placement, and choose upgrade candidates using the verified beginner ratings and evolution priorities.",
+    "最新8コード・報酬・期限の確認状態": "Eight current codes with reward and expiry status",
+    "コードをそのままコピーして入力": "Copy each exact code and enter it in game",
+    "🎁 最新ギフトコード": "🎁 Latest gift codes",
+    "openfest系3コードを追加。8コードをそのままコピーできます。": "Three openfest codes added. Copy any of the eight exact codes."
   },
   "zh-CN": {
     "モンサバのタタ64系統を草・水・火・雷・岩の属性別に探し、Tier・役割・進化優先・比較へ進める属性ハブです。": "按草、水、火、雷、岩五种属性浏览全部64个Tatari系列，并查看Tier、定位、进化优先级与比较。",
@@ -209,6 +216,13 @@
     "64系統を一覧で見る": "查看全部64个系列",
     "現在確認できるイベント仕様": "当前活动规则",
     "外部確認": "外部确认",
-    "同じメンバーを再利用でき、盤面を開くたびにコストが5ずつ増えます。4本の鍵と爆弾を考慮し、上の独自ソルバーで次の候補を比較できます。": "可重复使用同一成员，每次开启盘面费用增加5。结合4把钥匙与炸弹，使用上方独立求解器比较下一候选。"
+    "同じメンバーを再利用でき、盤面を開くたびにコストが5ずつ増えます。4本の鍵と爆弾を考慮し、上の独自ソルバーで次の候補を比較できます。": "可重复使用同一成员，每次开启盘面费用增加5。结合4把钥匙与炸弹，使用上方独立求解器比较下一候选。",
+    "最初に無料の": "首先领取免费的",
+    "ギフトコード": "兑换码",
+    "を回収し、その後は通常ステージで、時間切れ・全滅・配置のどこに困っているかを切り分けます。確認済みの初心者評価と進化優先度から育成候補を選びます。": "之后判断普通关卡的问题属于超时、全灭还是站位，并根据已确认的新手评价与进化优先级选择培养候选。",
+    "最新8コード・報酬・期限の確認状態": "最新8个代码、奖励与期限确认状态",
+    "コードをそのままコピーして入力": "复制准确代码后在游戏内输入",
+    "🎁 最新ギフトコード": "🎁 最新兑换码",
+    "openfest系3コードを追加。8コードをそのままコピーできます。": "新增3个openfest代码，可直接复制全部8个准确代码。"
   }
 }
