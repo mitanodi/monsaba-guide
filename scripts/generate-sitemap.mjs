@@ -60,8 +60,11 @@ const freshness = JSON.parse(readUtf8(path.join(root, 'data', 'page-freshness.js
 const i18n = JSON.parse(readUtf8(path.join(root, 'data', 'i18n', 'config.json')));
 const sourceRouteFor = (route) => route.replace(/^\/(?:en|zh-cn)(?=\/)/, '') || '/';
 function freshnessDate(route) {
-  const key = Object.keys(freshness.routes || {}).find((item) => item === route || (item.endsWith('*') && route.startsWith(item.slice(0, -1))));
-  return { ...freshness.default, ...(key ? freshness.routes[key] : {}) }.updated;
+  const sourceRoute = sourceRouteFor(route);
+  const exact = freshness.routes?.[sourceRoute];
+  const wildcard = Object.entries(freshness.routes || {}).find(([pattern]) => pattern.endsWith('*') && sourceRoute.startsWith(pattern.slice(0, -1)))?.[1];
+  if (!exact && !wildcard) return null;
+  return { ...freshness.default, ...(wildcard || {}), ...(exact || {}) }.updated;
 }
 const explicitContentDate = (route) => {
   const sourceRoute = sourceRouteFor(route);
@@ -83,7 +86,8 @@ const alternatesFor = (route) => {
   return [['ja', source], ['en', localized('en')], ['zh-Hans', localized('zh-cn')], ['x-default', source]];
 };
 const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${pages.map(({ file: htmlFile, route }) => {
-  const lastmod = [...dependenciesFor(route, htmlFile).map(gitDate), explicitContentDate(route), freshnessDate(route)].filter(Boolean).sort().at(-1);
+  const configuredDates = [explicitContentDate(route), freshnessDate(route)].filter(Boolean);
+  const lastmod = (configuredDates.length ? configuredDates : dependenciesFor(route, htmlFile).map(gitDate)).sort().at(-1);
   const alternates = alternatesFor(route).map(([lang, alternate]) => `<xhtml:link rel="alternate" hreflang="${lang}" href="${BASE_URL}${alternate}"/>`).join('');
   return `  <url><loc>${BASE_URL}${route}</loc><lastmod>${lastmod}</lastmod>${alternates}</url>`;
 }).join('\n')}\n</urlset>\n`;

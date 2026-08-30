@@ -11,6 +11,9 @@
   "routes": {
     "/": { "updated": "2026-08-28", "verified": "2026-08-28" },
     "/tata/*": { "updated": "2026-08-28", "verified": "2026-08-28" },
+    "/tata/pakuma/": { "updated": "2026-08-30", "verified": "2026-08-30", "gameVersion": "0.46.1" },
+    "/tata/sukedako/": { "updated": "2026-08-30", "verified": "2026-08-30", "gameVersion": "0.46.1" },
+    "/tata/nenbutsuhebi/": { "updated": "2026-08-30", "verified": "2026-08-30", "gameVersion": "0.46.1" },
     "/attribute/*": { "updated": "2026-08-25T17:57:25+09:00" },
     "/tata-tier/": { "updated": "2026-08-28", "verified": "2026-08-28", "pending": ["Zombie Rush Season 1の実戦データ蓄積後に再評価"] },
     "/evolution-priority/": { "updated": "2026-08-25T17:57:25+09:00" },
@@ -35,8 +38,10 @@
     "/board/": { "published": "2026-08-28", "updated": "2026-08-28", "verified": "2026-08-28" },
     "/stages/": { "published": "2026-08-28", "updated": "2026-08-28", "verified": "2026-08-28" },
     "/evolution/*": { "published": "2026-08-28", "updated": "2026-08-28", "verified": "2026-08-28" },
+    "/evolution/trials/": { "published": "2026-08-30", "updated": "2026-08-30", "verified": "2026-08-30", "gameVersion": "0.46.1" },
     "/roles/*": { "published": "2026-08-28", "updated": "2026-08-28T07:53:10+09:00", "verified": "2026-08-28" },
-    "/events/*": { "published": "2026-08-28", "updated": "2026-08-28", "verified": "2026-08-28" },
+    "/events/": { "published": "2026-08-28", "updated": "2026-08-30", "verified": "2026-08-30" },
+    "/events/*": { "published": "2026-08-28", "updated": "2026-08-30", "verified": "2026-08-30" },
     "/compare-guides/*": { "published": "2026-08-28", "updated": "2026-08-28", "verified": "2026-08-28" },
     "/my-monsaba/": { "published": "2026-08-28", "updated": "2026-08-28", "verified": "2026-08-28" },
     "/team-builder/": { "published": "2026-08-28", "updated": "2026-08-28", "verified": "2026-08-28" }

@@ -13,10 +13,17 @@ const skills = readJson('data/tata-skills.json');
 const ratings = readJson('data/tier-ratings.json');
 const evolutionPriority = readJson('data/evolution-priority.json');
 const acquisition = readJson('data/tata-acquisition.json');
+const freshness = readJson('data/page-freshness.json');
 const families = tatari.families || [];
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 const jsonLd = (value) => JSON.stringify(value).replaceAll('<', '\\u003c');
 const thumb = (image) => `/${String(image).replace('assets/monsters/', 'assets/thumbs/')}`;
+const matchesRoute = (pattern, route) => pattern.endsWith('*') ? route.startsWith(pattern.slice(0, -1)) : route === pattern;
+function modifiedFor(route) {
+  const exact = freshness.routes?.[route];
+  const wildcard = Object.entries(freshness.routes || {}).find(([pattern]) => pattern.endsWith('*') && matchesRoute(pattern, route))?.[1];
+  return { ...freshness.default, ...(wildcard || {}), ...(exact || {}) }.updated || LAST_MODIFIED;
+}
 
 function evaluationRows(id) {
   const overall = ratings.overall?.byFamily?.[id];
@@ -69,6 +76,7 @@ function renderPage(family, index) {
   const attr = ATTRIBUTE_META[family.attribute];
   if (!attr) throw new Error(`${family.id}: 属性設定がありません`);
   const route = `/tata/${family.id}/`;
+  const dateModified = modifiedFor(route);
   const url = `${BASE_URL}${route}`;
   const chain = family.evolutions.map((item) => item.name).join(' → ');
   const { roadmap, transitions } = priorityEntries(family.id);
@@ -87,7 +95,7 @@ function renderPage(family, index) {
       {
         '@type': 'WebPage', '@id': url, url, name: title, description, image,
         mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-        dateModified: LAST_MODIFIED, inLanguage: 'ja',
+        dateModified, inLanguage: 'ja',
         about: { '@type': 'Thing', name: displayLabel, alternateName: [...new Set([family.familyName, ...family.evolutions.map((item) => item.name)])], description }
       },
       {
@@ -178,7 +186,7 @@ ${evolutionLinks ? `<section class="wrap static-section tata-consult-cta"><h2 cl
     <section class="wrap static-section"><h2 class="page-h2">関連するタタ</h2><p class="section-note">属性・Tier・役割の一致度から、確認済みデータだけで関連候補を表示しています。</p>${relatedHtml}</section>
     <section class="wrap static-section"><h2 class="page-h2">次に見るページ</h2><p class="section-note">各ページへの案内です。このタタが各コンテンツの最上位候補であることを示すものではありません。</p><div class="attribute-guide-nav tata-related-links"><a href="/compare/?a=${encodeURIComponent(family.id)}">別のタタと比較</a><a href="/#family-${encodeURIComponent(family.id)}">図鑑で進化・スキルを比較</a><a href="/consult/?flow=detail&amp;family=${encodeURIComponent(family.id)}">攻略相談所で相談</a>${modeLinks.map(([href, label]) => `<a href="${href}">${esc(label)}</a>`).join('')}</div></section>
     <nav class="wrap tata-family-nav" aria-label="前後のタタ系統">${previous ? `<a href="/tata/${previous.id}/"><span>← 前の系統</span><b>${esc(getFamilyDisplayLabel(previous))}</b></a>` : '<span></span>'}${next ? `<a href="/tata/${next.id}/"><span>次の系統 →</span><b>${esc(getFamilyDisplayLabel(next))}</b></a>` : '<span></span>'}</nav>
-    <section class="wrap source-note"><strong>掲載データについて</strong><p>タタ名・進化・スキルと数値は、ゲーム内スクリーンショットで確認できた内容を掲載しています。読めない内容は推測で補完していません。Tierは当サイト独自の暫定評価です。</p><p class="article-byline">運営・データ確認：<a href="/about/">おぢ</a></p><a href="/about-data/">データ更新方針を見る</a></section>
+    <section class="wrap source-note"><strong>掲載データについて</strong><p>タタ名・進化・スキルと数値は、ゲーム内スクリーンショットで確認できた内容を掲載しています。読めない内容は推測で補完していません。Tierは当サイト独自の暫定評価です。</p>${freshness.routes?.[route] ? `<p>最終更新 <time datetime="${dateModified}">${dateModified}</time></p>` : ''}<p class="article-byline">運営・データ確認：<a href="/about/">おぢ</a></p><a href="/about-data/">データ更新方針を見る</a></section>
   </main>
   ${renderFooter(`${families.length}系統 / ${families.flatMap((family) => family.evolutions).length}体`)}
   <dialog id="tata-roster-dialog" class="tata-roster-dialog" aria-labelledby="tata-roster-title"><form method="dialog"><h2 id="tata-roster-title">マイモンサバへ登録</h2><p>この端末だけに所持状況を保存します。</p><div id="tata-roster-stages" class="stage-picker"></div><p id="tata-roster-message" class="tool-status" role="status" aria-live="polite"></p><button class="ghost-button" value="close">閉じる</button></form></dialog>

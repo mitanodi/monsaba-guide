@@ -28,7 +28,9 @@ const alternateValue = (html, hreflang) => {
   return tag?.match(/\bhref=["']([^"']+)["']/i)?.[1] || '';
 };
 
-if (config.pages.length !== 5 || Object.keys(config.locales).length !== 3) errors.push('OG card config must define 5 pages and 3 locales.');
+const requiredKeys = ['top', 'tata-tier', 'zombie-rush', 'team-builder', 'treasure-hunt', 'pakuma', 'zombie-rush-chips', 'evolution-trials', 'update-2026-08-30'];
+if (config.pages.length !== requiredKeys.length || Object.keys(config.locales).length !== 3) errors.push(`OG card config must define ${requiredKeys.length} pages and 3 locales.`);
+for (const key of requiredKeys) if (!config.pages.some((page) => page.key === key)) errors.push(`OG card config is missing ${key}.`);
 
 for (const page of config.pages) {
   for (const [locale, localeConfig] of Object.entries(config.locales)) {
@@ -83,10 +85,11 @@ for (const page of config.pages) {
   }
 }
 
-if (seenImages.size !== 15) errors.push(`Expected 15 unique OG images, found ${seenImages.size}.`);
+const expectedImageCount = config.pages.length * Object.keys(config.locales).length;
+if (seenImages.size !== expectedImageCount) errors.push(`Expected ${expectedImageCount} unique OG images, found ${seenImages.size}.`);
 
 if (errors.length) {
   console.error(errors.map((error) => `- ${error}`).join('\n'));
   process.exit(1);
 }
-console.log('OG card validation passed: 15 locale-specific 1200x630 images and metadata sets.');
+console.log(`OG card validation passed: ${expectedImageCount} locale-specific 1200x630 images and metadata sets.`);

@@ -1,5 +1,5 @@
 {
-  "templateVersion": "2026-08-29.2",
+  "templateVersion": "2026-08-30.3",
   "baseUrl": "https://monster-survival.com",
   "sourceIcon": "assets/icons/icon-512.png",
   "locales": {
@@ -190,6 +190,142 @@
           "badge": "支持撤销与设备保存",
           "ogTitle": "Clash of Critters 寻宝求解器｜最佳方格概率计算",
           "ogDescription": "输入未命中、命中宝物与已找到方格，根据剩余有效布局计算每格宝物概率和下一步推荐。"
+        }
+      }
+    },
+    {
+      "key": "pakuma",
+      "accent": "#2f80c9",
+      "accentDark": "#18558f",
+      "symbol": "水",
+      "routes": {
+        "ja": "/tata/pakuma/",
+        "en": "/en/tata/pakuma/",
+        "zh-CN": "/zh-cn/tata/pakuma/"
+      },
+      "content": {
+        "ja": {
+          "title": "パクマ系 進化・スキル",
+          "description": "パクマ → クマッシュ → マリンベア → ブリズリー",
+          "badge": "ゲーム内 v0.46.1 確認",
+          "ogTitle": "モンサバ パクマ系｜進化・スキル・確認済み数値",
+          "ogDescription": "パクマ、クマッシュ、マリンベア、ブリズリーの進化先、通常スキル、オーラ・水と確認済み数値を掲載。"
+        },
+        "en": {
+          "title": "パクマ Family Evolutions & Skills",
+          "description": "パクマ → クマッシュ → マリンベア → ブリズリー",
+          "badge": "Verified in game v0.46.1",
+          "ogTitle": "パクマ Family | Evolutions, Skills & Verified Values",
+          "ogDescription": "View the パクマ, クマッシュ, マリンベア and ブリズリー evolution line, normal skills, Aura - Water and verified values."
+        },
+        "zh-CN": {
+          "title": "パクマ 系列进化与技能",
+          "description": "パクマ → クマッシュ → マリンベア → ブリズリー",
+          "badge": "游戏内 v0.46.1 确认",
+          "ogTitle": "パクマ 系列｜进化、技能与确认数值",
+          "ogDescription": "整理パクマ、クマッシュ、マリンベア、ブリズリー的进化路线、普通技能、水之光环与确认数值。"
+        }
+      }
+    },
+    {
+      "key": "zombie-rush-chips",
+      "accent": "#7046b8",
+      "accentDark": "#48247f",
+      "symbol": "49",
+      "routes": {
+        "ja": "/zombie-rush/chips/",
+        "en": "/en/zombie-rush/chips/",
+        "zh-CN": "/zh-cn/zombie-rush/chips/"
+      },
+      "content": {
+        "ja": {
+          "title": "Zombie Rush チップ図鑑",
+          "description": "ゲーム内確認済み49種を検索・フィルター",
+          "badge": "効果・Rank・分類を収録",
+          "ogTitle": "モンサバ Zombie Rush チップ図鑑｜49種の効果",
+          "ogDescription": "Zombie Rushのチップ49種をゲーム内画面から確認。名称、Rank、効果分類から検索できます。"
+        },
+        "en": {
+          "title": "Zombie Rush Chip Database",
+          "description": "Search and filter 49 in-game verified chips",
+          "badge": "Effects, ranks and categories",
+          "ogTitle": "Clash of Critters Zombie Rush Chip Database | 49 Effects",
+          "ogDescription": "Search 49 Zombie Rush chips verified from in-game screens by name, rank and effect category."
+        },
+        "zh-CN": {
+          "title": "Zombie Rush 芯片图鉴",
+          "description": "搜索并筛选游戏内确认的49种芯片",
+          "badge": "收录效果、Rank 与分类",
+          "ogTitle": "Clash of Critters Zombie Rush 芯片图鉴｜49种效果",
+          "ogDescription": "依据游戏内画面整理49种Zombie Rush芯片，可按名称、Rank与效果分类搜索。"
+        }
+      }
+    },
+    {
+      "key": "evolution-trials",
+      "accent": "#278966",
+      "accentDark": "#176046",
+      "symbol": "64",
+      "routes": {
+        "ja": "/evolution/trials/",
+        "en": "/en/evolution/trials/",
+        "zh-CN": "/zh-cn/evolution/trials/"
+      },
+      "content": {
+        "ja": {
+          "title": "全64系統 進化試練DB",
+          "description": "T2・T3・T4条件を検索し確認状態を表示",
+          "badge": "外部確認と確認待ちを分離",
+          "ogTitle": "モンサバ 進化試練DB｜全64系統のT2・T3・T4条件",
+          "ogDescription": "全64系統の進化試練を検索。星数、餌付け、共有進行、指定素材と確認状態を整理。"
+        },
+        "en": {
+          "title": "Evolution Trial Database",
+          "description": "Search T2, T3 and T4 conditions for all 64 families",
+          "badge": "Confirmed and pending separated",
+          "ogTitle": "Clash of Critters Evolution Trial Database | All 64 Families",
+          "ogDescription": "Search T2, T3 and T4 evolution trial conditions for all 64 families with confirmation status clearly marked."
+        },
+        "zh-CN": {
+          "title": "全部64个系列进化试炼DB",
+          "description": "搜索T2、T3与T4条件及确认状态",
+          "badge": "区分外部确认与待确认",
+          "ogTitle": "Clash of Critters 进化试炼DB｜全部64个系列",
+          "ogDescription": "搜索全部64个系列的T2、T3与T4进化试炼条件，并明确标注确认状态。"
+        }
+      }
+    },
+    {
+      "key": "update-2026-08-30",
+      "accent": "#296aa8",
+      "accentDark": "#173f69",
+      "symbol": "8/30",
+      "routes": {
+        "ja": "/updates/2026-08-30/",
+        "en": "/en/updates/2026-08-30/",
+        "zh-CN": "/zh-cn/updates/2026-08-30/"
+      },
+      "content": {
+        "ja": {
+          "title": "2026年8月30日 大型更新",
+          "description": "新タタ・新T4・チップ・イベント・進化試練",
+          "badge": "v0.46.1 ゲーム内資料を反映",
+          "ogTitle": "モンサバ攻略DB 2026年8月30日 大型更新",
+          "ogDescription": "パクマ系、新T4、Zombie Rushチップ49種、イベント、全系統の進化試練を追加・更新。"
+        },
+        "en": {
+          "title": "August 30, 2026 Major Update",
+          "description": "New Tatari, T4 forms, chips, events and trials",
+          "badge": "In-game v0.46.1 evidence",
+          "ogTitle": "Clash of Critters Guide DB | August 30, 2026 Major Update",
+          "ogDescription": "Adds the パクマ family, new T4 forms, 49 Zombie Rush chips, event guides and evolution trials for all families."
+        },
+        "zh-CN": {
+          "title": "2026年8月30日大型更新",
+          "description": "新Tatari、新T4、芯片、活动与进化试炼",
+          "badge": "反映游戏内 v0.46.1 资料",
+          "ogTitle": "Clash of Critters 攻略DB｜2026年8月30日大型更新",
+          "ogDescription": "新增パクマ系列、新T4、49种Zombie Rush芯片、活动攻略与全部系列的进化试炼。"
         }
       }
     }

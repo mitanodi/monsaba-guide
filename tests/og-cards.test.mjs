@@ -22,7 +22,7 @@ const metaValue = (html, attribute, key) => {
   return decodeHtml(tag.match(/\bcontent=["']([^"']*)["']/i)?.[1] || '');
 };
 
-test('all 15 target pages use unique locale-specific OG cards', async () => {
+test('all target pages use unique locale-specific OG cards', async () => {
   const images = new Set();
   for (const page of config.pages) {
     for (const [locale, localeConfig] of Object.entries(config.locales)) {
@@ -45,7 +45,7 @@ test('all 15 target pages use unique locale-specific OG cards', async () => {
       images.add(imageUrl);
     }
   }
-  assert.equal(images.size, 15);
+  assert.equal(images.size, config.pages.length * Object.keys(config.locales).length);
 });
 
 test('OG card source stays truthful and does not claim official status', () => {

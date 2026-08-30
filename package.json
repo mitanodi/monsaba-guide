@@ -47,8 +47,9 @@
     "test:personal-tools": "node --test tests/personal-tools.test.mjs",
     "test:treasure-hunt": "node --test tests/treasure-hunt.test.mjs",
     "test:i18n": "node --test tests/i18n.test.mjs",
+    "test:pdf-evidence": "node --test tests/pdf-evidence.test.mjs",
     "test:og": "node --test tests/og-cards.test.mjs",
-    "test": "npm run test:friends && npm run test:board && npm run test:official-x && npm run test:family-display && npm run test:affiliate && npm run test:adsense && npm run test:ga4 && npm run test:personal-tools && npm run test:treasure-hunt && npm run test:i18n && npm run test:og"
+    "test": "npm run test:friends && npm run test:board && npm run test:official-x && npm run test:family-display && npm run test:affiliate && npm run test:adsense && npm run test:ga4 && npm run test:personal-tools && npm run test:treasure-hunt && npm run test:i18n && npm run test:pdf-evidence && npm run test:og"
   },
   "dependencies": {
     "@upstash/redis": "^1.38.2"

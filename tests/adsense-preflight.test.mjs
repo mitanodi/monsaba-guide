@@ -131,7 +131,10 @@ test('responsive guards cover review widths without fixed AdSense UI', () => {
 });
 
 test('full site generation is idempotent', { timeout: 120000 }, () => {
-  const tracked = execFileSync('git', ['ls-files', '-z'], { cwd: root }).toString('utf8').split('\0').filter(Boolean);
+  const tracked = execFileSync('git', ['ls-files', '--cached', '--others', '--exclude-standard', '-z'], { cwd: root })
+    .toString('utf8')
+    .split('\0')
+    .filter((file) => file && !file.startsWith('promo/') && fs.existsSync(path.join(root, file)));
   const digest = () => {
     const hash = createHash('sha256');
     for (const file of tracked) {

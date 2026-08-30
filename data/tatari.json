@@ -64,9 +64,11 @@
     "latestEvidence": {
       "fileName": "写真.pdf",
       "sha256": "82FF3DEE280A21ECBB99ED46BDA893C1533AF8D2D76A7AF166D7D43B726B1211",
-      "pages": 92,
+      "pages": 91,
       "verifiedAt": "2026-08-30",
-      "gameVersion": "0.46.1"
+      "gameVersion": "0.46.1",
+      "physicalPages": 92,
+      "excludedFrontMatterPages": 1
     }
   },
   "families": [
@@ -3121,7 +3123,7 @@
         {
           "stage": 4,
           "name": "ロードパス",
-          "source": "写真.pdf p.35-38",
+          "source": "写真.pdf p.34-37",
           "image": "assets/monsters/roadpass.webp",
           "sourceMetadata": {
             "sourceType": "in_game",
@@ -3131,10 +3133,10 @@
             "gameVersion": "0.46.1",
             "status": "verified",
             "pdfPages": [
+              34,
               35,
               36,
-              37,
-              38
+              37
             ],
             "notes": "進化図鑑のロック中シルエット。実体画像は確認待ち"
           }
@@ -3286,7 +3288,7 @@
             ]
           ],
           "sources": [
-            "写真.pdf p.35-38"
+            "写真.pdf p.34-37"
           ],
           "source": {
             "sourceType": "in_game",
@@ -3296,10 +3298,10 @@
             "gameVersion": "0.46.1",
             "status": "verified",
             "pdfPages": [
+              34,
               35,
               36,
-              37,
-              38
+              37
             ],
             "notes": "子ダコ撃破時の爆発倍率は画面で数値未確認のため登録していない"
           }
@@ -8870,7 +8872,7 @@
         {
           "stage": 4,
           "name": "ナムアミダイジャ",
-          "source": "写真.pdf p.29-34",
+          "source": "写真.pdf p.28-33",
           "image": "assets/monsters/namuamidaija.webp",
           "sourceMetadata": {
             "sourceType": "in_game",
@@ -8880,12 +8882,12 @@
             "gameVersion": "0.46.1",
             "status": "verified",
             "pdfPages": [
+              28,
               29,
               30,
               31,
               32,
-              33,
-              34
+              33
             ],
             "notes": "進化図鑑のロック中シルエット。実体画像は確認待ち"
           }
@@ -9087,7 +9089,7 @@
             ]
           ],
           "sources": [
-            "写真.pdf p.29-34"
+            "写真.pdf p.28-33"
           ],
           "source": {
             "sourceType": "in_game",
@@ -9097,12 +9099,12 @@
             "gameVersion": "0.46.1",
             "status": "verified",
             "pdfPages": [
+              28,
               29,
               30,
               31,
               32,
-              33,
-              34
+              33
             ],
             "notes": ""
           }
@@ -11267,7 +11269,7 @@
         {
           "stage": 1,
           "name": "パクマ",
-          "source": "写真.pdf p.7-8",
+          "source": "写真.pdf p.6-7",
           "image": "assets/monsters/pakuma.webp",
           "sourceMetadata": {
             "sourceType": "in_game",
@@ -11277,8 +11279,8 @@
             "gameVersion": "0.46.1",
             "status": "verified",
             "pdfPages": [
-              7,
-              8
+              6,
+              7
             ],
             "notes": "実体画像を確認"
           }
@@ -11286,8 +11288,26 @@
         {
           "stage": 2,
           "name": "クマッシュ",
-          "source": "写真.pdf p.9",
+          "source": "写真.pdf p.8",
           "image": "assets/monsters/kumash.webp",
+          "sourceMetadata": {
+            "sourceType": "in_game",
+            "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+            "sourceUpdatedAt": "2026-08-30",
+            "verifiedAt": "2026-08-30",
+            "gameVersion": "0.46.1",
+            "status": "verified",
+            "pdfPages": [
+              8
+            ],
+            "notes": "進化図鑑のロック中シルエット。実体画像は確認待ち"
+          }
+        },
+        {
+          "stage": 3,
+          "name": "マリンベア",
+          "source": "写真.pdf p.9",
+          "image": "assets/monsters/marine-bear.webp",
           "sourceMetadata": {
             "sourceType": "in_game",
             "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
@@ -11302,27 +11322,9 @@
           }
         },
         {
-          "stage": 3,
-          "name": "マリンベア",
-          "source": "写真.pdf p.10",
-          "image": "assets/monsters/marine-bear.webp",
-          "sourceMetadata": {
-            "sourceType": "in_game",
-            "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
-            "sourceUpdatedAt": "2026-08-30",
-            "verifiedAt": "2026-08-30",
-            "gameVersion": "0.46.1",
-            "status": "verified",
-            "pdfPages": [
-              10
-            ],
-            "notes": "進化図鑑のロック中シルエット。実体画像は確認待ち"
-          }
-        },
-        {
           "stage": 4,
           "name": "ブリズリー",
-          "source": "写真.pdf p.11",
+          "source": "写真.pdf p.10",
           "image": "assets/monsters/blizzly.webp",
           "sourceMetadata": {
             "sourceType": "in_game",
@@ -11332,7 +11334,7 @@
             "gameVersion": "0.46.1",
             "status": "verified",
             "pdfPages": [
-              11
+              10
             ],
             "notes": "進化図鑑のロック中シルエット。実体画像は確認待ち"
           }
@@ -11378,10 +11380,10 @@
             ]
           ],
           "sources": [
+            "写真.pdf p.11",
             "写真.pdf p.12",
             "写真.pdf p.13",
-            "写真.pdf p.14",
-            "写真.pdf p.15"
+            "写真.pdf p.14"
           ],
           "source": {
             "sourceType": "in_game",
@@ -11391,10 +11393,10 @@
             "gameVersion": "0.46.1",
             "status": "verified",
             "pdfPages": [
+              11,
               12,
               13,
-              14,
-              15
+              14
             ],
             "notes": ""
           }
@@ -11438,10 +11440,10 @@
             ]
           ],
           "sources": [
+            "写真.pdf p.15",
             "写真.pdf p.16",
             "写真.pdf p.17",
-            "写真.pdf p.18",
-            "写真.pdf p.19"
+            "写真.pdf p.18"
           ],
           "source": {
             "sourceType": "in_game",
@@ -11451,10 +11453,10 @@
             "gameVersion": "0.46.1",
             "status": "verified",
             "pdfPages": [
+              15,
               16,
               17,
-              18,
-              19
+              18
             ],
             "notes": ""
           }
@@ -11498,10 +11500,10 @@
             ]
           ],
           "sources": [
+            "写真.pdf p.19",
             "写真.pdf p.20",
             "写真.pdf p.21",
-            "写真.pdf p.22",
-            "写真.pdf p.23"
+            "写真.pdf p.22"
           ],
           "source": {
             "sourceType": "in_game",
@@ -11511,10 +11513,10 @@
             "gameVersion": "0.46.1",
             "status": "verified",
             "pdfPages": [
+              19,
               20,
               21,
-              22,
-              23
+              22
             ],
             "notes": ""
           }
@@ -11570,11 +11572,11 @@
             ]
           ],
           "sources": [
+            "写真.pdf p.23",
             "写真.pdf p.24",
             "写真.pdf p.25",
             "写真.pdf p.26",
-            "写真.pdf p.27",
-            "写真.pdf p.28"
+            "写真.pdf p.27"
           ],
           "source": {
             "sourceType": "in_game",
@@ -11584,11 +11586,11 @@
             "gameVersion": "0.46.1",
             "status": "verified",
             "pdfPages": [
+              23,
               24,
               25,
               26,
-              27,
-              28
+              27
             ],
             "notes": ""
           }
@@ -11602,6 +11604,7 @@
         "gameVersion": "0.46.1",
         "status": "verified",
         "pdfPages": [
+          6,
           7,
           8,
           9,
@@ -11622,8 +11625,7 @@
           24,
           25,
           26,
-          27,
-          28
+          27
         ],
         "notes": ""
       }
