@@ -1,7 +1,9 @@
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
+import sharp from 'sharp';
 import { PDF_EVIDENCE, assertPdfRange, isValidPdfPage, pagesInRange } from '../scripts/pdf-evidence.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
@@ -67,5 +69,27 @@ test('target pages use Aug 30 dateModified in all three languages', () => {
       const html = fs.readFileSync(file, 'utf8');
       assert.match(html, /["']dateModified["']\s*:\s*["']2026-08-30["']/, route);
     }
+  }
+});
+
+test('four corrected chip icons keep their ID, display name, hashed asset and 96px dimensions', async () => {
+  const expected = {
+    'rock-ii': ['岩の息吹II', 'rock-ii-d27266e7e6f3.webp'],
+    'lightning-ii': ['雷の息吹II', 'lightning-ii-adb75288a7f7.webp'],
+    'glass-cannon': ['ガラス大砲', 'glass-cannon-6964d4975725.webp'],
+    'boss-killer': ['ボスキラー', 'boss-killer-1eea45bf2c0c.webp']
+  };
+  const chipsById = new Map(chips.chips.map((chip) => [chip.id, chip]));
+  for (const [id, [displayName, fileName]] of Object.entries(expected)) {
+    const chip = chipsById.get(id);
+    assert.equal(chip?.name.ja, displayName);
+    assert.equal(path.basename(chip?.icon || ''), fileName);
+    const asset = path.join(root, chip.icon.slice(1));
+    const bytes = fs.readFileSync(asset);
+    const digest = createHash('sha256').update(bytes).digest('hex');
+    assert.equal(fileName.endsWith(`${digest.slice(0, 12)}.webp`), true, `${id}: stale asset hash`);
+    const metadata = await sharp(bytes).metadata();
+    assert.equal(metadata.width, 96, `${id}: width`);
+    assert.equal(metadata.height, 96, `${id}: height`);
   }
 });

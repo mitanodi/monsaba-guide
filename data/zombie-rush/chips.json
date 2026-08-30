@@ -973,7 +973,7 @@
         "zh-CN": "岩の息吹II"
       },
       "rarity": "II",
-      "icon": "/assets/chips/rock-ii.webp",
+      "icon": "/assets/chips/rock-ii-d27266e7e6f3.webp",
       "effect": {
         "ja": "あなたの岩属性タタが30%のダメージ増加を獲得する。",
         "en": "Rock Tatari gain 30% damage.",
@@ -1018,7 +1018,7 @@
         "zh-CN": "雷の息吹II"
       },
       "rarity": "II",
-      "icon": "/assets/chips/lightning-ii.webp",
+      "icon": "/assets/chips/lightning-ii-adb75288a7f7.webp",
       "effect": {
         "ja": "あなたの雷属性タタが30%のダメージ増加を獲得する。",
         "en": "Lightning Tatari gain 30% damage.",
@@ -1063,7 +1063,7 @@
         "zh-CN": "ガラス大砲"
       },
       "rarity": "II",
-      "icon": "/assets/chips/glass-cannon.webp",
+      "icon": "/assets/chips/glass-cannon-6964d4975725.webp",
       "effect": {
         "ja": "あなたのタタ全員の攻撃力が25%増加し、最大HPが10%減少する。",
         "en": "All Tatari gain 25% attack but lose 10% max HP.",
@@ -1108,7 +1108,7 @@
         "zh-CN": "ボスキラー"
       },
       "rarity": "II",
-      "icon": "/assets/chips/boss-killer.webp",
+      "icon": "/assets/chips/boss-killer-1eea45bf2c0c.webp",
       "effect": {
         "ja": "ボスゾンビに与えるダメージが25%増加する。",
         "en": "Damage dealt to boss zombies rises 25%.",
