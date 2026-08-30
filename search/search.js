@@ -25,7 +25,7 @@ const fuzzyMatch = (query, value) => {
 };
 const pages = [
   { title:'モンサバ初心者攻略', href:'/beginner-guide/', description:'最初にやること・おすすめタタ・育成順', keywords:'初心者 序盤 最初 はじめ 初めて t3 育成順' },
-  { title:'タタ図鑑', href:'/#tatari', description:'63系統の進化・スキル一覧', keywords:'タタ 図鑑 一覧 進化 スキル' },
+  { title:'タタ図鑑', href:'/#tatari', description:'64系統の進化・スキル一覧', keywords:'タタ 図鑑 一覧 進化 スキル' },
   { title:'コンテンツ攻略ハブ', href:'/guides/', description:'通常・ゾンビラッシュ・ボスラリー・バッジ道場を目的から探す', keywords:'攻略 ハブ コンテンツ 適性 編成' },
   { title:'総合タタTier', href:'/tata-tier/', description:'総合・通常・ゾンビ・道場・初心者評価', keywords:'tier 最強 育成 おすすめ' },
   { title:'進化優先度', href:'/evolution-priority/', description:'第3進化・T4・進化差分', keywords:'進化 優先度 星 t3 t4' },
@@ -34,6 +34,9 @@ const pages = [
   { title:'タタ2体比較', href:'/compare/', description:'属性・Tier・役割・スキル・進化を横並び比較', keywords:'比較 どっち vs 適性' },
   { title:'モンサバ攻略FAQ', href:'/faq/', description:'進化・属性・Tier・比較の短い回答', keywords:'faq よくある質問 次に進化 どの属性' },
   { title:'ゾンビラッシュ攻略', href:'/zombie-rush/', description:'高Wave・おすすめTier・注意ゾンビ', keywords:'ゾンビラッシュ wave' },
+  { title:'Zombie Rush チップ図鑑', href:'/zombie-rush/chips/', description:'ゲーム内確認済み49種の効果・Rank・フィルタ', keywords:'チップ chip 攻撃 防御 回復 配置 ランダム レベル' },
+  { title:'全64系統の進化試練DB', href:'/evolution/trials/', description:'T2・T3・T4条件を検索', keywords:'進化試練 条件 餌付け 共有進行 素材' },
+  { title:'8/30大型更新', href:'/updates/2026-08-30/', description:'パクマ・新T4・チップ・イベント・進化試練', keywords:'パクマ クマッシュ マリンベア ブリズリー ロードパス ナムアミダイジャ' },
   { title:'8/26アップデート実装内容', href:'/updates/2026-08-26/', description:'パクマ・ゾンビラッシュSeason 1・新T4・バランス調整', keywords:'アップデート アプデ 8月26日 パクマ season1 シーズン1 ロードパス ナムアミダイジャ' },
   { title:'ボスラリー攻略', href:'/boss-rally/', description:'ボス別の特徴と対策', keywords:'ボスラリー ボス' },
   { title:'バッジ道場攻略', href:'/badge-dojo/', description:'属性別・配置・役割', keywords:'バッジ 道場 dojo' },
@@ -48,6 +51,8 @@ const pages = [
 let families = [];
 let skills = {};
 let ratings = {};
+let chips = [];
+let trials = [];
 
 async function fetchJson(url) {
   const response = await fetch(url, { cache: 'no-store' });
@@ -56,10 +61,12 @@ async function fetchJson(url) {
 }
 
 async function boot() {
-  const [tatari, skillData, ratingData] = await Promise.all([fetchJson('/data/tatari.json'), fetchJson('/data/tata-skills.json'), fetchJson('/data/tier-ratings.json')]);
+  const [tatari, skillData, ratingData, chipData, trialData] = await Promise.all([fetchJson('/data/tatari.json'), fetchJson('/data/tata-skills.json'), fetchJson('/data/tier-ratings.json'), fetchJson('/data/zombie-rush/chips.json'), fetchJson('/data/evolution-trials.json')]);
   families = tatari.families || [];
   skills = skillData.byFamily || {};
   ratings = ratingData.overall?.byFamily || {};
+  chips = chipData.chips || [];
+  trials = trialData.families || [];
   const suggestions = new Set(pages.map((page) => page.title));
   for (const family of families) {
     getFamilySearchAliases(family).forEach((name) => suggestions.add(name)); suggestions.add(`${family.attribute}属性`);
@@ -67,6 +74,7 @@ async function boot() {
     (skills[family.id]?.stages || []).forEach((stage) => suggestions.add(stage.skillName));
     (ratings[family.id]?.roles || []).forEach((role) => suggestions.add(role));
   }
+  chips.forEach((chip) => suggestions.add(chip.name.ja));
   $('#siteSearchSuggestions').innerHTML = [...suggestions].slice(0, 500).map((value) => `<option value="${esc(value)}"></option>`).join('');
   $('#siteSearchForm').addEventListener('submit', (event) => { event.preventDefault(); const total = runSearch($('#siteSearchInput').value); window.MONSABA_TRACK?.event('site_search', { query_length: [...$('#siteSearchInput').value.trim()].length, result_count: total }); });
   $('#siteSearchInput').addEventListener('input', (event) => runSearch(event.target.value));
@@ -102,12 +110,16 @@ function runSearch(rawQuery, updateUrl = true) {
     if (matchedSkills.length) skillResults.push({ family, matches: matchedSkills.map((stage) => `T${stage.stage} ${stage.skillName}`) });
   }
   const pageResults = pages.filter((page) => contains(query, page.title, page.description, page.keywords));
-  const total = familyResults.length + evolutionResults.length + skillResults.length + pageResults.length;
+  const chipResults = chips.filter((chip) => contains(query, chip.name.ja, chip.effect.ja, chip.tags));
+  const trialResults = trials.filter((family) => contains(query, family.familyName, family.conditions.map((item) => [item.tataName, item.condition])));
+  const total = familyResults.length + evolutionResults.length + skillResults.length + chipResults.length + trialResults.length + pageResults.length;
   $('#searchStatus').textContent = `「${raw}」の検索結果：${total}件`;
   const sections = [
     section('タタ', familyResults, (family) => resultLink(`/tata/${encodeURIComponent(family.id)}/`, getFamilyDisplayLabel(family), `${family.attribute}属性 / ${family.evolutions.map((item) => item.name).join(' → ')}`)),
     section('進化名', evolutionResults, (item) => resultLink(`/tata/${encodeURIComponent(item.family.id)}/`, getFamilyDisplayLabel(item.family), item.matches.join(' / '))),
     section('スキル', skillResults, (item) => resultLink(`/tata/${encodeURIComponent(item.family.id)}/`, getFamilyDisplayLabel(item.family), item.matches.join(' / '))),
+    section('Zombie Rushチップ', chipResults, (chip) => resultLink('/zombie-rush/chips/', chip.name.ja, `Rank ${chip.rarity} / ${chip.effect.ja}`)),
+    section('進化試練', trialResults, (family) => resultLink(`/evolution/trials/`, `${family.familyName}系`, family.conditions.map((item) => `T${item.stage} ${item.tataName}`).join(' / '))),
     section('攻略ページ', pageResults, (page) => resultLink(page.href, page.title, page.description))
   ].join('');
   $('#searchResults').innerHTML = total ? sections : '<div class="empty"><p>一致する情報がありません。別の名称や正式な属性名で検索してください。</p><nav class="attribute-guide-nav" aria-label="代替の探し方"><a href="/consult/">条件から攻略相談</a><a href="/tata-tier/">Tierから探す</a><a href="/attribute/grass/">属性から探す</a><a href="/guides/">攻略目的から探す</a></nav></div>';

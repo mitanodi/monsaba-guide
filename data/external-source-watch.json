@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "updated": "2026-08-30",
+  "sources": [
+    {
+      "name": "App Store 更新履歴",
+      "url": "https://apps.apple.com/jp/app/id6741567125",
+      "category": "official",
+      "lastChecked": "2026-08-30",
+      "gameVersion": "0.46.1",
+      "reliability": "primary",
+      "notes": "公式更新履歴"
+    },
+    {
+      "name": "国内攻略Wiki",
+      "url": "https://monster-survival.games-wiki.com/",
+      "category": "community",
+      "lastChecked": "2026-08-30",
+      "lastKnownUpdateDate": "2026-08-28",
+      "gameVersion": "0.46.1",
+      "reliability": "secondary",
+      "notes": "仕様・イベント・進化条件の照合。本文や画像は転載しない。"
+    },
+    {
+      "name": "モンスターサバイバル攻略Wiki（atwiki）",
+      "url": "https://w.atwiki.jp/monstersurvival/",
+      "category": "community",
+      "lastChecked": "2026-08-30",
+      "reliability": "secondary",
+      "notes": "イベント仕様の照合"
+    },
+    {
+      "name": "TatariHub",
+      "url": "https://tatarihub.fun/tier-list",
+      "category": "tier",
+      "lastChecked": "2026-08-30",
+      "lastKnownUpdateDate": "2026-08-19",
+      "reliability": "secondary",
+      "notes": "海外Tier差分確認"
+    },
+    {
+      "name": "Pocket Tactics",
+      "url": "https://www.pockettactics.com/clash-of-critters/tier-list",
+      "category": "tier",
+      "lastChecked": "2026-08-30",
+      "lastKnownUpdateDate": "2026-08-24",
+      "reliability": "secondary",
+      "notes": "海外Tier差分確認"
+    },
+    {
+      "name": "Pocket Gamer",
+      "url": "https://www.pocketgamer.com/clash-of-critters/tier-list",
+      "category": "tier",
+      "lastChecked": "2026-08-30",
+      "lastKnownUpdateDate": "2026-08-18",
+      "gameVersion": "0.44.1",
+      "reliability": "legacy-secondary",
+      "notes": "現行0.46.1との差に注意"
+    },
+    {
+      "name": "Clash of Critters Info",
+      "url": "https://www.clashofcritters.info/",
+      "category": "tier",
+      "lastChecked": "2026-08-30",
+      "reliability": "secondary",
+      "notes": "海外Tier・進化情報の差分確認"
+    },
+    {
+      "name": "Clash Critters",
+      "url": "https://clashcritters.com/",
+      "category": "tier",
+      "lastChecked": "2026-08-30",
+      "reliability": "secondary",
+      "notes": "海外情報の補助確認"
+    }
+  ]
+}

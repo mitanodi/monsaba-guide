@@ -31,9 +31,9 @@ function storage(seed = {}) {
   };
 }
 
-test('データIntegrityは63系統・224体', () => {
-  assert.equal(families.length, 63);
-  assert.equal(families.flatMap((family) => family.evolutions).length, 224);
+test('データIntegrityは64系統・230体', () => {
+  assert.equal(families.length, 64);
+  assert.equal(families.flatMap((family) => family.evolutions).length, 230);
   assert.deepEqual(new Set(families.map((family) => family.attribute)), new Set(['草', '水', '火', '雷', '岩']));
 });
 

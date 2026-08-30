@@ -45,8 +45,8 @@ for (const [label, values] of [
 }
 const counts = Object.fromEntries(['草', '水', '火', '雷', '岩'].map((attribute) => [attribute, 0]));
 for (const family of tatari.families || []) counts[family.attribute] = (counts[family.attribute] || 0) + 1;
-expect(JSON.stringify(counts) === JSON.stringify({草:13, 水:12, 火:13, 雷:13, 岩:12}), `属性系統数: ${JSON.stringify(counts)}`);
-expect((tatari.families || []).length === 63, `総系統数: ${(tatari.families || []).length}`);
+expect(JSON.stringify(counts) === JSON.stringify({草:13, 水:13, 火:13, 雷:13, 岩:12}), `属性系統数: ${JSON.stringify(counts)}`);
+expect((tatari.families || []).length === 64, `総系統数: ${(tatari.families || []).length}`);
 const renamedFamilies = (tatari.families || []).filter((family) => family.familyName !== getFamilyDisplayName(family));
 expect(renamedFamilies.length === 32, `初期形態名とlegacy familyNameが異なる系統数: ${renamedFamilies.length}`);
 for (const family of tatari.families || []) {
@@ -214,10 +214,10 @@ for (const [route, label] of [['normal-guide', '通常ステージ'], ['zombie-r
   expect(header.includes('href="/guides/" class="desktop-only-nav-link" aria-current="page">攻略ハブ</a>'), `${route}: PC攻略ハブのactive表示がありません`);
 }
 const topHtml = read('index.html');
-expect((topHtml.match(/data-family="/g) || []).length === 63, 'TOP図鑑の静的HTMLが63系統ではありません');
+expect((topHtml.match(/data-family="/g) || []).length === 64, 'TOP図鑑の静的HTMLが64系統ではありません');
 const tierHtml = read('tata-tier/index.html');
 expect((tierHtml.match(/class="overall-card"/g) || []).length > 0, 'Tierの静的HTMLがありません');
-expect((tierHtml.match(/class="tier-chart-tata"/g) || []).length === 63, 'Tierチャートは63系統ではありません');
+expect((tierHtml.match(/class="tier-chart-tata"/g) || []).length === 64, 'Tierチャートは64系統ではありません');
 expect((tierHtml.match(/class="tier-chart-row /g) || []).length === 4, 'Tierチャートは4区分ではありません');
 expect(tierHtml.includes('ビリジカ系') && tierHtml.includes('シズクジ系'), 'Tierチャートの日本名表示が不正です');
 expect((read('evolution-priority/index.html').match(/class="evolution-card"/g) || []).length > 0, '進化優先度の静的HTMLがありません');
@@ -304,7 +304,7 @@ expect(!publicFiles.map(read).join('\n').match(/adsbygoogle|doubleclick\.net|goo
 const matchesAffiliatePath = (pattern, route) => pattern.endsWith('*') ? route.startsWith(pattern.slice(0, -1)) : route === pattern;
 const routeForHtmlFile = (file) => file === 'index.html' ? '/' : file.endsWith('/index.html') ? `/${file.slice(0, -10)}` : `/${file}`;
 const affiliateEligibleFiles = htmlFiles.filter((file) => monetization.pageProfiles?.some((rule) => matchesAffiliatePath(rule.match, routeForHtmlFile(file))));
-expect(affiliateEligibleFiles.length === 79, `affiliate対象ページ数: ${affiliateEligibleFiles.length}`);
+expect(affiliateEligibleFiles.length === tatari.families.length + 16, `affiliate対象ページ数: ${affiliateEligibleFiles.length}`);
 for (const file of affiliateEligibleFiles) expect(read(file).includes('/monetization.js'), `${file}: monetization.jsがありません`);
 for (const route of ['/privacy/', '/about/', '/about-data/', '/updates/', '/search/', '/consult/', '/faq/']) {
   expect(!monetization.pageProfiles?.some((rule) => matchesAffiliatePath(rule.match, route)), `affiliate非対象ページ ${route} が有効です`);
@@ -363,4 +363,4 @@ if (errors.length) {
   console.error(`サイト検証失敗 (${errors.length})\n- ${errors.join('\n- ')}`);
   process.exit(1);
 }
-console.log(`サイト検証成功: 63系統 ${JSON.stringify(counts)} / HTML ${htmlFiles.length}ページ / 内部リンク正常`);
+console.log(`サイト検証成功: ${tatari.families.length}系統 ${JSON.stringify(counts)} / HTML ${htmlFiles.length}ページ / 内部リンク正常`);

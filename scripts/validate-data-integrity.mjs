@@ -32,7 +32,7 @@ fail(seasonOne.meta?.effectiveDate === '2026-08-26', 'season-1.json: effectiveDa
 const families = Array.isArray(tatari.families) ? tatari.families : [];
 const familyIds = families.map((family) => family.id);
 const validIds = new Set(familyIds);
-fail(familyIds.length === 63, `tatari.json: family count ${familyIds.length}, expected 63`);
+fail(familyIds.length === 64, `tatari.json: family count ${familyIds.length}, expected 64`);
 fail(new Set(familyIds).size === familyIds.length, 'tatari.json: duplicate family id');
 
 let evolutionCount = 0;
@@ -53,12 +53,12 @@ for (const family of families) {
     fail(typeof stage.name === 'string' && stage.name.length > 0, `${family.id} T${stage.stage}: evolution name is required`);
   }
 }
-fail(evolutionCount === 224, `tatari.json: evolution count ${evolutionCount}, expected 224`);
-fail(tatari.meta?.familyCount === 63 && tatari.meta?.monsterCount === 224, 'tatari.json: meta counts must remain 63/224');
+fail(evolutionCount === 230, `tatari.json: evolution count ${evolutionCount}, expected 230`);
+fail(tatari.meta?.familyCount === familyIds.length && tatari.meta?.monsterCount === evolutionCount, 'tatari.json: meta counts must match calculated totals');
 
 const skillFamilies = Object.keys(skills.byFamily || {});
-fail(skillFamilies.length === 63, `tata-skills.json: family count ${skillFamilies.length}, expected 63`);
-fail(skills.totals?.families === 63 && skills.totals?.stages === 224, 'tata-skills.json: totals must remain 63/224');
+fail(skillFamilies.length === familyIds.length, `tata-skills.json: family count ${skillFamilies.length}, expected ${familyIds.length}`);
+fail(skills.totals?.families === familyIds.length && skills.totals?.stages === evolutionCount, 'tata-skills.json: totals must match calculated Tatari totals');
 let skillStageCount = 0;
 for (const [familyId, skillFamily] of Object.entries(skills.byFamily || {})) {
   fail(validIds.has(familyId), `tata-skills.json: unknown familyId ${familyId}`);
@@ -78,7 +78,7 @@ for (const [familyId, skillFamily] of Object.entries(skills.byFamily || {})) {
   }
   fail(stages.length === (sourceFamily?.evolutions?.length || 0), `${familyId}: stage count differs between JSON files`);
 }
-fail(skillStageCount === 224, `tata-skills.json: stage count ${skillStageCount}, expected 224`);
+fail(skillStageCount === evolutionCount, `tata-skills.json: stage count ${skillStageCount}, expected ${evolutionCount}`);
 
 const bowzuhebi = ratings.overall?.byFamily?.nenbutsuhebi;
 for (const [mode, expected] of Object.entries({ tier: 'SS', normal: 'SS', zombie: 'SS', dojo: 'SS', beginner: 'SS' })) {
@@ -140,4 +140,4 @@ if (errors.length) {
   console.error(`データ整合性検証失敗 (${errors.length})\n- ${errors.join('\n- ')}`);
   process.exit(1);
 }
-console.log(`データ整合性検証成功: 主要5 JSON + Season 1 / 63系統 / 224体 / 専用スキル35体 / warning ${warnings.length}`);
+console.log(`データ整合性検証成功: 主要5 JSON + Season 1 / ${familyIds.length}系統 / ${evolutionCount}体 / 専用スキル35体 / warning ${warnings.length}`);

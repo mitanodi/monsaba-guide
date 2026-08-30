@@ -1,0 +1,2277 @@
+{
+  "version": 1,
+  "updated": "2026-08-30",
+  "gameVersion": "0.46.1",
+  "count": 49,
+  "source": {
+    "sourceType": "in_game",
+    "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+    "sourceUpdatedAt": "2026-08-30",
+    "verifiedAt": "2026-08-30",
+    "gameVersion": "0.46.1",
+    "status": "verified",
+    "pdfPages": [
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92
+    ],
+    "notes": ""
+  },
+  "chips": [
+    {
+      "id": "sugar-iii",
+      "name": {
+        "ja": "糖分補給III",
+        "en": "糖分補給III",
+        "zh-CN": "糖分補給III"
+      },
+      "rarity": "III",
+      "icon": "/assets/chips/sugar-iii.webp",
+      "effect": {
+        "ja": "5秒ごとにエナジーキャンディを4個獲得する。あなたのタタはLv.8までレベルアップできるようになる。",
+        "en": "Every 5 seconds, gain 4 Energy Candies. Your Tatari can level up to Lv.8.",
+        "zh-CN": "每5秒获得4个能量糖果。你的塔塔可升至Lv.8。"
+      },
+      "tags": [
+        "level",
+        "special"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": true,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": true
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          44
+        ],
+        "notes": "",
+        "pdfPage": 44
+      }
+    },
+    {
+      "id": "bounty-iii",
+      "name": {
+        "ja": "賞金稼ぎIII",
+        "en": "賞金稼ぎIII",
+        "zh-CN": "賞金稼ぎIII"
+      },
+      "rarity": "III",
+      "icon": "/assets/chips/bounty-iii.webp",
+      "effect": {
+        "ja": "120秒以内に、あなたのタタがゾンビを倒して獲得するエナジーキャンディが4個増加する。あなたのタタはLv.8までレベルアップできるようになる。",
+        "en": "For 120 seconds, zombies defeated by your Tatari yield 4 more Energy Candies. Your Tatari can level up to Lv.8.",
+        "zh-CN": "120秒内，你的塔塔击败僵尸时额外获得4个能量糖果。你的塔塔可升至Lv.8。"
+      },
+      "tags": [
+        "level",
+        "special"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": true,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": true
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          45
+        ],
+        "notes": "",
+        "pdfPage": 45
+      }
+    },
+    {
+      "id": "slot-iv",
+      "name": {
+        "ja": "スロット・肆",
+        "en": "スロット・肆",
+        "zh-CN": "スロット・肆"
+      },
+      "rarity": "III",
+      "icon": "/assets/chips/slot-iv.webp",
+      "effect": {
+        "ja": "編成中のタタをランダムで4匹獲得する。出陣数が上限に達した場合、未獲得の数に応じて、あなたのタタをランダムでレベルアップさせる。",
+        "en": "Gain 4 random deployed Tatari. At the deployment limit, randomly level up your Tatari for each one not gained.",
+        "zh-CN": "随机获得4只已上阵塔塔。达到上阵上限时，按未获得数量随机提升塔塔等级。"
+      },
+      "tags": [
+        "random",
+        "level"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": true,
+        "random": true,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          46
+        ],
+        "notes": "",
+        "pdfPage": 46
+      }
+    },
+    {
+      "id": "water-iii",
+      "name": {
+        "ja": "水の息吹III",
+        "en": "水の息吹III",
+        "zh-CN": "水の息吹III"
+      },
+      "rarity": "III",
+      "icon": "/assets/chips/water-iii.webp",
+      "effect": {
+        "ja": "あなたの水属性タタが40%のダメージ増加を獲得する。",
+        "en": "Water Tatari gain 40% damage.",
+        "zh-CN": "水属性塔塔伤害提高40%。"
+      },
+      "tags": [
+        "attack",
+        "attribute"
+      ],
+      "targetAttribute": "water",
+      "targetPosition": null,
+      "flags": {
+        "attack": true,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          47
+        ],
+        "notes": "",
+        "pdfPage": 47
+      }
+    },
+    {
+      "id": "fire-iii",
+      "name": {
+        "ja": "炎の息吹III",
+        "en": "炎の息吹III",
+        "zh-CN": "炎の息吹III"
+      },
+      "rarity": "III",
+      "icon": "/assets/chips/fire-iii.webp",
+      "effect": {
+        "ja": "あなたの炎属性タタが40%のダメージ増加を獲得する。",
+        "en": "Fire Tatari gain 40% damage.",
+        "zh-CN": "火属性塔塔伤害提高40%。"
+      },
+      "tags": [
+        "attack",
+        "attribute"
+      ],
+      "targetAttribute": "fire",
+      "targetPosition": null,
+      "flags": {
+        "attack": true,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          48
+        ],
+        "notes": "",
+        "pdfPage": 48
+      }
+    },
+    {
+      "id": "grass-iii",
+      "name": {
+        "ja": "草の息吹III",
+        "en": "草の息吹III",
+        "zh-CN": "草の息吹III"
+      },
+      "rarity": "III",
+      "icon": "/assets/chips/grass-iii.webp",
+      "effect": {
+        "ja": "あなたの草属性タタが40%のダメージ増加を獲得する。",
+        "en": "Grass Tatari gain 40% damage.",
+        "zh-CN": "草属性塔塔伤害提高40%。"
+      },
+      "tags": [
+        "attack",
+        "attribute"
+      ],
+      "targetAttribute": "grass",
+      "targetPosition": null,
+      "flags": {
+        "attack": true,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          49
+        ],
+        "notes": "",
+        "pdfPage": 49
+      }
+    },
+    {
+      "id": "rock-iii",
+      "name": {
+        "ja": "岩の息吹III",
+        "en": "岩の息吹III",
+        "zh-CN": "岩の息吹III"
+      },
+      "rarity": "III",
+      "icon": "/assets/chips/rock-iii.webp",
+      "effect": {
+        "ja": "あなたの岩属性タタが40%のダメージ増加を獲得する。",
+        "en": "Rock Tatari gain 40% damage.",
+        "zh-CN": "岩属性塔塔伤害提高40%。"
+      },
+      "tags": [
+        "attack",
+        "attribute"
+      ],
+      "targetAttribute": "rock",
+      "targetPosition": null,
+      "flags": {
+        "attack": true,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          50
+        ],
+        "notes": "",
+        "pdfPage": 50
+      }
+    },
+    {
+      "id": "lightning-iii",
+      "name": {
+        "ja": "雷の息吹III",
+        "en": "雷の息吹III",
+        "zh-CN": "雷の息吹III"
+      },
+      "rarity": "III",
+      "icon": "/assets/chips/lightning-iii.webp",
+      "effect": {
+        "ja": "あなたの雷属性タタが40%のダメージ増加を獲得する。",
+        "en": "Lightning Tatari gain 40% damage.",
+        "zh-CN": "雷属性塔塔伤害提高40%。"
+      },
+      "tags": [
+        "attack",
+        "attribute"
+      ],
+      "targetAttribute": "lightning",
+      "targetPosition": null,
+      "flags": {
+        "attack": true,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          51
+        ],
+        "notes": "",
+        "pdfPage": 51
+      }
+    },
+    {
+      "id": "lawn-care",
+      "name": {
+        "ja": "芝生のお手入れ",
+        "en": "芝生のお手入れ",
+        "zh-CN": "芝生のお手入れ"
+      },
+      "rarity": "III",
+      "icon": "/assets/chips/lawn-care.webp",
+      "effect": {
+        "ja": "マップ下部に芝刈り機が6台出現する。発動後、最初のゾンビ5体（ボスを除く）を倒し、それ以降のゾンビには最大HPの50%のダメージを与える。",
+        "en": "Six lawnmowers appear at the bottom. Each defeats the first 5 non-boss zombies it hits, then deals 50% of max HP to later zombies.",
+        "zh-CN": "地图底部出现6台割草机。每台消灭最先碰到的5只非首领僵尸，之后对僵尸造成其最大HP的50%伤害。"
+      },
+      "tags": [
+        "attack",
+        "special"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "flags": {
+        "attack": true,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": true
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          52
+        ],
+        "notes": "",
+        "pdfPage": 52
+      }
+    },
+    {
+      "id": "horizontal",
+      "name": {
+        "ja": "横並び",
+        "en": "横並び",
+        "zh-CN": "横並び"
+      },
+      "rarity": "III",
+      "icon": "/assets/chips/horizontal.webp",
+      "effect": {
+        "ja": "出陣中のタタのレベルを4にリセットする。",
+        "en": "Reset the level of deployed Tatari to Lv.4.",
+        "zh-CN": "将已上阵塔塔的等级重置为Lv.4。"
+      },
+      "tags": [
+        "level"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": true,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          53
+        ],
+        "notes": "",
+        "pdfPage": 53
+      }
+    },
+    {
+      "id": "center-debut",
+      "name": {
+        "ja": "センターデビュー",
+        "en": "センターデビュー",
+        "zh-CN": "センターデビュー"
+      },
+      "rarity": "III",
+      "icon": "/assets/chips/center-debut.webp",
+      "effect": {
+        "ja": "ボスゾンビは中央2列にのみ出現する。",
+        "en": "Boss zombies appear only in the two center columns.",
+        "zh-CN": "首领僵尸只会出现在中间两列。"
+      },
+      "tags": [
+        "placement",
+        "special"
+      ],
+      "targetAttribute": null,
+      "targetPosition": "specified-by-effect",
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": true,
+        "special": true
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          54
+        ],
+        "notes": "",
+        "pdfPage": 54
+      }
+    },
+    {
+      "id": "fate-iii",
+      "name": {
+        "ja": "運命に委ねるIII",
+        "en": "運命に委ねるIII",
+        "zh-CN": "運命に委ねるIII"
+      },
+      "rarity": "III",
+      "icon": "/assets/chips/fate-iii.webp",
+      "effect": {
+        "ja": "ランダムで同ランクのチップを1つ獲得し、エナジーキャンディを200個獲得する。",
+        "en": "Gain one random chip of the same rank and 200 Energy Candies.",
+        "zh-CN": "随机获得1个同等级芯片，并获得200个能量糖果。"
+      },
+      "tags": [
+        "random",
+        "special"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": true,
+        "drawback": false,
+        "placement": false,
+        "special": true
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          55
+        ],
+        "notes": "",
+        "pdfPage": 55
+      }
+    },
+    {
+      "id": "strategic-move",
+      "name": {
+        "ja": "戦略的移動",
+        "en": "戦略的移動",
+        "zh-CN": "戦略的移動"
+      },
+      "rarity": "III",
+      "icon": "/assets/chips/strategic-move.webp",
+      "effect": {
+        "ja": "タタを移動した後、そのタタの攻撃力と攻撃速度が20秒間20%増加する。",
+        "en": "After moving a Tatari, its attack and attack speed rise 20% for 20 seconds.",
+        "zh-CN": "移动塔塔后，该塔塔的攻击力与攻击速度提高20%，持续20秒。"
+      },
+      "tags": [
+        "attack",
+        "placement"
+      ],
+      "targetAttribute": null,
+      "targetPosition": "specified-by-effect",
+      "flags": {
+        "attack": true,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": true,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          56
+        ],
+        "notes": "",
+        "pdfPage": 56
+      }
+    },
+    {
+      "id": "three-four-five",
+      "name": {
+        "ja": "三四五",
+        "en": "三四五",
+        "zh-CN": "三四五"
+      },
+      "rarity": "III",
+      "icon": "/assets/chips/three-four-five.webp",
+      "effect": {
+        "ja": "初めてLv.4のタタが3体同時に場にいるとき、全員をLv.5にする。",
+        "en": "The first time three Lv.4 Tatari are present together, level all three to Lv.5.",
+        "zh-CN": "首次同时拥有3只Lv.4塔塔时，将它们全部升至Lv.5。"
+      },
+      "tags": [
+        "level"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": true,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          57
+        ],
+        "notes": "",
+        "pdfPage": 57
+      }
+    },
+    {
+      "id": "sugar-ii",
+      "name": {
+        "ja": "糖分補給II",
+        "en": "糖分補給II",
+        "zh-CN": "糖分補給II"
+      },
+      "rarity": "II",
+      "icon": "/assets/chips/sugar-ii.webp",
+      "effect": {
+        "ja": "5秒ごとにエナジーキャンディを3個獲得する。あなたのタタはLv.8までレベルアップできるようになる。",
+        "en": "Every 5 seconds, gain 3 Energy Candies. Your Tatari can level up to Lv.8.",
+        "zh-CN": "每5秒获得3个能量糖果。你的塔塔可升至Lv.8。"
+      },
+      "tags": [
+        "level",
+        "special"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": true,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": true
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          58
+        ],
+        "notes": "",
+        "pdfPage": 58
+      }
+    },
+    {
+      "id": "bounty-ii",
+      "name": {
+        "ja": "賞金稼ぎII",
+        "en": "賞金稼ぎII",
+        "zh-CN": "賞金稼ぎII"
+      },
+      "rarity": "II",
+      "icon": "/assets/chips/bounty-ii.webp",
+      "effect": {
+        "ja": "120秒以内に、あなたのタタがゾンビを倒して獲得するエナジーキャンディが3個増加する。あなたのタタはLv.8までレベルアップできるようになる。",
+        "en": "For 120 seconds, zombies defeated by your Tatari yield 3 more Energy Candies. Your Tatari can level up to Lv.8.",
+        "zh-CN": "120秒内，你的塔塔击败僵尸时额外获得3个能量糖果。你的塔塔可升至Lv.8。"
+      },
+      "tags": [
+        "level",
+        "special"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": true,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": true
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          59
+        ],
+        "notes": "",
+        "pdfPage": 59
+      }
+    },
+    {
+      "id": "slot-iii",
+      "name": {
+        "ja": "スロット・参",
+        "en": "スロット・参",
+        "zh-CN": "スロット・参"
+      },
+      "rarity": "II",
+      "icon": "/assets/chips/slot-iii.webp",
+      "effect": {
+        "ja": "編成中のタタをランダムで3匹獲得する。出陣数が上限に達した場合、未獲得の数に応じて、あなたのタタをランダムでレベルアップさせる。",
+        "en": "Gain 3 random deployed Tatari. At the deployment limit, randomly level up your Tatari for each one not gained.",
+        "zh-CN": "随机获得3只已上阵塔塔。达到上阵上限时，按未获得数量随机提升塔塔等级。"
+      },
+      "tags": [
+        "random",
+        "level"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": true,
+        "random": true,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          60
+        ],
+        "notes": "",
+        "pdfPage": 60
+      }
+    },
+    {
+      "id": "water-ii",
+      "name": {
+        "ja": "水の息吹II",
+        "en": "水の息吹II",
+        "zh-CN": "水の息吹II"
+      },
+      "rarity": "II",
+      "icon": "/assets/chips/water-ii.webp",
+      "effect": {
+        "ja": "あなたの水属性タタが30%のダメージ増加を獲得する。",
+        "en": "Water Tatari gain 30% damage.",
+        "zh-CN": "水属性塔塔伤害提高30%。"
+      },
+      "tags": [
+        "attack",
+        "attribute"
+      ],
+      "targetAttribute": "water",
+      "targetPosition": null,
+      "flags": {
+        "attack": true,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          61
+        ],
+        "notes": "",
+        "pdfPage": 61
+      }
+    },
+    {
+      "id": "fire-ii",
+      "name": {
+        "ja": "炎の息吹II",
+        "en": "炎の息吹II",
+        "zh-CN": "炎の息吹II"
+      },
+      "rarity": "II",
+      "icon": "/assets/chips/fire-ii.webp",
+      "effect": {
+        "ja": "あなたの炎属性タタが30%のダメージ増加を獲得する。",
+        "en": "Fire Tatari gain 30% damage.",
+        "zh-CN": "火属性塔塔伤害提高30%。"
+      },
+      "tags": [
+        "attack",
+        "attribute"
+      ],
+      "targetAttribute": "fire",
+      "targetPosition": null,
+      "flags": {
+        "attack": true,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          62
+        ],
+        "notes": "",
+        "pdfPage": 62
+      }
+    },
+    {
+      "id": "grass-ii",
+      "name": {
+        "ja": "草の息吹II",
+        "en": "草の息吹II",
+        "zh-CN": "草の息吹II"
+      },
+      "rarity": "II",
+      "icon": "/assets/chips/grass-ii.webp",
+      "effect": {
+        "ja": "あなたの草属性タタが30%のダメージ増加を獲得する。",
+        "en": "Grass Tatari gain 30% damage.",
+        "zh-CN": "草属性塔塔伤害提高30%。"
+      },
+      "tags": [
+        "attack",
+        "attribute"
+      ],
+      "targetAttribute": "grass",
+      "targetPosition": null,
+      "flags": {
+        "attack": true,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          63
+        ],
+        "notes": "",
+        "pdfPage": 63
+      }
+    },
+    {
+      "id": "rock-ii",
+      "name": {
+        "ja": "岩の息吹II",
+        "en": "岩の息吹II",
+        "zh-CN": "岩の息吹II"
+      },
+      "rarity": "II",
+      "icon": "/assets/chips/rock-ii.webp",
+      "effect": {
+        "ja": "あなたの岩属性タタが30%のダメージ増加を獲得する。",
+        "en": "Rock Tatari gain 30% damage.",
+        "zh-CN": "岩属性塔塔伤害提高30%。"
+      },
+      "tags": [
+        "attack",
+        "attribute"
+      ],
+      "targetAttribute": "rock",
+      "targetPosition": null,
+      "flags": {
+        "attack": true,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          64
+        ],
+        "notes": "",
+        "pdfPage": 64
+      }
+    },
+    {
+      "id": "lightning-ii",
+      "name": {
+        "ja": "雷の息吹II",
+        "en": "雷の息吹II",
+        "zh-CN": "雷の息吹II"
+      },
+      "rarity": "II",
+      "icon": "/assets/chips/lightning-ii.webp",
+      "effect": {
+        "ja": "あなたの雷属性タタが30%のダメージ増加を獲得する。",
+        "en": "Lightning Tatari gain 30% damage.",
+        "zh-CN": "雷属性塔塔伤害提高30%。"
+      },
+      "tags": [
+        "attack",
+        "attribute"
+      ],
+      "targetAttribute": "lightning",
+      "targetPosition": null,
+      "flags": {
+        "attack": true,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          65
+        ],
+        "notes": "",
+        "pdfPage": 65
+      }
+    },
+    {
+      "id": "glass-cannon",
+      "name": {
+        "ja": "ガラス大砲",
+        "en": "ガラス大砲",
+        "zh-CN": "ガラス大砲"
+      },
+      "rarity": "II",
+      "icon": "/assets/chips/glass-cannon.webp",
+      "effect": {
+        "ja": "あなたのタタ全員の攻撃力が25%増加し、最大HPが10%減少する。",
+        "en": "All Tatari gain 25% attack but lose 10% max HP.",
+        "zh-CN": "所有塔塔攻击力提高25%，但最大HP降低10%。"
+      },
+      "tags": [
+        "attack",
+        "drawback"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "flags": {
+        "attack": true,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": true,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          66
+        ],
+        "notes": "",
+        "pdfPage": 66
+      }
+    },
+    {
+      "id": "boss-killer",
+      "name": {
+        "ja": "ボスキラー",
+        "en": "ボスキラー",
+        "zh-CN": "ボスキラー"
+      },
+      "rarity": "II",
+      "icon": "/assets/chips/boss-killer.webp",
+      "effect": {
+        "ja": "ボスゾンビに与えるダメージが25%増加する。",
+        "en": "Damage dealt to boss zombies rises 25%.",
+        "zh-CN": "对首领僵尸造成的伤害提高25%。"
+      },
+      "tags": [
+        "attack"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "flags": {
+        "attack": true,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          67
+        ],
+        "notes": "",
+        "pdfPage": 67
+      }
+    },
+    {
+      "id": "maverick",
+      "name": {
+        "ja": "マーベリック",
+        "en": "マーベリック",
+        "zh-CN": "マーベリック"
+      },
+      "rarity": "II",
+      "icon": "/assets/chips/maverick.webp",
+      "effect": {
+        "ja": "あなたのタタの隣接マスに味方がいない場合、そのタタの攻撃力、最大HP、防御力が20%増加する。",
+        "en": "If a Tatari has no allied Tatari in adjacent squares, it gains 20% attack, max HP and defense.",
+        "zh-CN": "若塔塔相邻格没有友方塔塔，其攻击力、最大HP与防御力提高20%。"
+      },
+      "tags": [
+        "attack",
+        "defense",
+        "placement"
+      ],
+      "targetAttribute": null,
+      "targetPosition": "specified-by-effect",
+      "flags": {
+        "attack": true,
+        "defense": true,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": true,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          68
+        ],
+        "notes": "",
+        "pdfPage": 68
+      }
+    },
+    {
+      "id": "back-shooter",
+      "name": {
+        "ja": "バックシューター",
+        "en": "バックシューター",
+        "zh-CN": "バックシューター"
+      },
+      "rarity": "II",
+      "icon": "/assets/chips/back-shooter.webp",
+      "effect": {
+        "ja": "あなたの後ろ2列のタタの攻撃速度が30%増加する。",
+        "en": "Tatari in the back two rows gain 30% attack speed.",
+        "zh-CN": "后方两行的塔塔攻击速度提高30%。"
+      },
+      "tags": [
+        "attack",
+        "placement"
+      ],
+      "targetAttribute": null,
+      "targetPosition": "specified-by-effect",
+      "flags": {
+        "attack": true,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": true,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          69
+        ],
+        "notes": "",
+        "pdfPage": 69
+      }
+    },
+    {
+      "id": "rear-support",
+      "name": {
+        "ja": "後方支援",
+        "en": "後方支援",
+        "zh-CN": "後方支援"
+      },
+      "rarity": "II",
+      "icon": "/assets/chips/rear-support.webp",
+      "effect": {
+        "ja": "前方にタタが1匹しかいない場合、ダメージが30%増加する。",
+        "en": "If only one Tatari is ahead, its damage rises 30%.",
+        "zh-CN": "若前方只有1只塔塔，其伤害提高30%。"
+      },
+      "tags": [
+        "attack",
+        "placement"
+      ],
+      "targetAttribute": null,
+      "targetPosition": "specified-by-effect",
+      "flags": {
+        "attack": true,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": true,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          70
+        ],
+        "notes": "",
+        "pdfPage": 70
+      }
+    },
+    {
+      "id": "upgrade",
+      "name": {
+        "ja": "アップグレード",
+        "en": "アップグレード",
+        "zh-CN": "アップグレード"
+      },
+      "rarity": "II",
+      "icon": "/assets/chips/upgrade.webp",
+      "effect": {
+        "ja": "あなたの場にいるLv.3以下のタタ全員をランダムで編成内のタタへ入れ替え、Lv.を1アップさせる。",
+        "en": "Randomly reroll all deployed Tatari at Lv.3 or below, then raise their level by 1.",
+        "zh-CN": "随机重置场上所有Lv.3以下塔塔的编成，并使其等级提高1。"
+      },
+      "tags": [
+        "random",
+        "level"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": true,
+        "random": true,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          71
+        ],
+        "notes": "",
+        "pdfPage": 71
+      }
+    },
+    {
+      "id": "shuffle",
+      "name": {
+        "ja": "シャッフル",
+        "en": "シャッフル",
+        "zh-CN": "シャッフル"
+      },
+      "rarity": "II",
+      "icon": "/assets/chips/shuffle.webp",
+      "effect": {
+        "ja": "あなたの場にいるタタ全員をランダムで編成内のタタと入れ替え、エナジーキャンディを600個獲得する。",
+        "en": "Randomly reroll every deployed Tatari, then gain 600 Energy Candies.",
+        "zh-CN": "随机重置场上全部塔塔的编成，并获得600个能量糖果。"
+      },
+      "tags": [
+        "random",
+        "special"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": true,
+        "drawback": false,
+        "placement": false,
+        "special": true
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          72
+        ],
+        "notes": "",
+        "pdfPage": 72
+      }
+    },
+    {
+      "id": "adverse-attribute",
+      "name": {
+        "ja": "下剋上",
+        "en": "下剋上",
+        "zh-CN": "下剋上"
+      },
+      "rarity": "II",
+      "icon": "/assets/chips/adverse-attribute.webp",
+      "effect": {
+        "ja": "自分の属性が敵に不利な場合でも、有利として扱う。",
+        "en": "Treat your attribute as advantageous even when it is disadvantaged against the enemy.",
+        "zh-CN": "即使自身属性对敌人不利，也按有利属性处理。"
+      },
+      "tags": [
+        "attribute",
+        "special"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": true
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          73
+        ],
+        "notes": "",
+        "pdfPage": 73
+      }
+    },
+    {
+      "id": "and-one",
+      "name": {
+        "ja": "アンドワン",
+        "en": "アンドワン",
+        "zh-CN": "アンドワン"
+      },
+      "rarity": "II",
+      "icon": "/assets/chips/and-one.webp",
+      "effect": {
+        "ja": "あなたの編成上限が1増加し、エナジーキャンディを250個獲得する。",
+        "en": "Increase the deployment limit by 1 and gain 250 Energy Candies.",
+        "zh-CN": "上阵上限增加1，并获得250个能量糖果。"
+      },
+      "tags": [
+        "level",
+        "special"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": true,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": true
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          74
+        ],
+        "notes": "",
+        "pdfPage": 74
+      }
+    },
+    {
+      "id": "undeployed-tatari",
+      "name": {
+        "ja": "未編成タタ",
+        "en": "未編成タタ",
+        "zh-CN": "未編成タタ"
+      },
+      "rarity": "II",
+      "icon": "/assets/chips/undeployed-tatari.webp",
+      "effect": {
+        "ja": "あなたの編成中のタタをランダムで1匹召喚する。そのタタはLv.3固定で、レベルアップ不可・復活不可・出陣上限を消費しない。",
+        "en": "Summon one random Tatari not in your lineup at fixed Lv.3. It cannot level up, revive or consume the deployment limit.",
+        "zh-CN": "随机召唤1只未编入队伍的塔塔，固定为Lv.3；不可升级、不可复活且不占上阵上限。"
+      },
+      "tags": [
+        "random",
+        "level",
+        "special"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": true,
+        "random": true,
+        "drawback": false,
+        "placement": false,
+        "special": true
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          75
+        ],
+        "notes": "",
+        "pdfPage": 75
+      }
+    },
+    {
+      "id": "fate-ii",
+      "name": {
+        "ja": "運命に委ねるII",
+        "en": "運命に委ねるII",
+        "zh-CN": "運命に委ねるII"
+      },
+      "rarity": "II",
+      "icon": "/assets/chips/fate-ii.webp",
+      "effect": {
+        "ja": "ランダムで同ランクのチップを1つ獲得し、エナジーキャンディを150個獲得する。",
+        "en": "Gain one random chip of the same rank and 150 Energy Candies.",
+        "zh-CN": "随机获得1个同等级芯片，并获得150个能量糖果。"
+      },
+      "tags": [
+        "random",
+        "special"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": true,
+        "drawback": false,
+        "placement": false,
+        "special": true
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          76
+        ],
+        "notes": "",
+        "pdfPage": 76
+      }
+    },
+    {
+      "id": "river-boundary",
+      "name": {
+        "ja": "川の境界線",
+        "en": "川の境界線",
+        "zh-CN": "川の境界線"
+      },
+      "rarity": "II",
+      "icon": "/assets/chips/river-boundary.webp",
+      "effect": {
+        "ja": "川の上にいるゾンビの移動速度が40%減少する。",
+        "en": "Zombies on the river move 40% slower.",
+        "zh-CN": "位于河道上的僵尸移动速度降低40%。"
+      },
+      "tags": [
+        "cc",
+        "placement"
+      ],
+      "targetAttribute": null,
+      "targetPosition": "specified-by-effect",
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": true,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": true,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          77
+        ],
+        "notes": "",
+        "pdfPage": 77
+      }
+    },
+    {
+      "id": "bucket-theory",
+      "name": {
+        "ja": "バケツ理論",
+        "en": "バケツ理論",
+        "zh-CN": "バケツ理論"
+      },
+      "rarity": "II",
+      "icon": "/assets/chips/bucket-theory.webp",
+      "effect": {
+        "ja": "あなたの出陣しているタタの中で、最も少ない属性のタタの攻撃力、防御力、攻撃速度が10%増加する。最も少ない属性が複数存在する場合は、そのすべてに適用される。",
+        "en": "The least represented attribute among deployed Tatari gains 10% attack, defense and attack speed. Ties apply to every tied attribute.",
+        "zh-CN": "场上数量最少的属性塔塔攻击力、防御力与攻击速度提高10%；若并列，所有并列属性均生效。"
+      },
+      "tags": [
+        "attack",
+        "defense",
+        "attribute"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "flags": {
+        "attack": true,
+        "defense": true,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          78
+        ],
+        "notes": "",
+        "pdfPage": 78
+      }
+    },
+    {
+      "id": "sugar-i",
+      "name": {
+        "ja": "糖分補給I",
+        "en": "糖分補給I",
+        "zh-CN": "糖分補給I"
+      },
+      "rarity": "I",
+      "icon": "/assets/chips/sugar-i.webp",
+      "effect": {
+        "ja": "5秒ごとにエナジーキャンディを2個獲得する。あなたのタタはLv.8までレベルアップできるようになる。",
+        "en": "Every 5 seconds, gain 2 Energy Candies. Your Tatari can level up to Lv.8.",
+        "zh-CN": "每5秒获得2个能量糖果。你的塔塔可升至Lv.8。"
+      },
+      "tags": [
+        "level",
+        "special"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": true,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": true
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          79
+        ],
+        "notes": "",
+        "pdfPage": 79
+      }
+    },
+    {
+      "id": "bounty-i",
+      "name": {
+        "ja": "賞金稼ぎI",
+        "en": "賞金稼ぎI",
+        "zh-CN": "賞金稼ぎI"
+      },
+      "rarity": "I",
+      "icon": "/assets/chips/bounty-i.webp",
+      "effect": {
+        "ja": "120秒以内に、あなたのタタがゾンビを倒して獲得するエナジーキャンディが2個増加する。あなたのタタはLv.8までレベルアップできるようになる。",
+        "en": "For 120 seconds, zombies defeated by your Tatari yield 2 more Energy Candies. Your Tatari can level up to Lv.8.",
+        "zh-CN": "120秒内，你的塔塔击败僵尸时额外获得2个能量糖果。你的塔塔可升至Lv.8。"
+      },
+      "tags": [
+        "level",
+        "special"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": true,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": true
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          80
+        ],
+        "notes": "",
+        "pdfPage": 80
+      }
+    },
+    {
+      "id": "slot-ii",
+      "name": {
+        "ja": "スロット・弐",
+        "en": "スロット・弐",
+        "zh-CN": "スロット・弐"
+      },
+      "rarity": "I",
+      "icon": "/assets/chips/slot-ii.webp",
+      "effect": {
+        "ja": "編成中のタタをランダムで2匹獲得する。出陣数が上限に達した場合、未獲得の数に応じて、あなたのタタをランダムでレベルアップさせる。",
+        "en": "Gain 2 random deployed Tatari. At the deployment limit, randomly level up your Tatari for each one not gained.",
+        "zh-CN": "随机获得2只已上阵塔塔。达到上阵上限时，按未获得数量随机提升塔塔等级。"
+      },
+      "tags": [
+        "random",
+        "level"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": true,
+        "random": true,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          81
+        ],
+        "notes": "",
+        "pdfPage": 81
+      }
+    },
+    {
+      "id": "slack-off",
+      "name": {
+        "ja": "サボる",
+        "en": "サボる",
+        "zh-CN": "サボる"
+      },
+      "rarity": "I",
+      "icon": "/assets/chips/slack-off.webp",
+      "effect": {
+        "ja": "強制オート戦闘モード（90秒間）になり、エナジーキャンディを300個獲得する。",
+        "en": "Enter forced auto-battle for 90 seconds and gain 300 Energy Candies.",
+        "zh-CN": "强制进入自动战斗模式90秒，并获得300个能量糖果。"
+      },
+      "tags": [
+        "drawback",
+        "special"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": true,
+        "placement": false,
+        "special": true
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          82
+        ],
+        "notes": "",
+        "pdfPage": 82
+      }
+    },
+    {
+      "id": "water-i",
+      "name": {
+        "ja": "水の息吹I",
+        "en": "水の息吹I",
+        "zh-CN": "水の息吹I"
+      },
+      "rarity": "I",
+      "icon": "/assets/chips/water-i.webp",
+      "effect": {
+        "ja": "あなたの水属性タタが20%のダメージ増加を獲得する。",
+        "en": "Water Tatari gain 20% damage.",
+        "zh-CN": "水属性塔塔伤害提高20%。"
+      },
+      "tags": [
+        "attack",
+        "attribute"
+      ],
+      "targetAttribute": "water",
+      "targetPosition": null,
+      "flags": {
+        "attack": true,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          83
+        ],
+        "notes": "",
+        "pdfPage": 83
+      }
+    },
+    {
+      "id": "fire-i",
+      "name": {
+        "ja": "炎の息吹I",
+        "en": "炎の息吹I",
+        "zh-CN": "炎の息吹I"
+      },
+      "rarity": "I",
+      "icon": "/assets/chips/fire-i.webp",
+      "effect": {
+        "ja": "あなたの炎属性タタが20%のダメージ増加を獲得する。",
+        "en": "Fire Tatari gain 20% damage.",
+        "zh-CN": "火属性塔塔伤害提高20%。"
+      },
+      "tags": [
+        "attack",
+        "attribute"
+      ],
+      "targetAttribute": "fire",
+      "targetPosition": null,
+      "flags": {
+        "attack": true,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          84
+        ],
+        "notes": "",
+        "pdfPage": 84
+      }
+    },
+    {
+      "id": "grass-i",
+      "name": {
+        "ja": "草の息吹I",
+        "en": "草の息吹I",
+        "zh-CN": "草の息吹I"
+      },
+      "rarity": "I",
+      "icon": "/assets/chips/grass-i.webp",
+      "effect": {
+        "ja": "あなたの草属性タタが20%のダメージ増加を獲得する。",
+        "en": "Grass Tatari gain 20% damage.",
+        "zh-CN": "草属性塔塔伤害提高20%。"
+      },
+      "tags": [
+        "attack",
+        "attribute"
+      ],
+      "targetAttribute": "grass",
+      "targetPosition": null,
+      "flags": {
+        "attack": true,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          85
+        ],
+        "notes": "",
+        "pdfPage": 85
+      }
+    },
+    {
+      "id": "rock-i",
+      "name": {
+        "ja": "岩の息吹I",
+        "en": "岩の息吹I",
+        "zh-CN": "岩の息吹I"
+      },
+      "rarity": "I",
+      "icon": "/assets/chips/rock-i.webp",
+      "effect": {
+        "ja": "あなたの岩属性タタが20%のダメージ増加を獲得する。",
+        "en": "Rock Tatari gain 20% damage.",
+        "zh-CN": "岩属性塔塔伤害提高20%。"
+      },
+      "tags": [
+        "attack",
+        "attribute"
+      ],
+      "targetAttribute": "rock",
+      "targetPosition": null,
+      "flags": {
+        "attack": true,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          86
+        ],
+        "notes": "",
+        "pdfPage": 86
+      }
+    },
+    {
+      "id": "lightning-i",
+      "name": {
+        "ja": "雷の息吹I",
+        "en": "雷の息吹I",
+        "zh-CN": "雷の息吹I"
+      },
+      "rarity": "I",
+      "icon": "/assets/chips/lightning-i.webp",
+      "effect": {
+        "ja": "あなたの雷属性タタが20%のダメージ増加を獲得する。",
+        "en": "Lightning Tatari gain 20% damage.",
+        "zh-CN": "雷属性塔塔伤害提高20%。"
+      },
+      "tags": [
+        "attack",
+        "attribute"
+      ],
+      "targetAttribute": "lightning",
+      "targetPosition": null,
+      "flags": {
+        "attack": true,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          87
+        ],
+        "notes": "",
+        "pdfPage": 87
+      }
+    },
+    {
+      "id": "wall",
+      "name": {
+        "ja": "城壁",
+        "en": "城壁",
+        "zh-CN": "城壁"
+      },
+      "rarity": "I",
+      "icon": "/assets/chips/wall.webp",
+      "effect": {
+        "ja": "あなたの前2列のタタの最大HPと防御力が40%増加し、与えるダメージが10%減少する。",
+        "en": "Tatari in the front two rows gain 40% max HP and defense, but deal 10% less damage.",
+        "zh-CN": "前方两行的塔塔最大HP与防御力提高40%，但造成的伤害降低10%。"
+      },
+      "tags": [
+        "defense",
+        "placement",
+        "drawback"
+      ],
+      "targetAttribute": null,
+      "targetPosition": "specified-by-effect",
+      "flags": {
+        "attack": false,
+        "defense": true,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": true,
+        "placement": true,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          88
+        ],
+        "notes": "",
+        "pdfPage": 88
+      }
+    },
+    {
+      "id": "bandage",
+      "name": {
+        "ja": "バンテージ",
+        "en": "バンテージ",
+        "zh-CN": "バンテージ"
+      },
+      "rarity": "I",
+      "icon": "/assets/chips/bandage.webp",
+      "effect": {
+        "ja": "あなたの前2列のタタが4秒ごとに失ったHPの15%を回復する。",
+        "en": "Tatari in the front two rows recover 15% of lost HP every 4 seconds.",
+        "zh-CN": "前方两行的塔塔每4秒恢复已损失HP的15%。"
+      },
+      "tags": [
+        "heal",
+        "placement"
+      ],
+      "targetAttribute": null,
+      "targetPosition": "specified-by-effect",
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": true,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": true,
+        "special": false
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          89
+        ],
+        "notes": "",
+        "pdfPage": 89
+      }
+    },
+    {
+      "id": "parting-gift",
+      "name": {
+        "ja": "別れの贈り物",
+        "en": "別れの贈り物",
+        "zh-CN": "別れの贈り物"
+      },
+      "rarity": "I",
+      "icon": "/assets/chips/parting-gift.webp",
+      "effect": {
+        "ja": "あなたのタタが1体倒れるたびにエナジーキャンディを200個獲得する。",
+        "en": "Gain 200 Energy Candies whenever one of your Tatari is defeated.",
+        "zh-CN": "每当你的1只塔塔倒下时，获得200个能量糖果。"
+      },
+      "tags": [
+        "special",
+        "drawback"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": true,
+        "placement": false,
+        "special": true
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          90
+        ],
+        "notes": "",
+        "pdfPage": 90
+      }
+    },
+    {
+      "id": "fate-i",
+      "name": {
+        "ja": "運命に委ねるI",
+        "en": "運命に委ねるI",
+        "zh-CN": "運命に委ねるI"
+      },
+      "rarity": "I",
+      "icon": "/assets/chips/fate-i.webp",
+      "effect": {
+        "ja": "ランダムで同ランクのチップを1つ獲得し、エナジーキャンディを100個獲得する。",
+        "en": "Gain one random chip of the same rank and 100 Energy Candies.",
+        "zh-CN": "随机获得1个同等级芯片，并获得100个能量糖果。"
+      },
+      "tags": [
+        "random",
+        "special"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": true,
+        "drawback": false,
+        "placement": false,
+        "special": true
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          91
+        ],
+        "notes": "",
+        "pdfPage": 91
+      }
+    },
+    {
+      "id": "reset",
+      "name": {
+        "ja": "リセット",
+        "en": "リセット",
+        "zh-CN": "リセット"
+      },
+      "rarity": "I",
+      "icon": "/assets/chips/reset.webp",
+      "effect": {
+        "ja": "場にいるあなたのタタ全員を回収し、回収したタタ1体につきエナジーキャンディを200個獲得する。",
+        "en": "Recall all your deployed Tatari and gain 200 Energy Candies for each recalled Tatari.",
+        "zh-CN": "回收场上全部塔塔，每回收1只获得200个能量糖果。"
+      },
+      "tags": [
+        "special",
+        "placement"
+      ],
+      "targetAttribute": null,
+      "targetPosition": "specified-by-effect",
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": true,
+        "special": true
+      },
+      "source": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          92
+        ],
+        "notes": "",
+        "pdfPage": 92
+      }
+    }
+  ]
+}

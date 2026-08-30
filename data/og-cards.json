@@ -36,24 +36,24 @@
       "content": {
         "ja": {
           "title": "タタ図鑑・Tier・進化・スキル",
-          "description": "63系統・224体を収録した非公式攻略データベース",
-          "badge": "63系統  /  224体",
+          "description": "64系統・230体を収録した非公式攻略データベース",
+          "badge": "64系統  /  230体",
           "ogTitle": "モンサバ攻略DB｜タタ図鑑・Tier・進化・スキル一覧",
-          "ogDescription": "モンサバの63系統・224体を収録。タタTier、進化先、スキル効果・数値を確認できる非公式攻略データベース。"
+          "ogDescription": "モンサバの64系統・230体を収録。タタTier、進化先、スキル効果・数値を確認できる非公式攻略データベース。"
         },
         "en": {
           "title": "Tatari Database, Tiers & Skills",
-          "description": "Unofficial guide covering 63 Tatari families and 224 Tatari",
-          "badge": "63 families  /  224 Tatari",
+          "description": "Unofficial guide covering 64 Tatari families and 230 Tatari",
+          "badge": "64 families  /  230 Tatari",
           "ogTitle": "Clash of Critters Guide DB | Tatari Database, Tiers & Skills",
-          "ogDescription": "An unofficial Clash of Critters guide covering 63 Tatari families and 224 Tatari, with tier ratings, evolutions and skill data."
+          "ogDescription": "An unofficial Clash of Critters guide covering 64 Tatari families and 230 Tatari, with tier ratings, evolutions and skill data."
         },
         "zh-CN": {
           "title": "Tatari 图鉴、Tier 与技能",
-          "description": "收录 63 个 Tatari 系列、共 224 个 Tatari 的非官方攻略站",
-          "badge": "63 个系列  /  224 个 Tatari",
+          "description": "收录 64 个 Tatari 系列、共 230 个 Tatari 的非官方攻略站",
+          "badge": "64 个系列  /  230 个 Tatari",
           "ogTitle": "Clash of Critters 攻略数据库｜Tatari 图鉴、Tier 与技能",
-          "ogDescription": "收录 63 个 Tatari 系列、共 224 个 Tatari，可查询 Tier、进化路线和技能数据的非官方 Clash of Critters 攻略站。"
+          "ogDescription": "收录 64 个 Tatari 系列、共 230 个 Tatari，可查询 Tier、进化路线和技能数据的非官方 Clash of Critters 攻略站。"
         }
       }
     },
@@ -71,21 +71,21 @@
         "ja": {
           "title": "タタTier",
           "description": "総合評価・用途別Tier・育成おすすめ",
-          "badge": "63系統を比較",
+          "badge": "64系統を比較",
           "ogTitle": "モンサバ タタTier｜総合評価・育成おすすめ",
           "ogDescription": "通常ステージ、Zombie Rush、バッジ道場、初心者の育てやすさを含めて比較するモンサバのタタTier。"
         },
         "en": {
           "title": "Tatari Tier List",
           "description": "Overall rankings, mode ratings and build recommendations",
-          "badge": "63 families compared",
+          "badge": "64 families compared",
           "ogTitle": "Clash of Critters Tatari Tier List | Rankings & Build Picks",
           "ogDescription": "Compare overall Tatari rankings, mode-specific ratings and build recommendations for Clash of Critters."
         },
         "zh-CN": {
           "title": "Tatari Tier 榜",
           "description": "综合评价、玩法 Tier 与培养推荐",
-          "badge": "比较 63 个系列",
+          "badge": "比较 64 个系列",
           "ogTitle": "Clash of Critters Tatari Tier 榜｜综合评价与培养推荐",
           "ogDescription": "对比 Clash of Critters Tatari 的综合排名、各玩法 Tier 与培养推荐。"
         }

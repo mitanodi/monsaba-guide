@@ -180,7 +180,7 @@ ${evolutionLinks ? `<section class="wrap static-section tata-consult-cta"><h2 cl
     <nav class="wrap tata-family-nav" aria-label="前後のタタ系統">${previous ? `<a href="/tata/${previous.id}/"><span>← 前の系統</span><b>${esc(getFamilyDisplayLabel(previous))}</b></a>` : '<span></span>'}${next ? `<a href="/tata/${next.id}/"><span>次の系統 →</span><b>${esc(getFamilyDisplayLabel(next))}</b></a>` : '<span></span>'}</nav>
     <section class="wrap source-note"><strong>掲載データについて</strong><p>タタ名・進化・スキルと数値は、ゲーム内スクリーンショットで確認できた内容を掲載しています。読めない内容は推測で補完していません。Tierは当サイト独自の暫定評価です。</p><p class="article-byline">運営・データ確認：<a href="/about/">おぢ</a></p><a href="/about-data/">データ更新方針を見る</a></section>
   </main>
-  ${renderFooter('63系統 / 224体')}
+  ${renderFooter(`${families.length}系統 / ${families.flatMap((family) => family.evolutions).length}体`)}
   <dialog id="tata-roster-dialog" class="tata-roster-dialog" aria-labelledby="tata-roster-title"><form method="dialog"><h2 id="tata-roster-title">マイモンサバへ登録</h2><p>この端末だけに所持状況を保存します。</p><div id="tata-roster-stages" class="stage-picker"></div><p id="tata-roster-message" class="tool-status" role="status" aria-live="polite"></p><button class="ghost-button" value="close">閉じる</button></form></dialog>
   <script src="/family-display.js"></script><script src="/site.js"></script><script src="/monetization.js"></script><script src="/growth.js" defer></script><script type="module" src="/tata-roster.js"></script>
 </body>

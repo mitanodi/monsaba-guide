@@ -3,8 +3,8 @@
     "screenshotTotal": 668,
     "processedRange": "IMG_6242〜IMG_6910",
     "processedScreenshotCount": 668,
-    "familyCount": 63,
-    "monsterCount": 224,
+    "familyCount": 64,
+    "monsterCount": 230,
     "status": "all_user_screenshots_processed",
     "nonIndexScreenshots": [
       "IMG_6272.png",
@@ -60,7 +60,14 @@
     ],
     "duplicateCaptureRange": "IMG_6899〜IMG_6910（タケパンダ系の再撮影分として既存データへ統合）",
     "indexedSourceCount": 618,
-    "unindexedInspectedCount": 50
+    "unindexedInspectedCount": 50,
+    "latestEvidence": {
+      "fileName": "写真.pdf",
+      "sha256": "82FF3DEE280A21ECBB99ED46BDA893C1533AF8D2D76A7AF166D7D43B726B1211",
+      "pages": 92,
+      "verifiedAt": "2026-08-30",
+      "gameVersion": "0.46.1"
+    }
   },
   "families": [
     {
@@ -3110,6 +3117,27 @@
           "name": "オクトーム",
           "source": "IMG_6445.png",
           "image": "assets/monsters/IMG_6445.webp"
+        },
+        {
+          "stage": 4,
+          "name": "ロードパス",
+          "source": "写真.pdf p.35-38",
+          "image": "assets/monsters/roadpass.webp",
+          "sourceMetadata": {
+            "sourceType": "in_game",
+            "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+            "sourceUpdatedAt": "2026-08-30",
+            "verifiedAt": "2026-08-30",
+            "gameVersion": "0.46.1",
+            "status": "verified",
+            "pdfPages": [
+              35,
+              36,
+              37,
+              38
+            ],
+            "notes": "進化図鑑のロック中シルエット。実体画像は確認待ち"
+          }
         }
       ],
       "skills": [
@@ -3214,6 +3242,67 @@
           "sources": [
             "IMG_6449.png"
           ]
+        },
+        {
+          "stage": 4,
+          "name": "フィッシュ＆キング",
+          "summary": "パッシブ「オーラ・水」を展開し、水の玉を発射する。攻撃4回ごとに大きな水の玉で小範囲ダメージを与え、「子ダコ」を召喚する。子ダコは倒されると広範囲ダメージを与える。",
+          "stats": [
+            [
+              "ダメージ倍率",
+              "120%"
+            ],
+            [
+              "大きな水の玉の頻度",
+              "攻撃4回ごと"
+            ],
+            [
+              "クールダウン",
+              "4秒"
+            ],
+            [
+              "子ダコ 継承HP比率",
+              "30%"
+            ],
+            [
+              "子ダコ 最大生存時間",
+              "12秒"
+            ],
+            [
+              "オーラ・水 初期回復量",
+              "対象最大HPの0.5%"
+            ],
+            [
+              "オーラ・水 最大回復量",
+              "対象最大HPの2.5%"
+            ],
+            [
+              "非水属性へのオーラ効果",
+              "50%"
+            ],
+            [
+              "対タタ倍率",
+              "40%"
+            ]
+          ],
+          "sources": [
+            "写真.pdf p.35-38"
+          ],
+          "source": {
+            "sourceType": "in_game",
+            "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+            "sourceUpdatedAt": "2026-08-30",
+            "verifiedAt": "2026-08-30",
+            "gameVersion": "0.46.1",
+            "status": "verified",
+            "pdfPages": [
+              35,
+              36,
+              37,
+              38
+            ],
+            "notes": "子ダコ撃破時の爆発倍率は画面で数値未確認のため登録していない"
+          }
         }
       ]
     },
@@ -3584,7 +3673,12 @@
     {
       "id": "hikaru",
       "familyName": "ピカル",
-      "searchAliases": ["ヒカル", "ホルタル", "ルシフタル", "ヒカル系"],
+      "searchAliases": [
+        "ヒカル",
+        "ホルタル",
+        "ルシフタル",
+        "ヒカル系"
+      ],
       "attribute": "雷",
       "evolutions": [
         {
@@ -8772,6 +8866,29 @@
           "name": "ボンノオロチ",
           "source": "IMG_6774.png",
           "image": "assets/monsters/IMG_6774.webp"
+        },
+        {
+          "stage": 4,
+          "name": "ナムアミダイジャ",
+          "source": "写真.pdf p.29-34",
+          "image": "assets/monsters/namuamidaija.webp",
+          "sourceMetadata": {
+            "sourceType": "in_game",
+            "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+            "sourceUpdatedAt": "2026-08-30",
+            "verifiedAt": "2026-08-30",
+            "gameVersion": "0.46.1",
+            "status": "verified",
+            "pdfPages": [
+              29,
+              30,
+              31,
+              32,
+              33,
+              34
+            ],
+            "notes": "進化図鑑のロック中シルエット。実体画像は確認待ち"
+          }
         }
       ],
       "skills": [
@@ -8910,6 +9027,85 @@
             "IMG_6778.png",
             "IMG_6779.png"
           ]
+        },
+        {
+          "stage": 4,
+          "name": "功徳円満",
+          "summary": "パッシブ「オーラ・岩」を展開する。低速音波を数発撃った後、高速音波を連射する。高速音波は敵を無限に貫通し、一定確率でスタンを付与する。",
+          "stats": [
+            [
+              "低速音波ダメージ倍率",
+              "90%"
+            ],
+            [
+              "低速音波発射数",
+              "4"
+            ],
+            [
+              "低速音波発射クールダウン",
+              "3秒"
+            ],
+            [
+              "高速音波ダメージ倍率",
+              "50%"
+            ],
+            [
+              "高速音波貫通回数",
+              "無限"
+            ],
+            [
+              "高速音波発射数",
+              "8"
+            ],
+            [
+              "高速音波発射間隔",
+              "0.25秒"
+            ],
+            [
+              "スタン 確率",
+              "3%"
+            ],
+            [
+              "スタン 持続時間",
+              "1秒"
+            ],
+            [
+              "オーラ・岩 初期被ダメージ軽減",
+              "3.5%"
+            ],
+            [
+              "オーラ・岩 最大被ダメージ軽減",
+              "17.5%"
+            ],
+            [
+              "非岩属性へのオーラ効果",
+              "50%"
+            ],
+            [
+              "対タタ倍率",
+              "35%"
+            ]
+          ],
+          "sources": [
+            "写真.pdf p.29-34"
+          ],
+          "source": {
+            "sourceType": "in_game",
+            "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+            "sourceUpdatedAt": "2026-08-30",
+            "verifiedAt": "2026-08-30",
+            "gameVersion": "0.46.1",
+            "status": "verified",
+            "pdfPages": [
+              29,
+              30,
+              31,
+              32,
+              33,
+              34
+            ],
+            "notes": ""
+          }
         }
       ]
     },
@@ -9941,7 +10137,10 @@
     {
       "id": "shiiparusu",
       "familyName": "シーパルス",
-      "searchAliases": ["ライマー", "ライマー系"],
+      "searchAliases": [
+        "ライマー",
+        "ライマー系"
+      ],
       "attribute": "雷",
       "evolutions": [
         {
@@ -11053,6 +11252,381 @@
           ]
         }
       ]
+    },
+    {
+      "id": "pakuma",
+      "familyName": "パクマ",
+      "attribute": "水",
+      "aliases": [
+        "パクマ系",
+        "クマッシュ",
+        "マリンベア",
+        "ブリズリー"
+      ],
+      "evolutions": [
+        {
+          "stage": 1,
+          "name": "パクマ",
+          "source": "写真.pdf p.7-8",
+          "image": "assets/monsters/pakuma.webp",
+          "sourceMetadata": {
+            "sourceType": "in_game",
+            "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+            "sourceUpdatedAt": "2026-08-30",
+            "verifiedAt": "2026-08-30",
+            "gameVersion": "0.46.1",
+            "status": "verified",
+            "pdfPages": [
+              7,
+              8
+            ],
+            "notes": "実体画像を確認"
+          }
+        },
+        {
+          "stage": 2,
+          "name": "クマッシュ",
+          "source": "写真.pdf p.9",
+          "image": "assets/monsters/kumash.webp",
+          "sourceMetadata": {
+            "sourceType": "in_game",
+            "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+            "sourceUpdatedAt": "2026-08-30",
+            "verifiedAt": "2026-08-30",
+            "gameVersion": "0.46.1",
+            "status": "verified",
+            "pdfPages": [
+              9
+            ],
+            "notes": "進化図鑑のロック中シルエット。実体画像は確認待ち"
+          }
+        },
+        {
+          "stage": 3,
+          "name": "マリンベア",
+          "source": "写真.pdf p.10",
+          "image": "assets/monsters/marine-bear.webp",
+          "sourceMetadata": {
+            "sourceType": "in_game",
+            "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+            "sourceUpdatedAt": "2026-08-30",
+            "verifiedAt": "2026-08-30",
+            "gameVersion": "0.46.1",
+            "status": "verified",
+            "pdfPages": [
+              10
+            ],
+            "notes": "進化図鑑のロック中シルエット。実体画像は確認待ち"
+          }
+        },
+        {
+          "stage": 4,
+          "name": "ブリズリー",
+          "source": "写真.pdf p.11",
+          "image": "assets/monsters/blizzly.webp",
+          "sourceMetadata": {
+            "sourceType": "in_game",
+            "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+            "sourceUpdatedAt": "2026-08-30",
+            "verifiedAt": "2026-08-30",
+            "gameVersion": "0.46.1",
+            "status": "verified",
+            "pdfPages": [
+              11
+            ],
+            "notes": "進化図鑑のロック中シルエット。実体画像は確認待ち"
+          }
+        }
+      ],
+      "skills": [
+        {
+          "stage": 1,
+          "name": "フィッシュトス",
+          "summary": "魚を3匹持ち、順番にすべて投げつけて範囲ダメージを与える。「食いしん坊・被ダメージ増加」を付与し、「ピンチ」時は魚を食べてHPを回復、ほかのデバフを解除する。",
+          "stats": [
+            [
+              "魚の所持上限",
+              "3"
+            ],
+            [
+              "ダメージ倍率",
+              "90%"
+            ],
+            [
+              "クールダウン",
+              "5秒"
+            ],
+            [
+              "食いしん坊 被ダメージ増加比率",
+              "50%"
+            ],
+            [
+              "ピンチ発動HP",
+              "10%未満"
+            ],
+            [
+              "回復倍率",
+              "20%"
+            ],
+            [
+              "回復に必要な魚",
+              "1匹"
+            ],
+            [
+              "対タタ倍率",
+              "45%"
+            ]
+          ],
+          "sources": [
+            "写真.pdf p.12",
+            "写真.pdf p.13",
+            "写真.pdf p.14",
+            "写真.pdf p.15"
+          ],
+          "source": {
+            "sourceType": "in_game",
+            "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+            "sourceUpdatedAt": "2026-08-30",
+            "verifiedAt": "2026-08-30",
+            "gameVersion": "0.46.1",
+            "status": "verified",
+            "pdfPages": [
+              12,
+              13,
+              14,
+              15
+            ],
+            "notes": ""
+          }
+        },
+        {
+          "stage": 2,
+          "name": "フィッシュショット",
+          "summary": "魚を4匹持ち、順番にすべて投げつけて範囲ダメージを与える。「食いしん坊・被ダメージ増加」を付与し、「ピンチ」時は魚を食べてHPを回復、ほかのデバフを解除する。",
+          "stats": [
+            [
+              "魚の所持上限",
+              "4"
+            ],
+            [
+              "ダメージ倍率",
+              "90%"
+            ],
+            [
+              "クールダウン",
+              "5秒"
+            ],
+            [
+              "食いしん坊 被ダメージ増加比率",
+              "50%"
+            ],
+            [
+              "ピンチ発動HP",
+              "10%未満"
+            ],
+            [
+              "回復倍率",
+              "20%"
+            ],
+            [
+              "回復に必要な魚",
+              "1匹"
+            ],
+            [
+              "対タタ倍率",
+              "45%"
+            ]
+          ],
+          "sources": [
+            "写真.pdf p.16",
+            "写真.pdf p.17",
+            "写真.pdf p.18",
+            "写真.pdf p.19"
+          ],
+          "source": {
+            "sourceType": "in_game",
+            "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+            "sourceUpdatedAt": "2026-08-30",
+            "verifiedAt": "2026-08-30",
+            "gameVersion": "0.46.1",
+            "status": "verified",
+            "pdfPages": [
+              16,
+              17,
+              18,
+              19
+            ],
+            "notes": ""
+          }
+        },
+        {
+          "stage": 3,
+          "name": "フィッシュクランチ",
+          "summary": "魚を4匹持ち、順番にすべて投げつけて範囲ダメージを与える。「食いしん坊・被ダメージ増加」を付与し、「ピンチ」時は仲間と一緒に魚を食べてHPを回復、ほかのデバフを解除する。",
+          "stats": [
+            [
+              "魚の所持上限",
+              "4"
+            ],
+            [
+              "ダメージ倍率",
+              "90%"
+            ],
+            [
+              "クールダウン",
+              "5秒"
+            ],
+            [
+              "食いしん坊 被ダメージ増加比率",
+              "50%"
+            ],
+            [
+              "ピンチ発動HP",
+              "10%未満"
+            ],
+            [
+              "回復倍率",
+              "20%"
+            ],
+            [
+              "回復に必要な魚",
+              "1匹"
+            ],
+            [
+              "対タタ倍率",
+              "45%"
+            ]
+          ],
+          "sources": [
+            "写真.pdf p.20",
+            "写真.pdf p.21",
+            "写真.pdf p.22",
+            "写真.pdf p.23"
+          ],
+          "source": {
+            "sourceType": "in_game",
+            "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+            "sourceUpdatedAt": "2026-08-30",
+            "verifiedAt": "2026-08-30",
+            "gameVersion": "0.46.1",
+            "status": "verified",
+            "pdfPages": [
+              20,
+              21,
+              22,
+              23
+            ],
+            "notes": ""
+          }
+        },
+        {
+          "stage": 4,
+          "name": "フィッシュボナンザ",
+          "summary": "魚を4匹持ち、順番にすべて投げつけて範囲ダメージを与える。「食いしん坊・被ダメージ増加」を付与し、「ピンチ」時は仲間と一緒に魚を食べてHPを回復、ほかのデバフを解除する。パッシブ「オーラ・水」で味方全員を継続回復する。",
+          "stats": [
+            [
+              "魚の所持上限",
+              "4"
+            ],
+            [
+              "ダメージ倍率",
+              "90%"
+            ],
+            [
+              "クールダウン",
+              "5秒"
+            ],
+            [
+              "食いしん坊 被ダメージ増加比率",
+              "50%"
+            ],
+            [
+              "ピンチ発動HP",
+              "10%未満"
+            ],
+            [
+              "回復倍率",
+              "20%"
+            ],
+            [
+              "回復に必要な魚",
+              "1匹"
+            ],
+            [
+              "対タタ倍率",
+              "45%"
+            ],
+            [
+              "オーラ・水 初期回復量",
+              "対象最大HPの0.5%"
+            ],
+            [
+              "オーラ・水 最大回復量",
+              "対象最大HPの2.5%"
+            ],
+            [
+              "非水属性へのオーラ効果",
+              "50%"
+            ]
+          ],
+          "sources": [
+            "写真.pdf p.24",
+            "写真.pdf p.25",
+            "写真.pdf p.26",
+            "写真.pdf p.27",
+            "写真.pdf p.28"
+          ],
+          "source": {
+            "sourceType": "in_game",
+            "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+            "sourceUpdatedAt": "2026-08-30",
+            "verifiedAt": "2026-08-30",
+            "gameVersion": "0.46.1",
+            "status": "verified",
+            "pdfPages": [
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "notes": ""
+          }
+        }
+      ],
+      "sourceMetadata": {
+        "sourceType": "in_game",
+        "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+        "sourceUpdatedAt": "2026-08-30",
+        "verifiedAt": "2026-08-30",
+        "gameVersion": "0.46.1",
+        "status": "verified",
+        "pdfPages": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28
+        ],
+        "notes": ""
+      }
     }
   ]
 }

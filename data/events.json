@@ -1,9 +1,105 @@
 {
-  "version": 1,
-  "updated": "2026-08-28",
+  "version": 2,
+  "updated": "2026-08-30",
   "events": [
-    { "id": "treasure-hunt", "name": "オタカラ探し", "status": "periodic", "href": "/events/treasure-hunt/", "verificationStatus": "tool-only-no-game-values" },
-    { "id": "magic-farm", "name": "魔法の農場", "status": "periodic", "summary": "8/26公式告知でリメイク内容が案内されています。", "verificationStatus": "official-notice-confirmed-details-pending" },
-    { "id": "surprise-roulette", "name": "サプライズルーレット", "status": "periodic", "summary": "8/26公式告知で段階追加と手動レベルアップが案内されています。", "verificationStatus": "official-notice-confirmed-details-pending" }
+    {
+      "id": "running-party",
+      "name": "ランニングパーティ",
+      "status": "periodic",
+      "href": "/events/running-party/",
+      "summary": "4人でスノーボードの距離を共有する周期イベント。倍率と協力進行を外部確認。",
+      "verificationStatus": "externally-confirmed",
+      "sourceType": "community",
+      "sourceUrl": "https://monster-survival.games-wiki.com/events/running-party",
+      "verifiedAt": "2026-08-30"
+    },
+    {
+      "id": "running-star",
+      "name": "ランニングスター",
+      "status": "periodic",
+      "href": "/events/running-star/",
+      "summary": "1人用ランニングイベント。現行報酬の詳細は確認待ち。",
+      "verificationStatus": "externally-confirmed",
+      "sourceType": "community",
+      "sourceUrl": "https://monster-survival.games-wiki.com/events/running-star",
+      "verifiedAt": "2026-08-30"
+    },
+    {
+      "id": "island-treasure",
+      "name": "アイランドトレジャー",
+      "status": "periodic",
+      "href": "/events/island-treasure/",
+      "summary": "4人で領地を進め、時間ごとのポイントと疲労を管理する周期イベント。",
+      "verificationStatus": "externally-confirmed",
+      "sourceType": "community",
+      "sourceUrl": "https://monster-survival.games-wiki.com/events/island-treasure",
+      "verifiedAt": "2026-08-30"
+    },
+    {
+      "id": "magic-farm",
+      "name": "魔法の農場",
+      "status": "periodic",
+      "href": "/events/magic-farm/",
+      "summary": "作物の総重量を競うリメイク後仕様。肥料の会心は最大5倍、招待タタのボーナスを確認。",
+      "verificationStatus": "externally-confirmed",
+      "sourceType": "community",
+      "sourceUrl": "https://monster-survival.games-wiki.com/events/magic-farm",
+      "verifiedAt": "2026-08-30"
+    },
+    {
+      "id": "fishing-tournament",
+      "name": "釣り大会",
+      "status": "periodic",
+      "href": "/events/fishing-tournament/",
+      "summary": "海域で魚を釣り、金・銀コインとQTEを使う周期イベント。魚一覧と現行報酬は確認待ち。",
+      "verificationStatus": "externally-confirmed",
+      "sourceType": "community",
+      "sourceUrl": "https://monster-survival.games-wiki.com/events/fishing-tournament",
+      "verifiedAt": "2026-08-30"
+    },
+    {
+      "id": "treasure-hunt",
+      "name": "オタカラ探し",
+      "status": "periodic",
+      "href": "/events/treasure-hunt/",
+      "summary": "4本の鍵で盤面を開き、同じメンバーの再利用・コスト上昇・爆弾を考慮するイベント。",
+      "verificationStatus": "externally-confirmed",
+      "sourceType": "community",
+      "sourceUrl": "https://monster-survival.games-wiki.com/events/treasure-hunt",
+      "verifiedAt": "2026-08-30"
+    },
+    {
+      "id": "card-album",
+      "name": "カードアルバム",
+      "status": "periodic",
+      "href": "/events/card-album/",
+      "summary": "1セット9枚。金カードは交換不可で、重複カードは星へ変換される周期イベント。",
+      "verificationStatus": "externally-confirmed",
+      "sourceType": "community",
+      "sourceUrl": "https://monster-survival.games-wiki.com/events/card-album",
+      "verifiedAt": "2026-08-30"
+    },
+    {
+      "id": "zombie-siege",
+      "name": "ゾンビ包囲戦",
+      "status": "legacy",
+      "href": "/events/zombie-siege/",
+      "summary": "現在は一時閉鎖。旧仕様はアーカイブとしてのみ掲載。",
+      "verificationStatus": "legacy",
+      "sourceType": "community",
+      "sourceUrl": "https://monster-survival.games-wiki.com/events/zombie-siege",
+      "verifiedAt": "2026-08-30"
+    },
+    {
+      "id": "surprise-roulette",
+      "name": "サプライズルーレット",
+      "status": "periodic",
+      "href": "/events/surprise-roulette/",
+      "summary": "公式告知で段階追加と手動レベルアップを確認。詳細数値は確認待ち。",
+      "verificationStatus": "externally-confirmed",
+      "sourceType": "community",
+      "sourceUrl": "https://monster-survival.games-wiki.com/events/surprise-roulette",
+      "verifiedAt": "2026-08-30"
+    }
   ]
 }

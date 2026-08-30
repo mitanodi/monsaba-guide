@@ -33,6 +33,17 @@ function walk(directory) {
   });
 }
 
+const japaneseIgnored = new Set(['.git', '.github', '.vercel', 'node_modules', 'promo', 'en', 'zh-cn', 'assets', 'data', 'scripts']);
+function walkJapanese(directory) {
+  return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    if (japaneseIgnored.has(entry.name)) return [];
+    const full = path.join(directory, entry.name);
+    if (entry.isDirectory()) return walkJapanese(full);
+    return entry.name === 'index.html' || (directory === root && entry.name === '404.html') ? [full] : [];
+  });
+}
+const expectedPageCount = walkJapanese(root).length;
+
 function plainText(html) {
   return html
     .replace(/<script\b[\s\S]*?<\/script>/gi, '')
@@ -70,7 +81,7 @@ function validateMeta(html, route, locale) {
 for (const locale of locales) {
   const directory = path.join(root, locale.directory);
   const files = walk(directory);
-  report(files.length === 114, `${locale.key}: expected 114 HTML files, got ${files.length}`);
+  report(files.length === expectedPageCount, `${locale.key}: expected ${expectedPageCount} HTML files, got ${files.length}`);
   for (const file of files) {
     const route = `/${locale.directory}/${path.relative(directory, path.dirname(file)).replaceAll('\\', '/')}`.replace(/\/$/, '') + '/';
     const html = readFile(file);
@@ -106,4 +117,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log('translation quality validation passed: 114 English and 114 Simplified Chinese pages scanned with no placeholders or banned machine wording.');
+console.log(`translation quality validation passed: ${expectedPageCount} English and ${expectedPageCount} Simplified Chinese pages scanned with no placeholders or banned machine wording.`);

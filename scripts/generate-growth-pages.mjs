@@ -28,7 +28,7 @@ function pageShell({ route, title, description, body, structured, robots, script
   <script type="application/ld+json">${safeJsonLd(structured)}</script></head>
 <body data-page-type="${pageType}"><a class="skip-link" href="#main-content">本文へスキップ</a>${renderHeader(route)}<main id="main-content">${body}
   <section class="wrap source-note page-freshness"><strong>情報の状態</strong><p><span class="trust-label is-verified">確認済み</span> 最終更新 <time datetime="${status.updated}">${formatJapanDateTime(status.updated)}</time> / データ確認 <time datetime="${status.verified}">${formatJapanDateTime(status.verified)}</time></p>${status.pending?.length ? `<p><span class="trust-label is-pending">確認中</span> ${status.pending.map(esc).join(' / ')}</p>` : ''}<a href="/about-data/">更新・確認方針を見る</a></section>
-</main>${renderFooter('63系統 / 224体')}<script src="/site.js"></script>${scripts.map((src) => `<script src="${src}" defer></script>`).join('')}<script src="/growth.js" defer></script></body></html>`;
+</main>${renderFooter(`${tatari.families.length}系統 / ${tatari.families.flatMap((family) => family.evolutions).length}体`)}<script src="/site.js"></script>${scripts.map((src) => `<script src="${src}" defer></script>`).join('')}<script src="/growth.js" defer></script></body></html>`;
 }
 
 const guideItems = [
@@ -59,14 +59,14 @@ const attributeItems = [
 const attributeRoute = '/attribute/';
 const attributeCrumbs = [{ label: 'トップ', href: '/' }, { label: '属性別タタ' }];
 const attributeTitle = 'モンサバ 属性別タタ一覧｜草・水・火・雷・岩';
-const attributeDescription = 'モンサバのタタ63系統を草・水・火・雷・岩の属性別に探し、Tier・役割・進化優先・比較へ進める属性ハブです。';
+const attributeDescription = `モンサバのタタ${tatari.families.length}系統を草・水・火・雷・岩の属性別に探し、Tier・役割・進化優先・比較へ進める属性ハブです。`;
 write(attributeRoute, pageShell({
   route: attributeRoute, title: attributeTitle, description: attributeDescription, pageType: 'attribute_hub',
   structured: { '@context': 'https://schema.org', '@graph': [
     { '@type': 'CollectionPage', '@id': absoluteUrl(attributeRoute), url: absoluteUrl(attributeRoute), name: attributeTitle, description: attributeDescription, dateModified: statusFor(attributeRoute).updated, inLanguage: 'ja', mainEntity: { '@type': 'ItemList', itemListElement: attributeItems.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: `${item.label}属性`, url: absoluteUrl(item.href) })) } },
     breadcrumbSchema(attributeCrumbs)
   ] },
-  body: `<section class="page-hero"><div class="wrap">${renderBreadcrumb(attributeCrumbs)}<div class="family-page-head"><div><span class="visible-kicker">63系統を5属性から探す</span><h1>属性別タタ一覧</h1><p>属性を選び、タタ一覧・用途別Tier・役割・進化優先・比較候補を確認できます。</p></div><a class="button" data-cta-id="attribute_compare" href="/compare/">2体を比較する</a></div></div></section>
+  body: `<section class="page-hero"><div class="wrap">${renderBreadcrumb(attributeCrumbs)}<div class="family-page-head"><div><span class="visible-kicker">${tatari.families.length}系統を5属性から探す</span><h1>属性別タタ一覧</h1><p>属性を選び、タタ一覧・用途別Tier・役割・進化優先・比較候補を確認できます。</p></div><a class="button" data-cta-id="attribute_compare" href="/compare/">2体を比較する</a></div></div></section>
   <section class="wrap static-section"><h2 class="page-h2">属性を選ぶ</h2><div class="guide-hub-grid">${attributeItems.map((item) => `<article class="guide-hub-card"><h3><a href="${item.href}">${item.icon} ${item.label}属性</a></h3><p>${item.count}系統を収録。確認済みDBと当サイトの暫定評価を分けて掲載しています。</p><div class="guide-card-actions"><a class="ghost-button" href="${item.href}">一覧を見る</a><a href="${item.href}#attribute-ranking">候補を絞る</a></div></article>`).join('')}</div></section>
   <section class="wrap static-section next-reading"><h2 class="page-h2">属性を選んだあと</h2><div class="attribute-guide-nav"><a href="/tata-tier/">用途別Tier</a><a href="/evolution-priority/">進化優先度</a><a href="/consult/?flow=evolution">攻略相談</a></div></section>`
 }));

@@ -3,9 +3,9 @@
   "source": "data/tatari.json",
   "description": "Tata skill data copied from the existing structured tatari.json source. Values are preserved as published strings and are not inferred.",
   "totals": {
-    "families": 63,
-    "stages": 224,
-    "skills": 224,
+    "families": 64,
+    "stages": 230,
+    "skills": 230,
     "unreadable": 0
   },
   "issues": [],
@@ -2827,6 +2827,69 @@
             "IMG_6449.png"
           ],
           "evolutionSource": "IMG_6445.png"
+        },
+        {
+          "stage": 4,
+          "tataName": "ロードパス",
+          "skillName": "フィッシュ＆キング",
+          "description": "パッシブ「オーラ・水」を展開し、水の玉を発射する。攻撃4回ごとに大きな水の玉で小範囲ダメージを与え、「子ダコ」を召喚する。子ダコは倒されると広範囲ダメージを与える。",
+          "values": [
+            {
+              "label": "ダメージ倍率",
+              "value": "120%"
+            },
+            {
+              "label": "大きな水の玉の頻度",
+              "value": "攻撃4回ごと"
+            },
+            {
+              "label": "クールダウン",
+              "value": "4秒"
+            },
+            {
+              "label": "子ダコ 継承HP比率",
+              "value": "30%"
+            },
+            {
+              "label": "子ダコ 最大生存時間",
+              "value": "12秒"
+            },
+            {
+              "label": "オーラ・水 初期回復量",
+              "value": "対象最大HPの0.5%"
+            },
+            {
+              "label": "オーラ・水 最大回復量",
+              "value": "対象最大HPの2.5%"
+            },
+            {
+              "label": "非水属性へのオーラ効果",
+              "value": "50%"
+            },
+            {
+              "label": "対タタ倍率",
+              "value": "40%"
+            }
+          ],
+          "sources": [
+            "写真.pdf p.35-38"
+          ],
+          "evolutionSource": "写真.pdf p.35-38",
+          "sourceMetadata": {
+            "sourceType": "in_game",
+            "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+            "sourceUpdatedAt": "2026-08-30",
+            "verifiedAt": "2026-08-30",
+            "gameVersion": "0.46.1",
+            "status": "verified",
+            "pdfPages": [
+              35,
+              36,
+              37,
+              38
+            ],
+            "notes": "子ダコ撃破時の爆発倍率は画面で数値未確認のため登録していない"
+          }
         }
       ]
     },
@@ -7994,6 +8057,87 @@
             "IMG_6779.png"
           ],
           "evolutionSource": "IMG_6774.png"
+        },
+        {
+          "stage": 4,
+          "tataName": "ナムアミダイジャ",
+          "skillName": "功徳円満",
+          "description": "パッシブ「オーラ・岩」を展開する。低速音波を数発撃った後、高速音波を連射する。高速音波は敵を無限に貫通し、一定確率でスタンを付与する。",
+          "values": [
+            {
+              "label": "低速音波ダメージ倍率",
+              "value": "90%"
+            },
+            {
+              "label": "低速音波発射数",
+              "value": "4"
+            },
+            {
+              "label": "低速音波発射クールダウン",
+              "value": "3秒"
+            },
+            {
+              "label": "高速音波ダメージ倍率",
+              "value": "50%"
+            },
+            {
+              "label": "高速音波貫通回数",
+              "value": "無限"
+            },
+            {
+              "label": "高速音波発射数",
+              "value": "8"
+            },
+            {
+              "label": "高速音波発射間隔",
+              "value": "0.25秒"
+            },
+            {
+              "label": "スタン 確率",
+              "value": "3%"
+            },
+            {
+              "label": "スタン 持続時間",
+              "value": "1秒"
+            },
+            {
+              "label": "オーラ・岩 初期被ダメージ軽減",
+              "value": "3.5%"
+            },
+            {
+              "label": "オーラ・岩 最大被ダメージ軽減",
+              "value": "17.5%"
+            },
+            {
+              "label": "非岩属性へのオーラ効果",
+              "value": "50%"
+            },
+            {
+              "label": "対タタ倍率",
+              "value": "35%"
+            }
+          ],
+          "sources": [
+            "写真.pdf p.29-34"
+          ],
+          "evolutionSource": "写真.pdf p.29-34",
+          "sourceMetadata": {
+            "sourceType": "in_game",
+            "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+            "sourceUpdatedAt": "2026-08-30",
+            "verifiedAt": "2026-08-30",
+            "gameVersion": "0.46.1",
+            "status": "verified",
+            "pdfPages": [
+              29,
+              30,
+              31,
+              32,
+              33,
+              34
+            ],
+            "notes": ""
+          }
         }
       ]
     },
@@ -9934,6 +10078,282 @@
           "evolutionSource": "IMG_6887.png"
         }
       ]
+    },
+    "pakuma": {
+      "familyId": "pakuma",
+      "familyName": "パクマ",
+      "attribute": "水",
+      "stages": [
+        {
+          "stage": 1,
+          "tataName": "パクマ",
+          "skillName": "フィッシュトス",
+          "description": "魚を3匹持ち、順番にすべて投げつけて範囲ダメージを与える。「食いしん坊・被ダメージ増加」を付与し、「ピンチ」時は魚を食べてHPを回復、ほかのデバフを解除する。",
+          "values": [
+            {
+              "label": "魚の所持上限",
+              "value": "3"
+            },
+            {
+              "label": "ダメージ倍率",
+              "value": "90%"
+            },
+            {
+              "label": "クールダウン",
+              "value": "5秒"
+            },
+            {
+              "label": "食いしん坊 被ダメージ増加比率",
+              "value": "50%"
+            },
+            {
+              "label": "ピンチ発動HP",
+              "value": "10%未満"
+            },
+            {
+              "label": "回復倍率",
+              "value": "20%"
+            },
+            {
+              "label": "回復に必要な魚",
+              "value": "1匹"
+            },
+            {
+              "label": "対タタ倍率",
+              "value": "45%"
+            }
+          ],
+          "sources": [
+            "写真.pdf p.12",
+            "写真.pdf p.13",
+            "写真.pdf p.14",
+            "写真.pdf p.15"
+          ],
+          "evolutionSource": "写真.pdf p.7-8",
+          "sourceMetadata": {
+            "sourceType": "in_game",
+            "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+            "sourceUpdatedAt": "2026-08-30",
+            "verifiedAt": "2026-08-30",
+            "gameVersion": "0.46.1",
+            "status": "verified",
+            "pdfPages": [
+              12,
+              13,
+              14,
+              15
+            ],
+            "notes": ""
+          }
+        },
+        {
+          "stage": 2,
+          "tataName": "クマッシュ",
+          "skillName": "フィッシュショット",
+          "description": "魚を4匹持ち、順番にすべて投げつけて範囲ダメージを与える。「食いしん坊・被ダメージ増加」を付与し、「ピンチ」時は魚を食べてHPを回復、ほかのデバフを解除する。",
+          "values": [
+            {
+              "label": "魚の所持上限",
+              "value": "4"
+            },
+            {
+              "label": "ダメージ倍率",
+              "value": "90%"
+            },
+            {
+              "label": "クールダウン",
+              "value": "5秒"
+            },
+            {
+              "label": "食いしん坊 被ダメージ増加比率",
+              "value": "50%"
+            },
+            {
+              "label": "ピンチ発動HP",
+              "value": "10%未満"
+            },
+            {
+              "label": "回復倍率",
+              "value": "20%"
+            },
+            {
+              "label": "回復に必要な魚",
+              "value": "1匹"
+            },
+            {
+              "label": "対タタ倍率",
+              "value": "45%"
+            }
+          ],
+          "sources": [
+            "写真.pdf p.16",
+            "写真.pdf p.17",
+            "写真.pdf p.18",
+            "写真.pdf p.19"
+          ],
+          "evolutionSource": "写真.pdf p.9",
+          "sourceMetadata": {
+            "sourceType": "in_game",
+            "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+            "sourceUpdatedAt": "2026-08-30",
+            "verifiedAt": "2026-08-30",
+            "gameVersion": "0.46.1",
+            "status": "verified",
+            "pdfPages": [
+              16,
+              17,
+              18,
+              19
+            ],
+            "notes": ""
+          }
+        },
+        {
+          "stage": 3,
+          "tataName": "マリンベア",
+          "skillName": "フィッシュクランチ",
+          "description": "魚を4匹持ち、順番にすべて投げつけて範囲ダメージを与える。「食いしん坊・被ダメージ増加」を付与し、「ピンチ」時は仲間と一緒に魚を食べてHPを回復、ほかのデバフを解除する。",
+          "values": [
+            {
+              "label": "魚の所持上限",
+              "value": "4"
+            },
+            {
+              "label": "ダメージ倍率",
+              "value": "90%"
+            },
+            {
+              "label": "クールダウン",
+              "value": "5秒"
+            },
+            {
+              "label": "食いしん坊 被ダメージ増加比率",
+              "value": "50%"
+            },
+            {
+              "label": "ピンチ発動HP",
+              "value": "10%未満"
+            },
+            {
+              "label": "回復倍率",
+              "value": "20%"
+            },
+            {
+              "label": "回復に必要な魚",
+              "value": "1匹"
+            },
+            {
+              "label": "対タタ倍率",
+              "value": "45%"
+            }
+          ],
+          "sources": [
+            "写真.pdf p.20",
+            "写真.pdf p.21",
+            "写真.pdf p.22",
+            "写真.pdf p.23"
+          ],
+          "evolutionSource": "写真.pdf p.10",
+          "sourceMetadata": {
+            "sourceType": "in_game",
+            "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+            "sourceUpdatedAt": "2026-08-30",
+            "verifiedAt": "2026-08-30",
+            "gameVersion": "0.46.1",
+            "status": "verified",
+            "pdfPages": [
+              20,
+              21,
+              22,
+              23
+            ],
+            "notes": ""
+          }
+        },
+        {
+          "stage": 4,
+          "tataName": "ブリズリー",
+          "skillName": "フィッシュボナンザ",
+          "description": "魚を4匹持ち、順番にすべて投げつけて範囲ダメージを与える。「食いしん坊・被ダメージ増加」を付与し、「ピンチ」時は仲間と一緒に魚を食べてHPを回復、ほかのデバフを解除する。パッシブ「オーラ・水」で味方全員を継続回復する。",
+          "values": [
+            {
+              "label": "魚の所持上限",
+              "value": "4"
+            },
+            {
+              "label": "ダメージ倍率",
+              "value": "90%"
+            },
+            {
+              "label": "クールダウン",
+              "value": "5秒"
+            },
+            {
+              "label": "食いしん坊 被ダメージ増加比率",
+              "value": "50%"
+            },
+            {
+              "label": "ピンチ発動HP",
+              "value": "10%未満"
+            },
+            {
+              "label": "回復倍率",
+              "value": "20%"
+            },
+            {
+              "label": "回復に必要な魚",
+              "value": "1匹"
+            },
+            {
+              "label": "対タタ倍率",
+              "value": "45%"
+            },
+            {
+              "label": "オーラ・水 初期回復量",
+              "value": "対象最大HPの0.5%"
+            },
+            {
+              "label": "オーラ・水 最大回復量",
+              "value": "対象最大HPの2.5%"
+            },
+            {
+              "label": "非水属性へのオーラ効果",
+              "value": "50%"
+            }
+          ],
+          "sources": [
+            "写真.pdf p.24",
+            "写真.pdf p.25",
+            "写真.pdf p.26",
+            "写真.pdf p.27",
+            "写真.pdf p.28"
+          ],
+          "evolutionSource": "写真.pdf p.11",
+          "sourceMetadata": {
+            "sourceType": "in_game",
+            "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
+            "sourceUpdatedAt": "2026-08-30",
+            "verifiedAt": "2026-08-30",
+            "gameVersion": "0.46.1",
+            "status": "verified",
+            "pdfPages": [
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "notes": ""
+          }
+        }
+      ]
     }
+  },
+  "sourceEvidence": {
+    "fileName": "写真.pdf",
+    "sha256": "82FF3DEE280A21ECBB99ED46BDA893C1533AF8D2D76A7AF166D7D43B726B1211",
+    "pages": 92,
+    "verifiedAt": "2026-08-30",
+    "gameVersion": "0.46.1"
   }
 }

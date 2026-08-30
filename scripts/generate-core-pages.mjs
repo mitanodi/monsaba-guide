@@ -24,6 +24,7 @@ const skills = readJson('data/tata-skills.json');
 const ratings = readJson('data/tier-ratings.json');
 const priority = readJson('data/evolution-priority.json');
 const families = tatari.families || [];
+const formCount = families.flatMap((family) => family.evolutions || []).length;
 const familyById = new Map(families.map((family) => [family.id, family]));
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 const thumb = (image) => `/${String(image || '').replace('assets/monsters/', 'assets/thumbs/')}`;
@@ -136,4 +137,11 @@ replaceMarker('evolution-priority/index.html', 'EVOLUTION_IMPACT', impact);
 replaceMarker('evolution-priority/index.html', 'EVOLUTION_AURA', aura);
 replaceMarker('evolution-priority/index.html', 'EVOLUTION_TRANSITIONS', transitionList);
 replaceMarker('evolution-priority/index.html', 'EVOLUTION_LONG_TERM', longTerm);
+const topFile = path.join(root, 'index.html');
+const topSource = readFile(topFile, 'utf8');
+const topWithCurrentCounts = topSource
+  .replace(/タタ\d+系統・\d+体/g, `タタ${families.length}系統・${formCount}体`)
+  .replace(/モンサバの\d+系統・\d+体/g, `モンサバの${families.length}系統・${formCount}体`)
+  .replace(/\d+系統を一覧で見る/g, `${families.length}系統を一覧で見る`);
+if (topWithCurrentCounts !== topSource) writeFile(topFile, topWithCurrentCounts);
 console.log(`主要静的HTMLを生成しました: TOP ${families.length}系統 / Tier ${rankedIds.size}系統 / 進化差分 ${transitions.length}件`);

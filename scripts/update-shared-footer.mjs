@@ -3,6 +3,9 @@ import path from 'node:path';
 import { renderFooter } from './shared-layout.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
+const tatari = JSON.parse(fs.readFileSync(path.join(root, 'data', 'tatari.json'), 'utf8'));
+const familyCount = tatari.families.length;
+const formCount = tatari.families.flatMap((family) => family.evolutions || []).length;
 const contact = '<p class="footer-contact">お問い合わせ・ご連絡は <a href="https://x.com/odi_monsaba" target="_blank" rel="noopener noreferrer">おぢ（@odi_monsaba）X</a> まで。フォローもよろしくお願いします。</p>';
 const links = '<nav class="footer-links" aria-label="サイト情報"><a href="/attribute/">属性別</a><a href="/guides/">攻略ハブ</a><a href="/compare/">タタ比較</a><a href="/my-monsaba/">マイモンサバ</a><a href="/team-builder/">編成メーカー</a><a href="/faq/">FAQ</a><a href="/about/">サイトについて</a><a href="/about-data/">データ方針</a><a href="/updates/">更新履歴</a><a href="/privacy/">プライバシー</a><a href="/friends/">フレンド掲示板</a><a href="/board/">質問掲示板</a></nav>';
 const ignored = new Set(['.git', '.vercel', 'node_modules', 'assets', 'data', 'scripts', 'promo', 'en', 'zh-cn']);
@@ -28,6 +31,7 @@ for (const file of walk(root)) {
     html = html.replace(/<nav class="footer-links"[\s\S]*?<\/nav>/, links);
     if (!html.includes('class="footer-contact"')) html = html.replace(links, `${links}${contact}`);
   }
+  html = html.replace(/<div class="footer-meta">\d+系統\s*\/\s*\d+体<\/div>/g, `<div class="footer-meta">${familyCount}系統 / ${formCount}体</div>`);
   if (html === before) continue;
   write(file, html);
   changed += 1;

@@ -10,6 +10,8 @@ const glossary = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/glossary.
 for (const term of glossary.terms) for (const locale of ['en', 'zh-CN']) overrides[locale][term.ja] = term[locale];
 const qualityOverrides = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/quality-overrides.json'), 'utf8'));
 for (const locale of ['en', 'zh-CN']) Object.assign(overrides[locale], qualityOverrides[locale]);
+const aug30Overrides = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/aug30.json'), 'utf8'));
+for (const locale of ['en', 'zh-CN']) Object.assign(overrides[locale], aug30Overrides[locale]);
 const notices = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/notices.json'), 'utf8'));
 const assetVersion = JSON.parse(fs.readFileSync(path.join(root, 'data/asset-build.json'), 'utf8')).version;
 const locales = ['en', 'zh-CN'];
@@ -29,12 +31,20 @@ function retry(operation) {
 const read = (file) => retry(() => fs.readFileSync(file, 'utf8'));
 const write = (file, value) => retry(() => fs.writeFileSync(file, value));
 const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'promo', 'en', 'zh-cn', 'assets', 'data', 'scripts']);
+const selfLocalized = new Set([
+  'zombie-rush/chips', 'evolution/trials', 'updates/2026-08-30',
+  ...['running-party','running-star','island-treasure','magic-farm','fishing-tournament','card-album','zombie-siege','surprise-roulette'].map((id) => `events/${id}`)
+]);
 
 function walk(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     if (ignored.has(entry.name)) return [];
     const full = path.join(directory, entry.name);
-    if (entry.isDirectory()) return walk(full);
+    if (entry.isDirectory()) {
+      const relative = path.relative(root, full).replaceAll('\\', '/');
+      if (selfLocalized.has(relative)) return [];
+      return walk(full);
+    }
     return entry.name === 'index.html' || (directory === root && entry.name === '404.html') ? [full] : [];
   });
 }
@@ -102,6 +112,9 @@ function translator(locale, missing) {
     if (locale === 'en' && familyCompare) return raw.replace(trimmed, `Compare the ${familyCompare[1]} family`);
     if (locale === 'en' && familyPage) return raw.replace(trimmed, `View the ${familyPage[1]} family page`);
     if (locale === 'en' && familyOnly) return raw.replace(trimmed, `${familyOnly[1]} family`);
+    if (locale === 'zh-CN' && familyCompare) return raw.replace(trimmed, `比较${familyCompare[1]}系列`);
+    if (locale === 'zh-CN' && familyPage) return raw.replace(trimmed, `查看${familyPage[1]}系列页面`);
+    if (locale === 'zh-CN' && familyOnly) return raw.replace(trimmed, `${familyOnly[1]}系列`);
     if (familySeoTitle) return raw.replace(trimmed, locale === 'en'
       ? `Clash of Critters ${familySeoTitle[1]} Family Guide | Evolutions, Skills & Uses`
       : `Clash of Critters ${familySeoTitle[1]} 系列攻略｜进化、技能与用途`);
@@ -126,6 +139,23 @@ function translator(locale, missing) {
         if (match) return raw.replace(trimmed, render(match[1]));
       }
     }
+    const countPair = trimmed.match(/^(\d+)系統 \/ (\d+)体$/);
+    if (countPair) return raw.replace(trimmed, locale === 'en' ? `${countPair[1]} families / ${countPair[2]} Tatari` : `${countPair[1]} 个系列 / ${countPair[2]} 个 Tatari`);
+    const familyCount = trimmed.match(/^(\d+)系統$/);
+    if (familyCount) return raw.replace(trimmed, locale === 'en' ? `${familyCount[1]} families` : `${familyCount[1]} 个系列`);
+    const evolutionHeading = trimmed.match(/^第(\d+)進化：(.+)$/);
+    if (evolutionHeading) return raw.replace(trimmed, locale === 'en' ? `Evolution ${evolutionHeading[1]}: ${evolutionHeading[2]}` : `第${evolutionHeading[1]}次进化：${evolutionHeading[2]}`);
+    const consultEvolution = trimmed.match(/^T(\d) (.+)から次の進化を相談$/);
+    if (consultEvolution) return raw.replace(trimmed, locale === 'en' ? `Ask about the next evolution after T${consultEvolution[1]} ${consultEvolution[2]}` : `咨询T${consultEvolution[1]} ${consultEvolution[2]}之后的进化`);
+    const skillChange = trimmed.match(/^スキル名：(.+) → (.+)$/);
+    if (skillChange) return raw.replace(trimmed, locale === 'en' ? `Skill: ${skillChange[1]} → ${skillChange[2]}` : `技能：${skillChange[1]} → ${skillChange[2]}`);
+    const stageTransition = trimmed.match(/^T(\d) (.+) → T(\d) (.+)$/);
+    if (stageTransition) return raw.replace(trimmed, locale === 'en' ? `T${stageTransition[1]} ${stageTransition[2]} → T${stageTransition[3]} ${stageTransition[4]}` : `T${stageTransition[1]} ${stageTransition[2]} → T${stageTransition[3]} ${stageTransition[4]}`);
+    if (/^[\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}A-Za-z0-9＆・\s]+(?: → [\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}A-Za-z0-9＆・\s]+)+$/u.test(trimmed)) return raw;
+    const pdfSource = trimmed.match(/^写真\.pdf p\.(.+)$/);
+    if (pdfSource) return raw.replace(trimmed, locale === 'en' ? `In-game PDF pp. ${pdfSource[1]}` : `游戏内PDF第${pdfSource[1]}页`);
+    const japaneseDate = trimmed.match(/^(20\d{2})年(\d{1,2})月(\d{1,2})日$/);
+    if (japaneseDate) return raw.replace(trimmed, locale === 'en' ? `${new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Tokyo' }).format(new Date(Date.UTC(+japaneseDate[1], +japaneseDate[2] - 1, +japaneseDate[3])))}` : `${japaneseDate[1]}年${japaneseDate[2]}月${japaneseDate[3]}日`);
     const value = overrides[locale]?.[trimmed] || translations[locale][trimmed];
     if (!value) {
       missing.add(trimmed);

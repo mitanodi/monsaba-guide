@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 export const GA4_MEASUREMENT_ID = 'G-PTV8TYNYMR';
 export const GA4_START_MARKER = '<!-- monsaba-ga4:start -->';
@@ -64,18 +65,21 @@ function walk(directory) {
   });
 }
 
-let changed = 0;
-for (const file of walk(root)) {
-  const source = fs.readFileSync(file, 'utf8');
-  const withoutManagedTag = source.replace(taggedBlockPattern, '');
-  if (/googletagmanager\.com\/gtag\/js\?id=|gtag\(['"]config['"]/.test(withoutManagedTag)) {
-    throw new Error(`${path.relative(root, file)}: 管理外のGoogle tagがあり、重複を防ぐため生成を停止しました。`);
+function updateGa4Tags() {
+  let changed = 0;
+  for (const file of walk(root)) {
+    const source = fs.readFileSync(file, 'utf8');
+    const withoutManagedTag = source.replace(taggedBlockPattern, '');
+    if (/googletagmanager\.com\/gtag\/js\?id=|gtag\(['"]config['"]/.test(withoutManagedTag)) {
+      throw new Error(`${path.relative(root, file)}: 管理外のGoogle tagがあり、重複を防ぐため生成を停止しました。`);
+    }
+    if (!withoutManagedTag.includes('</head>')) throw new Error(`${path.relative(root, file)}: </head>がありません。`);
+    const output = withoutManagedTag.replace(/(?:\r?\n)?<\/head>/, `\n${renderGa4Tag()}\n</head>`);
+    if (output === source) continue;
+    fs.writeFileSync(file, output);
+    changed += 1;
   }
-  if (!withoutManagedTag.includes('</head>')) throw new Error(`${path.relative(root, file)}: </head>がありません。`);
-  const output = withoutManagedTag.replace(/(?:\r?\n)?<\/head>/, `\n${renderGa4Tag()}\n</head>`);
-  if (output === source) continue;
-  fs.writeFileSync(file, output);
-  changed += 1;
+  console.log(`GA4 tag ${GA4_MEASUREMENT_ID}: ${walk(root).length} HTMLを確認（更新 ${changed}）`);
 }
 
-console.log(`GA4 tag ${GA4_MEASUREMENT_ID}: ${walk(root).length} HTMLを確認（更新 ${changed}）`);
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) updateGa4Tags();

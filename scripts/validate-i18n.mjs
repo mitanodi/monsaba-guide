@@ -45,7 +45,7 @@ function collectProtected(value, key = '') {
 }
 for (const relative of ['data/tatari.json', 'data/tata-skills.json', 'data/content-guides.json', 'data/events.json', 'data/items.json', 'data/systems.json', 'data/stages.json', 'data/zombie-rush/seasons/season-1.json']) collectProtected(JSON.parse(read(relative)));
 collectProtected(JSON.parse(read('data/i18n/localized-names.json')));
-for (const term of ['系', 'パクマ', '魔法の農場リメイク', 'サンドワームゾンビ', 'スノーフィストゾンビ', 'ドアゾンビ', 'ナムアミダイジャ']) protectedTerms.add(term);
+for (const term of ['系', 'パクマ', '魔法の農場リメイク', 'サンドワームゾンビ', 'スノーフィストゾンビ', 'ドアゾンビ', 'ナムアミダイジャ', '子ダコ']) protectedTerms.add(term);
 const sortedProtectedTerms = [...protectedTerms].sort((a, b) => b.length - a.length);
 const untranslated = { en: new Set(), 'zh-CN': new Set() };
 function collectUntranslated(html, locale) {
@@ -63,10 +63,16 @@ function collectUntranslated(html, locale) {
   }
 }
 
-expect(sourceFiles.length === 114, `Japanese page count: expected 114, got ${sourceFiles.length}`);
+expect(sourceFiles.length >= 114, `Japanese page count unexpectedly decreased: got ${sourceFiles.length}`);
 expect(config.preferenceKey === 'monsabaLanguage:v1', 'Language preference key changed');
-expect(sitemapLocs.size === 318, `Sitemap URL count: expected 318, got ${sitemapLocs.size}`);
-expect((sitemap.match(/<xhtml:link /g) || []).length === 1272, 'Sitemap must contain four alternates per URL');
+const indexableJapaneseCount = sourceFiles.filter((file) => {
+  const route = routeFor(file);
+  const html = readAbsolute(file);
+  return route !== '/404/' && !/<meta name="robots" content="[^"]*noindex/i.test(html);
+}).length;
+const expectedSitemapUrls = indexableJapaneseCount * 3;
+expect(sitemapLocs.size === expectedSitemapUrls, `Sitemap URL count: expected ${expectedSitemapUrls}, got ${sitemapLocs.size}`);
+expect((sitemap.match(/<xhtml:link /g) || []).length === expectedSitemapUrls * 4, 'Sitemap must contain four alternates per URL');
 
 for (const sourceFile of sourceFiles) {
   const route = routeFor(sourceFile);
@@ -140,9 +146,9 @@ for (const locale of locales) expect(untranslated[locale.key].size === 0, `${loc
 
 const tatari = JSON.parse(read('data/tatari.json'));
 const skills = JSON.parse(read('data/tata-skills.json'));
-expect(tatari.families.length === 63, 'Tatari family count changed');
-expect(tatari.families.flatMap((family) => family.evolutions).length === 224, 'Monster count changed');
-expect(skills.totals?.stages === 224 && skills.totals?.skills === 224, `Skill stage count changed: ${skills.totals?.stages}`);
+expect(tatari.families.length === 64, 'Tatari family count must be 64');
+expect(tatari.families.flatMap((family) => family.evolutions).length === 230, 'Monster count must be 230');
+expect(skills.totals?.stages === 230 && skills.totals?.skills === 230, `Skill stage count changed: ${skills.totals?.stages}`);
 expect(read('site.js').includes("localStorage.setItem('monsabaLanguage:v1'"), 'Language preference is not stored');
 expect(read('site.js').includes('location.search') && read('site.js').includes('location.hash'), 'Language switching does not preserve query/hash');
 expect(read('i18n-runtime.js').includes('.official-x-post-text') && read('i18n-runtime.js').includes('.friend-comment'), 'UGC/X translation exclusion missing');
@@ -155,4 +161,4 @@ if (errors.length) {
   errors.slice(0, 100).forEach((error) => console.error(`- ${error}`));
   process.exit(1);
 }
-console.log('i18n validation passed: 114 pages × 3 locales, 318 indexable URLs, reciprocal alternates and shared data verified.');
+console.log(`i18n validation passed: ${sourceFiles.length} pages × 3 locales, ${expectedSitemapUrls} indexable URLs, reciprocal alternates and shared data verified.`);

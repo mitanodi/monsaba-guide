@@ -1,7 +1,7 @@
 # A8広告配置監査
 
 生成元: `data/monetization.json` / `data/affiliate-offers.json`
-対象: 公開HTML 114ページ（404を含む）
+対象: 公開HTML 126ページ（404を含む）
 監査日: 2026-08-28
 
 ## Before
@@ -31,11 +31,20 @@
 | https://monster-survival.com/compare/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/consult/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/events/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/events/card-album/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/events/fishing-tournament/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/events/island-treasure/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/events/magic-farm/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/events/running-party/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/events/running-star/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/events/surprise-roulette/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/events/treasure-hunt/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/events/zombie-siege/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/evolution-priority/ | 1 | マクロミル | 本文下部 | desktop only | 820px以下は非表示 |
 | https://monster-survival.com/evolution/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/evolution/t3/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/evolution/t4/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/evolution/trials/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/faq/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/favorites/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/friends/ | 0 | — | — | — | 非表示 |
@@ -103,6 +112,7 @@
 | https://monster-survival.com/tata/nekoori/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/nemukurage/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/nenbutsuhebi/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/tata/pakuma/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/potakage/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/pupunku/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/purabi/ | 0 | — | — | — | 非表示 |
@@ -125,7 +135,9 @@
 | https://monster-survival.com/team-builder/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/updates/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/updates/2026-08-26/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/updates/2026-08-30/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/zombie-rush/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/zombie-rush/chips/ | 0 | — | — | — | 非表示 |
 
 ## After
 
@@ -156,11 +168,20 @@
 | https://monster-survival.com/compare/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/consult/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/events/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/events/card-album/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/events/fishing-tournament/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/events/island-treasure/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/events/magic-farm/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/events/running-party/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/events/running-star/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/events/surprise-roulette/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/events/treasure-hunt/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/events/zombie-siege/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/evolution-priority/ | 1 | マクロミル | 本文下部 | desktop only | 820px以下は非表示 |
 | https://monster-survival.com/evolution/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/evolution/t3/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/evolution/t4/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/evolution/trials/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/faq/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/favorites/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/friends/ | 0 | — | — | — | 非表示 |
@@ -228,6 +249,7 @@
 | https://monster-survival.com/tata/nekoori/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/nemukurage/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/nenbutsuhebi/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/tata/pakuma/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/potakage/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/pupunku/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/purabi/ | 0 | — | — | — | 非表示 |
@@ -250,7 +272,9 @@
 | https://monster-survival.com/team-builder/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/updates/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/updates/2026-08-26/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/updates/2026-08-30/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/zombie-rush/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/zombie-rush/chips/ | 0 | — | — | — | 非表示 |
 
 ## A8広告掲載URL管理
 

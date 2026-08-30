@@ -1,0 +1,2290 @@
+{
+  "version": 1,
+  "updated": "2026-08-30",
+  "familyCount": 64,
+  "source": {
+    "sourceType": "community",
+    "sourceName": "国内攻略Wiki 進化条件一覧",
+    "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+    "sourceUpdatedAt": "2026-08-28",
+    "verifiedAt": "2026-08-30",
+    "status": "externally_confirmed",
+    "notes": "ゲーム内スクリーンショットではないため公式確認とは表示しない。不自然な数値・曖昧な条件はpending。"
+  },
+  "families": [
+    {
+      "familyId": "takepanda",
+      "familyName": "タケパンダ",
+      "attribute": "草",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "タケパンダ",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "パンドウラク",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "バンブオウ",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "tsubaruka",
+      "familyName": "ツバルカ",
+      "attribute": "草",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ツバルカ",
+          "condition": "個別試練あり",
+          "status": "externally_confirmed",
+          "needsHumanVerification": false,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "ビチャルパカ",
+          "condition": "最終進化：星上げ＋餌付け・コンテンツ進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "birimori",
+      "familyName": "ビリモリ",
+      "attribute": "雷",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ビリモリ",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "パルバット",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "ヴァンパルス",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "togegyo",
+      "familyName": "トゲギョ",
+      "attribute": "水",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "トゲギョ",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "ガイアーマ",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "アビスカル",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "yotsubird",
+      "familyName": "ヨツバード",
+      "attribute": "草",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ヨツバード",
+          "condition": "試練なし（通常進化）",
+          "status": "externally_confirmed",
+          "needsHumanVerification": false,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "kaenjack",
+      "familyName": "カエンジャク",
+      "attribute": "火",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "カエンジャク",
+          "condition": "試練なし（通常進化）",
+          "status": "externally_confirmed",
+          "needsHumanVerification": false,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "hihidog",
+      "familyName": "ビビドッグ",
+      "attribute": "雷",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ビビドッグ",
+          "condition": null,
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "hanarenaishi",
+      "familyName": "ハナレナイシ",
+      "attribute": "草",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ハナレナイシ",
+          "condition": "試練なし（通常進化）",
+          "status": "externally_confirmed",
+          "needsHumanVerification": false,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "birinamazu",
+      "familyName": "ビリナマズ",
+      "attribute": "雷",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ビリナマズ",
+          "condition": null,
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "daishell",
+      "familyName": "ダイシェル",
+      "attribute": "水",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ダイシェル",
+          "condition": "試練なし（通常進化）",
+          "status": "externally_confirmed",
+          "needsHumanVerification": false,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "batarisu",
+      "familyName": "バタリス",
+      "attribute": "火",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "バタリス",
+          "condition": "試練なし（通常進化）",
+          "status": "externally_confirmed",
+          "needsHumanVerification": false,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "guuhog",
+      "familyName": "グウホッグ",
+      "attribute": "岩",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "グウホッグ",
+          "condition": "試練なし（通常進化）",
+          "status": "externally_confirmed",
+          "needsHumanVerification": false,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "capibarrie",
+      "familyName": "カピバルリー",
+      "attribute": "水",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "カピバルリー",
+          "condition": "試練なし（通常進化）",
+          "status": "externally_confirmed",
+          "needsHumanVerification": false,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "rokubuhi",
+      "familyName": "ロクブヒ",
+      "attribute": "岩",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ロクブヒ",
+          "condition": "試練なし（通常進化）",
+          "status": "externally_confirmed",
+          "needsHumanVerification": false,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "marushu",
+      "familyName": "マルッシュ",
+      "attribute": "草",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "マボロッシュ",
+          "condition": "個別試練あり",
+          "status": "externally_confirmed",
+          "needsHumanVerification": false,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "マダムッシュ",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "イルミラージュ",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "fugumaru",
+      "familyName": "フグマル",
+      "attribute": "火",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ニギリマル",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "フナモリマル",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "タイショウマル",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "greenbee",
+      "familyName": "グリンビィ",
+      "attribute": "草",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "チョイワルブーン",
+          "condition": "個別試練あり",
+          "status": "externally_confirmed",
+          "needsHumanVerification": false,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "チョーワルブーン",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "ブーンマント",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "kowagaru",
+      "familyName": "コワガルー",
+      "attribute": "岩",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ツヨガルー",
+          "condition": "個別試練あり",
+          "status": "externally_confirmed",
+          "needsHumanVerification": false,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "ガルッキー",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "ガルチャンプ",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "kunbuu",
+      "familyName": "クンブー",
+      "attribute": "火",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ハンバーブー",
+          "condition": null,
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "ブヒナベブー",
+          "condition": null,
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "カロリキング",
+          "condition": null,
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "tsubutsumuri",
+      "familyName": "ツブツムリ",
+      "attribute": "岩",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ジェムツムリ",
+          "condition": "個別試練あり",
+          "status": "externally_confirmed",
+          "needsHumanVerification": false,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "クォーツムリ",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "アメジスネイル",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "pupunku",
+      "familyName": "ププンク",
+      "attribute": "火",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "クサンク",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "マグマスク",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "ボンバスカー",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "erekineko",
+      "familyName": "エレキネコ",
+      "attribute": "雷",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "デンニャン",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "スピニャット",
+          "condition": "最終進化：星上げ＋餌付け・コンテンツ進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "sukedako",
+      "familyName": "スケダコ",
+      "attribute": "水",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ウオダコ",
+          "condition": "6星＋タタ40体捕獲",
+          "status": "externally_confirmed",
+          "needsHumanVerification": false,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "オクトーム",
+          "condition": "18星（MAX）＋餌付け3回＋共有進行2,000または200,000",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "ロードパス",
+          "condition": "36星＋Bランク＋共有進行6,000、またはタタ200体捕獲",
+          "status": "externally_confirmed",
+          "needsHumanVerification": false,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "hinyao",
+      "familyName": "ヒニャオ",
+      "attribute": "火",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "マネヒネコ",
+          "condition": "個別試練あり",
+          "status": "externally_confirmed",
+          "needsHumanVerification": false,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "ネコマダラ",
+          "condition": "最終進化：星上げ＋餌付け・コンテンツ進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "mumukaba",
+      "familyName": "ムムカバ",
+      "attribute": "岩",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "マリリンバ",
+          "condition": "個別試練あり",
+          "status": "externally_confirmed",
+          "needsHumanVerification": false,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "モンローバ",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "ヒポディーバ",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "hikaru",
+      "familyName": "ピカル",
+      "attribute": "雷",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ボルタル",
+          "condition": "個別試練あり",
+          "status": "externally_confirmed",
+          "needsHumanVerification": false,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "ルシフェル",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "ルミナリオン",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "atatama",
+      "familyName": "アタタマ",
+      "attribute": "火",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ヒガマ",
+          "condition": "個別試練あり",
+          "status": "externally_confirmed",
+          "needsHumanVerification": false,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "メラガマ",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "ダルマグマ",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "yaminome",
+      "familyName": "ヤミノメ",
+      "attribute": "草",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ヤミハナ",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "ヤミマンドラ",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "ダークラウン",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "korokon",
+      "familyName": "コロコン",
+      "attribute": "火",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ニコン",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "ヨウエンビ",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "キツネビア",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "mogurin",
+      "familyName": "モグリン",
+      "attribute": "岩",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "モグデント",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "モグトリデ",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "モグパレス",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "biripiyo",
+      "familyName": "ビリピヨ",
+      "attribute": "雷",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "エレクトリ",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "ビリビバシ",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "ライオウム",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "potakage",
+      "familyName": "ポタカゲ",
+      "attribute": "水",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ピチャカゲ",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "アクアガマ",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "イガマスター",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "fukurogumo",
+      "familyName": "フクロクモ",
+      "attribute": "草",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ボトルグモ",
+          "condition": null,
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "チュラリウム",
+          "condition": null,
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "シンラリウム",
+          "condition": null,
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "nemukurage",
+      "familyName": "ネムクラゲ",
+      "attribute": "水",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "スヤクラゲ",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "ルナドール",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "オロラクイン",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "sabooru",
+      "familyName": "サボール",
+      "attribute": "草",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "サボケン",
+          "condition": "個別試練あり",
+          "status": "externally_confirmed",
+          "needsHumanVerification": false,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "サボディビル",
+          "condition": "最終進化：星上げ＋餌付け・コンテンツ進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "korotama",
+      "familyName": "コロタマ",
+      "attribute": "岩",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "コロロック",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "スカラーべ",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "スカリギオ",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "yanzaru",
+      "familyName": "ヤンザル",
+      "attribute": "岩",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ワルキー",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "イビルザル",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "サルタイセイ",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "gaoden",
+      "familyName": "ガオデン",
+      "attribute": "雷",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ガルルデン",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "キングデン",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "エンペラデン",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "himawarin",
+      "familyName": "ヒマワリン",
+      "attribute": "草",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "キラワー",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "サーフクリン",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "サンフクリン",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "nekoori",
+      "familyName": "ネコオリ",
+      "attribute": "水",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "チルネコ",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "チルレオ",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "ブリズレオ",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "furuggu",
+      "familyName": "フルッグ",
+      "attribute": "草",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "フルルッグ",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "ドラフルッグ",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "フルグロウン",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "himori",
+      "familyName": "ヒモリ",
+      "attribute": "火",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "フレイモリ",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "ボルケザード",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "インフェルドラ",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "komakiri",
+      "familyName": "コマキリ",
+      "attribute": "草",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ハナキリ",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "ヴァルキリ",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "サクランティス",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "umimi",
+      "familyName": "ウミミ",
+      "attribute": "水",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ウミピョン",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "ウミロップ",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "アクアリーナ",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "purabi",
+      "familyName": "プラビ",
+      "attribute": "雷",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "スタピョン",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "ステラビット",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "アストラビット",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "rokuju",
+      "familyName": "ロクジュー",
+      "attribute": "岩",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ロクジュー",
+          "condition": "個別試練あり",
+          "status": "externally_confirmed",
+          "needsHumanVerification": false,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "ジオジュラ",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "ジュラゴン",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "boruzarashi",
+      "familyName": "ボルザラシ",
+      "attribute": "水",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ボルザラシ",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "ダブザラシ",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "ダイドウオウ",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "gantoru",
+      "familyName": "ガントル",
+      "attribute": "岩",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ガントル",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "ガンタス",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "ガンバンタス",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "denjika",
+      "familyName": "デンジカ",
+      "attribute": "雷",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "デンジカ",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "ジバジカ",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "マグネクス",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "tafupen",
+      "familyName": "タフペン",
+      "attribute": "水",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "タフペン",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "フブペン",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "ペンペラー",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "fureimuji",
+      "familyName": "フレイムシ",
+      "attribute": "火",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "フレイムシ",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "バタフレア",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "バタブレイズ",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "erekoon",
+      "familyName": "エレコーン",
+      "attribute": "雷",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "エレコーン",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "エレキリン",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "ボルキリン",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "nenbutsuhebi",
+      "familyName": "ネンブツヘビ",
+      "attribute": "岩",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ネンブツヘビ",
+          "condition": "6星＋ボスラリー10回",
+          "status": "externally_confirmed",
+          "needsHumanVerification": false,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "ボンノオロチ",
+          "condition": "18星（MAX）＋餌付け3回＋エナジードリンク5,000本",
+          "status": "externally_confirmed",
+          "needsHumanVerification": false,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "ナムアミダイジャ",
+          "condition": "36星（MAX）＋Bランク＋共有進行120/7200＋総攻撃20回",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "matchiba",
+      "familyName": "マッチバ",
+      "attribute": "火",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "マッチバ",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "フレベロス",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "ヘルベロス",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "denrou",
+      "familyName": "デンロウ",
+      "attribute": "雷",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "デンロウ",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "ライロウ",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "ジンライロウ",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "kenkani",
+      "familyName": "ケンカニ",
+      "attribute": "水",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ケンカニ",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "クラブロー",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "チョキング",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "fureebi",
+      "familyName": "フレービ",
+      "attribute": "火",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "フレービ",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "バーニフィス",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "ボルケイセ",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "haamitora",
+      "familyName": "ハーミットラ",
+      "attribute": "火",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ハーミットラ",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "ゼンガー",
+          "condition": "最終進化：星上げ＋餌付け・コンテンツ進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "マスタイガー",
+          "condition": "最終進化：星上げ＋餌付け・コンテンツ進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "shiiparusu",
+      "familyName": "シーパルス",
+      "attribute": "雷",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "シーパルス",
+          "condition": "個別試練あり",
+          "status": "externally_confirmed",
+          "needsHumanVerification": false,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "アラシープ",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "アマルテラ",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "shizukuchou",
+      "familyName": "シズクチョウ",
+      "attribute": "水",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "シズクチョウ",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "ミストリア",
+          "condition": "最終進化：星上げ＋餌付け・コンテンツ進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "doriruu",
+      "familyName": "ドリルー",
+      "attribute": "岩",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ドリルー",
+          "condition": "個別試練あり",
+          "status": "externally_confirmed",
+          "needsHumanVerification": false,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "ボーランバ",
+          "condition": "最終進化：星上げ＋餌付け・コンテンツ進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "riifuro",
+      "familyName": "リーフロ",
+      "attribute": "草",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "リーフロ",
+          "condition": "星上げ＋個別試練",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "ツリーフロ",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "クロノウル",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "hikikomoru",
+      "familyName": "ヒキコモル",
+      "attribute": "雷",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ヒキコモル",
+          "condition": "個別試練あり",
+          "status": "externally_confirmed",
+          "needsHumanVerification": false,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "モルターボ",
+          "condition": "星上げ＋餌付け・共有進行",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "モルボット",
+          "condition": "最終進化：最大星＋ランク＋共有進行・指定素材",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "pakuma",
+      "familyName": "パクマ",
+      "attribute": "水",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "クマッシュ",
+          "condition": "6星＋30個条件",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 3,
+          "tataName": "マリンベア",
+          "condition": "18星（MAX）＋餌付け3回＋共有進行2,000または200,000",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "ブリズリー",
+          "condition": "36星＋Bランク＋共有進行6,000または600,000＋寿司の荒波盛り15個",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "sourceUpdatedAt": "2026-08-28",
+          "verifiedAt": "2026-08-30"
+        }
+      ]
+    }
+  ]
+}
