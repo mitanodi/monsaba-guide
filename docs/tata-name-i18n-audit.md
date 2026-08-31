@@ -84,3 +84,21 @@
 - 英語・簡体字中国語の正式タタ名だけを追加した。
 - スキル名、説明、性能数値、Tier、属性は変更していない。
 - 競合攻略サイトの画像は使用していない。
+
+## 名称・出典の自動検証ルール
+
+正式EN / zh-CN名称を変更・追加する場合は、`data/tata-name-i18n-sources.json` の対応する名称、出典文書、実PDFページ、確定状態を必ず同時に更新する。名称データだけを変更すると `npm run validate` とCIが失敗する。
+
+検証はgit diffに依存せず、現在の `data/tatari.json` に存在する全形態を毎回動的に走査する。将来の新系統・新進化も、名称に対応する出典mappingがなければ失敗する。
+
+自動検証対象は次のとおり。
+
+- `familyId + stage + locale` のcanonical mappingが1件だけ存在すること
+- 日本語名、正式EN名、正式zh-CN名がsource entryと完全一致すること
+- 出典文書名と実PDFページが有効であること
+- verification statusが `confirmed` であること
+- source側に削除済み・存在しない形態へのorphan entryがないこと
+- `data/tatari.json` と `data/tata-skills.json` の3言語名が一致すること
+- JA / EN / zh-CNの全生成詳細ページに正式EN / zh-CN名が出力されること
+
+テストはProductionデータを書き換えず、メモリ上のfixtureで名称不一致、ページ欠落、文書欠落、orphan、duplicate、pendingを意図的に作り、validatorが具体的な原因を返すことを確認する。

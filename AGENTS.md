@@ -6,7 +6,8 @@
 - `chigonoki-ramen-blog` には触らない。
 - タタ名、進化、スキル数値、攻略内容を推測で追加・修正しない。
 - 正式表記は「岩属性」「ビビドッグ」「モエミン」「クンブー」。これらを別表記へ変更しない。
-- データ基準は63系統・224体。`tatari.json` と `tata-skills.json` のstage/nameを一致させる。
+- データ基準は64系統・230体。`tatari.json` と `tata-skills.json` のstage/nameを一致させる。
+- 正式EN / zh-CNタタ名を変更・追加する場合は、`data/tata-name-i18n-sources.json` の名称・出典文書・実PDFページ・確定状態を同時更新する。名称だけの変更は `npm run validate` で失敗させる。
 - Tier順位と進化優先度を、明示的な根拠・依頼なしに変更しない。
 - `data/monetization.json` は `adsEnabled: false` / `affiliateEnabled: true` を維持する。承認済みA8.netコードのトラッキング情報を改変せず、掲載範囲を勝手に広げない。
 - ゲーム画像はユーザー提供の正式素材だけを使用する。画像生成・描き足しは禁止。
