@@ -99,7 +99,7 @@ function renderPage(family, index) {
         '@type': 'WebPage', '@id': url, url, name: title, description, image,
         mainEntityOfPage: { '@type': 'WebPage', '@id': url },
         dateModified, inLanguage: 'ja',
-        about: { '@type': 'Thing', name: displayLabel, alternateName: [...new Set([family.familyName, ...family.evolutions.map((item) => item.name)])], description }
+        about: { '@type': 'Thing', name: displayLabel, alternateName: [...new Set([family.familyName, ...family.evolutions.flatMap((item) => [item.name, item.nameEn, item.nameZhHans])].filter(Boolean))], description }
       },
       {
         '@type': 'BreadcrumbList',
@@ -116,7 +116,8 @@ function renderPage(family, index) {
     const visual = form
       ? `<img src="${esc(form.src)}" width="${form.width}" height="${form.height}" alt="${esc(evolution.name)}" loading="lazy" decoding="async">`
       : `<div class="tata-image-pending" role="img" aria-label="${esc(evolution.name)}"><span>画像確認中</span></div>`;
-    return `<article class="evo-card static-evo">${visual}<div><small>T${evolution.stage}</small><strong>${esc(evolution.name)}</strong></div></article>`;
+    const localizedNames = `<div class="tata-i18n-names" translate="no"><span lang="en"><b>English:</b> ${esc(evolution.nameEn)}</span><span lang="zh-Hans"><b>简体中文:</b> ${esc(evolution.nameZhHans)}</span></div>`;
+    return `<article class="evo-card static-evo">${visual}<div><small>T${evolution.stage}</small><strong>${esc(evolution.name)}</strong>${localizedNames}</div></article>`;
   }).join('');
   const evolutionIndex = `<section class="wrap tata-stage-index" aria-labelledby="stage-index-title"><h2 id="stage-index-title">このページで扱う進化</h2><ol>${family.evolutions.map((evolution) => `<li><a href="#stage-${evolution.stage}"><b>T${evolution.stage}</b> ${esc(evolution.name)}</a></li>`).join('')}</ol><p>${esc(displayLabel)}のT1〜T${family.evolutions.length}について、進化先・スキル・確認済み数値をまとめています。</p></section>`;
   const skillBlocks = stageData.map((stage) => `<section class="skill-block" id="stage-${stage.stage}"><div class="skill-head"><div><small>第${stage.stage}進化：${esc(stage.tataName)}</small><h2>${esc(stage.skillName)}</h2></div><p class="skill-summary">${esc(stage.description || '説明データは収録されていません。')}</p></div>${stage.values?.length ? `<div class="stats-grid">${stage.values.map((value) => `<div class="stat-cell"><span>${esc(value.label)}</span><b>${esc(value.value)}</b></div>`).join('')}</div>` : '<p class="section-note">確認済み数値は収録されていません。</p>'}${stage.sources?.length ? `<details class="source-details"><summary>参照スクショ</summary><div class="sources">${stage.sources.map(esc).join(' / ')}</div></details>` : ''}</section>`).join('');

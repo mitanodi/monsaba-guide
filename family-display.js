@@ -17,7 +17,12 @@
       getFamilyDisplayName(family),
       getFamilyDisplayLabel(family),
       ...(family?.searchAliases || []),
-      ...(family?.evolutions || []).flatMap((evolution) => [evolution?.name, evolution?.name ? `${evolution.name}系` : ''])
+      ...(family?.evolutions || []).flatMap((evolution) => [
+        evolution?.name,
+        evolution?.name ? `${evolution.name}系` : '',
+        evolution?.nameEn,
+        evolution?.nameZhHans
+      ])
     ];
     return [...new Set(names.filter((name) => typeof name === 'string' && name.trim()).map((name) => name.trim()))];
   };

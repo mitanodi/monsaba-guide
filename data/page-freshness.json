@@ -10,7 +10,7 @@
   },
   "routes": {
     "/": { "updated": "2026-08-28", "verified": "2026-08-28" },
-    "/tata/*": { "updated": "2026-08-28", "verified": "2026-08-28" },
+    "/tata/*": { "updated": "2026-09-01", "verified": "2026-09-01" },
     "/tata/pakuma/": { "updated": "2026-08-30", "verified": "2026-08-30", "gameVersion": "0.46.1" },
     "/tata/sukedako/": { "updated": "2026-08-30", "verified": "2026-08-30", "gameVersion": "0.46.1" },
     "/tata/nenbutsuhebi/": { "updated": "2026-08-30", "verified": "2026-08-30", "gameVersion": "0.46.1" },

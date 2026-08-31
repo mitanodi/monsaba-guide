@@ -41,7 +41,7 @@ const protectedTerms = new Set(['日本語', '简体中文', 'おぢ']);
 function collectProtected(value, key = '') {
   if (Array.isArray(value)) return value.forEach((item) => collectProtected(item, key));
   if (value && typeof value === 'object') return Object.entries(value).forEach(([childKey, child]) => collectProtected(child, childKey));
-  if (typeof value === 'string' && /(?:name|familyName|skillName|tataName|officialTataName|databaseTataName)$/i.test(key) && /[\u3040-\u30ff\u3400-\u9fff]/.test(value)) protectedTerms.add(value);
+  if (typeof value === 'string' && /(?:name|familyName|skillName|tataName|officialTataName|databaseTataName|nameEn|nameZhHans|englishName|simplifiedChineseName)$/i.test(key) && /[\u3040-\u30ff\u3400-\u9fff]/.test(value)) protectedTerms.add(value);
 }
 for (const relative of ['data/tatari.json', 'data/tata-skills.json', 'data/content-guides.json', 'data/events.json', 'data/summer-party.json', 'data/items.json', 'data/systems.json', 'data/stages.json', 'data/zombie-rush/seasons/season-1.json']) collectProtected(JSON.parse(read(relative)));
 collectProtected(JSON.parse(read('data/i18n/localized-names.json')));

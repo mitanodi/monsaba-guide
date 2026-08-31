@@ -141,9 +141,15 @@ function buildAliases(){
   const aliases = [];
   for(const family of state.families){
     const names = new Set(getFamilySearchAliases(family));
-    for(const evo of family.evolutions || []) names.add(evo.name);
+    for(const evo of family.evolutions || []) {
+      names.add(evo.name);
+      names.add(evo.nameEn);
+      names.add(evo.nameZhHans);
+    }
     for(const stage of state.skills[family.id]?.stages || []) {
       names.add(stage.tataName);
+      names.add(stage.nameEn);
+      names.add(stage.nameZhHans);
       names.add(stage.skillName);
     }
     for(const name of names){
@@ -826,8 +832,11 @@ function currentStageFromQuestion(familyId, q){
   const aliases = [];
   for(const stage of stages){
     aliases.push({stage: stage.stage, name: stage.tataName});
+    aliases.push({stage: stage.stage, name: stage.nameEn});
+    aliases.push({stage: stage.stage, name: stage.nameZhHans});
     aliases.push({stage: stage.stage, name: stage.skillName});
   }
+  aliases.splice(0, aliases.length, ...aliases.filter(alias => alias.name));
   aliases.sort((a,b) => normalize(b.name).length - normalize(a.name).length);
   const hit = aliases.find(a => q.includes(normalize(a.name)));
   if(hit && stages.some(s => s.stage === hit.stage + 1)) return hit.stage;
@@ -1237,7 +1246,7 @@ function deltaValueList(values){
 function stageFromName(familyId, query){
   const q = normalize(query);
   if(!q) return null;
-  return (state.skills[familyId]?.stages || []).find(s => q.includes(normalize(s.tataName)) || q.includes(normalize(s.skillName)))?.stage || null;
+  return (state.skills[familyId]?.stages || []).find(s => [s.tataName, s.nameEn, s.nameZhHans, s.skillName].filter(Boolean).some(name => q.includes(normalize(name))))?.stage || null;
 }
 
 function answerUnknown(raw){

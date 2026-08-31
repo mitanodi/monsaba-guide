@@ -115,8 +115,8 @@ function runSearch(rawQuery, updateUrl = true) {
   const evolutionResults = [];
   const skillResults = [];
   for (const family of families) {
-    const matchedEvolution = (family.evolutions || []).filter((item) => contains(query, item.name));
-    if (matchedEvolution.length) evolutionResults.push({ family, matches: matchedEvolution.map((item) => `T${item.stage} ${item.name}`) });
+    const matchedEvolution = (family.evolutions || []).filter((item) => contains(query, item.name, item.nameEn, item.nameZhHans));
+    if (matchedEvolution.length) evolutionResults.push({ family, matches: matchedEvolution.map((item) => `T${item.stage} ${item.name} / ${item.nameEn} / ${item.nameZhHans}`) });
     const matchedSkills = (skills[family.id]?.stages || []).filter((stage) => contains(query, stage.skillName, stage.description, (stage.values || []).map((value) => `${value.label} ${value.value}`)));
     if (matchedSkills.length) skillResults.push({ family, matches: matchedSkills.map((stage) => `T${stage.stage} ${stage.skillName}`) });
   }

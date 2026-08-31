@@ -28,7 +28,7 @@ export function editDistance(a, b) {
 export function familyMatches(family, rawQuery, aliases = []) {
   const query = normalizeSearch(rawQuery);
   if (!query) return true;
-  const candidates = [family?.id, family?.familyName, ...(family?.searchAliases || []), ...(family?.evolutions || []).map((item) => item.name), ...aliases]
+  const candidates = [family?.id, family?.familyName, ...(family?.searchAliases || []), ...(family?.evolutions || []).flatMap((item) => [item.name, item.nameEn, item.nameZhHans]), ...aliases]
     .filter(Boolean).map(normalizeSearch);
   return candidates.some((candidate) => candidate.includes(query) || query.includes(candidate)
     || (query.length >= 3 && editDistance(query, candidate.slice(0, Math.max(query.length, candidate.length))) <= Math.max(1, Math.floor(query.length / 6))));

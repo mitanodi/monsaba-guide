@@ -15,7 +15,9 @@ async function boot() {
   const candidateLabels = new Map();
   for (const item of state.families) {
     candidateLabels.set(getFamilyDisplayLabel(item), item.id);
-    for (const stage of item.evolutions) candidateLabels.set(stage.name, item.id);
+    for (const stage of item.evolutions) {
+      for (const name of [stage.name, stage.nameEn, stage.nameZhHans].filter(Boolean)) candidateLabels.set(name, item.id);
+    }
   }
   $('#compareCandidates').innerHTML = [...candidateLabels.keys()].map((label) => `<option value="${esc(label)}"></option>`).join('');
   const bindSearch = (inputSelector, selectSelector) => {
@@ -23,7 +25,7 @@ async function boot() {
     input.addEventListener('input', () => {
       const raw = input.value.trim();
       const exact = candidateLabels.get(raw);
-      const partials = raw ? state.families.filter((item) => [getFamilyDisplayLabel(item), ...item.evolutions.map((stage) => stage.name)].some((name) => name.includes(raw))) : [];
+      const partials = raw ? state.families.filter((item) => [getFamilyDisplayLabel(item), ...item.evolutions.flatMap((stage) => [stage.name, stage.nameEn, stage.nameZhHans])].filter(Boolean).some((name) => name.includes(raw))) : [];
       if (exact || partials.length === 1) { select.value = exact || partials[0].id; startEvent(); }
     });
     select.addEventListener('change', () => { const selected = family(select.value); input.value = selected ? getFamilyDisplayLabel(selected) : ''; });

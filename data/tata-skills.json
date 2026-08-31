@@ -60,7 +60,9 @@
             "IMG_6903.png",
             "IMG_6904.png"
           ],
-          "evolutionSource": "IMG_6242.png"
+          "evolutionSource": "IMG_6242.png",
+          "nameEn": "Pandaroo",
+          "nameZhHans": "熊猫猫"
         },
         {
           "stage": 2,
@@ -111,7 +113,9 @@
             "IMG_6905.png",
             "IMG_6906.png"
           ],
-          "evolutionSource": "IMG_6243.png"
+          "evolutionSource": "IMG_6243.png",
+          "nameEn": "Pandaroot",
+          "nameZhHans": "熊熊猫"
         },
         {
           "stage": 3,
@@ -162,7 +166,9 @@
             "IMG_6907.png",
             "IMG_6908.png"
           ],
-          "evolutionSource": "IMG_6244.png"
+          "evolutionSource": "IMG_6244.png",
+          "nameEn": "Pandarrior",
+          "nameZhHans": "熊猫小侠"
         },
         {
           "stage": 4,
@@ -221,7 +227,9 @@
             "IMG_6909.png",
             "IMG_6910.png"
           ],
-          "evolutionSource": "IMG_6245.png"
+          "evolutionSource": "IMG_6245.png",
+          "nameEn": "Pandagrand",
+          "nameZhHans": "熊猫大侠"
         }
       ]
     },
@@ -264,7 +272,9 @@
           "sources": [
             "IMG_6257.png"
           ],
-          "evolutionSource": "IMG_6254.png"
+          "evolutionSource": "IMG_6254.png",
+          "nameEn": "Lollama",
+          "nameZhHans": "小舌驼"
         },
         {
           "stage": 2,
@@ -296,7 +306,9 @@
           "sources": [
             "IMG_6258.png"
           ],
-          "evolutionSource": "IMG_6255.png"
+          "evolutionSource": "IMG_6255.png",
+          "nameEn": "Slobberlama",
+          "nameZhHans": "口水驼"
         },
         {
           "stage": 3,
@@ -333,7 +345,9 @@
             "IMG_6259.png",
             "IMG_6260.png"
           ],
-          "evolutionSource": "IMG_6256.png"
+          "evolutionSource": "IMG_6256.png",
+          "nameEn": "Ptooielama",
+          "nameZhHans": "啊哑驼"
         }
       ]
     },
@@ -372,7 +386,9 @@
           "sources": [
             "IMG_6265.png"
           ],
-          "evolutionSource": "IMG_6261.png"
+          "evolutionSource": "IMG_6261.png",
+          "nameEn": "Zaplet",
+          "nameZhHans": "电音蝠"
         },
         {
           "stage": 2,
@@ -413,7 +429,9 @@
             "IMG_6266.png",
             "IMG_6267.png"
           ],
-          "evolutionSource": "IMG_6262.png"
+          "evolutionSource": "IMG_6262.png",
+          "nameEn": "Synthhog",
+          "nameZhHans": "电波蝠"
         },
         {
           "stage": 3,
@@ -454,7 +472,9 @@
             "IMG_6268.png",
             "IMG_6269.png"
           ],
-          "evolutionSource": "IMG_6263.png"
+          "evolutionSource": "IMG_6263.png",
+          "nameEn": "Sonarbat",
+          "nameZhHans": "大雷音蝠"
         },
         {
           "stage": 4,
@@ -503,7 +523,9 @@
             "IMG_6270.png",
             "IMG_6271.png"
           ],
-          "evolutionSource": "IMG_6264.png"
+          "evolutionSource": "IMG_6264.png",
+          "nameEn": "Umbraveil",
+          "nameZhHans": "夜翼领主"
         }
       ]
     },
@@ -534,7 +556,9 @@
           "sources": [
             "IMG_6277.png"
           ],
-          "evolutionSource": "IMG_6273.png"
+          "evolutionSource": "IMG_6273.png",
+          "nameEn": "Maskfry",
+          "nameZhHans": "小骨鱼"
         },
         {
           "stage": 2,
@@ -571,7 +595,9 @@
             "IMG_6278.png",
             "IMG_6279.png"
           ],
-          "evolutionSource": "IMG_6274.png"
+          "evolutionSource": "IMG_6274.png",
+          "nameEn": "Ospisces",
+          "nameZhHans": "刺骨鱼"
         },
         {
           "stage": 3,
@@ -612,7 +638,9 @@
             "IMG_6280.png",
             "IMG_6281.png"
           ],
-          "evolutionSource": "IMG_6275.png"
+          "evolutionSource": "IMG_6275.png",
+          "nameEn": "Armorjaw",
+          "nameZhHans": "铠骨鱼"
         },
         {
           "stage": 4,
@@ -666,7 +694,9 @@
             "IMG_6283.png",
             "IMG_6284.png"
           ],
-          "evolutionSource": "IMG_6276.png"
+          "evolutionSource": "IMG_6276.png",
+          "nameEn": "Dagondeep",
+          "nameZhHans": "印斯茅斯之主"
         }
       ]
     },
@@ -697,7 +727,9 @@
           "sources": [
             "IMG_6289.png"
           ],
-          "evolutionSource": "IMG_6287.png"
+          "evolutionSource": "IMG_6287.png",
+          "nameEn": "Clucky",
+          "nameZhHans": "菜鸡"
         },
         {
           "stage": 2,
@@ -725,7 +757,9 @@
           "sources": [
             "IMG_6290.png"
           ],
-          "evolutionSource": "IMG_6288.png"
+          "evolutionSource": "IMG_6288.png",
+          "nameEn": "Cluckeroo",
+          "nameZhHans": "幸运鸡"
         }
       ]
     },
@@ -764,7 +798,9 @@
           "sources": [
             "IMG_6293.png"
           ],
-          "evolutionSource": "IMG_6291.png"
+          "evolutionSource": "IMG_6291.png",
+          "nameEn": "Sparkrow",
+          "nameZhHans": "小火雀"
         },
         {
           "stage": 2,
@@ -796,7 +832,9 @@
           "sources": [
             "IMG_6294.png"
           ],
-          "evolutionSource": "IMG_6292.png"
+          "evolutionSource": "IMG_6292.png",
+          "nameEn": "Scorchwing",
+          "nameZhHans": "烈火雀"
         }
       ]
     },
@@ -831,7 +869,9 @@
           "sources": [
             "IMG_6297.png"
           ],
-          "evolutionSource": "IMG_6295.png"
+          "evolutionSource": "IMG_6295.png",
+          "nameEn": "Zapup",
+          "nameZhHans": "电嘟狗"
         },
         {
           "stage": 2,
@@ -863,7 +903,9 @@
           "sources": [
             "IMG_6298.png"
           ],
-          "evolutionSource": "IMG_6296.png"
+          "evolutionSource": "IMG_6296.png",
+          "nameEn": "Zapooch",
+          "nameZhHans": "猛电犬"
         }
       ]
     },
@@ -894,7 +936,9 @@
           "sources": [
             "IMG_6301.png"
           ],
-          "evolutionSource": "IMG_6299.png"
+          "evolutionSource": "IMG_6299.png",
+          "nameEn": "Solpear",
+          "nameZhHans": "鸭梨"
         },
         {
           "stage": 2,
@@ -918,7 +962,9 @@
           "sources": [
             "IMG_6302.png"
           ],
-          "evolutionSource": "IMG_6300.png"
+          "evolutionSource": "IMG_6300.png",
+          "nameEn": "Pearpair",
+          "nameZhHans": "不分梨"
         }
       ]
     },
@@ -949,7 +995,9 @@
           "sources": [
             "IMG_6305.png"
           ],
-          "evolutionSource": "IMG_6303.png"
+          "evolutionSource": "IMG_6303.png",
+          "nameEn": "Wobbler",
+          "nameZhHans": "呆呆鱼"
         },
         {
           "stage": 2,
@@ -977,7 +1025,9 @@
           "sources": [
             "IMG_6306.png"
           ],
-          "evolutionSource": "IMG_6304.png"
+          "evolutionSource": "IMG_6304.png",
+          "nameEn": "Boltskipper",
+          "nameZhHans": "电憨鱼"
         }
       ]
     },
@@ -1008,7 +1058,9 @@
           "sources": [
             "IMG_6309.png"
           ],
-          "evolutionSource": "IMG_6307.png"
+          "evolutionSource": "IMG_6307.png",
+          "nameEn": "Shellshy",
+          "nameZhHans": "胆小蟹"
         },
         {
           "stage": 2,
@@ -1040,7 +1092,9 @@
           "sources": [
             "IMG_6310.png"
           ],
-          "evolutionSource": "IMG_6308.png"
+          "evolutionSource": "IMG_6308.png",
+          "nameEn": "Boldclaw",
+          "nameZhHans": "胆大蟹"
         }
       ]
     },
@@ -1075,7 +1129,9 @@
           "sources": [
             "IMG_6313.png"
           ],
-          "evolutionSource": "IMG_6311.png"
+          "evolutionSource": "IMG_6311.png",
+          "nameEn": "Cindermunk",
+          "nameZhHans": "火花栗"
         },
         {
           "stage": 2,
@@ -1111,7 +1167,9 @@
           "sources": [
             "IMG_6314.png"
           ],
-          "evolutionSource": "IMG_6312.png"
+          "evolutionSource": "IMG_6312.png",
+          "nameEn": "Embertail",
+          "nameZhHans": "火焰栗"
         }
       ]
     },
@@ -1158,7 +1216,9 @@
           "sources": [
             "IMG_6317.png"
           ],
-          "evolutionSource": "IMG_6315.png"
+          "evolutionSource": "IMG_6315.png",
+          "nameEn": "Dozy",
+          "nameZhHans": "打盹刺"
         },
         {
           "stage": 2,
@@ -1198,7 +1258,9 @@
           "sources": [
             "IMG_6318.png"
           ],
-          "evolutionSource": "IMG_6316.png"
+          "evolutionSource": "IMG_6316.png",
+          "nameEn": "Snoozebo",
+          "nameZhHans": "呼噜刺"
         }
       ]
     },
@@ -1229,7 +1291,9 @@
           "sources": [
             "IMG_6321.png"
           ],
-          "evolutionSource": "IMG_6319.png"
+          "evolutionSource": "IMG_6319.png",
+          "nameEn": "Capywata",
+          "nameZhHans": "卡橘巴拉"
         },
         {
           "stage": 2,
@@ -1258,7 +1322,9 @@
             "IMG_6322.png",
             "IMG_6323.png"
           ],
-          "evolutionSource": "IMG_6320.png"
+          "evolutionSource": "IMG_6320.png",
+          "nameEn": "Capypapa",
+          "nameZhHans": "卡骑巴拉"
         }
       ]
     },
@@ -1289,7 +1355,9 @@
           "sources": [
             "IMG_6326.png"
           ],
-          "evolutionSource": "IMG_6324.png"
+          "evolutionSource": "IMG_6324.png",
+          "nameEn": "Mudrump",
+          "nameZhHans": "泥巴猪"
         },
         {
           "stage": 2,
@@ -1321,7 +1389,9 @@
           "sources": [
             "IMG_6327.png"
           ],
-          "evolutionSource": "IMG_6325.png"
+          "evolutionSource": "IMG_6325.png",
+          "nameEn": "Rockhog",
+          "nameZhHans": "摇滚岩猪"
         }
       ]
     },
@@ -1369,7 +1439,9 @@
             "IMG_6332.png",
             "IMG_6333.png"
           ],
-          "evolutionSource": "IMG_6328.png"
+          "evolutionSource": "IMG_6328.png",
+          "nameEn": "Funglet",
+          "nameZhHans": "嘟嘟菇"
         },
         {
           "stage": 2,
@@ -1410,7 +1482,9 @@
             "IMG_6334.png",
             "IMG_6335.png"
           ],
-          "evolutionSource": "IMG_6329.png"
+          "evolutionSource": "IMG_6329.png",
+          "nameEn": "Trippet",
+          "nameZhHans": "致幻菇"
         },
         {
           "stage": 3,
@@ -1459,7 +1533,9 @@
             "IMG_6336.png",
             "IMG_6337.png"
           ],
-          "evolutionSource": "IMG_6330.png"
+          "evolutionSource": "IMG_6330.png",
+          "nameEn": "Hyphoria",
+          "nameZhHans": "靡醉菇"
         },
         {
           "stage": 4,
@@ -1517,7 +1593,9 @@
             "IMG_6339.png",
             "IMG_6340.png"
           ],
-          "evolutionSource": "IMG_6331.png"
+          "evolutionSource": "IMG_6331.png",
+          "nameEn": "Ecstamira",
+          "nameZhHans": "极乐魔菇"
         }
       ]
     },
@@ -1552,7 +1630,9 @@
           "sources": [
             "IMG_6350.png"
           ],
-          "evolutionSource": "IMG_6345.png"
+          "evolutionSource": "IMG_6345.png",
+          "nameEn": "Blowfin",
+          "nameZhHans": "气球河豚"
         },
         {
           "stage": 2,
@@ -1597,7 +1677,9 @@
             "IMG_6351.png",
             "IMG_6352.png"
           ],
-          "evolutionSource": "IMG_6346.png"
+          "evolutionSource": "IMG_6346.png",
+          "nameEn": "Puffbelly",
+          "nameZhHans": "寿司河豚"
         },
         {
           "stage": 3,
@@ -1643,7 +1725,9 @@
             "IMG_6354.png",
             "IMG_6355.png"
           ],
-          "evolutionSource": "IMG_6347.png"
+          "evolutionSource": "IMG_6347.png",
+          "nameEn": "Chefugu",
+          "nameZhHans": "大师河豚"
         },
         {
           "stage": 4,
@@ -1700,7 +1784,9 @@
             "IMG_6360.png",
             "IMG_6361.png"
           ],
-          "evolutionSource": "IMG_6348.png"
+          "evolutionSource": "IMG_6348.png",
+          "nameEn": "Pyromaki",
+          "nameZhHans": "军舰河豚王"
         }
       ]
     },
@@ -1731,7 +1817,9 @@
           "sources": [
             "IMG_6366.png"
           ],
-          "evolutionSource": "IMG_6362.png"
+          "evolutionSource": "IMG_6362.png",
+          "nameEn": "Goonbug",
+          "nameZhHans": "绿甲虫"
         },
         {
           "stage": 2,
@@ -1763,7 +1851,9 @@
           "sources": [
             "IMG_6367.png"
           ],
-          "evolutionSource": "IMG_6363.png"
+          "evolutionSource": "IMG_6363.png",
+          "nameEn": "Capobeetle",
+          "nameZhHans": "酷甲虫"
         },
         {
           "stage": 3,
@@ -1796,7 +1886,9 @@
             "IMG_6368.png",
             "IMG_6369.png"
           ],
-          "evolutionSource": "IMG_6364.png"
+          "evolutionSource": "IMG_6364.png",
+          "nameEn": "Donscarab",
+          "nameZhHans": "甲虫霸霸"
         },
         {
           "stage": 4,
@@ -1837,7 +1929,9 @@
             "IMG_6370.png",
             "IMG_6371.png"
           ],
-          "evolutionSource": "IMG_6365.png"
+          "evolutionSource": "IMG_6365.png",
+          "nameEn": "Beetleknight",
+          "nameZhHans": "甲虫侠"
         }
       ]
     },
@@ -1868,7 +1962,9 @@
           "sources": [
             "IMG_6377.png"
           ],
-          "evolutionSource": "IMG_6372.png"
+          "evolutionSource": "IMG_6372.png",
+          "nameEn": "Joeyo",
+          "nameZhHans": "怂小袋"
         },
         {
           "stage": 2,
@@ -1908,7 +2004,9 @@
           "sources": [
             "IMG_6378.png"
           ],
-          "evolutionSource": "IMG_6373.png"
+          "evolutionSource": "IMG_6373.png",
+          "nameEn": "Puncharoo",
+          "nameZhHans": "拳击袋"
         },
         {
           "stage": 3,
@@ -1953,7 +2051,9 @@
             "IMG_6379.png",
             "IMG_6380.png"
           ],
-          "evolutionSource": "IMG_6374.png"
+          "evolutionSource": "IMG_6374.png",
+          "nameEn": "Kangachamp",
+          "nameZhHans": "拳王阿袋"
         },
         {
           "stage": 4,
@@ -2006,7 +2106,9 @@
             "IMG_6381.png",
             "IMG_6382.png"
           ],
-          "evolutionSource": "IMG_6375.png"
+          "evolutionSource": "IMG_6375.png",
+          "nameEn": "Kaiseroo",
+          "nameZhHans": "传奇阿袋"
         }
       ]
     },
@@ -2055,7 +2157,9 @@
             "IMG_6388.png",
             "IMG_6389.png"
           ],
-          "evolutionSource": "IMG_6383.png"
+          "evolutionSource": "IMG_6383.png",
+          "nameEn": "Souphog",
+          "nameZhHans": "碗仔猪"
         },
         {
           "stage": 2,
@@ -2106,7 +2210,9 @@
             "IMG_6392.png",
             "IMG_6393.png"
           ],
-          "evolutionSource": "IMG_6384.png"
+          "evolutionSource": "IMG_6384.png",
+          "nameEn": "Grillhog",
+          "nameZhHans": "汉堡猪"
         },
         {
           "stage": 3,
@@ -2165,7 +2271,9 @@
             "IMG_6396.png",
             "IMG_6397.png"
           ],
-          "evolutionSource": "IMG_6385.png"
+          "evolutionSource": "IMG_6385.png",
+          "nameEn": "Hothog",
+          "nameZhHans": "火锅猪"
         },
         {
           "stage": 4,
@@ -2236,7 +2344,9 @@
             "IMG_6404.png",
             "IMG_6405.png"
           ],
-          "evolutionSource": "IMG_6386.png"
+          "evolutionSource": "IMG_6386.png",
+          "nameEn": "Searhog",
+          "nameZhHans": "煎扒猪"
         }
       ]
     },
@@ -2271,7 +2381,9 @@
           "sources": [
             "IMG_6414.png"
           ],
-          "evolutionSource": "IMG_6407.png"
+          "evolutionSource": "IMG_6407.png",
+          "nameEn": "Shardsnail",
+          "nameZhHans": "晶粒蜗牛"
         },
         {
           "stage": 2,
@@ -2304,7 +2416,9 @@
             "IMG_6415.png",
             "IMG_6416.png"
           ],
-          "evolutionSource": "IMG_6408.png"
+          "evolutionSource": "IMG_6408.png",
+          "nameEn": "Gemsnail",
+          "nameZhHans": "晶石蜗牛"
         },
         {
           "stage": 3,
@@ -2340,7 +2454,9 @@
           "sources": [
             "IMG_6417.png"
           ],
-          "evolutionSource": "IMG_6409.png"
+          "evolutionSource": "IMG_6409.png",
+          "nameEn": "Jewelsnail",
+          "nameZhHans": "晶矿蜗牛"
         },
         {
           "stage": 4,
@@ -2385,7 +2501,9 @@
             "IMG_6418.png",
             "IMG_6419.png"
           ],
-          "evolutionSource": "IMG_6411.png"
+          "evolutionSource": "IMG_6411.png",
+          "nameEn": "Crystalsnail",
+          "nameZhHans": "晶芯蜗牛"
         }
       ]
     },
@@ -2428,7 +2546,9 @@
           "sources": [
             "IMG_6425.png"
           ],
-          "evolutionSource": "IMG_6420.png"
+          "evolutionSource": "IMG_6420.png",
+          "nameEn": "Fumekit",
+          "nameZhHans": "噗噗鼬"
         },
         {
           "stage": 2,
@@ -2468,7 +2588,9 @@
           "sources": [
             "IMG_6426.png"
           ],
-          "evolutionSource": "IMG_6421.png"
+          "evolutionSource": "IMG_6421.png",
+          "nameEn": "Sulfunk",
+          "nameZhHans": "臭屁鼬"
         },
         {
           "stage": 3,
@@ -2508,7 +2630,9 @@
           "sources": [
             "IMG_6427.png"
           ],
-          "evolutionSource": "IMG_6422.png"
+          "evolutionSource": "IMG_6422.png",
+          "nameEn": "Magmusk",
+          "nameZhHans": "爆火鼬"
         },
         {
           "stage": 4,
@@ -2557,7 +2681,9 @@
             "IMG_6428.png",
             "IMG_6429.png"
           ],
-          "evolutionSource": "IMG_6423.png"
+          "evolutionSource": "IMG_6423.png",
+          "nameEn": "Blastniff",
+          "nameZhHans": "燃尾飞鼬"
         }
       ]
     },
@@ -2609,7 +2735,9 @@
             "IMG_6436.png",
             "IMG_6437.png"
           ],
-          "evolutionSource": "IMG_6430.png"
+          "evolutionSource": "IMG_6430.png",
+          "nameEn": "Kittazap",
+          "nameZhHans": "电喵宝"
         },
         {
           "stage": 2,
@@ -2658,7 +2786,9 @@
             "IMG_6438.png",
             "IMG_6439.png"
           ],
-          "evolutionSource": "IMG_6432.png"
+          "evolutionSource": "IMG_6432.png",
+          "nameEn": "Nekowatt",
+          "nameZhHans": "电财喵"
         },
         {
           "stage": 3,
@@ -2711,7 +2841,9 @@
             "IMG_6440.png",
             "IMG_6441.png"
           ],
-          "evolutionSource": "IMG_6434.png"
+          "evolutionSource": "IMG_6434.png",
+          "nameEn": "Voltazar",
+          "nameZhHans": "雷伏金喵"
         }
       ]
     },
@@ -2754,7 +2886,9 @@
           "sources": [
             "IMG_6447.png"
           ],
-          "evolutionSource": "IMG_6443.png"
+          "evolutionSource": "IMG_6443.png",
+          "nameEn": "Dumbopus",
+          "nameZhHans": "呆呆章鱼"
         },
         {
           "stage": 2,
@@ -2790,7 +2924,9 @@
           "sources": [
             "IMG_6448.png"
           ],
-          "evolutionSource": "IMG_6442.png"
+          "evolutionSource": "IMG_6442.png",
+          "nameEn": "Dazopus",
+          "nameZhHans": "困惑章鱼"
         },
         {
           "stage": 3,
@@ -2826,7 +2962,9 @@
           "sources": [
             "IMG_6449.png"
           ],
-          "evolutionSource": "IMG_6445.png"
+          "evolutionSource": "IMG_6445.png",
+          "nameEn": "Fishopus",
+          "nameZhHans": "不是章鱼"
         },
         {
           "stage": 4,
@@ -2889,7 +3027,9 @@
               37
             ],
             "notes": "子ダコ撃破時の爆発倍率は画面で数値未確認のため登録していない"
-          }
+          },
+          "nameEn": "Lordopus",
+          "nameZhHans": "国王章鱼"
         }
       ]
     },
@@ -2937,7 +3077,9 @@
             "IMG_6454.png",
             "IMG_6455.png"
           ],
-          "evolutionSource": "IMG_6450.png"
+          "evolutionSource": "IMG_6450.png",
+          "nameEn": "Flameow",
+          "nameZhHans": "火喵宝"
         },
         {
           "stage": 2,
@@ -2978,7 +3120,9 @@
             "IMG_6456.png",
             "IMG_6457.png"
           ],
-          "evolutionSource": "IMG_6451.png"
+          "evolutionSource": "IMG_6451.png",
+          "nameEn": "Nekoflare",
+          "nameZhHans": "火财喵"
         },
         {
           "stage": 3,
@@ -3023,7 +3167,9 @@
             "IMG_6458.png",
             "IMG_6459.png"
           ],
-          "evolutionSource": "IMG_6452.png"
+          "evolutionSource": "IMG_6452.png",
+          "nameEn": "Silversear",
+          "nameZhHans": "炙炎银喵"
         }
       ]
     },
@@ -3070,7 +3216,9 @@
           "sources": [
             "IMG_6467.png"
           ],
-          "evolutionSource": "IMG_6460.png"
+          "evolutionSource": "IMG_6460.png",
+          "nameEn": "Momopo",
+          "nameZhHans": "梦梦河马"
         },
         {
           "stage": 2,
@@ -3115,7 +3263,9 @@
             "IMG_6468.png",
             "IMG_6469.png"
           ],
-          "evolutionSource": "IMG_6461.png"
+          "evolutionSource": "IMG_6461.png",
+          "nameEn": "Lulupo",
+          "nameZhHans": "露露河马"
         },
         {
           "stage": 3,
@@ -3164,7 +3314,9 @@
             "IMG_6470.png",
             "IMG_6471.png"
           ],
-          "evolutionSource": "IMG_6463.png"
+          "evolutionSource": "IMG_6463.png",
+          "nameEn": "Lilypo",
+          "nameZhHans": "丽丽河马"
         },
         {
           "stage": 4,
@@ -3221,7 +3373,9 @@
             "IMG_6472.png",
             "IMG_6473.png"
           ],
-          "evolutionSource": "IMG_6465.png"
+          "evolutionSource": "IMG_6465.png",
+          "nameEn": "Gemmapo",
+          "nameZhHans": "珍珍河马"
         }
       ]
     },
@@ -3260,7 +3414,9 @@
           "sources": [
             "IMG_6482.png"
           ],
-          "evolutionSource": "IMG_6474.png"
+          "evolutionSource": "IMG_6474.png",
+          "nameEn": "Glowfly",
+          "nameZhHans": "微光萤"
         },
         {
           "stage": 2,
@@ -3309,7 +3465,9 @@
             "IMG_6483.png",
             "IMG_6484.png"
           ],
-          "evolutionSource": "IMG_6477.png"
+          "evolutionSource": "IMG_6477.png",
+          "nameEn": "Phosflare",
+          "nameZhHans": "幻彩萤"
         },
         {
           "stage": 3,
@@ -3358,7 +3516,9 @@
             "IMG_6485.png",
             "IMG_6486.png"
           ],
-          "evolutionSource": "IMG_6478.png"
+          "evolutionSource": "IMG_6478.png",
+          "nameEn": "Glimmerwing",
+          "nameZhHans": "曜光萤"
         },
         {
           "stage": 4,
@@ -3415,7 +3575,9 @@
             "IMG_6487.png",
             "IMG_6488.png"
           ],
-          "evolutionSource": "IMG_6480.png"
+          "evolutionSource": "IMG_6480.png",
+          "nameEn": "Luminastra",
+          "nameZhHans": "极光萤"
         }
       ]
     },
@@ -3475,7 +3637,9 @@
             "IMG_6495.png",
             "IMG_6496.png"
           ],
-          "evolutionSource": "IMG_6490.png"
+          "evolutionSource": "IMG_6490.png",
+          "nameEn": "Poakie",
+          "nameZhHans": "泡泡蝌"
         },
         {
           "stage": 2,
@@ -3536,7 +3700,9 @@
             "IMG_6497.png",
             "IMG_6498.png"
           ],
-          "evolutionSource": "IMG_6491.png"
+          "evolutionSource": "IMG_6491.png",
+          "nameEn": "Sizzribb",
+          "nameZhHans": "火蟾蜍"
         },
         {
           "stage": 3,
@@ -3597,7 +3763,9 @@
             "IMG_6499.png",
             "IMG_6500.png"
           ],
-          "evolutionSource": "IMG_6492.png"
+          "evolutionSource": "IMG_6492.png",
+          "nameEn": "Lickflicker",
+          "nameZhHans": "卷舌蟾蜍"
         },
         {
           "stage": 4,
@@ -3666,7 +3834,9 @@
             "IMG_6501.png",
             "IMG_6502.png"
           ],
-          "evolutionSource": "IMG_6493.png"
+          "evolutionSource": "IMG_6493.png",
+          "nameEn": "Ignitoad",
+          "nameZhHans": "火云神蟾"
         }
       ]
     },
@@ -3722,7 +3892,9 @@
             "IMG_6508.png",
             "IMG_6509.png"
           ],
-          "evolutionSource": "IMG_6503.png"
+          "evolutionSource": "IMG_6503.png",
+          "nameEn": "Budboo",
+          "nameZhHans": "暗影花"
         },
         {
           "stage": 2,
@@ -3775,7 +3947,9 @@
             "IMG_6510.png",
             "IMG_6511.png"
           ],
-          "evolutionSource": "IMG_6504.png"
+          "evolutionSource": "IMG_6504.png",
+          "nameEn": "Snapshade",
+          "nameZhHans": "幽影花"
         },
         {
           "stage": 3,
@@ -3832,7 +4006,9 @@
             "IMG_6512.png",
             "IMG_6513.png"
           ],
-          "evolutionSource": "IMG_6505.png"
+          "evolutionSource": "IMG_6505.png",
+          "nameEn": "Thornwisp",
+          "nameZhHans": "幻影花"
         },
         {
           "stage": 4,
@@ -3899,7 +4075,9 @@
             "IMG_6516.png",
             "IMG_6517.png"
           ],
-          "evolutionSource": "IMG_6506.png"
+          "evolutionSource": "IMG_6506.png",
+          "nameEn": "Chomperwraith",
+          "nameZhHans": "秘影花灵"
         }
       ]
     },
@@ -3930,7 +4108,9 @@
           "sources": [
             "IMG_6523.png"
           ],
-          "evolutionSource": "IMG_6518.png"
+          "evolutionSource": "IMG_6518.png",
+          "nameEn": "Sparkit",
+          "nameZhHans": "球球狐"
         },
         {
           "stage": 2,
@@ -3962,7 +4142,9 @@
           "sources": [
             "IMG_6524.png"
           ],
-          "evolutionSource": "IMG_6519.png"
+          "evolutionSource": "IMG_6519.png",
+          "nameEn": "Flametail",
+          "nameZhHans": "咪咪狐"
         },
         {
           "stage": 3,
@@ -3994,7 +4176,9 @@
           "sources": [
             "IMG_6525.png"
           ],
-          "evolutionSource": "IMG_6520.png"
+          "evolutionSource": "IMG_6520.png",
+          "nameEn": "Flarevix",
+          "nameZhHans": "艳尾狐"
         },
         {
           "stage": 4,
@@ -4035,7 +4219,9 @@
             "IMG_6526.png",
             "IMG_6527.png"
           ],
-          "evolutionSource": "IMG_6522.png"
+          "evolutionSource": "IMG_6522.png",
+          "nameEn": "Phantifox",
+          "nameZhHans": "幻尾狐"
         }
       ]
     },
@@ -4070,7 +4256,9 @@
           "sources": [
             "IMG_6533.png"
           ],
-          "evolutionSource": "IMG_6528.png"
+          "evolutionSource": "IMG_6528.png",
+          "nameEn": "Gopher",
+          "nameZhHans": "小地鼠"
         },
         {
           "stage": 2,
@@ -4098,7 +4286,9 @@
           "sources": [
             "IMG_6534.png"
           ],
-          "evolutionSource": "IMG_6529.png"
+          "evolutionSource": "IMG_6529.png",
+          "nameEn": "Watchroo",
+          "nameZhHans": "前哨鼠"
         },
         {
           "stage": 3,
@@ -4134,7 +4324,9 @@
           "sources": [
             "IMG_6535.png"
           ],
-          "evolutionSource": "IMG_6530.png"
+          "evolutionSource": "IMG_6530.png",
+          "nameEn": "Bastogard",
+          "nameZhHans": "堡垒鼠"
         },
         {
           "stage": 4,
@@ -4179,7 +4371,9 @@
             "IMG_6536.png",
             "IMG_6537.png"
           ],
-          "evolutionSource": "IMG_6531.png"
+          "evolutionSource": "IMG_6531.png",
+          "nameEn": "Cratzar",
+          "nameZhHans": "地皇鼠"
         }
       ]
     },
@@ -4228,7 +4422,9 @@
             "IMG_6544.png",
             "IMG_6545.png"
           ],
-          "evolutionSource": "IMG_6539.png"
+          "evolutionSource": "IMG_6539.png",
+          "nameEn": "Sparkeet",
+          "nameZhHans": "电咕咕"
         },
         {
           "stage": 2,
@@ -4269,7 +4465,9 @@
             "IMG_6546.png",
             "IMG_6547.png"
           ],
-          "evolutionSource": "IMG_6538.png"
+          "evolutionSource": "IMG_6538.png",
+          "nameEn": "Buzzbeak",
+          "nameZhHans": "电嘴鸟"
         },
         {
           "stage": 3,
@@ -4314,7 +4512,9 @@
             "IMG_6548.png",
             "IMG_6549.png"
           ],
-          "evolutionSource": "IMG_6541.png"
+          "evolutionSource": "IMG_6541.png",
+          "nameEn": "Toucanzam",
+          "nameZhHans": "电歌巨鸟"
         },
         {
           "stage": 4,
@@ -4367,7 +4567,9 @@
             "IMG_6550.png",
             "IMG_6551.png"
           ],
-          "evolutionSource": "IMG_6542.png"
+          "evolutionSource": "IMG_6542.png",
+          "nameEn": "Technocan",
+          "nameZhHans": "电音歌王"
         }
       ]
     },
@@ -4415,7 +4617,9 @@
             "IMG_6558.png",
             "IMG_6559.png"
           ],
-          "evolutionSource": "IMG_6552.png"
+          "evolutionSource": "IMG_6552.png",
+          "nameEn": "Skinklet",
+          "nameZhHans": "水滴蜥"
         },
         {
           "stage": 2,
@@ -4455,7 +4659,9 @@
           "sources": [
             "IMG_6560.png"
           ],
-          "evolutionSource": "IMG_6553.png"
+          "evolutionSource": "IMG_6553.png",
+          "nameEn": "Skinkoon",
+          "nameZhHans": "水隐蜥"
         },
         {
           "stage": 3,
@@ -4500,7 +4706,9 @@
             "IMG_6561.png",
             "IMG_6562.png"
           ],
-          "evolutionSource": "IMG_6554.png"
+          "evolutionSource": "IMG_6554.png",
+          "nameEn": "Ninjaguana",
+          "nameZhHans": "水影忍者"
         },
         {
           "stage": 4,
@@ -4557,7 +4765,9 @@
             "IMG_6563.png",
             "IMG_6564.png"
           ],
-          "evolutionSource": "IMG_6556.png"
+          "evolutionSource": "IMG_6556.png",
+          "nameEn": "Hychroma",
+          "nameZhHans": "御水宗师"
         }
       ]
     },
@@ -4596,7 +4806,9 @@
           "sources": [
             "IMG_6572.png"
           ],
-          "evolutionSource": "IMG_6565.png"
+          "evolutionSource": "IMG_6565.png",
+          "nameEn": "Sackling",
+          "nameZhHans": "叶露蛛"
         },
         {
           "stage": 2,
@@ -4633,7 +4845,9 @@
             "IMG_6573.png",
             "IMG_6574.png"
           ],
-          "evolutionSource": "IMG_6566.png"
+          "evolutionSource": "IMG_6566.png",
+          "nameEn": "Jarachnid",
+          "nameZhHans": "叶瓶蛛"
         },
         {
           "stage": 3,
@@ -4670,7 +4884,9 @@
             "IMG_6575.png",
             "IMG_6576.png"
           ],
-          "evolutionSource": "IMG_6568.png"
+          "evolutionSource": "IMG_6568.png",
+          "nameEn": "Terracrawler",
+          "nameZhHans": "森林瓶蛛"
         },
         {
           "stage": 4,
@@ -4715,7 +4931,9 @@
             "IMG_6577.png",
             "IMG_6578.png"
           ],
-          "evolutionSource": "IMG_6570.png"
+          "evolutionSource": "IMG_6570.png",
+          "nameEn": "Weaverfang",
+          "nameZhHans": "森罗瓶蛛"
         }
       ]
     },
@@ -4770,7 +4988,9 @@
           "sources": [
             "IMG_6585.png"
           ],
-          "evolutionSource": "IMG_6581.png"
+          "evolutionSource": "IMG_6581.png",
+          "nameEn": "Lullely",
+          "nameZhHans": "悠眠水母"
         },
         {
           "stage": 2,
@@ -4818,7 +5038,9 @@
           "sources": [
             "IMG_6586.png"
           ],
-          "evolutionSource": "IMG_6582.png"
+          "evolutionSource": "IMG_6582.png",
+          "nameEn": "Yawnelly",
+          "nameZhHans": "织梦水母"
         },
         {
           "stage": 3,
@@ -4871,7 +5093,9 @@
             "IMG_6587.png",
             "IMG_6588.png"
           ],
-          "evolutionSource": "IMG_6583.png"
+          "evolutionSource": "IMG_6583.png",
+          "nameEn": "Souverelle",
+          "nameZhHans": "爱洛公主"
         },
         {
           "stage": 4,
@@ -4936,7 +5160,9 @@
             "IMG_6589.png",
             "IMG_6590.png"
           ],
-          "evolutionSource": "IMG_6584.png"
+          "evolutionSource": "IMG_6584.png",
+          "nameEn": "Somnrayna",
+          "nameZhHans": "星海女王"
         }
       ]
     },
@@ -4975,7 +5201,9 @@
           "sources": [
             "IMG_6591.png"
           ],
-          "evolutionSource": "IMG_6594.png"
+          "evolutionSource": "IMG_6594.png",
+          "nameEn": "Cactobud",
+          "nameZhHans": "仙刺球"
         },
         {
           "stage": 2,
@@ -5011,7 +5239,9 @@
           "sources": [
             "IMG_6592.png"
           ],
-          "evolutionSource": "IMG_6595.png"
+          "evolutionSource": "IMG_6595.png",
+          "nameEn": "Cactobloom",
+          "nameZhHans": "仙刺掌"
         },
         {
           "stage": 3,
@@ -5051,7 +5281,9 @@
           "sources": [
             "IMG_6593.png"
           ],
-          "evolutionSource": "IMG_6596.png"
+          "evolutionSource": "IMG_6596.png",
+          "nameEn": "Cactoczar",
+          "nameZhHans": "仙刺大王"
         }
       ]
     },
@@ -5094,7 +5326,9 @@
           "sources": [
             "IMG_6602.png"
           ],
-          "evolutionSource": "IMG_6598.png"
+          "evolutionSource": "IMG_6598.png",
+          "nameEn": "Humbug",
+          "nameZhHans": "十克郎"
         },
         {
           "stage": 2,
@@ -5138,7 +5372,9 @@
           "sources": [
             "IMG_6603.png"
           ],
-          "evolutionSource": "IMG_6599.png"
+          "evolutionSource": "IMG_6599.png",
+          "nameEn": "Humbleetle",
+          "nameZhHans": "石颗郎"
         },
         {
           "stage": 3,
@@ -5182,7 +5418,9 @@
           "sources": [
             "IMG_6604.png"
           ],
-          "evolutionSource": "IMG_6600.png"
+          "evolutionSource": "IMG_6600.png",
+          "nameEn": "Zenscarab",
+          "nameZhHans": "施课郎"
         },
         {
           "stage": 4,
@@ -5235,7 +5473,9 @@
             "IMG_6605.png",
             "IMG_6606.png"
           ],
-          "evolutionSource": "IMG_6601.png"
+          "evolutionSource": "IMG_6601.png",
+          "nameEn": "Hierotyrus",
+          "nameZhHans": "圣光大祭司"
         }
       ]
     },
@@ -5270,7 +5510,9 @@
           "sources": [
             "IMG_6612.png"
           ],
-          "evolutionSource": "IMG_6608.png"
+          "evolutionSource": "IMG_6608.png",
+          "nameEn": "Punchimp",
+          "nameZhHans": "顽皮吗喽"
         },
         {
           "stage": 2,
@@ -5298,7 +5540,9 @@
           "sources": [
             "IMG_6613.png"
           ],
-          "evolutionSource": "IMG_6609.png"
+          "evolutionSource": "IMG_6609.png",
+          "nameEn": "Rockfu",
+          "nameZhHans": "棍棒吗喽"
         },
         {
           "stage": 3,
@@ -5326,7 +5570,9 @@
           "sources": [
             "IMG_6614.png"
           ],
-          "evolutionSource": "IMG_6610.png"
+          "evolutionSource": "IMG_6610.png",
+          "nameEn": "Rockwu",
+          "nameZhHans": "天命吗喽"
         },
         {
           "stage": 4,
@@ -5363,7 +5609,9 @@
             "IMG_6615.png",
             "IMG_6616.png"
           ],
-          "evolutionSource": "IMG_6611.png"
+          "evolutionSource": "IMG_6611.png",
+          "nameEn": "Rockong",
+          "nameZhHans": "大圣吗喽"
         }
       ]
     },
@@ -5398,7 +5646,9 @@
           "sources": [
             "IMG_6622.png"
           ],
-          "evolutionSource": "IMG_6617.png"
+          "evolutionSource": "IMG_6617.png",
+          "nameEn": "Zappur",
+          "nameZhHans": "小电狮"
         },
         {
           "stage": 2,
@@ -5426,7 +5676,9 @@
           "sources": [
             "IMG_6623.png"
           ],
-          "evolutionSource": "IMG_6618.png"
+          "evolutionSource": "IMG_6618.png",
+          "nameEn": "Electroar",
+          "nameZhHans": "闪电狮"
         },
         {
           "stage": 3,
@@ -5462,7 +5714,9 @@
           "sources": [
             "IMG_6624.png"
           ],
-          "evolutionSource": "IMG_6619.png"
+          "evolutionSource": "IMG_6619.png",
+          "nameEn": "Blitzmane",
+          "nameZhHans": "雷电狮鹫"
         },
         {
           "stage": 4,
@@ -5507,7 +5761,9 @@
             "IMG_6625.png",
             "IMG_6626.png"
           ],
-          "evolutionSource": "IMG_6620.png"
+          "evolutionSource": "IMG_6620.png",
+          "nameEn": "Stormlion",
+          "nameZhHans": "雷翼狮王"
         }
       ]
     },
@@ -5542,7 +5798,9 @@
           "sources": [
             "IMG_6632.png"
           ],
-          "evolutionSource": "IMG_6627.png"
+          "evolutionSource": "IMG_6627.png",
+          "nameEn": "Buddi",
+          "nameZhHans": "盆盆葵"
         },
         {
           "stage": 2,
@@ -5570,7 +5828,9 @@
           "sources": [
             "IMG_6633.png"
           ],
-          "evolutionSource": "IMG_6628.png"
+          "evolutionSource": "IMG_6628.png",
+          "nameEn": "Sunfleur",
+          "nameZhHans": "啦啦葵"
         },
         {
           "stage": 3,
@@ -5606,7 +5866,9 @@
           "sources": [
             "IMG_6634.png"
           ],
-          "evolutionSource": "IMG_6629.png"
+          "evolutionSource": "IMG_6629.png",
+          "nameEn": "Solaflora",
+          "nameZhHans": "冲浪葵"
         },
         {
           "stage": 4,
@@ -5651,7 +5913,9 @@
             "IMG_6635.png",
             "IMG_6636.png"
           ],
-          "evolutionSource": "IMG_6630.png"
+          "evolutionSource": "IMG_6630.png",
+          "nameEn": "Heliabloom",
+          "nameZhHans": "逐日金葵"
         }
       ]
     },
@@ -5690,7 +5954,9 @@
           "sources": [
             "IMG_6641.png"
           ],
-          "evolutionSource": "IMG_6637.png"
+          "evolutionSource": "IMG_6637.png",
+          "nameEn": "Frostnip",
+          "nameZhHans": "猫冰"
         },
         {
           "stage": 2,
@@ -5730,7 +5996,9 @@
           "sources": [
             "IMG_6642.png"
           ],
-          "evolutionSource": "IMG_6638.png"
+          "evolutionSource": "IMG_6638.png",
+          "nameEn": "Frostpaw",
+          "nameZhHans": "冰团猫"
         },
         {
           "stage": 3,
@@ -5775,7 +6043,9 @@
             "IMG_6643.png",
             "IMG_6644.png"
           ],
-          "evolutionSource": "IMG_6639.png"
+          "evolutionSource": "IMG_6639.png",
+          "nameEn": "Frostique",
+          "nameZhHans": "冰雪猫王"
         },
         {
           "stage": 4,
@@ -5832,7 +6102,9 @@
             "IMG_6645.png",
             "IMG_6646.png"
           ],
-          "evolutionSource": "IMG_6640.png"
+          "evolutionSource": "IMG_6640.png",
+          "nameEn": "Frostluna",
+          "nameZhHans": "凛月猫王"
         }
       ]
     },
@@ -5867,7 +6139,9 @@
           "sources": [
             "IMG_6651.png"
           ],
-          "evolutionSource": "IMG_6647.png"
+          "evolutionSource": "IMG_6647.png",
+          "nameEn": "Frugling",
+          "nameZhHans": "火果蛙"
         },
         {
           "stage": 2,
@@ -5895,7 +6169,9 @@
           "sources": [
             "IMG_6652.png"
           ],
-          "evolutionSource": "IMG_6648.png"
+          "evolutionSource": "IMG_6648.png",
+          "nameEn": "Frugatoad",
+          "nameZhHans": "大果蛙"
         },
         {
           "stage": 3,
@@ -5931,7 +6207,9 @@
           "sources": [
             "IMG_6653.png"
           ],
-          "evolutionSource": "IMG_6649.png"
+          "evolutionSource": "IMG_6649.png",
+          "nameEn": "Frugagon",
+          "nameZhHans": "巨果蛙"
         },
         {
           "stage": 4,
@@ -5976,7 +6254,9 @@
             "IMG_6654.png",
             "IMG_6655.png"
           ],
-          "evolutionSource": "IMG_6650.png"
+          "evolutionSource": "IMG_6650.png",
+          "nameEn": "Frugantuan",
+          "nameZhHans": "极果蛙"
         }
       ]
     },
@@ -6019,7 +6299,9 @@
           "sources": [
             "IMG_6660.png"
           ],
-          "evolutionSource": "IMG_6656.png"
+          "evolutionSource": "IMG_6656.png",
+          "nameEn": "Blueflick",
+          "nameZhHans": "蓝舌火蜥"
         },
         {
           "stage": 2,
@@ -6055,7 +6337,9 @@
           "sources": [
             "IMG_6661.png"
           ],
-          "evolutionSource": "IMG_6657.png"
+          "evolutionSource": "IMG_6657.png",
+          "nameEn": "Ignisnap",
+          "nameZhHans": "蓝角蝶螈"
         },
         {
           "stage": 3,
@@ -6095,7 +6379,9 @@
           "sources": [
             "IMG_6662.png"
           ],
-          "evolutionSource": "IMG_6658.png"
+          "evolutionSource": "IMG_6658.png",
+          "nameEn": "Azurion",
+          "nameZhHans": "焰尾龙"
         },
         {
           "stage": 4,
@@ -6144,7 +6430,9 @@
             "IMG_6663.png",
             "IMG_6664.png"
           ],
-          "evolutionSource": "IMG_6659.png"
+          "evolutionSource": "IMG_6659.png",
+          "nameEn": "Newflamander",
+          "nameZhHans": "曜尾龙"
         }
       ]
     },
@@ -6179,7 +6467,9 @@
           "sources": [
             "IMG_6670.png"
           ],
-          "evolutionSource": "IMG_6665.png"
+          "evolutionSource": "IMG_6665.png",
+          "nameEn": "Manteeny",
+          "nameZhHans": "小粉螳"
         },
         {
           "stage": 2,
@@ -6207,7 +6497,9 @@
           "sources": [
             "IMG_6671.png"
           ],
-          "evolutionSource": "IMG_6666.png"
+          "evolutionSource": "IMG_6666.png",
+          "nameEn": "Stalkerix",
+          "nameZhHans": "兰花螳"
         },
         {
           "stage": 3,
@@ -6243,7 +6535,9 @@
           "sources": [
             "IMG_6672.png"
           ],
-          "evolutionSource": "IMG_6667.png"
+          "evolutionSource": "IMG_6667.png",
+          "nameEn": "Serrabloom",
+          "nameZhHans": "霓裳兰螳"
         },
         {
           "stage": 4,
@@ -6288,7 +6582,9 @@
             "IMG_6673.png",
             "IMG_6674.png"
           ],
-          "evolutionSource": "IMG_6669.png"
+          "evolutionSource": "IMG_6669.png",
+          "nameEn": "Orchitoria",
+          "nameZhHans": "兰花女王"
         }
       ]
     },
@@ -6335,7 +6631,9 @@
           "sources": [
             "IMG_6679.png"
           ],
-          "evolutionSource": "IMG_6675.png"
+          "evolutionSource": "IMG_6675.png",
+          "nameEn": "Droppit",
+          "nameZhHans": "小海兔"
         },
         {
           "stage": 2,
@@ -6384,7 +6682,9 @@
             "IMG_6680.png",
             "IMG_6681.png"
           ],
-          "evolutionSource": "IMG_6676.png"
+          "evolutionSource": "IMG_6676.png",
+          "nameEn": "Bubbit",
+          "nameZhHans": "海兔姬"
         },
         {
           "stage": 3,
@@ -6433,7 +6733,9 @@
             "IMG_6682.png",
             "IMG_6683.png"
           ],
-          "evolutionSource": "IMG_6677.png"
+          "evolutionSource": "IMG_6677.png",
+          "nameEn": "Tideon",
+          "nameZhHans": "海兔公主"
         },
         {
           "stage": 4,
@@ -6494,7 +6796,9 @@
             "IMG_6684.png",
             "IMG_6685.png"
           ],
-          "evolutionSource": "IMG_6678.png"
+          "evolutionSource": "IMG_6678.png",
+          "nameEn": "Haplysia",
+          "nameZhHans": "海兔女王"
         }
       ]
     },
@@ -6541,7 +6845,9 @@
           "sources": [
             "IMG_6693.png"
           ],
-          "evolutionSource": "IMG_6686.png"
+          "evolutionSource": "IMG_6686.png",
+          "nameEn": "Cheerling",
+          "nameZhHans": "星兔蛋"
         },
         {
           "stage": 2,
@@ -6590,7 +6896,9 @@
             "IMG_6694.png",
             "IMG_6695.png"
           ],
-          "evolutionSource": "IMG_6688.png"
+          "evolutionSource": "IMG_6688.png",
+          "nameEn": "Cheerlet",
+          "nameZhHans": "星兔兔"
         },
         {
           "stage": 3,
@@ -6651,7 +6959,9 @@
             "IMG_6696.png",
             "IMG_6697.png"
           ],
-          "evolutionSource": "IMG_6689.png"
+          "evolutionSource": "IMG_6689.png",
+          "nameEn": "Cheerspring",
+          "nameZhHans": "星兔姬"
         },
         {
           "stage": 4,
@@ -6721,7 +7031,9 @@
             "IMG_6699.png",
             "IMG_6700.png"
           ],
-          "evolutionSource": "IMG_6691.png"
+          "evolutionSource": "IMG_6691.png",
+          "nameEn": "Cheerstella",
+          "nameZhHans": "星兔偶像"
         }
       ]
     },
@@ -6752,7 +7064,9 @@
           "sources": [
             "IMG_6705.png"
           ],
-          "evolutionSource": "IMG_6701.png"
+          "evolutionSource": "IMG_6701.png",
+          "nameEn": "Rubblet",
+          "nameZhHans": "小岩蜥"
         },
         {
           "stage": 2,
@@ -6776,7 +7090,9 @@
           "sources": [
             "IMG_6706.png"
           ],
-          "evolutionSource": "IMG_6702.png"
+          "evolutionSource": "IMG_6702.png",
+          "nameEn": "Cobbledon",
+          "nameZhHans": "烈岩蜥"
         },
         {
           "stage": 3,
@@ -6804,7 +7120,9 @@
           "sources": [
             "IMG_6707.png"
           ],
-          "evolutionSource": "IMG_6703.png"
+          "evolutionSource": "IMG_6703.png",
+          "nameEn": "Rockzilla",
+          "nameZhHans": "岩暴龙"
         },
         {
           "stage": 4,
@@ -6841,7 +7159,9 @@
             "IMG_6708.png",
             "IMG_6709.png"
           ],
-          "evolutionSource": "IMG_6704.png"
+          "evolutionSource": "IMG_6704.png",
+          "nameEn": "Meteorax",
+          "nameZhHans": "陨岩龙"
         }
       ]
     },
@@ -6876,7 +7196,9 @@
           "sources": [
             "IMG_6714.png"
           ],
-          "evolutionSource": "IMG_6710.png"
+          "evolutionSource": "IMG_6710.png",
+          "nameEn": "Sealing",
+          "nameZhHans": "波波狮"
         },
         {
           "stage": 2,
@@ -6912,7 +7234,9 @@
           "sources": [
             "IMG_6715.png"
           ],
-          "evolutionSource": "IMG_6711.png"
+          "evolutionSource": "IMG_6711.png",
+          "nameEn": "Sealoon",
+          "nameZhHans": "球球海狮"
         },
         {
           "stage": 3,
@@ -6952,7 +7276,9 @@
           "sources": [
             "IMG_6716.png"
           ],
-          "evolutionSource": "IMG_6712.png"
+          "evolutionSource": "IMG_6712.png",
+          "nameEn": "Seaswirl",
+          "nameZhHans": "浪花海狮"
         },
         {
           "stage": 4,
@@ -7005,7 +7331,9 @@
             "IMG_6717.png",
             "IMG_6718.png"
           ],
-          "evolutionSource": "IMG_6713.png"
+          "evolutionSource": "IMG_6713.png",
+          "nameEn": "Sealord",
+          "nameZhHans": "幻海狮王"
         }
       ]
     },
@@ -7044,7 +7372,9 @@
           "sources": [
             "IMG_6723.png"
           ],
-          "evolutionSource": "IMG_6719.png"
+          "evolutionSource": "IMG_6719.png",
+          "nameEn": "Gibber",
+          "nameZhHans": "小岩龟"
         },
         {
           "stage": 2,
@@ -7084,7 +7414,9 @@
           "sources": [
             "IMG_6724.png"
           ],
-          "evolutionSource": "IMG_6720.png"
+          "evolutionSource": "IMG_6720.png",
+          "nameEn": "Turtuff",
+          "nameZhHans": "盘岩龟"
         },
         {
           "stage": 3,
@@ -7124,7 +7456,9 @@
           "sources": [
             "IMG_6725.png"
           ],
-          "evolutionSource": "IMG_6721.png"
+          "evolutionSource": "IMG_6721.png",
+          "nameEn": "Rockshell",
+          "nameZhHans": "岩背龟"
         },
         {
           "stage": 4,
@@ -7173,7 +7507,9 @@
             "IMG_6726.png",
             "IMG_6727.png"
           ],
-          "evolutionSource": "IMG_6722.png"
+          "evolutionSource": "IMG_6722.png",
+          "nameEn": "Terraton",
+          "nameZhHans": "磐石龟"
         }
       ]
     },
@@ -7229,7 +7565,9 @@
             "IMG_6732.png",
             "IMG_6733.png"
           ],
-          "evolutionSource": "IMG_6728.png"
+          "evolutionSource": "IMG_6728.png",
+          "nameEn": "Voltfawn",
+          "nameZhHans": "小电鹿"
         },
         {
           "stage": 2,
@@ -7278,7 +7616,9 @@
             "IMG_6734.png",
             "IMG_6735.png"
           ],
-          "evolutionSource": "IMG_6729.png"
+          "evolutionSource": "IMG_6729.png",
+          "nameEn": "Sparkdoe",
+          "nameZhHans": "电鹿"
         },
         {
           "stage": 3,
@@ -7331,7 +7671,9 @@
             "IMG_6736.png",
             "IMG_6737.png"
           ],
-          "evolutionSource": "IMG_6730.png"
+          "evolutionSource": "IMG_6730.png",
+          "nameEn": "Zapantler",
+          "nameZhHans": "磁角电鹿"
         },
         {
           "stage": 4,
@@ -7392,7 +7734,9 @@
             "IMG_6738.png",
             "IMG_6739.png"
           ],
-          "evolutionSource": "IMG_6731.png"
+          "evolutionSource": "IMG_6731.png",
+          "nameEn": "Magnedart",
+          "nameZhHans": "电鹿族长"
         }
       ]
     },
@@ -7427,7 +7771,9 @@
           "sources": [
             "IMG_6745.png"
           ],
-          "evolutionSource": "IMG_6740.png"
+          "evolutionSource": "IMG_6740.png",
+          "nameEn": "Waddledo",
+          "nameZhHans": "企呼呼"
         },
         {
           "stage": 2,
@@ -7463,7 +7809,9 @@
           "sources": [
             "IMG_6746.png"
           ],
-          "evolutionSource": "IMG_6741.png"
+          "evolutionSource": "IMG_6741.png",
+          "nameEn": "Swaystroll",
+          "nameZhHans": "企鼓鼓"
         },
         {
           "stage": 3,
@@ -7508,7 +7856,9 @@
             "IMG_6747.png",
             "IMG_6748.png"
           ],
-          "evolutionSource": "IMG_6742.png"
+          "evolutionSource": "IMG_6742.png",
+          "nameEn": "Stoodbeak",
+          "nameZhHans": "企汹汹"
         },
         {
           "stage": 4,
@@ -7565,7 +7915,9 @@
             "IMG_6749.png",
             "IMG_6750.png"
           ],
-          "evolutionSource": "IMG_6743.png"
+          "evolutionSource": "IMG_6743.png",
+          "nameEn": "Glideflip",
+          "nameZhHans": "企霸霸"
         }
       ]
     },
@@ -7604,7 +7956,9 @@
           "sources": [
             "IMG_6755.png"
           ],
-          "evolutionSource": "IMG_6751.png"
+          "evolutionSource": "IMG_6751.png",
+          "nameEn": "Ashlarva",
+          "nameZhHans": "绒焰虫"
         },
         {
           "stage": 2,
@@ -7644,7 +7998,9 @@
           "sources": [
             "IMG_6756.png"
           ],
-          "evolutionSource": "IMG_6752.png"
+          "evolutionSource": "IMG_6752.png",
+          "nameEn": "Firecoil",
+          "nameZhHans": "焦焰蝶"
         },
         {
           "stage": 3,
@@ -7684,7 +8040,9 @@
           "sources": [
             "IMG_6757.png"
           ],
-          "evolutionSource": "IMG_6753.png"
+          "evolutionSource": "IMG_6753.png",
+          "nameEn": "Charflutter",
+          "nameZhHans": "炽焰蝶"
         },
         {
           "stage": 4,
@@ -7734,7 +8092,9 @@
             "IMG_6759.png",
             "IMG_6760.png"
           ],
-          "evolutionSource": "IMG_6754.png"
+          "evolutionSource": "IMG_6754.png",
+          "nameEn": "Chrysolaria",
+          "nameZhHans": "曜焰蝶王"
         }
       ]
     },
@@ -7773,7 +8133,9 @@
           "sources": [
             "IMG_6766.png"
           ],
-          "evolutionSource": "IMG_6761.png"
+          "evolutionSource": "IMG_6761.png",
+          "nameEn": "Zapuni",
+          "nameZhHans": "萌角兽"
         },
         {
           "stage": 2,
@@ -7809,7 +8171,9 @@
           "sources": [
             "IMG_6767.png"
           ],
-          "evolutionSource": "IMG_6762.png"
+          "evolutionSource": "IMG_6762.png",
+          "nameEn": "Surgehoof",
+          "nameZhHans": "电角兽"
         },
         {
           "stage": 3,
@@ -7854,7 +8218,9 @@
             "IMG_6768.png",
             "IMG_6769.png"
           ],
-          "evolutionSource": "IMG_6763.png"
+          "evolutionSource": "IMG_6763.png",
+          "nameEn": "Voltmare",
+          "nameZhHans": "霹雳角兽"
         },
         {
           "stage": 4,
@@ -7907,7 +8273,9 @@
             "IMG_6770.png",
             "IMG_6771.png"
           ],
-          "evolutionSource": "IMG_6764.png"
+          "evolutionSource": "IMG_6764.png",
+          "nameEn": "Boltallion",
+          "nameZhHans": "雷极角兽"
         }
       ]
     },
@@ -7954,7 +8322,9 @@
           "sources": [
             "IMG_6775.png"
           ],
-          "evolutionSource": "IMG_6772.png"
+          "evolutionSource": "IMG_6772.png",
+          "nameEn": "Taptail",
+          "nameZhHans": "小功德蛇"
         },
         {
           "stage": 2,
@@ -8003,7 +8373,9 @@
             "IMG_6776.png",
             "IMG_6777.png"
           ],
-          "evolutionSource": "IMG_6773.png"
+          "evolutionSource": "IMG_6773.png",
+          "nameEn": "Rattlecoil",
+          "nameZhHans": "大功德君"
         },
         {
           "stage": 3,
@@ -8056,7 +8428,9 @@
             "IMG_6778.png",
             "IMG_6779.png"
           ],
-          "evolutionSource": "IMG_6774.png"
+          "evolutionSource": "IMG_6774.png",
+          "nameEn": "Clangnaga",
+          "nameZhHans": "德思内克"
         },
         {
           "stage": 4,
@@ -8137,7 +8511,9 @@
               33
             ],
             "notes": ""
-          }
+          },
+          "nameEn": "Dharmadder",
+          "nameZhHans": "圣音灵蛇"
         }
       ]
     },
@@ -8168,7 +8544,9 @@
           "sources": [
             "IMG_6784.png"
           ],
-          "evolutionSource": "IMG_6780.png"
+          "evolutionSource": "IMG_6780.png",
+          "nameEn": "Pyropup",
+          "nameZhHans": "小火柴"
         },
         {
           "stage": 2,
@@ -8192,7 +8570,9 @@
           "sources": [
             "IMG_6785.png"
           ],
-          "evolutionSource": "IMG_6781.png"
+          "evolutionSource": "IMG_6781.png",
+          "nameEn": "Pyrohound",
+          "nameZhHans": "火柴柴"
         },
         {
           "stage": 3,
@@ -8224,7 +8604,9 @@
           "sources": [
             "IMG_6786.png"
           ],
-          "evolutionSource": "IMG_6782.png"
+          "evolutionSource": "IMG_6782.png",
+          "nameEn": "Hellhound",
+          "nameZhHans": "烈焰三头犬"
         },
         {
           "stage": 4,
@@ -8265,7 +8647,9 @@
             "IMG_6787.png",
             "IMG_6788.png"
           ],
-          "evolutionSource": "IMG_6783.png"
+          "evolutionSource": "IMG_6783.png",
+          "nameEn": "Pyrodaemon",
+          "nameZhHans": "狱火三头犬"
         }
       ]
     },
@@ -8300,7 +8684,9 @@
           "sources": [
             "IMG_6793.png"
           ],
-          "evolutionSource": "IMG_6789.png"
+          "evolutionSource": "IMG_6789.png",
+          "nameEn": "Voltkit",
+          "nameZhHans": "小电狼"
         },
         {
           "stage": 2,
@@ -8349,7 +8735,9 @@
             "IMG_6794.png",
             "IMG_6795.png"
           ],
-          "evolutionSource": "IMG_6790.png"
+          "evolutionSource": "IMG_6790.png",
+          "nameEn": "Voltling",
+          "nameZhHans": "电狼仔"
         },
         {
           "stage": 3,
@@ -8402,7 +8790,9 @@
             "IMG_6796.png",
             "IMG_6797.png"
           ],
-          "evolutionSource": "IMG_6791.png"
+          "evolutionSource": "IMG_6791.png",
+          "nameEn": "Voltverine",
+          "nameZhHans": "疾风电狼"
         },
         {
           "stage": 4,
@@ -8463,7 +8853,9 @@
             "IMG_6798.png",
             "IMG_6799.png"
           ],
-          "evolutionSource": "IMG_6792.png"
+          "evolutionSource": "IMG_6792.png",
+          "nameEn": "Voltreaver",
+          "nameZhHans": "迅雷天狼"
         }
       ]
     },
@@ -8494,7 +8886,9 @@
           "sources": [
             "IMG_6804.png"
           ],
-          "evolutionSource": "IMG_6800.png"
+          "evolutionSource": "IMG_6800.png",
+          "nameEn": "Cribbler",
+          "nameZhHans": "厚礼蟹"
         },
         {
           "stage": 2,
@@ -8530,7 +8924,9 @@
           "sources": [
             "IMG_6805.png"
           ],
-          "evolutionSource": "IMG_6801.png"
+          "evolutionSource": "IMG_6801.png",
+          "nameEn": "Clawzor",
+          "nameZhHans": "厚力蟹"
         },
         {
           "stage": 3,
@@ -8575,7 +8971,9 @@
             "IMG_6806.png",
             "IMG_6807.png"
           ],
-          "evolutionSource": "IMG_6802.png"
+          "evolutionSource": "IMG_6802.png",
+          "nameEn": "Dreadclaw",
+          "nameZhHans": "厚力蟹霸"
         },
         {
           "stage": 4,
@@ -8632,7 +9030,9 @@
             "IMG_6808.png",
             "IMG_6809.png"
           ],
-          "evolutionSource": "IMG_6803.png"
+          "evolutionSource": "IMG_6803.png",
+          "nameEn": "Cribking",
+          "nameZhHans": "厚厉蟹皇"
         }
       ]
     },
@@ -8667,7 +9067,9 @@
           "sources": [
             "IMG_6814.png"
           ],
-          "evolutionSource": "IMG_6810.png"
+          "evolutionSource": "IMG_6810.png",
+          "nameEn": "Shrimpyro",
+          "nameZhHans": "小火虾"
         },
         {
           "stage": 2,
@@ -8712,7 +9114,9 @@
             "IMG_6815.png",
             "IMG_6816.png"
           ],
-          "evolutionSource": "IMG_6811.png"
+          "evolutionSource": "IMG_6811.png",
+          "nameEn": "Pyroprawn",
+          "nameZhHans": "极火虾"
         },
         {
           "stage": 3,
@@ -8761,7 +9165,9 @@
             "IMG_6817.png",
             "IMG_6818.png"
           ],
-          "evolutionSource": "IMG_6812.png"
+          "evolutionSource": "IMG_6812.png",
+          "nameEn": "Pyroclobster",
+          "nameZhHans": "火拳虾"
         },
         {
           "stage": 4,
@@ -8818,7 +9224,9 @@
             "IMG_6819.png",
             "IMG_6820.png"
           ],
-          "evolutionSource": "IMG_6813.png"
+          "evolutionSource": "IMG_6813.png",
+          "nameEn": "Pyroviathan",
+          "nameZhHans": "烈焰金刚虾"
         }
       ]
     },
@@ -8874,7 +9282,9 @@
             "IMG_6827.png",
             "IMG_6828.png"
           ],
-          "evolutionSource": "IMG_6821.png"
+          "evolutionSource": "IMG_6821.png",
+          "nameEn": "Tindercub",
+          "nameZhHans": "娇虎学徒"
         },
         {
           "stage": 2,
@@ -8927,7 +9337,9 @@
             "IMG_6829.png",
             "IMG_6830.png"
           ],
-          "evolutionSource": "IMG_6822.png"
+          "evolutionSource": "IMG_6822.png",
+          "nameEn": "Kitjitsu",
+          "nameZhHans": "静虎居士"
         },
         {
           "stage": 3,
@@ -8992,7 +9404,9 @@
             "IMG_6831.png",
             "IMG_6832.png"
           ],
-          "evolutionSource": "IMG_6823.png"
+          "evolutionSource": "IMG_6823.png",
+          "nameEn": "Taiglow",
+          "nameZhHans": "焰虎大师"
         },
         {
           "stage": 4,
@@ -9066,7 +9480,9 @@
             "IMG_6834.png",
             "IMG_6835.png"
           ],
-          "evolutionSource": "IMG_6825.png"
+          "evolutionSource": "IMG_6825.png",
+          "nameEn": "Saberheart",
+          "nameZhHans": "炽心虎尊"
         }
       ]
     },
@@ -9105,7 +9521,9 @@
           "sources": [
             "IMG_6841.png"
           ],
-          "evolutionSource": "IMG_6837.png"
+          "evolutionSource": "IMG_6837.png",
+          "nameEn": "Fluffle",
+          "nameZhHans": "闪电绵羊"
         },
         {
           "stage": 2,
@@ -9166,7 +9584,9 @@
             "IMG_6842.png",
             "IMG_6843.png"
           ],
-          "evolutionSource": "IMG_6838.png"
+          "evolutionSource": "IMG_6838.png",
+          "nameEn": "Nimbuzzy",
+          "nameZhHans": "风暴绵羊"
         },
         {
           "stage": 3,
@@ -9227,7 +9647,9 @@
             "IMG_6844.png",
             "IMG_6845.png"
           ],
-          "evolutionSource": "IMG_6839.png"
+          "evolutionSource": "IMG_6839.png",
+          "nameEn": "Galewether",
+          "nameZhHans": "雷霆绵羊"
         },
         {
           "stage": 4,
@@ -9296,7 +9718,9 @@
             "IMG_6846.png",
             "IMG_6847.png"
           ],
-          "evolutionSource": "IMG_6840.png"
+          "evolutionSource": "IMG_6840.png",
+          "nameEn": "Cosmoram",
+          "nameZhHans": "寰宇神羊"
         }
       ]
     },
@@ -9356,7 +9780,9 @@
             "IMG_6852.png",
             "IMG_6853.png"
           ],
-          "evolutionSource": "IMG_6848.png"
+          "evolutionSource": "IMG_6848.png",
+          "nameEn": "Dewgrub",
+          "nameZhHans": "露水虫"
         },
         {
           "stage": 2,
@@ -9417,7 +9843,9 @@
             "IMG_6854.png",
             "IMG_6855.png"
           ],
-          "evolutionSource": "IMG_6849.png"
+          "evolutionSource": "IMG_6849.png",
+          "nameEn": "Ripplewing",
+          "nameZhHans": "露水蝶"
         },
         {
           "stage": 3,
@@ -9478,7 +9906,9 @@
             "IMG_6856.png",
             "IMG_6857.png"
           ],
-          "evolutionSource": "IMG_6850.png"
+          "evolutionSource": "IMG_6850.png",
+          "nameEn": "Waveflutter",
+          "nameZhHans": "水舞蝶"
         }
       ]
     },
@@ -9534,7 +9964,9 @@
             "IMG_6863.png",
             "IMG_6864.png"
           ],
-          "evolutionSource": "IMG_6858.png"
+          "evolutionSource": "IMG_6858.png",
+          "nameEn": "Drilleroo",
+          "nameZhHans": "小穿山"
         },
         {
           "stage": 2,
@@ -9587,7 +10019,9 @@
             "IMG_6865.png",
             "IMG_6866.png"
           ],
-          "evolutionSource": "IMG_6859.png"
+          "evolutionSource": "IMG_6859.png",
+          "nameEn": "Cragolin",
+          "nameZhHans": "大钻山"
         },
         {
           "stage": 3,
@@ -9640,7 +10074,9 @@
             "IMG_6867.png",
             "IMG_6868.png"
           ],
-          "evolutionSource": "IMG_6861.png"
+          "evolutionSource": "IMG_6861.png",
+          "nameEn": "Borelord",
+          "nameZhHans": "钻山王"
         }
       ]
     },
@@ -9683,7 +10119,9 @@
           "sources": [
             "IMG_6874.png"
           ],
-          "evolutionSource": "IMG_6869.png"
+          "evolutionSource": "IMG_6869.png",
+          "nameEn": "Hootlet",
+          "nameZhHans": "钟摆鸮"
         },
         {
           "stage": 2,
@@ -9724,7 +10162,9 @@
             "IMG_6875.png",
             "IMG_6876.png"
           ],
-          "evolutionSource": "IMG_6870.png"
+          "evolutionSource": "IMG_6870.png",
+          "nameEn": "Tikowl",
+          "nameZhHans": "时羽鸮"
         },
         {
           "stage": 3,
@@ -9765,7 +10205,9 @@
             "IMG_6877.png",
             "IMG_6878.png"
           ],
-          "evolutionSource": "IMG_6871.png"
+          "evolutionSource": "IMG_6871.png",
+          "nameEn": "Chronerva",
+          "nameZhHans": "圣叶鸮"
         },
         {
           "stage": 4,
@@ -9814,7 +10256,9 @@
             "IMG_6879.png",
             "IMG_6880.png"
           ],
-          "evolutionSource": "IMG_6872.png"
+          "evolutionSource": "IMG_6872.png",
+          "nameEn": "Hypnostrix",
+          "nameZhHans": "晖刻神鸮"
         }
       ]
     },
@@ -9882,7 +10326,9 @@
             "IMG_6889.png",
             "IMG_6890.png"
           ],
-          "evolutionSource": "IMG_6881.png"
+          "evolutionSource": "IMG_6881.png",
+          "nameEn": "Cavyzap",
+          "nameZhHans": "天笼鼠"
         },
         {
           "stage": 2,
@@ -9943,7 +10389,9 @@
             "IMG_6891.png",
             "IMG_6892.png"
           ],
-          "evolutionSource": "IMG_6883.png"
+          "evolutionSource": "IMG_6883.png",
+          "nameEn": "Hippiehog",
+          "nameZhHans": "窝居鼠"
         },
         {
           "stage": 3,
@@ -10004,7 +10452,9 @@
             "IMG_6893.png",
             "IMG_6894.png"
           ],
-          "evolutionSource": "IMG_6885.png"
+          "evolutionSource": "IMG_6885.png",
+          "nameEn": "Wheekroller",
+          "nameZhHans": "追风鼠"
         },
         {
           "stage": 4,
@@ -10075,7 +10525,9 @@
             "IMG_6897.png",
             "IMG_6898.png"
           ],
-          "evolutionSource": "IMG_6887.png"
+          "evolutionSource": "IMG_6887.png",
+          "nameEn": "Gigagnash",
+          "nameZhHans": "暴走机甲鼠"
         }
       ]
     },
@@ -10144,7 +10596,9 @@
               14
             ],
             "notes": ""
-          }
+          },
+          "nameEn": "Snowcub",
+          "nameZhHans": "贪吃熊"
         },
         {
           "stage": 2,
@@ -10206,7 +10660,9 @@
               18
             ],
             "notes": ""
-          }
+          },
+          "nameEn": "Polarpaw",
+          "nameZhHans": "摸鱼熊"
         },
         {
           "stage": 3,
@@ -10268,7 +10724,9 @@
               22
             ],
             "notes": ""
-          }
+          },
+          "nameEn": "Blizzgrizz",
+          "nameZhHans": "来势熊熊"
         },
         {
           "stage": 4,
@@ -10344,7 +10802,9 @@
               27
             ],
             "notes": ""
-          }
+          },
+          "nameEn": "Anglerbear",
+          "nameZhHans": "盖世英熊"
         }
       ]
     }

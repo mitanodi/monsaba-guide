@@ -193,6 +193,7 @@ function localizeJsonLd(source, locale, translate) {
       if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).map(([childKey, child]) => [childKey, visit(child, childKey)]));
       if (typeof value !== 'string') return value;
       if (key === 'inLanguage') return config.locales[locale].htmlLang;
+      if (key === 'alternateName') return value;
       if (value.startsWith(BASE_URL)) return localizePath(value, locale);
       return translate(value);
     };
@@ -212,7 +213,7 @@ function localizeHtml(source, sourceRoute, locale, missing) {
   let html = source;
   html = html.replace(/<script\b([^>]*application\/ld\+json[^>]*)>([\s\S]*?)<\/script>/gi, (_, attributes, json) => `<script${attributes}>${localizeJsonLd(json, locale, translate)}</script>`);
   const blocks = [];
-  html = html.replace(/<meta\b[^>]*\bdata-og-card\b[^>]*>|<(?:script|style)\b[\s\S]*?<\/(?:script|style)>|<!--[\s\S]*?-->/gi, (block) => {
+  html = html.replace(/<([a-z][\w:-]*)\b[^>]*\btranslate="no"[^>]*>[\s\S]*?<\/\1>|<meta\b[^>]*\bdata-og-card\b[^>]*>|<(?:script|style)\b[\s\S]*?<\/(?:script|style)>|<!--[\s\S]*?-->/gi, (block) => {
     const token = `<i18n-block data-index="${blocks.length}"></i18n-block>`;
     blocks.push(block);
     return token;
