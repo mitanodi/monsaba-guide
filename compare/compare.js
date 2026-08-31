@@ -2,14 +2,15 @@ const $ = (selector) => document.querySelector(selector);
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 const modeLabels = { overall: '総合', normal: '通常', zombie: 'ゾンビラッシュ', dojo: '道場', beginner: '初心者' };
 const tierScore = { SSS: 0, SS: 1, S: 2, A: 3, '－': 9 };
-const { getFamilyDisplayLabel } = MONSABA_FAMILY;
+const { getFamilyDisplayLabel, getTataDisplayName, getJapaneseSecondaryLabel } = MONSABA_FAMILY;
+const secondaryName = (evolution) => getJapaneseSecondaryLabel(evolution);
 let state = {};
 
 async function json(url) { const response = await fetch(url, { cache: 'no-store' }); if (!response.ok) throw new Error(`${url} ${response.status}`); return response.json(); }
 async function boot() {
   const [tatari, skills, ratings, evolution, imageData] = await Promise.all(['/data/tatari.json', '/data/tata-skills.json', '/data/tier-ratings.json', '/data/evolution-priority.json', '/data/tata-images.json'].map(json));
   state = { families: tatari.families || [], skills: skills.byFamily || {}, ratings, evolution, imageByFamily: new Map((imageData.families || []).map((item) => [item.familyId, item])) };
-  const options = state.families.map((family) => `<option value="${esc(family.id)}">${esc(getFamilyDisplayLabel(family))}（${esc(family.evolutions.map((item) => item.name).join('・'))}）</option>`).join('');
+  const options = state.families.map((family) => `<option value="${esc(family.id)}">${esc(getFamilyDisplayLabel(family))}${secondaryName(family.evolutions[0]) ? `（${esc(secondaryName(family.evolutions[0]))}）` : ''}</option>`).join('');
   $('#compareA').insertAdjacentHTML('beforeend', options);
   $('#compareB').insertAdjacentHTML('beforeend', options);
   const candidateLabels = new Map();
@@ -63,11 +64,11 @@ function card(item, mode) {
   const rating = overall(item.id);
   const stages = state.skills[item.id]?.stages || [];
   const image = state.imageByFamily.get(item.id)?.stage1;
-  return `<article class="compare-family-card"><div class="compare-family-head"><img loading="lazy" decoding="async" src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(item.evolutions[0].name)}"><h3><a href="/tata/${esc(item.id)}/">${esc(getFamilyDisplayLabel(item))}</a></h3></div><dl>
+  return `<article class="compare-family-card"><div class="compare-family-head"><img loading="lazy" decoding="async" src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(getTataDisplayName(item.evolutions[0]))}"><div><h3><a href="/tata/${esc(item.id)}/">${esc(getFamilyDisplayLabel(item))}</a></h3>${secondaryName(item.evolutions[0]) ? `<small class="dynamic-original-name">${esc(secondaryName(item.evolutions[0]))}</small>` : ''}</div></div><dl>
     <div><dt>属性</dt><dd>${esc(item.attribute)}属性</dd></div>
     <div><dt>${esc(modeLabels[mode])}Tier</dt><dd><span class="tier-badge">${esc(tier(item.id, mode) || '評価保留')}</span></dd></div>
     <div><dt>役割</dt><dd>${esc((rating.roles || []).join(' / ') || '確認中')}</dd></div>
-    <div><dt>進化</dt><dd>${esc(item.evolutions.map((entry) => `T${entry.stage} ${entry.name}`).join(' → '))}</dd></div>
+    <div><dt>進化</dt><dd>${esc(item.evolutions.map((entry) => `T${entry.stage} ${getTataDisplayName(entry)}`).join(' → '))}</dd></div>
     <div><dt>スキル</dt><dd>${esc(stages.map((entry) => `T${entry.stage} ${entry.skillName}`).join(' / ') || '確認中')}</dd></div>
     <div><dt>適性・向いている状況</dt><dd>${esc(suitability(item.id, mode))}</dd></div>
     <div><dt>育成優先の判断材料</dt><dd>${esc(priority(item.id))}</dd></div>

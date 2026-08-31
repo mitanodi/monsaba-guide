@@ -3,6 +3,7 @@ import { HANDOFF_KEY, MODE_LABELS, emptyTeam, sanitizeTeam, loadTeams, saveTeamL
 
 const $ = (selector) => document.querySelector(selector);
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
+const { getFamilyDisplayLabel, getTataDisplayName, getJapaneseSecondaryLabel } = MONSABA_FAMILY;
 let families = [];
 let ratings = {};
 let imageByFamily = new Map();
@@ -23,7 +24,7 @@ function renderBoard() {
     if (!member) return `<div class="team-slot${swapSlot === index ? ' is-swap-source' : ''}" data-slot="${index}"><button class="team-slot-open" type="button" data-open-slot aria-label="枠${index + 1}にタタを配置"><span>＋<br><small>${index + 1}</small></span></button></div>`;
     const ownedStage = roster.entries[member.family.id]?.stage || 0;
     const image = stage1Image(member.family);
-    return `<div class="team-slot is-filled${swapSlot === index ? ' is-swap-source' : ''}" data-slot="${index}"><button class="team-slot-open" type="button" data-open-slot aria-label="枠${index + 1}の${esc(member.evolution.name)}を変更"><span><img loading="lazy" decoding="async" src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(member.family.evolutions[0].name)}"><span class="team-slot-name">${esc(member.evolution.name)}</span>${ownedStage < slot.stage ? '<small>登録上は未所持</small>' : ''}</span></button><div class="team-slot-controls"><select data-stage aria-label="進化段階">${member.family.evolutions.map((item) => `<option value="${item.stage}"${item.stage === slot.stage ? ' selected' : ''}>T${item.stage}</option>`).join('')}</select><button class="team-slot-remove" type="button" data-remove aria-label="枠${index + 1}を空にする">×</button><button class="team-slot-swap" type="button" data-swap>${swapSlot === index ? '入替先を選ぶ' : '入替'}</button></div></div>`;
+    return `<div class="team-slot is-filled${swapSlot === index ? ' is-swap-source' : ''}" data-slot="${index}"><button class="team-slot-open" type="button" data-open-slot aria-label="枠${index + 1}の${esc(getTataDisplayName(member.evolution))}を変更"><span><img loading="lazy" decoding="async" src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(getTataDisplayName(member.family.evolutions[0]))}"><span class="team-slot-name">${esc(getTataDisplayName(member.evolution))}</span>${getJapaneseSecondaryLabel(member.evolution) ? `<small class="dynamic-original-name">${esc(getJapaneseSecondaryLabel(member.evolution))}</small>` : ''}${ownedStage < slot.stage ? '<small>登録上は未所持</small>' : ''}</span></button><div class="team-slot-controls"><select data-stage aria-label="進化段階">${member.family.evolutions.map((item) => `<option value="${item.stage}"${item.stage === slot.stage ? ' selected' : ''}>T${item.stage}</option>`).join('')}</select><button class="team-slot-remove" type="button" data-remove aria-label="枠${index + 1}を空にする">×</button><button class="team-slot-swap" type="button" data-swap>${swapSlot === index ? '入替先を選ぶ' : '入替'}</button></div></div>`;
   }).join('');
   renderDiagnosis();
 }
@@ -43,7 +44,7 @@ function renderPicker() {
     const rosterStage = roster.entries[family.id]?.stage || 0;
     const initial = family.evolutions.find((item) => item.stage === rosterStage) || family.evolutions[0];
     const image = stage1Image(family);
-    return `<article class="team-pick-card"><img loading="lazy" decoding="async" src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(family.evolutions[0].name)}"><div><b>${esc(MONSABA_FAMILY.getFamilyDisplayLabel(family))}</b><small> ${esc(family.attribute)}属性</small><div class="team-pick-stages">${family.evolutions.map((item) => `<button type="button" data-pick-family="${esc(family.id)}" data-pick-stage="${item.stage}">T${item.stage} ${esc(item.name)}</button>`).join('')}</div></div></article>`;
+    return `<article class="team-pick-card"><img loading="lazy" decoding="async" src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(getTataDisplayName(family.evolutions[0]))}"><div><b>${esc(getFamilyDisplayLabel(family))}</b>${getJapaneseSecondaryLabel(family.evolutions[0]) ? `<small class="dynamic-original-name">${esc(getJapaneseSecondaryLabel(family.evolutions[0]))}</small>` : ''}<small> ${esc(family.attribute)}属性</small><div class="team-pick-stages">${family.evolutions.map((item) => `<button type="button" data-pick-family="${esc(family.id)}" data-pick-stage="${item.stage}">T${item.stage} ${esc(getTataDisplayName(item))}</button>`).join('')}</div></div></article>`;
   }).join('') || '<p>条件に一致するタタがありません。</p>';
 }
 
@@ -77,7 +78,7 @@ async function exportImage() {
     context.fillStyle = '#fff'; context.fillRect(x, y, 196, 135); context.strokeStyle = '#c9d5e2'; context.strokeRect(x, y, 196, 135);
     const member = memberFor(slot); if (!member) { context.fillStyle = '#8290a0'; context.font = '18px sans-serif'; context.fillText('空き', x + 78, y + 72); return; }
     const image = new Image(); image.src = stage1Image(member.family).src; try { await image.decode(); context.drawImage(image, x + 60, y + 8, 76, 76); } catch { /* テキストは描画する */ }
-    context.fillStyle = '#243649'; context.font = 'bold 15px sans-serif'; context.textAlign = 'center'; context.fillText(member.evolution.name.slice(0, 12), x + 98, y + 101); context.font = '14px sans-serif'; context.fillText(`T${slot.stage}`, x + 98, y + 122); context.textAlign = 'start';
+    context.fillStyle = '#243649'; context.font = 'bold 15px sans-serif'; context.textAlign = 'center'; context.fillText(getTataDisplayName(member.evolution).slice(0, 12), x + 98, y + 101); context.font = '14px sans-serif'; context.fillText(`T${slot.stage}`, x + 98, y + 122); context.textAlign = 'start';
   });
   await Promise.all(cells); context.fillStyle = '#52606f'; context.font = '18px sans-serif'; context.fillText('monster-survival.com ｜ 非公式攻略サイト', 55, 635);
   const link = document.createElement('a'); link.download = `monsaba-team-${new Date().toISOString().slice(0, 10)}.png`; link.href = canvas.toDataURL('image/png'); link.click();

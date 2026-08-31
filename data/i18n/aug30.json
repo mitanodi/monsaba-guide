@@ -1,5 +1,7 @@
 {
   "en": {
+    "コミュニティ確認の基本ローテーション": "Community-confirmed baseline rotation",
+    "釣り大会 → オタカラ探し → ランニングパーティ → ゾンビ包囲戦 → 魔法の農場の順で、合計3日ごとに進むというコミュニティ情報です。閉鎖・リメイク・日本版差があるため、確定スケジュールではありません。実際の日程はゲーム内表示を優先してください。": "Community reports describe a three-day cycle in this order: Fishing Tournament → Treasure Hunt → Running Party → Zombie Siege → Magic Farm. Because closures, remakes and regional differences may apply, this is not a confirmed schedule. Always prioritize the in-game schedule.",
     "モンサバのタタ64系統を草・水・火・雷・岩の属性別に探し、Tier・役割・進化優先・比較へ進める属性ハブです。": "Browse all 64 Tatari families by Grass, Water, Fire, Lightning and Rock, then continue to Tier ratings, roles, evolution priorities and comparisons.",
     "64系統を5属性から探す": "Browse 64 families across 5 attributes",
     "ゲーム内スキルは確認済み。実戦根拠が不足しているためTierは再評価待ち。": "The in-game skills are verified. Tier ratings remain pending because there is not enough battle evidence.",
@@ -109,6 +111,8 @@
     "openfest系3コードを追加。8コードをそのままコピーできます。": "Three openfest codes added. Copy any of the eight exact codes."
   },
   "zh-CN": {
+    "コミュニティ確認の基本ローテーション": "社区确认的基础轮换顺序",
+    "釣り大会 → オタカラ探し → ランニングパーティ → ゾンビ包囲戦 → 魔法の農場の順で、合計3日ごとに進むというコミュニティ情報です。閉鎖・リメイク・日本版差があるため、確定スケジュールではありません。実際の日程はゲーム内表示を優先してください。": "社区信息显示，活动按钓鱼大赛 → 寻宝 → 跑步派对 → Zombie Siege → 魔法农场的顺序，每三天完成一轮。由于活动关闭、重制及日服差异，这并非确定日程，请以游戏内显示为准。",
     "モンサバのタタ64系統を草・水・火・雷・岩の属性別に探し、Tier・役割・進化優先・比較へ進める属性ハブです。": "按草、水、火、雷、岩五种属性浏览全部64个Tatari系列，并查看Tier、定位、进化优先级与比较。",
     "64系統を5属性から探す": "按5种属性浏览64个系列",
     "ゲーム内スキルは確認済み。実戦根拠が不足しているためTierは再評価待ち。": "游戏内技能已确认；因实战证据不足，Tier仍待重新评估。",

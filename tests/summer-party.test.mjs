@@ -4,8 +4,17 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const root = path.resolve(import.meta.dirname, '..');
-const data = JSON.parse(fs.readFileSync(path.join(root, 'data/summer-party.json'), 'utf8'));
-const readRoute = (route) => fs.readFileSync(path.join(root, route.slice(1), 'index.html'), 'utf8');
+const retrySignal = new Int32Array(new SharedArrayBuffer(4));
+const readFile = (file) => {
+  for (let attempt = 0; attempt < 12; attempt += 1) {
+    try { return fs.readFileSync(file, 'utf8'); } catch (error) {
+      if (!['EBUSY', 'EPERM'].includes(error.code) || attempt === 11) throw error;
+      Atomics.wait(retrySignal, 0, 0, 40 * (attempt + 1));
+    }
+  }
+};
+const data = JSON.parse(readFile(path.join(root, 'data/summer-party.json')));
+const readRoute = (route) => readFile(path.join(root, route.slice(1), 'index.html'));
 const walkHtml = (directory) => fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
   const target = path.join(directory, entry.name);
   return entry.isDirectory() ? walkHtml(target) : entry.name.endsWith('.html') ? [target] : [];
@@ -100,10 +109,10 @@ test('localized Summer Party copy, pending label, footer and Chinese skip link a
 
 test('no generated English or Chinese page has a search label in footer metadata', () => {
   for (const file of walkHtml(path.join(root, 'en'))) {
-    assert.doesNotMatch(fs.readFileSync(file, 'utf8'), /<div class="footer-meta">Site search<\/div>/, file);
+    assert.doesNotMatch(readFile(file), /<div class="footer-meta">Site search<\/div>/, file);
   }
   for (const file of walkHtml(path.join(root, 'zh-cn'))) {
-    const html = fs.readFileSync(file, 'utf8');
+    const html = readFile(file);
     assert.doesNotMatch(html, /<div class="footer-meta">站内搜索<\/div>/, file);
     assert.doesNotMatch(html, />Skip to content<\/a>/, file);
   }

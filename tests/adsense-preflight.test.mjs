@@ -147,13 +147,13 @@ test('full site generation is idempotent', { timeout: 120000 }, () => {
   const before = digest();
   const npmCli = process.env.npm_execpath;
   assert.ok(npmCli, 'npm executable path is unavailable');
-  for (let attempt = 0; attempt < 3; attempt++) {
+  for (let attempt = 0; attempt < 12; attempt++) {
     try {
       execFileSync(process.execPath, [npmCli, 'run', 'generate:site'], { cwd: root, stdio: 'pipe', timeout: 110000 });
       break;
     } catch (error) {
       const output = `${error.stderr || ''}\n${error.stdout || ''}`;
-      if (!/EBUSY|EPERM/.test(output) || attempt === 2) throw error;
+      if (!/EBUSY|EPERM/.test(output) || attempt === 11) throw error;
       Atomics.wait(retrySignal, 0, 0, 200 * (attempt + 1));
     }
   }

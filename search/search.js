@@ -1,6 +1,6 @@
 const $ = (selector) => document.querySelector(selector);
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[char]);
-const { getFamilyDisplayLabel, getFamilySearchAliases } = MONSABA_FAMILY;
+const { getFamilyDisplayLabel, getFamilySearchAliases, getTataDisplayName, getEvolutionChain, getJapaneseSecondaryLabel } = MONSABA_FAMILY;
 const normalize = (value) => {
   let text = String(value ?? '').toLowerCase().normalize('NFKC').replaceAll('土属性', '岩属性').trim();
   if (text === '土') text = '岩';
@@ -116,7 +116,7 @@ function runSearch(rawQuery, updateUrl = true) {
   const skillResults = [];
   for (const family of families) {
     const matchedEvolution = (family.evolutions || []).filter((item) => contains(query, item.name, item.nameEn, item.nameZhHans));
-    if (matchedEvolution.length) evolutionResults.push({ family, matches: matchedEvolution.map((item) => `T${item.stage} ${item.name} / ${item.nameEn} / ${item.nameZhHans}`) });
+    if (matchedEvolution.length) evolutionResults.push({ family, matches: matchedEvolution.map((item) => `T${item.stage} ${getTataDisplayName(item)}`) });
     const matchedSkills = (skills[family.id]?.stages || []).filter((stage) => contains(query, stage.skillName, stage.description, (stage.values || []).map((value) => `${value.label} ${value.value}`)));
     if (matchedSkills.length) skillResults.push({ family, matches: matchedSkills.map((stage) => `T${stage.stage} ${stage.skillName}`) });
   }
@@ -126,7 +126,7 @@ function runSearch(rawQuery, updateUrl = true) {
   const total = familyResults.length + evolutionResults.length + skillResults.length + chipResults.length + trialResults.length + pageResults.length;
   $('#searchStatus').textContent = `「${raw}」の検索結果：${total}件`;
   const sections = [
-    section('タタ', familyResults, (family) => resultLink(`/tata/${encodeURIComponent(family.id)}/`, getFamilyDisplayLabel(family), `${family.attribute}属性 / ${family.evolutions.map((item) => item.name).join(' → ')}`, family)),
+    section('タタ', familyResults, (family) => resultLink(`/tata/${encodeURIComponent(family.id)}/`, getFamilyDisplayLabel(family), `${family.attribute}属性 / ${getEvolutionChain(family)}`, family)),
     section('進化名', evolutionResults, (item) => resultLink(`/tata/${encodeURIComponent(item.family.id)}/`, getFamilyDisplayLabel(item.family), item.matches.join(' / '), item.family)),
     section('スキル', skillResults, (item) => resultLink(`/tata/${encodeURIComponent(item.family.id)}/`, getFamilyDisplayLabel(item.family), item.matches.join(' / '), item.family)),
     section('Zombie Rushチップ', chipResults, (chip) => resultLink('/zombie-rush/chips/', chip.name.ja, `Rank ${chip.rarity} / ${chip.effect.ja}`)),
@@ -144,8 +144,9 @@ function section(title, items, render) {
 
 function resultLink(href, title, detail, family = null) {
   const image = family ? imageByFamily.get(family.id)?.stage1 : null;
-  const visual = image ? `<img loading="lazy" decoding="async" src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(family.evolutions[0].name)}">` : '';
-  return `<a class="search-result${image ? ' has-tata-image' : ''}" href="${href}">${visual}<span class="search-result-copy"><b>${esc(title)}</b><span>${esc(detail)}</span></span></a>`;
+  const visual = image ? `<img loading="lazy" decoding="async" src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(getTataDisplayName(family.evolutions[0]))}">` : '';
+  const original = family ? getJapaneseSecondaryLabel(family.evolutions[0]) : '';
+  return `<a class="search-result${image ? ' has-tata-image' : ''}" href="${href}">${visual}<span class="search-result-copy"><b>${esc(title)}</b>${original ? `<small class="dynamic-original-name">${esc(original)}</small>` : ''}<span>${esc(detail)}</span></span></a>`;
 }
 
 boot().catch((error) => {

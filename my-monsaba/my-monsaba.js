@@ -2,6 +2,8 @@ import { ROSTER_KEY, MAX_IMPORT_BYTES, familyMatches, loadRoster, saveRoster, re
 
 const $ = (selector) => document.querySelector(selector);
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
+const { getFamilyDisplayLabel, getTataDisplayName, getJapaneseSecondaryLabel } = MONSABA_FAMILY;
+const secondary = (family) => getJapaneseSecondaryLabel(family.evolutions[0]);
 let families = [];
 let ratings = {};
 let evolution = {};
@@ -44,7 +46,7 @@ function renderGrid() {
     const evolutionItem = family.evolutions.find((item) => item.stage === entry.stage) || family.evolutions[0];
     const image = imageByFamily.get(family.id)?.stage1;
     const stages = [{ stage: 0, label: '未所持' }, ...family.evolutions.map((item) => ({ stage: item.stage, label: `T${item.stage}` }))];
-    return `<article class="roster-card" data-family-id="${esc(family.id)}"><div class="roster-card-head"><img loading="lazy" decoding="async" src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(family.evolutions[0].name)}"><div><h3><a href="/tata/${encodeURIComponent(family.id)}/">${esc(MONSABA_FAMILY.getFamilyDisplayLabel(family))}</a></h3><span class="roster-card-meta">${esc(family.attribute)}属性 / ${entry.stage ? `T${entry.stage} ${esc(evolutionItem.name)}` : '未所持'}</span></div></div><div class="stage-picker" role="group" aria-label="${esc(MONSABA_FAMILY.getFamilyDisplayLabel(family))}の所持段階">${stages.map((item) => `<button type="button" data-stage="${item.stage}" aria-pressed="${entry.stage === item.stage}">${item.label}</button>`).join('')}</div><div class="roster-card-flags"><button type="button" data-flag="favorite" aria-pressed="${entry.favorite}">${entry.favorite ? '★' : '☆'} お気に入り</button><button type="button" data-flag="training" aria-pressed="${entry.training}">${entry.training ? '●' : '○'} 育成中</button></div></article>`;
+    return `<article class="roster-card" data-family-id="${esc(family.id)}"><div class="roster-card-head"><img loading="lazy" decoding="async" src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(getTataDisplayName(family.evolutions[0]))}"><div><h3><a href="/tata/${encodeURIComponent(family.id)}/">${esc(getFamilyDisplayLabel(family))}</a></h3>${secondary(family) ? `<small class="dynamic-original-name">${esc(secondary(family))}</small>` : ''}<span class="roster-card-meta">${esc(family.attribute)}属性 / ${entry.stage ? `T${entry.stage} ${esc(getTataDisplayName(evolutionItem))}` : '未所持'}</span></div></div><div class="stage-picker" role="group" aria-label="${esc(getFamilyDisplayLabel(family))}の所持段階">${stages.map((item) => `<button type="button" data-stage="${item.stage}" aria-pressed="${entry.stage === item.stage}">${item.label}</button>`).join('')}</div><div class="roster-card-flags"><button type="button" data-flag="favorite" aria-pressed="${entry.favorite}">${entry.favorite ? '★' : '☆'} お気に入り</button><button type="button" data-flag="training" aria-pressed="${entry.training}">${entry.training ? '●' : '○'} 育成中</button></div></article>`;
   }).join('') || '<p>条件に一致する系統がありません。</p>';
 }
 
@@ -55,13 +57,13 @@ function renderRoles() {
 
 function renderGrowth() {
   const rows = growthCandidates(roster, families, ratings, evolution);
-  $('#roster-growth-candidates').innerHTML = rows.map((item) => `<article class="candidate-card"><span class="candidate-evidence">根拠：${esc(item.evidence)}</span><h3>${esc(MONSABA_FAMILY.getFamilyDisplayLabel(item.family))}</h3><p><b>T${item.currentStage} → T${item.nextStage}</b> / 総合${esc(item.rating.tier || '未評価')}${item.requiredStars ? ` / 必要星数 ${item.requiredStars}` : ''}</p>${item.headline ? `<p>${esc(item.headline)}</p>` : ''}<p>${esc(item.reason)}</p><div class="guide-card-actions"><a href="/tata/${encodeURIComponent(item.family.id)}/">個別ページ</a><a href="/evolution-priority/">進化優先度</a></div></article>`).join('') || '<p>所持段階を登録すると、確認済みデータから候補を表示します。</p>';
+  $('#roster-growth-candidates').innerHTML = rows.map((item) => `<article class="candidate-card"><span class="candidate-evidence">根拠：${esc(item.evidence)}</span><h3>${esc(getFamilyDisplayLabel(item.family))}</h3>${secondary(item.family) ? `<small class="dynamic-original-name">${esc(secondary(item.family))}</small>` : ''}<p><b>T${item.currentStage} → T${item.nextStage}</b> / 総合${esc(item.rating.tier || '未評価')}${item.requiredStars ? ` / 必要星数 ${item.requiredStars}` : ''}</p>${item.headline ? `<p>${esc(item.headline)}</p>` : ''}<p>${esc(item.reason)}</p><div class="guide-card-actions"><a href="/tata/${encodeURIComponent(item.family.id)}/">個別ページ</a><a href="/evolution-priority/">進化優先度</a></div></article>`).join('') || '<p>所持段階を登録すると、確認済みデータから候補を表示します。</p>';
 }
 
 function renderMode() {
   const mode = $('#roster-mode').value;
   const rows = modeCandidates(roster, families, ratings, mode);
-  $('#roster-mode-candidates').innerHTML = rows.map((item) => `<article class="candidate-card"><h3><a href="/tata/${encodeURIComponent(item.family.id)}/">${esc(MONSABA_FAMILY.getFamilyDisplayLabel(item.family))}</a></h3><p>T${item.stage} / 評価：<b>${esc(item.rating)}</b></p><p>${esc(item.roles.join('・') || '役割データなし')}</p></article>`).join('') || '<p>所持タタを登録すると候補を表示します。</p>';
+  $('#roster-mode-candidates').innerHTML = rows.map((item) => `<article class="candidate-card"><h3><a href="/tata/${encodeURIComponent(item.family.id)}/">${esc(getFamilyDisplayLabel(item.family))}</a></h3>${secondary(item.family) ? `<small class="dynamic-original-name">${esc(secondary(item.family))}</small>` : ''}<p>T${item.stage} / 評価：<b>${esc(item.rating)}</b></p><p>${esc(item.roles.join('・') || '役割データなし')}</p></article>`).join('') || '<p>所持タタを登録すると候補を表示します。</p>';
 }
 
 function renderAll() { renderSummary(); renderGrid(); renderRoles(); renderGrowth(); renderMode(); }

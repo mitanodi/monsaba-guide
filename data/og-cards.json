@@ -212,18 +212,18 @@
           "ogDescription": "パクマ、クマッシュ、マリンベア、ブリズリーの進化先、通常スキル、オーラ・水と確認済み数値を掲載。"
         },
         "en": {
-          "title": "パクマ Family Evolutions & Skills",
-          "description": "パクマ → クマッシュ → マリンベア → ブリズリー",
+        "title": "Snowcub Family Evolutions & Skills",
+        "description": "Snowcub → Polarpaw → Blizzgrizz → Anglerbear",
           "badge": "Verified in game v0.46.1",
-          "ogTitle": "パクマ Family | Evolutions, Skills & Verified Values",
-          "ogDescription": "View the パクマ, クマッシュ, マリンベア and ブリズリー evolution line, normal skills, Aura - Water and verified values."
+        "ogTitle": "Snowcub Family | Evolutions, Skills & Verified Values",
+        "ogDescription": "View the Snowcub, Polarpaw, Blizzgrizz and Anglerbear evolution line, normal skills, Aura - Water and verified values."
         },
         "zh-CN": {
-          "title": "パクマ 系列进化与技能",
-          "description": "パクマ → クマッシュ → マリンベア → ブリズリー",
+        "title": "贪吃熊系列进化与技能",
+        "description": "贪吃熊 → 摸鱼熊 → 来势熊熊 → 盖世英熊",
           "badge": "游戏内 v0.46.1 确认",
-          "ogTitle": "パクマ 系列｜进化、技能与确认数值",
-          "ogDescription": "整理パクマ、クマッシュ、マリンベア、ブリズリー的进化路线、普通技能、水之光环与确认数值。"
+        "ogTitle": "贪吃熊系列｜进化、技能与确认数值",
+        "ogDescription": "整理贪吃熊、摸鱼熊、来势熊熊、盖世英熊的进化路线、普通技能、水之光环与确认数值。"
         }
       }
     },
@@ -318,14 +318,14 @@
           "description": "New Tatari, T4 forms, chips, events and trials",
           "badge": "In-game v0.46.1 evidence",
           "ogTitle": "Clash of Critters Guide DB | August 30, 2026 Major Update",
-          "ogDescription": "Adds the パクマ family, new T4 forms, 49 Zombie Rush chips, event guides and evolution trials for all families."
+        "ogDescription": "Adds the Snowcub Family, new T4 forms, 49 Zombie Rush chips, event guides and evolution trials for all families."
         },
         "zh-CN": {
           "title": "2026年8月30日大型更新",
           "description": "新Tatari、新T4、芯片、活动与进化试炼",
           "badge": "反映游戏内 v0.46.1 资料",
           "ogTitle": "Clash of Critters 攻略DB｜2026年8月30日大型更新",
-          "ogDescription": "新增パクマ系列、新T4、49种Zombie Rush芯片、活动攻略与全部系列的进化试炼。"
+        "ogDescription": "新增贪吃熊系列、新T4、49种Zombie Rush芯片、活动攻略与全部系列的进化试炼。"
         }
       }
     },

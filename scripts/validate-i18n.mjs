@@ -49,7 +49,11 @@ for (const term of ['系', 'パクマ', '魔法の農場リメイク', 'サン�
 const sortedProtectedTerms = [...protectedTerms].sort((a, b) => b.length - a.length);
 const untranslated = { en: new Set(), 'zh-CN': new Set() };
 function collectUntranslated(html, locale) {
-  const visible = html.replace(/<script\b[\s\S]*?<\/script>/gi, '').replace(/<style\b[\s\S]*?<\/style>/gi, '').replace(/<!--[\s\S]*?-->/g, '');
+  const visible = html
+    .replace(/<([a-z][\w:-]*)\b[^>]*class="[^"]*(?:localized-original-name|tata-i18n-names)[^"]*"[^>]*>[\s\S]*?<\/\1>/gi, '')
+    .replace(/<script\b[\s\S]*?<\/script>/gi, '')
+    .replace(/<style\b[\s\S]*?<\/style>/gi, '')
+    .replace(/<!--[\s\S]*?-->/g, '');
   const values = [
     ...[...visible.matchAll(/>([^<>]+)</g)].map((match) => match[1]),
     ...[...visible.matchAll(/\b(?:alt|title|placeholder|aria-label|content)="([^"]+)"/g)].map((match) => match[1])

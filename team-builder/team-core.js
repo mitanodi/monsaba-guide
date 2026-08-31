@@ -105,7 +105,9 @@ export function teamText(team, families) {
   const rows = [0, 1, 2].map((row) => team.slots.slice(row * 5, row * 5 + 5).map((slot) => {
     if (!slot) return '空き';
     const family = familyMap.get(slot.familyId);
-    return family ? `${family.evolutions.find((item) => item.stage === slot.stage)?.name || family.evolutions[0].name}（T${slot.stage}）` : '空き';
+    const evolution = family?.evolutions.find((item) => item.stage === slot.stage) || family?.evolutions[0];
+    return evolution ? `${globalThis.MONSABA_FAMILY.getTataDisplayName(evolution)}（T${slot.stage}）` : '空き';
   }).join(' / '));
   return `【${MODE_LABELS[team.mode]} 編成メモ】\n${team.name ? `${team.name}\n` : ''}1列目：${rows[0]}\n2列目：${rows[1]}\n3列目：${rows[2]}\n\nmonster-survival.com（非公式攻略サイト）`;
 }
+import '../family-display.js';

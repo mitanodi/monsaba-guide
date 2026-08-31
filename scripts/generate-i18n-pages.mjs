@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { BASE_URL } from './site-config.mjs';
 import { polishTranslation } from './i18n-quality.mjs';
+import { createTataHtmlLocalizer } from './lib/localize-tata-html.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const config = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/config.json'), 'utf8'));
@@ -13,6 +14,8 @@ for (const locale of ['en', 'zh-CN']) Object.assign(overrides[locale], qualityOv
 const aug30Overrides = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/aug30.json'), 'utf8'));
 for (const locale of ['en', 'zh-CN']) Object.assign(overrides[locale], aug30Overrides[locale]);
 const notices = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/notices.json'), 'utf8'));
+const tatari = JSON.parse(fs.readFileSync(path.join(root, 'data/tatari.json'), 'utf8'));
+const localizeTataNames = createTataHtmlLocalizer(tatari);
 const assetVersion = JSON.parse(fs.readFileSync(path.join(root, 'data/asset-build.json'), 'utf8')).version;
 const locales = ['en', 'zh-CN'];
 const targetDirectory = Object.freeze({ en: 'en', 'zh-CN': 'zh-cn' });
@@ -308,7 +311,7 @@ for (const file of sourceFiles) {
     const relative = path.relative(root, file);
     const output = path.join(root, targetDirectory[locale], relative);
     fs.mkdirSync(path.dirname(output), { recursive: true });
-    write(output, localizeHtml(japanese, route, locale, missing[locale]));
+    write(output, localizeTataNames(localizeHtml(localizeTataNames.protect(japanese), route, locale, missing[locale]), locale));
   }
 }
 for (const locale of locales) {
