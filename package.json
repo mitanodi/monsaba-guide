@@ -3,7 +3,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "npm run generate:site && npm run validate",
     "check:syntax": "node scripts/check-js-syntax.mjs",
     "validate:data": "node scripts/validate-data-integrity.mjs",
     "validate:site": "node scripts/validate-site-data.mjs",
