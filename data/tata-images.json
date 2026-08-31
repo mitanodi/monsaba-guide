@@ -1,0 +1,3176 @@
+{
+  "version": 1,
+  "generatedFrom": "monsaba-tata-character-crops-64families-2026-09-01.zip",
+  "sourcePolicy": {
+    "gameImagesOnly": true,
+    "competitorImages": false,
+    "aiGeneratedPixels": false,
+    "lockedSilhouettesPublished": false
+  },
+  "counts": {
+    "families": 64,
+    "forms": 230,
+    "verifiedForms": 111,
+    "pendingForms": 119
+  },
+  "families": [
+    {
+      "order": 1,
+      "familyId": "takepanda",
+      "familyDisplay": "タケパンダ",
+      "attribute": "草",
+      "stage1": {
+        "stage": 1,
+        "name": "コパンダ",
+        "src": "/assets/tata-crops/stage1/takepanda.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "b0ee81d4d036efa9163503cf71985815b43b1758b6c7e645b1024ba1dda63e1b"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "コパンダ",
+          "src": "/assets/tata-crops/forms/takepanda/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "b0ee81d4d036efa9163503cf71985815b43b1758b6c7e645b1024ba1dda63e1b"
+        },
+        {
+          "stage": 2,
+          "name": "タケパンダ",
+          "src": "/assets/tata-crops/forms/takepanda/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "4035f1a4cd71eb82f5035dd47669d84f08710eb1422d88b06104b1c324b9a37c"
+        },
+        {
+          "stage": 3,
+          "name": "パンドウラク",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "バンブオウ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "familyId": "tsubaruka",
+      "familyDisplay": "ツバルカ",
+      "attribute": "草",
+      "stage1": {
+        "stage": 1,
+        "name": "ベロパカ",
+        "src": "/assets/tata-crops/stage1/tsubaruka.webp",
+        "width": 512,
+        "height": 512,
+        "status": "verified",
+        "sha256": "e3920d1c79e196fde816d6b8532ff7f2277275a44235aa9f9ca62256a0b2cdef"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ベロパカ",
+          "src": "/assets/tata-crops/forms/tsubaruka/t1.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "e3920d1c79e196fde816d6b8532ff7f2277275a44235aa9f9ca62256a0b2cdef"
+        },
+        {
+          "stage": 2,
+          "name": "ツバルカ",
+          "src": "/assets/tata-crops/forms/tsubaruka/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "4bbaaee527dd4d560d29f84eee0e4b071de0cd415995de0b8f34e94e3ae2bd6e"
+        },
+        {
+          "stage": 3,
+          "name": "ビチャルパカ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "familyId": "birimori",
+      "familyDisplay": "ビリモリ",
+      "attribute": "雷",
+      "stage1": {
+        "stage": 1,
+        "name": "ビリモ",
+        "src": "/assets/tata-crops/stage1/birimori.webp",
+        "width": 512,
+        "height": 512,
+        "status": "verified",
+        "sha256": "168f65f97e37b9982ce174ef350dce7deea03b5e0ab40f819393865046bb367e"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ビリモ",
+          "src": "/assets/tata-crops/forms/birimori/t1.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "168f65f97e37b9982ce174ef350dce7deea03b5e0ab40f819393865046bb367e"
+        },
+        {
+          "stage": 2,
+          "name": "ビリモリ",
+          "src": "/assets/tata-crops/forms/birimori/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "ff38e5e1786cd952816af25d49d050b25038d58ccc45061eb07f1a1c9dfa5471"
+        },
+        {
+          "stage": 3,
+          "name": "パルバット",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "ヴァンパルス",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "familyId": "togegyo",
+      "familyDisplay": "トゲギョ",
+      "attribute": "水",
+      "stage1": {
+        "stage": 1,
+        "name": "ホネギョ",
+        "src": "/assets/tata-crops/stage1/togegyo.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "c1fb995747757b49feea9cd1b15e48ed65c4656c686e9e8671b6cdc26a9fe8de"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ホネギョ",
+          "src": "/assets/tata-crops/forms/togegyo/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "c1fb995747757b49feea9cd1b15e48ed65c4656c686e9e8671b6cdc26a9fe8de"
+        },
+        {
+          "stage": 2,
+          "name": "トゲギョ",
+          "src": "/assets/tata-crops/forms/togegyo/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "f9fae661ad51453034f42a951b7f02f7bea07539b11987d455b735c56cb856c9"
+        },
+        {
+          "stage": 3,
+          "name": "ガイアーマ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "アビスカル",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "familyId": "yotsubird",
+      "familyDisplay": "ヨツバード",
+      "attribute": "草",
+      "stage1": {
+        "stage": 1,
+        "name": "フタバード",
+        "src": "/assets/tata-crops/stage1/yotsubird.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "b4394dd097afcdb4409573b8befeea73831e94b9ed3cb9122c34f85435e46a60"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "フタバード",
+          "src": "/assets/tata-crops/forms/yotsubird/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "b4394dd097afcdb4409573b8befeea73831e94b9ed3cb9122c34f85435e46a60"
+        },
+        {
+          "stage": 2,
+          "name": "ヨツバード",
+          "src": "/assets/tata-crops/forms/yotsubird/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "9b14d4a294ce1c8ad61a74bbf7b0dd4dac3274c707e2a2f10982fbb5cceb6821"
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "familyId": "kaenjack",
+      "familyDisplay": "カエンジャク",
+      "attribute": "火",
+      "stage1": {
+        "stage": 1,
+        "name": "スズメラ",
+        "src": "/assets/tata-crops/stage1/kaenjack.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "bddaa6c7d245ed7f49b351e0b191e4adf6618d26e84a437be9404e4e0d7e8add"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "スズメラ",
+          "src": "/assets/tata-crops/forms/kaenjack/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "bddaa6c7d245ed7f49b351e0b191e4adf6618d26e84a437be9404e4e0d7e8add"
+        },
+        {
+          "stage": 2,
+          "name": "カエンジャク",
+          "src": "/assets/tata-crops/forms/kaenjack/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "b729ee5d978c9b20b50be1117f9bbbc25433572d28c2bb188a8ed15b3271b8a1"
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "familyId": "hihidog",
+      "familyDisplay": "ビビドッグ",
+      "attribute": "雷",
+      "stage1": {
+        "stage": 1,
+        "name": "ヒパピー",
+        "src": "/assets/tata-crops/stage1/hihidog.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "bb494c9f758f195db109ede70754112850a5a269901f167238832e35ca1618ab"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ヒパピー",
+          "src": "/assets/tata-crops/forms/hihidog/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "bb494c9f758f195db109ede70754112850a5a269901f167238832e35ca1618ab"
+        },
+        {
+          "stage": 2,
+          "name": "ビビドッグ",
+          "src": "/assets/tata-crops/forms/hihidog/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "db992196c823deb1d49bae26f2aedc9edfa6e8a2a6423e85819a079e6cdfcb56"
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "familyId": "hanarenaishi",
+      "familyDisplay": "ハナレナイシ",
+      "attribute": "草",
+      "stage1": {
+        "stage": 1,
+        "name": "ナンモナイシ",
+        "src": "/assets/tata-crops/stage1/hanarenaishi.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "2d162bfdb1409286bbc024191c22dee8065480b763b023c605123e5c8ae2792c"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ナンモナイシ",
+          "src": "/assets/tata-crops/forms/hanarenaishi/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "2d162bfdb1409286bbc024191c22dee8065480b763b023c605123e5c8ae2792c"
+        },
+        {
+          "stage": 2,
+          "name": "ハナレナイシ",
+          "src": "/assets/tata-crops/forms/hanarenaishi/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "28b90d91285f54310c448de5180f5163d5c5e972317aa8895bac145b7bd95a68"
+        }
+      ]
+    },
+    {
+      "order": 9,
+      "familyId": "birinamazu",
+      "familyDisplay": "ビリナマズ",
+      "attribute": "雷",
+      "stage1": {
+        "stage": 1,
+        "name": "ノロマズ",
+        "src": "/assets/tata-crops/stage1/birinamazu.webp",
+        "width": 512,
+        "height": 512,
+        "status": "verified",
+        "sha256": "98476d957d132700e0a0835b09cef657d4e6d958d8ba272acb5e497de30f4491"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ノロマズ",
+          "src": "/assets/tata-crops/forms/birinamazu/t1.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "98476d957d132700e0a0835b09cef657d4e6d958d8ba272acb5e497de30f4491"
+        },
+        {
+          "stage": 2,
+          "name": "ビリナマズ",
+          "src": "/assets/tata-crops/forms/birinamazu/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "1fea737f6807917ee0c9a8cd6cb2ff546c80adb9e995f0f93b75e6ea462d17dd"
+        }
+      ]
+    },
+    {
+      "order": 10,
+      "familyId": "daishell",
+      "familyDisplay": "ダイシェル",
+      "attribute": "水",
+      "stage1": {
+        "stage": 1,
+        "name": "チーシェル",
+        "src": "/assets/tata-crops/stage1/daishell.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "f5640a0e26c0753d58472aa485287c9c36631efd7bf99d5a6c56c5d2e0af5b28"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "チーシェル",
+          "src": "/assets/tata-crops/forms/daishell/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "f5640a0e26c0753d58472aa485287c9c36631efd7bf99d5a6c56c5d2e0af5b28"
+        },
+        {
+          "stage": 2,
+          "name": "ダイシェル",
+          "src": "/assets/tata-crops/forms/daishell/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "2559831ed6dfd79444cab34adf7e46ace858110a766454da3c6df5c1ae9c67c6"
+        }
+      ]
+    },
+    {
+      "order": 11,
+      "familyId": "batarisu",
+      "familyDisplay": "バタリス",
+      "attribute": "火",
+      "stage1": {
+        "stage": 1,
+        "name": "トスリス",
+        "src": "/assets/tata-crops/stage1/batarisu.webp",
+        "width": 512,
+        "height": 512,
+        "status": "verified",
+        "sha256": "4ea2ac0fa17728476b6e3e0ed86e0f62d23a50842dae823251bd6deef996f1f1"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "トスリス",
+          "src": "/assets/tata-crops/forms/batarisu/t1.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "4ea2ac0fa17728476b6e3e0ed86e0f62d23a50842dae823251bd6deef996f1f1"
+        },
+        {
+          "stage": 2,
+          "name": "バタリス",
+          "src": "/assets/tata-crops/forms/batarisu/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "22fc528ff3287e82d52e06a71d9eff91bf533cbd8e36a37493023c140bb1fc7d"
+        }
+      ]
+    },
+    {
+      "order": 12,
+      "familyId": "guuhog",
+      "familyDisplay": "グウホッグ",
+      "attribute": "岩",
+      "stage1": {
+        "stage": 1,
+        "name": "ハリネム",
+        "src": "/assets/tata-crops/stage1/guuhog.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "adcb9ef18fc435d47435a37fd8d8d91e6bcd299df77c184eb75625200dca0195"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ハリネム",
+          "src": "/assets/tata-crops/forms/guuhog/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "adcb9ef18fc435d47435a37fd8d8d91e6bcd299df77c184eb75625200dca0195"
+        },
+        {
+          "stage": 2,
+          "name": "グウホッグ",
+          "src": "/assets/tata-crops/forms/guuhog/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "88964b68953089dd606e56d36831629e450125904fe7f7ba88ab727e83fb0d24"
+        }
+      ]
+    },
+    {
+      "order": 13,
+      "familyId": "capibarrie",
+      "familyDisplay": "カピバルリー",
+      "attribute": "水",
+      "stage1": {
+        "stage": 1,
+        "name": "カピラス",
+        "src": "/assets/tata-crops/stage1/capibarrie.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "fbffede14861e4f96d175dc0e7c98b0480133f609396f89e2b73029c18c2a904"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "カピラス",
+          "src": "/assets/tata-crops/forms/capibarrie/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "fbffede14861e4f96d175dc0e7c98b0480133f609396f89e2b73029c18c2a904"
+        },
+        {
+          "stage": 2,
+          "name": "カピバルリー",
+          "src": "/assets/tata-crops/forms/capibarrie/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "e8b44018a910757d67faa213a26a27873cea64a0099d1921424c4b25e0cad87c"
+        }
+      ]
+    },
+    {
+      "order": 14,
+      "familyId": "rokubuhi",
+      "familyDisplay": "ロクブヒ",
+      "attribute": "岩",
+      "stage1": {
+        "stage": 1,
+        "name": "マドブヒ",
+        "src": "/assets/tata-crops/stage1/rokubuhi.webp",
+        "width": 512,
+        "height": 512,
+        "status": "verified",
+        "sha256": "ca58369461c249ca3b0ce973412147c7c26829b3dce724fe074f5082671cf2a9"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "マドブヒ",
+          "src": "/assets/tata-crops/forms/rokubuhi/t1.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "ca58369461c249ca3b0ce973412147c7c26829b3dce724fe074f5082671cf2a9"
+        },
+        {
+          "stage": 2,
+          "name": "ロクブヒ",
+          "src": "/assets/tata-crops/forms/rokubuhi/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "693ff9463f27de04a296b533bcaa3c1cc5bec0c5285e1e56ace619a9e1831d37"
+        }
+      ]
+    },
+    {
+      "order": 15,
+      "familyId": "marushu",
+      "familyDisplay": "マルッシュ",
+      "attribute": "草",
+      "stage1": {
+        "stage": 1,
+        "name": "マルッシュ",
+        "src": "/assets/tata-crops/stage1/marushu.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "c052ab53e718fc847ae7ce9dfeded9e4901b48f116f9cf8c142728a87321f7ec"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "マルッシュ",
+          "src": "/assets/tata-crops/forms/marushu/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "c052ab53e718fc847ae7ce9dfeded9e4901b48f116f9cf8c142728a87321f7ec"
+        },
+        {
+          "stage": 2,
+          "name": "マボロッシュ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 3,
+          "name": "マダムッシュ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "イルミラージュ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 16,
+      "familyId": "fugumaru",
+      "familyDisplay": "フグマル",
+      "attribute": "火",
+      "stage1": {
+        "stage": 1,
+        "name": "フグマル",
+        "src": "/assets/tata-crops/stage1/fugumaru.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "ba1ebd37b625ace5bc747db9730183fddfcf66f8bd653503feece9143f0a2f84"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "フグマル",
+          "src": "/assets/tata-crops/forms/fugumaru/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "ba1ebd37b625ace5bc747db9730183fddfcf66f8bd653503feece9143f0a2f84"
+        },
+        {
+          "stage": 2,
+          "name": "ニギリマル",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 3,
+          "name": "フナモリマル",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "タイショウマル",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 17,
+      "familyId": "greenbee",
+      "familyDisplay": "グリンビィ",
+      "attribute": "草",
+      "stage1": {
+        "stage": 1,
+        "name": "グリンビィ",
+        "src": "/assets/tata-crops/stage1/greenbee.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "8a8ef7c1adb69becf85252feedfd4aaacb30184e05b0179bd8f630d7a57c6360"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "グリンビィ",
+          "src": "/assets/tata-crops/forms/greenbee/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "8a8ef7c1adb69becf85252feedfd4aaacb30184e05b0179bd8f630d7a57c6360"
+        },
+        {
+          "stage": 2,
+          "name": "チョイワルブーン",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 3,
+          "name": "チョーワルブーン",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "ブーンマント",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 18,
+      "familyId": "kowagaru",
+      "familyDisplay": "コワガルー",
+      "attribute": "岩",
+      "stage1": {
+        "stage": 1,
+        "name": "コワガルー",
+        "src": "/assets/tata-crops/stage1/kowagaru.webp",
+        "width": 512,
+        "height": 512,
+        "status": "verified",
+        "sha256": "eb5c7bd435d93bb21aa1b07f055c32ede322fe004c5499dee80d24088012ba2f"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "コワガルー",
+          "src": "/assets/tata-crops/forms/kowagaru/t1.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "eb5c7bd435d93bb21aa1b07f055c32ede322fe004c5499dee80d24088012ba2f"
+        },
+        {
+          "stage": 2,
+          "name": "ツヨガルー",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 3,
+          "name": "ガルッキー",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "ガルチャンプ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 19,
+      "familyId": "kunbuu",
+      "familyDisplay": "クンブー",
+      "attribute": "火",
+      "stage1": {
+        "stage": 1,
+        "name": "クンブー",
+        "src": "/assets/tata-crops/stage1/kunbuu.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "88de59358dfbddda0ab7a15714f4feb8ef52999407e9df788dbc7c2d0cd5cf27"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "クンブー",
+          "src": "/assets/tata-crops/forms/kunbuu/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "88de59358dfbddda0ab7a15714f4feb8ef52999407e9df788dbc7c2d0cd5cf27"
+        },
+        {
+          "stage": 2,
+          "name": "ハンバーブー",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 3,
+          "name": "ブヒナベブー",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "カロリキング",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 20,
+      "familyId": "tsubutsumuri",
+      "familyDisplay": "ツブツムリ",
+      "attribute": "岩",
+      "stage1": {
+        "stage": 1,
+        "name": "ツブツムリ",
+        "src": "/assets/tata-crops/stage1/tsubutsumuri.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "000310c6e3ba71cc10b6a54b8c62a620c99c313923bab6c7a595bbd9e725b52c"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ツブツムリ",
+          "src": "/assets/tata-crops/forms/tsubutsumuri/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "000310c6e3ba71cc10b6a54b8c62a620c99c313923bab6c7a595bbd9e725b52c"
+        },
+        {
+          "stage": 2,
+          "name": "ジェムツムリ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 3,
+          "name": "クォーツムリ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "アメジスネイル",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 21,
+      "familyId": "pupunku",
+      "familyDisplay": "ププンク",
+      "attribute": "火",
+      "stage1": {
+        "stage": 1,
+        "name": "ププンク",
+        "src": "/assets/tata-crops/stage1/pupunku.webp",
+        "width": 512,
+        "height": 512,
+        "status": "verified",
+        "sha256": "98efeb0425f670c796ce0975d7314903758d7a3dff2bb1b261841609ed24707f"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ププンク",
+          "src": "/assets/tata-crops/forms/pupunku/t1.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "98efeb0425f670c796ce0975d7314903758d7a3dff2bb1b261841609ed24707f"
+        },
+        {
+          "stage": 2,
+          "name": "クサンク",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 3,
+          "name": "マグマスク",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "ボンバスカー",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 22,
+      "familyId": "erekineko",
+      "familyDisplay": "エレキネコ",
+      "attribute": "雷",
+      "stage1": {
+        "stage": 1,
+        "name": "エレキネコ",
+        "src": "/assets/tata-crops/stage1/erekineko.webp",
+        "width": 512,
+        "height": 512,
+        "status": "verified",
+        "sha256": "3ee6781935617fe8f37d34b4210e1f8e7fd1dc7bef6bf07430ff85e9019d5ded"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "エレキネコ",
+          "src": "/assets/tata-crops/forms/erekineko/t1.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "3ee6781935617fe8f37d34b4210e1f8e7fd1dc7bef6bf07430ff85e9019d5ded"
+        },
+        {
+          "stage": 2,
+          "name": "デンニャン",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 3,
+          "name": "スピニャット",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 23,
+      "familyId": "sukedako",
+      "familyDisplay": "スケダコ",
+      "attribute": "水",
+      "stage1": {
+        "stage": 1,
+        "name": "スケダコ",
+        "src": "/assets/tata-crops/stage1/sukedako.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "d3d575d734621c2b75f404eccaeb98fb8e3bac404951d7abb153b7cbc50f5814"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "スケダコ",
+          "src": "/assets/tata-crops/forms/sukedako/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "d3d575d734621c2b75f404eccaeb98fb8e3bac404951d7abb153b7cbc50f5814"
+        },
+        {
+          "stage": 2,
+          "name": "ウオダコ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 3,
+          "name": "オクトーム",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "ロードパス",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 24,
+      "familyId": "hinyao",
+      "familyDisplay": "ヒニャオ",
+      "attribute": "火",
+      "stage1": {
+        "stage": 1,
+        "name": "ヒニャオ",
+        "src": "/assets/tata-crops/stage1/hinyao.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "9100d445f3315de89891cf676f6eddb38904c156bc15eb168ee3986d70274ccb"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ヒニャオ",
+          "src": "/assets/tata-crops/forms/hinyao/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "9100d445f3315de89891cf676f6eddb38904c156bc15eb168ee3986d70274ccb"
+        },
+        {
+          "stage": 2,
+          "name": "マネヒネコ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 3,
+          "name": "ネコマダラ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 25,
+      "familyId": "mumukaba",
+      "familyDisplay": "ムムカバ",
+      "attribute": "岩",
+      "stage1": {
+        "stage": 1,
+        "name": "ムムカバ",
+        "src": "/assets/tata-crops/stage1/mumukaba.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "af9d6ec03af82b69201e831f4245a04665aa7d4370524312a72a89c753883150"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ムムカバ",
+          "src": "/assets/tata-crops/forms/mumukaba/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "af9d6ec03af82b69201e831f4245a04665aa7d4370524312a72a89c753883150"
+        },
+        {
+          "stage": 2,
+          "name": "マリリンバ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 3,
+          "name": "モンローバ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "ヒポディーバ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 26,
+      "familyId": "hikaru",
+      "familyDisplay": "ピカル",
+      "attribute": "雷",
+      "stage1": {
+        "stage": 1,
+        "name": "ピカル",
+        "src": "/assets/tata-crops/stage1/hikaru.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "ade2b8ce981ef4c556391656e341b322afc51d98501fe061175a98453f6c568b"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ピカル",
+          "src": "/assets/tata-crops/forms/hikaru/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "ade2b8ce981ef4c556391656e341b322afc51d98501fe061175a98453f6c568b"
+        },
+        {
+          "stage": 2,
+          "name": "ボルタル",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 3,
+          "name": "ルシフェル",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "ルミナリオン",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 27,
+      "familyId": "atatama",
+      "familyDisplay": "アタタマ",
+      "attribute": "火",
+      "stage1": {
+        "stage": 1,
+        "name": "アタタマ",
+        "src": "/assets/tata-crops/stage1/atatama.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "6dd63fbeea2954a130e5597df7e5e02cb8c32e23c022729b64c4b490e47cccca"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "アタタマ",
+          "src": "/assets/tata-crops/forms/atatama/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "6dd63fbeea2954a130e5597df7e5e02cb8c32e23c022729b64c4b490e47cccca"
+        },
+        {
+          "stage": 2,
+          "name": "ヒガマ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 3,
+          "name": "メラガマ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "ダルマグマ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 28,
+      "familyId": "yaminome",
+      "familyDisplay": "ヤミノメ",
+      "attribute": "草",
+      "stage1": {
+        "stage": 1,
+        "name": "ヤミノメ",
+        "src": "/assets/tata-crops/stage1/yaminome.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "62566660dac3efe7300c681c79ada36a74a31a285c8fd736342c7535a547fd2d"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ヤミノメ",
+          "src": "/assets/tata-crops/forms/yaminome/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "62566660dac3efe7300c681c79ada36a74a31a285c8fd736342c7535a547fd2d"
+        },
+        {
+          "stage": 2,
+          "name": "ヤミハナ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 3,
+          "name": "ヤミマンドラ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "ダークラウン",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 29,
+      "familyId": "korokon",
+      "familyDisplay": "コロコン",
+      "attribute": "火",
+      "stage1": {
+        "stage": 1,
+        "name": "コロコン",
+        "src": "/assets/tata-crops/stage1/korokon.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "4a4fc7b86fdfeca712c62f8abbba0b0f1659e6f3326794824bb941d38d7e9b5d"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "コロコン",
+          "src": "/assets/tata-crops/forms/korokon/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "4a4fc7b86fdfeca712c62f8abbba0b0f1659e6f3326794824bb941d38d7e9b5d"
+        },
+        {
+          "stage": 2,
+          "name": "ニコン",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 3,
+          "name": "ヨウエンビ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "キツネビア",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 30,
+      "familyId": "mogurin",
+      "familyDisplay": "モグリン",
+      "attribute": "岩",
+      "stage1": {
+        "stage": 1,
+        "name": "モグリン",
+        "src": "/assets/tata-crops/stage1/mogurin.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "83c45b43ef98fcd21d676e17d0486e493bf658b061ea90b0b6f4c7ea8ddc035f"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "モグリン",
+          "src": "/assets/tata-crops/forms/mogurin/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "83c45b43ef98fcd21d676e17d0486e493bf658b061ea90b0b6f4c7ea8ddc035f"
+        },
+        {
+          "stage": 2,
+          "name": "モグデント",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 3,
+          "name": "モグトリデ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "モグパレス",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 31,
+      "familyId": "biripiyo",
+      "familyDisplay": "ビリピヨ",
+      "attribute": "雷",
+      "stage1": {
+        "stage": 1,
+        "name": "ビリピヨ",
+        "src": "/assets/tata-crops/stage1/biripiyo.webp",
+        "width": 512,
+        "height": 512,
+        "status": "verified",
+        "sha256": "8a984fd62dcc073c072af896cc00eb1b320bc6f708cd2b614db825be0d8ad979"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ビリピヨ",
+          "src": "/assets/tata-crops/forms/biripiyo/t1.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "8a984fd62dcc073c072af896cc00eb1b320bc6f708cd2b614db825be0d8ad979"
+        },
+        {
+          "stage": 2,
+          "name": "エレクトリ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 3,
+          "name": "ビリビバシ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "ライオウム",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 32,
+      "familyId": "potakage",
+      "familyDisplay": "ポタカゲ",
+      "attribute": "水",
+      "stage1": {
+        "stage": 1,
+        "name": "ポタカゲ",
+        "src": "/assets/tata-crops/stage1/potakage.webp",
+        "width": 512,
+        "height": 512,
+        "status": "verified",
+        "sha256": "f8c8e996c3fcb8d57932a9e03a809ae5fc559ca3291d3b4b81698f9976f07518"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ポタカゲ",
+          "src": "/assets/tata-crops/forms/potakage/t1.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "f8c8e996c3fcb8d57932a9e03a809ae5fc559ca3291d3b4b81698f9976f07518"
+        },
+        {
+          "stage": 2,
+          "name": "ピチャカゲ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 3,
+          "name": "アクアガマ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "イガマスター",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 33,
+      "familyId": "fukurogumo",
+      "familyDisplay": "フクロクモ",
+      "attribute": "草",
+      "stage1": {
+        "stage": 1,
+        "name": "フクロクモ",
+        "src": "/assets/tata-crops/stage1/fukurogumo.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "90556dcc0e472f0436c4d21df0a3ce70e353e8b6f390bb5c5300e5c24c3420ff"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "フクロクモ",
+          "src": "/assets/tata-crops/forms/fukurogumo/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "90556dcc0e472f0436c4d21df0a3ce70e353e8b6f390bb5c5300e5c24c3420ff"
+        },
+        {
+          "stage": 2,
+          "name": "ボトルグモ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 3,
+          "name": "チュラリウム",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "シンラリウム",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 34,
+      "familyId": "nemukurage",
+      "familyDisplay": "ネムクラゲ",
+      "attribute": "水",
+      "stage1": {
+        "stage": 1,
+        "name": "ネムクラゲ",
+        "src": "/assets/tata-crops/stage1/nemukurage.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "671eb541509d337dbd79c50a2500948d62be5ef767a1738477f214e6b1938905"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ネムクラゲ",
+          "src": "/assets/tata-crops/forms/nemukurage/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "671eb541509d337dbd79c50a2500948d62be5ef767a1738477f214e6b1938905"
+        },
+        {
+          "stage": 2,
+          "name": "スヤクラゲ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 3,
+          "name": "ルナドール",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "オロラクイン",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 35,
+      "familyId": "sabooru",
+      "familyDisplay": "サボール",
+      "attribute": "草",
+      "stage1": {
+        "stage": 1,
+        "name": "サボール",
+        "src": "/assets/tata-crops/stage1/sabooru.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "81f268e95b14cfedfb30516dd43c661ac8cc3ba444b1c8e5e299ea8891c34cf9"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "サボール",
+          "src": "/assets/tata-crops/forms/sabooru/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "81f268e95b14cfedfb30516dd43c661ac8cc3ba444b1c8e5e299ea8891c34cf9"
+        },
+        {
+          "stage": 2,
+          "name": "サボケン",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 3,
+          "name": "サボディビル",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 36,
+      "familyId": "korotama",
+      "familyDisplay": "コロタマ",
+      "attribute": "岩",
+      "stage1": {
+        "stage": 1,
+        "name": "コロタマ",
+        "src": "/assets/tata-crops/stage1/korotama.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "11ee95e98b923bc0840b1b725d90f3aafd202e51d46b7a42f8e0b8c472742176"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "コロタマ",
+          "src": "/assets/tata-crops/forms/korotama/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "11ee95e98b923bc0840b1b725d90f3aafd202e51d46b7a42f8e0b8c472742176"
+        },
+        {
+          "stage": 2,
+          "name": "コロロック",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 3,
+          "name": "スカラーべ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "スカリギオ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 37,
+      "familyId": "yanzaru",
+      "familyDisplay": "ヤンザル",
+      "attribute": "岩",
+      "stage1": {
+        "stage": 1,
+        "name": "ヤンザル",
+        "src": "/assets/tata-crops/stage1/yanzaru.webp",
+        "width": 512,
+        "height": 512,
+        "status": "verified",
+        "sha256": "9cd3e43777bb737d9084260c79f1844e1fec3370a61236ed7d849502fbc8ac15"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ヤンザル",
+          "src": "/assets/tata-crops/forms/yanzaru/t1.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "9cd3e43777bb737d9084260c79f1844e1fec3370a61236ed7d849502fbc8ac15"
+        },
+        {
+          "stage": 2,
+          "name": "ワルキー",
+          "src": "/assets/tata-crops/forms/yanzaru/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "da432df52fcfe6bca6bf3e6288c578d1e732e35f5ac9501e3e2a3e3329d09521"
+        },
+        {
+          "stage": 3,
+          "name": "イビルザル",
+          "src": "/assets/tata-crops/forms/yanzaru/t3.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "392c234b525c01c10061a845118027660c79ca24ad16a39d15154c5662889a13"
+        },
+        {
+          "stage": 4,
+          "name": "サルタイセイ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 38,
+      "familyId": "gaoden",
+      "familyDisplay": "ガオデン",
+      "attribute": "雷",
+      "stage1": {
+        "stage": 1,
+        "name": "ガオデン",
+        "src": "/assets/tata-crops/stage1/gaoden.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "540016c2cdb1e80724739726768d9a1a1161ebc2e644f4a2b46ab87fcc7b6fa3"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ガオデン",
+          "src": "/assets/tata-crops/forms/gaoden/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "540016c2cdb1e80724739726768d9a1a1161ebc2e644f4a2b46ab87fcc7b6fa3"
+        },
+        {
+          "stage": 2,
+          "name": "ガルルデン",
+          "src": "/assets/tata-crops/forms/gaoden/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "f30ce260a586bdd56371d33c0f8be92cebccc2045c70f136b753d99bcdfc225e"
+        },
+        {
+          "stage": 3,
+          "name": "キングデン",
+          "src": "/assets/tata-crops/forms/gaoden/t3.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "53116b13019961e0a2212d33c110bcc9e490e3a2d269d4acbb6683261046a8a7"
+        },
+        {
+          "stage": 4,
+          "name": "エンペラデン",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 39,
+      "familyId": "himawarin",
+      "familyDisplay": "ヒマワリン",
+      "attribute": "草",
+      "stage1": {
+        "stage": 1,
+        "name": "ヒマワリン",
+        "src": "/assets/tata-crops/stage1/himawarin.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "b3596eb82faea4a6bab7552ad1939b2cddf0103af59299163157cb974f71e1ac"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ヒマワリン",
+          "src": "/assets/tata-crops/forms/himawarin/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "b3596eb82faea4a6bab7552ad1939b2cddf0103af59299163157cb974f71e1ac"
+        },
+        {
+          "stage": 2,
+          "name": "キラワー",
+          "src": "/assets/tata-crops/forms/himawarin/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "7965d9fb09726d96f0ae29639160b158dfdfccdbb78e4fa607776ed6aea25d78"
+        },
+        {
+          "stage": 3,
+          "name": "サーフクリン",
+          "src": "/assets/tata-crops/forms/himawarin/t3.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "dc18176200a2afa0bf6eee15a6f65472b184f2e00f282f2720583b57f6a0a32e"
+        },
+        {
+          "stage": 4,
+          "name": "サンフクリン",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 40,
+      "familyId": "nekoori",
+      "familyDisplay": "ネコオリ",
+      "attribute": "水",
+      "stage1": {
+        "stage": 1,
+        "name": "ネコオリ",
+        "src": "/assets/tata-crops/stage1/nekoori.webp",
+        "width": 512,
+        "height": 512,
+        "status": "verified",
+        "sha256": "10bf65a2f530af6cec46e1ed34e7feb3a460976510d477c314c72f41c9a0f28d"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ネコオリ",
+          "src": "/assets/tata-crops/forms/nekoori/t1.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "10bf65a2f530af6cec46e1ed34e7feb3a460976510d477c314c72f41c9a0f28d"
+        },
+        {
+          "stage": 2,
+          "name": "チルネコ",
+          "src": "/assets/tata-crops/forms/nekoori/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "49193e25e3a56636dca856b376fc5df241a6ecca15d4503b61a969454910ca57"
+        },
+        {
+          "stage": 3,
+          "name": "チルレオ",
+          "src": "/assets/tata-crops/forms/nekoori/t3.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "971c68082b9de2f905d0d293451bad78abba09a4353101cd0acd5db89b08335e"
+        },
+        {
+          "stage": 4,
+          "name": "ブリズレオ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 41,
+      "familyId": "furuggu",
+      "familyDisplay": "フルッグ",
+      "attribute": "草",
+      "stage1": {
+        "stage": 1,
+        "name": "フルッグ",
+        "src": "/assets/tata-crops/stage1/furuggu.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "bb548dbe73f906f295119ceb05ab37eec23e18137ec1ae9b4e68fb3cbf299970"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "フルッグ",
+          "src": "/assets/tata-crops/forms/furuggu/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "bb548dbe73f906f295119ceb05ab37eec23e18137ec1ae9b4e68fb3cbf299970"
+        },
+        {
+          "stage": 2,
+          "name": "フルルッグ",
+          "src": "/assets/tata-crops/forms/furuggu/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "c70352528d4de7b8d87d9c6c224ecbfba814ca12b0a916dc363db576176eb31b"
+        },
+        {
+          "stage": 3,
+          "name": "ドラフルッグ",
+          "src": "/assets/tata-crops/forms/furuggu/t3.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "ce3ed636a238a74fdbde7c3fc6d88e2e92e4476c0eaeeb8b195f70d4642af58d"
+        },
+        {
+          "stage": 4,
+          "name": "フルグロウン",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 42,
+      "familyId": "himori",
+      "familyDisplay": "ヒモリ",
+      "attribute": "火",
+      "stage1": {
+        "stage": 1,
+        "name": "ヒモリ",
+        "src": "/assets/tata-crops/stage1/himori.webp",
+        "width": 512,
+        "height": 512,
+        "status": "verified",
+        "sha256": "abe90c63fdf22d0f623b675cd5ea5c9e183bfd734d2824bf2930d15370303440"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ヒモリ",
+          "src": "/assets/tata-crops/forms/himori/t1.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "abe90c63fdf22d0f623b675cd5ea5c9e183bfd734d2824bf2930d15370303440"
+        },
+        {
+          "stage": 2,
+          "name": "フレイモリ",
+          "src": "/assets/tata-crops/forms/himori/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "c0b873c02793aa82cbcaa3ba10b8e6031564bc57543ac3b3f278b562b64f3e61"
+        },
+        {
+          "stage": 3,
+          "name": "ボルケザード",
+          "src": "/assets/tata-crops/forms/himori/t3.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "25c491482e3a9838e3139394ecd6b4bf8663d3200414cb7c04fb8a0e619bed32"
+        },
+        {
+          "stage": 4,
+          "name": "インフェルドラ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 43,
+      "familyId": "komakiri",
+      "familyDisplay": "コマキリ",
+      "attribute": "草",
+      "stage1": {
+        "stage": 1,
+        "name": "コマキリ",
+        "src": "/assets/tata-crops/stage1/komakiri.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "24a8f73a1b2570d82174ab1b4e5ab198f7d0abece659ec9eb1b96b8cefe78c31"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "コマキリ",
+          "src": "/assets/tata-crops/forms/komakiri/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "24a8f73a1b2570d82174ab1b4e5ab198f7d0abece659ec9eb1b96b8cefe78c31"
+        },
+        {
+          "stage": 2,
+          "name": "ハナキリ",
+          "src": "/assets/tata-crops/forms/komakiri/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "7dddf13e888f44b5e1e1c56666afcea26748f4ad7e10da601a2822784d8abd22"
+        },
+        {
+          "stage": 3,
+          "name": "ヴァルキリ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "サクランティス",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 44,
+      "familyId": "umimi",
+      "familyDisplay": "ウミミ",
+      "attribute": "水",
+      "stage1": {
+        "stage": 1,
+        "name": "ウミミ",
+        "src": "/assets/tata-crops/stage1/umimi.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "d7d00c90bece28a8215abc9ef26e83279575f1fd19a8c051b9210a8bf3d114fd"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ウミミ",
+          "src": "/assets/tata-crops/forms/umimi/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "d7d00c90bece28a8215abc9ef26e83279575f1fd19a8c051b9210a8bf3d114fd"
+        },
+        {
+          "stage": 2,
+          "name": "ウミピョン",
+          "src": "/assets/tata-crops/forms/umimi/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "6e96a82da2f1e5864f69debe9c1a81ab4043cf1519d5eb4078c8e53f7592fe34"
+        },
+        {
+          "stage": 3,
+          "name": "ウミロップ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "アクアリーナ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 45,
+      "familyId": "purabi",
+      "familyDisplay": "プラビ",
+      "attribute": "雷",
+      "stage1": {
+        "stage": 1,
+        "name": "プラビ",
+        "src": "/assets/tata-crops/stage1/purabi.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "20ae19b1fde6989189d8b0f9983db5a922b14e9d1feb81cf9dab2475a81d08d6"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "プラビ",
+          "src": "/assets/tata-crops/forms/purabi/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "20ae19b1fde6989189d8b0f9983db5a922b14e9d1feb81cf9dab2475a81d08d6"
+        },
+        {
+          "stage": 2,
+          "name": "スタピョン",
+          "src": "/assets/tata-crops/forms/purabi/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "553c8fb154ad249f53219eec7a9f0c7d6e5ab95bca9fac97f57b71ce62506856"
+        },
+        {
+          "stage": 3,
+          "name": "ステラビット",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "アストラビット",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 46,
+      "familyId": "rokuju",
+      "familyDisplay": "ロクジュー",
+      "attribute": "岩",
+      "stage1": {
+        "stage": 1,
+        "name": "コロジュー",
+        "src": "/assets/tata-crops/stage1/rokuju.webp",
+        "width": 512,
+        "height": 512,
+        "status": "verified",
+        "sha256": "f958a0efdae336eb24ba7abcc3086a4979e3d27063e63836a348e38f80be65dc"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "コロジュー",
+          "src": "/assets/tata-crops/forms/rokuju/t1.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "f958a0efdae336eb24ba7abcc3086a4979e3d27063e63836a348e38f80be65dc"
+        },
+        {
+          "stage": 2,
+          "name": "ロクジュー",
+          "src": "/assets/tata-crops/forms/rokuju/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "f3010264b70a8780272a3cbf9e3088bf3c7c28f3fb2dbbfebfa6bc5185e31680"
+        },
+        {
+          "stage": 3,
+          "name": "ジオジュラ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "ジュラゴン",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 47,
+      "familyId": "boruzarashi",
+      "familyDisplay": "ボルザラシ",
+      "attribute": "水",
+      "stage1": {
+        "stage": 1,
+        "name": "ナミアシカ",
+        "src": "/assets/tata-crops/stage1/boruzarashi.webp",
+        "width": 512,
+        "height": 512,
+        "status": "verified",
+        "sha256": "e17764743962ec52e9b2c3ba13aa24972872f6e7dfcb8b44c35bb2419ca37579"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ナミアシカ",
+          "src": "/assets/tata-crops/forms/boruzarashi/t1.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "e17764743962ec52e9b2c3ba13aa24972872f6e7dfcb8b44c35bb2419ca37579"
+        },
+        {
+          "stage": 2,
+          "name": "ボルザラシ",
+          "src": "/assets/tata-crops/forms/boruzarashi/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "b9bfc6347627dd6d107b06a2f833462f53156cf1dca4fe55e90a7f7823be5c1b"
+        },
+        {
+          "stage": 3,
+          "name": "ダブザラシ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "ダイドウオウ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 48,
+      "familyId": "gantoru",
+      "familyDisplay": "ガントル",
+      "attribute": "岩",
+      "stage1": {
+        "stage": 1,
+        "name": "コロカメ",
+        "src": "/assets/tata-crops/stage1/gantoru.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "d863c7dfa3db0a4dfe5722b2800f95a157c47657059e4cbeee2b3278b6321066"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "コロカメ",
+          "src": "/assets/tata-crops/forms/gantoru/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "d863c7dfa3db0a4dfe5722b2800f95a157c47657059e4cbeee2b3278b6321066"
+        },
+        {
+          "stage": 2,
+          "name": "ガントル",
+          "src": "/assets/tata-crops/forms/gantoru/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "e6c8e96c2f1a7e80b996abec97e447b00de9a6ea3a63d03b28b0beb7fdbd4893"
+        },
+        {
+          "stage": 3,
+          "name": "ガンタス",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "ガンバンタス",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 49,
+      "familyId": "denjika",
+      "familyDisplay": "デンジカ",
+      "attribute": "雷",
+      "stage1": {
+        "stage": 1,
+        "name": "ビリジカ",
+        "src": "/assets/tata-crops/stage1/denjika.webp",
+        "width": 512,
+        "height": 512,
+        "status": "verified",
+        "sha256": "2a55cf3a4ef7e0281a1388da63d61d8b07be8997e700d8679dcbc43005404a24"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ビリジカ",
+          "src": "/assets/tata-crops/forms/denjika/t1.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "2a55cf3a4ef7e0281a1388da63d61d8b07be8997e700d8679dcbc43005404a24"
+        },
+        {
+          "stage": 2,
+          "name": "デンジカ",
+          "src": "/assets/tata-crops/forms/denjika/t2.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "a8cad21aaddc02b0758c92c011ebdaba857f8ae2be2b227ef85b6490334a38f3"
+        },
+        {
+          "stage": 3,
+          "name": "ジバジカ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "マグネクス",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 50,
+      "familyId": "tafupen",
+      "familyDisplay": "タフペン",
+      "attribute": "水",
+      "stage1": {
+        "stage": 1,
+        "name": "トコペン",
+        "src": "/assets/tata-crops/stage1/tafupen.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "8cf226e2c66b4050eb97d11f0424db401dcc5f0235954b1af89e48f73ba3a38f"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "トコペン",
+          "src": "/assets/tata-crops/forms/tafupen/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "8cf226e2c66b4050eb97d11f0424db401dcc5f0235954b1af89e48f73ba3a38f"
+        },
+        {
+          "stage": 2,
+          "name": "タフペン",
+          "src": "/assets/tata-crops/forms/tafupen/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "1ddb4ebba93c05439a3ea321b7b8dc572315d67d292321c0dd92487a61a34c2b"
+        },
+        {
+          "stage": 3,
+          "name": "フブペン",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "ペンペラー",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 51,
+      "familyId": "fureimuji",
+      "familyDisplay": "フレイムシ",
+      "attribute": "火",
+      "stage1": {
+        "stage": 1,
+        "name": "ヒノムシ",
+        "src": "/assets/tata-crops/stage1/fureimuji.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "7a88780f09d0861b22897ad53198ff7b418a7a041167df3ee374e98afe369178"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ヒノムシ",
+          "src": "/assets/tata-crops/forms/fureimuji/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "7a88780f09d0861b22897ad53198ff7b418a7a041167df3ee374e98afe369178"
+        },
+        {
+          "stage": 2,
+          "name": "フレイムシ",
+          "src": "/assets/tata-crops/forms/fureimuji/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "e7e36907e09ee68f1a89c5e5364ee94b80919bdaa6fe7287993cd5f7f1e52561"
+        },
+        {
+          "stage": 3,
+          "name": "バタフレア",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "バタブレイズ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 52,
+      "familyId": "erekoon",
+      "familyDisplay": "エレコーン",
+      "attribute": "雷",
+      "stage1": {
+        "stage": 1,
+        "name": "モエミン",
+        "src": "/assets/tata-crops/stage1/erekoon.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "376da3c51c915820da5af90000279d785eb4bddeec4079e9a46a8a1201624db3"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "モエミン",
+          "src": "/assets/tata-crops/forms/erekoon/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "376da3c51c915820da5af90000279d785eb4bddeec4079e9a46a8a1201624db3"
+        },
+        {
+          "stage": 2,
+          "name": "エレコーン",
+          "src": "/assets/tata-crops/forms/erekoon/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "4fbc31e830b331e3b1e4e5fc065997ecbd71f552a4a47e3d1dfad04df100f030"
+        },
+        {
+          "stage": 3,
+          "name": "エレキリン",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "ボルキリン",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 53,
+      "familyId": "nenbutsuhebi",
+      "familyDisplay": "ネンブツヘビ",
+      "attribute": "岩",
+      "stage1": {
+        "stage": 1,
+        "name": "ボウズヘビ",
+        "src": "/assets/tata-crops/stage1/nenbutsuhebi.webp",
+        "width": 512,
+        "height": 512,
+        "status": "verified",
+        "sha256": "bfa7c0c60a26690f5ab0dc1d3aff1249cdcde3a3fc78adfd71473a494b6468cf"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ボウズヘビ",
+          "src": "/assets/tata-crops/forms/nenbutsuhebi/t1.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "bfa7c0c60a26690f5ab0dc1d3aff1249cdcde3a3fc78adfd71473a494b6468cf"
+        },
+        {
+          "stage": 2,
+          "name": "ネンブツヘビ",
+          "src": "/assets/tata-crops/forms/nenbutsuhebi/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "cee93496cbf496da09b442726be94bdbdc13f4c565f05eb236ed2d21f2f97682"
+        },
+        {
+          "stage": 3,
+          "name": "ボンノオロチ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "ナムアミダイジャ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 54,
+      "familyId": "matchiba",
+      "familyDisplay": "マッチバ",
+      "attribute": "火",
+      "stage1": {
+        "stage": 1,
+        "name": "ヒバイヌ",
+        "src": "/assets/tata-crops/stage1/matchiba.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "ecd171bf0e4ab1b47d0cdc6ff6143cd7f8b8eab4c5ee12d3dcb47975298c4fb4"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ヒバイヌ",
+          "src": "/assets/tata-crops/forms/matchiba/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "ecd171bf0e4ab1b47d0cdc6ff6143cd7f8b8eab4c5ee12d3dcb47975298c4fb4"
+        },
+        {
+          "stage": 2,
+          "name": "マッチバ",
+          "src": "/assets/tata-crops/forms/matchiba/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "eb178af7e58e415db2ca9363aaad88b26b08ae6c726ff833ead9ce0a265be6f9"
+        },
+        {
+          "stage": 3,
+          "name": "フレベロス",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "ヘルベロス",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 55,
+      "familyId": "denrou",
+      "familyDisplay": "デンロウ",
+      "attribute": "雷",
+      "stage1": {
+        "stage": 1,
+        "name": "パチルフ",
+        "src": "/assets/tata-crops/stage1/denrou.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "41d9a96e1fb3bb29c24d18a77804cf4f6e2b28c36cd3992e8f73bbdc6dea2b41"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "パチルフ",
+          "src": "/assets/tata-crops/forms/denrou/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "41d9a96e1fb3bb29c24d18a77804cf4f6e2b28c36cd3992e8f73bbdc6dea2b41"
+        },
+        {
+          "stage": 2,
+          "name": "デンロウ",
+          "src": "/assets/tata-crops/forms/denrou/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "91fc676b3b2ff39c26296bb89e43ed440b8f7cf130e64e5b65cccffdf1f5f05c"
+        },
+        {
+          "stage": 3,
+          "name": "ライロウ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "ジンライロウ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 56,
+      "familyId": "kenkani",
+      "familyDisplay": "ケンカニ",
+      "attribute": "水",
+      "stage1": {
+        "stage": 1,
+        "name": "ツヨカニ",
+        "src": "/assets/tata-crops/stage1/kenkani.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "7925b4e64bada100220b4cc8050c74ce6a0025e5d0dbdbed51e0bb1f2d4e7772"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ツヨカニ",
+          "src": "/assets/tata-crops/forms/kenkani/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "7925b4e64bada100220b4cc8050c74ce6a0025e5d0dbdbed51e0bb1f2d4e7772"
+        },
+        {
+          "stage": 2,
+          "name": "ケンカニ",
+          "src": "/assets/tata-crops/forms/kenkani/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "4d1fbe273bc1a10e5968edc1875251d6ee75bf8bd0c8aa91a0758e51a66fdbb6"
+        },
+        {
+          "stage": 3,
+          "name": "クラブロー",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "チョキング",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 57,
+      "familyId": "fureebi",
+      "familyDisplay": "フレービ",
+      "attribute": "火",
+      "stage1": {
+        "stage": 1,
+        "name": "ヒエビ",
+        "src": "/assets/tata-crops/stage1/fureebi.webp",
+        "width": 512,
+        "height": 512,
+        "status": "verified",
+        "sha256": "feb32b7a8c96318817219052b91f5ff48075d02e00777d163a54e89331bccd7e"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ヒエビ",
+          "src": "/assets/tata-crops/forms/fureebi/t1.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "feb32b7a8c96318817219052b91f5ff48075d02e00777d163a54e89331bccd7e"
+        },
+        {
+          "stage": 2,
+          "name": "フレービ",
+          "src": "/assets/tata-crops/forms/fureebi/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "76920e3d21e93f3131f34173e0ea561a77ad96440fe2c5f888846f3400133207"
+        },
+        {
+          "stage": 3,
+          "name": "バーニフィス",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "ボルケイセ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 58,
+      "familyId": "haamitora",
+      "familyDisplay": "ハーミットラ",
+      "attribute": "火",
+      "stage1": {
+        "stage": 1,
+        "name": "トラーニー",
+        "src": "/assets/tata-crops/stage1/haamitora.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "da207e8338ec737816d10a0f35c62440cf82293192a8c4e171fc6588984bf1a9"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "トラーニー",
+          "src": "/assets/tata-crops/forms/haamitora/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "da207e8338ec737816d10a0f35c62440cf82293192a8c4e171fc6588984bf1a9"
+        },
+        {
+          "stage": 2,
+          "name": "ハーミットラ",
+          "src": "/assets/tata-crops/forms/haamitora/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "3e36d1e5d5e0202b0f6dc37f1a278305259f3a491b9ef13496cfaf6982b3b5dc"
+        },
+        {
+          "stage": 3,
+          "name": "ゼンガー",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "マスタイガー",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 59,
+      "familyId": "shiiparusu",
+      "familyDisplay": "シーパルス",
+      "attribute": "雷",
+      "stage1": {
+        "stage": 1,
+        "name": "ライメー",
+        "src": "/assets/tata-crops/stage1/shiiparusu.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "a8043a1f710f04ba07e5b71ccbfc1e0120f9be7b4db32b95834a27492368869f"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ライメー",
+          "src": "/assets/tata-crops/forms/shiiparusu/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "a8043a1f710f04ba07e5b71ccbfc1e0120f9be7b4db32b95834a27492368869f"
+        },
+        {
+          "stage": 2,
+          "name": "シーパルス",
+          "src": "/assets/tata-crops/forms/shiiparusu/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "a98ed1f84e4a9f491e85416d0f4416c45f74c4fc6971f42a8c09833a5edb9d2e"
+        },
+        {
+          "stage": 3,
+          "name": "アラシープ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "アマルテラ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 60,
+      "familyId": "shizukuchou",
+      "familyDisplay": "シズクチョウ",
+      "attribute": "水",
+      "stage1": {
+        "stage": 1,
+        "name": "シズクジ",
+        "src": "/assets/tata-crops/stage1/shizukuchou.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "733259a7b75df271482d0c72cbcaf1e5eeca6b9d6b23f2b8961447e49e37a9f0"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "シズクジ",
+          "src": "/assets/tata-crops/forms/shizukuchou/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "733259a7b75df271482d0c72cbcaf1e5eeca6b9d6b23f2b8961447e49e37a9f0"
+        },
+        {
+          "stage": 2,
+          "name": "シズクチョウ",
+          "src": "/assets/tata-crops/forms/shizukuchou/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "a9718758375bf2070838b15f9d14f24f9644803b01b2ff03c1c6246e292717db"
+        },
+        {
+          "stage": 3,
+          "name": "ミストリア",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 61,
+      "familyId": "doriruu",
+      "familyDisplay": "ドリルー",
+      "attribute": "岩",
+      "stage1": {
+        "stage": 1,
+        "name": "ホルリン",
+        "src": "/assets/tata-crops/stage1/doriruu.webp",
+        "width": 512,
+        "height": 512,
+        "status": "verified",
+        "sha256": "24838cb6f0d665fbfc2be31f9daf6d5b00a80dea79e19136dd81a50334e40fe0"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ホルリン",
+          "src": "/assets/tata-crops/forms/doriruu/t1.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "24838cb6f0d665fbfc2be31f9daf6d5b00a80dea79e19136dd81a50334e40fe0"
+        },
+        {
+          "stage": 2,
+          "name": "ドリルー",
+          "src": "/assets/tata-crops/forms/doriruu/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "418a4ef69afa9e65db0b085849b2560365e380b4aae3ba13c7e82c74aa1b6432"
+        },
+        {
+          "stage": 3,
+          "name": "ボーランバ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 62,
+      "familyId": "riifuro",
+      "familyDisplay": "リーフロ",
+      "attribute": "草",
+      "stage1": {
+        "stage": 1,
+        "name": "フリコー",
+        "src": "/assets/tata-crops/stage1/riifuro.webp",
+        "width": 512,
+        "height": 512,
+        "status": "verified",
+        "sha256": "db18ea19b89a42463e6bb99f8f3c688b3799636687b87c9c616b718e3018bd3e"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "フリコー",
+          "src": "/assets/tata-crops/forms/riifuro/t1.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "db18ea19b89a42463e6bb99f8f3c688b3799636687b87c9c616b718e3018bd3e"
+        },
+        {
+          "stage": 2,
+          "name": "リーフロ",
+          "src": "/assets/tata-crops/forms/riifuro/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "a643a332b55c8b5a8337606a29b321b400c96d02809f6b91705bcbf3fda14ada"
+        },
+        {
+          "stage": 3,
+          "name": "ツリーフロ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "クロノウル",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 63,
+      "familyId": "hikikomoru",
+      "familyDisplay": "ヒキコモル",
+      "attribute": "雷",
+      "stage1": {
+        "stage": 1,
+        "name": "トジコモル",
+        "src": "/assets/tata-crops/stage1/hikikomoru.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "d01d8ee904c88ef59069db69ccbcdd108eac58163871e42ab143d4c434ae4031"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "トジコモル",
+          "src": "/assets/tata-crops/forms/hikikomoru/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "d01d8ee904c88ef59069db69ccbcdd108eac58163871e42ab143d4c434ae4031"
+        },
+        {
+          "stage": 2,
+          "name": "ヒキコモル",
+          "src": "/assets/tata-crops/forms/hikikomoru/t2.webp",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "2e59180cf787a252da7bd7f306b8d8ec300c2510122207da61872c80be11f1e3"
+        },
+        {
+          "stage": 3,
+          "name": "モルターボ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "モルボット",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 64,
+      "familyId": "pakuma",
+      "familyDisplay": "パクマ",
+      "attribute": "水",
+      "stage1": {
+        "stage": 1,
+        "name": "パクマ",
+        "src": "/assets/tata-crops/stage1/pakuma.webp",
+        "width": 256,
+        "height": 256,
+        "status": "verified",
+        "sha256": "d3569d2ef958799e95066fc4415a7b4622ffe2b4ff58eee2ef0bb40d33c8a608"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "パクマ",
+          "src": "/assets/tata-crops/forms/pakuma/t1.webp",
+          "width": 256,
+          "height": 256,
+          "status": "verified",
+          "sha256": "d3569d2ef958799e95066fc4415a7b4622ffe2b4ff58eee2ef0bb40d33c8a608"
+        },
+        {
+          "stage": 2,
+          "name": "クマッシュ",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 3,
+          "name": "マリンベア",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        },
+        {
+          "stage": 4,
+          "name": "ブリズリー",
+          "src": null,
+          "width": null,
+          "height": null,
+          "status": "pending",
+          "reason": "locked_silhouette_only"
+        }
+      ]
+    }
+  ]
+}

@@ -4,7 +4,6 @@ const attrIcon=Object.fromEntries(Object.entries(ATTRIBUTE_META).map(([attr,meta
 const rankOrder={SSS:0,SS:1,S:2,A:3,'－':4};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const thumb=src=>`/${String(src||'').replace('assets/monsters/','assets/thumbs/')}`;
 const {getFamilyDisplayName,getFamilyDisplayLabel}=MONSABA_FAMILY;
 
 let allFamilies=[];
@@ -12,15 +11,18 @@ let rankedItems=[];
 let holdFamilies=[];
 let overallTierGroups=[];
 let assessments={};
+let imageByFamily=new Map();
 let activeMode='overall';
 let activeAttr='すべて';
 
 async function bootTataTier(){
   renderFilters();
-  const [data,ratings]=await Promise.all([
+  const [data,ratings,imageData]=await Promise.all([
     fetchJson('/data/tatari.json'),
-    fetchJson('/data/tier-ratings.json')
+    fetchJson('/data/tier-ratings.json'),
+    fetchJson('/data/tata-images.json')
   ]);
+  imageByFamily=new Map((imageData.families||[]).map(item=>[item.familyId,item]));
   overallTierGroups=ratings.overall.groups||[];
   assessments=ratings.overall.byFamily||{};
   allFamilies=data.families||[];
@@ -89,9 +91,10 @@ function renderCard(item){
   if(item.missing) return `<div class="empty">未登録: ${esc(item.id)}</div>`;
   const {family:f,group,assessment:a}=item;
   const first=f.evolutions[0]||{};
+  const image=imageByFamily.get(f.id)?.stage1;
   const chain=f.evolutions.map(e=>esc(e.name)).join(' → ');
   return `<article class="overall-card" data-id="${esc(f.id)}" data-attribute="${esc(f.attribute)}" data-overall="${esc(group.rank)}">
-    <a class="overall-image" href="/tata/${encodeURIComponent(f.id)}/"><img loading="lazy" src="${esc(thumb(first.image))}" alt="${esc(first.name||getFamilyDisplayName(f))}"></a>
+    <a class="overall-image" href="/tata/${encodeURIComponent(f.id)}/"><img loading="lazy" decoding="async" src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(first.name||getFamilyDisplayName(f))}"></a>
     <div class="overall-body">
       <div class="overall-top">
         <span class="tier-badge rank-${esc(group.rank.toLowerCase())}">${esc(group.rank)}</span>

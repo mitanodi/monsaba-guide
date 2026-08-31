@@ -3,9 +3,9 @@ import { HANDOFF_KEY, MODE_LABELS, emptyTeam, sanitizeTeam, loadTeams, saveTeamL
 
 const $ = (selector) => document.querySelector(selector);
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
-const thumb = (src) => `/${String(src || '').replace('assets/monsters/', 'assets/thumbs/')}`;
 let families = [];
 let ratings = {};
+let imageByFamily = new Map();
 let roster = { entries: {} };
 let team = emptyTeam();
 let savedTeams = [];
@@ -15,13 +15,15 @@ let swapSlot = null;
 function setStatus(message, error = false) { $('#team-action-status').textContent = message; $('#team-action-status').classList.toggle('is-error', error); }
 function familyById(id) { return families.find((family) => family.id === id); }
 function memberFor(slot) { const family = familyById(slot?.familyId); return family ? { family, evolution: family.evolutions.find((item) => item.stage === slot.stage) || family.evolutions[0] } : null; }
+function stage1Image(family) { return imageByFamily.get(family.id)?.stage1; }
 
 function renderBoard() {
   $('#team-board').innerHTML = team.slots.map((slot, index) => {
     const member = memberFor(slot);
     if (!member) return `<div class="team-slot${swapSlot === index ? ' is-swap-source' : ''}" data-slot="${index}"><button class="team-slot-open" type="button" data-open-slot aria-label="枠${index + 1}にタタを配置"><span>＋<br><small>${index + 1}</small></span></button></div>`;
     const ownedStage = roster.entries[member.family.id]?.stage || 0;
-    return `<div class="team-slot is-filled${swapSlot === index ? ' is-swap-source' : ''}" data-slot="${index}"><button class="team-slot-open" type="button" data-open-slot aria-label="枠${index + 1}の${esc(member.evolution.name)}を変更"><span><img loading="lazy" decoding="async" src="${thumb(member.evolution.image)}" alt=""><span class="team-slot-name">${esc(member.evolution.name)}</span>${ownedStage < slot.stage ? '<small>登録上は未所持</small>' : ''}</span></button><div class="team-slot-controls"><select data-stage aria-label="進化段階">${member.family.evolutions.map((item) => `<option value="${item.stage}"${item.stage === slot.stage ? ' selected' : ''}>T${item.stage}</option>`).join('')}</select><button class="team-slot-remove" type="button" data-remove aria-label="枠${index + 1}を空にする">×</button><button class="team-slot-swap" type="button" data-swap>${swapSlot === index ? '入替先を選ぶ' : '入替'}</button></div></div>`;
+    const image = stage1Image(member.family);
+    return `<div class="team-slot is-filled${swapSlot === index ? ' is-swap-source' : ''}" data-slot="${index}"><button class="team-slot-open" type="button" data-open-slot aria-label="枠${index + 1}の${esc(member.evolution.name)}を変更"><span><img loading="lazy" decoding="async" src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(member.family.evolutions[0].name)}"><span class="team-slot-name">${esc(member.evolution.name)}</span>${ownedStage < slot.stage ? '<small>登録上は未所持</small>' : ''}</span></button><div class="team-slot-controls"><select data-stage aria-label="進化段階">${member.family.evolutions.map((item) => `<option value="${item.stage}"${item.stage === slot.stage ? ' selected' : ''}>T${item.stage}</option>`).join('')}</select><button class="team-slot-remove" type="button" data-remove aria-label="枠${index + 1}を空にする">×</button><button class="team-slot-swap" type="button" data-swap>${swapSlot === index ? '入替先を選ぶ' : '入替'}</button></div></div>`;
   }).join('');
   renderDiagnosis();
 }
@@ -40,7 +42,8 @@ function renderPicker() {
   $('#team-picker-list').innerHTML = rows.map((family) => {
     const rosterStage = roster.entries[family.id]?.stage || 0;
     const initial = family.evolutions.find((item) => item.stage === rosterStage) || family.evolutions[0];
-    return `<article class="team-pick-card"><img loading="lazy" decoding="async" src="${thumb(initial.image)}" alt=""><div><b>${esc(MONSABA_FAMILY.getFamilyDisplayLabel(family))}</b><small> ${esc(family.attribute)}属性</small><div class="team-pick-stages">${family.evolutions.map((item) => `<button type="button" data-pick-family="${esc(family.id)}" data-pick-stage="${item.stage}">T${item.stage} ${esc(item.name)}</button>`).join('')}</div></div></article>`;
+    const image = stage1Image(family);
+    return `<article class="team-pick-card"><img loading="lazy" decoding="async" src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(family.evolutions[0].name)}"><div><b>${esc(MONSABA_FAMILY.getFamilyDisplayLabel(family))}</b><small> ${esc(family.attribute)}属性</small><div class="team-pick-stages">${family.evolutions.map((item) => `<button type="button" data-pick-family="${esc(family.id)}" data-pick-stage="${item.stage}">T${item.stage} ${esc(item.name)}</button>`).join('')}</div></div></article>`;
   }).join('') || '<p>条件に一致するタタがありません。</p>';
 }
 
@@ -73,7 +76,7 @@ async function exportImage() {
     const x = 55 + (index % 5) * 218; const y = 135 + Math.floor(index / 5) * 155;
     context.fillStyle = '#fff'; context.fillRect(x, y, 196, 135); context.strokeStyle = '#c9d5e2'; context.strokeRect(x, y, 196, 135);
     const member = memberFor(slot); if (!member) { context.fillStyle = '#8290a0'; context.font = '18px sans-serif'; context.fillText('空き', x + 78, y + 72); return; }
-    const image = new Image(); image.src = thumb(member.evolution.image); try { await image.decode(); context.drawImage(image, x + 60, y + 8, 76, 76); } catch { /* テキストは描画する */ }
+    const image = new Image(); image.src = stage1Image(member.family).src; try { await image.decode(); context.drawImage(image, x + 60, y + 8, 76, 76); } catch { /* テキストは描画する */ }
     context.fillStyle = '#243649'; context.font = 'bold 15px sans-serif'; context.textAlign = 'center'; context.fillText(member.evolution.name.slice(0, 12), x + 98, y + 101); context.font = '14px sans-serif'; context.fillText(`T${slot.stage}`, x + 98, y + 122); context.textAlign = 'start';
   });
   await Promise.all(cells); context.fillStyle = '#52606f'; context.font = '18px sans-serif'; context.fillText('monster-survival.com ｜ 非公式攻略サイト', 55, 635);
@@ -103,8 +106,8 @@ function bind() {
 }
 
 async function boot() {
-  const [tatari, tierData] = await Promise.all(['/data/tatari.json', '/data/tier-ratings.json'].map(async (url) => { const response = await fetch(url); if (!response.ok) throw new Error('データを読み込めませんでした。'); return response.json(); }));
-  families = tatari.families || []; ratings = tierData.overall?.byFamily || {}; roster = loadRoster(localStorage, families); savedTeams = loadTeams(localStorage, families);
+  const [tatari, tierData, imageData] = await Promise.all(['/data/tatari.json', '/data/tier-ratings.json', '/data/tata-images.json'].map(async (url) => { const response = await fetch(url); if (!response.ok) throw new Error('データを読み込めませんでした。'); return response.json(); }));
+  families = tatari.families || []; ratings = tierData.overall?.byFamily || {}; imageByFamily = new Map((imageData.families || []).map((item) => [item.familyId, item])); roster = loadRoster(localStorage, families); savedTeams = loadTeams(localStorage, families);
   const shared = location.hash.match(/^#build=([A-Za-z0-9_-]+)$/)?.[1];
   if (shared) { try { team = decodeTeam(shared, families); setStatus('共有編成を読み込みました。'); } catch (error) { setStatus(error.message, true); } }
   $('#team-name').value = team.name; $('#team-mode').value = team.mode; $('#team-owned-only').checked = new URLSearchParams(location.search).get('roster') === '1';

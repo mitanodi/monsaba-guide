@@ -1,12 +1,12 @@
 const attrIcon=Object.fromEntries(Object.entries(ATTRIBUTE_META).map(([attr,meta])=>[attr,meta.icon]));
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const thumb=src=>`/${String(src||'').replace('assets/monsters/','assets/thumbs/')}`;
 const {getFamilyDisplayName,getFamilyDisplayLabel}=MONSABA_FAMILY;
 let tierGroups=[];
 let comments={};
 let adoption={};
 let annotations={};
+let imageByFamily=new Map();
 
 const movementMeta={
   '大幅上昇':{symbol:'⬆',className:'is-strong-up'},
@@ -18,12 +18,14 @@ const movementMeta={
 };
 
 async function bootZombieRush(){
-  const [data,ratings,prediction,season]=await Promise.all([
+  const [data,ratings,prediction,season,imageData]=await Promise.all([
     fetchJson('/data/tatari.json'),
     fetchJson('/data/tier-ratings.json'),
     fetchJson('/data/zombie-rush/seasons/season-1-prediction.json'),
-    fetchJson('/data/zombie-rush/seasons/season-1.json')
+    fetchJson('/data/zombie-rush/seasons/season-1.json'),
+    fetchJson('/data/tata-images.json')
   ]);
+  imageByFamily=new Map((imageData.families||[]).map(item=>[item.familyId,item]));
   const zombie=ratings.zombieRush||{};
   tierGroups=zombie.groups||[];
   const byFamily=zombie.byFamily||{};
@@ -58,9 +60,10 @@ function renderTier(group,byId){
 
 function renderCard(f,rank){
   const first=f.evolutions[0];
+  const image=imageByFamily.get(f.id)?.stage1;
   const chain=f.evolutions.map(e=>esc(e.name)).join(' → ');
   return `<a class="tier-card" href="/tata/${encodeURIComponent(f.id)}/">
-    <div class="tier-image"><img loading="lazy" src="${esc(thumb(first.image))}" alt="${esc(first.name)}"></div>
+    <div class="tier-image"><img loading="lazy" decoding="async" src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(first.name)}"></div>
     <div class="tier-body">
       <div class="tier-meta"><span class="tier-badge">${esc(rank)}</span><span>${attrIcon[f.attribute]||''} ${esc(f.attribute)}属性</span></div>
       <h4>${esc(getFamilyDisplayLabel(f))}</h4>
@@ -190,12 +193,13 @@ function renderPredictionTier(group,predictions,officialByFamily,byId){
 
 function renderPredictionCard(family,prediction,official){
   const first=family.evolutions[0];
+  const image=imageByFamily.get(family.id)?.stage1;
   const movement=movementMeta[prediction.movement]||{symbol:'→',className:'is-same'};
   const flags=(prediction.flags||[]).map(flag=>`<span>${esc(flag)}</span>`).join('');
   return `<article class="prediction-card">
     <header class="prediction-card-head">
       <a class="prediction-card-image" href="/tata/${encodeURIComponent(family.id)}/" aria-label="${esc(getFamilyDisplayLabel(family))}の詳細">
-        <img loading="lazy" src="${esc(thumb(first.image))}" alt="${esc(first.name)}">
+        <img loading="lazy" decoding="async" src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(first.name)}">
       </a>
       <div>
         <div class="prediction-card-labels"><span class="prediction-inline-label">AI予測</span><span class="tier-badge rank-${prediction.predictedTier.toLowerCase()}">${esc(prediction.predictedTier)}</span></div>

@@ -2,10 +2,10 @@ import { ROSTER_KEY, MAX_IMPORT_BYTES, familyMatches, loadRoster, saveRoster, re
 
 const $ = (selector) => document.querySelector(selector);
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
-const thumb = (src) => `/${String(src || '').replace('assets/monsters/', 'assets/thumbs/')}`;
 let families = [];
 let ratings = {};
 let evolution = {};
+let imageByFamily = new Map();
 let roster = { version: 1, entries: {}, updatedAt: null };
 let attribute = '';
 
@@ -42,8 +42,9 @@ function renderGrid() {
   $('#roster-grid').innerHTML = rows.map((family) => {
     const entry = roster.entries[family.id] || { stage: 0, favorite: false, training: false };
     const evolutionItem = family.evolutions.find((item) => item.stage === entry.stage) || family.evolutions[0];
+    const image = imageByFamily.get(family.id)?.stage1;
     const stages = [{ stage: 0, label: '未所持' }, ...family.evolutions.map((item) => ({ stage: item.stage, label: `T${item.stage}` }))];
-    return `<article class="roster-card" data-family-id="${esc(family.id)}"><div class="roster-card-head"><img loading="lazy" decoding="async" src="${thumb(evolutionItem.image)}" alt=""><div><h3><a href="/tata/${encodeURIComponent(family.id)}/">${esc(MONSABA_FAMILY.getFamilyDisplayLabel(family))}</a></h3><span class="roster-card-meta">${esc(family.attribute)}属性 / ${entry.stage ? `T${entry.stage} ${esc(evolutionItem.name)}` : '未所持'}</span></div></div><div class="stage-picker" role="group" aria-label="${esc(MONSABA_FAMILY.getFamilyDisplayLabel(family))}の所持段階">${stages.map((item) => `<button type="button" data-stage="${item.stage}" aria-pressed="${entry.stage === item.stage}">${item.label}</button>`).join('')}</div><div class="roster-card-flags"><button type="button" data-flag="favorite" aria-pressed="${entry.favorite}">${entry.favorite ? '★' : '☆'} お気に入り</button><button type="button" data-flag="training" aria-pressed="${entry.training}">${entry.training ? '●' : '○'} 育成中</button></div></article>`;
+    return `<article class="roster-card" data-family-id="${esc(family.id)}"><div class="roster-card-head"><img loading="lazy" decoding="async" src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(family.evolutions[0].name)}"><div><h3><a href="/tata/${encodeURIComponent(family.id)}/">${esc(MONSABA_FAMILY.getFamilyDisplayLabel(family))}</a></h3><span class="roster-card-meta">${esc(family.attribute)}属性 / ${entry.stage ? `T${entry.stage} ${esc(evolutionItem.name)}` : '未所持'}</span></div></div><div class="stage-picker" role="group" aria-label="${esc(MONSABA_FAMILY.getFamilyDisplayLabel(family))}の所持段階">${stages.map((item) => `<button type="button" data-stage="${item.stage}" aria-pressed="${entry.stage === item.stage}">${item.label}</button>`).join('')}</div><div class="roster-card-flags"><button type="button" data-flag="favorite" aria-pressed="${entry.favorite}">${entry.favorite ? '★' : '☆'} お気に入り</button><button type="button" data-flag="training" aria-pressed="${entry.training}">${entry.training ? '●' : '○'} 育成中</button></div></article>`;
   }).join('') || '<p>条件に一致する系統がありません。</p>';
 }
 
@@ -110,8 +111,8 @@ function bind() {
 }
 
 async function boot() {
-  const [tatari, tierData, evolutionData] = await Promise.all(['/data/tatari.json', '/data/tier-ratings.json', '/data/evolution-priority.json'].map(async (url) => { const response = await fetch(url); if (!response.ok) throw new Error('データを読み込めませんでした。'); return response.json(); }));
-  families = tatari.families || []; ratings = tierData.overall?.byFamily || {}; evolution = evolutionData;
+  const [tatari, tierData, evolutionData, imageData] = await Promise.all(['/data/tatari.json', '/data/tier-ratings.json', '/data/evolution-priority.json', '/data/tata-images.json'].map(async (url) => { const response = await fetch(url); if (!response.ok) throw new Error('データを読み込めませんでした。'); return response.json(); }));
+  families = tatari.families || []; ratings = tierData.overall?.byFamily || {}; evolution = evolutionData; imageByFamily = new Map((imageData.families || []).map((item) => [item.familyId, item]));
   roster = loadRoster(localStorage, families); bind(); renderAll();
   if (!storageAvailable()) setStatus('#roster-save-state', 'このブラウザでは保存機能を利用できません。', true);
 }

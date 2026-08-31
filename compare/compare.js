@@ -7,8 +7,8 @@ let state = {};
 
 async function json(url) { const response = await fetch(url, { cache: 'no-store' }); if (!response.ok) throw new Error(`${url} ${response.status}`); return response.json(); }
 async function boot() {
-  const [tatari, skills, ratings, evolution] = await Promise.all(['/data/tatari.json', '/data/tata-skills.json', '/data/tier-ratings.json', '/data/evolution-priority.json'].map(json));
-  state = { families: tatari.families || [], skills: skills.byFamily || {}, ratings, evolution };
+  const [tatari, skills, ratings, evolution, imageData] = await Promise.all(['/data/tatari.json', '/data/tata-skills.json', '/data/tier-ratings.json', '/data/evolution-priority.json', '/data/tata-images.json'].map(json));
+  state = { families: tatari.families || [], skills: skills.byFamily || {}, ratings, evolution, imageByFamily: new Map((imageData.families || []).map((item) => [item.familyId, item])) };
   const options = state.families.map((family) => `<option value="${esc(family.id)}">${esc(getFamilyDisplayLabel(family))}（${esc(family.evolutions.map((item) => item.name).join('・'))}）</option>`).join('');
   $('#compareA').insertAdjacentHTML('beforeend', options);
   $('#compareB').insertAdjacentHTML('beforeend', options);
@@ -60,7 +60,8 @@ function suitability(id, mode) {
 function card(item, mode) {
   const rating = overall(item.id);
   const stages = state.skills[item.id]?.stages || [];
-  return `<article class="compare-family-card"><h3><a href="/tata/${esc(item.id)}/">${esc(getFamilyDisplayLabel(item))}</a></h3><dl>
+  const image = state.imageByFamily.get(item.id)?.stage1;
+  return `<article class="compare-family-card"><div class="compare-family-head"><img loading="lazy" decoding="async" src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(item.evolutions[0].name)}"><h3><a href="/tata/${esc(item.id)}/">${esc(getFamilyDisplayLabel(item))}</a></h3></div><dl>
     <div><dt>属性</dt><dd>${esc(item.attribute)}属性</dd></div>
     <div><dt>${esc(modeLabels[mode])}Tier</dt><dd><span class="tier-badge">${esc(tier(item.id, mode) || '評価保留')}</span></dd></div>
     <div><dt>役割</dt><dd>${esc((rating.roles || []).join(' / ') || '確認中')}</dd></div>

@@ -23,9 +23,9 @@ const ATTRIBUTE_GUIDES={
     roleNotes:{takepanda:'継続ダメージ / 減速',marushu:'攻撃速度バフ / 被ダメージ増加 / 防御補助',fukurogumo:'シールド / スタン / 前衛',himawarin:'回復 / 攻防バフ',furuggu:'範囲火力 / 減速 / 序盤育成',komakiri:'前衛 / 連撃 / 被ダメージ増加',riifuro:'減速 / 攻撃速度低下 / スタン',tsubaruka:'近距離火力',yotsubird:'回復 / 支援',hanarenaishi:'束縛 / 妨害',greenbee:'火力支援',yaminome:'妨害',sabooru:'前衛 / 火力'}
   },
   water:{
-    key:'water',attr:'水',icon:'💧',path:'water',count:12,bodyCount:42,
+    key:'water',attr:'水',icon:'💧',path:'water',count:13,bodyCount:47,
     title:'水属性おすすめ・育成優先度',
-    lead:'モンサバ 水属性の12系統を収録。火力・耐久・サポート性能を比較して育成候補を整理しています。',
+    lead:'モンサバ 水属性の13系統を収録。火力・耐久・サポート性能を比較して育成候補を整理しています。',
     summary:'水属性はネコオリ系の序盤性能、トコペン系の前衛、ウミミ系・シズクジ系のゾンビラッシュ適性が分かりやすい属性です。用途ごとの不足役割を見て選びます。',
     recommendations:[
       {title:'総合的に優先',type:'ordered',ids:['nekoori','tafupen','boruzarashi','potakage','umimi','shizukuchou']},
@@ -92,7 +92,7 @@ const ATTRIBUTE_GUIDES={
     roleNotes:{purabi:'回復 / バフ',denjika:'火力 / CC',birimori:'デバフ',biripiyo:'バフ / 耐久補助',gaoden:'ノックバック / デバフ',denrou:'近接 / 麻痺',shiiparusu:'範囲 / 麻痺',hikaru:'シールド / 麻痺',hikikomoru:'束縛 / 減速',erekoon:'範囲火力',hihidog:'連鎖火力',birinamazu:'単体火力 / 束縛',erekineko:'近距離範囲 / 防御補助'}
   },
   rock:{
-    key:'rock',attr:'岩',icon:'🪨',path:'rock',count:12,bodyCount:42,
+    key:'rock',attr:'岩',icon:'🪨',path:'rock',count:12,bodyCount:43,
     title:'岩属性おすすめ・育成優先度',
     lead:'モンサバ 岩属性の12系統を収録。前衛・火力・サポート性能を比較して育成候補を整理しています。',
     summary:'岩属性は現時点で総合Tier対象が少ないため、評価済み候補と評価保留の特徴的な候補を分けて見ます。無理に低Tierを付けず、判明している役割を中心に整理します。',
@@ -119,15 +119,16 @@ const attrNav=Object.entries(ATTRIBUTE_META).map(([attr,meta])=>[meta.slug,meta.
 const rankOrder={SSS:0,SS:1,S:2,A:3,'－':4};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const thumb=src=>`/${String(src||'').replace('assets/monsters/','assets/thumbs/')}`;
 let currentFamilies=[];
+let imageByFamily=new Map();
 
 async function bootAttributeGuide(){
   const key=document.body.dataset.attributeGuide;
   const guide=ATTRIBUTE_GUIDES[key];
   if(!guide) throw new Error(`unknown attribute guide: ${key}`);
-  const [tatari,ratings,skills]=await Promise.all([fetchJson('/data/tatari.json'),fetchJson('/data/tier-ratings.json'),fetchJson('/data/tata-skills.json')]);
+  const [tatari,ratings,skills,imageData]=await Promise.all([fetchJson('/data/tatari.json'),fetchJson('/data/tier-ratings.json'),fetchJson('/data/tata-skills.json'),fetchJson('/data/tata-images.json')]);
   const families=(tatari.families||[]).filter(f=>f.attribute===guide.attr);
+  imageByFamily=new Map((imageData.families||[]).map(item=>[item.familyId,item]));
   currentFamilies=families;
   window.__attributeGuideState={guide,families,ratings,skills};
   const overall=ratings.overall?.byFamily||{};
@@ -215,9 +216,10 @@ function renderRoleTable(guide,families,overall,zombie){
 function renderCards(guide,families,overall,zombie,skillsByFamily){
   $('#attributeCards').innerHTML=families.map(f=>{
     const first=f.evolutions[0]||{};
+    const image=imageByFamily.get(f.id)?.stage1;
     const skill=latestSkillName(skillsByFamily[f.id])||'スキル確認';
     return `<a class="card static-card" href="/tata/${encodeURIComponent(f.id)}/" data-family-id="${esc(f.id)}">
-      <div class="card-image"><img src="${esc(thumb(first.image))}" alt="${esc(first.name||getFamilyDisplayLabel(f))}" loading="lazy"></div>
+      <div class="card-image"><img src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(first.name||getFamilyDisplayLabel(f))}" loading="lazy" decoding="async"></div>
       <div class="card-body"><div class="card-top"><span class="attribute">${guide.icon} ${guide.attr}属性</span><span class="source-state">${f.evolutions.length}段階</span></div>
       <h2>${esc(getFamilyDisplayLabel(f))}</h2><div class="tier-inline">${badge('総合',overall[f.id]?.tier)}${zombie[f.id]?.tier?badge('ゾンビ',zombie[f.id].tier):''}</div>
       <div class="chain">${chain(f)}</div><span class="skill-chip">${esc(skill)}</span></div>

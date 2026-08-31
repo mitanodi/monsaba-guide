@@ -62,6 +62,7 @@ let skills = {};
 let ratings = {};
 let chips = [];
 let trials = [];
+let imageByFamily = new Map();
 
 async function fetchJson(url) {
   const response = await fetch(url, { cache: 'no-store' });
@@ -70,12 +71,13 @@ async function fetchJson(url) {
 }
 
 async function boot() {
-  const [tatari, skillData, ratingData, chipData, trialData] = await Promise.all([fetchJson('/data/tatari.json'), fetchJson('/data/tata-skills.json'), fetchJson('/data/tier-ratings.json'), fetchJson('/data/zombie-rush/chips.json'), fetchJson('/data/evolution-trials.json')]);
+  const [tatari, skillData, ratingData, chipData, trialData, imageData] = await Promise.all([fetchJson('/data/tatari.json'), fetchJson('/data/tata-skills.json'), fetchJson('/data/tier-ratings.json'), fetchJson('/data/zombie-rush/chips.json'), fetchJson('/data/evolution-trials.json'), fetchJson('/data/tata-images.json')]);
   families = tatari.families || [];
   skills = skillData.byFamily || {};
   ratings = ratingData.overall?.byFamily || {};
   chips = chipData.chips || [];
   trials = trialData.families || [];
+  imageByFamily = new Map((imageData.families || []).map((item) => [item.familyId, item]));
   const suggestions = new Set(pages.map((page) => page.title));
   for (const family of families) {
     getFamilySearchAliases(family).forEach((name) => suggestions.add(name)); suggestions.add(`${family.attribute}属性`);
@@ -124,9 +126,9 @@ function runSearch(rawQuery, updateUrl = true) {
   const total = familyResults.length + evolutionResults.length + skillResults.length + chipResults.length + trialResults.length + pageResults.length;
   $('#searchStatus').textContent = `「${raw}」の検索結果：${total}件`;
   const sections = [
-    section('タタ', familyResults, (family) => resultLink(`/tata/${encodeURIComponent(family.id)}/`, getFamilyDisplayLabel(family), `${family.attribute}属性 / ${family.evolutions.map((item) => item.name).join(' → ')}`)),
-    section('進化名', evolutionResults, (item) => resultLink(`/tata/${encodeURIComponent(item.family.id)}/`, getFamilyDisplayLabel(item.family), item.matches.join(' / '))),
-    section('スキル', skillResults, (item) => resultLink(`/tata/${encodeURIComponent(item.family.id)}/`, getFamilyDisplayLabel(item.family), item.matches.join(' / '))),
+    section('タタ', familyResults, (family) => resultLink(`/tata/${encodeURIComponent(family.id)}/`, getFamilyDisplayLabel(family), `${family.attribute}属性 / ${family.evolutions.map((item) => item.name).join(' → ')}`, family)),
+    section('進化名', evolutionResults, (item) => resultLink(`/tata/${encodeURIComponent(item.family.id)}/`, getFamilyDisplayLabel(item.family), item.matches.join(' / '), item.family)),
+    section('スキル', skillResults, (item) => resultLink(`/tata/${encodeURIComponent(item.family.id)}/`, getFamilyDisplayLabel(item.family), item.matches.join(' / '), item.family)),
     section('Zombie Rushチップ', chipResults, (chip) => resultLink('/zombie-rush/chips/', chip.name.ja, `Rank ${chip.rarity} / ${chip.effect.ja}`)),
     section('進化試練', trialResults, (family) => resultLink(`/evolution/trials/`, `${family.familyName}系`, family.conditions.map((item) => `T${item.stage} ${item.tataName}`).join(' / '))),
     section('攻略ページ', pageResults, (page) => resultLink(page.href, page.title, page.description))
@@ -140,8 +142,10 @@ function section(title, items, render) {
   return `<section class="search-result-section"><h2>${esc(title)} <small>${items.length}件</small></h2><div class="search-result-list">${items.map(render).join('')}</div></section>`;
 }
 
-function resultLink(href, title, detail) {
-  return `<a class="search-result" href="${href}"><b>${esc(title)}</b><span>${esc(detail)}</span></a>`;
+function resultLink(href, title, detail, family = null) {
+  const image = family ? imageByFamily.get(family.id)?.stage1 : null;
+  const visual = image ? `<img loading="lazy" decoding="async" src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(family.evolutions[0].name)}">` : '';
+  return `<a class="search-result${image ? ' has-tata-image' : ''}" href="${href}">${visual}<span class="search-result-copy"><b>${esc(title)}</b><span>${esc(detail)}</span></span></a>`;
 }
 
 boot().catch((error) => {

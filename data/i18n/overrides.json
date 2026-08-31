@@ -1,5 +1,7 @@
 {
   "en": {
+    "画像確認中": "Image pending verification",
+    "水属性13系統一覧": "13 Water families",
     "日本語": "日本語",
     "简体中文": "简体中文",
     "おぢ": "おぢ",
@@ -161,6 +163,8 @@
     "をLv5へ上げる立ち回りが紹介されている。プラビ系のLv5強化は、ボスラッシュを耐えるための重要なポイントになる。環境・編成で最適タイミングは変わるため、あくまで目安として見る。": "The referenced strategy raises this Tatari to Lv. 5. Strengthening the プラビ family to Lv. 5 can be important for surviving Boss Rush. The best timing depends on your environment and team, so treat this as a guideline."
   },
   "zh-CN": {
+    "画像確認中": "图片待确认",
+    "水属性13系統一覧": "13 个水属性系列",
     "日本語": "日本語",
     "简体中文": "简体中文",
     "おぢ": "おぢ",
