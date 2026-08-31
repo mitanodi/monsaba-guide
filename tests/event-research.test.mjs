@@ -35,7 +35,60 @@ test('community aliases stay separate from official Japanese event names', () =>
   assert.deepEqual(byId['summer-party'].communityAliases, ['Summer Party', 'Summer Bash']);
   assert.ok(byId['island-treasure'].communityAliases.includes('Deepsea Dive'));
   assert.ok(byId['zombie-siege'].communityAliases.includes('Zobo Shooter'));
-  assert.equal(byId['zombie-siege'].overseasStatus, 'japan_implementation_pending');
+  assert.equal(byId['zombie-siege'].overseasStatus, 'community_reference_only');
+});
+
+test('Zombie Siege stores the Japanese playtest separately from community and legacy data', () => {
+  const event = byId['zombie-siege'];
+  assert.equal(event.name, 'ゾンビ包囲戦');
+  assert.equal(event.status, 'periodic');
+  assert.equal(event.verificationStatus, 'verified');
+  assert.equal(event.sourceType, 'user_playtest');
+  assert.equal(event.verifiedAt, '2026-08-31');
+  assert.deepEqual(event.strategy.buffOrder, ['レイジ', 'ロックオン']);
+  assert.deepEqual(event.strategy.targetPriority.slice(0, 2), ['シャーマンゾンビ', '電撃ゾンビ']);
+  assert.equal(event.strategy.preparationMultiplier, 1);
+  assert.equal(event.strategy.scoreMultiplier, 200);
+  assert.deepEqual(event.userBenchmark, {
+    huntCoins: 500000,
+    score: 10000000,
+    pointsPerCoin: 20,
+    status: 'user_tested_estimate',
+    note: 'バフ、ボス抽選、部屋人数、撃破競合で大きく変動'
+  });
+  assert.equal(event.legacy.separated, true);
+});
+
+test('Zombie Siege guide exposes the complete tested route in every locale', () => {
+  const cases = [
+    {
+      file: 'events/zombie-siege/index.html',
+      title: 'モンサバ ゾンビ包囲戦攻略',
+      current: '日本版で現行プレイ可能',
+      terms: ['×1でレイジを確保', 'まずロックオンを取る', '×200のシャーマン', '混雑時は電撃', '人が少ない部屋を探す', '約500,000', '約10,000,000pt', '約20pt / coin', 'ユーザー実戦目安', 'コミュニティ攻略との照合', '旧仕様：宝箱ドロップ方式']
+    },
+    {
+      file: 'en/events/zombie-siege/index.html',
+      title: 'Zombie Siege Guide',
+      current: 'Currently playable in the Japanese version',
+      terms: ['Collect Rage at 1x', 'Get Lock-On before moving up', 'Shaman at 200x', 'Switch to Shocker if crowded', 'Look for a quieter room', 'about 500,000', 'about 10,000,000', 'about 20 points / coin', 'Japanese user benchmark', 'Community cross-check', 'Legacy: chest-drop version']
+    },
+    {
+      file: 'zh-cn/events/zombie-siege/index.html',
+      title: '僵尸围城攻略',
+      current: '日本版目前可以游玩',
+      terms: ['在1倍区取得Rage', '提高倍率前先取得Lock-On', '200倍区的Shaman', '拥挤时改打Shocker', '寻找人数较少的房间', '约500,000', '约10,000,000pt', '约20pt / coin', '日本版用户实战参考', '社区信息交叉核对', '旧机制：宝箱掉落版本']
+    }
+  ];
+  for (const page of cases) {
+    const html = read(page.file);
+    assert.match(html, new RegExp(`<title>[^<]*${page.title}`), page.file);
+    assert.ok(html.includes(page.current), page.file);
+    for (const term of page.terms) assert.ok(html.includes(term), `${page.file}: ${term}`);
+    assert.equal((html.match(/class="zombie-siege-steps"/g) || []).length, 1, page.file);
+    assert.equal((html.match(/class="zombie-siege-benchmark"/g) || []).length, 1, page.file);
+    assert.match(html, /"dateModified"\s*:\s*"2026-08-31"/, page.file);
+  }
 });
 
 test('unverified event details are marked for human verification', () => {
@@ -103,7 +156,7 @@ test('localized event guides and freshness sections appear exactly once', () => 
     for (const id of researchedEventIds) {
       const relative = `${locale}/events/${id}/index.html`;
       const html = read(relative);
-      assert.equal((html.match(/class="event-status-grid"/g) || []).length, 1, relative);
+      assert.equal((html.match(/class="event-status-grid"/g) || []).length, id === 'zombie-siege' ? 3 : 1, relative);
       assert.equal((html.match(/>Human Verification</g) || []).length, 1, relative);
       assert.equal((html.match(/class="wrap source-note page-freshness"/g) || []).length, 1, relative);
     }

@@ -68,10 +68,15 @@
 
 ### ゾンビ包囲戦／Zobo Shooter
 
+- 一次確認：ユーザー本人が2026年8月31日に日本版で実際にプレイし、開催中・プレイ可能であることを確認。
 - 国内攻略ページ：https://monster-survival.games-wiki.com/events/zombie-siege
+- 海外現行wiki：https://clashofcritters.wiki.gg/wiki/Zobo_Shooter
 - 海外ガイド：https://clashcritters.com/guides/zobo-shooter-rewards-guide/
-- 反映：日本版の旧仕様はアーカイブ扱い。「Zobo Shooter」は海外コミュニティ別名で、日本版への実装を断定しない。
-- Human Verification：日本版での現在の開催・閉鎖状態。
+- 海外実戦ガイド：https://clashcritters.com/guides/zobo-shaman-room-farming-trick/
+- 反映：日本版の現行プレイ可能状態、低倍率でのレイジ・ロックオン準備、×200のシャーマン優先、混雑時の電撃ゾンビへの切り替え、部屋選びを独自文章で整理。
+- ユーザー実戦目安：ハントコイン約50万でスコア約1,000万（約20pt/coin）。保証値ではなく、バフ・抽選・競合で変動する1例として扱う。
+- 旧仕様：2026年7月15日以前の宝箱ドロップ方式は本文下部へ分離し、現行攻略へ混在させない。
+- Human Verification：現行ヘルプ全文、レイジ・ロックオンの正確なドロップ条件、ボス別の現行キル率・得点値。
 
 ### サプライズルーレット
 

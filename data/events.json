@@ -6,7 +6,7 @@
     "cadenceLabel": "合計3日ごとの基本ローテーションというコミュニティ情報",
     "sequence": ["fishing-tournament", "treasure-hunt", "running-party", "zombie-siege", "magic-farm"],
     "notGuaranteedSchedule": true,
-    "caveats": ["ゾンビ包囲戦の閉鎖・改修", "魔法の農場のリメイク", "日本版と海外版の差"],
+    "caveats": ["ゾンビ包囲戦の現行版・旧宝箱仕様の分離", "魔法の農場のリメイク", "日本版と海外版の差"],
     "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/4.html"
   },
   "events": [
@@ -126,18 +126,37 @@
     {
       "id": "zombie-siege",
       "name": "ゾンビ包囲戦",
-      "status": "legacy",
+      "status": "periodic",
       "href": "/events/zombie-siege/",
-      "summary": "現在は一時閉鎖。旧仕様はアーカイブとしてのみ掲載。",
-      "verificationStatus": "legacy",
-      "sourceType": "community",
+      "summary": "日本版で現行プレイ可能。低倍率で準備し、×200のシャーマンを狙う実戦ルートを掲載。",
+      "verificationStatus": "verified",
+      "sourceType": "user_playtest",
+      "source": "ユーザー本人による日本版ゲーム内実戦確認",
       "sourceUrl": "https://monster-survival.games-wiki.com/events/zombie-siege",
       "verifiedAt": "2026-08-31",
-      "sourceStatus": "legacy",
+      "sourceStatus": "verified",
       "communityAliases": ["Zobo Shooter"],
-      "overseasStatus": "japan_implementation_pending",
+      "overseasStatus": "community_reference_only",
       "needsHumanVerification": true,
-      "humanVerification": ["日本版の現在状態"]
+      "humanVerification": ["現行ヘルプ全文", "レイジ・ロックオンの正確なドロップ条件", "ボス別の現行キル率・得点値"],
+      "strategy": {
+        "preparationMultiplier": 1,
+        "scoreMultiplier": 200,
+        "buffOrder": ["レイジ", "ロックオン"],
+        "targetPriority": ["シャーマンゾンビ", "電撃ゾンビ", "状況に応じた次の高得点ボス"],
+        "roomSelection": "×200周辺の人数と競合を確認し、混雑時は早めに別部屋を検討"
+      },
+      "userBenchmark": {
+        "huntCoins": 500000,
+        "score": 10000000,
+        "pointsPerCoin": 20,
+        "status": "user_tested_estimate",
+        "note": "バフ、ボス抽選、部屋人数、撃破競合で大きく変動"
+      },
+      "legacy": {
+        "separated": true,
+        "summary": "2026年7月15日以前の宝箱ドロップ方式は旧仕様として分離"
+      }
     },
     {
       "id": "surprise-roulette",
