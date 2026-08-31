@@ -3,18 +3,18 @@ const modeLabels={overall:'総合',normal:'通常',zombie:'ゾンビ',dojo:'道�
 const priorityOrder={'最優先候補':0,'優先候補':1,'用途次第':2,'評価保留':3};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const thumb=src=>`/${String(src||'').replace('assets/monsters/','assets/thumbs/')}`;
 const {getFamilyDisplayName,getFamilyDisplayLabel,getFamilySearchAliases}=MONSABA_FAMILY;
-let state={families:[],skills:{},ratings:{},priority:{},transitions:[]};
+let state={families:[],skills:{},ratings:{},priority:{},images:new Map(),transitions:[]};
 
 async function boot(){
-  const [tatari,skills,ratings,priority]=await Promise.all([
+  const [tatari,skills,ratings,priority,imageManifest]=await Promise.all([
     fetchJson('/data/tatari.json'),
     fetchJson('/data/tata-skills.json'),
     fetchJson('/data/tier-ratings.json'),
-    fetchJson('/data/evolution-priority.json')
+    fetchJson('/data/evolution-priority.json'),
+    fetchJson('/data/tata-images.json')
   ]);
-  state={families:tatari.families||[],skills:skills.byFamily||{},ratings,priority,transitions:[]};
+  state={families:tatari.families||[],skills:skills.byFamily||{},ratings,priority,images:new Map((imageManifest.families||[]).map(item=>[item.familyId,item.stage1])),transitions:[]};
   state.transitions=buildTransitions();
   renderRoadmap();
   renderDiagnosisControls();
@@ -98,7 +98,7 @@ function roadmapItem(item){
   const t3=sf?.stages.find(s=>s.stage===3);
   const first=sf?.stages[0];
   const note=item.familyId==='gantoru'?`<small>初期：${esc(first?.tataName||'コロカメ')}</small>`:'';
-  return `<a class="mini-family-row" href="/tata/${esc(item.familyId)}/"><img src="${esc(thumb(f.evolutions[0]?.image))}" alt="${esc(first?.tataName||getFamilyDisplayName(f))}"><span><b>${esc(getFamilyDisplayLabel(f))}</b>${note}<em>T3：${esc(t3?.tataName)} / ${item.requiredStars}星</em></span></a>`;
+  return `<a class="mini-family-row" href="/tata/${esc(item.familyId)}/">${stage1Image(f,first?.tataName||getFamilyDisplayName(f))}<span><b>${esc(getFamilyDisplayLabel(f))}</b>${note}<em>T3：${esc(t3?.tataName)} / ${item.requiredStars}星</em></span></a>`;
 }
 
 function renderDiagnosisControls(){
@@ -188,7 +188,7 @@ function transitionCard(tx,compact){
   const z=state.ratings.zombieRush?.byFamily?.[tx.family.id]?.tier;
   const zombieAura=mode==='zombie'&&tx.from.stage===3&&tx.to.stage===4?`<div class="notice-line">ゾンビラッシュではT4オーラ無効</div>`:'';
   return `<article class="evolution-card" data-family-id="${esc(tx.family.id)}">
-    <div class="evolution-card-head"><img src="${esc(thumb(tx.family.evolutions[0]?.image))}" alt="${esc(getFamilyDisplayName(tx.family))}"><div><span class="attribute">${attrIcon[tx.family.attribute]||''} ${esc(tx.family.attribute)}属性</span><h3>${esc(getFamilyDisplayLabel(tx.family))}</h3><p>${esc(tx.from.tataName)} → ${esc(tx.to.tataName)}</p></div></div>
+    <div class="evolution-card-head">${stage1Image(tx.family,getFamilyDisplayName(tx.family))}<div><span class="attribute">${attrIcon[tx.family.attribute]||''} ${esc(tx.family.attribute)}属性</span><h3>${esc(getFamilyDisplayLabel(tx.family))}</h3><p>${esc(tx.from.tataName)} → ${esc(tx.to.tataName)}</p></div></div>
     <div class="tier-inline">${badge('進化',tx.priority)}${badge('総合',state.ratings.overall?.byFamily?.[tx.family.id]?.tier)}${z?badge('ゾンビ',z):''}${modeTierFor(tx.family.id,mode)?badge(modeLabels[mode],modeTierFor(tx.family.id,mode)):''}</div>
     <p class="evolution-headline">${esc(tx.headline)}</p>
     ${deltaHtml(tx.delta)}
@@ -196,6 +196,12 @@ function transitionCard(tx,compact){
     ${compact?`<p>${esc(tx.reason)}</p>`:''}
     <a class="detail-link" href="/tata/${esc(tx.family.id)}/">詳しく見る</a>
   </article>`;
+}
+
+function stage1Image(family,alt){
+  const image=state.images.get(family.id);
+  if(!image?.src) return '<span class="tata-image-pending" role="img" aria-label="画像確認中">画像確認中</span>';
+  return `<img loading="lazy" decoding="async" src="${esc(image.src)}" width="${Number(image.width)||256}" height="${Number(image.height)||256}" alt="${esc(alt)}">`;
 }
 
 function deltaHtml(delta){

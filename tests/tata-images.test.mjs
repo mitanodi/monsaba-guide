@@ -52,11 +52,12 @@ test('detail pages publish verified crops and neutral pending states', () => {
 test('Tier, Compare, Team Builder, My Monsaba, Search and Evolution Priority use crop mappings', () => {
   assert.match(read('tata-tier/index.html'), /assets\/tata-crops\/stage1\//);
   assert.match(read('evolution-priority/index.html'), /assets\/tata-crops\/stage1\//);
-  for (const file of ['tata-tier/tata-tier.js', 'compare/compare.js', 'team-builder/team-builder.js', 'my-monsaba/my-monsaba.js', 'search/search.js', 'zombie-rush/zombie-rush.js']) {
+  for (const file of ['tata-tier/tata-tier.js', 'compare/compare.js', 'team-builder/team-builder.js', 'my-monsaba/my-monsaba.js', 'search/search.js', 'zombie-rush/zombie-rush.js', 'evolution-priority/evolution-priority.js']) {
     assert.match(read(file), /data\/tata-images\.json/, `${file}: image manifest fetch`);
   }
   assert.match(read('compare/compare.js'), /compare-family-head/);
   assert.match(read('search/search.js'), /has-tata-image/);
+  assert.doesNotMatch(read('evolution-priority/evolution-priority.js'), /assets\/thumbs\//);
 });
 
 test('current UI counts are 64 families, 230 forms and 13/13/13/13/12 attributes', () => {
