@@ -38,22 +38,24 @@ test('community aliases stay separate from official Japanese event names', () =>
   assert.equal(byId['zombie-siege'].overseasStatus, 'community_reference_only');
 });
 
-test('Zombie Siege stores the Japanese playtest separately from community and legacy data', () => {
+test('Zombie Siege stores field verification separately from community and legacy data', () => {
   const event = byId['zombie-siege'];
   assert.equal(event.name, 'ゾンビ包囲戦');
   assert.equal(event.status, 'periodic');
   assert.equal(event.verificationStatus, 'verified');
-  assert.equal(event.sourceType, 'user_playtest');
-  assert.equal(event.verifiedAt, '2026-08-31');
+  assert.equal(event.sourceType, 'field_verification');
+  assert.equal(event.verifiedAt, '2026-09-01');
   assert.deepEqual(event.strategy.buffOrder, ['レイジ', 'ロックオン']);
   assert.deepEqual(event.strategy.targetPriority.slice(0, 2), ['シャーマンゾンビ', '電撃ゾンビ']);
   assert.equal(event.strategy.preparationMultiplier, 1);
   assert.equal(event.strategy.scoreMultiplier, 200);
-  assert.deepEqual(event.userBenchmark, {
-    huntCoins: 500000,
-    score: 10000000,
-    pointsPerCoin: 20,
-    status: 'user_tested_estimate',
+  assert.deepEqual(event.fieldVerification, {
+    runs: 2,
+    huntCoinsPerRunApprox: 500000,
+    minimumScorePerRun: 10000000,
+    bestRunScoreOver: 11000000,
+    minimumPointsPerCoinApprox: 20,
+    status: 'verified_observation',
     note: 'バフ、ボス抽選、部屋人数、撃破競合で大きく変動'
   });
   assert.equal(event.legacy.separated, true);
@@ -65,19 +67,22 @@ test('Zombie Siege guide exposes the complete tested route in every locale', () 
       file: 'events/zombie-siege/index.html',
       title: 'モンサバ ゾンビ包囲戦攻略',
       current: '日本版で現行プレイ可能',
-      terms: ['×1でレイジを確保', 'まずロックオンを取る', '×200のシャーマン', '混雑時は電撃', '人が少ない部屋を探す', '約500,000', '約10,000,000pt', '約20pt / coin', 'ユーザー実戦目安', 'コミュニティ攻略との照合', '旧仕様：宝箱ドロップ方式']
+      terms: ['×1でレイジを確保', 'まずロックオンを取る', '×200のシャーマン', '混雑時は電撃', '人が少ない部屋を探す', '約500,000 / 回', '1,000万pt超 / 回', '約20pt / coin以上', '実戦確認', '2回実戦', '1回は1,100万pt超', 'コミュニティ攻略との照合', '旧仕様：宝箱ドロップ方式'],
+      forbidden: ['ユーザー本人', 'ユーザー実戦', '1例です']
     },
     {
       file: 'en/events/zombie-siege/index.html',
       title: 'Zombie Siege Guide',
       current: 'Currently playable in the Japanese version',
-      terms: ['Collect Rage at 1x', 'Get Lock-On before moving up', 'Shaman at 200x', 'Switch to Shocker if crowded', 'Look for a quieter room', 'about 500,000', 'about 10,000,000', 'about 20 points / coin', 'Japanese user benchmark', 'Community cross-check', 'Legacy: chest-drop version']
+      terms: ['Collect Rage at 1x', 'Get Lock-On before moving up', 'Shaman at 200x', 'Switch to Shocker if crowded', 'Look for a quieter room', 'about 500,000 / run', 'over 10,000,000 / run', 'about 20+ points / coin', 'Field verification', 'tested twice', 'one exceeded 11,000,000 points', 'Community cross-check', 'Legacy: chest-drop version'],
+      forbidden: ['The user personally', 'Japanese user benchmark', 'one observed run']
     },
     {
       file: 'zh-cn/events/zombie-siege/index.html',
       title: '僵尸围城攻略',
       current: '日本版目前可以游玩',
-      terms: ['在1倍区取得Rage', '提高倍率前先取得Lock-On', '200倍区的Shaman', '拥挤时改打Shocker', '寻找人数较少的房间', '约500,000', '约10,000,000pt', '约20pt / coin', '日本版用户实战参考', '社区信息交叉核对', '旧机制：宝箱掉落版本']
+      terms: ['在1倍区取得Rage', '提高倍率前先取得Lock-On', '200倍区的Shaman', '拥挤时改打Shocker', '寻找人数较少的房间', '约500,000 / 次', '每次超过1,000万pt', '约20pt / coin以上', '实战确认', '实战2次', '其中1次超过1,100万pt', '社区信息交叉核对', '旧机制：宝箱掉落版本'],
+      forbidden: ['用户于', '日本版用户实战参考', '一次实战记录']
     }
   ];
   for (const page of cases) {
@@ -85,9 +90,10 @@ test('Zombie Siege guide exposes the complete tested route in every locale', () 
     assert.match(html, new RegExp(`<title>[^<]*${page.title}`), page.file);
     assert.ok(html.includes(page.current), page.file);
     for (const term of page.terms) assert.ok(html.includes(term), `${page.file}: ${term}`);
+    for (const term of page.forbidden) assert.ok(!html.includes(term), `${page.file}: forbidden ${term}`);
     assert.equal((html.match(/class="zombie-siege-steps"/g) || []).length, 1, page.file);
     assert.equal((html.match(/class="zombie-siege-benchmark"/g) || []).length, 1, page.file);
-    assert.match(html, /"dateModified"\s*:\s*"2026-08-31"/, page.file);
+    assert.match(html, /"dateModified"\s*:\s*"2026-09-01"/, page.file);
   }
 });
 
@@ -114,7 +120,7 @@ test('event search exposes community aliases without replacing primary names', (
   }
 });
 
-test('August 31 event research dates agree in every locale and sitemap', () => {
+test('event research dates agree in every locale and sitemap', () => {
   const locales = [
     { prefix: '', checked: '最終確認日：2026年8月31日', kickerDate: '2026年8月31日' },
     { prefix: 'en/', checked: 'Last checked: Aug 31, 2026', kickerDate: 'Aug 31, 2026' },
@@ -125,11 +131,18 @@ test('August 31 event research dates agree in every locale and sitemap', () => {
     for (const locale of locales) {
       const relative = `${locale.prefix}events/${id}/index.html`;
       const html = read(relative);
-      assert.match(html, /"dateModified"\s*:\s*"2026-08-31"/, relative);
-      assert.match(html, new RegExp(`<span class="visible-kicker">[^<]*${locale.kickerDate.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[^<]*<\\/span>`), relative);
-      assert.ok(html.includes(locale.checked), relative);
+      const updated = id === 'zombie-siege' ? '2026-09-01' : '2026-08-31';
+      const kickerDate = id === 'zombie-siege'
+        ? (locale.prefix === 'en/' ? 'Sep 1, 2026' : '2026年9月1日')
+        : locale.kickerDate;
+      const checked = id === 'zombie-siege'
+        ? (locale.prefix === 'en/' ? 'Last checked: Sep 1, 2026' : locale.prefix === 'zh-cn/' ? '最后确认：2026年9月1日' : '最終確認日：2026年9月1日')
+        : locale.checked;
+      assert.match(html, new RegExp(`"dateModified"\\s*:\\s*"${updated}"`), relative);
+      assert.match(html, new RegExp(`<span class="visible-kicker">[^<]*${kickerDate.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[^<]*<\\/span>`), relative);
+      assert.ok(html.includes(checked), relative);
       const route = `/${locale.prefix}events/${id}/`;
-      assert.ok(sitemap.includes(`<loc>https://monster-survival.com${route}</loc><lastmod>2026-08-31</lastmod>`), route);
+      assert.ok(sitemap.includes(`<loc>https://monster-survival.com${route}</loc><lastmod>${updated}</lastmod>`), route);
     }
   }
   assert.ok(sitemap.includes('<loc>https://monster-survival.com/events/</loc><lastmod>2026-08-30</lastmod>'));

@@ -128,12 +128,12 @@
       "name": "ゾンビ包囲戦",
       "status": "periodic",
       "href": "/events/zombie-siege/",
-      "summary": "日本版で現行プレイ可能。低倍率で準備し、×200のシャーマンを狙う実戦ルートを掲載。",
+      "summary": "日本版で現行プレイ可能。2回の実戦確認をもとに、低倍率で準備し、×200のシャーマンを狙うルートを掲載。",
       "verificationStatus": "verified",
-      "sourceType": "user_playtest",
-      "source": "ユーザー本人による日本版ゲーム内実戦確認",
+      "sourceType": "field_verification",
+      "source": "日本版ゲーム内で2回実戦確認",
       "sourceUrl": "https://monster-survival.games-wiki.com/events/zombie-siege",
-      "verifiedAt": "2026-08-31",
+      "verifiedAt": "2026-09-01",
       "sourceStatus": "verified",
       "communityAliases": ["Zobo Shooter"],
       "overseasStatus": "community_reference_only",
@@ -146,11 +146,13 @@
         "targetPriority": ["シャーマンゾンビ", "電撃ゾンビ", "状況に応じた次の高得点ボス"],
         "roomSelection": "×200周辺の人数と競合を確認し、混雑時は早めに別部屋を検討"
       },
-      "userBenchmark": {
-        "huntCoins": 500000,
-        "score": 10000000,
-        "pointsPerCoin": 20,
-        "status": "user_tested_estimate",
+      "fieldVerification": {
+        "runs": 2,
+        "huntCoinsPerRunApprox": 500000,
+        "minimumScorePerRun": 10000000,
+        "bestRunScoreOver": 11000000,
+        "minimumPointsPerCoinApprox": 20,
+        "status": "verified_observation",
         "note": "バフ、ボス抽選、部屋人数、撃破競合で大きく変動"
       },
       "legacy": {

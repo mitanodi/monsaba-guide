@@ -15,6 +15,7 @@ const familyCount = tatari.families.length;
 const formCount = tatari.families.flatMap((family) => family.evolutions).length;
 const DEFAULT_CONTENT_DATE = '2026-08-30';
 const EVENT_RESEARCH_DATE = '2026-08-31';
+const ZOMBIE_SIEGE_UPDATE_DATE = '2026-09-01';
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 const dateParts = (value) => {
   const [year, month, day] = value.split('-').map(Number);
@@ -80,6 +81,53 @@ const zombieSiegePages = {
   }
 };
 
+const zombieSiegeCopyReplacements = {
+  ja: [
+    ['ゲーム内実戦確認', '実戦確認'],
+    ['ユーザー本人が2026年8月31日に日本版でプレイして確認しました。', '日本版で2回実戦し、現行プレイ可能であることを確認しました。'],
+    ['ユーザー実戦では、', '実戦確認では、'],
+    ['<strong>約500,000</strong>', '<strong>約500,000 / 回</strong>'],
+    ['<strong>約10,000,000pt</strong>', '<strong>1,000万pt超 / 回</strong>'],
+    ['<strong>約20pt / coin</strong>', '<strong>約20pt / coin以上</strong>'],
+    ['<span class="trust-label is-verified">ユーザー実戦目安</span> 50万コインで1,000万pt前後を狙えた今回の1例です。保証値ではなく、バフ、ボス抽選、部屋人数、撃破競合などで大きく変動します。', '<span class="trust-label is-verified">実戦確認</span> この立ち回りで2回実戦し、どちらも約50万コイン使用で1,000万ptを突破。1回は1,100万pt超を確認しました。保証値ではなく、バフ、部屋の混雑、ボス抽選、撃破競合によって変動します。'],
+    ['今回の約20pt/coinより低めですが、データは1例のため', '実戦確認の約20pt/coin以上より低めですが、確認データは2回分のため'],
+    ['日本版がプレイ可能であること、×1準備、レイジ、ロックオン、×200、シャーマン優先、混雑時の電撃切り替え、約20pt/coinの実戦例。', '日本版がプレイ可能であること、攻略ルート、2回とも約50万コインで1,000万pt超、うち1回は1,100万pt超、約20pt/coin以上を確認。'],
+    ['最優先：ユーザー本人による2026年8月31日の日本版ゲーム内実戦', '最優先：日本版ゲーム内での2回の実戦確認']
+  ],
+  en: [
+    ['Japanese in-game playtest', 'Field verification'],
+    ['Japanese playtest', 'Field verification'],
+    ['The user personally played the event on Aug 31, 2026.', 'Two Japanese-version runs confirmed that the event is currently playable.'],
+    ['In the user’s Japanese-version run,', 'Across the verified Japanese-version runs,'],
+    ['<strong>about 500,000</strong>', '<strong>about 500,000 / run</strong>'],
+    ['<strong>about 10,000,000</strong>', '<strong>over 10,000,000 / run</strong>'],
+    ['<strong>about 20 points / coin</strong>', '<strong>about 20+ points / coin</strong>'],
+    ['<span class="trust-label is-verified">Japanese user benchmark</span> This is one observed run, not a guaranteed return. Buffs, boss selection, room traffic and competing finishes can change it substantially.', '<span class="trust-label is-verified">Field verification</span> This route was tested twice. Both runs used about 500,000 Hunt Coins and exceeded 10,000,000 points; one exceeded 11,000,000 points. These are observed results, not guaranteed returns. Buffs, room traffic, boss selection and competing finishes can change them substantially.'],
+    ['It is below this run’s 20-point reference, but one data point is not enough', 'It is below the verified 20+ points-per-coin result, but two runs are not enough'],
+    ['Current availability, 1x preparation, Rage, Lock-On, 200x, Shaman priority, Shocker fallback and the 20-points-per-coin example.', 'Current availability, the full route, two runs above 10,000,000 points on about 500,000 coins each, one run above 11,000,000 points, and about 20+ points per coin.'],
+    ['Highest priority: the user’s Japanese-version playtest on Aug 31, 2026', 'Highest priority: two Japanese-version field verification runs']
+  ],
+  'zh-CN': [
+    ['日本版游戏内实战确认', '实战确认'],
+    ['日本版实战', '实战确认'],
+    ['用户于2026年8月31日亲自游玩确认。', '已在日本版进行2次实战，并确认当前可以游玩。'],
+    ['在本次实战确认中，', '在两次实战确认中，'],
+    ['<strong>约500,000</strong>', '<strong>约500,000 / 次</strong>'],
+    ['<strong>约10,000,000pt</strong>', '<strong>每次超过1,000万pt</strong>'],
+    ['<strong>约20pt / coin</strong>', '<strong>约20pt / coin以上</strong>'],
+    ['<span class="trust-label is-verified">日本版用户实战参考</span> 这是一次实战记录，不是保证值。增益、首领抽选、房间人数与击败竞争都会造成较大变化。', '<span class="trust-label is-verified">实战确认</span> 这一路线已实战2次，两次均使用约50万Hunt Coin并突破1,000万pt，其中1次超过1,100万pt。这是实战结果，不是保证值；增益、房间拥挤程度、首领抽选与击败竞争都会造成变化。'],
+    ['低于本次约20pt/coin的参考值，但单一案例不足以', '低于实战确认的约20pt/coin以上，但2次确认数据仍不足以'],
+    ['当前可游玩、1倍区准备、Rage、Lock-On、200倍区、Shaman优先、Shocker备用与约20pt/coin实例。', '当前可游玩、完整路线、2次均以约50万Hunt Coin突破1,000万pt、其中1次超过1,100万pt，以及约20pt/coin以上。'],
+    ['最高优先级：用户于2026年8月31日进行的日本版游戏内实战', '最高优先级：日本版游戏内2次实战确认']
+  ]
+};
+
+zombieSiegePages.en.description = zombieSiegePages.en.description.replace('based on a Japanese-version playtest', 'based on Japanese-version field verification');
+zombieSiegePages['zh-CN'].description = zombieSiegePages['zh-CN'].description.replace('依据日本版实战整理', '依据日本版实战确认整理');
+for (const [locale, replacements] of Object.entries(zombieSiegeCopyReplacements)) {
+  zombieSiegePages[locale].body = replacements.reduce((body, [from, to]) => body.replaceAll(from, to), zombieSiegePages[locale].body);
+}
+
 const eventDetails = {
   'running-party': ['4人協力の現行仕様', 'ピンボールでスノーボードを集め、ルーレットで進んだ各自の距離を4人の合計へ加算します。チームメイトの距離報酬に含まれるイベントアイテムも共有されます。', '安定重視なら5倍・10倍が扱いやすく、高倍率ほど1回の振れ幅が大きくなります。最初に距離報酬と残り時間を見て倍率を決めます。', 'ヘルプ全文、全倍率、現行の距離・ランキング報酬は日本語ゲーム画面で再確認待ちです。'],
   'running-star': ['1人用ランニング', '協力版とは分けて扱う1人用イベントです。走行距離を伸ばして進行します。', 'チーム共有のないソロ版として、手持ちアイテムと残り報酬ラインを基準に進めます。', '現行報酬と倍率の詳細は確認待ちです。'],
@@ -93,7 +141,7 @@ for (const event of events.events) {
   if (event.id === 'treasure-hunt' || event.id === 'summer-party') continue;
   if (event.id === 'zombie-siege') {
     const page = zombieSiegePages.ja;
-    write('/events/zombie-siege/', shell({ route: '/events/zombie-siege/', title: page.title, description: page.description, type: 'Article', updated: EVENT_RESEARCH_DATE, body: page.body }));
+    write('/events/zombie-siege/', shell({ route: '/events/zombie-siege/', title: page.title, description: page.description, type: 'Article', updated: ZOMBIE_SIEGE_UPDATE_DATE, body: page.body }));
     continue;
   }
   const [heading, current, strategy, pending] = eventDetails[event.id];
@@ -202,7 +250,7 @@ for (const locale of Object.keys(localeConfig)) for (const event of events.event
   if (event.id === 'treasure-hunt' || event.id === 'summer-party') continue;
   if (event.id === 'zombie-siege') {
     const page = zombieSiegePages[locale];
-    write(`${localeConfig[locale].prefix}/events/zombie-siege/`, localizedShell(locale, { route: '/events/zombie-siege/', title: page.title, description: page.description, type: 'Article', updated: EVENT_RESEARCH_DATE, body: page.body }));
+    write(`${localeConfig[locale].prefix}/events/zombie-siege/`, localizedShell(locale, { route: '/events/zombie-siege/', title: page.title, description: page.description, type: 'Article', updated: ZOMBIE_SIEGE_UPDATE_DATE, body: page.body }));
     continue;
   }
   const [title, description, currentLabel, current, priorityLabel, priority, pending] = localizedEvents[locale][event.id];
