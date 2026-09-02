@@ -8,8 +8,9 @@ import {
   removeRoster, exportRoster, importRosterText, familyMatches, rosterSummary, growthCandidates, modeCandidates
 } from '../my-monsaba/roster-core.js';
 import {
-  TEAM_KEY, DRAFT_KEY, TEAM_ROWS, TEAM_COLUMNS, TEAM_SLOTS, MAX_SAVED_TEAMS, emptyTeam, sanitizeTeam,
+  TEAM_KEY, DRAFT_KEY, TEAM_VERSION, TEAM_ROWS, TEAM_COLUMNS, TEAM_SLOTS, MAX_SAVED_TEAMS, emptyTeam, sanitizeTeam,
   loadTeams, loadDraft, saveDraft, saveTeamList, upsertTeam, placeMember, removeMember, moveMember,
+  placementIssue, setPlayerUnlock, playerCount, playerLimit, levelLimit,
   encodeTeam, decodeTeam, analyzeTeam, teamText, stage1ImageFor
 } from '../team-builder/team-core.js';
 
@@ -101,7 +102,7 @@ test('育成候補とモード候補は既存評価だけを返す', () => {
 test('編成は常に6×6の36枠、許可IDと実在進化段階だけを保持', () => {
   const team = sanitizeTeam({ name: '<b>編成</b>\u0000', mode: 'zombie', slots: [{ familyId: first.id, stage: 2 }, { familyId: 'unknown', stage: 4 }] }, families);
   assert.equal(team.slots.length, TEAM_SLOTS);
-  assert.deepEqual(team.slots[0], { familyId: first.id, stage: 2 });
+  assert.deepEqual(team.slots[0], { familyId: first.id, stage: 2, playerId: 1, level: 1 });
   assert.equal(team.slots[1], null);
   assert.equal(team.mode, 'zombie');
   assert.ok(team.name.length <= 40);
@@ -111,9 +112,9 @@ test('編成は常に6×6の36枠、許可IDと実在進化段階だけを保持
 });
 
 test('編成の配置・stage変更・削除・入替はデータ構造で保持', () => {
-  let team = placeMember(emptyTeam(), 0, { familyId: first.id, stage: 1 }, families);
-  team = placeMember(team, 0, { familyId: first.id, stage: 4 }, families);
-  team = placeMember(team, 1, { familyId: second.id, stage: 2 }, families);
+  let team = placeMember(emptyTeam(), 0, { familyId: first.id, stage: 1, playerId: 1, level: 1 }, families);
+  team = placeMember(team, 0, { familyId: first.id, stage: 4, playerId: 1, level: 7 }, families);
+  team = placeMember(team, 1, { familyId: second.id, stage: 2, playerId: 2, level: 3 }, families);
   team = moveMember(team, 0, 1, families);
   const clean = removeMember(team, 1, families);
   assert.equal(clean.slots[0].familyId, second.id);
@@ -123,13 +124,13 @@ test('編成の配置・stage変更・削除・入替はデータ構造で保持
 test('T4が存在しない系統へT4を配置できない', () => {
   const shortFamily = families.find((family) => !family.evolutions.some((item) => item.stage === 4));
   assert.ok(shortFamily);
-  const team = placeMember(emptyTeam(), 0, { familyId: shortFamily.id, stage: 4 }, families);
+  const team = placeMember(emptyTeam(), 0, { familyId: shortFamily.id, stage: 4, playerId: 1, level: 1 }, families);
   assert.equal(team.slots[0], null);
 });
 
 test('自動保存draftは専用keyへ保存・復元する', () => {
   const box = storage();
-  const team = placeMember(emptyTeam(), 35, { familyId: first.id, stage: 3 }, families);
+  const team = placeMember(emptyTeam(), 35, { familyId: first.id, stage: 3, playerId: 2, level: 7 }, families);
   saveDraft(box, team, families);
   assert.ok(box.getItem(DRAFT_KEY));
   assert.equal(loadDraft(box, families).slots[35].stage, 3);
@@ -144,14 +145,17 @@ test('保存編成はreload復元し10件を超えない', () => {
   assert.ok(box.getItem(TEAM_KEY));
 });
 
-test('共有hashはfamily ID・stage・slot・modeだけを往復', () => {
-  const team = emptyTeam(); team.name = 'URLへ含めない名前'; team.mode = 'normal'; team.slots[7] = { familyId: first.id, stage: 3 };
+test('v3共有hashはPlayer・Tier・Lv・解放状態を往復し編成名は含めない', () => {
+  const team = emptyTeam(); team.name = 'URLへ含めない名前'; team.mode = 'normal'; team.playerSettings[2].levelCapPlusOne = true; team.slots[7] = { familyId: first.id, stage: 3, playerId: 2, level: 8 };
   const encoded = encodeTeam(team, families);
   assert.doesNotMatch(encoded, /URL|名前/);
   const decoded = decodeTeam(encoded, families);
   assert.equal(decoded.name, '');
   assert.equal(decoded.slots[7].familyId, first.id);
   assert.equal(decoded.slots[7].stage, 3);
+  assert.equal(decoded.slots[7].playerId, 2);
+  assert.equal(decoded.slots[7].level, 8);
+  assert.equal(decoded.playerSettings[2].levelCapPlusOne, true);
   assert.throws(() => decodeTeam('broken!!!', families));
 });
 
@@ -164,6 +168,91 @@ test('旧15枠の保存・共有は6×6左上へ移行する', () => {
   assert.equal(decodeTeam(encoded, families).slots[16].stage, 2);
 });
 
+test('v2共有は36枠を保ち、旧要素へPlayerとLvの安全な初期値を付ける', () => {
+  const slots = Array(36).fill(null); slots[0] = [first.id, 1]; slots[35] = [second.id, 2];
+  const encoded = Buffer.from(JSON.stringify({ v: 2, r: 6, c: 6, m: 'zombie', s: slots })).toString('base64url');
+  const migrated = decodeTeam(encoded, families);
+  assert.equal(migrated.version, TEAM_VERSION);
+  assert.deepEqual(migrated.slots[0], { familyId: first.id, stage: 1, playerId: 1, level: 1 });
+  assert.deepEqual(migrated.slots[35], { familyId: second.id, stage: 2, playerId: 1, level: 1 });
+});
+
+test('P1/P2は通常各10体で独立し、11体目を拒否する', () => {
+  let team = emptyTeam();
+  for (let index = 0; index < 10; index += 1) team = placeMember(team, index, { familyId: first.id, stage: 1, playerId: 1, level: 1 }, families);
+  for (let index = 10; index < 20; index += 1) team = placeMember(team, index, { familyId: second.id, stage: 1, playerId: 2, level: 7 }, families);
+  assert.equal(playerCount(team, 1), 10); assert.equal(playerCount(team, 2), 10);
+  assert.equal(playerLimit(team, 1), 10); assert.equal(playerLimit(team, 2), 10);
+  assert.equal(placementIssue(team, 20, { familyId: first.id, stage: 1, playerId: 1, level: 1 }, families), 'player-full');
+  assert.equal(placeMember(team, 20, { familyId: first.id, stage: 1, playerId: 1, level: 1 }, families).slots[20], null);
+});
+
+test('配置上限+1はPlayerごとに11体目だけを許可し12体目を拒否する', () => {
+  let team = emptyTeam();
+  for (let index = 0; index < 10; index += 1) team = placeMember(team, index, { familyId: first.id, stage: 1, playerId: 1, level: 1 }, families);
+  const unlocked = setPlayerUnlock(team, 1, 'slotLimitPlusOne', true, families);
+  assert.equal(unlocked.ok, true); team = unlocked.team;
+  team = placeMember(team, 10, { familyId: second.id, stage: 1, playerId: 1, level: 7 }, families);
+  assert.equal(playerCount(team, 1), 11); assert.equal(playerLimit(team, 1), 11); assert.equal(playerLimit(team, 2), 10);
+  assert.equal(placementIssue(team, 11, { familyId: first.id, stage: 1, playerId: 1, level: 1 }, families), 'player-full');
+  assert.equal(setPlayerUnlock(team, 1, 'slotLimitPlusOne', false, families).reason, 'player-over-limit');
+});
+
+test('Lvは通常1〜7、解放後のみ8でPlayerごとに独立する', () => {
+  let team = emptyTeam();
+  assert.equal(levelLimit(team, 1), 7);
+  assert.equal(placementIssue(team, 0, { familyId: first.id, stage: 1, playerId: 1, level: 8 }, families), 'invalid-level');
+  team = setPlayerUnlock(team, 1, 'levelCapPlusOne', true, families).team;
+  assert.equal(levelLimit(team, 1), 8); assert.equal(levelLimit(team, 2), 7);
+  team = placeMember(team, 0, { familyId: first.id, stage: 1, playerId: 1, level: 8 }, families);
+  assert.equal(team.slots[0].level, 8);
+  assert.equal(placementIssue(team, 1, { familyId: second.id, stage: 1, playerId: 2, level: 8 }, families), 'invalid-level');
+});
+
+test('Lv8配置中の解放解除は確認相当の明示指定がなければ変更しない', () => {
+  let team = emptyTeam(); team = setPlayerUnlock(team, 1, 'levelCapPlusOne', true, families).team;
+  team = placeMember(team, 0, { familyId: first.id, stage: 1, playerId: 1, level: 8 }, families);
+  const blocked = setPlayerUnlock(team, 1, 'levelCapPlusOne', false, families);
+  assert.equal(blocked.reason, 'level-eight-present'); assert.equal(blocked.team.slots[0].level, 8);
+  const approved = setPlayerUnlock(team, 1, 'levelCapPlusOne', false, families, { downgrade: true });
+  assert.equal(approved.ok, true); assert.equal(approved.team.slots[0].level, 7); assert.equal(approved.team.playerSettings[1].levelCapPlusOne, false);
+});
+
+test('Player変更は変更先上限を検証し、セル入替は所属を維持する', () => {
+  let team = emptyTeam();
+  for (let index = 0; index < 10; index += 1) team = placeMember(team, index, { familyId: first.id, stage: 1, playerId: 2, level: 1 }, families);
+  team = placeMember(team, 10, { familyId: second.id, stage: 2, playerId: 1, level: 7 }, families);
+  assert.equal(placementIssue(team, 10, { ...team.slots[10], playerId: 2 }, families), 'player-full');
+  const swapped = moveMember(team, 0, 10, families);
+  assert.equal(swapped.slots[0].playerId, 1); assert.equal(swapped.slots[10].playerId, 2);
+});
+
+test('v3 validatorは不正Player・Lv・人数超過を共有URLで拒否する', () => {
+  const make = (slots, unlocks = [[0, 0], [0, 0]]) => Buffer.from(JSON.stringify({ v: 3, r: 6, c: 6, m: 'zombie', s: slots, u: unlocks })).toString('base64url');
+  const blank = Array(36).fill(null);
+  const invalidPlayer = [...blank]; invalidPlayer[0] = [first.id, 1, 3, 1]; assert.throws(() => decodeTeam(make(invalidPlayer), families));
+  const invalidLevel = [...blank]; invalidLevel[0] = [first.id, 1, 1, 8]; assert.throws(() => decodeTeam(make(invalidLevel), families));
+  const tooMany = [...blank]; for (let index = 0; index < 11; index += 1) tooMany[index] = [first.id, 1, 1, 1]; assert.throws(() => decodeTeam(make(tooMany), families));
+});
+
+test('v3 localStorage sanitizerは不正Player・Lv・人数超過を残さない', () => {
+  const slots = Array(36).fill(null); slots[0] = { familyId: first.id, stage: 1, playerId: 9, level: 1 }; slots[1] = { familyId: first.id, stage: 1, playerId: 1, level: 8 };
+  for (let index = 2; index < 14; index += 1) slots[index] = { familyId: first.id, stage: 1, playerId: 1, level: 1 };
+  const clean = sanitizeTeam({ version: 3, slots, playerSettings: { 1: {}, 2: {} } }, families);
+  assert.equal(clean.slots[0], null); assert.equal(clean.slots[1], null); assert.equal(playerCount(clean, 1), 10);
+});
+
+test('v3共有はPlayer・Tier・Lv・両Player解放・将来投稿メタデータを往復する', () => {
+  let team = emptyTeam(); team.playerSettings[1].slotLimitPlusOne = true; team.playerSettings[2].levelCapPlusOne = true;
+  team.challenge = { difficulty: 4, seasonId: 'season-1', highestRound: 25, cleared: false, tags: ['低育成'] };
+  team = placeMember(team, 5, { familyId: first.id, stage: 4, playerId: 2, level: 8 }, families);
+  const restored = decodeTeam(encodeTeam(team, families), families);
+  assert.equal(restored.slots[5].playerId, 2); assert.equal(restored.slots[5].stage, 4); assert.equal(restored.slots[5].level, 8);
+  assert.equal(restored.playerSettings[1].slotLimitPlusOne, true); assert.equal(restored.playerSettings[2].levelCapPlusOne, true);
+  assert.equal(restored.challenge.difficulty, 4); assert.equal(restored.challenge.seasonId, 'season-1');
+  assert.equal(emptyTeam().challenge.highestRound, null);
+});
+
 test('T2〜T4を選んでも盤面画像resolverはverified T1だけを返す', () => {
   const images = json('data/tata-images.json');
   const imageMap = new Map(images.families.map((item) => [item.familyId, item]));
@@ -174,7 +263,7 @@ test('T2〜T4を選んでも盤面画像resolverはverified T1だけを返す', 
 });
 
 test('役割診断・Tier分布・重複警告は既存評価を利用', () => {
-  const team = emptyTeam(); team.mode = 'zombie'; team.slots[0] = { familyId: first.id, stage: 4 }; team.slots[1] = { familyId: first.id, stage: 3 };
+  const team = emptyTeam(); team.mode = 'zombie'; team.slots[0] = { familyId: first.id, stage: 4, playerId: 1, level: 7 }; team.slots[1] = { familyId: first.id, stage: 3, playerId: 2, level: 5 };
   const analysis = analyzeTeam(team, families, ratings);
   assert.equal(analysis.members.length, 2);
   assert.equal(analysis.duplicateCount, 1);
@@ -195,9 +284,12 @@ test('マイモンサバ・編成メーカーのUIと連携を静的検証', () 
   assert.match(rosterPage, /id="roster-grid"/);
   assert.match(rosterPage, /id="roster-import"/);
   assert.match(builder, /id="team-board"/);
-  assert.match(builder, /width="1258" height="1300"/);
+  assert.match(builder, /width="1258" height="1450"/);
   assert.match(builder, /6×6/);
   assert.match(builderJs, /formation-stage-badge/);
+  assert.match(builderJs, /formation-level-badge/);
+  assert.match(builderJs, /formation-player-badge/);
+  assert.doesNotMatch(builder, /編成診断|モード評価/);
   assert.match(builderJs, /sessionStorage\.setItem\(HANDOFF_KEY/);
   assert.doesNotMatch(builderJs, /fetch\([^\n]*board|action:\s*['"]create_thread/);
   assert.match(read('board/board.js'), /TEAM_HANDOFF_KEY/);
@@ -235,6 +327,64 @@ test('レスポンシブ・キーボード操作・保存不能時の表示を�
   const css = read('my-tools.css');
   for (const width of ['1024', '820', '430', '340']) assert.match(css, new RegExp(`max-width:${width}px`));
   assert.doesNotMatch(css, /min-width:\s*[5-9]\d\dpx/);
+  assert.match(css, /formation-stage-badge\{right:1px;bottom:1px;min-width:0/);
   assert.match(read('team-builder/team-builder.js'), /data-cell/);
   assert.match(read('my-monsaba/my-monsaba.js'), /このブラウザでは保存機能を利用できません/);
+});
+
+test('P1は赤、P2は青の固定表示で文字ラベルも併用する', () => {
+  const css = read('my-tools.css'); const source = read('team-builder/team-builder.js');
+  assert.match(css, /formation-cell\.is-player-1\{border-color:#ef5f61/);
+  assert.match(css, /formation-cell\.is-player-2\{border-color:#4a91e8/);
+  assert.match(source, /formation-player-badge">P\$\{slot\.playerId\}/);
+});
+
+test('盤面badgeはPを左上、Lvを左下、Tierを右下へ分離する', () => {
+  const css = read('my-tools.css');
+  assert.match(css, /formation-player-badge\{top:3px;left:3px/);
+  assert.match(css, /formation-level-badge\{left:3px;bottom:3px/);
+  assert.match(css, /formation-stage-badge\{right:3px;bottom:3px/);
+});
+
+test('画像出力は2Player集計・赤青枠・Lv・Tier・方向・ドメインを描画する', () => {
+  const source = read('team-builder/team-builder.js');
+  for (const token of ['playerCount(team, id)', 'playerLimit(team, id)', 'COPY.direction', '`Lv${slot.level}`', '`T${slot.stage}`', 'monster-survival.com']) assert.match(source, new RegExp(token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+  assert.match(source, /slot\.playerId === 1 \? '#ef5f61' : '#4a91e8'/);
+});
+
+test('Player・Tier・Lv・移動・変更・削除は配置済みdialogから編集できる', () => {
+  const source = read('team-builder/team-builder.js');
+  for (const action of ['data-edit-player', 'data-edit-stage', 'data-edit-level', 'data-edit-move', 'data-edit-change', 'data-edit-remove']) assert.match(source, new RegExp(action));
+});
+
+test('Lv8解除はconfirmのキャンセルと承認を分け、承認時だけdowngradeする', () => {
+  const source = read('team-builder/team-builder.js');
+  assert.match(source, /confirm\(COPY\.levelOffConfirm\)/);
+  assert.match(source, /\{ downgrade: true \}/);
+  assert.match(source, /target\.checked = true; return/);
+});
+
+test('Player・Lv・解放設定の変更は共通commitを通りUndoとRedo対象になる', () => {
+  const source = read('team-builder/team-builder.js');
+  assert.match(source, /commit\(placeMember\(team, editingIndex, candidate/);
+  assert.match(source, /commit\(result\.team, COPY\.changed\)/);
+  assert.match(source, /undoStack\.push\(cloneTeam/); assert.match(source, /redoStack\.push\(cloneTeam/);
+});
+
+test('全セルはbuttonでキーボード操作でき詳細aria-labelにPlayer・T・Lvを含む', () => {
+  const source = read('team-builder/team-builder.js');
+  assert.match(source, /<button class="formation-cell/);
+  assert.match(source, /Player \$\{slot\.playerId\} \$\{getFamilyDisplayLabel\(member\.family\)\} T\$\{slot\.stage\} Lv\$\{slot\.level\}/);
+});
+
+test('JA・EN・zh-CNの生成ページは新UIを持ち診断UIを持たない', () => {
+  for (const file of ['team-builder/index.html', 'en/team-builder/index.html', 'zh-cn/team-builder/index.html']) {
+    const html = read(file); assert.match(html, /team-player-settings/); assert.match(html, /team-placement-controls/); assert.doesNotMatch(html, /team-diagnosis|team-role-counts|team-tier-counts/);
+  }
+});
+
+test('Lv8は複数の確認済みチップ効果に存在するためUIで架空の専用名を付けない', () => {
+  const chips = json('data/zombie-rush/chips.json').chips.filter((chip) => chip.effect.ja.includes('Lv.8まで'));
+  assert.ok(chips.length > 1); assert.match(read('team-builder/team-builder.js'), /levelUnlock: 'Lv上限\+1'/);
+  assert.doesNotMatch(read('team-builder/index.html'), /チップ取得済み/);
 });

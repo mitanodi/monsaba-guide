@@ -129,7 +129,7 @@
       "key": "team-builder",
       "accent": "#178b78",
       "accentDark": "#0d6254",
-      "symbol": "36",
+      "symbol": "2P",
       "routes": {
         "ja": "/team-builder/",
         "en": "/en/team-builder/",
@@ -138,24 +138,24 @@
       "content": {
         "ja": {
           "title": "モンサバ編成メーカー",
-          "description": "6×6のタタ配置を作成・保存・共有",
+          "description": "2人分の配置・Tier・Lvを作成・保存・共有",
           "badge": "ブラウザだけで使える無料ツール",
           "ogTitle": "モンサバ 編成メーカー｜タタ配置を作成・共有",
-          "ogDescription": "6×6の盤面にタタを配置し、端末保存・URL共有・画像保存ができる無料ツール。"
+          "ogDescription": "Zombie RushのP1/P2配置、進化Tier、Lv、上限解放を6×6盤面で作成・保存・共有できる無料ツール。"
         },
         "en": {
           "title": "Clash of Critters Team Builder",
-          "description": "Create, save and share 6×6 Tata formations",
+          "description": "Create and share two-player Zombie Rush formations",
           "badge": "Free browser-based tool",
           "ogTitle": "Clash of Critters Team Builder & Formation Maker",
-          "ogDescription": "Place Tata on a 6×6 board, save formations on your device, and share them by URL or image."
+          "ogDescription": "Build and share a 6×6 Zombie Rush formation with P1/P2 ownership, evolution tiers, levels and unlock settings."
         },
         "zh-CN": {
           "title": "Clash of Critters 阵容编辑器",
-          "description": "创建、保存并分享6×6塔塔阵容",
+          "description": "创建并分享双人Zombie Rush阵容",
           "badge": "免费浏览器工具",
           "ogTitle": "Clash of Critters 阵容编辑器｜创建并分享塔塔阵容",
-          "ogDescription": "在6×6棋盘放置塔塔，将阵容保存在设备，并通过链接或图片分享。"
+          "ogDescription": "在6×6棋盘记录P1/P2、进化阶段、等级与上限解锁，并保存或分享Zombie Rush阵容。"
         }
       }
     },
