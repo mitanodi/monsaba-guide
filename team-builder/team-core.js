@@ -60,6 +60,7 @@ export function sanitizeTeam(value, families) {
   const playerSettings = sanitizePlayerSettings(value?.playerSettings);
   const strictCurrent = Number(value?.version) >= TEAM_VERSION;
   const counts = { 1: 0, 2: 0 };
+  const usedFamilies = { 1: new Set(), 2: new Set() };
   const slots = Array.from({ length: TEAM_SLOTS }, (_, index) => {
     const raw = source[index];
     if (!isRecord(raw) || !familyMap.has(raw.familyId)) return null;
@@ -71,7 +72,9 @@ export function sanitizeTeam(value, families) {
     const rawLevel = Number(raw.level ?? 1);
     if (strictCurrent && (!Number.isInteger(rawLevel) || rawLevel < 1 || rawLevel > levelLimit({ playerSettings }, playerId))) return null;
     const level = Number.isInteger(rawLevel) && rawLevel >= 1 ? Math.min(rawLevel, levelLimit({ playerSettings }, playerId)) : 1;
+    if (usedFamilies[playerId].has(raw.familyId)) return null;
     if (strictCurrent && counts[playerId] >= playerLimit({ playerSettings }, playerId)) return null;
+    usedFamilies[playerId].add(raw.familyId);
     counts[playerId] += 1;
     return { familyId: raw.familyId, stage, playerId, level };
   });
@@ -102,6 +105,7 @@ export function placementIssue(team, index, member, families) {
   if (!family.evolutions.some((item) => Number(item.stage) === Number(member.stage))) return 'invalid-stage';
   const playerId = Number(member.playerId); if (!PLAYER_IDS.includes(playerId)) return 'invalid-player';
   const level = Number(member.level); if (!Number.isInteger(level) || level < 1 || level > levelLimit(team, playerId)) return 'invalid-level';
+  if ((team?.slots || []).some((slot, slotIndex) => slotIndex !== index && slot?.playerId === playerId && slot.familyId === member.familyId)) return 'duplicate-family';
   const current = team?.slots?.[index]; if (current?.playerId !== playerId && playerCount(team, playerId) >= playerLimit(team, playerId)) return 'player-full';
   return null;
 }
@@ -139,12 +143,14 @@ function assertValidV3(parsed, families) {
   if (!Array.isArray(parsed.s) || parsed.s.length !== TEAM_SLOTS || !Array.isArray(parsed.u) || parsed.u.length !== 2) throw new Error();
   if (!parsed.u.every((settings) => Array.isArray(settings) && settings.length === 2 && settings.every((value) => value === 0 || value === 1))) throw new Error();
   const familyMap = new Map((families || []).map((family) => [family.id, family]));
-  const limits = { 1: BASE_PLAYER_LIMIT + parsed.u[0][0], 2: BASE_PLAYER_LIMIT + parsed.u[1][0] }; const levelCaps = { 1: BASE_LEVEL_LIMIT + parsed.u[0][1], 2: BASE_LEVEL_LIMIT + parsed.u[1][1] }; const counts = { 1: 0, 2: 0 };
+  const limits = { 1: BASE_PLAYER_LIMIT + parsed.u[0][0], 2: BASE_PLAYER_LIMIT + parsed.u[1][0] }; const levelCaps = { 1: BASE_LEVEL_LIMIT + parsed.u[0][1], 2: BASE_LEVEL_LIMIT + parsed.u[1][1] }; const counts = { 1: 0, 2: 0 }; const usedFamilies = { 1: new Set(), 2: new Set() };
   for (const slot of parsed.s) {
     if (slot === null) continue;
     if (!Array.isArray(slot) || slot.length !== 4 || !familyMap.has(slot[0])) throw new Error();
     const family = familyMap.get(slot[0]); const stage = Number(slot[1]); const playerId = Number(slot[2]); const level = Number(slot[3]);
     if (!family.evolutions.some((item) => Number(item.stage) === stage) || !PLAYER_IDS.includes(playerId) || !Number.isInteger(level) || level < 1 || level > levelCaps[playerId]) throw new Error();
+    if (usedFamilies[playerId].has(slot[0])) throw new Error();
+    usedFamilies[playerId].add(slot[0]);
     counts[playerId] += 1;
   }
   if (PLAYER_IDS.some((id) => counts[id] > limits[id])) throw new Error();
@@ -175,7 +181,7 @@ export function analyzeTeam(team, families, ratings) {
   const roles = Object.create(null); for (const member of members) for (const role of groupedRoles(member.rating.roles || [])) roles[role] = (roles[role] || 0) + 1;
   const tierKey = { normal: 'normal', zombie: 'zombie', dojo: 'dojo' }[team.mode] || null; const tiers = Object.create(null);
   for (const member of members) { const tier = tierKey ? (member.rating[tierKey] || '保留') : '評価データ不足'; tiers[tier] = (tiers[tier] || 0) + 1; }
-  const duplicateCount = members.length - new Set(members.map((item) => item.familyId)).size;
+  const duplicateCount = members.length - new Set(members.map((item) => `${item.playerId}:${item.familyId}`)).size;
   return { members, roles, tiers, duplicateCount, notes: [] };
 }
 

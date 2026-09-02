@@ -21,7 +21,7 @@ const COPY = {
     clearConfirm: '配置済みのタタをすべて削除しますか？', newConfirm: '現在の未保存状態を空にして、新しい編成を始めますか？', confirmDelete: 'この保存編成を削除しますか？',
     selected: '選択中', attribute: '属性', saveLimit: '保存できる編成は最大10件です。', boardMemo: 'Zombie Rush 6×6編成', imageError: '共有画像を作成できませんでした。', handoffError: '質問掲示板へ編成を引き渡せませんでした。', textCopied: '編成テキストをコピーしました。',
     slotUnlock: '配置上限+1', levelUnlock: 'Lv上限+1', count: '配置', playerFull: 'Player {player}は{limit}体まで配置できます。配置上限+1を取得している場合は設定をONにしてください。', invalidLevel: 'Player {player}はLv{limit}まで選択できます。Lv上限+1を取得している場合は設定をONにしてください。',
-    levelOffConfirm: 'Lv8のタタが配置されています。Lv上限解放を解除するとLv7へ変更されます。', slotOffBlocked: '11体配置中は配置上限+1を解除できません。先に1体削除してください。', changed: '設定を変更しました。', player: 'Player', level: 'Zombie Rush Lv'
+    levelOffConfirm: 'Lv8のタタが配置されています。Lv上限解放を解除するとLv7へ変更されます。', slotOffBlocked: '11体配置中は配置上限+1を解除できません。先に1体削除してください。', duplicateFamily: 'Player {player}には同じタタ系統を1体まで配置できます。', quickRemove: 'P{player} {name}を削除', changed: '設定を変更しました。', player: 'Player', level: 'Zombie Rush Lv'
   },
   en: {
     empty: 'Empty', placeholder: 'Image pending', selectFirst: 'Choose a player, level, Tata family, and tier.', selectCell: 'P{player} {name} T{stage} Lv{level} selected. Tap a cell.',
@@ -32,7 +32,7 @@ const COPY = {
     clearConfirm: 'Remove every Tata from the board?', newConfirm: 'Clear the current draft and start a new formation?', confirmDelete: 'Delete this saved formation?',
     selected: 'Selected', attribute: 'attribute', saveLimit: 'You can save up to 10 formations.', boardMemo: 'Zombie Rush 6×6 formation', imageError: 'Could not create the image.', handoffError: 'Could not send this formation to the board.', textCopied: 'Formation text copied.',
     slotUnlock: 'Placement limit +1', levelUnlock: 'Level cap +1', count: 'Placed', playerFull: 'Player {player} can place up to {limit} Tata. Turn on Placement limit +1 if acquired.', invalidLevel: 'Player {player} can select up to Lv{limit}. Turn on Level cap +1 if acquired.',
-    levelOffConfirm: 'Lv8 Tata are placed. Turning off the level cap unlock changes them to Lv7.', slotOffBlocked: 'Placement limit +1 cannot be turned off while 11 Tata are placed. Remove one first.', changed: 'Settings updated.', player: 'Player', level: 'Zombie Rush level'
+    levelOffConfirm: 'Lv8 Tata are placed. Turning off the level cap unlock changes them to Lv7.', slotOffBlocked: 'Placement limit +1 cannot be turned off while 11 Tata are placed. Remove one first.', duplicateFamily: 'Player {player} can place only one Tata from the same family.', quickRemove: 'Remove P{player} {name}', changed: 'Settings updated.', player: 'Player', level: 'Zombie Rush level'
   },
   'zh-CN': {
     empty: '空位', placeholder: '图片确认中', selectFirst: '请选择玩家、等级、塔塔系列和进化阶段。', selectCell: '已选择P{player} {name} T{stage} Lv{level}，请点击格子。',
@@ -43,7 +43,7 @@ const COPY = {
     clearConfirm: '删除棋盘上的全部塔塔吗？', newConfirm: '清空当前草稿并创建新阵容吗？', confirmDelete: '删除这个已保存的阵容吗？',
     selected: '当前选择', attribute: '属性', saveLimit: '最多可保存10个阵容。', boardMemo: 'Zombie Rush 6×6阵容', imageError: '无法生成阵容图片。', handoffError: '无法将阵容发送到留言板。', textCopied: '阵容文本已复制。',
     slotUnlock: '上阵上限+1', levelUnlock: '等级上限+1', count: '已放置', playerFull: 'Player {player}最多可放置{limit}只塔塔。如已获得上阵上限+1，请开启设置。', invalidLevel: 'Player {player}最多可选择Lv{limit}。如已获得等级上限+1，请开启设置。',
-    levelOffConfirm: '当前有Lv8塔塔。关闭等级上限解锁后，它们会变为Lv7。', slotOffBlocked: '放置11只塔塔时不能关闭上阵上限+1，请先删除1只。', changed: '设置已更新。', player: 'Player', level: 'Zombie Rush等级'
+    levelOffConfirm: '当前有Lv8塔塔。关闭等级上限解锁后，它们会变为Lv7。', slotOffBlocked: '放置11只塔塔时不能关闭上阵上限+1，请先删除1只。', duplicateFamily: 'Player {player}的同一塔塔系列最多只能放置1只。', quickRemove: '删除P{player} {name}', changed: '设置已更新。', player: 'Player', level: 'Zombie Rush等级'
   }
 }[locale];
 const ATTRIBUTE_LABELS = {
@@ -81,7 +81,8 @@ function renderBoard() {
     const member = memberFor(slot); const selectedMove = movingFrom === index ? ' is-move-source' : '';
     if (!member) return `<button class="formation-cell is-empty${selectedMove}" type="button" data-cell="${index}" aria-label="${esc(cellLabel(slot, index))}"><span aria-hidden="true">＋</span></button>`;
     const image = stage1Image(member.family); const imageHtml = image ? `<img loading="lazy" decoding="async" src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(getFamilyDisplayLabel(member.family))}">` : `<span class="formation-image-placeholder">${esc(COPY.placeholder)}</span>`;
-    return `<button class="formation-cell is-filled is-player-${slot.playerId}${selectedMove}" type="button" data-cell="${index}" aria-label="${esc(cellLabel(slot, index))}">${imageHtml}<span class="formation-player-badge">P${slot.playerId}</span><span class="formation-level-badge">Lv${slot.level}</span><span class="formation-stage-badge">T${slot.stage}</span></button>`;
+    const removeLabel = message(COPY.quickRemove, { player: slot.playerId, name: getFamilyDisplayLabel(member.family) });
+    return `<div class="formation-cell is-filled is-player-${slot.playerId}${selectedMove}"><button class="formation-cell-main" type="button" data-cell="${index}" aria-label="${esc(cellLabel(slot, index))}">${imageHtml}<span class="formation-player-badge">P${slot.playerId}</span><span class="formation-level-badge">Lv${slot.level}</span><span class="formation-stage-badge">T${slot.stage}</span></button><button class="formation-quick-remove" type="button" data-quick-remove="${index}" aria-label="${esc(removeLabel)}" title="${esc(removeLabel)}"><span aria-hidden="true">−</span></button></div>`;
   }).join('');
   $('#team-board').setAttribute('aria-label', COPY.board); $('#team-undo').disabled = !undoStack.length; $('#team-redo').disabled = !redoStack.length;
 }
@@ -144,6 +145,7 @@ async function exportImage() {
 function reportIssue(issue, playerId) {
   if (issue === 'player-full') setStatus(message(COPY.playerFull, { player: playerId, limit: playerLimit(team, playerId) }), true, '#team-message');
   else if (issue === 'invalid-level') setStatus(message(COPY.invalidLevel, { player: playerId, limit: levelLimit(team, playerId) }), true, '#team-message');
+  else if (issue === 'duplicate-family') setStatus(message(COPY.duplicateFamily, { player: playerId }), true, '#team-message');
 }
 function placeOrMove(index) {
   if (movingFrom !== null) { const from = movingFrom; movingFrom = null; if (from !== index) commit(moveMember(team, from, index, families), COPY.moved); else renderAll(); return; }
@@ -166,13 +168,17 @@ function changeUnlock(target) {
 }
 
 function bind() {
-  $('#team-board').addEventListener('click', (event) => { const cell = event.target.closest('[data-cell]'); if (cell) placeOrMove(Number(cell.dataset.cell)); });
+  $('#team-board').addEventListener('click', (event) => {
+    const remove = event.target.closest('[data-quick-remove]');
+    if (remove) { const index = Number(remove.dataset.quickRemove); commit(removeMember(team, index, families), COPY.removed); track('formation_remove'); return; }
+    const cell = event.target.closest('[data-cell]'); if (cell) placeOrMove(Number(cell.dataset.cell));
+  });
   $('#team-player-settings').addEventListener('click', (event) => { const button = event.target.closest('[data-current-player]'); if (button) { currentPlayer = Number(button.dataset.currentPlayer); currentLevel = Math.min(currentLevel, levelLimit(team, currentPlayer)); renderAll(); } });
   $('#team-player-settings').addEventListener('change', (event) => { if (event.target.matches('[data-player-unlock]')) changeUnlock(event.target); });
   $('#team-placement-controls').addEventListener('click', (event) => { const player = event.target.closest('[data-current-player]'); const level = event.target.closest('[data-current-level]'); if (player) { currentPlayer = Number(player.dataset.currentPlayer); currentLevel = Math.min(currentLevel, levelLimit(team, currentPlayer)); renderAll(); } if (level) { currentLevel = Number(level.dataset.currentLevel); renderPlacementControls(); renderSelection(); } });
   $('#team-picker-list').addEventListener('click', (event) => {
     const button = event.target.closest('[data-pick-family]'); if (!button) return; const pick = { familyId: button.dataset.pickFamily, stage: Number(button.dataset.pickStage) };
-    if (replacingIndex !== null) { const previous = team.slots[replacingIndex]; const replacement = { ...pick, playerId: previous.playerId, level: previous.level }; const issue = placementIssue(team, replacingIndex, replacement, families); if (!issue) commit(placeMember(team, replacingIndex, replacement, families), COPY.placed); replacingIndex = null; selected = pick; return; }
+    if (replacingIndex !== null) { const previous = team.slots[replacingIndex]; const replacement = { ...pick, playerId: previous.playerId, level: previous.level }; const issue = placementIssue(team, replacingIndex, replacement, families); if (!issue) commit(placeMember(team, replacingIndex, replacement, families), COPY.placed); else reportIssue(issue, replacement.playerId); replacingIndex = null; selected = pick; return; }
     selected = pick; renderSelection(); renderPicker();
   });
   $('#team-picker-search').addEventListener('input', renderPicker); $('#team-owned-only').addEventListener('change', renderPicker);

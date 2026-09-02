@@ -179,23 +179,34 @@ test('v2共有は36枠を保ち、旧要素へPlayerとLvの安全な初期値�
 
 test('P1/P2は通常各10体で独立し、11体目を拒否する', () => {
   let team = emptyTeam();
-  for (let index = 0; index < 10; index += 1) team = placeMember(team, index, { familyId: first.id, stage: 1, playerId: 1, level: 1 }, families);
-  for (let index = 10; index < 20; index += 1) team = placeMember(team, index, { familyId: second.id, stage: 1, playerId: 2, level: 7 }, families);
+  for (let index = 0; index < 10; index += 1) team = placeMember(team, index, { familyId: families[index].id, stage: 1, playerId: 1, level: 1 }, families);
+  for (let index = 10; index < 20; index += 1) team = placeMember(team, index, { familyId: families[index - 10].id, stage: 1, playerId: 2, level: 7 }, families);
   assert.equal(playerCount(team, 1), 10); assert.equal(playerCount(team, 2), 10);
   assert.equal(playerLimit(team, 1), 10); assert.equal(playerLimit(team, 2), 10);
-  assert.equal(placementIssue(team, 20, { familyId: first.id, stage: 1, playerId: 1, level: 1 }, families), 'player-full');
-  assert.equal(placeMember(team, 20, { familyId: first.id, stage: 1, playerId: 1, level: 1 }, families).slots[20], null);
+  assert.equal(placementIssue(team, 20, { familyId: families[10].id, stage: 1, playerId: 1, level: 1 }, families), 'player-full');
+  assert.equal(placeMember(team, 20, { familyId: families[10].id, stage: 1, playerId: 1, level: 1 }, families).slots[20], null);
 });
 
 test('配置上限+1はPlayerごとに11体目だけを許可し12体目を拒否する', () => {
   let team = emptyTeam();
-  for (let index = 0; index < 10; index += 1) team = placeMember(team, index, { familyId: first.id, stage: 1, playerId: 1, level: 1 }, families);
+  for (let index = 0; index < 10; index += 1) team = placeMember(team, index, { familyId: families[index].id, stage: 1, playerId: 1, level: 1 }, families);
   const unlocked = setPlayerUnlock(team, 1, 'slotLimitPlusOne', true, families);
   assert.equal(unlocked.ok, true); team = unlocked.team;
-  team = placeMember(team, 10, { familyId: second.id, stage: 1, playerId: 1, level: 7 }, families);
+  team = placeMember(team, 10, { familyId: families[10].id, stage: 1, playerId: 1, level: 7 }, families);
   assert.equal(playerCount(team, 1), 11); assert.equal(playerLimit(team, 1), 11); assert.equal(playerLimit(team, 2), 10);
-  assert.equal(placementIssue(team, 11, { familyId: first.id, stage: 1, playerId: 1, level: 1 }, families), 'player-full');
+  assert.equal(placementIssue(team, 11, { familyId: families[11].id, stage: 1, playerId: 1, level: 1 }, families), 'player-full');
   assert.equal(setPlayerUnlock(team, 1, 'slotLimitPlusOne', false, families).reason, 'player-over-limit');
+});
+
+test('同じPlayerは同一タタ系統を1体だけ配置でき、別Playerには同じ系統を配置できる', () => {
+  let team = placeMember(emptyTeam(), 0, { familyId: first.id, stage: 1, playerId: 1, level: 1 }, families);
+  assert.equal(placementIssue(team, 1, { familyId: first.id, stage: 2, playerId: 1, level: 7 }, families), 'duplicate-family');
+  assert.equal(placeMember(team, 1, { familyId: first.id, stage: 2, playerId: 1, level: 7 }, families).slots[1], null);
+  team = placeMember(team, 1, { familyId: first.id, stage: 2, playerId: 2, level: 7 }, families);
+  assert.equal(team.slots[1].familyId, first.id);
+  assert.equal(placementIssue(team, 0, { ...team.slots[0], stage: 3 }, families), null);
+  assert.equal(placementIssue(team, 1, { ...team.slots[1], playerId: 1 }, families), 'duplicate-family');
+  assert.match(read('team-builder/team-builder.js'), /else reportIssue\(issue, replacement\.playerId\)/);
 });
 
 test('Lvは通常1〜7、解放後のみ8でPlayerごとに独立する', () => {
@@ -220,8 +231,8 @@ test('Lv8配置中の解放解除は確認相当の明示指定がなければ�
 
 test('Player変更は変更先上限を検証し、セル入替は所属を維持する', () => {
   let team = emptyTeam();
-  for (let index = 0; index < 10; index += 1) team = placeMember(team, index, { familyId: first.id, stage: 1, playerId: 2, level: 1 }, families);
-  team = placeMember(team, 10, { familyId: second.id, stage: 2, playerId: 1, level: 7 }, families);
+  for (let index = 0; index < 10; index += 1) team = placeMember(team, index, { familyId: families[index].id, stage: 1, playerId: 2, level: 1 }, families);
+  team = placeMember(team, 10, { familyId: families[20].id, stage: 2, playerId: 1, level: 7 }, families);
   assert.equal(placementIssue(team, 10, { ...team.slots[10], playerId: 2 }, families), 'player-full');
   const swapped = moveMember(team, 0, 10, families);
   assert.equal(swapped.slots[0].playerId, 1); assert.equal(swapped.slots[10].playerId, 2);
@@ -232,14 +243,24 @@ test('v3 validatorは不正Player・Lv・人数超過を共有URLで拒否する
   const blank = Array(36).fill(null);
   const invalidPlayer = [...blank]; invalidPlayer[0] = [first.id, 1, 3, 1]; assert.throws(() => decodeTeam(make(invalidPlayer), families));
   const invalidLevel = [...blank]; invalidLevel[0] = [first.id, 1, 1, 8]; assert.throws(() => decodeTeam(make(invalidLevel), families));
-  const tooMany = [...blank]; for (let index = 0; index < 11; index += 1) tooMany[index] = [first.id, 1, 1, 1]; assert.throws(() => decodeTeam(make(tooMany), families));
+  const tooMany = [...blank]; for (let index = 0; index < 11; index += 1) tooMany[index] = [families[index].id, 1, 1, 1]; assert.throws(() => decodeTeam(make(tooMany), families));
+  const duplicate = [...blank]; duplicate[0] = [first.id, 1, 1, 1]; duplicate[1] = [first.id, 2, 1, 1]; assert.throws(() => decodeTeam(make(duplicate), families));
 });
 
 test('v3 localStorage sanitizerは不正Player・Lv・人数超過を残さない', () => {
   const slots = Array(36).fill(null); slots[0] = { familyId: first.id, stage: 1, playerId: 9, level: 1 }; slots[1] = { familyId: first.id, stage: 1, playerId: 1, level: 8 };
-  for (let index = 2; index < 14; index += 1) slots[index] = { familyId: first.id, stage: 1, playerId: 1, level: 1 };
+  for (let index = 2; index < 14; index += 1) slots[index] = { familyId: families[index].id, stage: 1, playerId: 1, level: 1 };
   const clean = sanitizeTeam({ version: 3, slots, playerSettings: { 1: {}, 2: {} } }, families);
   assert.equal(clean.slots[0], null); assert.equal(clean.slots[1], null); assert.equal(playerCount(clean, 1), 10);
+});
+
+test('localStorage移行では同じPlayerの重複を除外し、別Playerの同じ系統は保持する', () => {
+  const slots = Array(36).fill(null);
+  slots[0] = { familyId: first.id, stage: 1, playerId: 1, level: 1 };
+  slots[1] = { familyId: first.id, stage: 2, playerId: 1, level: 2 };
+  slots[2] = { familyId: first.id, stage: 3, playerId: 2, level: 3 };
+  const clean = sanitizeTeam({ version: 3, slots, playerSettings: { 1: {}, 2: {} } }, families);
+  assert.equal(clean.slots[0].familyId, first.id); assert.equal(clean.slots[1], null); assert.equal(clean.slots[2].familyId, first.id);
 });
 
 test('v3共有はPlayer・Tier・Lv・両Player解放・将来投稿メタデータを往復する', () => {
@@ -262,11 +283,11 @@ test('T2〜T4を選んでも盤面画像resolverはverified T1だけを返す', 
   assert.equal(stage1ImageFor(first, new Map([[first.id, { stage1: { status: 'pending' } }]])), null);
 });
 
-test('役割診断・Tier分布・重複警告は既存評価を利用', () => {
+test('互換用集計では別Playerの同一系統を重複扱いしない', () => {
   const team = emptyTeam(); team.mode = 'zombie'; team.slots[0] = { familyId: first.id, stage: 4, playerId: 1, level: 7 }; team.slots[1] = { familyId: first.id, stage: 3, playerId: 2, level: 5 };
   const analysis = analyzeTeam(team, families, ratings);
   assert.equal(analysis.members.length, 2);
-  assert.equal(analysis.duplicateCount, 1);
+  assert.equal(analysis.duplicateCount, 0);
   assert.equal(Object.values(analysis.tiers).reduce((a, b) => a + b, 0), 2);
 });
 
@@ -344,6 +365,16 @@ test('盤面badgeはPを左上、Lvを左下、Tierを右下へ分離する', ()
   assert.match(css, /formation-player-badge\{top:3px;left:3px/);
   assert.match(css, /formation-level-badge\{left:3px;bottom:3px/);
   assert.match(css, /formation-stage-badge\{right:3px;bottom:3px/);
+});
+
+test('配置セル右上のマイナスボタンから直接削除でき、セル編集ボタンと入れ子にならない', () => {
+  const source = read('team-builder/team-builder.js'); const css = read('my-tools.css');
+  assert.match(source, /class="formation-quick-remove"/);
+  assert.match(source, /data-quick-remove="\$\{index\}"/);
+  assert.match(source, /commit\(removeMember\(team, index, families\), COPY\.removed\)/);
+  assert.match(source, /<div class="formation-cell is-filled/);
+  assert.doesNotMatch(source, /<button class="formation-cell is-filled[^`]*<button/);
+  assert.match(css, /formation-quick-remove\{position:absolute;z-index:2;top:3px;right:3px/);
 });
 
 test('画像出力は2Player集計・赤青枠・Lv・Tier・方向・ドメインを描画する', () => {
