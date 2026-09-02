@@ -8,8 +8,8 @@ import {
   removeRoster, exportRoster, importRosterText, familyMatches, rosterSummary, growthCandidates, modeCandidates
 } from '../my-monsaba/roster-core.js';
 import {
-  TEAM_KEY, DRAFT_KEY, TEAM_VERSION, TEAM_ROWS, TEAM_COLUMNS, TEAM_SLOTS, MAX_SAVED_TEAMS, emptyTeam, sanitizeTeam,
-  loadTeams, loadDraft, saveDraft, saveTeamList, upsertTeam, placeMember, removeMember, moveMember,
+  TEAM_KEY, DRAFT_KEY, TEAM_VERSION, SHARE_VERSION, TEAM_ROWS, TEAM_COLUMNS, TEAM_SLOTS, MAX_SAVED_TEAMS, emptyTeam, sanitizeTeam,
+  loadTeams, loadDraft, saveDraft, saveTeamList, upsertTeam, placeMember, copyMemberToPlayer, togglePlayerChip, removeMember, moveMember,
   placementIssue, setPlayerUnlock, playerCount, playerLimit, levelLimit,
   encodeTeam, decodeTeam, analyzeTeam, teamText, stage1ImageFor
 } from '../team-builder/team-core.js';
@@ -20,6 +20,7 @@ const json = (file) => JSON.parse(read(file));
 const families = json('data/tatari.json').families;
 const ratings = json('data/tier-ratings.json').overall.byFamily;
 const evolution = json('data/evolution-priority.json');
+const chips = json('data/zombie-rush/chips.json').chips;
 const first = families[0];
 const second = families[1];
 
@@ -145,18 +146,43 @@ test('保存編成はreload復元し10件を超えない', () => {
   assert.ok(box.getItem(TEAM_KEY));
 });
 
-test('v3共有hashはPlayer・Tier・Lv・解放状態を往復し編成名は含めない', () => {
-  const team = emptyTeam(); team.name = 'URLへ含めない名前'; team.mode = 'normal'; team.playerSettings[2].levelCapPlusOne = true; team.slots[7] = { familyId: first.id, stage: 3, playerId: 2, level: 8 };
-  const encoded = encodeTeam(team, families);
+test('短縮共有hashはPlayer・Tier・Lv表示・チップ・解放状態を往復し編成名は含めない', () => {
+  const team = emptyTeam(); team.name = 'URLへ含めない名前'; team.mode = 'zombie'; team.showLevels = false; team.chips[1] = [chips[0].id, chips[1].id]; team.playerSettings[2].levelCapPlusOne = true; team.slots[7] = { familyId: first.id, stage: 3, playerId: 2, level: 8 };
+  const encoded = encodeTeam(team, families, chips);
+  const payload = JSON.parse(Buffer.from(encoded, 'base64url').toString());
+  assert.equal(payload.v, SHARE_VERSION);
   assert.doesNotMatch(encoded, /URL|名前/);
-  const decoded = decodeTeam(encoded, families);
+  const decoded = decodeTeam(encoded, families, chips);
   assert.equal(decoded.name, '');
   assert.equal(decoded.slots[7].familyId, first.id);
   assert.equal(decoded.slots[7].stage, 3);
   assert.equal(decoded.slots[7].playerId, 2);
   assert.equal(decoded.slots[7].level, 8);
   assert.equal(decoded.playerSettings[2].levelCapPlusOne, true);
+  assert.equal(decoded.showLevels, false);
+  assert.deepEqual(decoded.chips[1], [chips[0].id, chips[1].id]);
   assert.throws(() => decodeTeam('broken!!!', families));
+});
+
+test('最大20体の共有URLデータも従来形式より十分短く復元できる', () => {
+  let team = emptyTeam();
+  for (let index = 0; index < 10; index += 1) team = placeMember(team, index, { familyId: families[index].id, stage: 1, playerId: 1, level: 7 }, families);
+  for (let index = 10; index < 20; index += 1) team = placeMember(team, index, { familyId: families[index - 10].id, stage: 2, playerId: 2, level: 7 }, families);
+  team.chips[1] = chips.slice(0, 3).map((chip) => chip.id); team.chips[2] = chips.slice(3, 6).map((chip) => chip.id);
+  const encoded = encodeTeam(team, families, chips); const restored = decodeTeam(encoded, families, chips);
+  assert.ok(encoded.length < 500, `short share payload was ${encoded.length} characters`);
+  assert.equal(playerCount(restored, 1), 10); assert.equal(playerCount(restored, 2), 10);
+  assert.deepEqual(restored.chips, team.chips);
+});
+
+test('ゾンビラッシュのチップは49種類からPlayerごとに最大3種類を選べる', () => {
+  assert.equal(chips.length, 49); const ids = new Set(chips.map((chip) => chip.id)); let team = emptyTeam();
+  for (const chip of chips.slice(0, 3)) { const result = togglePlayerChip(team, 1, chip.id, families, ids); assert.equal(result.ok, true); team = result.team; }
+  const full = togglePlayerChip(team, 1, chips[3].id, families, ids); assert.equal(full.ok, false); assert.equal(full.reason, 'chip-full');
+  const playerTwo = togglePlayerChip(team, 2, chips[3].id, families, ids); assert.equal(playerTwo.ok, true); team = playerTwo.team;
+  assert.equal(team.chips[1].length, 3); assert.deepEqual(team.chips[2], [chips[3].id]);
+  const removed = togglePlayerChip(team, 1, chips[0].id, families, ids); assert.equal(removed.ok, true); assert.equal(removed.selected, false); assert.equal(removed.team.chips[1].length, 2);
+  assert.equal(togglePlayerChip(team, 1, 'unknown-chip', families, ids).reason, 'invalid-chip');
 });
 
 test('旧15枠の保存・共有は6×6左上へ移行する', () => {
@@ -207,6 +233,23 @@ test('同じPlayerは同一タタ系統を1体だけ配置でき、別Playerに�
   assert.equal(placementIssue(team, 0, { ...team.slots[0], stage: 3 }, families), null);
   assert.equal(placementIssue(team, 1, { ...team.slots[1], playerId: 1 }, families), 'duplicate-family');
   assert.match(read('team-builder/team-builder.js'), /else reportIssue\(issue, replacement\.playerId\)/);
+});
+
+test('配置済みタタは同じTier・Lvのまま相手Playerの最初の空きへコピーできる', () => {
+  const team = placeMember(emptyTeam(), 4, { familyId: first.id, stage: 3, playerId: 1, level: 6 }, families);
+  const result = copyMemberToPlayer(team, 4, 2, families);
+  assert.equal(result.ok, true); assert.equal(result.slotIndex, 0);
+  assert.deepEqual(result.team.slots[0], { familyId: first.id, stage: 3, playerId: 2, level: 6 });
+  assert.deepEqual(result.team.slots[4], { familyId: first.id, stage: 3, playerId: 1, level: 6 });
+});
+
+test('相手Playerに同じ系統がある場合と上限超過時はコピーしない', () => {
+  let duplicate = placeMember(emptyTeam(), 0, { familyId: first.id, stage: 1, playerId: 1, level: 1 }, families);
+  duplicate = placeMember(duplicate, 1, { familyId: first.id, stage: 2, playerId: 2, level: 2 }, families);
+  assert.equal(copyMemberToPlayer(duplicate, 0, 2, families).reason, 'duplicate-family');
+  let full = placeMember(emptyTeam(), 20, { familyId: families[20].id, stage: 1, playerId: 1, level: 1 }, families);
+  for (let index = 0; index < 10; index += 1) full = placeMember(full, index, { familyId: families[index].id, stage: 1, playerId: 2, level: 1 }, families);
+  assert.equal(copyMemberToPlayer(full, 20, 2, families).reason, 'player-full');
 });
 
 test('Lvは通常1〜7、解放後のみ8でPlayerごとに独立する', () => {
@@ -263,7 +306,7 @@ test('localStorage移行では同じPlayerの重複を除外し、別Playerの�
   assert.equal(clean.slots[0].familyId, first.id); assert.equal(clean.slots[1], null); assert.equal(clean.slots[2].familyId, first.id);
 });
 
-test('v3共有はPlayer・Tier・Lv・両Player解放・将来投稿メタデータを往復する', () => {
+test('短縮共有はPlayer・Tier・Lv・両Player解放・将来投稿メタデータを往復する', () => {
   let team = emptyTeam(); team.playerSettings[1].slotLimitPlusOne = true; team.playerSettings[2].levelCapPlusOne = true;
   team.challenge = { difficulty: 4, seasonId: 'season-1', highestRound: 25, cleared: false, tags: ['低育成'] };
   team = placeMember(team, 5, { familyId: first.id, stage: 4, playerId: 2, level: 8 }, families);
@@ -298,6 +341,13 @@ test('コピー用テキストは6行の36枠を持つ', () => {
   assert.match(text, /monster-survival\.com/);
 });
 
+test('コピー用テキストはゾンビラッシュの選択チップを含み、Lv非表示時はLvを含めない', () => {
+  let team = emptyTeam(); team.showLevels = false; team.chips[1] = [chips[0].id]; team = placeMember(team, 0, { familyId: first.id, stage: 1, playerId: 1, level: 7 }, families);
+  const text = teamText(team, families, 'ja', chips); assert.match(text, new RegExp(chips[0].name.ja)); assert.doesNotMatch(text, /Lv7/);
+  team.showLevels = true; assert.equal((teamText(team, families, 'ja', chips).match(/Lv7/g) || []).length, 1);
+  team.mode = 'normal'; assert.doesNotMatch(teamText(team, families, 'ja', chips), new RegExp(chips[0].name.ja));
+});
+
 test('マイモンサバ・編成メーカーのUIと連携を静的検証', () => {
   const rosterPage = read('my-monsaba/index.html');
   const builder = read('team-builder/index.html');
@@ -306,7 +356,8 @@ test('マイモンサバ・編成メーカーのUIと連携を静的検証', () 
   assert.match(rosterPage, /id="roster-import"/);
   assert.match(builder, /id="team-board"/);
   assert.match(builder, /width="1258" height="1450"/);
-  assert.match(builder, /6×6/);
+  assert.match(builder, /id="team-chip-settings"/);
+  assert.doesNotMatch(builder, /こちらからゾンビが来ます|6×6/);
   assert.match(builderJs, /formation-stage-badge/);
   assert.match(builderJs, /formation-level-badge/);
   assert.match(builderJs, /formation-player-badge/);
@@ -377,15 +428,30 @@ test('配置セル右上のマイナスボタンから直接削除でき、セ�
   assert.match(css, /formation-quick-remove\{position:absolute;z-index:2;top:3px;right:3px/);
 });
 
-test('画像出力は2Player集計・赤青枠・Lv・Tier・方向・ドメインを描画する', () => {
+test('画像出力は2Player集計・赤青枠・任意Lv・Tier・チップ・ドメインを描画する', () => {
   const source = read('team-builder/team-builder.js');
-  for (const token of ['playerCount(team, id)', 'playerLimit(team, id)', 'COPY.direction', '`Lv${slot.level}`', '`T${slot.stage}`', 'monster-survival.com']) assert.match(source, new RegExp(token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+  for (const token of ['playerCount(team, id)', 'playerLimit(team, id)', '`Lv${slot.level}`', '`T${slot.stage}`', 'chipById.get(chipId)', 'monster-survival.com']) assert.match(source, new RegExp(token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+  assert.doesNotMatch(source, /COPY\.direction|context\.fillText\(`P\$\{id\}[^\n]*levelLimit/);
   assert.match(source, /slot\.playerId === 1 \? '#ef5f61' : '#4a91e8'/);
 });
 
 test('Player・Tier・Lv・移動・変更・削除は配置済みdialogから編集できる', () => {
   const source = read('team-builder/team-builder.js');
   for (const action of ['data-edit-player', 'data-edit-stage', 'data-edit-level', 'data-edit-move', 'data-edit-change', 'data-edit-remove']) assert.match(source, new RegExp(action));
+});
+
+test('Lv表示とチップ選択はゾンビラッシュ時だけ表示し、各Player最大3種類に制限する', () => {
+  const source = read('team-builder/team-builder.js'); const page = read('team-builder/index.html');
+  assert.match(source, /team\.mode === 'zombie' && team\.showLevels/); assert.match(source, /team\.mode !== 'zombie'/);
+  assert.match(source, /togglePlayerChip/); assert.match(source, /data-chip-id/); assert.match(source, /chips\.json/);
+  assert.match(page, /id="team-show-levels"/); assert.match(page, /id="team-chip-settings"/);
+});
+
+test('配置済みdialogから相手Playerへコピーでき、一覧と盤面のドラッグ操作を備える', () => {
+  const source = read('team-builder/team-builder.js'); const css = read('my-tools.css');
+  for (const token of ['data-copy-player', 'copyMemberToPlayer', 'data-drag-family', 'data-drag-cell']) assert.match(source, new RegExp(token));
+  assert.match(source, /addEventListener\('dragstart'/); assert.match(source, /addEventListener\('drop'/); assert.match(source, /addEventListener\('pointermove'/); assert.match(source, /elementFromPoint/); assert.match(source, /draggable="true"/);
+  assert.match(css, /formation-cell\.is-drop-target/); assert.match(css, /cursor:grab/);
 });
 
 test('Lv8解除はconfirmのキャンセルと承認を分け、承認時だけdowngradeする', () => {
@@ -402,15 +468,15 @@ test('Player・Lv・解放設定の変更は共通commitを通りUndoとRedo対�
   assert.match(source, /undoStack\.push\(cloneTeam/); assert.match(source, /redoStack\.push\(cloneTeam/);
 });
 
-test('全セルはbuttonでキーボード操作でき詳細aria-labelにPlayer・T・Lvを含む', () => {
+test('全セルはbuttonでキーボード操作でき詳細aria-labelにPlayer・Tと任意Lvを含む', () => {
   const source = read('team-builder/team-builder.js');
   assert.match(source, /<button class="formation-cell/);
-  assert.match(source, /Player \$\{slot\.playerId\} \$\{getFamilyDisplayLabel\(member\.family\)\} T\$\{slot\.stage\} Lv\$\{slot\.level\}/);
+  assert.match(source, /Player \$\{slot\.playerId\} \$\{getFamilyDisplayLabel\(member\.family\)\} T\$\{slot\.stage\}\$\{level\}/);
 });
 
 test('JA・EN・zh-CNの生成ページは新UIを持ち診断UIを持たない', () => {
   for (const file of ['team-builder/index.html', 'en/team-builder/index.html', 'zh-cn/team-builder/index.html']) {
-    const html = read(file); assert.match(html, /team-player-settings/); assert.match(html, /team-placement-controls/); assert.doesNotMatch(html, /team-diagnosis|team-role-counts|team-tier-counts/);
+    const html = read(file); assert.match(html, /team-player-settings/); assert.match(html, /team-placement-controls/); assert.match(html, /team-chip-settings/); assert.doesNotMatch(html, /team-diagnosis|team-role-counts|team-tier-counts/);
   }
 });
 

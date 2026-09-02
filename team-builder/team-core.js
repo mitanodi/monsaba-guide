@@ -5,6 +5,7 @@ export const TEAM_KEY = 'monsabaTeamBuilds:v1';
 export const DRAFT_KEY = 'monsabaFormationDraft:v2';
 export const HANDOFF_KEY = 'monsabaBoardTeamHandoff:v1';
 export const TEAM_VERSION = 3;
+export const SHARE_VERSION = 4;
 export const TEAM_ROWS = 6;
 export const TEAM_COLUMNS = 6;
 export const TEAM_SLOTS = TEAM_ROWS * TEAM_COLUMNS;
@@ -19,9 +20,10 @@ export const TEAM_MODES = Object.freeze(['free', 'normal', 'zombie', 'dojo', 'bo
 export const MODE_LABELS = Object.freeze({ free: '自由編成', normal: '通常', zombie: 'ゾンビラッシュ', dojo: 'バッジ道場', boss: 'ボスラリー' });
 const isRecord = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
 const blankPlayerSettings = () => ({ 1: { slotLimitPlusOne: false, levelCapPlusOne: false }, 2: { slotLimitPlusOne: false, levelCapPlusOne: false } });
+const blankPlayerChips = () => ({ 1: [], 2: [] });
 
 export function emptyTeam() {
-  return { version: TEAM_VERSION, name: '', mode: 'zombie', slots: Array(TEAM_SLOTS).fill(null), playerSettings: blankPlayerSettings(), challenge: { difficulty: null, seasonId: null, highestRound: null, cleared: null, tags: [] }, createdAt: null, updatedAt: null };
+  return { version: TEAM_VERSION, name: '', mode: 'zombie', showLevels: true, slots: Array(TEAM_SLOTS).fill(null), playerSettings: blankPlayerSettings(), chips: blankPlayerChips(), challenge: { difficulty: null, seasonId: null, highestRound: null, cleared: null, tags: [] }, createdAt: null, updatedAt: null };
 }
 
 function migratedSlots(value) {
@@ -48,6 +50,11 @@ function sanitizeChallenge(value) {
   const cleared = typeof source.cleared === 'boolean' ? source.cleared : null;
   const tags = Array.isArray(source.tags) ? [...new Set(source.tags.map((tag) => String(tag).replace(/[\u0000-\u001f\u007f]/g, '').trim().slice(0, 24)).filter(Boolean))].slice(0, 8) : [];
   return { difficulty, seasonId, highestRound, cleared, tags };
+}
+
+function sanitizePlayerChips(value) {
+  const source = isRecord(value) ? value : {};
+  return Object.fromEntries(PLAYER_IDS.map((playerId) => [playerId, [...new Set((Array.isArray(source[playerId]) ? source[playerId] : []).filter((id) => typeof id === 'string' && /^[a-z0-9-]{1,64}$/.test(id)))].slice(0, 3)]));
 }
 
 export function playerLimit(team, playerId) { return BASE_PLAYER_LIMIT + (team?.playerSettings?.[playerId]?.slotLimitPlusOne === true ? 1 : 0); }
@@ -81,7 +88,7 @@ export function sanitizeTeam(value, families) {
   const name = String(value?.name || '').replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 40);
   const mode = TEAM_MODES.includes(value?.mode) ? value.mode : 'zombie';
   const validDate = (item) => typeof item === 'string' && Number.isFinite(Date.parse(item)) ? item : null;
-  return { version: TEAM_VERSION, name, mode, slots, playerSettings, challenge: sanitizeChallenge(value?.challenge), createdAt: validDate(value?.createdAt), updatedAt: validDate(value?.updatedAt) };
+  return { version: TEAM_VERSION, name, mode, showLevels: value?.showLevels !== false, slots, playerSettings, chips: sanitizePlayerChips(value?.chips), challenge: sanitizeChallenge(value?.challenge), createdAt: validDate(value?.createdAt), updatedAt: validDate(value?.updatedAt) };
 }
 
 export function cloneTeam(team, families) { return sanitizeTeam(JSON.parse(JSON.stringify(team)), families); }
@@ -114,6 +121,23 @@ export function placeMember(team, index, member, families) {
   const next = cloneTeam(team, families); if (placementIssue(next, index, member, families)) return next;
   next.slots[index] = { familyId: member.familyId, stage: Number(member.stage), playerId: Number(member.playerId), level: Number(member.level) }; return next;
 }
+export function copyMemberToPlayer(team, sourceIndex, targetPlayerId, families) {
+  const next = cloneTeam(team, families); const source = next.slots[sourceIndex]; const playerId = Number(targetPlayerId);
+  if (!source || !PLAYER_IDS.includes(playerId) || source.playerId === playerId) return { ok: false, reason: 'invalid-copy', team: next };
+  const targetIndex = next.slots.findIndex((slot) => slot === null);
+  if (targetIndex < 0) return { ok: false, reason: 'board-full', team: next };
+  const member = { ...source, playerId }; const issue = placementIssue(next, targetIndex, member, families);
+  if (issue) return { ok: false, reason: issue, team: next };
+  return { ok: true, reason: null, slotIndex: targetIndex, team: placeMember(next, targetIndex, member, families) };
+}
+export function togglePlayerChip(team, playerId, chipId, families, validChipIds) {
+  const next = cloneTeam(team, families); const id = Number(playerId); const allowed = validChipIds instanceof Set ? validChipIds : new Set(validChipIds || []);
+  if (!PLAYER_IDS.includes(id) || !allowed.has(chipId)) return { ok: false, reason: 'invalid-chip', team: next };
+  const selected = next.chips[id]; const existing = selected.indexOf(chipId);
+  if (existing >= 0) { selected.splice(existing, 1); return { ok: true, reason: null, selected: false, team: next }; }
+  if (selected.length >= 3) return { ok: false, reason: 'chip-full', team: next };
+  selected.push(chipId); return { ok: true, reason: null, selected: true, team: next };
+}
 export function removeMember(team, index, families) { const next = cloneTeam(team, families); if (Number.isInteger(index) && index >= 0 && index < TEAM_SLOTS) next.slots[index] = null; return next; }
 export function moveMember(team, from, to, families) { const next = cloneTeam(team, families); if (![from, to].every((index) => Number.isInteger(index) && index >= 0 && index < TEAM_SLOTS) || from === to) return next; [next.slots[from], next.slots[to]] = [next.slots[to], next.slots[from]]; return next; }
 
@@ -132,9 +156,17 @@ export function setPlayerUnlock(team, playerId, setting, enabled, families, opti
 const toBase64Url = (text) => { const bytes = new TextEncoder().encode(text); let binary = ''; for (const byte of bytes) binary += String.fromCharCode(byte); return btoa(binary).replaceAll('+', '-').replaceAll('/', '_').replace(/=+$/g, ''); };
 const fromBase64Url = (value) => { const normalized = value.replaceAll('-', '+').replaceAll('_', '/'); const binary = atob(normalized + '='.repeat((4 - normalized.length % 4) % 4)); return new TextDecoder().decode(Uint8Array.from(binary, (char) => char.charCodeAt(0))); };
 
-export function encodeTeam(team, families) {
+export function encodeTeam(team, families, chips = []) {
   const clean = sanitizeTeam(team, families);
-  const compact = { v: TEAM_VERSION, r: TEAM_ROWS, c: TEAM_COLUMNS, m: clean.mode, s: clean.slots.map((slot) => slot ? [slot.familyId, slot.stage, slot.playerId, slot.level] : null), u: PLAYER_IDS.map((id) => [clean.playerSettings[id].slotLimitPlusOne ? 1 : 0, clean.playerSettings[id].levelCapPlusOne ? 1 : 0]), x: clean.challenge };
+  const familyIndexes = new Map((families || []).map((family, index) => [family.id, index]));
+  const unlocks = (clean.playerSettings[1].slotLimitPlusOne ? 1 : 0) | (clean.playerSettings[1].levelCapPlusOne ? 2 : 0) | (clean.playerSettings[2].slotLimitPlusOne ? 4 : 0) | (clean.playerSettings[2].levelCapPlusOne ? 8 : 0);
+  const slots = clean.slots.flatMap((slot, index) => slot ? [[index, familyIndexes.get(slot.familyId), slot.stage, slot.playerId, slot.level]] : []);
+  const challenge = clean.challenge; const hasChallenge = challenge.difficulty !== null || challenge.seasonId !== null || challenge.highestRound !== null || challenge.cleared !== null || challenge.tags.length > 0;
+  const chipIndexes = new Map(chips.map((chip, index) => [chip.id, index])); const playerChips = PLAYER_IDS.map((id) => clean.chips[id].flatMap((chipId) => chipIndexes.has(chipId) ? [chipIndexes.get(chipId)] : []));
+  const compact = { v: SHARE_VERSION, m: TEAM_MODES.indexOf(clean.mode), u: unlocks, s: slots };
+  if (!clean.showLevels) compact.l = 0;
+  if (playerChips.some((items) => items.length)) compact.p = playerChips;
+  if (hasChallenge) compact.x = [challenge.difficulty, challenge.seasonId, challenge.highestRound, challenge.cleared, challenge.tags];
   return toBase64Url(JSON.stringify(compact));
 }
 
@@ -156,14 +188,36 @@ function assertValidV3(parsed, families) {
   if (PLAYER_IDS.some((id) => counts[id] > limits[id])) throw new Error();
 }
 
-export function decodeTeam(value, families) {
+function decodeV4(parsed, families, chips) {
+  if (!Number.isInteger(parsed.m) || parsed.m < 0 || parsed.m >= TEAM_MODES.length || !Number.isInteger(parsed.u) || parsed.u < 0 || parsed.u > 15 || !Array.isArray(parsed.s) || parsed.s.length > MAX_PLAYER_LIMIT * PLAYER_IDS.length || ![undefined, 0, 1].includes(parsed.l)) throw new Error();
+  const slots = Array(TEAM_SLOTS).fill(null); const usedSlots = new Set();
+  for (const item of parsed.s) {
+    if (!Array.isArray(item) || item.length !== 5 || !item.every(Number.isInteger)) throw new Error();
+    const [index, familyIndex, stage, playerId, level] = item;
+    const family = families?.[familyIndex];
+    if (index < 0 || index >= TEAM_SLOTS || usedSlots.has(index) || !family) throw new Error();
+    usedSlots.add(index); slots[index] = { familyId: family.id, stage, playerId, level };
+  }
+  const playerSettings = { 1: { slotLimitPlusOne: !!(parsed.u & 1), levelCapPlusOne: !!(parsed.u & 2) }, 2: { slotLimitPlusOne: !!(parsed.u & 4), levelCapPlusOne: !!(parsed.u & 8) } };
+  if (parsed.p !== undefined && (!Array.isArray(parsed.p) || parsed.p.length !== 2 || !parsed.p.every((items) => Array.isArray(items) && items.length <= 3 && items.every((index) => Number.isInteger(index) && chips?.[index]?.id)))) throw new Error();
+  const playerChips = Object.fromEntries(PLAYER_IDS.map((id, index) => [id, [...new Set((parsed.p?.[index] || []).map((chipIndex) => chips[chipIndex].id))]]));
+  if (PLAYER_IDS.some((id) => playerChips[id].length !== (parsed.p?.[id - 1] || []).length)) throw new Error();
+  const challenge = Array.isArray(parsed.x) ? { difficulty: parsed.x[0], seasonId: parsed.x[1], highestRound: parsed.x[2], cleared: parsed.x[3], tags: parsed.x[4] } : undefined;
+  const expanded = { v: TEAM_VERSION, r: TEAM_ROWS, c: TEAM_COLUMNS, m: TEAM_MODES[parsed.m], s: slots.map((slot) => slot ? [slot.familyId, slot.stage, slot.playerId, slot.level] : null), u: PLAYER_IDS.map((id) => [playerSettings[id].slotLimitPlusOne ? 1 : 0, playerSettings[id].levelCapPlusOne ? 1 : 0]), x: challenge };
+  assertValidV3(expanded, families);
+  return sanitizeTeam({ version: TEAM_VERSION, mode: expanded.m, showLevels: parsed.l !== 0, slots, playerSettings, chips: playerChips, challenge }, families);
+}
+
+export function decodeTeam(value, families, chips = []) {
   if (typeof value !== 'string' || !value || value.length > 8192) throw new Error('共有データを読み込めませんでした。');
   try {
     const parsed = JSON.parse(fromBase64Url(value)); if (!isRecord(parsed)) throw new Error();
     const legacyV1 = parsed.v === 1 && Array.isArray(parsed.s) && parsed.s.length === LEGACY_TEAM_SLOTS;
     const legacyV2 = parsed.v === 2 && parsed.r === TEAM_ROWS && parsed.c === TEAM_COLUMNS && Array.isArray(parsed.s) && parsed.s.length === TEAM_SLOTS;
     const current = parsed.v === TEAM_VERSION && parsed.r === TEAM_ROWS && parsed.c === TEAM_COLUMNS;
-    if (!legacyV1 && !legacyV2 && !current) throw new Error();
+    const shortV4 = parsed.v === SHARE_VERSION;
+    if (!legacyV1 && !legacyV2 && !current && !shortV4) throw new Error();
+    if (shortV4) return decodeV4(parsed, families, chips);
     if (current) {
       assertValidV3(parsed, families);
       return sanitizeTeam({ version: parsed.v, mode: parsed.m, slots: parsed.s.map((slot) => slot ? { familyId: slot[0], stage: slot[1], playerId: slot[2], level: slot[3] } : null), playerSettings: { 1: { slotLimitPlusOne: !!parsed.u[0][0], levelCapPlusOne: !!parsed.u[0][1] }, 2: { slotLimitPlusOne: !!parsed.u[1][0], levelCapPlusOne: !!parsed.u[1][1] } }, challenge: parsed.x }, families);
@@ -185,13 +239,15 @@ export function analyzeTeam(team, families, ratings) {
   return { members, roles, tiers, duplicateCount, notes: [] };
 }
 
-export function teamText(team, families, locale = globalThis.document?.body?.dataset?.locale || 'ja') {
+export function teamText(team, families, locale = globalThis.document?.body?.dataset?.locale || 'ja', chips = []) {
   const familyMap = new Map((families || []).map((family) => [family.id, family])); const empty = locale === 'en' ? 'Empty' : locale === 'zh-CN' ? '空位' : '空き';
   const rows = Array.from({ length: TEAM_ROWS }, (_, row) => team.slots.slice(row * TEAM_COLUMNS, row * TEAM_COLUMNS + TEAM_COLUMNS).map((slot) => {
     if (!slot) return empty; const family = familyMap.get(slot.familyId); const evolution = family?.evolutions.find((item) => Number(item.stage) === slot.stage) || family?.evolutions[0];
-    return evolution ? `P${slot.playerId} ${globalThis.MONSABA_FAMILY.getTataDisplayName(evolution)} (T${slot.stage} Lv${slot.level})` : empty;
+    const level = team.mode === 'zombie' && team.showLevels ? ` Lv${slot.level}` : '';
+    return evolution ? `P${slot.playerId} ${globalThis.MONSABA_FAMILY.getTataDisplayName(evolution)} (T${slot.stage}${level})` : empty;
   }).join(' / '));
   const rowLines = rows.map((value, index) => locale === 'en' ? `Row ${index + 1}: ${value}` : locale === 'zh-CN' ? `第${index + 1}行：${value}` : `${index + 1}行目：${value}`).join('\n');
-  const summary = PLAYER_IDS.map((id) => `P${id} ${playerCount(team, id)}/${playerLimit(team, id)}${team.playerSettings[id].levelCapPlusOne ? ' Lv8' : ' Lv7'}`).join(' · ');
+  const chipMap = new Map(chips.map((chip) => [chip.id, chip]));
+  const summary = PLAYER_IDS.map((id) => { const names = team.mode === 'zombie' ? team.chips[id].map((chipId) => chipMap.get(chipId)?.name?.[locale] || chipMap.get(chipId)?.name?.ja).filter(Boolean) : []; return `P${id} ${playerCount(team, id)}/${playerLimit(team, id)}${names.length ? ` [${names.join(' / ')}]` : ''}`; }).join(' · ');
   return `${team.name ? `${team.name}\n` : ''}${summary}\n${rowLines}\n\nmonster-survival.com`;
 }

@@ -138,24 +138,24 @@
       "content": {
         "ja": {
           "title": "モンサバ編成メーカー",
-          "description": "2人分の配置・Tier・Lvを作成・保存・共有",
+          "description": "2人分の配置・Tier・Lv・チップを作成・共有",
           "badge": "ブラウザだけで使える無料ツール",
           "ogTitle": "モンサバ 編成メーカー｜タタ配置を作成・共有",
-          "ogDescription": "ゾンビラッシュのP1/P2配置、進化Tier、Lv、上限解放を6×6盤面で作成・保存・共有できる無料ツール。"
+          "ogDescription": "ゾンビラッシュのP1/P2配置、進化Tier、Lv、チップ、上限解放を盤面で作成・保存・共有できる無料ツール。"
         },
         "en": {
           "title": "Clash of Critters Team Builder",
           "description": "Create and share two-player Zombie Rush formations",
           "badge": "Free browser-based tool",
           "ogTitle": "Clash of Critters Team Builder & Formation Maker",
-          "ogDescription": "Build and share a 6×6 Zombie Rush formation with P1/P2 ownership, evolution tiers, levels and unlock settings."
+          "ogDescription": "Build and share a Zombie Rush formation with P1/P2 ownership, evolution tiers, levels, chips and unlock settings."
         },
         "zh-CN": {
           "title": "Clash of Critters 阵容编辑器",
           "description": "创建并分享双人Zombie Rush阵容",
           "badge": "免费浏览器工具",
           "ogTitle": "Clash of Critters 阵容编辑器｜创建并分享塔塔阵容",
-          "ogDescription": "在6×6棋盘记录P1/P2、进化阶段、等级与上限解锁，并保存或分享Zombie Rush阵容。"
+          "ogDescription": "在棋盘记录P1/P2、进化阶段、等级、芯片与上限解锁，并保存或分享Zombie Rush阵容。"
         }
       }
     },
