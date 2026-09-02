@@ -1,9 +1,14 @@
 import { groupedRoles } from '../my-monsaba/roster-core.js';
+import '../family-display.js';
 
 export const TEAM_KEY = 'monsabaTeamBuilds:v1';
+export const DRAFT_KEY = 'monsabaFormationDraft:v2';
 export const HANDOFF_KEY = 'monsabaBoardTeamHandoff:v1';
-export const TEAM_VERSION = 1;
-export const TEAM_SLOTS = 15;
+export const TEAM_VERSION = 2;
+export const TEAM_ROWS = 6;
+export const TEAM_COLUMNS = 6;
+export const TEAM_SLOTS = TEAM_ROWS * TEAM_COLUMNS;
+export const LEGACY_TEAM_SLOTS = 15;
 export const MAX_SAVED_TEAMS = 10;
 export const TEAM_MODES = Object.freeze(['free', 'normal', 'zombie', 'dojo', 'boss']);
 export const MODE_LABELS = Object.freeze({ free: '自由編成', normal: '通常', zombie: 'Zombie Rush', dojo: 'バッジ道場', boss: 'ボスラリー' });
@@ -13,14 +18,23 @@ export function emptyTeam() {
   return { version: TEAM_VERSION, name: '', mode: 'free', slots: Array(TEAM_SLOTS).fill(null), createdAt: null, updatedAt: null };
 }
 
+function migratedSlots(value) {
+  const source = Array.isArray(value?.slots) ? value.slots : Array.isArray(value?.cells) ? value.cells : [];
+  if (source.length !== LEGACY_TEAM_SLOTS) return Array.from({ length: TEAM_SLOTS }, (_, index) => source[index] || null);
+  const slots = Array(TEAM_SLOTS).fill(null);
+  source.forEach((slot, index) => { slots[Math.floor(index / 5) * TEAM_COLUMNS + (index % 5)] = slot; });
+  return slots;
+}
+
 export function sanitizeTeam(value, families) {
   const familyMap = new Map((families || []).map((family) => [family.id, family]));
+  const source = migratedSlots(value);
   const slots = Array.from({ length: TEAM_SLOTS }, (_, index) => {
-    const raw = Array.isArray(value?.slots) ? value.slots[index] : null;
+    const raw = source[index];
     if (!isRecord(raw) || !familyMap.has(raw.familyId)) return null;
-    const maxStage = Math.max(...familyMap.get(raw.familyId).evolutions.map((item) => item.stage));
+    const stages = new Set(familyMap.get(raw.familyId).evolutions.map((item) => Number(item.stage)));
     const stage = Number(raw.stage);
-    return Number.isInteger(stage) && stage >= 1 && stage <= maxStage ? { familyId: raw.familyId, stage } : null;
+    return Number.isInteger(stage) && stages.has(stage) ? { familyId: raw.familyId, stage } : null;
   });
   const name = String(value?.name || '').replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 40);
   const mode = TEAM_MODES.includes(value?.mode) ? value.mode : 'free';
@@ -28,11 +42,27 @@ export function sanitizeTeam(value, families) {
   return { version: TEAM_VERSION, name, mode, slots, createdAt: validDate(value?.createdAt), updatedAt: validDate(value?.updatedAt) };
 }
 
+export function cloneTeam(team, families) { return sanitizeTeam(JSON.parse(JSON.stringify(team)), families); }
+
 export function loadTeams(storage, families) {
   try {
     const parsed = JSON.parse(storage?.getItem(TEAM_KEY) || '[]');
     return Array.isArray(parsed) ? parsed.slice(0, MAX_SAVED_TEAMS).map((item) => sanitizeTeam(item, families)) : [];
   } catch { return []; }
+}
+
+export function loadDraft(storage, families) {
+  try {
+    const raw = storage?.getItem(DRAFT_KEY);
+    return raw ? sanitizeTeam(JSON.parse(raw), families) : null;
+  } catch { return null; }
+}
+
+export function saveDraft(storage, team, families) {
+  if (!storage?.setItem) return null;
+  const clean = sanitizeTeam(team, families);
+  storage.setItem(DRAFT_KEY, JSON.stringify(clean));
+  return clean;
 }
 
 export function saveTeamList(storage, teams, families) {
@@ -54,6 +84,28 @@ export function upsertTeam(storage, teams, team, families, now = new Date()) {
   return { team: clean, teams: next };
 }
 
+export function placeMember(team, index, member, families) {
+  const next = cloneTeam(team, families);
+  if (!Number.isInteger(index) || index < 0 || index >= TEAM_SLOTS) return next;
+  const family = (families || []).find((item) => item.id === member?.familyId);
+  if (!family || !family.evolutions.some((item) => Number(item.stage) === Number(member.stage))) return next;
+  next.slots[index] = { familyId: member.familyId, stage: Number(member.stage) };
+  return next;
+}
+
+export function removeMember(team, index, families) {
+  const next = cloneTeam(team, families);
+  if (Number.isInteger(index) && index >= 0 && index < TEAM_SLOTS) next.slots[index] = null;
+  return next;
+}
+
+export function moveMember(team, from, to, families) {
+  const next = cloneTeam(team, families);
+  if (![from, to].every((index) => Number.isInteger(index) && index >= 0 && index < TEAM_SLOTS) || from === to) return next;
+  [next.slots[from], next.slots[to]] = [next.slots[to], next.slots[from]];
+  return next;
+}
+
 const toBase64Url = (text) => {
   const bytes = new TextEncoder().encode(text);
   let binary = ''; for (const byte of bytes) binary += String.fromCharCode(byte);
@@ -67,17 +119,24 @@ const fromBase64Url = (value) => {
 
 export function encodeTeam(team, families) {
   const clean = sanitizeTeam(team, families);
-  const compact = { v: TEAM_VERSION, m: clean.mode, s: clean.slots.map((slot) => slot ? [slot.familyId, slot.stage] : null) };
+  const compact = { v: TEAM_VERSION, r: TEAM_ROWS, c: TEAM_COLUMNS, m: clean.mode, s: clean.slots.map((slot) => slot ? [slot.familyId, slot.stage] : null) };
   return toBase64Url(JSON.stringify(compact));
 }
 
 export function decodeTeam(value, families) {
-  if (typeof value !== 'string' || !value || value.length > 4096) throw new Error('共有データを読み込めませんでした。');
+  if (typeof value !== 'string' || !value || value.length > 8192) throw new Error('共有データを読み込めませんでした。');
   try {
     const parsed = JSON.parse(fromBase64Url(value));
-    if (!isRecord(parsed) || parsed.v !== TEAM_VERSION || !Array.isArray(parsed.s) || parsed.s.length !== TEAM_SLOTS) throw new Error();
-    return sanitizeTeam({ version: TEAM_VERSION, mode: parsed.m, slots: parsed.s.map((slot) => Array.isArray(slot) ? { familyId: slot[0], stage: slot[1] } : null) }, families);
+    const legacy = parsed?.v === 1 && Array.isArray(parsed.s) && parsed.s.length === LEGACY_TEAM_SLOTS;
+    const current = parsed?.v === TEAM_VERSION && parsed.r === TEAM_ROWS && parsed.c === TEAM_COLUMNS && Array.isArray(parsed.s) && parsed.s.length === TEAM_SLOTS;
+    if (!isRecord(parsed) || (!legacy && !current)) throw new Error();
+    return sanitizeTeam({ version: parsed.v, mode: parsed.m, slots: parsed.s.map((slot) => Array.isArray(slot) ? { familyId: slot[0], stage: slot[1] } : null) }, families);
   } catch { throw new Error('共有データを読み込めませんでした。'); }
+}
+
+export function stage1ImageFor(family, imageByFamily) {
+  const image = imageByFamily?.get?.(family?.id)?.stage1;
+  return image?.status === 'verified' && image.src ? image : null;
 }
 
 export function analyzeTeam(team, families, ratings) {
@@ -100,14 +159,16 @@ export function analyzeTeam(team, families, ratings) {
   return { members, roles, tiers, duplicateCount, notes };
 }
 
-export function teamText(team, families) {
+export function teamText(team, families, locale = globalThis.document?.body?.dataset?.locale || 'ja') {
   const familyMap = new Map((families || []).map((family) => [family.id, family]));
-  const rows = [0, 1, 2].map((row) => team.slots.slice(row * 5, row * 5 + 5).map((slot) => {
-    if (!slot) return '空き';
+  const empty = locale === 'en' ? 'Empty' : locale === 'zh-CN' ? '空位' : '空き';
+  const rowWord = locale === 'en' ? 'Row' : locale === 'zh-CN' ? '第' : '';
+  const rows = Array.from({ length: TEAM_ROWS }, (_, row) => team.slots.slice(row * TEAM_COLUMNS, row * TEAM_COLUMNS + TEAM_COLUMNS).map((slot) => {
+    if (!slot) return empty;
     const family = familyMap.get(slot.familyId);
     const evolution = family?.evolutions.find((item) => item.stage === slot.stage) || family?.evolutions[0];
-    return evolution ? `${globalThis.MONSABA_FAMILY.getTataDisplayName(evolution)}（T${slot.stage}）` : '空き';
+    return evolution ? `${globalThis.MONSABA_FAMILY.getTataDisplayName(evolution)} (T${slot.stage})` : empty;
   }).join(' / '));
-  return `【${MODE_LABELS[team.mode]} 編成メモ】\n${team.name ? `${team.name}\n` : ''}1列目：${rows[0]}\n2列目：${rows[1]}\n3列目：${rows[2]}\n\nmonster-survival.com（非公式攻略サイト）`;
+  const rowLines = rows.map((value, index) => locale === 'en' ? `${rowWord} ${index + 1}: ${value}` : locale === 'zh-CN' ? `${rowWord}${index + 1}行：${value}` : `${index + 1}行目：${value}`).join('\n');
+  return `${team.name ? `${team.name}\n` : ''}${rowLines}\n\nmonster-survival.com`;
 }
-import '../family-display.js';

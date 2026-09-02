@@ -129,7 +129,7 @@
       "key": "team-builder",
       "accent": "#178b78",
       "accentDark": "#0d6254",
-      "symbol": "15",
+      "symbol": "36",
       "routes": {
         "ja": "/team-builder/",
         "en": "/en/team-builder/",
@@ -138,24 +138,24 @@
       "content": {
         "ja": {
           "title": "モンサバ編成メーカー",
-          "description": "15枠の編成を作成・診断・保存・共有",
+          "description": "6×6のタタ配置を作成・保存・共有",
           "badge": "ブラウザだけで使える無料ツール",
-          "ogTitle": "モンサバ編成メーカー｜15枠の編成を作成・診断・共有",
-          "ogDescription": "15枠のモンサバ編成を作成し、役割診断、端末保存、URL共有、攻略相談ができる無料ツール。"
+          "ogTitle": "モンサバ 編成メーカー｜タタ配置を作成・共有",
+          "ogDescription": "6×6の盤面にタタを配置し、端末保存・URL共有・画像保存ができる無料ツール。"
         },
         "en": {
           "title": "Clash of Critters Team Builder",
-          "description": "Create, analyze, save and share 15-slot teams",
+          "description": "Create, save and share 6×6 Tata formations",
           "badge": "Free browser-based tool",
-          "ogTitle": "Clash of Critters Team Builder | Create & Share 15-Slot Teams",
-          "ogDescription": "Create a 15-slot team, analyze its roles, save it on your device, share a URL and ask the community for feedback."
+          "ogTitle": "Clash of Critters Team Builder & Formation Maker",
+          "ogDescription": "Place Tata on a 6×6 board, save formations on your device, and share them by URL or image."
         },
         "zh-CN": {
           "title": "Clash of Critters 阵容编辑器",
-          "description": "创建、分析、保存并分享 15 格阵容",
+          "description": "创建、保存并分享6×6塔塔阵容",
           "badge": "免费浏览器工具",
-          "ogTitle": "Clash of Critters 阵容编辑器｜创建并分享 15 格阵容",
-          "ogDescription": "创建 15 格阵容，分析定位构成，保存到设备、分享链接，并在攻略问答区征求建议。"
+          "ogTitle": "Clash of Critters 阵容编辑器｜创建并分享塔塔阵容",
+          "ogDescription": "在6×6棋盘放置塔塔，将阵容保存在设备，并通过链接或图片分享。"
         }
       }
     },

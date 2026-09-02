@@ -53,7 +53,7 @@ function dependenciesFor(route, htmlFile) {
   if (['/normal-guide/', '/zombie-rush/', '/boss-rally/', '/badge-dojo/'].includes(route)) dependencies.push('data/content-guides.json');
   if (['/updates/', '/zombie-rush/', '/tata-tier/', '/updates/2026-08-26/'].includes(route)) dependencies.push('data/zombie-rush/seasons/season-1.json');
   if (route === '/updates/2026-08-26/') dependencies.push('scripts/generate-update-2026-08-26.mjs');
-  if (route === '/team-builder/') dependencies.push('data/tatari.json', 'data/tier-ratings.json', 'team-builder/team-core.js');
+  if (route === '/team-builder/') dependencies.push('data/tatari.json', 'data/tier-ratings.json', 'data/tata-images.json', 'team-builder/team-core.js', 'team-builder/team-builder.js', 'my-tools.css');
   return [...new Set(dependencies)];
 }
 const seasonOne = JSON.parse(readUtf8(path.join(root, 'data', 'zombie-rush', 'seasons', 'season-1.json')));
