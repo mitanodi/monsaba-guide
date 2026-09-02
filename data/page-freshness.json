@@ -15,7 +15,7 @@
     "/tata/sukedako/": { "updated": "2026-08-30", "verified": "2026-08-30", "gameVersion": "0.46.1" },
     "/tata/nenbutsuhebi/": { "updated": "2026-08-30", "verified": "2026-08-30", "gameVersion": "0.46.1" },
     "/attribute/*": { "updated": "2026-08-25T17:57:25+09:00" },
-    "/tata-tier/": { "updated": "2026-08-28", "verified": "2026-08-28", "pending": ["Zombie Rush Season 1の実戦データ蓄積後に再評価"] },
+    "/tata-tier/": { "updated": "2026-08-28", "verified": "2026-08-28", "pending": ["ゾンビラッシュ Season 1の実戦データ蓄積後に再評価"] },
     "/evolution-priority/": { "updated": "2026-08-25T17:57:25+09:00" },
     "/guides/": { "published": "2026-08-25", "updated": "2026-08-25T17:57:25+09:00", "verified": "2026-08-25" },
     "/zombie-rush/": { "updated": "2026-08-28", "verified": "2026-08-28", "status": "implemented-details-verifying", "pending": ["Season 1の十分な実戦データに基づくTier判定", "ゲーム内の報酬しきい値の具体値"] },

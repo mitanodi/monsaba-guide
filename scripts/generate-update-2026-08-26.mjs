@@ -42,7 +42,7 @@ const chipRows = data.chipBalance.map((item) => {
 const targetLinks = data.tataSkillBalance.map((item) => `<a href="#balance-${esc(item.familyId)}">${esc(item.officialTataName)}</a>`).join('');
 
 const title = 'モンサバ 8/26アップデートまとめ｜パクマ・ゾンビラッシュSeason 1・新T4・バランス調整';
-const description = 'モンスターサバイバル（モンサバ）の2026年8月26日実装アップデートを公式告知から整理。パクマ、Zombie Rush Season 1、新T4、チップと専用スキル調整を掲載。ゲーム内詳細は確認中。';
+const description = 'モンスターサバイバル（モンサバ）の2026年8月26日実装アップデートを公式告知から整理。パクマ、ゾンビラッシュ Season 1、新T4、チップと専用スキル調整を掲載。ゲーム内詳細は確認中。';
 const canonical = `${BASE_URL}/updates/2026-08-26/`;
 const jsonLd = {
   '@context': 'https://schema.org',

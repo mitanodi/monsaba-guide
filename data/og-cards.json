@@ -73,7 +73,7 @@
           "description": "総合評価・用途別Tier・育成おすすめ",
           "badge": "64系統を比較",
           "ogTitle": "モンサバ タタTier｜総合評価・育成おすすめ",
-          "ogDescription": "通常ステージ、Zombie Rush、バッジ道場、初心者の育てやすさを含めて比較するモンサバのタタTier。"
+          "ogDescription": "通常ステージ、ゾンビラッシュ、バッジ道場、初心者の育てやすさを含めて比較するモンサバのタタTier。"
         },
         "en": {
           "title": "Tatari Tier List",
@@ -103,11 +103,11 @@
       },
       "content": {
         "ja": {
-          "title": "Zombie Rush 攻略",
+          "title": "ゾンビラッシュ 攻略",
           "description": "Season 1 Tier・高Wave編成・育成順",
           "badge": "実戦確認とAI予測を区別",
-          "ogTitle": "モンサバ Zombie Rush攻略｜Season 1 Tier・高Wave編成",
-          "ogDescription": "Zombie Rush Season 1の実戦確認、保存済みAI予測、タタTier、高Wave編成と育成順を分けて掲載。"
+          "ogTitle": "モンサバ ゾンビラッシュ攻略｜Season 1 Tier・高Wave編成",
+          "ogDescription": "ゾンビラッシュ Season 1の実戦確認、保存済みAI予測、タタTier、高Wave編成と育成順を分けて掲載。"
         },
         "en": {
           "title": "Zombie Rush Guide",
@@ -141,7 +141,7 @@
           "description": "2人分の配置・Tier・Lvを作成・保存・共有",
           "badge": "ブラウザだけで使える無料ツール",
           "ogTitle": "モンサバ 編成メーカー｜タタ配置を作成・共有",
-          "ogDescription": "Zombie RushのP1/P2配置、進化Tier、Lv、上限解放を6×6盤面で作成・保存・共有できる無料ツール。"
+          "ogDescription": "ゾンビラッシュのP1/P2配置、進化Tier、Lv、上限解放を6×6盤面で作成・保存・共有できる無料ツール。"
         },
         "en": {
           "title": "Clash of Critters Team Builder",
@@ -212,18 +212,18 @@
           "ogDescription": "パクマ、クマッシュ、マリンベア、ブリズリーの進化先、通常スキル、オーラ・水と確認済み数値を掲載。"
         },
         "en": {
-        "title": "Snowcub Family Evolutions & Skills",
-        "description": "Snowcub → Polarpaw → Blizzgrizz → Anglerbear",
+          "title": "Snowcub Family Evolutions & Skills",
+          "description": "Snowcub → Polarpaw → Blizzgrizz → Anglerbear",
           "badge": "Verified in game v0.46.1",
-        "ogTitle": "Snowcub Family | Evolutions, Skills & Verified Values",
-        "ogDescription": "View the Snowcub, Polarpaw, Blizzgrizz and Anglerbear evolution line, normal skills, Aura - Water and verified values."
+          "ogTitle": "Snowcub Family | Evolutions, Skills & Verified Values",
+          "ogDescription": "View the Snowcub, Polarpaw, Blizzgrizz and Anglerbear evolution line, normal skills, Aura - Water and verified values."
         },
         "zh-CN": {
-        "title": "贪吃熊系列进化与技能",
-        "description": "贪吃熊 → 摸鱼熊 → 来势熊熊 → 盖世英熊",
+          "title": "贪吃熊系列进化与技能",
+          "description": "贪吃熊 → 摸鱼熊 → 来势熊熊 → 盖世英熊",
           "badge": "游戏内 v0.46.1 确认",
-        "ogTitle": "贪吃熊系列｜进化、技能与确认数值",
-        "ogDescription": "整理贪吃熊、摸鱼熊、来势熊熊、盖世英熊的进化路线、普通技能、水之光环与确认数值。"
+          "ogTitle": "贪吃熊系列｜进化、技能与确认数值",
+          "ogDescription": "整理贪吃熊、摸鱼熊、来势熊熊、盖世英熊的进化路线、普通技能、水之光环与确认数值。"
         }
       }
     },
@@ -239,11 +239,11 @@
       },
       "content": {
         "ja": {
-          "title": "Zombie Rush チップ図鑑",
+          "title": "ゾンビラッシュ チップ図鑑",
           "description": "ゲーム内確認済み49種を検索・フィルター",
           "badge": "効果・Rank・分類を収録",
-          "ogTitle": "モンサバ Zombie Rush チップ図鑑｜49種の効果",
-          "ogDescription": "Zombie Rushのチップ49種をゲーム内画面から確認。名称、Rank、効果分類から検索できます。"
+          "ogTitle": "モンサバ ゾンビラッシュ チップ図鑑｜49種の効果",
+          "ogDescription": "ゾンビラッシュのチップ49種をゲーム内画面から確認。名称、Rank、効果分類から検索できます。"
         },
         "en": {
           "title": "Zombie Rush Chip Database",
@@ -311,21 +311,21 @@
           "description": "新タタ・新T4・チップ・イベント・進化試練",
           "badge": "v0.46.1 ゲーム内資料を反映",
           "ogTitle": "モンサバ攻略DB 2026年8月30日 大型更新",
-          "ogDescription": "パクマ系、新T4、Zombie Rushチップ49種、イベント、全系統の進化試練を追加・更新。"
+          "ogDescription": "パクマ系、新T4、ゾンビラッシュチップ49種、イベント、全系統の進化試練を追加・更新。"
         },
         "en": {
           "title": "August 30, 2026 Major Update",
           "description": "New Tatari, T4 forms, chips, events and trials",
           "badge": "In-game v0.46.1 evidence",
           "ogTitle": "Clash of Critters Guide DB | August 30, 2026 Major Update",
-        "ogDescription": "Adds the Snowcub Family, new T4 forms, 49 Zombie Rush chips, event guides and evolution trials for all families."
+          "ogDescription": "Adds the Snowcub Family, new T4 forms, 49 Zombie Rush chips, event guides and evolution trials for all families."
         },
         "zh-CN": {
           "title": "2026年8月30日大型更新",
           "description": "新Tatari、新T4、芯片、活动与进化试炼",
           "badge": "反映游戏内 v0.46.1 资料",
           "ogTitle": "Clash of Critters 攻略DB｜2026年8月30日大型更新",
-        "ogDescription": "新增贪吃熊系列、新T4、49种Zombie Rush芯片、活动攻略与全部系列的进化试炼。"
+          "ogDescription": "新增贪吃熊系列、新T4、49种Zombie Rush芯片、活动攻略与全部系列的进化试炼。"
         }
       }
     },
@@ -340,9 +340,27 @@
         "zh-CN": "/zh-cn/events/summer-party/"
       },
       "content": {
-        "ja": { "title": "サマーパーティ攻略", "description": "カード / パック / 交換 / 確率", "badge": "15セット・135カード枠", "ogTitle": "モンサバ サマーパーティ攻略｜カード・パック・交換・確率", "ogDescription": "ゲーム内一次証拠から、15セット、135カード枠、4パック、排出率、交換、スター、カードコレクションを解説。" },
-        "en": { "title": "Summer Party Guide", "description": "Album, packs, exchange and rates", "badge": "15 sets / 135 card slots", "ogTitle": "Clash of Critters Summer Party Guide", "ogDescription": "In-game verified guide to 15 sets, 135 card slots, four packs, pull rates, exchanges, Stars and Card Collection." },
-        "zh-CN": { "title": "夏日派对攻略", "description": "卡册、卡包、交换与概率", "badge": "15套 / 135个卡位", "ogTitle": "Clash of Critters 夏日派对攻略", "ogDescription": "依据游戏内第一手证据整理15套、135个卡位、4种卡包、概率、交换、星星与卡片收藏。" }
+        "ja": {
+          "title": "サマーパーティ攻略",
+          "description": "カード / パック / 交換 / 確率",
+          "badge": "15セット・135カード枠",
+          "ogTitle": "モンサバ サマーパーティ攻略｜カード・パック・交換・確率",
+          "ogDescription": "ゲーム内一次証拠から、15セット、135カード枠、4パック、排出率、交換、スター、カードコレクションを解説。"
+        },
+        "en": {
+          "title": "Summer Party Guide",
+          "description": "Album, packs, exchange and rates",
+          "badge": "15 sets / 135 card slots",
+          "ogTitle": "Clash of Critters Summer Party Guide",
+          "ogDescription": "In-game verified guide to 15 sets, 135 card slots, four packs, pull rates, exchanges, Stars and Card Collection."
+        },
+        "zh-CN": {
+          "title": "夏日派对攻略",
+          "description": "卡册、卡包、交换与概率",
+          "badge": "15套 / 135个卡位",
+          "ogTitle": "Clash of Critters 夏日派对攻略",
+          "ogDescription": "依据游戏内第一手证据整理15套、135个卡位、4种卡包、概率、交换、星星与卡片收藏。"
+        }
       }
     },
     {
@@ -356,9 +374,27 @@
         "zh-CN": "/zh-cn/gift-codes/"
       },
       "content": {
-        "ja": { "title": "モンサバ 最新ギフトコード", "description": "2026年8月30日時点で確認されている8コード", "badge": "openfest系3コード追加", "ogTitle": "モンサバ ギフトコード最新一覧｜2026年8月", "ogDescription": "モンサバで利用可能として確認されているギフトコード8種と入力方法を掲載。" },
-        "en": { "title": "Clash of Critters Gift Codes", "description": "Eight codes listed as available on August 30, 2026", "badge": "3 new openfest codes", "ogTitle": "Clash of Critters Gift Codes | August 2026", "ogDescription": "Eight Clash of Critters gift codes listed as available, with copy buttons and redemption steps." },
-        "zh-CN": { "title": "Clash of Critters 最新兑换码", "description": "截至2026年8月30日确认的8个代码", "badge": "新增3个openfest代码", "ogTitle": "Clash of Critters 最新兑换码｜2026年8月", "ogDescription": "整理8个被列为可用的Clash of Critters兑换码、复制按钮与输入方法。" }
+        "ja": {
+          "title": "モンサバ 最新ギフトコード",
+          "description": "2026年8月30日時点で確認されている8コード",
+          "badge": "openfest系3コード追加",
+          "ogTitle": "モンサバ ギフトコード最新一覧｜2026年8月",
+          "ogDescription": "モンサバで利用可能として確認されているギフトコード8種と入力方法を掲載。"
+        },
+        "en": {
+          "title": "Clash of Critters Gift Codes",
+          "description": "Eight codes listed as available on August 30, 2026",
+          "badge": "3 new openfest codes",
+          "ogTitle": "Clash of Critters Gift Codes | August 2026",
+          "ogDescription": "Eight Clash of Critters gift codes listed as available, with copy buttons and redemption steps."
+        },
+        "zh-CN": {
+          "title": "Clash of Critters 最新兑换码",
+          "description": "截至2026年8月30日确认的8个代码",
+          "badge": "新增3个openfest代码",
+          "ogTitle": "Clash of Critters 最新兑换码｜2026年8月",
+          "ogDescription": "整理8个被列为可用的Clash of Critters兑换码、复制按钮与输入方法。"
+        }
       }
     }
   ]

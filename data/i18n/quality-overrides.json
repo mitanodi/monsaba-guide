@@ -234,7 +234,9 @@
     "例：ZR難易度4": "Example: ZR Difficulty 4",
     "6×6編成盤": "6×6 formation board",
     "進化名・系統名・alias": "Evolution name, family or alias",
-    "共有URL": "Share URL"
+    "共有URL": "Share URL",
+    "既存のゾンビラッシュTierで上位の候補：": "Top candidates in existing Zombie Rush Tier:",
+    "モンサバ ゾンビラッシュ Season 1 AI予測Tier｜ゾンビラッシュ攻略": "Clash of Critters Zombie Rush Season 1 AI Prediction Tier | Zombie Rush Strategy"
   },
   "zh-CN": {
     "モンサバ攻略DBは、モンスターサバイバル（モンサバ）のタタ63系統・224体を収録。Tier、進化先、スキル効果・数値を一覧で確認できます。": "Clash of Critters 攻略数据库收录 63 个 Tatari 系列、共 224 个 Tatari，可查看 Tier、进化路线、技能效果和已确认数值。",
@@ -471,6 +473,8 @@
     "例：ZR難易度4": "例：ZR难度4",
     "6×6編成盤": "6×6阵容棋盘",
     "進化名・系統名・alias": "进化名、系列名或别名",
-    "共有URL": "分享链接"
+    "共有URL": "分享链接",
+    "既存のゾンビラッシュTierで上位の候補：": "现有 Zombie Rush Tier 中的上位候选：",
+    "モンサバ ゾンビラッシュ Season 1 AI予測Tier｜ゾンビラッシュ攻略": "Clash of Critters Zombie Rush 第1赛季 AI预测Tier｜Zombie Rush攻略"
   }
 }

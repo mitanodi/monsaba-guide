@@ -17,11 +17,11 @@ const COPY = {
     placed: '配置しました。', moved: '配置を移動しました。', movePrompt: '移動先を選んでください。配置済みの場合は所属を保ったまま入れ替えます。', removed: '削除しました。', cleared: '盤面をクリアしました。',
     restored: '前回の編成をv3へ移行して復元しました。', shared: 'v3共有URLをコピーしました。編成内容はAnalyticsへ送信しません。', shareFallback: 'コピーできませんでした。下のURLを選択してコピーしてください。',
     saved: 'この端末に編成を保存しました。', imageSaved: 'P1/P2・Lv・Tier付き共有画像を保存しました。', noResults: '条件に一致するタタがありません。', unnamed: '名前なし編成', open: '開く', remove: '削除',
-    change: 'タタを変更', changePrompt: '一覧から変更後のタタとTierを選んでください。', move: '移動・入替', detail: '詳細を見る', row: '行', column: '列', board: '6×6 Zombie Rush編成盤', direction: 'こちらからゾンビが来ます ▼',
+    change: 'タタを変更', changePrompt: '一覧から変更後のタタとTierを選んでください。', move: '移動・入替', detail: '詳細を見る', row: '行', column: '列', board: '6×6 ゾンビラッシュ編成盤', direction: 'こちらからゾンビが来ます ▼',
     clearConfirm: '配置済みのタタをすべて削除しますか？', newConfirm: '現在の未保存状態を空にして、新しい編成を始めますか？', confirmDelete: 'この保存編成を削除しますか？',
-    selected: '選択中', attribute: '属性', saveLimit: '保存できる編成は最大10件です。', boardMemo: 'Zombie Rush 6×6編成', imageError: '共有画像を作成できませんでした。', handoffError: '質問掲示板へ編成を引き渡せませんでした。', textCopied: '編成テキストをコピーしました。',
+    selected: '選択中', attribute: '属性', saveLimit: '保存できる編成は最大10件です。', boardMemo: 'ゾンビラッシュ 6×6編成', imageError: '共有画像を作成できませんでした。', handoffError: '質問掲示板へ編成を引き渡せませんでした。', textCopied: '編成テキストをコピーしました。',
     slotUnlock: '配置上限+1', levelUnlock: 'Lv上限+1', count: '配置', playerFull: 'Player {player}は{limit}体まで配置できます。配置上限+1を取得している場合は設定をONにしてください。', invalidLevel: 'Player {player}はLv{limit}まで選択できます。Lv上限+1を取得している場合は設定をONにしてください。',
-    levelOffConfirm: 'Lv8のタタが配置されています。Lv上限解放を解除するとLv7へ変更されます。', slotOffBlocked: '11体配置中は配置上限+1を解除できません。先に1体削除してください。', duplicateFamily: 'Player {player}には同じタタ系統を1体まで配置できます。', quickRemove: 'P{player} {name}を削除', changed: '設定を変更しました。', player: 'Player', level: 'Zombie Rush Lv'
+    levelOffConfirm: 'Lv8のタタが配置されています。Lv上限解放を解除するとLv7へ変更されます。', slotOffBlocked: '11体配置中は配置上限+1を解除できません。先に1体削除してください。', duplicateFamily: 'Player {player}には同じタタ系統を1体まで配置できます。', quickRemove: 'P{player} {name}を削除', changed: '設定を変更しました。', player: 'Player', level: 'ゾンビラッシュ Lv'
   },
   en: {
     empty: 'Empty', placeholder: 'Image pending', selectFirst: 'Choose a player, level, Tata family, and tier.', selectCell: 'P{player} {name} T{stage} Lv{level} selected. Tap a cell.',

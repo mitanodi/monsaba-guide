@@ -16,7 +16,7 @@ export const MAX_PLAYER_LIMIT = 11;
 export const BASE_LEVEL_LIMIT = 7;
 export const MAX_LEVEL_LIMIT = 8;
 export const TEAM_MODES = Object.freeze(['free', 'normal', 'zombie', 'dojo', 'boss']);
-export const MODE_LABELS = Object.freeze({ free: '自由編成', normal: '通常', zombie: 'Zombie Rush', dojo: 'バッジ道場', boss: 'ボスラリー' });
+export const MODE_LABELS = Object.freeze({ free: '自由編成', normal: '通常', zombie: 'ゾンビラッシュ', dojo: 'バッジ道場', boss: 'ボスラリー' });
 const isRecord = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
 const blankPlayerSettings = () => ({ 1: { slotLimitPlusOne: false, levelCapPlusOne: false }, 2: { slotLimitPlusOne: false, levelCapPlusOne: false } });
 

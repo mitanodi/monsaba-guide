@@ -100,7 +100,7 @@ test('every active role guide has substantive original context, mode guidance an
     const html = read(`roles/${name}/index.html`);
     assert.doesNotMatch(html, /noindex/i, name);
     assert.ok(plainText(html).length >= 1400, `${name}: 本文が短すぎます (${plainText(html).length})`);
-    for (const phrase of ['役とは', '候補に入れやすい場面', '優先度を下げる判断', '候補', '用途別の使い分け', '通常ステージ', 'Zombie Rush', 'バッジ道場', 'ボスラリー', '初心者・育成優先の考え方', '関連する役割と確認先', '確認済みDB', '当サイト独自整理']) assert.ok(html.includes(phrase), `${name}: ${phrase}`);
+    for (const phrase of ['役とは', '候補に入れやすい場面', '優先度を下げる判断', '候補', '用途別の使い分け', '通常ステージ', 'ゾンビラッシュ', 'バッジ道場', 'ボスラリー', '初心者・育成優先の考え方', '関連する役割と確認先', '確認済みDB', '当サイト独自整理']) assert.ok(html.includes(phrase), `${name}: ${phrase}`);
     assert.match(html, /href="\/tata\/[^/]+\/"/);
     assert.match(html, /href="\/about-data\/"/);
   }

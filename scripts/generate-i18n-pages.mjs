@@ -159,7 +159,11 @@ function translator(locale, missing) {
     if (pdfSource) return raw.replace(trimmed, locale === 'en' ? `In-game PDF pp. ${pdfSource[1]}` : `游戏内PDF第${pdfSource[1]}页`);
     const japaneseDate = trimmed.match(/^(20\d{2})年(\d{1,2})月(\d{1,2})日$/);
     if (japaneseDate) return raw.replace(trimmed, locale === 'en' ? `${new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Tokyo' }).format(new Date(Date.UTC(+japaneseDate[1], +japaneseDate[2] - 1, +japaneseDate[3])))}` : `${japaneseDate[1]}年${japaneseDate[2]}月${japaneseDate[3]}日`);
-    const value = overrides[locale]?.[trimmed] || translations[locale][trimmed];
+    const legacyZombieRushSource = trimmed.replaceAll('ゾンビラッシュ', 'Zombie Rush');
+    const value = overrides[locale]?.[trimmed]
+      || translations[locale][trimmed]
+      || overrides[locale]?.[legacyZombieRushSource]
+      || translations[locale][legacyZombieRushSource];
     if (!value) {
       missing.add(trimmed);
       return raw;

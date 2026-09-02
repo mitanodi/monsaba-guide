@@ -36,7 +36,7 @@ const pages = [
   { title:'タタ2体比較', href:'/compare/', description:'属性・Tier・役割・スキル・進化を横並び比較', keywords:'比較 どっち vs 適性' },
   { title:'モンサバ攻略FAQ', href:'/faq/', description:'進化・属性・Tier・比較の短い回答', keywords:'faq よくある質問 次に進化 どの属性' },
   { title:'ゾンビラッシュ攻略', href:'/zombie-rush/', description:'高Wave・おすすめTier・注意ゾンビ', keywords:'ゾンビラッシュ wave' },
-  { title:'Zombie Rush チップ図鑑', href:'/zombie-rush/chips/', description:'ゲーム内確認済み49種の効果・Rank・フィルタ', keywords:'チップ chip 攻撃 防御 回復 配置 ランダム レベル' },
+  { title:'ゾンビラッシュ チップ図鑑', href:'/zombie-rush/chips/', description:'ゲーム内確認済み49種の効果・Rank・フィルタ', keywords:'チップ chip 攻撃 防御 回復 配置 ランダム レベル' },
   { title:'全64系統の進化試練DB', href:'/evolution/trials/', description:'T2・T3・T4条件を検索', keywords:'進化試練 条件 餌付け 共有進行 素材' },
   { title:'8/30大型更新', href:'/updates/2026-08-30/', description:'パクマ・新T4・チップ・イベント・進化試練', keywords:'パクマ クマッシュ マリンベア ブリズリー ロードパス ナムアミダイジャ' },
   { title:'8/26アップデート実装内容', href:'/updates/2026-08-26/', description:'パクマ・ゾンビラッシュSeason 1・新T4・バランス調整', keywords:'アップデート アプデ 8月26日 パクマ season1 シーズン1 ロードパス ナムアミダイジャ' },
@@ -129,7 +129,7 @@ function runSearch(rawQuery, updateUrl = true) {
     section('タタ', familyResults, (family) => resultLink(`/tata/${encodeURIComponent(family.id)}/`, getFamilyDisplayLabel(family), `${family.attribute}属性 / ${getEvolutionChain(family)}`, family)),
     section('進化名', evolutionResults, (item) => resultLink(`/tata/${encodeURIComponent(item.family.id)}/`, getFamilyDisplayLabel(item.family), item.matches.join(' / '), item.family)),
     section('スキル', skillResults, (item) => resultLink(`/tata/${encodeURIComponent(item.family.id)}/`, getFamilyDisplayLabel(item.family), item.matches.join(' / '), item.family)),
-    section('Zombie Rushチップ', chipResults, (chip) => resultLink('/zombie-rush/chips/', chip.name.ja, `Rank ${chip.rarity} / ${chip.effect.ja}`)),
+    section('ゾンビラッシュチップ', chipResults, (chip) => resultLink('/zombie-rush/chips/', chip.name.ja, `Rank ${chip.rarity} / ${chip.effect.ja}`)),
     section('進化試練', trialResults, (family) => resultLink(`/evolution/trials/`, `${family.familyName}系`, family.conditions.map((item) => `T${item.stage} ${item.tataName}`).join(' / '))),
     section('攻略ページ', pageResults, (page) => resultLink(page.href, page.title, page.description))
   ].join('');
