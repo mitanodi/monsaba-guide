@@ -190,7 +190,7 @@ expect(sharedLayout.includes("href: '/friends/', label: 'フレンド掲示板' 
 expect(sharedLayout.indexOf("href: '/search/'") < sharedLayout.indexOf("href: '/compare/'") && sharedLayout.indexOf("href: '/consult/'") < sharedLayout.indexOf("href: '/my-monsaba/'") && sharedLayout.indexOf("href: '/team-builder/'") < sharedLayout.indexOf("href: '/friends/'"), '共通ナビのツール・コミュニティの並びが不正です');
 expect(sharedLayout.indexOf("href: '/guides/'") < sharedLayout.indexOf("href: '/compare/'") && sharedLayout.indexOf("href: '/compare/'") < sharedLayout.indexOf("href: '/consult/'"), '共通ナビの攻略ハブ・比較・相談の並びが不正です');
 const mobileGuideNavItems = [['/normal-guide/', '通常ステージ'], ['/zombie-rush/', 'ゾンビラッシュ'], ['/boss-rally/', 'ボスラリー'], ['/badge-dojo/', 'バッジ道場']];
-expect(sharedLayout.includes("href: '/guides/', label: '攻略ハブ', className: 'desktop-only-nav-link'") && mobileGuideNavItems.every(([href, label]) => sharedLayout.includes(`href: '${href}', label: '${label}', className: 'mobile-only-nav-link'`)) && (sharedLayout.match(/className: 'mobile-only-nav-link'/g) || []).length === 7, 'PC攻略ハブ・スマホ攻略/ツールリンクの表示区分が不正です');
+expect(sharedLayout.includes("href: '/guides/', label: '攻略ハブ', className: 'desktop-only-nav-link'") && mobileGuideNavItems.every(([href, label]) => sharedLayout.includes(`href: '${href}', label: '${label}', className: 'mobile-only-nav-link'`)) && sharedLayout.includes("href: '/team-builder/', label: '編成メーカー', className: 'team-builder-nav-link'") && (sharedLayout.match(/className: 'mobile-only-nav-link'/g) || []).length === 6, 'PC攻略ハブ・スマホ攻略/ツールリンクの表示区分が不正です');
 expect(sharedLayout.includes("href: '/board/', label: '質問掲示板' })") && sharedLayout.includes("href: '/friends/', label: 'フレンド掲示板'"), 'コミュニティnavにフレンド掲示板・質問掲示板がありません');
 expect(read('site.js').includes("aria-current', 'page'"), 'aria-current 共通処理がありません');
 expect(read('site.js').includes('/_vercel/insights/script.js') && read('site.js').includes('/_vercel/speed-insights/script.js'), 'Vercel計測スクリプトが不足');
@@ -207,12 +207,15 @@ for (const file of htmlFiles) {
   const header = html.match(/<header class="site-header">[\s\S]*?<\/header>/)?.[0] || '';
   expect((header.match(/href="\/friends\/"/g) || []).length === 1, `${file}: ヘッダーのフレンド掲示板が重複しています`);
   expect(!/href="\/friends\/" class="mobile-only-nav-link"/.test(header), `${file}: フレンド掲示板がPCで非表示です`);
+  expect(header.includes('href="/team-builder/" class="team-builder-nav-link"'), `${file}: 編成メーカーがPC・スマホ共通navにありません`);
 }
 for (const [route, label] of [['normal-guide', '通常ステージ'], ['zombie-rush', 'ゾンビラッシュ'], ['boss-rally', 'ボスラリー'], ['badge-dojo', 'バッジ道場']]) {
   const header = read(`${route}/index.html`).match(/<header class="site-header">[\s\S]*?<\/header>/)?.[0] || '';
   expect(header.includes(`href="/${route}/" class="mobile-only-nav-link" aria-current="page">${label}</a>`), `${route}: スマホ攻略リンクのactive表示がありません`);
   expect(header.includes('href="/guides/" class="desktop-only-nav-link" aria-current="page">攻略ハブ</a>'), `${route}: PC攻略ハブのactive表示がありません`);
 }
+const teamBuilderHeader = read('team-builder/index.html').match(/<header class="site-header">[\s\S]*?<\/header>/)?.[0] || '';
+expect(teamBuilderHeader.includes('href="/team-builder/" class="team-builder-nav-link" aria-current="page">編成メーカー</a>'), '編成メーカーnavのactive表示がありません');
 const topHtml = read('index.html');
 expect((topHtml.match(/data-family="/g) || []).length === 64, 'TOP図鑑の静的HTMLが64系統ではありません');
 const tierHtml = read('tata-tier/index.html');

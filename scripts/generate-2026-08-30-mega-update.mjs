@@ -31,8 +31,18 @@ const write = (route, html) => {
   const withIcons = html.replace('<link rel="icon" href="/favicon.ico" sizes="any">', '<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png">');
   const withAnalytics = withIcons.includes('data-monsaba-ga4="loader"') ? withIcons : withIcons.replace('</head>', `${renderGa4Tag()}</head>`);
   const withGrowth = withAnalytics.replace('</body>', '<script src="/growth.js" defer></script></body>');
+  const withTeamBuilderLink = withGrowth.replace(
+    '<nav class="attribute-guide-nav"><a href="/zombie-rush/">ゾンビラッシュ攻略</a><a href="/updates/2026-08-30/">今回の更新内容</a></nav>',
+    '<nav class="attribute-guide-nav"><a href="/zombie-rush/">ゾンビラッシュ攻略</a><a href="/team-builder/">チップを使って編成を作る</a><a href="/updates/2026-08-30/">今回の更新内容</a></nav>'
+  ).replace(
+    '<nav class="attribute-guide-nav"><a href="/en/zombie-rush/">Zombie Rush guide</a></nav>',
+    '<nav class="attribute-guide-nav"><a href="/en/zombie-rush/">Zombie Rush guide</a><a href="/en/team-builder/">Build a Team with Chips</a></nav>'
+  ).replace(
+    '<nav class="attribute-guide-nav"><a href="/zh-cn/zombie-rush/">Zombie Rush 攻略</a></nav>',
+    '<nav class="attribute-guide-nav"><a href="/zh-cn/zombie-rush/">Zombie Rush 攻略</a><a href="/zh-cn/team-builder/">使用芯片创建阵容</a></nav>'
+  );
   fs.mkdirSync(directory, { recursive: true });
-  fs.writeFileSync(path.join(directory, 'index.html'), withGrowth);
+  fs.writeFileSync(path.join(directory, 'index.html'), withTeamBuilderLink);
 };
 
 function shell({ route, title, description, body, type = 'CollectionPage', image = '/assets/heroes/top-main.webp', updated = DEFAULT_CONTENT_DATE }) {

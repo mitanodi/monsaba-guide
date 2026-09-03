@@ -374,6 +374,26 @@ test('個別タタ登録・TOP・PC/スマホナビ導線を持つ', () => {
   const nav = read('scripts/shared-layout.mjs');
   assert.match(nav, /href: '\/my-monsaba\/'/);
   assert.match(nav, /href: '\/team-builder\/'/);
+  assert.match(nav, /href: '\/team-builder\/', label: '編成メーカー', className: 'team-builder-nav-link'/);
+});
+
+test('編成メーカーはTOP・ゾンビラッシュ攻略・チップ一覧から直接開ける', () => {
+  const top = read('index.html');
+  const zombie = read('zombie-rush/index.html');
+  const chipsPage = read('zombie-rush/chips/index.html');
+  assert.match(top, /class="wrap zombie-entry team-builder-entry"/);
+  assert.match(top, /タタ配置/); assert.match(top, /Lv・チップ設定/); assert.match(top, /P1\/P2対応/); assert.match(top, /保存・共有/);
+  assert.match(zombie, /data-cta-id="team_builder_zombie_guide"/);
+  assert.match(chipsPage, /href="\/team-builder\/">チップを使って編成を作る<\/a>/);
+});
+
+test('EN・zh-CNにも編成メーカー導線が自然な文言で生成される', () => {
+  assert.match(read('en/index.html'), /Zombie Rush Team Builder/);
+  assert.match(read('en/zombie-rush/index.html'), /Open Team Builder/);
+  assert.match(read('en/zombie-rush/chips/index.html'), /Build a Team with Chips/);
+  assert.match(read('zh-cn/index.html'), /Zombie Rush阵容编辑器/);
+  assert.match(read('zh-cn/zombie-rush/index.html'), /打开阵容编辑器/);
+  assert.match(read('zh-cn/zombie-rush/chips/index.html'), /使用芯片创建阵容/);
 });
 
 test('Analyticsは手持ち・編成内容をpropertiesへ送らない', () => {

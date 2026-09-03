@@ -42,6 +42,7 @@
     : path.startsWith('/consult/') ? '/consult/'
     : path.startsWith('/search/') ? '/search/'
     : path.startsWith('/compare/') ? '/compare/'
+    : path.startsWith('/team-builder/') ? '/team-builder/'
     : path.startsWith('/beginner-guide/') ? '/beginner-guide/'
     : path.startsWith('/friends/') ? '/friends/'
     : path.startsWith('/board/') ? '/board/'
