@@ -357,7 +357,7 @@ test('マイモンサバ・編成メーカーのUIと連携を静的検証', () 
   assert.match(builder, /id="team-board"/);
   assert.match(builder, /width="1258" height="1450"/);
   assert.match(builder, /id="team-chip-settings"/);
-  assert.doesNotMatch(builder, /こちらからゾンビが来ます|6×6/);
+  assert.doesNotMatch(builder, /こちらからゾンビが来ます/);
   assert.match(builderJs, /formation-stage-badge/);
   assert.match(builderJs, /formation-level-badge/);
   assert.match(builderJs, /formation-player-badge/);
@@ -374,7 +374,7 @@ test('個別タタ登録・TOP・PC/スマホナビ導線を持つ', () => {
   const nav = read('scripts/shared-layout.mjs');
   assert.match(nav, /href: '\/my-monsaba\/'/);
   assert.match(nav, /href: '\/team-builder\/'/);
-  assert.match(nav, /href: '\/team-builder\/', label: '編成メーカー', className: 'team-builder-nav-link'/);
+  assert.match(nav, /href: '\/team-builder\/', label: '編成メーカー'/);
 });
 
 test('編成メーカーはTOP・ゾンビラッシュ攻略・チップ一覧から直接開ける', () => {

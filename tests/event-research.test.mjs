@@ -31,6 +31,9 @@ test('community rotation is explicitly non-guaranteed', () => {
 });
 
 test('community aliases stay separate from official Japanese event names', () => {
+  assert.equal(byId['running-star'].name, 'ランニングパーティー');
+  assert.equal(byId['running-star'].officialNames.en, 'Running Star');
+  assert.equal(byId['running-star'].officialNames['zh-CN'], null);
   assert.equal(byId['summer-party'].name, 'サマーパーティ');
   assert.deepEqual(byId['summer-party'].communityAliases, ['Summer Party', 'Summer Bash']);
   assert.ok(byId['island-treasure'].communityAliases.includes('Deepsea Dive'));
@@ -131,12 +134,17 @@ test('event research dates agree in every locale and sitemap', () => {
     for (const locale of locales) {
       const relative = `${locale.prefix}events/${id}/index.html`;
       const html = read(relative);
-      const updated = id === 'zombie-siege' ? '2026-09-01' : '2026-08-31';
+      const officialPending = ['running-star', 'treasure-hunt', 'surprise-roulette'].includes(id);
+      const updated = id === 'zombie-siege' ? '2026-09-01' : officialPending ? '2026-09-05' : '2026-08-31';
       const kickerDate = id === 'zombie-siege'
         ? (locale.prefix === 'en/' ? 'Sep 1, 2026' : '2026年9月1日')
+        : officialPending
+          ? (locale.prefix === 'en/' ? 'Sep 5, 2026' : '2026年9月5日')
         : locale.kickerDate;
       const checked = id === 'zombie-siege'
         ? (locale.prefix === 'en/' ? 'Last checked: Sep 1, 2026' : locale.prefix === 'zh-cn/' ? '最后确认：2026年9月1日' : '最終確認日：2026年9月1日')
+        : officialPending
+          ? (locale.prefix === 'en/' ? 'Last checked: Sep 5, 2026' : locale.prefix === 'zh-cn/' ? '最后确认：2026年9月5日' : '最終確認日：2026年9月5日')
         : locale.checked;
       assert.match(html, new RegExp(`"dateModified"\\s*:\\s*"${updated}"`), relative);
       assert.match(html, new RegExp(`<span class="visible-kicker">[^<]*${kickerDate.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[^<]*<\\/span>`), relative);
@@ -148,7 +156,7 @@ test('event research dates agree in every locale and sitemap', () => {
       } else assert.ok(sitemap.includes(`<loc>https://monster-survival.com${route}</loc><lastmod>${updated}</lastmod>`), route);
     }
   }
-  assert.ok(sitemap.includes('<loc>https://monster-survival.com/events/</loc><lastmod>2026-08-30</lastmod>'));
+  assert.ok(sitemap.includes('<loc>https://monster-survival.com/events/</loc><lastmod>2026-09-05</lastmod>'));
 });
 
 test('Treasure Hunt uses the shared localized footer totals', () => {

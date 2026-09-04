@@ -17,6 +17,7 @@ const formCount = tatari.families.flatMap((family) => family.evolutions).length;
 const DEFAULT_CONTENT_DATE = '2026-08-30';
 const EVENT_RESEARCH_DATE = '2026-08-31';
 const ZOMBIE_SIEGE_UPDATE_DATE = '2026-09-01';
+const OFFICIAL_RESPONSE_DATE = '2026-09-05';
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 const dateParts = (value) => {
   const [year, month, day] = value.split('-').map(Number);
@@ -151,6 +152,9 @@ const eventDetails = {
   'treasure-hunt': ['4本の鍵と盤面拡張', '開始後に4人を選び、1人の盤面でオタカラを3回見つけると鍵を1個獲得します。鍵4個で中央宝箱を開き、同じメンバーから複数の鍵も取得できます。', '鍵ごとに必要アイテム数が5増え、盤面は最大3回拡張します。1〜3マスを追加で掘る爆弾を考慮し、独自ソルバーで候補手順を比較します。', '日本版のチーム選択・鍵・盤面拡張・爆弾画面はユーザー提供スクリーンショットで再確認待ちです。'],
   'surprise-roulette': ['公式告知確認', '8月26日の公式更新で段階追加と手動レベルアップが案内されました。', 'ゲーム内の段階と報酬を見て、必要分だけ進める設計です。', '現行ヘルプ、各段階の詳細数値と報酬はゲーム内確認待ちです。']
 };
+const officialInquiryNoticeJa = (event) => event.officialInquiry?.status === 'awaiting_official_response'
+  ? '<div class="notice-box official-inquiry-notice"><h3>公式運営へ確認中</h3><p>詳細仕様・開催期間・報酬内容・その他最新仕様は、2026年9月5日時点で運営担当者の回答待ちです。未確認の期間・報酬・仕様は推測していません。</p></div>'
+  : '';
 for (const event of events.events) {
   if (event.id === 'treasure-hunt' || event.id === 'summer-party') continue;
   if (event.id === 'zombie-siege') {
@@ -161,8 +165,8 @@ for (const event of events.events) {
   const [heading, current, strategy, pending] = eventDetails[event.id];
   write(`/events/${event.id}/`, shell({
     route: `/events/${event.id}/`, title: `${event.name} 攻略｜モンサバ イベント`, description: event.summary,
-    type: 'Article', updated: EVENT_RESEARCH_DATE,
-    body: `<article class="wrap static-section"><div class="trust-label-row"><span class="trust-label is-external">コミュニティ確認</span><span class="trust-label is-pending">現行詳細は確認待ち</span></div><h2 class="page-h2">${esc(heading)}</h2><div class="event-status-grid"><article><h3>イベント概要・基本ルール</h3><p>${esc(current)}</p></article><article><h3>攻略の流れ・優先事項</h3><p>${esc(strategy)}</p></article></div><section><h2 class="page-h2">初心者が最初にやること</h2><p>${esc(strategy)}</p><p class="section-note">現行の倍率・必要数・報酬値を確認できていない項目は数値を掲載していません。</p></section><section><h2 class="page-h2">重要アイテムと報酬</h2><p>現在の日本版で名称・必要数・報酬内容を確認できる資料が不足しています。過去情報を現行報酬として表示せず、確認後に追加します。</p></section><section><h2 class="page-h2">よくある失敗</h2><p>開催期間や過去の倍率・報酬を現行仕様だと決めつけないでください。ゲーム内の開催表示とヘルプを優先してください。</p></section><div class="summary-box"><strong>Human Verification</strong><p>${esc(pending)}</p></div><h2 class="page-h2">情報源</h2><p><a href="${esc(event.sourceUrl)}" target="_blank" rel="noopener noreferrer">国内攻略情報</a>を2026年8月31日に照合し、当サイトで独自に要約しました。画像・表・記事本文は転載せず、公式確認済みとは表示していません。</p><nav class="attribute-guide-nav"><a href="/events/">イベント攻略へ戻る</a><a href="/beginner-guide/">初心者ガイド</a><a href="/team-builder/">編成メーカー</a><a href="/items/">アイテムDB</a><a href="/evolution/trials/">関連する進化試練を見る</a></nav></article>`
+    type: 'Article', updated: event.officialInquiry ? OFFICIAL_RESPONSE_DATE : EVENT_RESEARCH_DATE,
+    body: `<article class="wrap static-section"><div class="trust-label-row"><span class="trust-label is-external">コミュニティ確認</span><span class="trust-label is-pending">現行詳細は確認待ち</span></div>${officialInquiryNoticeJa(event)}<h2 class="page-h2">${esc(heading)}</h2><div class="event-status-grid"><article><h3>イベント概要・基本ルール</h3><p>${esc(current)}</p></article><article><h3>攻略の流れ・優先事項</h3><p>${esc(strategy)}</p></article></div><section><h2 class="page-h2">初心者が最初にやること</h2><p>${esc(strategy)}</p><p class="section-note">現行の倍率・必要数・報酬値を確認できていない項目は数値を掲載していません。</p></section><section><h2 class="page-h2">重要アイテムと報酬</h2><p>現在の日本版で名称・必要数・報酬内容を確認できる資料が不足しています。過去情報を現行報酬として表示せず、確認後に追加します。</p></section><section><h2 class="page-h2">よくある失敗</h2><p>開催期間や過去の倍率・報酬を現行仕様だと決めつけないでください。ゲーム内の開催表示とヘルプを優先してください。</p></section><div class="summary-box"><strong>Human Verification</strong><p>${esc(pending)}</p></div><h2 class="page-h2">情報源</h2><p><a href="${esc(event.sourceUrl)}" target="_blank" rel="noopener noreferrer">国内攻略情報</a>を2026年8月31日に照合し、当サイトで独自に要約しました。画像・表・記事本文は転載せず、詳細仕様を公式確認済みとは表示していません。</p><nav class="attribute-guide-nav"><a href="/events/">イベント攻略へ戻る</a><a href="/beginner-guide/">初心者ガイド</a><a href="/team-builder/">編成メーカー</a><a href="/items/">アイテムDB</a><a href="/evolution/trials/">関連する進化試練を見る</a></nav></article>`
   }));
 }
 
@@ -252,7 +256,7 @@ const localizedEvents = {
   },
   'zh-CN': {
     'running-party':['跑步派对攻略','4人共享滑雪距离与团队进度的周期活动。','活动玩法','从弹珠机获得滑雪板，通过转盘前进；每人的距离计入4人总距离，队友距离奖励中的活动道具也会共享。','优先建议','社区攻略建议以5倍、10倍稳定推进；更高倍率的单次波动更大。','完整帮助、全部倍率与当前奖励仍需日文游戏截图确认。'],
-    'running-star':['跑步之星攻略','与协作版分开处理的单人跑步活动。','活动玩法','在没有4人共享的单人模式中提升距离。','优先建议','根据剩余道具、时间与下一个奖励档位选择倍率。','当前奖励与倍率细节仍待确认。'],
+    'running-star':['Running Star 攻略','与协作版分开处理的单人跑步活动。正式中文名尚待官方提供。','活动玩法','在没有4人共享的单人模式中提升距离。','优先建议','根据剩余道具、时间与下一个奖励档位选择倍率。','当前奖励与倍率细节仍待确认。'],
     'island-treasure':['岛屿宝藏攻略','围绕领地推进、每小时积分、饮料与疲劳管理的4人活动。','活动玩法','加入联盟，消耗能量饮料攻击领地，并从占领地持续获得积分；疲劳、浓缩饮料与总攻击需要团队协调。','优先建议','先建立消耗较低的连续领地，再判断是否争夺高成本中央目标。深海宝藏仍等待日本版确认。','当前奖励、疲劳、浓缩饮料与三回合规则仍需日文游戏截图。'],
     'magic-farm':['魔法农场攻略','8月26日改版后以作物总重量计分，并含肥料暴击与邀请Tatari加成。','活动玩法','使用肥料提高作物总重量，暴击最高5倍；自己或好友Tatari的星级、进化、喂食与闪亮状态会转化为重量加成。','优先建议','先确认画面上最高的支援加成与下一个重量里程碑，再使用肥料；旧收获与喂食流程属于旧规则。','当前界面、重量加成与里程碑奖励仍需日文游戏截图。'],
     'fishing-tournament':['钓鱼大赛攻略','使用海域、金银鱼币、鱼竿、鱼饵与大型鱼QTE推进的4人活动。','活动玩法','从弹珠机收集鱼竿；金鱼币用于排名，银鱼币用于个人累计奖励与解锁更高级鱼竿。','优先建议','社区攻略以高倍率推进银币与鱼竿解锁，再用1倍增加排名尝试次数；鱼饵应与队友同时钓鱼的时间协调。','当前海域鱼类、排名奖励与鱼竿解锁数值仍需日文游戏截图。'],
@@ -268,7 +272,12 @@ for (const locale of Object.keys(localeConfig)) for (const event of events.event
     continue;
   }
   const [title, description, currentLabel, current, priorityLabel, priority, pending] = localizedEvents[locale][event.id];
-  write(`${localeConfig[locale].prefix}/events/${event.id}/`, localizedShell(locale, { route: `/events/${event.id}/`, title, description, type: 'Article', updated: EVENT_RESEARCH_DATE, body: `<article class="wrap static-section"><div class="trust-label-row"><span class="trust-label is-external">${locale === 'en' ? 'Community-confirmed' : '社区信息确认'}</span></div><div class="event-status-grid"><article><h2>${currentLabel}</h2><p>${current}</p></article><article><h2>${priorityLabel}</h2><p>${priority}</p></article></div><div class="summary-box"><strong>Human Verification</strong><p>${pending}</p></div><h2 class="page-h2">${locale === 'en' ? 'Source' : '信息来源'}</h2><p><a href="${esc(event.sourceUrl)}" target="_blank" rel="noopener noreferrer">${locale === 'en' ? 'Community strategy source' : '社区攻略来源'}</a>, ${locale === 'en' ? 'checked Aug 31, 2026. Independently summarized; no source images, tables or article copy are reused.' : '于2026年8月31日核对。本站独立摘要，不转载来源图片、表格或文章内容。'}</p><nav class="attribute-guide-nav"><a href="${localeConfig[locale].prefix}/events/">${locale === 'en' ? 'Back to events' : '返回活动攻略'}</a><a href="${localeConfig[locale].prefix}/evolution/trials/">${locale === 'en' ? 'Related evolution trials' : '相关进化试炼'}</a></nav></article>` }));
+  const officialNotice = event.officialInquiry?.status === 'awaiting_official_response'
+    ? (locale === 'en'
+      ? '<div class="notice-box official-inquiry-notice"><h3>Awaiting an official response</h3><p>Details, dates, rewards and the latest specification are awaiting confirmation from the operations team as of Sep 5, 2026. No unconfirmed dates, rewards or rules have been inferred.</p></div>'
+      : '<div class="notice-box official-inquiry-notice"><h3>等待官方运营团队回复</h3><p>截至2026年9月5日，详细机制、举办时间、奖励内容及其他最新规格仍待运营负责人确认。本站未推测尚未确认的日期、奖励或机制。</p></div>')
+    : '';
+  write(`${localeConfig[locale].prefix}/events/${event.id}/`, localizedShell(locale, { route: `/events/${event.id}/`, title, description, type: 'Article', updated: event.officialInquiry ? OFFICIAL_RESPONSE_DATE : EVENT_RESEARCH_DATE, body: `<article class="wrap static-section"><div class="trust-label-row"><span class="trust-label is-external">${locale === 'en' ? 'Community-confirmed' : '社区信息确认'}</span></div>${officialNotice}<div class="event-status-grid"><article><h2>${currentLabel}</h2><p>${current}</p></article><article><h2>${priorityLabel}</h2><p>${priority}</p></article></div><div class="summary-box"><strong>Human Verification</strong><p>${pending}</p></div><h2 class="page-h2">${locale === 'en' ? 'Source' : '信息来源'}</h2><p><a href="${esc(event.sourceUrl)}" target="_blank" rel="noopener noreferrer">${locale === 'en' ? 'Community strategy source' : '社区攻略来源'}</a>, ${locale === 'en' ? 'checked Aug 31, 2026. Independently summarized; no source images, tables or article copy are reused.' : '于2026年8月31日核对。本站独立摘要，不转载来源图片、表格或文章内容。'}</p><nav class="attribute-guide-nav"><a href="${localeConfig[locale].prefix}/events/">${locale === 'en' ? 'Back to events' : '返回活动攻略'}</a><a href="${localeConfig[locale].prefix}/evolution/trials/">${locale === 'en' ? 'Related evolution trials' : '相关进化试炼'}</a></nav></article>` }));
 }
 
 // These two pages intentionally stay discoverable through the event hub while
@@ -303,7 +312,10 @@ inject('events/treasure-hunt/index.html', 'EVENT_GUIDE', '<section class="wrap s
   fs.writeFileSync(treasurePath, treasureHtml);
 }
 inject('events/treasure-hunt/index.html', 'EVENT_SOLVER_CTA', '<section class="wrap static-section"><div class="attribute-guide-nav"><a class="button" href="#board">オタカラソルバーを使う</a><a class="ghost-button" href="#event-guide">イベント攻略を見る</a><a class="ghost-button" href="/events/">イベント一覧へ戻る</a></div></section>');
-inject('events/treasure-hunt/index.html', 'EVENT_FRESHNESS', `<section class="wrap source-note page-freshness"><strong>情報の状態</strong><p><span class="trust-label is-external">外部確認</span> イベント解説を独自に整理しています。</p><p>最終確認日：${japaneseDate(EVENT_RESEARCH_DATE)}</p><a href="/about-data/">データ方針を見る</a></section>`);
+inject('events/treasure-hunt/index.html', 'OFFICIAL_INQUIRY', '<section class="wrap"><div class="notice-box official-inquiry-notice"><h3>公式運営へ確認中</h3><p>詳細仕様・開催期間・報酬内容・その他最新仕様は、2026年9月5日時点で運営担当者の回答待ちです。未確認の期間・報酬・仕様は推測していません。</p></div></section>');
+inject('en/events/treasure-hunt/index.html', 'OFFICIAL_INQUIRY_EN', '<section class="wrap"><div class="notice-box official-inquiry-notice"><h3>Awaiting an official response</h3><p>Details, dates, rewards and the latest specification are awaiting confirmation from the operations team as of Sep 5, 2026. No unconfirmed dates, rewards or rules have been inferred.</p></div></section>');
+inject('zh-cn/events/treasure-hunt/index.html', 'OFFICIAL_INQUIRY_ZH', '<section class="wrap"><div class="notice-box official-inquiry-notice"><h3>等待官方运营团队回复</h3><p>截至2026年9月5日，详细机制、举办时间、奖励内容及其他最新规格仍待运营负责人确认。本站未推测尚未确认的日期、奖励或机制。</p></div></section>');
+inject('events/treasure-hunt/index.html', 'EVENT_FRESHNESS', `<section class="wrap source-note page-freshness"><strong>情報の状態</strong><p><span class="trust-label is-external">外部確認</span> イベント解説を独自に整理しています。</p><p>最終確認日：${japaneseDate(OFFICIAL_RESPONSE_DATE)}</p><a href="/about-data/">データ方針を見る</a></section>`);
 const treasureAssetCopy = {
   ja: ['運営提供のオタカラ探し素材', 'オタカラ探しフォルダで確認できた公式クリエイター素材です。絵柄をルールや報酬内容の根拠には使用していません。'],
   en: ['Creator assets for Treasure Hunt', 'Official creator assets found in the Treasure Hunt folder. The artwork is not treated as evidence for rules or rewards.'],
@@ -328,14 +340,20 @@ function synchronizeTreasurePage(file, locale) {
   const target = path.join(root, file);
   let source = fs.readFileSync(target, 'utf8');
   const kicker = locale === 'ja'
-    ? `独自アルゴリズム・端末内保存・${japaneseDate(EVENT_RESEARCH_DATE)}更新`
+    ? `独自アルゴリズム・端末内保存・${japaneseDate(OFFICIAL_RESPONSE_DATE)}更新`
     : locale === 'en'
-      ? `Independent algorithm · Saved on this device · Updated ${englishDate(EVENT_RESEARCH_DATE)}`
-      : `独立算法 · 数据保存在本设备 · ${japaneseDate(EVENT_RESEARCH_DATE)}更新`;
+      ? `Independent algorithm · Saved on this device · Updated ${englishDate(OFFICIAL_RESPONSE_DATE)}`
+      : `独立算法 · 数据保存在本设备 · ${japaneseDate(OFFICIAL_RESPONSE_DATE)}更新`;
   const footer = locale === 'ja' ? renderFooter(`${familyCount}系統 / ${formCount}体`) : layout(locale, 'footer');
+  const checked = locale === 'ja'
+    ? `最終確認日：${japaneseDate(OFFICIAL_RESPONSE_DATE)}`
+    : locale === 'en'
+      ? `Last checked: ${englishDate(OFFICIAL_RESPONSE_DATE)}`
+      : `最后确认：${japaneseDate(OFFICIAL_RESPONSE_DATE)}`;
   source = source
-    .replace(/"dateModified"\s*:\s*"[^"]+"/, `"dateModified": "${EVENT_RESEARCH_DATE}"`)
+    .replace(/"dateModified"\s*:\s*"[^"]+"/, `"dateModified": "${OFFICIAL_RESPONSE_DATE}"`)
     .replace(/<span class="visible-kicker">[\s\S]*?<\/span>/, `<span class="visible-kicker">${kicker}</span>`)
+    .replace(/最終確認日：\d{4}年\d{1,2}月\d{1,2}日|Last checked: [A-Z][a-z]{2} \d{1,2}, \d{4}|最后确认：\d{4}年\d{1,2}月\d{1,2}日/, checked)
     .replace(/<footer[\s\S]*?<\/footer>/, footer);
   fs.writeFileSync(target, `${source.trimEnd()}\n`);
 }

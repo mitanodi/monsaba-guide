@@ -186,18 +186,18 @@ const sharedLayout = read('scripts/shared-layout.mjs');
 for (const label of ['タタ図鑑', 'タタTier', '進化優先度', '攻略ハブ', '通常ステージ', 'ゾンビラッシュ', 'ボスラリー', 'バッジ道場', '比較', '攻略相談', '検索', '初心者ガイド', 'フレンド掲示板']) expect(sharedLayout.includes(label), `共通ヘッダーに ${label} がありません`);
 const siteJs = read('site.js');
 const stylesCss = read('styles.css');
-expect(sharedLayout.includes("href: '/friends/', label: 'フレンド掲示板' })"), 'フレンド掲示板がPC常設ナビになっていません');
-expect(sharedLayout.indexOf("href: '/search/'") < sharedLayout.indexOf("href: '/compare/'") && sharedLayout.indexOf("href: '/consult/'") < sharedLayout.indexOf("href: '/my-monsaba/'") && sharedLayout.indexOf("href: '/team-builder/'") < sharedLayout.indexOf("href: '/friends/'"), '共通ナビのツール・コミュニティの並びが不正です');
-expect(sharedLayout.indexOf("href: '/guides/'") < sharedLayout.indexOf("href: '/compare/'") && sharedLayout.indexOf("href: '/compare/'") < sharedLayout.indexOf("href: '/consult/'"), '共通ナビの攻略ハブ・比較・相談の並びが不正です');
-const mobileGuideNavItems = [['/normal-guide/', '通常ステージ'], ['/zombie-rush/', 'ゾンビラッシュ'], ['/boss-rally/', 'ボスラリー'], ['/badge-dojo/', 'バッジ道場']];
-expect(sharedLayout.includes("href: '/guides/', label: '攻略ハブ', className: 'desktop-only-nav-link'") && mobileGuideNavItems.every(([href, label]) => sharedLayout.includes(`href: '${href}', label: '${label}', className: 'mobile-only-nav-link'`)) && sharedLayout.includes("href: '/team-builder/', label: '編成メーカー', className: 'team-builder-nav-link'") && (sharedLayout.match(/className: 'mobile-only-nav-link'/g) || []).length === 6, 'PC攻略ハブ・スマホ攻略/ツールリンクの表示区分が不正です');
-expect(sharedLayout.includes("href: '/board/', label: '質問掲示板' })") && sharedLayout.includes("href: '/friends/', label: 'フレンド掲示板'"), 'コミュニティnavにフレンド掲示板・質問掲示板がありません');
+expect(sharedLayout.includes("href: '/friends/', label: 'フレンド掲示板'"), 'フレンド掲示板が共通ナビにありません');
+for (const group of ['tata', 'strategy', 'growth', 'tools', 'community']) expect(sharedLayout.includes(`id: '${group}'`), `共通ナビに${group}カテゴリがありません`);
+expect(sharedLayout.indexOf("id: 'strategy'") < sharedLayout.indexOf("id: 'tools'") && sharedLayout.indexOf("id: 'tools'") < sharedLayout.indexOf("id: 'community'"), '共通ナビのカテゴリ順が不正です');
+expect(sharedLayout.includes("href: '/guides/', label: '攻略ハブ'") && sharedLayout.includes("href: '/normal-guide/', label: '通常ステージ'") && sharedLayout.includes("href: '/zombie-rush/', label: 'ゾンビラッシュ'"), '攻略カテゴリの導線が不足しています');
+expect(sharedLayout.includes("href: '/team-builder/', label: '編成メーカー'") && sharedLayout.includes("href: '/compare/', label: '比較'") && sharedLayout.includes("href: '/consult/', label: '攻略相談'") && sharedLayout.includes("href: '/search/', label: '検索'"), 'ツールカテゴリの導線が不足しています');
+expect(sharedLayout.includes("href: '/board/', label: '質問掲示板'") && sharedLayout.includes("href: '/friends/', label: 'フレンド掲示板'"), 'コミュニティnavにフレンド掲示板・質問掲示板がありません');
 expect(read('site.js').includes("aria-current', 'page'"), 'aria-current 共通処理がありません');
 expect(read('site.js').includes('/_vercel/insights/script.js') && read('site.js').includes('/_vercel/speed-insights/script.js'), 'Vercel計測スクリプトが不足');
 expect(siteJs.includes("hostname === 'monster-survival.com'") && siteJs.includes("hostname.endsWith('.vercel.app')") && !siteJs.includes("hostname === 'localhost'"), 'Vercel計測対象hostが不正です');
-expect(stylesCss.includes('@media(max-width:820px)') && stylesCss.includes('grid-template-columns:repeat(2,minmax(0,1fr))'), 'mobile navが820px以下の2列gridではありません');
-expect(stylesCss.includes('.site-header nav .desktop-only-nav-link{display:none!important}') && stylesCss.includes('.mobile-only-nav-link{display:none!important}'), 'PC・スマホ専用navの表示切替が不足しています');
-expect(stylesCss.includes('min-height:44px') && stylesCss.includes('.site-header nav a[aria-current="page"]'), 'mobile navのタップ高さまたはactive表示が不足しています');
+expect(stylesCss.includes('@media(max-width:820px)') && stylesCss.includes('.mobile-bottom-nav'), '820px以下のモバイルナビがありません');
+expect(stylesCss.includes('.nav-category') && stylesCss.includes('.nav-category-panel'), 'カテゴリ式ナビの表示定義が不足しています');
+expect(stylesCss.includes('min-height:44px') && stylesCss.includes('[aria-current="page"]'), 'mobile navのタップ高さまたはactive表示が不足しています');
 expect(read('site.js').includes("matchMedia('(min-width: 821px)')"), '821px以上でmobile navを閉じる回帰処理がありません');
 
 for (const file of htmlFiles) {
@@ -207,15 +207,16 @@ for (const file of htmlFiles) {
   const header = html.match(/<header class="site-header">[\s\S]*?<\/header>/)?.[0] || '';
   expect((header.match(/href="\/friends\/"/g) || []).length === 1, `${file}: ヘッダーのフレンド掲示板が重複しています`);
   expect(!/href="\/friends\/" class="mobile-only-nav-link"/.test(header), `${file}: フレンド掲示板がPCで非表示です`);
-  expect(header.includes('href="/team-builder/" class="team-builder-nav-link"'), `${file}: 編成メーカーがPC・スマホ共通navにありません`);
+  expect(header.includes('href="/team-builder/"'), `${file}: 編成メーカーが共通navにありません`);
 }
 for (const [route, label] of [['normal-guide', '通常ステージ'], ['zombie-rush', 'ゾンビラッシュ'], ['boss-rally', 'ボスラリー'], ['badge-dojo', 'バッジ道場']]) {
   const header = read(`${route}/index.html`).match(/<header class="site-header">[\s\S]*?<\/header>/)?.[0] || '';
-  expect(header.includes(`href="/${route}/" class="mobile-only-nav-link" aria-current="page">${label}</a>`), `${route}: スマホ攻略リンクのactive表示がありません`);
-  expect(header.includes('href="/guides/" class="desktop-only-nav-link" aria-current="page">攻略ハブ</a>'), `${route}: PC攻略ハブのactive表示がありません`);
+  expect(header.includes(`href="/${route}/" aria-current="page"><span>${label}</span>`), `${route}: 攻略リンクのactive表示がありません`);
+  expect(/data-nav-category="strategy"><button[^>]+data-current="true"/.test(header), `${route}: 攻略カテゴリのactive表示がありません`);
 }
 const teamBuilderHeader = read('team-builder/index.html').match(/<header class="site-header">[\s\S]*?<\/header>/)?.[0] || '';
-expect(teamBuilderHeader.includes('href="/team-builder/" class="team-builder-nav-link" aria-current="page">編成メーカー</a>'), '編成メーカーnavのactive表示がありません');
+expect(teamBuilderHeader.includes('href="/team-builder/" aria-current="page"><span>編成メーカー</span>'), '編成メーカーnavのactive表示がありません');
+expect(/data-nav-category="tools"><button[^>]+data-current="true"/.test(teamBuilderHeader), 'ツールカテゴリのactive表示がありません');
 const topHtml = read('index.html');
 expect((topHtml.match(/data-family="/g) || []).length === 64, 'TOP図鑑の静的HTMLが64系統ではありません');
 const tierHtml = read('tata-tier/index.html');

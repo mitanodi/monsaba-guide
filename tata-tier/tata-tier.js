@@ -12,7 +12,8 @@ let holdFamilies=[];
 let overallTierGroups=[];
 let assessments={};
 let imageByFamily=new Map();
-let activeMode='overall';
+const requestedMode=new URL(location.href).searchParams.get('mode')||location.hash.replace(/^#mode-/, '');
+let activeMode=Object.hasOwn(modeLabels,requestedMode)?requestedMode:'overall';
 let activeAttr='すべて';
 
 async function bootTataTier(){
@@ -51,7 +52,7 @@ async function fetchJson(path){
 function renderFilters(){
   $('#modeFilters').innerHTML=Object.entries(modeLabels).map(([mode,label])=>buttonHtml('mode',mode,label,mode===activeMode)).join('');
   $('#attributeTierFilters').innerHTML=attrFilters.map(attr=>buttonHtml('attr',attr,`${attrIcon[attr]||''}${attr}`,attr===activeAttr)).join('');
-  document.querySelectorAll('[data-mode]').forEach(btn=>btn.addEventListener('click',()=>{activeMode=btn.dataset.mode;renderFilters();render();}));
+  document.querySelectorAll('[data-mode]').forEach(btn=>btn.addEventListener('click',()=>{activeMode=btn.dataset.mode;history.replaceState(null,'','#mode-'+activeMode);renderFilters();render();}));
   document.querySelectorAll('[data-attr]').forEach(btn=>btn.addEventListener('click',()=>{activeAttr=btn.dataset.attr;renderFilters();render();}));
 }
 

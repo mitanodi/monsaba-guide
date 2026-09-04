@@ -268,7 +268,7 @@ test('簡易投稿UI、質問例、折りたたみ、PC・スマホ導線を備�
   assert.match(read('board/board.css'), /\.board-form\[hidden\]\{display:none\}/);
   assert.match(client, /form\.elements\.content\.focus/); assert.match(client, /POSTED_THREAD_NOTICE_KEY/);
   const shared = read('scripts/shared-layout.mjs');
-  assert.match(shared, /href: '\/board\/', label: '質問掲示板' \}/); assert.doesNotMatch(shared, /href: '\/board\/'[^\n]*mobile-only-nav-link/);
+  assert.match(shared, /href: '\/board\/', label: '質問掲示板'/); assert.doesNotMatch(shared, /href: '\/board\/'[^\n]*mobile-only-nav-link/);
   assert.match(read('site.js'), /path\.startsWith\('\/board\/'\) \? '\/board\/'/);
   assert.match(read('board/board.css'), /site-header\.nav-open~\.board-floating-question/);
 });

@@ -43,9 +43,9 @@ function replaceMarker(file, name, html) {
 
 function topCard(family) {
   const first = family.evolutions[0];
-  const finalSkill = family.skills.at(-1) || family.skills[0];
   const image = stage1Image(family);
-  return `<article class="card" tabindex="0" role="button" data-family="${esc(family.id)}" aria-label="${esc(getFamilyDisplayLabel(family))}を比較表示"><div class="card-image"><img loading="lazy" decoding="async" src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(first.name)}"></div><div class="card-body"><div class="card-top"><span class="attribute">${icon(family.attribute)} ${esc(family.attribute)}属性</span><span class="source-state">${family.evolutions.length}段階</span></div><h3>${esc(getFamilyDisplayLabel(family))}</h3>${originalName(family)}<div class="chain">${family.evolutions.map((item) => esc(item.name)).join(' → ')}</div><div class="card-bottom"><span class="skill-chip">${esc(finalSkill?.name || 'スキル')}</span><a class="detail-link" href="/tata/${encodeURIComponent(family.id)}/" aria-label="${esc(getFamilyDisplayLabel(family))}の個別ページを見る">詳細を見る</a></div></div></article>`;
+  const assessment = ratings.overall?.byFamily?.[family.id];
+  return `<article class="card catalog-card" tabindex="0" role="button" data-family="${esc(family.id)}" data-attribute="${esc(family.attribute)}" data-tier="${esc(assessment?.tier || 'hold')}" aria-label="${esc(getFamilyDisplayLabel(family))}を比較表示"><a class="card-image" href="/tata/${encodeURIComponent(family.id)}/"><img loading="lazy" decoding="async" src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(first.name)}"></a><div class="card-body"><div class="card-top"><span class="attribute">${icon(family.attribute)} ${esc(family.attribute)}属性</span><span class="tier-badge rank-${esc((assessment?.tier || 'hold').toLowerCase())}">${esc(assessment?.tier || '保留')}</span></div><h3><a href="/tata/${encodeURIComponent(family.id)}/">${esc(getFamilyDisplayLabel(family))}</a></h3>${originalName(family)}<div class="card-bottom"><span class="source-state">${family.evolutions.length}段階</span><a class="detail-link" href="/tata/${encodeURIComponent(family.id)}/" aria-label="${esc(getFamilyDisplayLabel(family))}の個別ページを見る">詳細</a></div></div></article>`;
 }
 
 const overallGroups = ratings.overall?.groups || [];

@@ -100,11 +100,19 @@ expect(trials.families.length === 64 && new Set(trials.families.map((family) => 
 expect(trials.families.every((family) => byId.has(family.familyId)), 'evolution trial family ID mismatch');
 expect(events.events.length === 9, 'event guide count must be 9');
 for (const route of ['/zombie-rush/chips/', '/evolution/trials/', '/updates/2026-08-30/', ...events.events.map((event) => `/events/${event.id}/`)]) expect(fs.existsSync(path.join(root, route.slice(1), 'index.html')), `${route}: page missing`);
-const modifiedRoutes = ['/tata/pakuma/', '/tata/sukedako/', '/tata/nenbutsuhebi/', '/zombie-rush/chips/', '/evolution/trials/', '/events/', '/updates/2026-08-30/'];
+const modifiedRoutes = ['/tata/pakuma/', '/tata/sukedako/', '/tata/nenbutsuhebi/', '/zombie-rush/chips/', '/evolution/trials/', '/updates/2026-08-30/'];
+const officialResponseRoutes = ['/events/', '/events/running-star/', '/events/treasure-hunt/', '/events/surprise-roulette/'];
+const indexedOfficialResponseRoutes = ['/events/', '/events/treasure-hunt/'];
 for (const route of modifiedRoutes) {
   for (const prefix of ['', '/en', '/zh-cn']) {
     const localizedRoute = `${prefix}${route}`;
     expect(dateModifiedFor(localizedRoute) === '2026-08-30', `${localizedRoute}: dateModified must be 2026-08-30`);
+  }
+}
+for (const route of officialResponseRoutes) {
+  for (const prefix of ['', '/en', '/zh-cn']) {
+    const localizedRoute = `${prefix}${route}`;
+    expect(dateModifiedFor(localizedRoute) === '2026-09-05', `${localizedRoute}: dateModified must be 2026-09-05`);
   }
 }
 const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
@@ -113,6 +121,13 @@ for (const route of modifiedRoutes) {
     const localizedRoute = `${prefix}${route}`;
     const url = `https://monster-survival.com${localizedRoute}`.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     expect(new RegExp(`<loc>${url}</loc><lastmod>2026-08-30</lastmod>`).test(sitemap), `${localizedRoute}: sitemap lastmod must be 2026-08-30`);
+  }
+}
+for (const route of indexedOfficialResponseRoutes) {
+  for (const prefix of ['', '/en', '/zh-cn']) {
+    const localizedRoute = `${prefix}${route}`;
+    const url = `https://monster-survival.com${localizedRoute}`.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    expect(new RegExp(`<loc>${url}</loc><lastmod>2026-09-05</lastmod>`).test(sitemap), `${localizedRoute}: sitemap lastmod must be 2026-09-05`);
   }
 }
 expect(!/<loc>https:\/\/monster-survival\.com\/tata\/takepanda\/<\/loc><lastmod>2026-08-30<\/lastmod>/.test(sitemap), 'unrelated Tata pages must not be stamped 2026-08-30');

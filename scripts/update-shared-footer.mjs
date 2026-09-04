@@ -7,6 +7,7 @@ const tatari = JSON.parse(fs.readFileSync(path.join(root, 'data', 'tatari.json')
 const familyCount = tatari.families.length;
 const formCount = tatari.families.flatMap((family) => family.evolutions || []).length;
 const contact = '<p class="footer-contact">お問い合わせ・ご連絡は <a href="https://x.com/odi_monsaba" target="_blank" rel="noopener noreferrer">おぢ（@odi_monsaba）X</a> まで。フォローもよろしくお願いします。</p>';
+const disclosures = '<div class="footer-disclosures"><p>掲載している一部画像素材は、モンスターサバイバル運営チームより共有いただいた公式Creator Assetsを使用しています。</p><p>掲載情報は確認時点の内容です。アップデート等により、実際のゲーム内仕様と異なる場合があります。</p></div>';
 const links = '<nav class="footer-links" aria-label="サイト情報"><a href="/attribute/">属性別</a><a href="/guides/">攻略ハブ</a><a href="/compare/">タタ比較</a><a href="/my-monsaba/">マイモンサバ</a><a href="/team-builder/">編成メーカー</a><a href="/team-builder/community/">みんなの編成</a><a href="/faq/">FAQ</a><a href="/about/">サイトについて</a><a href="/about-data/">データ方針</a><a href="/updates/">更新履歴</a><a href="/privacy/">プライバシー</a><a href="/friends/">フレンド掲示板</a><a href="/board/">質問掲示板</a></nav>';
 const ignored = new Set(['.git', '.vercel', 'node_modules', 'assets', 'data', 'scripts', 'promo', 'en', 'zh-cn']);
 const retrySignal = new Int32Array(new SharedArrayBuffer(4));
@@ -30,6 +31,8 @@ for (const file of walk(root)) {
   else if (html.includes('class="footer-links"')) {
     html = html.replace(/<nav class="footer-links"[\s\S]*?<\/nav>/, links);
     if (!html.includes('class="footer-contact"')) html = html.replace(links, `${links}${contact}`);
+    if (html.includes('class="footer-disclosures"')) html = html.replace(/<div class="footer-disclosures">[\s\S]*?<\/div>/, disclosures);
+    else html = html.replace('<div class="footer-meta">', `${disclosures}<div class="footer-meta">`);
   }
   html = html.replace(/<div class="footer-meta">\d+系統\s*\/\s*\d+体<\/div>/g, `<div class="footer-meta">${familyCount}系統 / ${formCount}体</div>`);
   if (html === before) continue;

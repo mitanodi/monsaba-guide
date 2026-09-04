@@ -17,6 +17,18 @@
     "pendingForms": 5,
     "officialCreatorAssetForms": 224
   },
+  "officialPendingReview": {
+    "status": "official_team_checking",
+    "asOf": "2026-09-05",
+    "note": "Creator Assetsの更新はゲーム本体のアップデートと時差が生じる場合があるため、Stage対応を証明できる公式静止画の回答待ち。",
+    "forms": [
+      { "familyId": "nenbutsuhebi", "stage": 4 },
+      { "familyId": "pakuma", "stage": 2 },
+      { "familyId": "pakuma", "stage": 3 },
+      { "familyId": "pakuma", "stage": 4 },
+      { "familyId": "sukedako", "stage": 4 }
+    ]
+  },
   "families": [
     {
       "order": 1,

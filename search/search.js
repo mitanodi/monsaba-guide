@@ -48,7 +48,7 @@ const pages = [
   { title:'状態異常・役割別タタ', href:'/roles/', description:'麻痺・スタン・回復・タンクなどから探す', keywords:'麻痺 スタン 束縛 睡眠 減速 貫通 回復 タンク シールド バフ デバフ 範囲火力' },
   { title:'イベント攻略', href:'/events/', description:'オタカラ探し・魔法の農場・ルーレット', keywords:'イベント オタカラ 宝 魔法 農場 ルーレット' },
   { title:'ランニングパーティ攻略', href:'/events/running-party/', description:'4人の距離共有・スノーボード・倍率', keywords:'ランニングパーティ Marathon Party スノーボード ルーレット 距離 倍率' },
-  { title:'ランニングスター攻略', href:'/events/running-star/', description:'1人用ランニングイベント', keywords:'ランニングスター Marathon Star ソロ 距離' },
+  { title:'ランニングパーティー攻略', href:'/events/running-star/', description:'英語表記 Running Star の1人用イベント。詳細仕様・期間・報酬は公式確認中', keywords:'ランニングパーティー Running Star ランニングスター Marathon Star ソロ 距離' },
   { title:'アイランドトレジャー攻略', href:'/events/island-treasure/', description:'領地・エナジードリンク・時間ポイント', keywords:'アイランドトレジャー Island Goldrush Deepsea Dive 深海の秘宝 領地 貝殻 疲労 濃縮ドリンク' },
   { title:'魔法の農場攻略', href:'/events/magic-farm/', description:'総重量・肥料・招待タタ', keywords:'魔法の農場 Cozy Farm 総重量 肥料 クリティカル 重量ボーナス' },
   { title:'釣り大会攻略', href:'/events/fishing-tournament/', description:'海域・釣り竿・金銀コイン・倍率', keywords:'釣り大会 Fishing Contest 釣り竿 ゴールドサカナコイン シルバーサカナコイン まき餌 QTE' },

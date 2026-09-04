@@ -57,17 +57,21 @@ test('Tatari and chip source metadata store the corrected ranges', () => {
   assert.deepEqual(chips.chips.map((chip) => chip.source.pdfPage), pagesInRange(PDF_EVIDENCE.knownRanges.chipDetails));
 });
 
-test('target pages use Aug 30 dateModified in all three languages', () => {
-  const sourceRoutes = [
+test('target pages keep their current evidence dateModified in all three languages', () => {
+  const aug30Routes = [
     '/tata/pakuma/', '/tata/sukedako/', '/tata/nenbutsuhebi/',
-    '/zombie-rush/chips/', '/evolution/trials/', '/events/', '/updates/2026-08-30/'
+    '/zombie-rush/chips/', '/evolution/trials/', '/updates/2026-08-30/'
   ];
-  for (const sourceRoute of sourceRoutes) {
+  const expectedDates = new Map([
+    ...aug30Routes.map((route) => [route, '2026-08-30']),
+    ['/events/', '2026-09-05']
+  ]);
+  for (const [sourceRoute, expectedDate] of expectedDates) {
     for (const prefix of ['', '/en', '/zh-cn']) {
       const route = `${prefix}${sourceRoute}`;
       const file = path.join(root, route.slice(1), 'index.html');
       const html = fs.readFileSync(file, 'utf8');
-      assert.match(html, /["']dateModified["']\s*:\s*["']2026-08-30["']/, route);
+      assert.match(html, new RegExp(`["']dateModified["']\\s*:\\s*["']${expectedDate}["']`), route);
     }
   }
 });

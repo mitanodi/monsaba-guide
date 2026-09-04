@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updated": "2026-08-31",
+  "updated": "2026-09-05",
   "communityRotation": {
     "sourceStatus": "externally_confirmed",
     "cadenceLabel": "合計3日ごとの基本ローテーションというコミュニティ情報",
@@ -27,7 +27,7 @@
     },
     {
       "id": "running-star",
-      "name": "ランニングスター",
+      "name": "ランニングパーティー",
       "status": "periodic",
       "href": "/events/running-star/",
       "summary": "1人用ランニングイベント。現行報酬の詳細は確認待ち。",
@@ -37,7 +37,20 @@
       "verifiedAt": "2026-08-31",
       "sourceStatus": "externally_confirmed",
       "communityAliases": ["Marathon Star"],
-      "needsHumanVerification": true
+      "needsHumanVerification": true,
+      "humanVerification": ["詳細仕様", "開催期間", "報酬内容", "その他最新仕様"],
+      "officialNames": {
+        "ja": "ランニングパーティー",
+        "en": "Running Star",
+        "zh-CN": null,
+        "status": "official_confirmed_ja_en",
+        "confirmedAt": "2026-09-05"
+      },
+      "officialInquiry": {
+        "status": "awaiting_official_response",
+        "requestedAt": "2026-09-05",
+        "scope": ["details", "period", "rewards", "latest_specification"]
+      }
     },
     {
       "id": "island-treasure",
@@ -106,7 +119,12 @@
       "sourceStatus": "externally_confirmed",
       "communityAliases": ["Treasure Hunt"],
       "needsHumanVerification": true,
-      "humanVerification": ["イベントTOP", "日本版4人選択画面", "鍵と中央宝箱", "盤面拡張", "爆弾効果", "終了日時"]
+      "humanVerification": ["イベントTOP", "日本版4人選択画面", "鍵と中央宝箱", "盤面拡張", "爆弾効果", "終了日時"],
+      "officialInquiry": {
+        "status": "awaiting_official_response",
+        "requestedAt": "2026-09-05",
+        "scope": ["details", "period", "rewards", "latest_specification"]
+      }
     },
     {
       "id": "summer-party",
@@ -172,7 +190,12 @@
       "verifiedAt": "2026-08-31",
       "sourceStatus": "externally_confirmed",
       "needsHumanVerification": true,
-      "humanVerification": ["現行ヘルプ", "段階・報酬"]
+      "humanVerification": ["現行ヘルプ", "段階・報酬"],
+      "officialInquiry": {
+        "status": "awaiting_official_response",
+        "requestedAt": "2026-09-05",
+        "scope": ["details", "period", "rewards", "latest_specification"]
+      }
     }
   ]
 }
