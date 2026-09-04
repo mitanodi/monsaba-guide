@@ -1,13 +1,11 @@
-import fs from 'node:fs';
-import path from 'node:path';
 import { CommunityError, COMMUNITY_CONFIG, createCommunityService } from '../lib/community-core.js';
 import { createCommunityRedisStore } from '../lib/community-store.js';
+import tatari from '../data/tatari.json' with { type: 'json' };
+import chipData from '../data/zombie-rush/chips.json' with { type: 'json' };
+import season from '../data/zombie-rush/seasons/season-1.json' with { type: 'json' };
 
-const root = path.resolve(import.meta.dirname, '..');
-const read = (file) => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'));
-const families = read('data/tatari.json').families;
-const chips = read('data/zombie-rush/chips.json').chips;
-const season = read('data/zombie-rush/seasons/season-1.json');
+const families = tatari.families;
+const chips = chipData.chips;
 const seasons = [{ id: season.meta.seasonId, maximumDifficulty: season.seasonRules.maximumDifficulty, roundsPerGame: season.seasonRules.roundsPerGame }];
 const PRODUCTION_ORIGIN = 'https://monster-survival.com';
 const headers = (res) => { res.setHeader('Cache-Control', 'no-store'); res.setHeader('Content-Type', 'application/json; charset=utf-8'); res.setHeader('X-Content-Type-Options', 'nosniff'); res.setHeader('X-Robots-Tag', 'noindex, nofollow'); };
