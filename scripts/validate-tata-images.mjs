@@ -23,8 +23,9 @@ expect(dbFamilies.length === 64, `DB family count must be 64, got ${dbFamilies.l
 expect(dbForms.length === 230, `DB form count must be 230, got ${dbForms.length}`);
 expect(imageFamilies.length === 64, `image family count must be 64, got ${imageFamilies.length}`);
 expect(new Set(imageFamilies.map((family) => family.familyId)).size === 64, 'image family IDs must be unique');
-expect(verifiedForms.length === 111, `verified form count must be 111, got ${verifiedForms.length}`);
-expect(pendingForms.length === 119, `pending form count must be 119, got ${pendingForms.length}`);
+expect(verifiedForms.length === 225, `verified form count must be 225, got ${verifiedForms.length}`);
+expect(pendingForms.length === 5, `pending form count must be 5, got ${pendingForms.length}`);
+expect(verifiedForms.filter((form) => form.sourceType === 'official_creator_asset').length === 121, 'official creator asset form count must be 121');
 expect(images.sourcePolicy?.lockedSilhouettesPublished === false, 'locked silhouettes must not be published');
 expect(images.sourcePolicy?.competitorImages === false, 'competitor images must be false');
 expect(images.sourcePolicy?.aiGeneratedPixels === false, 'AI-generated pixels must be false');
@@ -61,6 +62,16 @@ for (const family of dbFamilies) {
       expect(form.reason === 'locked_silhouette_only', `${family.id} T${evolution.stage}: pending reason mismatch`);
       continue;
     }
+    if (form.sourceType === 'official_creator_asset') {
+      expect(/^MSOA-\d{5}$/.test(form.officialAssetId || ''), `${family.id} T${evolution.stage}: official asset ID missing`);
+      expect(/^[a-f0-9]{64}$/.test(form.sourceSha256 || ''), `${family.id} T${evolution.stage}: source SHA-256 missing`);
+      expect(form.optimizedPath === form.src, `${family.id} T${evolution.stage}: optimized path mismatch`);
+      expect(form.verifiedAt === '2026-09-04', `${family.id} T${evolution.stage}: verification date mismatch`);
+      expect(typeof form.srcset === 'string' && form.srcset.includes('256w') && form.srcset.includes('512w'), `${family.id} T${evolution.stage}: responsive srcset missing`);
+      for (const candidate of form.srcset.match(/\/assets\/[^ ]+/g) || []) {
+        expect(fs.existsSync(path.join(root, candidate.slice(1))), `${family.id} T${evolution.stage}: srcset file missing ${candidate}`);
+      }
+    }
     const formFile = path.join(root, form.src.replace(/^\//, ''));
     expect(fs.existsSync(formFile), `${family.id} T${evolution.stage}: verified file missing`);
     if (fs.existsSync(formFile)) {
@@ -74,6 +85,7 @@ for (const family of dbFamilies) {
 }
 
 expect(new Set(stageHashes).size === 64, 'Stage 1 images must have 64 unique hashes');
+expect(new Set(verifiedForms.map((form) => form.src)).size === verifiedForms.length, 'verified form paths must be unique');
 expect(!fs.existsSync(path.join(root, 'assets', 'tata-crops', '05_contact_sheets')), 'contact sheets must not be published');
 
 if (errors.length) {

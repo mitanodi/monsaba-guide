@@ -10,6 +10,7 @@ const tatari = read('tatari.json');
 const chips = read('zombie-rush/chips.json');
 const trials = read('evolution-trials.json');
 const events = read('events.json');
+const officialEventImages = read('official-assets/event-images.json');
 const assetVersion = read('asset-build.json').version;
 const familyCount = tatari.families.length;
 const formCount = tatari.families.flatMap((family) => family.evolutions).length;
@@ -284,6 +285,18 @@ inject('en/evolution/index.html', 'TRIALS_EN', `<section class="wrap static-sect
 inject('zh-cn/evolution/index.html', 'TRIALS_ZH', `<section class="wrap static-section"><h2>全部${familyCount}个系列的进化试炼</h2><a class="button" href="/zh-cn/evolution/trials/">打开试炼数据库</a></section>`);
 inject('events/treasure-hunt/index.html', 'EVENT_GUIDE', '<section class="wrap static-section"><h2 class="page-h2">オタカラ探しの進め方</h2><div class="trust-label-row"><span class="trust-label is-external">コミュニティ確認</span></div><div class="event-status-grid"><article><h3>鍵と中央宝箱</h3><p>開始後に4人を選び、1人の盤面でオタカラを3回見つけると鍵を1個獲得します。鍵4個で中央宝箱を開き、同じメンバーから複数の鍵も取得できます。</p></article><article><h3>コスト・爆弾・盤面拡張</h3><p>鍵ごとに必要アイテム数が5増え、盤面は最大3回拡張します。爆弾は追加で1〜3マスを掘ります。上の独自ソルバーで候補を比較してください。</p></article></div><div class="summary-box"><strong>Human Verification</strong><p>日本版の4人選択、鍵、中央宝箱、盤面拡張、爆弾効果、終了日時の画面を確認待ちです。</p></div><a href="/evolution/trials/">関連する進化試練を見る</a></section>');
 inject('events/treasure-hunt/index.html', 'EVENT_FRESHNESS', `<section class="wrap source-note page-freshness"><strong>情報の状態</strong><p><span class="trust-label is-external">外部確認</span> イベント解説を独自に整理しています。</p><p>最終確認日：${japaneseDate(EVENT_RESEARCH_DATE)}</p><a href="/about-data/">データ方針を見る</a></section>`);
+const treasureAssetCopy = {
+  ja: ['運営提供のオタカラ探し素材', 'オタカラ探しフォルダで確認できた公式クリエイター素材です。絵柄をルールや報酬内容の根拠には使用していません。'],
+  en: ['Creator assets for Treasure Hunt', 'Official creator assets found in the Treasure Hunt folder. The artwork is not treated as evidence for rules or rewards.'],
+  'zh-CN': ['寻宝活动创作者素材', '这些是寻宝文件夹中的官方创作者素材；图片本身不作为玩法或奖励的证据。'],
+};
+function treasureAssetGallery(locale) {
+  const [title, note] = treasureAssetCopy[locale];
+  return `<section class="wrap static-section official-event-art"><h2 class="page-h2">${title}</h2><p>${note}</p><div class="official-event-art-grid">${officialEventImages.events.map((image, index) => `<img src="${esc(image.optimizedPath)}" width="${image.width}" height="${image.height}" alt="${esc(`${title} ${index + 1}`)}" loading="lazy" decoding="async">`).join('')}</div></section>`;
+}
+inject('events/treasure-hunt/index.html', 'OFFICIAL_TREASURE_ASSETS', treasureAssetGallery('ja'));
+inject('en/events/treasure-hunt/index.html', 'OFFICIAL_TREASURE_ASSETS', treasureAssetGallery('en'));
+inject('zh-cn/events/treasure-hunt/index.html', 'OFFICIAL_TREASURE_ASSETS', treasureAssetGallery('zh-CN'));
 // Localized pages already contain translated copies of the shared blocks. Remove
 // legacy locale-specific blocks so each locale has exactly one guide and one
 // freshness section, including when regenerating from an older checkout.

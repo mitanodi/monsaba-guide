@@ -1,5 +1,13 @@
 {
   "en": {
+    "公式クリエイター素材": "Official creator assets",
+    "一部画像には、モンスターサバイバル運営よりクリエイター向けに提供されたゲーム素材を使用しています。素材の使用は、当サイトが公式攻略サイト・公式認定・公式パートナーであることを意味しません。": "Some images use game assets supplied to creators by the Monster Survival operations team. Their use does not make this an official guide, officially endorsed site, or official partner.",
+    "運営提供のオタカラ探し素材": "Creator assets for Treasure Hunt",
+    "オタカラ探しフォルダで確認できた公式クリエイター素材です。絵柄をルールや報酬内容の根拠には使用していません。": "Official creator assets found in the Treasure Hunt folder. The artwork is not treated as evidence for rules or rewards.",
+    "運営提供のオタカラ探し素材 1": "Treasure Hunt creator asset 1",
+    "運営提供のオタカラ探し素材 2": "Treasure Hunt creator asset 2",
+    "運営提供のオタカラ探し素材 3": "Treasure Hunt creator asset 3",
+    "運営提供のオタカラ探し素材 4": "Treasure Hunt creator asset 4",
     "画像確認中": "Image pending verification",
     "水属性13系統一覧": "13 Water families",
     "日本語": "日本語",
@@ -163,6 +171,14 @@
     "をLv5へ上げる立ち回りが紹介されている。プラビ系のLv5強化は、ボスラッシュを耐えるための重要なポイントになる。環境・編成で最適タイミングは変わるため、あくまで目安として見る。": "The referenced strategy raises this Tatari to Lv. 5. Strengthening the プラビ family to Lv. 5 can be important for surviving Boss Rush. The best timing depends on your environment and team, so treat this as a guideline."
   },
   "zh-CN": {
+    "公式クリエイター素材": "官方创作者素材",
+    "一部画像には、モンスターサバイバル運営よりクリエイター向けに提供されたゲーム素材を使用しています。素材の使用は、当サイトが公式攻略サイト・公式認定・公式パートナーであることを意味しません。": "部分图片使用了《Monster Survival》运营团队向创作者提供的游戏素材。这并不表示本站是官方攻略站、获得官方认证或属于官方合作伙伴。",
+    "運営提供のオタカラ探し素材": "寻宝活动创作者素材",
+    "オタカラ探しフォルダで確認できた公式クリエイター素材です。絵柄をルールや報酬内容の根拠には使用していません。": "这些是寻宝文件夹中的官方创作者素材；图片本身不作为玩法或奖励的证据。",
+    "運営提供のオタカラ探し素材 1": "寻宝活动创作者素材 1",
+    "運営提供のオタカラ探し素材 2": "寻宝活动创作者素材 2",
+    "運営提供のオタカラ探し素材 3": "寻宝活动创作者素材 3",
+    "運営提供のオタカラ探し素材 4": "寻宝活动创作者素材 4",
     "画像確認中": "图片待确认",
     "水属性13系統一覧": "13 个水属性系列",
     "日本語": "日本語",

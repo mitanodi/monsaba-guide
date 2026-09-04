@@ -1,0 +1,24 @@
+{
+  "version": "2026-09-04",
+  "confirmed": {
+    "count": 223,
+    "differences": 0,
+    "changes": 0
+  },
+  "candidate": {
+    "count": 7,
+    "changes": 0,
+    "promotionAllowedFromImageEvidence": false
+  },
+  "internalOnly": {
+    "count": 4,
+    "changes": 0,
+    "names": [
+      "Volterrier",
+      "Zapleco",
+      "Voltgriff",
+      "Nyctolord"
+    ]
+  },
+  "stableSlugsChanged": 0
+}

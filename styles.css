@@ -124,6 +124,8 @@ footer{background:#27303b;color:#d0d5dd;padding:22px 0}.footer-inner{display:fle
 .card-image img,.evo-card img,.tier-chart-tata img,.overall-image img,.tier-image img,.prediction-card-image img,.evolution-card-head img,.mini-family-row img{object-fit:contain}
 .tata-image-pending{display:grid;width:100%;aspect-ratio:1/1;place-items:center;background:linear-gradient(135deg,#f3f5f7,#e8edf2);color:#667085;text-align:center}
 .tata-image-pending span{padding:8px;font-size:11px;font-weight:800}
+.skill-title-with-icon{display:flex;align-items:center;gap:10px;min-width:0}.skill-title-with-icon>img{flex:0 0 64px;width:64px;height:64px;border:1px solid var(--line);border-radius:12px;background:#f4f7fa;object-fit:contain}.skill-title-with-icon>div{min-width:0}
+.official-event-art-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:14px}.official-event-art-grid img{display:block;width:100%;height:auto;aspect-ratio:1;border:1px solid var(--line);border-radius:12px;background:#eef3f7;object-fit:contain}@media(max-width:620px){.official-event-art-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .search-result.has-tata-image{grid-template-columns:56px minmax(0,1fr);gap:10px;align-items:center}
 .search-result.has-tata-image>img{display:block;width:56px;height:56px;border:1px solid var(--line);border-radius:6px;background:#eef1f4;object-fit:contain}
 .search-result-copy{display:grid;min-width:0;margin:0!important;color:inherit!important}

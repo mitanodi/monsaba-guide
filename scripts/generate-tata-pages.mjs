@@ -15,13 +15,16 @@ const evolutionPriority = readJson('data/evolution-priority.json');
 const acquisition = readJson('data/tata-acquisition.json');
 const freshness = readJson('data/page-freshness.json');
 const tataImages = readJson('data/tata-images.json');
+const officialSkillIcons = readJson('data/official-assets/skill-icons.json');
 const families = tatari.families || [];
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 const jsonLd = (value) => JSON.stringify(value).replaceAll('<', '\\u003c');
 const originalName = (evolution, tag = 'p') => `<${tag} class="localized-original-name" translate="no"><span data-name-locale="en">Japanese: ${esc(evolution.name)}</span><span data-name-locale="zh-CN">日文名：${esc(evolution.name)}</span></${tag}>`;
 const imageByFamily = new Map(tataImages.families.map((family) => [family.familyId, family]));
+const skillIconByFamilyStage = new Map(officialSkillIcons.icons.map((icon) => [`${icon.familyId}:${icon.stage}`, icon]));
 const stage1Image = (familyId) => imageByFamily.get(familyId)?.stage1;
 const formImage = (familyId, stage) => imageByFamily.get(familyId)?.forms.find((form) => form.stage === stage && form.status === 'verified');
+const responsiveAttrs = (image) => image.srcset ? ` srcset="${esc(image.srcset)}" sizes="${esc(image.sizes || '(max-width: 600px) 44vw, 256px')}"` : '';
 const matchesRoute = (pattern, route) => pattern.endsWith('*') ? route.startsWith(pattern.slice(0, -1)) : route === pattern;
 function modifiedFor(route) {
   const exact = freshness.routes?.[route];
@@ -115,13 +118,13 @@ function renderPage(family, index) {
   const evolutionCards = family.evolutions.map((evolution) => {
     const form = formImage(family.id, evolution.stage);
     const visual = form
-      ? `<img src="${esc(form.src)}" width="${form.width}" height="${form.height}" alt="${esc(evolution.name)}" loading="lazy" decoding="async">`
+      ? `<img class="tata-form-image" src="${esc(form.src)}"${responsiveAttrs(form)} width="${form.width}" height="${form.height}" alt="${esc(evolution.name)}" loading="lazy" decoding="async">`
       : `<div class="tata-image-pending" role="img" aria-label="${esc(evolution.name)}"><span>画像確認中</span></div>`;
     const localizedNames = `<div class="tata-i18n-names" translate="no"><span lang="en"><b>English:</b> ${esc(evolution.nameEn)}</span><span lang="zh-Hans"><b>简体中文:</b> ${esc(evolution.nameZhHans)}</span></div>`;
     return `<article class="evo-card static-evo">${visual}<div><small>T${evolution.stage}</small><strong>${esc(evolution.name)}</strong>${originalName(evolution, 'small')}${localizedNames}</div></article>`;
   }).join('');
   const evolutionIndex = `<section class="wrap tata-stage-index" aria-labelledby="stage-index-title"><h2 id="stage-index-title">このページで扱う進化</h2><ol>${family.evolutions.map((evolution) => `<li><a href="#stage-${evolution.stage}"><b>T${evolution.stage}</b> ${esc(evolution.name)}</a></li>`).join('')}</ol><p>${esc(displayLabel)}のT1〜T${family.evolutions.length}について、進化先・スキル・確認済み数値をまとめています。</p></section>`;
-  const skillBlocks = stageData.map((stage) => `<section class="skill-block" id="stage-${stage.stage}"><div class="skill-head"><div><small>第${stage.stage}進化：${esc(stage.tataName)}</small><h2>${esc(stage.skillName)}</h2></div><p class="skill-summary">${esc(stage.description || '説明データは収録されていません。')}</p></div>${stage.values?.length ? `<div class="stats-grid">${stage.values.map((value) => `<div class="stat-cell"><span>${esc(value.label)}</span><b>${esc(value.value)}</b></div>`).join('')}</div>` : '<p class="section-note">確認済み数値は収録されていません。</p>'}${stage.sources?.length ? `<details class="source-details"><summary>参照スクショ</summary><div class="sources">${stage.sources.map(esc).join(' / ')}</div></details>` : ''}</section>`).join('');
+  const skillBlocks = stageData.map((stage) => { const skillIcon = skillIconByFamilyStage.get(`${family.id}:${stage.stage}`); return `<section class="skill-block" id="stage-${stage.stage}"><div class="skill-head"><div class="skill-title-with-icon">${skillIcon ? `<img src="${esc(skillIcon.optimizedPath)}" width="64" height="64" alt="" loading="lazy" decoding="async">` : ''}<div><small>第${stage.stage}進化：${esc(stage.tataName)}</small><h2>${esc(stage.skillName)}</h2></div></div><p class="skill-summary">${esc(stage.description || '説明データは収録されていません。')}</p></div>${stage.values?.length ? `<div class="stats-grid">${stage.values.map((value) => `<div class="stat-cell"><span>${esc(value.label)}</span><b>${esc(value.value)}</b></div>`).join('')}</div>` : '<p class="section-note">確認済み数値は収録されていません。</p>'}${stage.sources?.length ? `<details class="source-details"><summary>参照スクショ</summary><div class="sources">${stage.sources.map(esc).join(' / ')}</div></details>` : ''}</section>`; }).join('');
   const ratingAnswer = overall?.comment || zombie?.comment || (evaluations.length ? `${evaluations.map(([label, value]) => `${label} ${value}`).join('、')}として評価しています。` : '現在評価情報を収集中です。');
   const purposeAnswer = evaluations.length
     ? `<div class="mode-rating-grid">${evaluations.map(([label, value]) => `<div><span>${esc(label)}</span><b>${esc(value)}</b></div>`).join('')}</div>`

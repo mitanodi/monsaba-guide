@@ -149,6 +149,8 @@ const topSource = readFile(topFile, 'utf8');
 const topWithCurrentCounts = topSource
   .replace(/タタ\d+系統・\d+体/g, `タタ${families.length}系統・${formCount}体`)
   .replace(/モンサバの\d+系統・\d+体/g, `モンサバの${families.length}系統・${formCount}体`)
+  .replace(/<span><b>\d+<\/b>系統<\/span>/, `<span><b>${families.length}</b>系統</span>`)
+  .replace(/<span><b>\d+<\/b>体<\/span>/, `<span><b>${formCount}</b>体</span>`)
   .replace(/\d+系統を一覧で見る/g, `${families.length}系統を一覧で見る`);
 if (topWithCurrentCounts !== topSource) writeFile(topFile, topWithCurrentCounts);
 console.log(`主要静的HTMLを生成しました: TOP ${families.length}系統 / Tier ${rankedIds.size}系統 / 進化差分 ${transitions.length}件`);

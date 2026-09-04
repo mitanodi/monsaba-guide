@@ -1,0 +1,55 @@
+{
+  "version": "2026-09-04",
+  "sourceType": "official_creator_asset",
+  "count": 4,
+  "events": [
+    {
+      "eventId": "treasure-hunt",
+      "sourceType": "official_creator_asset",
+      "officialAssetId": "MSOA-06324",
+      "sourceFilename": "txui_treasure_1_2.png",
+      "sourceSha256": "a6bc7121532383e8f4d4ff52eeee931bd05f09cfcdaf6e2aa933e01d47396e99",
+      "optimizedPath": "/assets/official/events/treasure-hunt/msoa-06324.webp",
+      "optimizedSha256": "36f8fb851769c01cea30ea583c4bd119a3d47d1f399482592d665efe1d697952",
+      "width": 256,
+      "height": 256,
+      "verifiedAt": "2026-09-04"
+    },
+    {
+      "eventId": "treasure-hunt",
+      "sourceType": "official_creator_asset",
+      "officialAssetId": "MSOA-06328",
+      "sourceFilename": "txui_treasure_2_2.png",
+      "sourceSha256": "31069a726fe0f2026e87397db86534242c7c93391a038538701f82caa405f0f6",
+      "optimizedPath": "/assets/official/events/treasure-hunt/msoa-06328.webp",
+      "optimizedSha256": "4fe0fdec2e1cbb7187947469eab849d984018bfe43cc3b23ccc3200eec481a64",
+      "width": 256,
+      "height": 256,
+      "verifiedAt": "2026-09-04"
+    },
+    {
+      "eventId": "treasure-hunt",
+      "sourceType": "official_creator_asset",
+      "officialAssetId": "MSOA-06332",
+      "sourceFilename": "txui_treasure_3_2.png",
+      "sourceSha256": "d45488f6104aeb4512f6d26b4d1cf8d6ddc51c02b8ac374993aa9291c69b14d0",
+      "optimizedPath": "/assets/official/events/treasure-hunt/msoa-06332.webp",
+      "optimizedSha256": "3db0323b8b11bc8e249541260c6bd10425b230b34d13990f590b1d58f09ff7e6",
+      "width": 256,
+      "height": 256,
+      "verifiedAt": "2026-09-04"
+    },
+    {
+      "eventId": "treasure-hunt",
+      "sourceType": "official_creator_asset",
+      "officialAssetId": "MSOA-06335",
+      "sourceFilename": "txui_treasure_currency.png",
+      "sourceSha256": "3bfce14c5be061d48f462c82c34d5bc9b1990530e68b03f8af01f7e56a9d5862",
+      "optimizedPath": "/assets/official/events/treasure-hunt/msoa-06335.webp",
+      "optimizedSha256": "c72e15fc9f8098152a0ef5f0fbf3a6b1a9cb2af4b2508a4b891f81c147579a0c",
+      "width": 256,
+      "height": 256,
+      "verifiedAt": "2026-09-04"
+    }
+  ]
+}
