@@ -13,12 +13,14 @@ export const GLOBAL_NAV_ITEMS = Object.freeze([
   Object.freeze({ href: '/consult/', label: '攻略相談' }),
   Object.freeze({ href: '/my-monsaba/', label: 'マイモンサバ' }),
   Object.freeze({ href: '/team-builder/', label: '編成メーカー', className: 'team-builder-nav-link' }),
+  Object.freeze({ href: '/team-builder/community/', label: 'みんなの編成' }),
   Object.freeze({ href: '/friends/', label: 'フレンド掲示板' }),
   Object.freeze({ href: '/board/', label: '質問掲示板' }),
   Object.freeze({ href: '/beginner-guide/', label: '初心者ガイド', className: 'mobile-only-nav-link' })
 ]);
 
 const currentNavHrefs = (route) => {
+  if (route.startsWith('/team-builder/community/')) return new Set(['/team-builder/community/']);
   if (route.startsWith('/tata/') || route.startsWith('/attribute/')) return new Set(['/#tatari']);
   const guideRoute = ['/normal-guide/', '/zombie-rush/', '/boss-rally/', '/badge-dojo/']
     .find((item) => route.startsWith(item));

@@ -14,6 +14,7 @@ const stages=read('stages.json');
 const items=read('items.json');
 const systems=read('systems.json');
 const events=read('events.json');
+const officialEventImages=read('official-assets/event-images.json');
 const freshness=read('page-freshness.json');
 const byId=new Map(tatari.families.map(f=>[f.id,f]));
 const {getFamilyDisplayLabel}=globalThis.MONSABA_FAMILY;
@@ -45,8 +46,9 @@ write('/evolution/t4/',shell({route:'/evolution/t4/',title:'モンサバ T4お�
 write('/items/',shell({route:'/items/',title:'モンサバ アイテム・素材DB',description:'モンサバのアイテム名・用途・入手方法・関連コンテンツを確認済み情報だけで整理する基盤です。',robots:'noindex,follow',body:`<section class="wrap static-section"><div class="summary-box"><strong>確認済みアイテム：${items.items.length}件</strong><p>現在はデータ構造のみ準備済みです。名称・用途・入手方法をゲーム内で確認できた項目から公開し、架空情報で埋めません。</p></div></section>`}));
 write('/systems/',shell({route:'/systems/',title:'モンサバ キャンプ・施設攻略',description:'施設・強化・解放・食材加工など、ゲーム内システムを公式確認済み情報から整理するハブです。',robots:'noindex,follow',body:`<section class="wrap static-section"><div class="guide-hub-grid">${systems.systems.map(x=>card(x.name,x.summary)).join('')}</div><p class="section-note">強化条件・解放条件はゲーム内確認ができるまで公開しません。</p></section>`}));
 
-const eventCards=events.events.map(x=>card(x.name,x.summary||'独自ツールを利用できます。',x.href,x.href?'開く':'詳細確認中')).join('');
-write('/events/',shell({route:'/events/',title:'モンサバ イベント攻略｜開催中・周期イベント',description:'オタカラ探し、魔法の農場、サプライズルーレットなど、確認済みイベント情報と独自攻略ツールをまとめます。',body:`<section class="wrap static-section"><h2 class="page-h2">常設・周期イベント</h2><div class="guide-hub-grid">${eventCards}</div><p class="section-note">開催中・開催予定の断定には公式の期間表示が必要です。期間未確認のイベントは「周期イベント」として整理しています。</p></section>`}));
+const eventImage=new Map(officialEventImages.events.map(item=>[item.eventId,item]));
+const eventCards=events.events.map(x=>{const image=eventImage.get(x.id);const status=x.sourceStatus==='verified'?'確認済み':'外部確認';return `<article class="guide-hub-card event-hub-card" data-event-status="${esc(x.sourceStatus)}">${image?`<img src="${esc(image.optimizedPath)}" width="${image.width}" height="${image.height}" alt="${esc(`${x.name} 公式クリエイター素材`)}" loading="lazy" decoding="async">`:''}<p class="trust-label-row"><span class="trust-label ${x.sourceStatus==='verified'?'is-verified':'is-external'}">${status}</span><span class="trust-label is-pending">周期イベント</span></p><h3>${esc(x.name)}</h3><p>${esc(x.summary||'独自ツールを利用できます。')}</p><p class="section-note">確認日：${esc(x.verifiedAt||events.updated)}</p>${x.href?`<a class="ghost-button" href="${esc(x.href)}">攻略を見る</a>`:'<span>詳細確認中</span>'}</article>`;}).join('');
+write('/events/',shell({route:'/events/',title:'モンサバ イベント攻略｜開催中・周期イベント',description:'オタカラ探し、魔法の農場、サプライズルーレットなど、確認済みイベント情報と独自攻略ツールをまとめます。',body:`<section class="wrap static-section"><h2 class="page-h2">常設・周期イベント</h2><div class="event-filter" role="group" aria-label="確認状態"><button class="ghost-button is-active" type="button" data-event-filter="all">すべて</button><button class="ghost-button" type="button" data-event-filter="verified">確認済み</button><button class="ghost-button" type="button" data-event-filter="externally_confirmed">外部確認</button></div><p class="result-count" data-event-count aria-live="polite">${events.events.length}件</p><div class="guide-hub-grid">${eventCards}</div><p class="section-note">開催中・開催予定の断定には公式の期間表示が必要です。期間未確認のイベントは「周期イベント」として整理しています。</p><div class="attribute-guide-nav"><a href="/beginner-guide/">初心者ガイド</a><a href="/team-builder/">編成メーカー</a><a href="/items/">アイテムDB</a></div></section><script src="/events/events.js" defer></script>`}));
 
 const roleDefs=[
   ['paralysis','麻痺',['麻痺']],['stun','スタン',['スタン']],['bind','束縛',['束縛']],['sleep','睡眠',['睡眠']],['slow','減速',['減速']],['pierce','貫通',['貫通']],['heal','回復',['回復']],['tank','タンク',['タンク','前衛']],['shield','シールド',['シールド']],['buff','バフ',['バフ','支援']],['debuff','デバフ',['デバフ','被ダメ増加','攻撃速度低下']],['area-damage','範囲火力',['範囲','広範囲','持続火力']]

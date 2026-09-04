@@ -13,6 +13,8 @@ const qualityOverrides = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/q
 for (const locale of ['en', 'zh-CN']) Object.assign(overrides[locale], qualityOverrides[locale]);
 const aug30Overrides = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/aug30.json'), 'utf8'));
 for (const locale of ['en', 'zh-CN']) Object.assign(overrides[locale], aug30Overrides[locale]);
+const communityOverrides = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/community.json'), 'utf8'));
+for (const locale of ['en', 'zh-CN']) Object.assign(overrides[locale], communityOverrides[locale]);
 const notices = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/notices.json'), 'utf8'));
 const tatari = JSON.parse(fs.readFileSync(path.join(root, 'data/tatari.json'), 'utf8'));
 const localizeTataNames = createTataHtmlLocalizer(tatari);
@@ -101,6 +103,8 @@ function translator(locale, missing) {
     const familySeoTitle = trimmed.match(/^モンサバ (.+?)系（.+?）は強い？進化・スキル・用途$/);
     const familySeoDescription = trimmed.match(/^モンサバの(.+?)系（(.+?)）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。\s*主な役割は(.+?)。$/);
     const familyDataSummary = trimmed.match(/^(.+?)系のT1〜T(\d)について、進化先・スキル・確認済み数値をまとめています。$/);
+    const familyT1Alt = trimmed.match(/^(.+?系) T1$/);
+    const skillIconAlt = trimmed.match(/^(.+?系) .+ スキルアイコン$/);
     const tierLabel = trimmed.match(/^(総合|通常|ゾンビ|道場|初心者) (SSS|SS|S|A|B|評価保留)$/);
     const tataPatterns = [
       [/^(.+?)は強い？$/, (name) => `Is ${name} strong?`],
@@ -132,6 +136,8 @@ function translator(locale, missing) {
     if (familyDataSummary) return raw.replace(trimmed, locale === 'en'
       ? `Verified evolution paths, skills and values for the ${familyDataSummary[1]} family from T1 to T${familyDataSummary[2]}.`
       : `${familyDataSummary[1]} 系列从 T1 到 T${familyDataSummary[2]} 的已确认进化路线、技能和数值。`);
+    if (familyT1Alt) return raw.replace(trimmed, locale === 'en' ? `${familyT1Alt[1]} official T1 image` : `${familyT1Alt[1]}官方T1图片`);
+    if (skillIconAlt) return raw.replace(trimmed, locale === 'en' ? `${skillIconAlt[1]} official skill icon` : `${skillIconAlt[1]}官方技能图标`);
     if (tierLabel) {
       const labels = locale === 'en' ? { 総合: 'Overall', 通常: 'Normal', ゾンビ: 'Zombie', 道場: 'Dojo', 初心者: 'Beginner', 評価保留: 'Pending' } : { 総合: '综合', 通常: '普通', ゾンビ: 'Zombie', 道場: '道场', 初心者: '新手', 評価保留: '待评估' };
       return raw.replace(trimmed, `${labels[tierLabel[1]]} ${labels[tierLabel[2]] || tierLabel[2]}`);

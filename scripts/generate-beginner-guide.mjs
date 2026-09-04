@@ -12,20 +12,29 @@ const tatari = readJson('data/tatari.json');
 const ratings = readJson('data/tier-ratings.json');
 const evolution = readJson('data/evolution-priority.json');
 const guides = readJson('data/content-guides.json');
+const tataImages = readJson('data/tata-images.json');
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 const familyMap = new Map((tatari.families || []).map((family) => [family.id, family]));
+const imageMap = new Map((tataImages.families || []).map((item) => [item.familyId, item.stage1]));
 const familyLink = (id) => {
   const family = familyMap.get(id);
   if (!family) throw new Error(`unknown familyId: ${id}`);
   return `<a href="/tata/${esc(id)}/">${esc(getFamilyDisplayLabel(family))}</a>`;
 };
 
+const tierOrder = ['SSS', 'SS', 'S', 'A', 'B'];
 const beginnerRatings = Object.entries(ratings.overall?.byFamily || {})
-  .filter(([, value]) => value.beginner && value.beginner !== '－')
-  .sort((a, b) => ['SSS', 'SS', 'S', 'A', 'B'].indexOf(a[1].beginner) - ['SSS', 'SS', 'S', 'A', 'B'].indexOf(b[1].beginner))
-  .slice(0, 6);
+  .filter(([, value]) => tierOrder.includes(value.beginner))
+  .sort((a, b) => tierOrder.indexOf(a[1].beginner) - tierOrder.indexOf(b[1].beginner) || a[0].localeCompare(b[0]))
+  .slice(0, 8);
 const firstPriority = evolution.t3Roadmap?.firstPriority || [];
 const longTerm = evolution.longTermRecommended || [];
+const firstPriorityMap = new Map(firstPriority.map((item) => [item.familyId, item]));
+const candidateCard = ([id, value]) => {
+  const family = familyMap.get(id); const image = imageMap.get(id); const priority = firstPriorityMap.get(id);
+  const modes = ['overall', value.zombie === 'SSS' || value.zombie === 'SS' ? 'zombie' : '', value.normal === 'SSS' || value.normal === 'SS' ? 'normal' : '', priority ? 'evolution' : ''].filter(Boolean).join(' ');
+  return `<article class="guide-panel beginner-tata-card" data-beginner-modes="${modes}">${image?.status === 'verified' ? `<img class="beginner-tata-image" src="${esc(image.src)}" width="256" height="256" alt="${esc(getFamilyDisplayLabel(family))} T1" loading="lazy" decoding="async">` : ''}<div><p class="beginner-card-meta">${esc(family.attribute)}属性 · 初心者評価 ${esc(value.beginner)}</p><h3>${familyLink(id)}</h3><p>${esc(value.comment)}</p><p><b>育成目標：</b>${priority ? `T3（必要${priority.requiredStars}星）` : '個別ページで進化差分を確認'}</p><div class="tool-actions"><a class="ghost-button" href="/tata/${esc(id)}/">詳細を見る</a><a class="ghost-button" href="/my-monsaba/">手持ちに登録</a></div></div></article>`;
+};
 const troubleshooting = Object.values(guides.normal?.troubleshooting || {});
 const sourceUrls = [...new Set([
   ...(evolution.sources || []),
@@ -68,12 +77,12 @@ const html = `<!doctype html>
   ${renderHeader('/beginner-guide/')}
   <main id="main-content">
     <section class="page-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="パンくず"><a href="/">トップ</a><span>›</span><span>初心者ガイド</span></nav><div class="family-page-head"><div><span class="attribute">最終更新 ${formatJapanDateTime(LAST_MODIFIED)}</span><h1>${title}</h1><p>確認済みデータだけを使い、次に見る場所を順番に案内します。</p></div><a class="ghost-button" href="/consult/">攻略相談所で相談</a></div><p class="article-byline">運営・データ確認：<a href="/about/">おぢ</a></p></div></section>
-    <section class="wrap static-section beginner-first"><p class="section-kicker visible-kicker">まずこれ</p><h2 class="page-h2">初心者が進む4ステップ</h2><ol class="beginner-steps"><li><a href="#normal"><b>STEP 1</b><span>通常ステージ</span></a></li><li><a href="#training"><b>STEP 2</b><span>最初の育成</span></a></li><li><a href="#t3"><b>STEP 3</b><span>最初のT3</span></a></li><li><a href="#contents"><b>STEP 4</b><span>コンテンツ攻略</span></a></li></ol></section>
+    <section class="wrap static-section beginner-first"><p class="section-kicker visible-kicker">迷ったらここから</p><h2 class="page-h2">手持ちに合わせて育成候補を絞る</h2><p>候補は確認済みの初心者評価・用途評価・進化優先度から自動生成しています。公式ランキングではありません。</p><div class="tool-actions"><a class="button" href="/my-monsaba/">マイモンサバに手持ちを登録</a><a class="ghost-button" href="#training">候補を選ぶ</a><a class="ghost-button" href="/consult/?flow=evolution">育成を相談</a></div><h2 class="page-h2">初心者が進む5ステップ</h2><ol class="beginner-steps"><li><a href="/gift-codes/"><b>STEP 1</b><span>コードを回収</span></a></li><li><a href="#normal"><b>STEP 2</b><span>通常ステージ</span></a></li><li><a href="#training"><b>STEP 3</b><span>育成候補を選ぶ</span></a></li><li><a href="#t3"><b>STEP 4</b><span>最初のT3</span></a></li><li><a href="#contents"><b>STEP 5</b><span>用途別攻略</span></a></li></ol></section>
     <div class="monetization-slot" data-monetization-slot="article_after_summary" hidden></div>
     <section class="wrap static-section prose-page"><h2 class="page-h2">1. 最初に何をやればいい？</h2><p>最初に無料の<a href="/gift-codes/">ギフトコード</a>を回収し、その後は通常ステージで、時間切れ・全滅・配置のどこに困っているかを切り分けます。確認済みの初心者評価と進化優先度から育成候補を選びます。</p></section>
     <section id="normal" class="wrap static-section prose-page"><h2 class="page-h2">2. 通常ステージを進める</h2><p>勝てないときは症状別に対処します。</p><div class="beginner-card-grid">${troubleshooting.map((item) => `<article class="guide-panel"><h3>${esc(item.label)}</h3><p>確認する点：${esc((item.causes || []).join('・'))}</p><ul class="plain-list">${(item.actions || []).map((action) => `<li>${esc(action)}</li>`).join('')}</ul></article>`).join('')}</div><p><a class="ghost-button" href="/normal-guide/">通常攻略を詳しく見る</a></p></section>
     <section class="wrap static-section prose-page"><h2 class="page-h2">3. 星を集める</h2><p>進化候補は必要星数と進化後の変化を一緒に確認します。現在のデータでは、最初のT3候補に必要な星数が明記されています。</p><p><a href="/evolution-priority/">進化優先度で必要星数を確認する</a></p></section>
-    <section id="training" class="wrap static-section prose-page"><h2 class="page-h2">4. 最初に育てたいタタ</h2><p>当サイトの初心者評価がある候補です。公式ランキングではなく、現在の暫定評価です。</p><div class="beginner-card-grid">${beginnerRatings.map(([id, value]) => `<article class="guide-panel"><h3>${familyLink(id)} <span class="tier-mini">${esc(value.beginner)}</span></h3><p>${esc(value.comment || '評価コメントを確認中です。')}</p></article>`).join('')}</div></section>
+    <section id="training" class="wrap static-section prose-page"><h2 class="page-h2">4. 最初に育てたいタタ</h2><p>遊びたいモードを選ぶと、既存評価に一致する候補だけを表示します。</p><div class="beginner-chooser" role="group" aria-label="育成目的"><button type="button" class="ghost-button is-active" data-beginner-choice="overall">総合</button><button type="button" class="ghost-button" data-beginner-choice="normal">通常</button><button type="button" class="ghost-button" data-beginner-choice="zombie">ゾンビラッシュ</button><button type="button" class="ghost-button" data-beginner-choice="evolution">早めのT3</button><a class="ghost-button" href="/boss-rally/">ボス別に探す</a></div><p id="beginner-choice-status" class="section-note" role="status" aria-live="polite"></p><div class="beginner-card-grid">${beginnerRatings.map(candidateCard).join('')}</div></section>
     <section id="t3" class="wrap static-section prose-page"><h2 class="page-h2">5. 最初のT3候補</h2><div class="beginner-card-grid">${firstPriority.map((item) => `<article class="guide-panel"><h3>${familyLink(item.familyId)}</h3><p><b>${esc(item.priority)}・${item.requiredStars}星</b></p><p>${esc(item.reason)}</p></article>`).join('')}</div><p><a class="button" href="/evolution-priority/">進化優先度へ進む</a></p></section>
     <div class="monetization-slot" data-monetization-slot="beginner_mid" hidden></div>
     <section class="wrap static-section prose-page"><h2 class="page-h2">6. 長く使えるタタ</h2><div class="beginner-card-grid">${longTerm.map((item) => `<article class="guide-panel"><h3>${familyLink(item.familyId)}</h3><p>${esc(item.reason)}</p></article>`).join('')}</div></section>
@@ -85,7 +94,7 @@ const html = `<!doctype html>
     <section class="wrap source-note"><strong>情報の扱い</strong><p>タタDB、当サイト暫定評価、進化優先度、公開攻略情報を区別して整理しています。不明な内容は推測していません。</p><p>参考情報：${sourceUrls.map((source) => `<a href="${esc(source)}" target="_blank" rel="noopener noreferrer">公開攻略Wiki（外部）</a>`).join(' / ')}</p><a href="/about-data/">データ更新方針を見る</a></section>
   </main>
   <footer><div class="wrap footer-inner"><div><strong>モンサバ攻略DB</strong><span>モンスターサバイバル 非公式攻略サイト</span></div><div class="footer-side"><nav class="footer-links" aria-label="サイト情報"><a href="/about/">サイトについて</a><a href="/about-data/">データ方針</a><a href="/updates/">更新履歴</a><a href="/privacy/">プライバシー</a><a href="/friends/">フレンド掲示板</a></nav><p class="footer-contact">お問い合わせ・ご連絡は <a href="https://x.com/odi_monsaba" target="_blank" rel="noopener noreferrer">おぢ（@odi_monsaba）X</a> まで。フォローもよろしくお願いします。</p><div class="footer-meta">初心者ガイド</div></div></div></footer>
-  <script src="/family-display.js"></script><script src="/site.js"></script><script src="/monetization.js"></script><script src="/growth.js" defer></script>
+  <script src="/family-display.js"></script><script src="/site.js"></script><script src="/monetization.js"></script><script src="/growth.js" defer></script><script src="/beginner-guide/beginner.js" defer></script>
 </body></html>`;
 
 const directory = path.join(root, 'beginner-guide');

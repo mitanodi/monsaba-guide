@@ -142,7 +142,10 @@ test('event research dates agree in every locale and sitemap', () => {
       assert.match(html, new RegExp(`<span class="visible-kicker">[^<]*${kickerDate.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[^<]*<\\/span>`), relative);
       assert.ok(html.includes(checked), relative);
       const route = `/${locale.prefix}events/${id}/`;
-      assert.ok(sitemap.includes(`<loc>https://monster-survival.com${route}</loc><lastmod>${updated}</lastmod>`), route);
+      if (['running-star', 'surprise-roulette'].includes(id)) {
+        assert.match(html, /name="robots" content="noindex,follow"/);
+        assert.equal(sitemap.includes(`<loc>https://monster-survival.com${route}</loc>`), false, route);
+      } else assert.ok(sitemap.includes(`<loc>https://monster-survival.com${route}</loc><lastmod>${updated}</lastmod>`), route);
     }
   }
   assert.ok(sitemap.includes('<loc>https://monster-survival.com/events/</loc><lastmod>2026-08-30</lastmod>'));

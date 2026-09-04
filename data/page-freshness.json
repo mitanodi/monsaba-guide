@@ -53,6 +53,7 @@
     "/events/surprise-roulette/": { "updated": "2026-08-31", "verified": "2026-08-31" },
     "/compare-guides/*": { "published": "2026-08-28", "updated": "2026-08-28", "verified": "2026-08-28" },
     "/my-monsaba/": { "published": "2026-08-28", "updated": "2026-08-28", "verified": "2026-08-28" },
-    "/team-builder/": { "published": "2026-08-28", "updated": "2026-09-03", "verified": "2026-09-03" }
+    "/team-builder/": { "published": "2026-08-28", "updated": "2026-09-03", "verified": "2026-09-03" },
+    "/team-builder/community/": { "published": "2026-09-04", "updated": "2026-09-04", "verified": "2026-09-04", "status": "community-user-generated", "pending": [] }
   }
 }

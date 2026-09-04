@@ -162,7 +162,7 @@ for (const event of events.events) {
   write(`/events/${event.id}/`, shell({
     route: `/events/${event.id}/`, title: `${event.name} 攻略｜モンサバ イベント`, description: event.summary,
     type: 'Article', updated: EVENT_RESEARCH_DATE,
-    body: `<article class="wrap static-section"><div class="trust-label-row"><span class="trust-label is-external">コミュニティ確認</span></div><h2 class="page-h2">${esc(heading)}</h2><div class="event-status-grid"><article><h3>何をするイベントか</h3><p>${esc(current)}</p></article><article><h3>何を優先するか</h3><p>${esc(strategy)}</p></article></div><div class="summary-box"><strong>Human Verification</strong><p>${esc(pending)}</p></div><h2 class="page-h2">情報源</h2><p><a href="${esc(event.sourceUrl)}" target="_blank" rel="noopener noreferrer">国内攻略情報</a>を2026年8月31日に照合し、当サイトで独自に要約しました。画像・表・記事本文は転載せず、公式確認済みとは表示していません。</p><nav class="attribute-guide-nav"><a href="/events/">イベント攻略へ戻る</a><a href="/evolution/trials/">関連する進化試練を見る</a></nav></article>`
+    body: `<article class="wrap static-section"><div class="trust-label-row"><span class="trust-label is-external">コミュニティ確認</span><span class="trust-label is-pending">現行詳細は確認待ち</span></div><h2 class="page-h2">${esc(heading)}</h2><div class="event-status-grid"><article><h3>イベント概要・基本ルール</h3><p>${esc(current)}</p></article><article><h3>攻略の流れ・優先事項</h3><p>${esc(strategy)}</p></article></div><section><h2 class="page-h2">初心者が最初にやること</h2><p>${esc(strategy)}</p><p class="section-note">現行の倍率・必要数・報酬値を確認できていない項目は数値を掲載していません。</p></section><section><h2 class="page-h2">重要アイテムと報酬</h2><p>現在の日本版で名称・必要数・報酬内容を確認できる資料が不足しています。過去情報を現行報酬として表示せず、確認後に追加します。</p></section><section><h2 class="page-h2">よくある失敗</h2><p>開催期間や過去の倍率・報酬を現行仕様だと決めつけないでください。ゲーム内の開催表示とヘルプを優先してください。</p></section><div class="summary-box"><strong>Human Verification</strong><p>${esc(pending)}</p></div><h2 class="page-h2">情報源</h2><p><a href="${esc(event.sourceUrl)}" target="_blank" rel="noopener noreferrer">国内攻略情報</a>を2026年8月31日に照合し、当サイトで独自に要約しました。画像・表・記事本文は転載せず、公式確認済みとは表示していません。</p><nav class="attribute-guide-nav"><a href="/events/">イベント攻略へ戻る</a><a href="/beginner-guide/">初心者ガイド</a><a href="/team-builder/">編成メーカー</a><a href="/items/">アイテムDB</a><a href="/evolution/trials/">関連する進化試練を見る</a></nav></article>`
   }));
 }
 
@@ -271,6 +271,16 @@ for (const locale of Object.keys(localeConfig)) for (const event of events.event
   write(`${localeConfig[locale].prefix}/events/${event.id}/`, localizedShell(locale, { route: `/events/${event.id}/`, title, description, type: 'Article', updated: EVENT_RESEARCH_DATE, body: `<article class="wrap static-section"><div class="trust-label-row"><span class="trust-label is-external">${locale === 'en' ? 'Community-confirmed' : '社区信息确认'}</span></div><div class="event-status-grid"><article><h2>${currentLabel}</h2><p>${current}</p></article><article><h2>${priorityLabel}</h2><p>${priority}</p></article></div><div class="summary-box"><strong>Human Verification</strong><p>${pending}</p></div><h2 class="page-h2">${locale === 'en' ? 'Source' : '信息来源'}</h2><p><a href="${esc(event.sourceUrl)}" target="_blank" rel="noopener noreferrer">${locale === 'en' ? 'Community strategy source' : '社区攻略来源'}</a>, ${locale === 'en' ? 'checked Aug 31, 2026. Independently summarized; no source images, tables or article copy are reused.' : '于2026年8月31日核对。本站独立摘要，不转载来源图片、表格或文章内容。'}</p><nav class="attribute-guide-nav"><a href="${localeConfig[locale].prefix}/events/">${locale === 'en' ? 'Back to events' : '返回活动攻略'}</a><a href="${localeConfig[locale].prefix}/evolution/trials/">${locale === 'en' ? 'Related evolution trials' : '相关进化试炼'}</a></nav></article>` }));
 }
 
+// These two pages intentionally stay discoverable through the event hub while
+// their current Japanese in-game detail is too thin for search indexing.
+for (const route of ['events/running-star/index.html', 'events/surprise-roulette/index.html']) {
+  for (const prefix of ['', 'en/', 'zh-cn/']) {
+    const file = path.join(root, prefix, route);
+    const source = fs.readFileSync(file, 'utf8').replace(/<meta name="robots" content="[^"]+"\s*\/?>/, '<meta name="robots" content="noindex,follow">');
+    fs.writeFileSync(file, source);
+  }
+}
+
 for (const locale of Object.keys(localeConfig)) {
   const en = locale === 'en';
   const title = en ? 'August 30, 2026 Major Database Update' : '2026年8月30日大型数据库更新';
@@ -284,6 +294,15 @@ inject('zh-cn/zombie-rush/index.html', 'CHIPS_ZH', '<section class="wrap static-
 inject('en/evolution/index.html', 'TRIALS_EN', `<section class="wrap static-section"><h2>Evolution trials for all ${familyCount} families</h2><a class="button" href="/en/evolution/trials/">Open the trial database</a></section>`);
 inject('zh-cn/evolution/index.html', 'TRIALS_ZH', `<section class="wrap static-section"><h2>全部${familyCount}个系列的进化试炼</h2><a class="button" href="/zh-cn/evolution/trials/">打开试炼数据库</a></section>`);
 inject('events/treasure-hunt/index.html', 'EVENT_GUIDE', '<section class="wrap static-section"><h2 class="page-h2">オタカラ探しの進め方</h2><div class="trust-label-row"><span class="trust-label is-external">コミュニティ確認</span></div><div class="event-status-grid"><article><h3>鍵と中央宝箱</h3><p>開始後に4人を選び、1人の盤面でオタカラを3回見つけると鍵を1個獲得します。鍵4個で中央宝箱を開き、同じメンバーから複数の鍵も取得できます。</p></article><article><h3>コスト・爆弾・盤面拡張</h3><p>鍵ごとに必要アイテム数が5増え、盤面は最大3回拡張します。爆弾は追加で1〜3マスを掘ります。上の独自ソルバーで候補を比較してください。</p></article></div><div class="summary-box"><strong>Human Verification</strong><p>日本版の4人選択、鍵、中央宝箱、盤面拡張、爆弾効果、終了日時の画面を確認待ちです。</p></div><a href="/evolution/trials/">関連する進化試練を見る</a></section>');
+{
+  const treasurePath = path.join(root, 'events/treasure-hunt/index.html');
+  const treasureHtml = fs.readFileSync(treasurePath, 'utf8').replace(
+    '<!-- AUG30:EVENT_GUIDE:START --><section class="wrap static-section">',
+    '<!-- AUG30:EVENT_GUIDE:START --><section id="event-guide" class="wrap static-section">',
+  );
+  fs.writeFileSync(treasurePath, treasureHtml);
+}
+inject('events/treasure-hunt/index.html', 'EVENT_SOLVER_CTA', '<section class="wrap static-section"><div class="attribute-guide-nav"><a class="button" href="#board">オタカラソルバーを使う</a><a class="ghost-button" href="#event-guide">イベント攻略を見る</a><a class="ghost-button" href="/events/">イベント一覧へ戻る</a></div></section>');
 inject('events/treasure-hunt/index.html', 'EVENT_FRESHNESS', `<section class="wrap source-note page-freshness"><strong>情報の状態</strong><p><span class="trust-label is-external">外部確認</span> イベント解説を独自に整理しています。</p><p>最終確認日：${japaneseDate(EVENT_RESEARCH_DATE)}</p><a href="/about-data/">データ方針を見る</a></section>`);
 const treasureAssetCopy = {
   ja: ['運営提供のオタカラ探し素材', 'オタカラ探しフォルダで確認できた公式クリエイター素材です。絵柄をルールや報酬内容の根拠には使用していません。'],
