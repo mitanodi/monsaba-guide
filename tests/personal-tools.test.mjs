@@ -322,7 +322,7 @@ test('T2〜T4を選んでも盤面画像resolverはverified T1だけを返す', 
   const imageMap = new Map(images.families.map((item) => [item.familyId, item]));
   const image = stage1ImageFor(first, imageMap);
   assert.equal(image.status, 'verified');
-  assert.match(image.src, /stage1/);
+  assert.match(image.src, /(?:\/t1-512\.webp|\/forms\/[^/]+\/t1\.webp)$/);
   assert.equal(stage1ImageFor(first, new Map([[first.id, { stage1: { status: 'pending' } }]])), null);
 });
 

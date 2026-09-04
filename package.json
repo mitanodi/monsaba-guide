@@ -66,9 +66,10 @@
     "test:event-research": "node --test tests/event-research.test.mjs",
     "test:tata-images": "node --test tests/tata-images.test.mjs",
     "test:official-assets": "node --test tests/official-assets.test.mjs",
+    "test:official-assets-full": "node --test tests/official-assets-full-replacement.test.mjs",
     "test:tata-name-i18n": "node --test tests/tata-name-i18n.test.mjs",
     "test:tata-name-localization": "node --test tests/tata-name-localization.test.mjs",
-    "test": "npm run test:friends && npm run test:board && npm run test:community && npm run test:phase2 && npm run test:official-x && npm run test:family-display && npm run test:affiliate && npm run test:adsense && npm run test:ga4 && npm run test:personal-tools && npm run test:treasure-hunt && npm run test:i18n && npm run test:pdf-evidence && npm run test:gift-codes && npm run test:summer-party && npm run test:event-research && npm run test:tata-images && npm run test:official-assets && npm run test:tata-name-i18n && npm run test:tata-name-localization && npm run test:og"
+    "test": "npm run test:friends && npm run test:board && npm run test:community && npm run test:phase2 && npm run test:official-x && npm run test:family-display && npm run test:affiliate && npm run test:adsense && npm run test:ga4 && npm run test:personal-tools && npm run test:treasure-hunt && npm run test:i18n && npm run test:pdf-evidence && npm run test:gift-codes && npm run test:summer-party && npm run test:event-research && npm run test:tata-images && npm run test:official-assets && npm run test:official-assets-full && npm run test:tata-name-i18n && npm run test:tata-name-localization && npm run test:og"
   },
   "dependencies": {
     "@upstash/redis": "^1.38.2"

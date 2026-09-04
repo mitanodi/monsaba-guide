@@ -8,7 +8,7 @@ const tatari = JSON.parse(fs.readFileSync(path.join(root, 'data/tatari.json'), '
 const routes = ['/', '/beginner-guide/', '/friends/', '/about/', '/search/', '/updates/', '/privacy/', '/about-data/', '/consult/', '/guides/', '/attribute/', '/compare/', '/team-builder/', '/faq/', '/tata-tier/', '/evolution-priority/', '/zombie-rush/', '/zombie-rush/chips/', '/boss-rally/', '/badge-dojo/', '/normal-guide/', '/stages/', '/evolution/', '/evolution/t3/', '/evolution/t4/', '/items/', '/systems/', '/events/', '/events/treasure-hunt/', '/roles/', '/compare-guides/purabi-vs-denjika/', '/attribute/grass/', '/attribute/water/', '/attribute/fire/', '/attribute/thunder/', '/attribute/rock/', ...tatari.families.map((family) => `/tata/${family.id}/`)];
 const jsonRoutes = ['/data/tatari.json', '/data/tata-skills.json', '/data/tier-ratings.json', '/data/evolution-priority.json', '/data/content-guides.json'];
 const heroes = [
-  ...Array.from({length:7}, (_, index) => `/assets/heroes/IMG_${6940 + index}.webp`),
+  ...Array.from({length:6}, (_, index) => `/assets/heroes/IMG_${6940 + index}.webp`),
   '/assets/heroes/top-main.webp',
   '/assets/heroes/evolution-main.webp',
   ...['top-main-480.webp', 'top-main-768.webp', 'evolution-main-480.webp', 'evolution-main-768.webp', 'IMG_6941-480.webp', 'IMG_6941-768.webp', 'IMG_6942-480.webp', 'IMG_6942-768.webp', 'IMG_6943-480.webp', 'IMG_6943-768.webp', 'IMG_6944-480.webp', 'IMG_6945-480.webp'].map((file) => `/assets/heroes/responsive/${file}`),

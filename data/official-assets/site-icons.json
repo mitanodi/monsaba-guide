@@ -1,0 +1,43 @@
+{
+  "version": "2026-09-04",
+  "sourceType": "official_creator_asset",
+  "count": 1,
+  "officialAssetId": "MSOA-08948",
+  "sourceFilename": "gameicon.png",
+  "sourceSha256": "bd9b88e4a4845c073c747a8a45498343e24411a7749becb1b06a80f714e656e5",
+  "sourceWidth": 1024,
+  "sourceHeight": 1024,
+  "verifiedAt": "2026-09-04",
+  "outputs": [
+    {
+      "path": "/assets/icons/icon-512.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "c70577601161f36178298362ba578f49e67c68ecb38a1bb5be298d916883c9e4"
+    },
+    {
+      "path": "/assets/icons/icon-192.png",
+      "width": 192,
+      "height": 192,
+      "sha256": "c73e64a858518df82cf1846ef5f77aa0424d99f96dfe6e106fd5eb00f80fd6c1"
+    },
+    {
+      "path": "/apple-touch-icon.png",
+      "width": 180,
+      "height": 180,
+      "sha256": "23848107bfe8b194365dcadc6d3d33eb7c71dbec80e0eaf46f92cb5ea6c676ea"
+    },
+    {
+      "path": "/favicon-32x32.png",
+      "width": 32,
+      "height": 32,
+      "sha256": "7c52b9800cbff46fa0b80916f941a19fad3e97a383ad846d1d02007787475538"
+    },
+    {
+      "path": "/favicon.ico",
+      "width": 32,
+      "height": 32,
+      "sha256": "22f7a37954d675bb9fb7d256e8633cad32dbbb309fea3545c21ca2dd226db757"
+    }
+  ]
+}

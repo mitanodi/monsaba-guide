@@ -25,7 +25,7 @@ expect(imageFamilies.length === 64, `image family count must be 64, got ${imageF
 expect(new Set(imageFamilies.map((family) => family.familyId)).size === 64, 'image family IDs must be unique');
 expect(verifiedForms.length === 225, `verified form count must be 225, got ${verifiedForms.length}`);
 expect(pendingForms.length === 5, `pending form count must be 5, got ${pendingForms.length}`);
-expect(verifiedForms.filter((form) => form.sourceType === 'official_creator_asset').length === 121, 'official creator asset form count must be 121');
+expect(verifiedForms.filter((form) => form.sourceType === 'official_creator_asset').length === 224, 'official creator asset form count must be 224');
 expect(images.sourcePolicy?.lockedSilhouettesPublished === false, 'locked silhouettes must not be published');
 expect(images.sourcePolicy?.competitorImages === false, 'competitor images must be false');
 expect(images.sourcePolicy?.aiGeneratedPixels === false, 'AI-generated pixels must be false');

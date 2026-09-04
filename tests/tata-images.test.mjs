@@ -16,7 +16,7 @@ test('64 unique Stage 1 crops map one-to-one to the database', () => {
   assert.equal(new Set(images.families.map((family) => family.stage1.sha256)).size, 64);
   for (const family of images.families) {
     assert.equal(family.stage1.status, 'verified');
-    assert.match(family.stage1.src, new RegExp(`^/assets/(?:tata-crops/stage1/${family.familyId}\\.webp|official/tata/${family.familyId}/t1-512\\.webp)$`));
+    assert.match(family.stage1.src, new RegExp(`^/assets/(?:tata-crops/forms/${family.familyId}/t1\\.webp|official/tata/${family.familyId}/t1-512\\.webp)$`));
     assert.ok(fs.existsSync(path.join(root, family.stage1.src.slice(1))));
   }
 });
@@ -26,7 +26,7 @@ test('only verified forms have publishable image URLs', () => {
   assert.equal(forms.length, 230);
   assert.equal(forms.filter((form) => form.status === 'verified').length, 225);
   assert.equal(forms.filter((form) => form.status === 'pending').length, 5);
-  assert.equal(forms.filter((form) => form.sourceType === 'official_creator_asset').length, 121);
+  assert.equal(forms.filter((form) => form.sourceType === 'official_creator_asset').length, 224);
   assert.equal(new Set(forms.filter((form) => form.status === 'verified').map((form) => form.src)).size, 225);
   assert.ok(forms.filter((form) => form.status === 'pending').every((form) => form.src === null && form.reason === 'locked_silhouette_only'));
   assert.ok(forms.filter((form) => form.status === 'verified').every((form) => fs.existsSync(path.join(root, form.src.slice(1)))));
@@ -36,7 +36,7 @@ test('only verified forms have publishable image URLs', () => {
 test('generated JA, EN and zh-CN pages use the shared crops', () => {
   for (const file of ['index.html', 'en/index.html', 'zh-cn/index.html']) {
     const html = read(file);
-    assert.equal((html.match(/\/assets\/(?:tata-crops\/stage1\/|official\/tata\/[^/]+\/t1-512\.webp)/g) || []).length, 64, `${file}: Stage 1 image count`);
+    assert.equal((html.match(/\/assets\/(?:tata-crops\/forms\/[^/]+\/t1\.webp|official\/tata\/[^/]+\/t1-512\.webp)/g) || []).length, 64, `${file}: Stage 1 image count`);
     assert.doesNotMatch(html, /card-image[^>]*>[\s\S]{0,180}assets\/thumbs\//);
   }
 });
@@ -46,13 +46,13 @@ test('detail pages publish verified crops and neutral pending states', () => {
   assert.equal((allDetailHtml.match(/<img[^>]+class="tata-form-image"/g) || []).length, 225);
   assert.equal((allDetailHtml.match(/class="tata-image-pending"/g) || []).length, 5);
   assert.doesNotMatch(allDetailHtml, /assets\/thumbs\//);
-  assert.match(read('tata/purabi/index.html'), /assets\/tata-crops\/forms\/purabi\/t1\.webp/);
+  assert.match(read('tata/purabi/index.html'), /assets\/official\/tata\/purabi\/t1-512\.webp/);
   assert.match(read('tata/purabi/index.html'), /assets\/official\/tata\/purabi\/t3-512\.webp/);
 });
 
 test('Tier, Compare, Team Builder, My Monsaba, Search and Evolution Priority use crop mappings', () => {
-  assert.match(read('tata-tier/index.html'), /assets\/tata-crops\/stage1\//);
-  assert.match(read('evolution-priority/index.html'), /assets\/tata-crops\/stage1\//);
+  assert.match(read('tata-tier/index.html'), /assets\/official\/tata\/.+\/t1-512\.webp/);
+  assert.match(read('evolution-priority/index.html'), /assets\/official\/tata\/.+\/t1-512\.webp/);
   for (const file of ['tata-tier/tata-tier.js', 'compare/compare.js', 'team-builder/team-builder.js', 'my-monsaba/my-monsaba.js', 'search/search.js', 'zombie-rush/zombie-rush.js', 'evolution-priority/evolution-priority.js']) {
     assert.match(read(file), /data\/tata-images\.json/, `${file}: image manifest fetch`);
   }

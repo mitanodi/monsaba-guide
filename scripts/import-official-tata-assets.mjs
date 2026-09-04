@@ -71,7 +71,7 @@ for (const family of tata.families) {
     const originalStatus = baselineStatus.get(`${family.id}:${evolution.stage}`) || current?.status || 'missing';
     const official = selectCandidate(family.id, evolution);
     const pendingResolution = originalStatus === 'pending' && official;
-    const qualityReplacement = originalStatus === 'verified' && official && Math.max(official.width || 0, official.height || 0) >= 512;
+    const verifiedReplacement = originalStatus === 'verified' && official;
     audit.push({
       familyId: family.id,
       familyName: family.familyName,
@@ -80,10 +80,11 @@ for (const family of tata.families) {
       name: evolution.name,
       nameEn: evolution.nameEn,
       currentStatus: originalStatus,
+      currentSourceType: current?.sourceType || 'current_verified',
       currentPath: originalStatus === 'pending' ? null : (current?.sourceType === 'official_creator_asset' ? 'existing verified mapping (see git history)' : current?.src || null),
       currentWidth: current?.width || null,
       currentHeight: current?.height || null,
-      action: pendingResolution ? 'pending_to_official' : qualityReplacement ? 'verified_to_high_quality_official' : official ? 'retain_current' : 'official_missing',
+      action: pendingResolution ? 'pending_to_official' : verifiedReplacement ? 'verified_to_official' : 'official_missing',
       officialAssetId: official?.asset_id || null,
       sourceFilename: official?.original_filename || null,
       sourceSha256: official?.sha256 || null,
@@ -96,8 +97,9 @@ for (const family of tata.families) {
   }
 }
 
-const selected = audit.filter((entry) => ['pending_to_official', 'verified_to_high_quality_official'].includes(entry.action));
-const totals = Object.fromEntries(['pending_to_official', 'verified_to_high_quality_official', 'retain_current', 'official_missing'].map((action) => [action, audit.filter((entry) => entry.action === action).length]));
+const selected = audit.filter((entry) => ['pending_to_official', 'verified_to_official'].includes(entry.action));
+const previewSelected = selected.filter((entry) => entry.currentSourceType !== 'official_creator_asset');
+const totals = Object.fromEntries(['pending_to_official', 'verified_to_official', 'official_missing'].map((action) => [action, audit.filter((entry) => entry.action === action).length]));
 
 function resolveSkillTarget(asset) {
   if (asset.tata_family && asset.tata_stage) return { familyId: asset.tata_family, stage: Number(asset.tata_stage) };
@@ -114,6 +116,24 @@ const skillIcons = manifest.assets
 const eventAssetIds = ['MSOA-06324', 'MSOA-06328', 'MSOA-06332', 'MSOA-06335'];
 const eventAssets = eventAssetIds.map((assetId) => manifest.assets.find((asset) => asset.asset_id === assetId));
 if (eventAssets.some((asset) => !asset)) throw new Error('Treasure Hunt event asset is missing from the manifest');
+const siteIconAsset = manifest.assets.find((asset) => asset.asset_id === 'MSOA-08948');
+if (!siteIconAsset) throw new Error('Official game icon MSOA-08948 is missing from the manifest');
+
+function pngAsIco(png, size) {
+  const header = Buffer.alloc(22);
+  header.writeUInt16LE(0, 0);
+  header.writeUInt16LE(1, 2);
+  header.writeUInt16LE(1, 4);
+  header.writeUInt8(size === 256 ? 0 : size, 6);
+  header.writeUInt8(size === 256 ? 0 : size, 7);
+  header.writeUInt8(0, 8);
+  header.writeUInt8(0, 9);
+  header.writeUInt16LE(1, 10);
+  header.writeUInt16LE(32, 12);
+  header.writeUInt32LE(png.length, 14);
+  header.writeUInt32LE(header.length, 18);
+  return Buffer.concat([header, png]);
+}
 
 async function optimizedBuffers(sourcePath) {
   const make = (size, inset) => sharp(sourcePath, { failOn: 'error' })
@@ -136,7 +156,7 @@ async function buildPreview() {
   if (!previewDir) return;
   fs.mkdirSync(previewDir, { recursive: true });
   const tiles = [];
-  for (const entry of selected) {
+  for (const entry of previewSelected) {
     const image = await sharp(entry.sourcePath).rotate().resize(180, 180, { fit: 'contain', background: '#eef4f8' }).png().toBuffer();
     const label = Buffer.from(`<svg width="220" height="42"><rect width="220" height="42" fill="#fff"/><text x="6" y="16" font-size="12" font-family="sans-serif">${entry.familyId} T${entry.stage} ${entry.officialAssetId}</text><text x="6" y="33" font-size="11" font-family="sans-serif">${entry.nameEn}</text></svg>`);
     tiles.push(await sharp({ create: { width: 220, height: 222, channels: 4, background: '#eef4f8' } }).composite([{ input: image, top: 0, left: 20 }, { input: label, top: 180, left: 0 }]).jpeg({ quality: 88 }).toBuffer());
@@ -152,7 +172,7 @@ async function buildPreview() {
 
 async function applySelection() {
   const next = structuredClone(currentImages);
-  next.version = '2026-09-04-official-assets-v1';
+  next.version = '2026-09-04-official-assets-v2';
   next.generatedFrom = 'Monster Survival official creator assets manifest (2026-09-04)';
   next.sourcePolicy = {
     ...next.sourcePolicy,
@@ -195,6 +215,10 @@ async function applySelection() {
     family.forms[index] = metadata;
     if (entry.stage === 1) family.stage1 = { ...metadata };
   }
+  for (const family of next.families) {
+    const stageOne = family.forms.find((form) => form.stage === 1);
+    if (stageOne) family.stage1 = { ...stageOne };
+  }
   const forms = next.families.flatMap((family) => family.forms);
   next.counts = {
     families: next.families.length,
@@ -204,6 +228,14 @@ async function applySelection() {
     officialCreatorAssetForms: forms.filter((form) => form.sourceType === 'official_creator_asset').length,
   };
   fs.writeFileSync(path.join(root, 'data', 'tata-images.json'), `${JSON.stringify(next, null, 2)}\n`);
+  for (const family of tata.families) {
+    const mapped = nextFamilyMap.get(family.id);
+    for (const evolution of family.evolutions) {
+      const form = mapped.forms.find((item) => item.stage === evolution.stage);
+      if (form?.status === 'verified' && form.src) evolution.image = form.src.replace(/^\//, '');
+    }
+  }
+  fs.writeFileSync(path.join(root, 'data', 'tatari.json'), `${JSON.stringify(tata, null, 2)}\n`);
   fs.mkdirSync(path.join(root, 'data', 'official-assets'), { recursive: true });
   fs.writeFileSync(path.join(root, 'data', 'official-assets', 'tata-source-map.json'), `${JSON.stringify({
     version: '2026-09-04',
@@ -279,6 +311,39 @@ async function applySelection() {
     count: eventRecords.length,
     events: eventRecords,
   }, null, 2)}\n`);
+  const iconSource = fs.readFileSync(siteIconAsset.local_original_path);
+  if (sha256(iconSource) !== siteIconAsset.sha256) throw new Error(`${siteIconAsset.asset_id}: icon source SHA-256 mismatch`);
+  const iconOutputs = [];
+  for (const [relative, size] of [
+    ['assets/icons/icon-512.png', 512],
+    ['assets/icons/icon-192.png', 192],
+    ['apple-touch-icon.png', 180],
+    ['favicon-32x32.png', 32],
+  ]) {
+    const output = await sharp(iconSource, { failOn: 'error' })
+      .rotate()
+      .resize(size, size, { fit: 'cover', kernel: sharp.kernel.lanczos3 })
+      .png({ compressionLevel: 9, palette: size <= 32, quality: 100 })
+      .toBuffer();
+    fs.writeFileSync(path.join(root, relative), output);
+    iconOutputs.push({ path: `/${relative}`, width: size, height: size, sha256: sha256(output) });
+  }
+  const faviconPng = fs.readFileSync(path.join(root, 'favicon-32x32.png'));
+  const faviconIco = pngAsIco(faviconPng, 32);
+  fs.writeFileSync(path.join(root, 'favicon.ico'), faviconIco);
+  iconOutputs.push({ path: '/favicon.ico', width: 32, height: 32, sha256: sha256(faviconIco) });
+  fs.writeFileSync(path.join(root, 'data', 'official-assets', 'site-icons.json'), `${JSON.stringify({
+    version: '2026-09-04',
+    sourceType: 'official_creator_asset',
+    count: 1,
+    officialAssetId: siteIconAsset.asset_id,
+    sourceFilename: siteIconAsset.original_filename,
+    sourceSha256: siteIconAsset.sha256,
+    sourceWidth: siteIconAsset.width,
+    sourceHeight: siteIconAsset.height,
+    verifiedAt: '2026-09-04',
+    outputs: iconOutputs,
+  }, null, 2)}\n`);
   fs.writeFileSync(path.join(root, 'data', 'official-assets', 'name-audit.json'), `${JSON.stringify({
     version: '2026-09-04',
     confirmed: { count: 223, differences: 0, changes: 0 },
@@ -287,22 +352,13 @@ async function applySelection() {
     stableSlugsChanged: 0,
   }, null, 2)}\n`);
 
-  const highQualityAudit = audit.filter((entry) => entry.currentStatus === 'verified').map((entry) => {
-    const raw = manifest.assets
-      .filter((asset) => asset.tata_family === entry.familyId && Number(asset.tata_stage) === entry.stage && asset.file_type === 'image' && !asset.extension.includes('gif') && !asset.extension.includes('psd') && Number(asset.width || 0) >= 512 && Number(asset.height || 0) >= 512)
-      .sort((a, b) => (b.width * b.height) - (a.width * a.height))[0];
-    if (!raw) return null;
-    const adopted = entry.action === 'verified_to_high_quality_official';
-    const candidate = adopted ? manifest.assets.find((asset) => asset.asset_id === entry.officialAssetId) : raw;
-    const rejectReason = candidate.subcategory === 'tata-card'
-      ? '不採用：カード絵で透過clean artではない'
-      : /reference[_ -]?sheet/i.test(candidate.original_filename)
-        ? '不採用：複数ポーズの参考シート'
-        : candidate.subcategory === 'creator-promo'
-          ? '不採用：単体立ち絵ではなくKV'
-          : '不採用：企画絵または用途不一致。既存verifiedを維持';
-    return { ...entry, candidate, decision: adopted ? '採用：透過clean artで明確に改善' : rejectReason };
-  }).filter(Boolean);
+  const highQualityAudit = audit
+    .filter((entry) => entry.currentStatus === 'verified' && entry.officialAssetId)
+    .map((entry) => ({
+      ...entry,
+      candidate: manifest.assets.find((asset) => asset.asset_id === entry.officialAssetId),
+      decision: '採用：family/stage一致の透過clean artで公式素材へ統一',
+    }));
 
   const table = (headers, rows) => [`| ${headers.join(' | ')} |`, `|${headers.map(() => '---').join('|')}|`, ...rows.map((row) => `| ${row.map((value) => String(value ?? '').replaceAll('|', '\\|')).join(' | ')} |`)].join('\n');
   const tataPendingTable = table(['対象', 'Current', 'Official candidate', 'Asset ID', '原本解像度', '理由'], audit.filter((entry) => entry.action === 'pending_to_official').map((entry) => [
@@ -327,8 +383,8 @@ async function applySelection() {
 
 - 公式Drive原本はRepository外のread-only mirrorとして維持し、Web派生だけを採用した。
 - Tataは230形態を監査。導入前 pending 119 → 導入後 pending 5、verified 111 → 225。
-- 公式静止画を確認できた224形態のうち、pending解消114形態と既存verified改善7形態を採用した。
-- 元レポートの高解像度候補27形態は全件比較し、カード絵・参考シート・KV等20形態を不採用とした。
+- 公式静止画を確認できた224形態すべてを採用した（pending解消114形態、既存verified置換110形態）。
+- 公式対応が存在するのに旧Tata画像を表示する形態は0。パクマT1のみ公式原本がなく、既存verifiedを維持した。
 - Team Builderの代表画像はT1のまま。候補段階はbadgeで表示する既存仕様を維持した。
 - Google Drive hotlink、AI生成、別キャラ代用、動画・音声・APK・fontの公開は行っていない。
 
@@ -336,7 +392,7 @@ async function applySelection() {
 
 ${tataPendingTable}
 
-## B. verified → high quality official（27候補を全件比較、7採用）
+## B. verified → official creator asset（110形態）
 
 ${tataUpgradeTable}
 
@@ -385,4 +441,4 @@ ${skillTable}
 
 await buildPreview();
 if (apply) await applySelection();
-console.log(JSON.stringify({ mode: apply ? 'apply' : 'audit', totals, selected: selected.length, skillIcons: skillIcons.length, eventAssets: eventAssets.length, previewDir: previewDir || null }, null, 2));
+console.log(JSON.stringify({ mode: apply ? 'apply' : 'audit', totals, selected: selected.length, skillIcons: skillIcons.length, eventAssets: eventAssets.length, siteIcons: 1, previewDir: previewDir || null }, null, 2));

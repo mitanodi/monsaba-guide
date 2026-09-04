@@ -4,8 +4,8 @@
 
 - 公式Drive原本はRepository外のread-only mirrorとして維持し、Web派生だけを採用した。
 - Tataは230形態を監査。導入前 pending 119 → 導入後 pending 5、verified 111 → 225。
-- 公式静止画を確認できた224形態のうち、pending解消114形態と既存verified改善7形態を採用した。
-- 元レポートの高解像度候補27形態は全件比較し、カード絵・参考シート・KV等20形態を不採用とした。
+- 公式静止画を確認できた224形態すべてを採用した（pending解消114形態、既存verified置換110形態）。
+- 公式対応が存在するのに旧Tata画像を表示する形態は0。パクマT1のみ公式原本がなく、既存verifiedを維持した。
 - Team Builderの代表画像はT1のまま。候補段階はbadgeで表示する既存仕様を維持した。
 - Google Drive hotlink、AI生成、別キャラ代用、動画・音声・APK・fontの公開は行っていない。
 
@@ -128,37 +128,120 @@
 | hikikomoru T3 モルターボ | 画像確認中 | Wheekroller-3.png | MSOA-00765 | 260×300 | family/stage一致・透過clean artを目視確認 |
 | hikikomoru T4 モルボット | 画像確認中 | Gigagnash-4.png | MSOA-00701 | 300×222 | family/stage一致・透過clean artを目視確認 |
 
-## B. verified → high quality official（27候補を全件比較、7採用）
+## B. verified → official creator asset（110形態）
 
 | 対象 | Current | Official candidate | Asset ID | 原本解像度 | 判断 |
 |---|---|---|---|---|---|
-| tsubaruka T1 | 既存verified画像 | Lollama_Summer_Party - Lilycat Meow.png | MSOA-09672 | 1280×1680 | 不採用：企画絵または用途不一致。既存verifiedを維持 |
-| yotsubird T1 | 既存verified画像 | 1.png | MSOA-00044 | 1280×1680 | 不採用：カード絵で透過clean artではない |
-| kaenjack T1 | 既存verified画像 | 1.png | MSOA-00125 | 1280×1680 | 不採用：カード絵で透過clean artではない |
-| hihidog T1 | 既存verified画像 | 1.png | MSOA-00143 | 1280×1680 | 不採用：カード絵で透過clean artではない |
-| hanarenaishi T1 | 既存verified画像 | 1.png | MSOA-00116 | 1280×1680 | 不採用：カード絵で透過clean artではない |
-| batarisu T1 | 既存verified画像 | 1.png | MSOA-00035 | 1280×1680 | 不採用：カード絵で透過clean artではない |
-| guuhog T1 | 既存verified画像 | 1.png | MSOA-00062 | 1280×1680 | 不採用：カード絵で透過clean artではない |
-| capibarrie T1 | 既存verified画像 | 1.png | MSOA-00026 | 1280×1680 | 不採用：カード絵で透過clean artではない |
-| rokubuhi T1 | 既存verified画像 | 1.png | MSOA-09608 | 1280×1680 | 不採用：企画絵または用途不一致。既存verifiedを維持 |
-| fugumaru T1 | 既存verified画像 | T1_气球河豚_Blowfin.png | MSOA-08996 | 1827×1819 | 採用：透過clean artで明確に改善 |
-| greenbee T1 | 既存verified画像 | Goonbug_Reference_Sheet.png | MSOA-02058 | 3704×1080 | 不採用：複数ポーズの参考シート |
-| mumukaba T1 | 既存verified画像 | T1_Momopo_梦梦河马.png | MSOA-09263 | 905×906 | 採用：透過clean artで明確に改善 |
-| hikaru T1 | 既存verified画像 | T1_Glowfly_微光萤.png | MSOA-09167 | 666×673 | 採用：透過clean artで明確に改善 |
-| yaminome T1 | 既存verified画像 | Budboo_暗影花.png | MSOA-09074 | 724×708 | 不採用：企画絵または用途不一致。既存verifiedを維持 |
-| biripiyo T1 | 既存verified画像 | Sparkeet summer - Athira Badrolhisham.png | MSOA-09653 | 1280×1680 | 不採用：企画絵または用途不一致。既存verifiedを維持 |
-| gaoden T1 | 既存verified画像 | 4.png | MSOA-00137 | 2048×2732 | 不採用：カード絵で透過clean artではない |
-| gaoden T2 | 既存verified画像 | T2_Electroar_闪电狮.png | MSOA-09210 | 1267×1209 | 採用：透過clean artで明確に改善 |
-| nekoori T1 | 既存verified画像 | 1.png | MSOA-00071 | 1280×1680 | 不採用：カード絵で透過clean artではない |
-| nekoori T2 | 既存verified画像 | Frostpaw-2.png | MSOA-09336 | 1503×1425 | 採用：透過clean artで明確に改善 |
-| furuggu T1 | 既存verified画像 | 1.png | MSOA-00080 | 1280×1680 | 不採用：カード絵で透過clean artではない |
-| rokuju T1 | 既存verified画像 | 1.png | MSOA-00107 | 1280×1680 | 不採用：カード絵で透過clean artではない |
-| fureimuji T1 | 既存verified画像 | T1_Ashlarva_绒焰虫.png | MSOA-08988 | 907×910 | 採用：透過clean artで明確に改善 |
-| fureimuji T2 | 既存verified画像 | T2_Firecoil_焦焰蝶.png | MSOA-08991 | 1059×1033 | 採用：透過clean artで明確に改善 |
-| matchiba T1 | 既存verified画像 | 1.png | MSOA-00098 | 1280×1680 | 不採用：カード絵で透過clean artではない |
-| shizukuchou T1 | 既存verified画像 | 1.png | MSOA-00053 | 1280×1680 | 不採用：カード絵で透過clean artではない |
-| shizukuchou T2 | 既存verified画像 | 1.png | MSOA-09553 | 1280×1680 | 不採用：企画絵または用途不一致。既存verifiedを維持 |
-| hikikomoru T1 | 既存verified画像 | kv_cavyzap_.png | MSOA-05210 | 5336×7500 | 不採用：単体立ち絵ではなくKV |
+| takepanda T1 | 既存verified画像 | Pandaroo-1.png | MSOA-09134 | 300×269 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| takepanda T2 | 既存verified画像 | Pandaroot-2.png | MSOA-09136 | 176×173 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| tsubaruka T1 | 既存verified画像 | Lollama-1.png | MSOA-09120 | 300×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| tsubaruka T2 | 既存verified画像 | Slobberlama-2.png | MSOA-09122 | 300×280 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| birimori T1 | 既存verified画像 | Zaplet-1.png | MSOA-09200 | 300×256 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| birimori T2 | 既存verified画像 | Synthhog-2.png | MSOA-09202 | 300×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| togegyo T1 | 既存verified画像 | Maskfry-1.png | MSOA-09346 | 300×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| togegyo T2 | 既存verified画像 | Ospisces-2.png | MSOA-09348 | 300×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| yotsubird T1 | 既存verified画像 | Clucky-1.png | MSOA-09091 | 288×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| yotsubird T2 | 既存verified画像 | Cluckeroo-2.png | MSOA-09092 | 166×188 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| kaenjack T1 | 既存verified画像 | Sparkrow-1.png | MSOA-09066 | 234×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| kaenjack T2 | 既存verified画像 | Scorchwing-2.png | MSOA-09067 | 247×184 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| hihidog T1 | 既存verified画像 | Zapup-1.png | MSOA-09223 | 300×245 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| hihidog T2 | 既存verified画像 | Zapooch-2.png | MSOA-09224 | 151×157 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| hanarenaishi T1 | 既存verified画像 | Solpear-1.png | MSOA-09150 | 262×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| hanarenaishi T2 | 既存verified画像 | Pearpair-2.png | MSOA-09151 | 300×239 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| birinamazu T1 | 既存verified画像 | Wobbler-1.png | MSOA-09198 | 300×169 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| birinamazu T2 | 既存verified画像 | Boltskipper-2.png | MSOA-09199 | 189×150 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| daishell T1 | 既存verified画像 | Shellshy-1.png | MSOA-09362 | 297×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| daishell T2 | 既存verified画像 | Boldclaw-2.png | MSOA-09363 | 189×161 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| batarisu T1 | 既存verified画像 | Cindermunk-1.png | MSOA-09009 | 300×236 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| batarisu T2 | 既存verified画像 | Embertail-2.png | MSOA-09010 | 300×292 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| guuhog T1 | 既存verified画像 | Dozy-1.png | MSOA-09225 | 300×245 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| guuhog T2 | 既存verified画像 | Snoozebo-2.png | MSOA-09226 | 209×162 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| capibarrie T1 | 既存verified画像 | Capywata-1.png | MSOA-09302 | 272×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| capibarrie T2 | 既存verified画像 | Capypapa-2.png | MSOA-09303 | 242×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| rokubuhi T1 | 既存verified画像 | Mudrump-1.png | MSOA-09270 | 300×296 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| rokubuhi T2 | 既存verified画像 | Rockhog-2.png | MSOA-09271 | 211×184 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| marushu T1 | 既存verified画像 | Funglet-1.png | MSOA-09101 | 350×355 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| fugumaru T1 | 既存verified画像 | T1_气球河豚_Blowfin.png | MSOA-08996 | 1827×1819 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| greenbee T1 | 既存verified画像 | Goonbug-1.png | MSOA-09107 | 300×239 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| kowagaru T1 | 既存verified画像 | Joeyo-1.png | MSOA-09256 | 300×293 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| kunbuu T1 | 既存verified画像 | Souphog-1 v2.png | MSOA-09042 | 300×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| tsubutsumuri T1 | 既存verified画像 | Shardsnail-1.png | MSOA-09288 | 300×250 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| pupunku T1 | 既存verified画像 | Fumekit-1.png | MSOA-09017 | 254×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| erekineko T1 | 既存verified画像 | Kittazap-1.png | MSOA-09171 | 293×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| sukedako T1 | 既存verified画像 | Dumbopus-1.png | MSOA-09328 | 300×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| hinyao T1 | 既存verified画像 | Flameow-1.png | MSOA-09011 | 287×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| mumukaba T1 | 既存verified画像 | T1_Momopo_梦梦河马.png | MSOA-09263 | 905×906 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| hikaru T1 | 既存verified画像 | T1_Glowfly_微光萤.png | MSOA-09167 | 666×673 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| atatama T1 | 既存verified画像 | Poakie-1.png | MSOA-03028 | 190×155 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| yaminome T1 | 既存verified画像 | Budboo-1.png | MSOA-00417 | 143×153 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| korokon T1 | 既存verified画像 | Sparkit-1.png | MSOA-09058 | 300×252 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| mogurin T1 | 既存verified画像 | Gopher-1.png | MSOA-09241 | 300×270 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| biripiyo T1 | 既存verified画像 | Sparkeet-1.png | MSOA-09177 | 300×254 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| potakage T1 | 既存verified画像 | Skinklet-1.png | MSOA-09364 | 300×238 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| fukurogumo T1 | 既存verified画像 | Sackling-1.png | MSOA-09142 | 283×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| nemukurage T1 | 既存verified画像 | Lullelly-1.png | MSOA-09342 | 300×276 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| sabooru T1 | 既存verified画像 | Cactobud-1.png | MSOA-09085 | 300×284 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| korotama T1 | 既存verified画像 | Humbug-1.png | MSOA-09249 | 274×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| yanzaru T1 | 既存verified画像 | Punchimp-1.png | MSOA-09272 | 243×201 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| yanzaru T2 | 既存verified画像 | Rockfu-2.png | MSOA-09274 | 264×255 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| yanzaru T3 | 既存verified画像 | Rockwu-3.png | MSOA-09276 | 298×298 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| gaoden T1 | 既存verified画像 | Zappur-1.png | MSOA-09207 | 300×246 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| gaoden T2 | 既存verified画像 | T2_Electroar_闪电狮.png | MSOA-09210 | 1267×1209 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| gaoden T3 | 既存verified画像 | Blitzmane-3.png | MSOA-09211 | 300×258 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| himawarin T1 | 既存verified画像 | Buddi-1.png | MSOA-09078 | 296×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| himawarin T2 | 既存verified画像 | Sunfleur-2.png | MSOA-09080 | 284×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| himawarin T3 | 既存verified画像 | Solaflora-3.png | MSOA-09082 | 278×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| nekoori T1 | 既存verified画像 | Frostnip-1.png | MSOA-09334 | 300×294 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| nekoori T2 | 既存verified画像 | Frostpaw-2.png | MSOA-09336 | 1503×1425 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| nekoori T3 | 既存verified画像 | Frostique-3.png | MSOA-09338 | 300×265 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| furuggu T1 | 既存verified画像 | Frugling-1.png | MSOA-09093 | 300×284 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| furuggu T2 | 既存verified画像 | Frugtoa-2.png | MSOA-09096 | 171×172 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| furuggu T3 | 既存verified画像 | Frugagon-3.png | MSOA-09097 | 283×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| himori T1 | 既存verified画像 | Bluetlick-1.png | MSOA-09002 | 300×252 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| himori T2 | 既存verified画像 | Ignisnap-2.png | MSOA-09003 | 287×160 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| himori T3 | 既存verified画像 | Azurion-3.png | MSOA-09005 | 283×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| komakiri T1 | 既存verified画像 | Manteeny-1.png | MSOA-09126 | 245×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| komakiri T2 | 既存verified画像 | Stalkerix-2.png | MSOA-09128 | 157×181 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| umimi T1 | 既存verified画像 | Droppit-1.png | MSOA-09320 | 297×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| umimi T2 | 既存verified画像 | Bubbit-2.png | MSOA-09322 | 162×135 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| purabi T1 | 既存verified画像 | Cheerling-1.png | MSOA-09152 | 300×270 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| purabi T2 | 既存verified画像 | Cheerlet-2.png | MSOA-09154 | 300×234 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| rokuju T1 | 既存verified画像 | Rubblet-1.png | MSOA-09280 | 300×213 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| rokuju T2 | 既存verified画像 | Cobbledon-2.png | MSOA-09282 | 216×175 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| boruzarashi T1 | 既存verified画像 | Sealing-1.png | MSOA-09354 | 214×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| boruzarashi T2 | 既存verified画像 | Sealoon-2.png | MSOA-09356 | 187×183 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| gantoru T1 | 既存verified画像 | Gibber-1.png | MSOA-09233 | 300×251 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| gantoru T2 | 既存verified画像 | Turtuff-2.png | MSOA-09235 | 183×176 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| denjika T1 | 既存verified画像 | Voltfawn-1.png | MSOA-09183 | 273×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| denjika T2 | 既存verified画像 | Sparkdoe-2.png | MSOA-09185 | 179×185 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| tafupen T1 | 既存verified画像 | Waddledo-1.png | MSOA-09370 | 290×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| tafupen T2 | 既存verified画像 | Swaystroll-2.png | MSOA-09372 | 206×195 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| fureimuji T1 | 既存verified画像 | T1_Ashlarva_绒焰虫.png | MSOA-08988 | 907×910 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| fureimuji T2 | 既存verified画像 | T2_Firecoil_焦焰蝶.png | MSOA-08991 | 1059×1033 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| erekoon T1 | 既存verified画像 | Zapuni-1.png | MSOA-09215 | 300×273 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| erekoon T2 | 既存verified画像 | Surgehoof-2.png | MSOA-09217 | 208×175 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| nenbutsuhebi T1 | 既存verified画像 | Taptail-1.png | MSOA-09296 | 300×270 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| nenbutsuhebi T2 | 既存verified画像 | Rattlecoil-2.png | MSOA-09298 | 300×292 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| matchiba T1 | 既存verified画像 | Pyropup-1.png | MSOA-09027 | 300×279 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| matchiba T2 | 既存verified画像 | Pyrohound-2.png | MSOA-09029 | 219×189 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| denrou T1 | 既存verified画像 | Voltkit-1.png | MSOA-09192 | 263×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| denrou T2 | 既存verified画像 | Voltling-2.png | MSOA-09193 | 178×149 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| kenkani T1 | 既存verified画像 | Cribbler-1.png | MSOA-09304 | 300×237 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| kenkani T2 | 既存verified画像 | Clawzor-2.png | MSOA-09306 | 300×226 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| fureebi T1 | 既存verified画像 | Shrimpyro-1.png | MSOA-09035 | 300×244 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| fureebi T2 | 既存verified画像 | Pyroprawn-2.png | MSOA-09038 | 300×236 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| haamitora T1 | 既存verified画像 | Tindercub-1.png | MSOA-09068 | 300×262 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| haamitora T2 | 既存verified画像 | Kitjitsu-2.png | MSOA-09070 | 259×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| shiiparusu T1 | 既存verified画像 | Fluffle-1.png | MSOA-09160 | 300×299 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| shiiparusu T2 | 既存verified画像 | Nimbuzzy-2.png | MSOA-09162 | 300×297 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| shizukuchou T1 | 既存verified画像 | Dewgrub-1.png | MSOA-09312 | 300×282 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| shizukuchou T2 | 既存verified画像 | Ripplewing-2.png | MSOA-09314 | 282×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| doriruu T1 | 既存verified画像 | Drilleroo-1.png | MSOA-09227 | 300×280 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| doriruu T2 | 既存verified画像 | Cragolin-2.png | MSOA-09229 | 300×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| riifuro T1 | 既存verified画像 | Hootlet-1.png | MSOA-09112 | 300×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| riifuro T2 | 既存verified画像 | Tikowl-2.png | MSOA-09114 | 300×300 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| hikikomoru T1 | 既存verified画像 | Cavyzap-1.png | MSOA-00677 | 200×208 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
+| hikikomoru T2 | 既存verified画像 | Hippiehog-2.png | MSOA-00723 | 263×203 | 採用：family/stage一致の透過clean artで公式素材へ統一 |
 
 ## C. Event画像（26件監査、4採用）
 

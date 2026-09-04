@@ -81,7 +81,7 @@
           "stage": 1,
           "name": "コパンダ",
           "source": "IMG_6242.png",
-          "image": "assets/monsters/IMG_6242.webp",
+          "image": "assets/official/tata/takepanda/t1-512.webp",
           "alternateSources": [
             "IMG_6899.png"
           ],
@@ -92,7 +92,7 @@
           "stage": 2,
           "name": "タケパンダ",
           "source": "IMG_6243.png",
-          "image": "assets/monsters/IMG_6243.webp",
+          "image": "assets/official/tata/takepanda/t2-512.webp",
           "alternateSources": [
             "IMG_6900.png"
           ],
@@ -103,7 +103,7 @@
           "stage": 3,
           "name": "パンドウラク",
           "source": "IMG_6244.png",
-          "image": "assets/monsters/IMG_6244.webp",
+          "image": "assets/official/tata/takepanda/t3-512.webp",
           "alternateSources": [
             "IMG_6901.png"
           ],
@@ -114,7 +114,7 @@
           "stage": 4,
           "name": "バンブオウ",
           "source": "IMG_6245.png",
-          "image": "assets/monsters/IMG_6245.webp",
+          "image": "assets/official/tata/takepanda/t4-512.webp",
           "alternateSources": [
             "IMG_6902.png"
           ],
@@ -334,7 +334,7 @@
           "stage": 1,
           "name": "ベロパカ",
           "source": "IMG_6254.png",
-          "image": "assets/monsters/IMG_6254.webp",
+          "image": "assets/official/tata/tsubaruka/t1-512.webp",
           "nameEn": "Lollama",
           "nameZhHans": "小舌驼"
         },
@@ -342,7 +342,7 @@
           "stage": 2,
           "name": "ツバルカ",
           "source": "IMG_6255.png",
-          "image": "assets/monsters/IMG_6255.webp",
+          "image": "assets/official/tata/tsubaruka/t2-512.webp",
           "nameEn": "Slobberlama",
           "nameZhHans": "口水驼"
         },
@@ -350,7 +350,7 @@
           "stage": 3,
           "name": "ビチャルパカ",
           "source": "IMG_6256.png",
-          "image": "assets/monsters/IMG_6256.webp",
+          "image": "assets/official/tata/tsubaruka/t3-512.webp",
           "nameEn": "Ptooielama",
           "nameZhHans": "啊哑驼"
         }
@@ -466,7 +466,7 @@
           "stage": 1,
           "name": "ビリモ",
           "source": "IMG_6261.png",
-          "image": "assets/monsters/IMG_6261.webp",
+          "image": "assets/official/tata/birimori/t1-512.webp",
           "nameEn": "Zaplet",
           "nameZhHans": "电音蝠"
         },
@@ -474,7 +474,7 @@
           "stage": 2,
           "name": "ビリモリ",
           "source": "IMG_6262.png",
-          "image": "assets/monsters/IMG_6262.webp",
+          "image": "assets/official/tata/birimori/t2-512.webp",
           "nameEn": "Synthhog",
           "nameZhHans": "电波蝠"
         },
@@ -482,7 +482,7 @@
           "stage": 3,
           "name": "パルバット",
           "source": "IMG_6263.png",
-          "image": "assets/monsters/IMG_6263.webp",
+          "image": "assets/official/tata/birimori/t3-512.webp",
           "nameEn": "Sonarbat",
           "nameZhHans": "大雷音蝠"
         },
@@ -490,7 +490,7 @@
           "stage": 4,
           "name": "ヴァンパルス",
           "source": "IMG_6264.png",
-          "image": "assets/monsters/IMG_6264.webp",
+          "image": "assets/official/tata/birimori/t4-512.webp",
           "nameEn": "Umbraveil",
           "nameZhHans": "夜翼领主"
         }
@@ -662,7 +662,7 @@
           "stage": 1,
           "name": "ホネギョ",
           "source": "IMG_6273.png",
-          "image": "assets/monsters/IMG_6273.webp",
+          "image": "assets/official/tata/togegyo/t1-512.webp",
           "nameEn": "Maskfry",
           "nameZhHans": "小骨鱼"
         },
@@ -670,7 +670,7 @@
           "stage": 2,
           "name": "トゲギョ",
           "source": "IMG_6274.png",
-          "image": "assets/monsters/IMG_6274.webp",
+          "image": "assets/official/tata/togegyo/t2-512.webp",
           "nameEn": "Ospisces",
           "nameZhHans": "刺骨鱼"
         },
@@ -678,7 +678,7 @@
           "stage": 3,
           "name": "ガイアーマ",
           "source": "IMG_6275.png",
-          "image": "assets/monsters/IMG_6275.webp",
+          "image": "assets/official/tata/togegyo/t3-512.webp",
           "nameEn": "Armorjaw",
           "nameZhHans": "铠骨鱼"
         },
@@ -686,7 +686,7 @@
           "stage": 4,
           "name": "アビスカル",
           "source": "IMG_6276.png",
-          "image": "assets/monsters/IMG_6276.webp",
+          "image": "assets/official/tata/togegyo/t4-512.webp",
           "nameEn": "Dagondeep",
           "nameZhHans": "印斯茅斯之主"
         }
@@ -851,7 +851,7 @@
           "stage": 1,
           "name": "フタバード",
           "source": "IMG_6287.png",
-          "image": "assets/monsters/IMG_6287.webp",
+          "image": "assets/official/tata/yotsubird/t1-512.webp",
           "nameEn": "Clucky",
           "nameZhHans": "菜鸡"
         },
@@ -859,7 +859,7 @@
           "stage": 2,
           "name": "ヨツバード",
           "source": "IMG_6288.png",
-          "image": "assets/monsters/IMG_6288.webp",
+          "image": "assets/official/tata/yotsubird/t2-512.webp",
           "nameEn": "Cluckeroo",
           "nameZhHans": "幸运鸡"
         }
@@ -924,7 +924,7 @@
           "stage": 1,
           "name": "スズメラ",
           "source": "IMG_6291.png",
-          "image": "assets/monsters/IMG_6291.webp",
+          "image": "assets/official/tata/kaenjack/t1-512.webp",
           "nameEn": "Sparkrow",
           "nameZhHans": "小火雀"
         },
@@ -932,7 +932,7 @@
           "stage": 2,
           "name": "カエンジャク",
           "source": "IMG_6292.png",
-          "image": "assets/monsters/IMG_6292.webp",
+          "image": "assets/official/tata/kaenjack/t2-512.webp",
           "nameEn": "Scorchwing",
           "nameZhHans": "烈火雀"
         }
@@ -1009,7 +1009,7 @@
           "stage": 1,
           "name": "ヒパピー",
           "source": "IMG_6295.png",
-          "image": "assets/monsters/IMG_6295.webp",
+          "image": "assets/official/tata/hihidog/t1-512.webp",
           "nameEn": "Zapup",
           "nameZhHans": "电嘟狗"
         },
@@ -1017,7 +1017,7 @@
           "stage": 2,
           "name": "ビビドッグ",
           "source": "IMG_6296.png",
-          "image": "assets/monsters/IMG_6296.webp",
+          "image": "assets/official/tata/hihidog/t2-512.webp",
           "nameEn": "Zapooch",
           "nameZhHans": "猛电犬"
         }
@@ -1090,7 +1090,7 @@
           "stage": 1,
           "name": "ナンモナイシ",
           "source": "IMG_6299.png",
-          "image": "assets/monsters/IMG_6299.webp",
+          "image": "assets/official/tata/hanarenaishi/t1-512.webp",
           "nameEn": "Solpear",
           "nameZhHans": "鸭梨"
         },
@@ -1098,7 +1098,7 @@
           "stage": 2,
           "name": "ハナレナイシ",
           "source": "IMG_6300.png",
-          "image": "assets/monsters/IMG_6300.webp",
+          "image": "assets/official/tata/hanarenaishi/t2-512.webp",
           "nameEn": "Pearpair",
           "nameZhHans": "不分梨"
         }
@@ -1159,7 +1159,7 @@
           "stage": 1,
           "name": "ノロマズ",
           "source": "IMG_6303.png",
-          "image": "assets/monsters/IMG_6303.webp",
+          "image": "assets/official/tata/birinamazu/t1-512.webp",
           "nameEn": "Wobbler",
           "nameZhHans": "呆呆鱼"
         },
@@ -1167,7 +1167,7 @@
           "stage": 2,
           "name": "ビリナマズ",
           "source": "IMG_6304.png",
-          "image": "assets/monsters/IMG_6304.webp",
+          "image": "assets/official/tata/birinamazu/t2-512.webp",
           "nameEn": "Boltskipper",
           "nameZhHans": "电憨鱼"
         }
@@ -1232,7 +1232,7 @@
           "stage": 1,
           "name": "チーシェル",
           "source": "IMG_6307.png",
-          "image": "assets/monsters/IMG_6307.webp",
+          "image": "assets/official/tata/daishell/t1-512.webp",
           "nameEn": "Shellshy",
           "nameZhHans": "胆小蟹"
         },
@@ -1240,7 +1240,7 @@
           "stage": 2,
           "name": "ダイシェル",
           "source": "IMG_6308.png",
-          "image": "assets/monsters/IMG_6308.webp",
+          "image": "assets/official/tata/daishell/t2-512.webp",
           "nameEn": "Boldclaw",
           "nameZhHans": "胆大蟹"
         }
@@ -1309,7 +1309,7 @@
           "stage": 1,
           "name": "トスリス",
           "source": "IMG_6311.png",
-          "image": "assets/monsters/IMG_6311.webp",
+          "image": "assets/official/tata/batarisu/t1-512.webp",
           "nameEn": "Cindermunk",
           "nameZhHans": "火花栗"
         },
@@ -1317,7 +1317,7 @@
           "stage": 2,
           "name": "バタリス",
           "source": "IMG_6312.png",
-          "image": "assets/monsters/IMG_6312.webp",
+          "image": "assets/official/tata/batarisu/t2-512.webp",
           "nameEn": "Embertail",
           "nameZhHans": "火焰栗"
         }
@@ -1394,7 +1394,7 @@
           "stage": 1,
           "name": "ハリネム",
           "source": "IMG_6315.png",
-          "image": "assets/monsters/IMG_6315.webp",
+          "image": "assets/official/tata/guuhog/t1-512.webp",
           "nameEn": "Dozy",
           "nameZhHans": "打盹刺"
         },
@@ -1402,7 +1402,7 @@
           "stage": 2,
           "name": "グウホッグ",
           "source": "IMG_6316.png",
-          "image": "assets/monsters/IMG_6316.webp",
+          "image": "assets/official/tata/guuhog/t2-512.webp",
           "nameEn": "Snoozebo",
           "nameZhHans": "呼噜刺"
         }
@@ -1495,7 +1495,7 @@
           "stage": 1,
           "name": "カピラス",
           "source": "IMG_6319.png",
-          "image": "assets/monsters/IMG_6319.webp",
+          "image": "assets/official/tata/capibarrie/t1-512.webp",
           "nameEn": "Capywata",
           "nameZhHans": "卡橘巴拉"
         },
@@ -1503,7 +1503,7 @@
           "stage": 2,
           "name": "カピバルリー",
           "source": "IMG_6320.png",
-          "image": "assets/monsters/IMG_6320.webp",
+          "image": "assets/official/tata/capibarrie/t2-512.webp",
           "nameEn": "Capypapa",
           "nameZhHans": "卡骑巴拉"
         }
@@ -1569,7 +1569,7 @@
           "stage": 1,
           "name": "マドブヒ",
           "source": "IMG_6324.png",
-          "image": "assets/monsters/IMG_6324.webp",
+          "image": "assets/official/tata/rokubuhi/t1-512.webp",
           "nameEn": "Mudrump",
           "nameZhHans": "泥巴猪"
         },
@@ -1577,7 +1577,7 @@
           "stage": 2,
           "name": "ロクブヒ",
           "source": "IMG_6325.png",
-          "image": "assets/monsters/IMG_6325.webp",
+          "image": "assets/official/tata/rokubuhi/t2-512.webp",
           "nameEn": "Rockhog",
           "nameZhHans": "摇滚岩猪"
         }
@@ -1646,7 +1646,7 @@
           "stage": 1,
           "name": "マルッシュ",
           "source": "IMG_6328.png",
-          "image": "assets/monsters/IMG_6328.webp",
+          "image": "assets/official/tata/marushu/t1-512.webp",
           "nameEn": "Funglet",
           "nameZhHans": "嘟嘟菇"
         },
@@ -1654,7 +1654,7 @@
           "stage": 2,
           "name": "マボロッシュ",
           "source": "IMG_6329.png",
-          "image": "assets/monsters/IMG_6329.webp",
+          "image": "assets/official/tata/marushu/t2-512.webp",
           "nameEn": "Trippet",
           "nameZhHans": "致幻菇"
         },
@@ -1662,7 +1662,7 @@
           "stage": 3,
           "name": "マダムッシュ",
           "source": "IMG_6330.png",
-          "image": "assets/monsters/IMG_6330.webp",
+          "image": "assets/official/tata/marushu/t3-512.webp",
           "nameEn": "Hyphoria",
           "nameZhHans": "靡醉菇"
         },
@@ -1670,7 +1670,7 @@
           "stage": 4,
           "name": "イルミラージュ",
           "source": "IMG_6331.png",
-          "image": "assets/monsters/IMG_6331.webp",
+          "image": "assets/official/tata/marushu/t4-512.webp",
           "nameEn": "Ecstamira",
           "nameZhHans": "极乐魔菇"
         }
@@ -1868,7 +1868,7 @@
           "stage": 1,
           "name": "フグマル",
           "source": "IMG_6345.png",
-          "image": "assets/monsters/IMG_6345.webp",
+          "image": "assets/official/tata/fugumaru/t1-512.webp",
           "nameEn": "Blowfin",
           "nameZhHans": "气球河豚"
         },
@@ -1876,7 +1876,7 @@
           "stage": 2,
           "name": "ニギリマル",
           "source": "IMG_6346.png",
-          "image": "assets/monsters/IMG_6346.webp",
+          "image": "assets/official/tata/fugumaru/t2-512.webp",
           "nameEn": "Puffbelly",
           "nameZhHans": "寿司河豚"
         },
@@ -1884,7 +1884,7 @@
           "stage": 3,
           "name": "フナモリマル",
           "source": "IMG_6347.png",
-          "image": "assets/monsters/IMG_6347.webp",
+          "image": "assets/official/tata/fugumaru/t3-512.webp",
           "nameEn": "Chefugu",
           "nameZhHans": "大师河豚"
         },
@@ -1892,7 +1892,7 @@
           "stage": 4,
           "name": "タイショウマル",
           "source": "IMG_6348.png",
-          "image": "assets/monsters/IMG_6348.webp",
+          "image": "assets/official/tata/fugumaru/t4-512.webp",
           "nameEn": "Pyromaki",
           "nameZhHans": "军舰河豚王"
         }
@@ -2077,7 +2077,7 @@
           "stage": 1,
           "name": "グリンビィ",
           "source": "IMG_6362.png",
-          "image": "assets/monsters/IMG_6362.webp",
+          "image": "assets/official/tata/greenbee/t1-512.webp",
           "nameEn": "Goonbug",
           "nameZhHans": "绿甲虫"
         },
@@ -2085,7 +2085,7 @@
           "stage": 2,
           "name": "チョイワルブーン",
           "source": "IMG_6363.png",
-          "image": "assets/monsters/IMG_6363.webp",
+          "image": "assets/official/tata/greenbee/t2-512.webp",
           "nameEn": "Capobeetle",
           "nameZhHans": "酷甲虫"
         },
@@ -2093,7 +2093,7 @@
           "stage": 3,
           "name": "チョーワルブーン",
           "source": "IMG_6364.png",
-          "image": "assets/monsters/IMG_6364.webp",
+          "image": "assets/official/tata/greenbee/t3-512.webp",
           "nameEn": "Donscarab",
           "nameZhHans": "甲虫霸霸"
         },
@@ -2101,7 +2101,7 @@
           "stage": 4,
           "name": "ブーンマント",
           "source": "IMG_6365.png",
-          "image": "assets/monsters/IMG_6365.webp",
+          "image": "assets/official/tata/greenbee/t4-512.webp",
           "nameEn": "Beetleknight",
           "nameZhHans": "甲虫侠"
         }
@@ -2240,7 +2240,7 @@
           "stage": 1,
           "name": "コワガルー",
           "source": "IMG_6372.png",
-          "image": "assets/monsters/IMG_6372.webp",
+          "image": "assets/official/tata/kowagaru/t1-512.webp",
           "nameEn": "Joeyo",
           "nameZhHans": "怂小袋"
         },
@@ -2248,7 +2248,7 @@
           "stage": 2,
           "name": "ツヨガルー",
           "source": "IMG_6373.png",
-          "image": "assets/monsters/IMG_6373.webp",
+          "image": "assets/official/tata/kowagaru/t2-512.webp",
           "nameEn": "Puncharoo",
           "nameZhHans": "拳击袋"
         },
@@ -2256,7 +2256,7 @@
           "stage": 3,
           "name": "ガルッキー",
           "source": "IMG_6374.png",
-          "image": "assets/monsters/IMG_6374.webp",
+          "image": "assets/official/tata/kowagaru/t3-512.webp",
           "nameEn": "Kangachamp",
           "nameZhHans": "拳王阿袋"
         },
@@ -2264,7 +2264,7 @@
           "stage": 4,
           "name": "ガルチャンプ",
           "source": "IMG_6375.png",
-          "image": "assets/monsters/IMG_6375.webp",
+          "image": "assets/official/tata/kowagaru/t4-512.webp",
           "nameEn": "Kaiseroo",
           "nameZhHans": "传奇阿袋"
         }
@@ -2435,7 +2435,7 @@
           "stage": 1,
           "name": "クンブー",
           "source": "IMG_6383.png",
-          "image": "assets/monsters/IMG_6383.webp",
+          "image": "assets/official/tata/kunbuu/t1-512.webp",
           "nameEn": "Souphog",
           "nameZhHans": "碗仔猪"
         },
@@ -2443,7 +2443,7 @@
           "stage": 2,
           "name": "ハンバーブー",
           "source": "IMG_6384.png",
-          "image": "assets/monsters/IMG_6384.webp",
+          "image": "assets/official/tata/kunbuu/t2-512.webp",
           "nameEn": "Grillhog",
           "nameZhHans": "汉堡猪"
         },
@@ -2451,7 +2451,7 @@
           "stage": 3,
           "name": "ブヒナベブー",
           "source": "IMG_6385.png",
-          "image": "assets/monsters/IMG_6385.webp",
+          "image": "assets/official/tata/kunbuu/t3-512.webp",
           "nameEn": "Hothog",
           "nameZhHans": "火锅猪"
         },
@@ -2459,7 +2459,7 @@
           "stage": 4,
           "name": "カロリキング",
           "source": "IMG_6386.png",
-          "image": "assets/monsters/IMG_6386.webp",
+          "image": "assets/official/tata/kunbuu/t4-512.webp",
           "nameEn": "Searhog",
           "nameZhHans": "煎扒猪"
         }
@@ -2691,7 +2691,7 @@
           "stage": 1,
           "name": "ツブツムリ",
           "source": "IMG_6407.png",
-          "image": "assets/monsters/IMG_6407.webp",
+          "image": "assets/official/tata/tsubutsumuri/t1-512.webp",
           "nameEn": "Shardsnail",
           "nameZhHans": "晶粒蜗牛"
         },
@@ -2699,7 +2699,7 @@
           "stage": 2,
           "name": "ジェムツムリ",
           "source": "IMG_6408.png",
-          "image": "assets/monsters/IMG_6408.webp",
+          "image": "assets/official/tata/tsubutsumuri/t2-512.webp",
           "nameEn": "Gemsnail",
           "nameZhHans": "晶石蜗牛"
         },
@@ -2707,7 +2707,7 @@
           "stage": 3,
           "name": "クォーツムリ",
           "source": "IMG_6409.png",
-          "image": "assets/monsters/IMG_6409.webp",
+          "image": "assets/official/tata/tsubutsumuri/t3-512.webp",
           "nameEn": "Jewelsnail",
           "nameZhHans": "晶矿蜗牛"
         },
@@ -2715,7 +2715,7 @@
           "stage": 4,
           "name": "アメジスネイル",
           "source": "IMG_6411.png",
-          "image": "assets/monsters/IMG_6411.webp",
+          "image": "assets/official/tata/tsubutsumuri/t4-512.webp",
           "nameEn": "Crystalsnail",
           "nameZhHans": "晶芯蜗牛"
         }
@@ -2866,7 +2866,7 @@
           "stage": 1,
           "name": "ププンク",
           "source": "IMG_6420.png",
-          "image": "assets/monsters/IMG_6420.webp",
+          "image": "assets/official/tata/pupunku/t1-512.webp",
           "nameEn": "Fumekit",
           "nameZhHans": "噗噗鼬"
         },
@@ -2874,7 +2874,7 @@
           "stage": 2,
           "name": "クサンク",
           "source": "IMG_6421.png",
-          "image": "assets/monsters/IMG_6421.webp",
+          "image": "assets/official/tata/pupunku/t2-512.webp",
           "nameEn": "Sulfunk",
           "nameZhHans": "臭屁鼬"
         },
@@ -2882,7 +2882,7 @@
           "stage": 3,
           "name": "マグマスク",
           "source": "IMG_6422.png",
-          "image": "assets/monsters/IMG_6422.webp",
+          "image": "assets/official/tata/pupunku/t3-512.webp",
           "nameEn": "Magmusk",
           "nameZhHans": "爆火鼬"
         },
@@ -2890,7 +2890,7 @@
           "stage": 4,
           "name": "ボンバスカー",
           "source": "IMG_6423.png",
-          "image": "assets/monsters/IMG_6423.webp",
+          "image": "assets/official/tata/pupunku/t4-512.webp",
           "nameEn": "Blastniff",
           "nameZhHans": "燃尾飞鼬"
         }
@@ -3064,7 +3064,7 @@
           "stage": 1,
           "name": "エレキネコ",
           "source": "IMG_6430.png",
-          "image": "assets/monsters/IMG_6430.webp",
+          "image": "assets/official/tata/erekineko/t1-512.webp",
           "nameEn": "Kittazap",
           "nameZhHans": "电喵宝"
         },
@@ -3072,7 +3072,7 @@
           "stage": 2,
           "name": "デンニャン",
           "source": "IMG_6432.png",
-          "image": "assets/monsters/IMG_6432.webp",
+          "image": "assets/official/tata/erekineko/t2-512.webp",
           "nameEn": "Nekowatt",
           "nameZhHans": "电财喵"
         },
@@ -3080,7 +3080,7 @@
           "stage": 3,
           "name": "スピニャット",
           "source": "IMG_6434.png",
-          "image": "assets/monsters/IMG_6434.webp",
+          "image": "assets/official/tata/erekineko/t3-512.webp",
           "nameEn": "Voltazar",
           "nameZhHans": "雷伏金喵"
         }
@@ -3238,7 +3238,7 @@
           "stage": 1,
           "name": "スケダコ",
           "source": "IMG_6443.png",
-          "image": "assets/monsters/IMG_6443.webp",
+          "image": "assets/official/tata/sukedako/t1-512.webp",
           "nameEn": "Dumbopus",
           "nameZhHans": "呆呆章鱼"
         },
@@ -3246,7 +3246,7 @@
           "stage": 2,
           "name": "ウオダコ",
           "source": "IMG_6442.png",
-          "image": "assets/monsters/IMG_6442.webp",
+          "image": "assets/official/tata/sukedako/t2-512.webp",
           "nameEn": "Dazopus",
           "nameZhHans": "困惑章鱼"
         },
@@ -3254,7 +3254,7 @@
           "stage": 3,
           "name": "オクトーム",
           "source": "IMG_6445.png",
-          "image": "assets/monsters/IMG_6445.webp",
+          "image": "assets/official/tata/sukedako/t3-512.webp",
           "nameEn": "Fishopus",
           "nameZhHans": "不是章鱼"
         },
@@ -3457,7 +3457,7 @@
           "stage": 1,
           "name": "ヒニャオ",
           "source": "IMG_6450.png",
-          "image": "assets/monsters/IMG_6450.webp",
+          "image": "assets/official/tata/hinyao/t1-512.webp",
           "nameEn": "Flameow",
           "nameZhHans": "火喵宝"
         },
@@ -3465,7 +3465,7 @@
           "stage": 2,
           "name": "マネヒネコ",
           "source": "IMG_6451.png",
-          "image": "assets/monsters/IMG_6451.webp",
+          "image": "assets/official/tata/hinyao/t2-512.webp",
           "nameEn": "Nekoflare",
           "nameZhHans": "火财喵"
         },
@@ -3473,7 +3473,7 @@
           "stage": 3,
           "name": "ネコマダラ",
           "source": "IMG_6452.png",
-          "image": "assets/monsters/IMG_6452.webp",
+          "image": "assets/official/tata/hinyao/t3-512.webp",
           "nameEn": "Silversear",
           "nameZhHans": "炙炎银喵"
         }
@@ -3611,7 +3611,7 @@
           "stage": 1,
           "name": "ムムカバ",
           "source": "IMG_6460.png",
-          "image": "assets/monsters/IMG_6460.webp",
+          "image": "assets/official/tata/mumukaba/t1-512.webp",
           "nameEn": "Momopo",
           "nameZhHans": "梦梦河马"
         },
@@ -3619,7 +3619,7 @@
           "stage": 2,
           "name": "マリリンバ",
           "source": "IMG_6461.png",
-          "image": "assets/monsters/IMG_6461.webp",
+          "image": "assets/official/tata/mumukaba/t2-512.webp",
           "nameEn": "Lulupo",
           "nameZhHans": "露露河马"
         },
@@ -3627,7 +3627,7 @@
           "stage": 3,
           "name": "モンローバ",
           "source": "IMG_6463.png",
-          "image": "assets/monsters/IMG_6463.webp",
+          "image": "assets/official/tata/mumukaba/t3-512.webp",
           "nameEn": "Lilypo",
           "nameZhHans": "丽丽河马"
         },
@@ -3635,7 +3635,7 @@
           "stage": 4,
           "name": "ヒポディーバ",
           "source": "IMG_6465.png",
-          "image": "assets/monsters/IMG_6465.webp",
+          "image": "assets/official/tata/mumukaba/t4-512.webp",
           "nameEn": "Gemmapo",
           "nameZhHans": "珍珍河马"
         }
@@ -3841,7 +3841,7 @@
           "stage": 1,
           "name": "ピカル",
           "source": "IMG_6474.png",
-          "image": "assets/monsters/IMG_6474.webp",
+          "image": "assets/official/tata/hikaru/t1-512.webp",
           "nameEn": "Glowfly",
           "nameZhHans": "微光萤"
         },
@@ -3849,7 +3849,7 @@
           "stage": 2,
           "name": "ボルタル",
           "source": "IMG_6477.png",
-          "image": "assets/monsters/IMG_6477.webp",
+          "image": "assets/official/tata/hikaru/t2-512.webp",
           "nameEn": "Phosflare",
           "nameZhHans": "幻彩萤"
         },
@@ -3857,7 +3857,7 @@
           "stage": 3,
           "name": "ルシフェル",
           "source": "IMG_6478.png",
-          "image": "assets/monsters/IMG_6478.webp",
+          "image": "assets/official/tata/hikaru/t3-512.webp",
           "nameEn": "Glimmerwing",
           "nameZhHans": "曜光萤"
         },
@@ -3865,7 +3865,7 @@
           "stage": 4,
           "name": "ルミナリオン",
           "source": "IMG_6480.png",
-          "image": "assets/monsters/IMG_6480.webp",
+          "image": "assets/official/tata/hikaru/t4-512.webp",
           "nameEn": "Luminastra",
           "nameZhHans": "极光萤"
         }
@@ -4061,7 +4061,7 @@
           "stage": 1,
           "name": "アタタマ",
           "source": "IMG_6490.png",
-          "image": "assets/monsters/IMG_6490.webp",
+          "image": "assets/official/tata/atatama/t1-512.webp",
           "nameEn": "Poakie",
           "nameZhHans": "泡泡蝌"
         },
@@ -4069,7 +4069,7 @@
           "stage": 2,
           "name": "ヒガマ",
           "source": "IMG_6491.png",
-          "image": "assets/monsters/IMG_6491.webp",
+          "image": "assets/official/tata/atatama/t2-512.webp",
           "nameEn": "Sizzribb",
           "nameZhHans": "火蟾蜍"
         },
@@ -4077,7 +4077,7 @@
           "stage": 3,
           "name": "メラガマ",
           "source": "IMG_6492.png",
-          "image": "assets/monsters/IMG_6492.webp",
+          "image": "assets/official/tata/atatama/t3-512.webp",
           "nameEn": "Lickflicker",
           "nameZhHans": "卷舌蟾蜍"
         },
@@ -4085,7 +4085,7 @@
           "stage": 4,
           "name": "ダルマグマ",
           "source": "IMG_6493.png",
-          "image": "assets/monsters/IMG_6493.webp",
+          "image": "assets/official/tata/atatama/t4-512.webp",
           "nameEn": "Ignitoad",
           "nameZhHans": "火云神蟾"
         }
@@ -4338,7 +4338,7 @@
           "stage": 1,
           "name": "ヤミノメ",
           "source": "IMG_6503.png",
-          "image": "assets/monsters/IMG_6503.webp",
+          "image": "assets/official/tata/yaminome/t1-512.webp",
           "nameEn": "Budboo",
           "nameZhHans": "暗影花"
         },
@@ -4346,7 +4346,7 @@
           "stage": 2,
           "name": "ヤミハナ",
           "source": "IMG_6504.png",
-          "image": "assets/monsters/IMG_6504.webp",
+          "image": "assets/official/tata/yaminome/t2-512.webp",
           "nameEn": "Snapshade",
           "nameZhHans": "幽影花"
         },
@@ -4354,7 +4354,7 @@
           "stage": 3,
           "name": "ヤミマンドラ",
           "source": "IMG_6505.png",
-          "image": "assets/monsters/IMG_6505.webp",
+          "image": "assets/official/tata/yaminome/t3-512.webp",
           "nameEn": "Thornwisp",
           "nameZhHans": "幻影花"
         },
@@ -4362,7 +4362,7 @@
           "stage": 4,
           "name": "ダークラウン",
           "source": "IMG_6506.png",
-          "image": "assets/monsters/IMG_6506.webp",
+          "image": "assets/official/tata/yaminome/t4-512.webp",
           "nameEn": "Chomperwraith",
           "nameZhHans": "秘影花灵"
         }
@@ -4597,7 +4597,7 @@
           "stage": 1,
           "name": "コロコン",
           "source": "IMG_6518.png",
-          "image": "assets/monsters/IMG_6518.webp",
+          "image": "assets/official/tata/korokon/t1-512.webp",
           "nameEn": "Sparkit",
           "nameZhHans": "球球狐"
         },
@@ -4605,7 +4605,7 @@
           "stage": 2,
           "name": "ニコン",
           "source": "IMG_6519.png",
-          "image": "assets/monsters/IMG_6519.webp",
+          "image": "assets/official/tata/korokon/t2-512.webp",
           "nameEn": "Flametail",
           "nameZhHans": "咪咪狐"
         },
@@ -4613,7 +4613,7 @@
           "stage": 3,
           "name": "ヨウエンビ",
           "source": "IMG_6520.png",
-          "image": "assets/monsters/IMG_6520.webp",
+          "image": "assets/official/tata/korokon/t3-512.webp",
           "nameEn": "Flarevix",
           "nameZhHans": "艳尾狐"
         },
@@ -4621,7 +4621,7 @@
           "stage": 4,
           "name": "キツネビア",
           "source": "IMG_6522.png",
-          "image": "assets/monsters/IMG_6522.webp",
+          "image": "assets/official/tata/korokon/t4-512.webp",
           "nameEn": "Phantifox",
           "nameZhHans": "幻尾狐"
         }
@@ -4759,7 +4759,7 @@
           "stage": 1,
           "name": "モグリン",
           "source": "IMG_6528.png",
-          "image": "assets/monsters/IMG_6528.webp",
+          "image": "assets/official/tata/mogurin/t1-512.webp",
           "nameEn": "Gopher",
           "nameZhHans": "小地鼠"
         },
@@ -4767,7 +4767,7 @@
           "stage": 2,
           "name": "モグデント",
           "source": "IMG_6529.png",
-          "image": "assets/monsters/IMG_6529.webp",
+          "image": "assets/official/tata/mogurin/t2-512.webp",
           "nameEn": "Watchroo",
           "nameZhHans": "前哨鼠"
         },
@@ -4775,7 +4775,7 @@
           "stage": 3,
           "name": "モグトリデ",
           "source": "IMG_6530.png",
-          "image": "assets/monsters/IMG_6530.webp",
+          "image": "assets/official/tata/mogurin/t3-512.webp",
           "nameEn": "Bastogard",
           "nameZhHans": "堡垒鼠"
         },
@@ -4783,7 +4783,7 @@
           "stage": 4,
           "name": "モグパレス",
           "source": "IMG_6531.png",
-          "image": "assets/monsters/IMG_6531.webp",
+          "image": "assets/official/tata/mogurin/t4-512.webp",
           "nameEn": "Cratzar",
           "nameZhHans": "地皇鼠"
         }
@@ -4929,7 +4929,7 @@
           "stage": 1,
           "name": "ビリピヨ",
           "source": "IMG_6539.png",
-          "image": "assets/monsters/IMG_6539.webp",
+          "image": "assets/official/tata/biripiyo/t1-512.webp",
           "nameEn": "Sparkeet",
           "nameZhHans": "电咕咕"
         },
@@ -4937,7 +4937,7 @@
           "stage": 2,
           "name": "エレクトリ",
           "source": "IMG_6538.png",
-          "image": "assets/monsters/IMG_6538.webp",
+          "image": "assets/official/tata/biripiyo/t2-512.webp",
           "nameEn": "Buzzbeak",
           "nameZhHans": "电嘴鸟"
         },
@@ -4945,7 +4945,7 @@
           "stage": 3,
           "name": "ビリビバシ",
           "source": "IMG_6541.png",
-          "image": "assets/monsters/IMG_6541.webp",
+          "image": "assets/official/tata/biripiyo/t3-512.webp",
           "nameEn": "Toucanzam",
           "nameZhHans": "电歌巨鸟"
         },
@@ -4953,7 +4953,7 @@
           "stage": 4,
           "name": "ライオウム",
           "source": "IMG_6542.png",
-          "image": "assets/monsters/IMG_6542.webp",
+          "image": "assets/official/tata/biripiyo/t4-512.webp",
           "nameEn": "Technocan",
           "nameZhHans": "电音歌王"
         }
@@ -5143,7 +5143,7 @@
           "stage": 1,
           "name": "ポタカゲ",
           "source": "IMG_6552.png",
-          "image": "assets/monsters/IMG_6552.webp",
+          "image": "assets/official/tata/potakage/t1-512.webp",
           "nameEn": "Skinklet",
           "nameZhHans": "水滴蜥"
         },
@@ -5151,7 +5151,7 @@
           "stage": 2,
           "name": "ピチャカゲ",
           "source": "IMG_6553.png",
-          "image": "assets/monsters/IMG_6553.webp",
+          "image": "assets/official/tata/potakage/t2-512.webp",
           "nameEn": "Skinkoon",
           "nameZhHans": "水隐蜥"
         },
@@ -5159,7 +5159,7 @@
           "stage": 3,
           "name": "アクアガマ",
           "source": "IMG_6554.png",
-          "image": "assets/monsters/IMG_6554.webp",
+          "image": "assets/official/tata/potakage/t3-512.webp",
           "nameEn": "Ninjaguana",
           "nameZhHans": "水影忍者"
         },
@@ -5167,7 +5167,7 @@
           "stage": 4,
           "name": "イガマスター",
           "source": "IMG_6556.png",
-          "image": "assets/monsters/IMG_6556.webp",
+          "image": "assets/official/tata/potakage/t4-512.webp",
           "nameEn": "Hychroma",
           "nameZhHans": "御水宗师"
         }
@@ -5359,7 +5359,7 @@
           "stage": 1,
           "name": "フクロクモ",
           "source": "IMG_6565.png",
-          "image": "assets/monsters/IMG_6565.webp",
+          "image": "assets/official/tata/fukurogumo/t1-512.webp",
           "nameEn": "Sackling",
           "nameZhHans": "叶露蛛"
         },
@@ -5367,7 +5367,7 @@
           "stage": 2,
           "name": "ボトルグモ",
           "source": "IMG_6566.png",
-          "image": "assets/monsters/IMG_6566.webp",
+          "image": "assets/official/tata/fukurogumo/t2-512.webp",
           "nameEn": "Jarachnid",
           "nameZhHans": "叶瓶蛛"
         },
@@ -5375,7 +5375,7 @@
           "stage": 3,
           "name": "チュラリウム",
           "source": "IMG_6568.png",
-          "image": "assets/monsters/IMG_6568.webp",
+          "image": "assets/official/tata/fukurogumo/t3-512.webp",
           "nameEn": "Terracrawler",
           "nameZhHans": "森林瓶蛛"
         },
@@ -5383,7 +5383,7 @@
           "stage": 4,
           "name": "シンラリウム",
           "source": "IMG_6570.png",
-          "image": "assets/monsters/IMG_6570.webp",
+          "image": "assets/official/tata/fukurogumo/t4-512.webp",
           "nameEn": "Weaverfang",
           "nameZhHans": "森罗瓶蛛"
         }
@@ -5543,7 +5543,7 @@
           "stage": 1,
           "name": "ネムクラゲ",
           "source": "IMG_6581.png",
-          "image": "assets/monsters/IMG_6581.webp",
+          "image": "assets/official/tata/nemukurage/t1-512.webp",
           "nameEn": "Lullely",
           "nameZhHans": "悠眠水母"
         },
@@ -5551,7 +5551,7 @@
           "stage": 2,
           "name": "スヤクラゲ",
           "source": "IMG_6582.png",
-          "image": "assets/monsters/IMG_6582.webp",
+          "image": "assets/official/tata/nemukurage/t2-512.webp",
           "nameEn": "Yawnelly",
           "nameZhHans": "织梦水母"
         },
@@ -5559,7 +5559,7 @@
           "stage": 3,
           "name": "ルナドール",
           "source": "IMG_6583.png",
-          "image": "assets/monsters/IMG_6583.webp",
+          "image": "assets/official/tata/nemukurage/t3-512.webp",
           "nameEn": "Souverelle",
           "nameZhHans": "爱洛公主"
         },
@@ -5567,7 +5567,7 @@
           "stage": 4,
           "name": "オロラクイン",
           "source": "IMG_6584.png",
-          "image": "assets/monsters/IMG_6584.webp",
+          "image": "assets/official/tata/nemukurage/t4-512.webp",
           "nameEn": "Somnrayna",
           "nameZhHans": "星海女王"
         }
@@ -5790,7 +5790,7 @@
           "stage": 1,
           "name": "サボール",
           "source": "IMG_6594.png",
-          "image": "assets/monsters/IMG_6594.webp",
+          "image": "assets/official/tata/sabooru/t1-512.webp",
           "nameEn": "Cactobud",
           "nameZhHans": "仙刺球"
         },
@@ -5798,7 +5798,7 @@
           "stage": 2,
           "name": "サボケン",
           "source": "IMG_6595.png",
-          "image": "assets/monsters/IMG_6595.webp",
+          "image": "assets/official/tata/sabooru/t2-512.webp",
           "nameEn": "Cactobloom",
           "nameZhHans": "仙刺掌"
         },
@@ -5806,7 +5806,7 @@
           "stage": 3,
           "name": "サボディビル",
           "source": "IMG_6596.png",
-          "image": "assets/monsters/IMG_6596.webp",
+          "image": "assets/official/tata/sabooru/t3-512.webp",
           "nameEn": "Cactoczar",
           "nameZhHans": "仙刺大王"
         }
@@ -5925,7 +5925,7 @@
           "stage": 1,
           "name": "コロタマ",
           "source": "IMG_6598.png",
-          "image": "assets/monsters/IMG_6598.webp",
+          "image": "assets/official/tata/korotama/t1-512.webp",
           "nameEn": "Humbug",
           "nameZhHans": "十克郎"
         },
@@ -5933,7 +5933,7 @@
           "stage": 2,
           "name": "コロロック",
           "source": "IMG_6599.png",
-          "image": "assets/monsters/IMG_6599.webp",
+          "image": "assets/official/tata/korotama/t2-512.webp",
           "nameEn": "Humbleetle",
           "nameZhHans": "石颗郎"
         },
@@ -5941,7 +5941,7 @@
           "stage": 3,
           "name": "スカラーべ",
           "source": "IMG_6600.png",
-          "image": "assets/monsters/IMG_6600.webp",
+          "image": "assets/official/tata/korotama/t3-512.webp",
           "nameEn": "Zenscarab",
           "nameZhHans": "施课郎"
         },
@@ -5949,7 +5949,7 @@
           "stage": 4,
           "name": "スカリギオ",
           "source": "IMG_6601.png",
-          "image": "assets/monsters/IMG_6601.webp",
+          "image": "assets/official/tata/korotama/t4-512.webp",
           "nameEn": "Hierotyrus",
           "nameZhHans": "圣光大祭司"
         }
@@ -6135,7 +6135,7 @@
           "stage": 1,
           "name": "ヤンザル",
           "source": "IMG_6608.png",
-          "image": "assets/monsters/IMG_6608.webp",
+          "image": "assets/official/tata/yanzaru/t1-512.webp",
           "nameEn": "Punchimp",
           "nameZhHans": "顽皮吗喽"
         },
@@ -6143,7 +6143,7 @@
           "stage": 2,
           "name": "ワルキー",
           "source": "IMG_6609.png",
-          "image": "assets/monsters/IMG_6609.webp",
+          "image": "assets/official/tata/yanzaru/t2-512.webp",
           "nameEn": "Rockfu",
           "nameZhHans": "棍棒吗喽"
         },
@@ -6151,7 +6151,7 @@
           "stage": 3,
           "name": "イビルザル",
           "source": "IMG_6610.png",
-          "image": "assets/monsters/IMG_6610.webp",
+          "image": "assets/official/tata/yanzaru/t3-512.webp",
           "nameEn": "Rockwu",
           "nameZhHans": "天命吗喽"
         },
@@ -6159,7 +6159,7 @@
           "stage": 4,
           "name": "サルタイセイ",
           "source": "IMG_6611.png",
-          "image": "assets/monsters/IMG_6611.webp",
+          "image": "assets/official/tata/yanzaru/t4-512.webp",
           "nameEn": "Rockong",
           "nameZhHans": "大圣吗喽"
         }
@@ -6289,7 +6289,7 @@
           "stage": 1,
           "name": "ガオデン",
           "source": "IMG_6617.png",
-          "image": "assets/monsters/IMG_6617.webp",
+          "image": "assets/official/tata/gaoden/t1-512.webp",
           "nameEn": "Zappur",
           "nameZhHans": "小电狮"
         },
@@ -6297,7 +6297,7 @@
           "stage": 2,
           "name": "ガルルデン",
           "source": "IMG_6618.png",
-          "image": "assets/monsters/IMG_6618.webp",
+          "image": "assets/official/tata/gaoden/t2-512.webp",
           "nameEn": "Electroar",
           "nameZhHans": "闪电狮"
         },
@@ -6305,7 +6305,7 @@
           "stage": 3,
           "name": "キングデン",
           "source": "IMG_6619.png",
-          "image": "assets/monsters/IMG_6619.webp",
+          "image": "assets/official/tata/gaoden/t3-512.webp",
           "nameEn": "Blitzmane",
           "nameZhHans": "雷电狮鹫"
         },
@@ -6313,7 +6313,7 @@
           "stage": 4,
           "name": "エンペラデン",
           "source": "IMG_6620.png",
-          "image": "assets/monsters/IMG_6620.webp",
+          "image": "assets/official/tata/gaoden/t4-512.webp",
           "nameEn": "Stormlion",
           "nameZhHans": "雷翼狮王"
         }
@@ -6459,7 +6459,7 @@
           "stage": 1,
           "name": "ヒマワリン",
           "source": "IMG_6627.png",
-          "image": "assets/monsters/IMG_6627.webp",
+          "image": "assets/official/tata/himawarin/t1-512.webp",
           "nameEn": "Buddi",
           "nameZhHans": "盆盆葵"
         },
@@ -6467,7 +6467,7 @@
           "stage": 2,
           "name": "キラワー",
           "source": "IMG_6628.png",
-          "image": "assets/monsters/IMG_6628.webp",
+          "image": "assets/official/tata/himawarin/t2-512.webp",
           "nameEn": "Sunfleur",
           "nameZhHans": "啦啦葵"
         },
@@ -6475,7 +6475,7 @@
           "stage": 3,
           "name": "サーフクリン",
           "source": "IMG_6629.png",
-          "image": "assets/monsters/IMG_6629.webp",
+          "image": "assets/official/tata/himawarin/t3-512.webp",
           "nameEn": "Solaflora",
           "nameZhHans": "冲浪葵"
         },
@@ -6483,7 +6483,7 @@
           "stage": 4,
           "name": "サンフクリン",
           "source": "IMG_6630.png",
-          "image": "assets/monsters/IMG_6630.webp",
+          "image": "assets/official/tata/himawarin/t4-512.webp",
           "nameEn": "Heliabloom",
           "nameZhHans": "逐日金葵"
         }
@@ -6629,7 +6629,7 @@
           "stage": 1,
           "name": "ネコオリ",
           "source": "IMG_6637.png",
-          "image": "assets/monsters/IMG_6637.webp",
+          "image": "assets/official/tata/nekoori/t1-512.webp",
           "nameEn": "Frostnip",
           "nameZhHans": "猫冰"
         },
@@ -6637,7 +6637,7 @@
           "stage": 2,
           "name": "チルネコ",
           "source": "IMG_6638.png",
-          "image": "assets/monsters/IMG_6638.webp",
+          "image": "assets/official/tata/nekoori/t2-512.webp",
           "nameEn": "Frostpaw",
           "nameZhHans": "冰团猫"
         },
@@ -6645,7 +6645,7 @@
           "stage": 3,
           "name": "チルレオ",
           "source": "IMG_6639.png",
-          "image": "assets/monsters/IMG_6639.webp",
+          "image": "assets/official/tata/nekoori/t3-512.webp",
           "nameEn": "Frostique",
           "nameZhHans": "冰雪猫王"
         },
@@ -6653,7 +6653,7 @@
           "stage": 4,
           "name": "ブリズレオ",
           "source": "IMG_6640.png",
-          "image": "assets/monsters/IMG_6640.webp",
+          "image": "assets/official/tata/nekoori/t4-512.webp",
           "nameEn": "Frostluna",
           "nameZhHans": "凛月猫王"
         }
@@ -6836,7 +6836,7 @@
           "stage": 1,
           "name": "フルッグ",
           "source": "IMG_6647.png",
-          "image": "assets/monsters/IMG_6647.webp",
+          "image": "assets/official/tata/furuggu/t1-512.webp",
           "nameEn": "Frugling",
           "nameZhHans": "火果蛙"
         },
@@ -6844,7 +6844,7 @@
           "stage": 2,
           "name": "フルルッグ",
           "source": "IMG_6648.png",
-          "image": "assets/monsters/IMG_6648.webp",
+          "image": "assets/official/tata/furuggu/t2-512.webp",
           "nameEn": "Frugatoad",
           "nameZhHans": "大果蛙"
         },
@@ -6852,7 +6852,7 @@
           "stage": 3,
           "name": "ドラフルッグ",
           "source": "IMG_6649.png",
-          "image": "assets/monsters/IMG_6649.webp",
+          "image": "assets/official/tata/furuggu/t3-512.webp",
           "nameEn": "Frugagon",
           "nameZhHans": "巨果蛙"
         },
@@ -6860,7 +6860,7 @@
           "stage": 4,
           "name": "フルグロウン",
           "source": "IMG_6650.png",
-          "image": "assets/monsters/IMG_6650.webp",
+          "image": "assets/official/tata/furuggu/t4-512.webp",
           "nameEn": "Frugantuan",
           "nameZhHans": "极果蛙"
         }
@@ -7006,7 +7006,7 @@
           "stage": 1,
           "name": "ヒモリ",
           "source": "IMG_6656.png",
-          "image": "assets/monsters/IMG_6656.webp",
+          "image": "assets/official/tata/himori/t1-512.webp",
           "nameEn": "Blueflick",
           "nameZhHans": "蓝舌火蜥"
         },
@@ -7014,7 +7014,7 @@
           "stage": 2,
           "name": "フレイモリ",
           "source": "IMG_6657.png",
-          "image": "assets/monsters/IMG_6657.webp",
+          "image": "assets/official/tata/himori/t2-512.webp",
           "nameEn": "Ignisnap",
           "nameZhHans": "蓝角蝶螈"
         },
@@ -7022,7 +7022,7 @@
           "stage": 3,
           "name": "ボルケザード",
           "source": "IMG_6658.png",
-          "image": "assets/monsters/IMG_6658.webp",
+          "image": "assets/official/tata/himori/t3-512.webp",
           "nameEn": "Azurion",
           "nameZhHans": "焰尾龙"
         },
@@ -7030,7 +7030,7 @@
           "stage": 4,
           "name": "インフェルドラ",
           "source": "IMG_6659.png",
-          "image": "assets/monsters/IMG_6659.webp",
+          "image": "assets/official/tata/himori/t4-512.webp",
           "nameEn": "Newflamander",
           "nameZhHans": "曜尾龙"
         }
@@ -7200,7 +7200,7 @@
           "stage": 1,
           "name": "コマキリ",
           "source": "IMG_6665.png",
-          "image": "assets/monsters/IMG_6665.webp",
+          "image": "assets/official/tata/komakiri/t1-512.webp",
           "nameEn": "Manteeny",
           "nameZhHans": "小粉螳"
         },
@@ -7208,7 +7208,7 @@
           "stage": 2,
           "name": "ハナキリ",
           "source": "IMG_6666.png",
-          "image": "assets/monsters/IMG_6666.webp",
+          "image": "assets/official/tata/komakiri/t2-512.webp",
           "nameEn": "Stalkerix",
           "nameZhHans": "兰花螳"
         },
@@ -7216,7 +7216,7 @@
           "stage": 3,
           "name": "ヴァルキリ",
           "source": "IMG_6667.png",
-          "image": "assets/monsters/IMG_6667.webp",
+          "image": "assets/official/tata/komakiri/t3-512.webp",
           "nameEn": "Serrabloom",
           "nameZhHans": "霓裳兰螳"
         },
@@ -7224,7 +7224,7 @@
           "stage": 4,
           "name": "サクランティス",
           "source": "IMG_6669.png",
-          "image": "assets/monsters/IMG_6669.webp",
+          "image": "assets/official/tata/komakiri/t4-512.webp",
           "nameEn": "Orchitoria",
           "nameZhHans": "兰花女王"
         }
@@ -7370,7 +7370,7 @@
           "stage": 1,
           "name": "ウミミ",
           "source": "IMG_6675.png",
-          "image": "assets/monsters/IMG_6675.webp",
+          "image": "assets/official/tata/umimi/t1-512.webp",
           "nameEn": "Droppit",
           "nameZhHans": "小海兔"
         },
@@ -7378,7 +7378,7 @@
           "stage": 2,
           "name": "ウミピョン",
           "source": "IMG_6676.png",
-          "image": "assets/monsters/IMG_6676.webp",
+          "image": "assets/official/tata/umimi/t2-512.webp",
           "nameEn": "Bubbit",
           "nameZhHans": "海兔姬"
         },
@@ -7386,7 +7386,7 @@
           "stage": 3,
           "name": "ウミロップ",
           "source": "IMG_6677.png",
-          "image": "assets/monsters/IMG_6677.webp",
+          "image": "assets/official/tata/umimi/t3-512.webp",
           "nameEn": "Tideon",
           "nameZhHans": "海兔公主"
         },
@@ -7394,7 +7394,7 @@
           "stage": 4,
           "name": "アクアリーナ",
           "source": "IMG_6678.png",
-          "image": "assets/monsters/IMG_6678.webp",
+          "image": "assets/official/tata/umimi/t4-512.webp",
           "nameEn": "Haplysia",
           "nameZhHans": "海兔女王"
         }
@@ -7602,7 +7602,7 @@
           "stage": 1,
           "name": "プラビ",
           "source": "IMG_6686.png",
-          "image": "assets/monsters/IMG_6686.webp",
+          "image": "assets/official/tata/purabi/t1-512.webp",
           "nameEn": "Cheerling",
           "nameZhHans": "星兔蛋"
         },
@@ -7610,7 +7610,7 @@
           "stage": 2,
           "name": "スタピョン",
           "source": "IMG_6688.png",
-          "image": "assets/monsters/IMG_6688.webp",
+          "image": "assets/official/tata/purabi/t2-512.webp",
           "nameEn": "Cheerlet",
           "nameZhHans": "星兔兔"
         },
@@ -7618,7 +7618,7 @@
           "stage": 3,
           "name": "ステラビット",
           "source": "IMG_6689.png",
-          "image": "assets/monsters/IMG_6689.webp",
+          "image": "assets/official/tata/purabi/t3-512.webp",
           "nameEn": "Cheerspring",
           "nameZhHans": "星兔姬"
         },
@@ -7626,7 +7626,7 @@
           "stage": 4,
           "name": "アストラビット",
           "source": "IMG_6691.png",
-          "image": "assets/monsters/IMG_6691.webp",
+          "image": "assets/official/tata/purabi/t4-512.webp",
           "nameEn": "Cheerstella",
           "nameZhHans": "星兔偶像"
         }
@@ -7855,7 +7855,7 @@
           "stage": 1,
           "name": "コロジュー",
           "source": "IMG_6701.png",
-          "image": "assets/monsters/IMG_6701.webp",
+          "image": "assets/official/tata/rokuju/t1-512.webp",
           "nameEn": "Rubblet",
           "nameZhHans": "小岩蜥"
         },
@@ -7863,7 +7863,7 @@
           "stage": 2,
           "name": "ロクジュー",
           "source": "IMG_6702.png",
-          "image": "assets/monsters/IMG_6702.webp",
+          "image": "assets/official/tata/rokuju/t2-512.webp",
           "nameEn": "Cobbledon",
           "nameZhHans": "烈岩蜥"
         },
@@ -7871,7 +7871,7 @@
           "stage": 3,
           "name": "ジオジュラ",
           "source": "IMG_6703.png",
-          "image": "assets/monsters/IMG_6703.webp",
+          "image": "assets/official/tata/rokuju/t3-512.webp",
           "nameEn": "Rockzilla",
           "nameZhHans": "岩暴龙"
         },
@@ -7879,7 +7879,7 @@
           "stage": 4,
           "name": "ジュラゴン",
           "source": "IMG_6704.png",
-          "image": "assets/monsters/IMG_6704.webp",
+          "image": "assets/official/tata/rokuju/t4-512.webp",
           "nameEn": "Meteorax",
           "nameZhHans": "陨岩龙"
         }
@@ -8001,7 +8001,7 @@
           "stage": 1,
           "name": "ナミアシカ",
           "source": "IMG_6710.png",
-          "image": "assets/monsters/IMG_6710.webp",
+          "image": "assets/official/tata/boruzarashi/t1-512.webp",
           "nameEn": "Sealing",
           "nameZhHans": "波波狮"
         },
@@ -8009,7 +8009,7 @@
           "stage": 2,
           "name": "ボルザラシ",
           "source": "IMG_6711.png",
-          "image": "assets/monsters/IMG_6711.webp",
+          "image": "assets/official/tata/boruzarashi/t2-512.webp",
           "nameEn": "Sealoon",
           "nameZhHans": "球球海狮"
         },
@@ -8017,7 +8017,7 @@
           "stage": 3,
           "name": "ダブザラシ",
           "source": "IMG_6712.png",
-          "image": "assets/monsters/IMG_6712.webp",
+          "image": "assets/official/tata/boruzarashi/t3-512.webp",
           "nameEn": "Seaswirl",
           "nameZhHans": "浪花海狮"
         },
@@ -8025,7 +8025,7 @@
           "stage": 4,
           "name": "ダイドウオウ",
           "source": "IMG_6713.png",
-          "image": "assets/monsters/IMG_6713.webp",
+          "image": "assets/official/tata/boruzarashi/t4-512.webp",
           "nameEn": "Sealord",
           "nameZhHans": "幻海狮王"
         }
@@ -8191,7 +8191,7 @@
           "stage": 1,
           "name": "コロカメ",
           "source": "IMG_6719.png",
-          "image": "assets/monsters/IMG_6719.webp",
+          "image": "assets/official/tata/gantoru/t1-512.webp",
           "nameEn": "Gibber",
           "nameZhHans": "小岩龟"
         },
@@ -8199,7 +8199,7 @@
           "stage": 2,
           "name": "ガントル",
           "source": "IMG_6720.png",
-          "image": "assets/monsters/IMG_6720.webp",
+          "image": "assets/official/tata/gantoru/t2-512.webp",
           "nameEn": "Turtuff",
           "nameZhHans": "盘岩龟"
         },
@@ -8207,7 +8207,7 @@
           "stage": 3,
           "name": "ガンタス",
           "source": "IMG_6721.png",
-          "image": "assets/monsters/IMG_6721.webp",
+          "image": "assets/official/tata/gantoru/t3-512.webp",
           "nameEn": "Rockshell",
           "nameZhHans": "岩背龟"
         },
@@ -8215,7 +8215,7 @@
           "stage": 4,
           "name": "ガンバンタス",
           "source": "IMG_6722.png",
-          "image": "assets/monsters/IMG_6722.webp",
+          "image": "assets/official/tata/gantoru/t4-512.webp",
           "nameEn": "Terraton",
           "nameZhHans": "磐石龟"
         }
@@ -8385,7 +8385,7 @@
           "stage": 1,
           "name": "ビリジカ",
           "source": "IMG_6728.png",
-          "image": "assets/monsters/IMG_6728.webp",
+          "image": "assets/official/tata/denjika/t1-512.webp",
           "nameEn": "Voltfawn",
           "nameZhHans": "小电鹿"
         },
@@ -8393,7 +8393,7 @@
           "stage": 2,
           "name": "デンジカ",
           "source": "IMG_6729.png",
-          "image": "assets/monsters/IMG_6729.webp",
+          "image": "assets/official/tata/denjika/t2-512.webp",
           "nameEn": "Sparkdoe",
           "nameZhHans": "电鹿"
         },
@@ -8401,7 +8401,7 @@
           "stage": 3,
           "name": "ジバジカ",
           "source": "IMG_6730.png",
-          "image": "assets/monsters/IMG_6730.webp",
+          "image": "assets/official/tata/denjika/t3-512.webp",
           "nameEn": "Zapantler",
           "nameZhHans": "磁角电鹿"
         },
@@ -8409,7 +8409,7 @@
           "stage": 4,
           "name": "マグネクス",
           "source": "IMG_6731.png",
-          "image": "assets/monsters/IMG_6731.webp",
+          "image": "assets/official/tata/denjika/t4-512.webp",
           "nameEn": "Magnedart",
           "nameZhHans": "电鹿族长"
         }
@@ -8630,7 +8630,7 @@
           "stage": 1,
           "name": "トコペン",
           "source": "IMG_6740.png",
-          "image": "assets/monsters/IMG_6740.webp",
+          "image": "assets/official/tata/tafupen/t1-512.webp",
           "nameEn": "Waddledo",
           "nameZhHans": "企呼呼"
         },
@@ -8638,7 +8638,7 @@
           "stage": 2,
           "name": "タフペン",
           "source": "IMG_6741.png",
-          "image": "assets/monsters/IMG_6741.webp",
+          "image": "assets/official/tata/tafupen/t2-512.webp",
           "nameEn": "Swaystroll",
           "nameZhHans": "企鼓鼓"
         },
@@ -8646,7 +8646,7 @@
           "stage": 3,
           "name": "フブペン",
           "source": "IMG_6742.png",
-          "image": "assets/monsters/IMG_6742.webp",
+          "image": "assets/official/tata/tafupen/t3-512.webp",
           "nameEn": "Stoodbeak",
           "nameZhHans": "企汹汹"
         },
@@ -8654,7 +8654,7 @@
           "stage": 4,
           "name": "ペンペラー",
           "source": "IMG_6743.png",
-          "image": "assets/monsters/IMG_6743.webp",
+          "image": "assets/official/tata/tafupen/t4-512.webp",
           "nameEn": "Glideflip",
           "nameZhHans": "企霸霸"
         }
@@ -8829,7 +8829,7 @@
           "stage": 1,
           "name": "ヒノムシ",
           "source": "IMG_6751.png",
-          "image": "assets/monsters/IMG_6751.webp",
+          "image": "assets/official/tata/fureimuji/t1-512.webp",
           "nameEn": "Ashlarva",
           "nameZhHans": "绒焰虫"
         },
@@ -8837,7 +8837,7 @@
           "stage": 2,
           "name": "フレイムシ",
           "source": "IMG_6752.png",
-          "image": "assets/monsters/IMG_6752.webp",
+          "image": "assets/official/tata/fureimuji/t2-512.webp",
           "nameEn": "Firecoil",
           "nameZhHans": "焦焰蝶"
         },
@@ -8845,7 +8845,7 @@
           "stage": 3,
           "name": "バタフレア",
           "source": "IMG_6753.png",
-          "image": "assets/monsters/IMG_6753.webp",
+          "image": "assets/official/tata/fureimuji/t3-512.webp",
           "nameEn": "Charflutter",
           "nameZhHans": "炽焰蝶"
         },
@@ -8853,7 +8853,7 @@
           "stage": 4,
           "name": "バタブレイズ",
           "source": "IMG_6754.png",
-          "image": "assets/monsters/IMG_6754.webp",
+          "image": "assets/official/tata/fureimuji/t4-512.webp",
           "nameEn": "Chrysolaria",
           "nameZhHans": "曜焰蝶王"
         }
@@ -9024,7 +9024,7 @@
           "stage": 1,
           "name": "モエミン",
           "source": "IMG_6761.png",
-          "image": "assets/monsters/IMG_6761.webp",
+          "image": "assets/official/tata/erekoon/t1-512.webp",
           "nameEn": "Zapuni",
           "nameZhHans": "萌角兽"
         },
@@ -9032,7 +9032,7 @@
           "stage": 2,
           "name": "エレコーン",
           "source": "IMG_6762.png",
-          "image": "assets/monsters/IMG_6762.webp",
+          "image": "assets/official/tata/erekoon/t2-512.webp",
           "nameEn": "Surgehoof",
           "nameZhHans": "电角兽"
         },
@@ -9040,7 +9040,7 @@
           "stage": 3,
           "name": "エレキリン",
           "source": "IMG_6763.png",
-          "image": "assets/monsters/IMG_6763.webp",
+          "image": "assets/official/tata/erekoon/t3-512.webp",
           "nameEn": "Voltmare",
           "nameZhHans": "霹雳角兽"
         },
@@ -9048,7 +9048,7 @@
           "stage": 4,
           "name": "ボルキリン",
           "source": "IMG_6764.png",
-          "image": "assets/monsters/IMG_6764.webp",
+          "image": "assets/official/tata/erekoon/t4-512.webp",
           "nameEn": "Boltallion",
           "nameZhHans": "雷极角兽"
         }
@@ -9223,7 +9223,7 @@
           "stage": 1,
           "name": "ボウズヘビ",
           "source": "IMG_6772.png",
-          "image": "assets/monsters/IMG_6772.webp",
+          "image": "assets/official/tata/nenbutsuhebi/t1-512.webp",
           "nameEn": "Taptail",
           "nameZhHans": "小功德蛇"
         },
@@ -9231,7 +9231,7 @@
           "stage": 2,
           "name": "ネンブツヘビ",
           "source": "IMG_6773.png",
-          "image": "assets/monsters/IMG_6773.webp",
+          "image": "assets/official/tata/nenbutsuhebi/t2-512.webp",
           "nameEn": "Rattlecoil",
           "nameZhHans": "大功德君"
         },
@@ -9239,7 +9239,7 @@
           "stage": 3,
           "name": "ボンノオロチ",
           "source": "IMG_6774.png",
-          "image": "assets/monsters/IMG_6774.webp",
+          "image": "assets/official/tata/nenbutsuhebi/t3-512.webp",
           "nameEn": "Clangnaga",
           "nameZhHans": "德思内克"
         },
@@ -9496,7 +9496,7 @@
           "stage": 1,
           "name": "ヒバイヌ",
           "source": "IMG_6780.png",
-          "image": "assets/monsters/IMG_6780.webp",
+          "image": "assets/official/tata/matchiba/t1-512.webp",
           "nameEn": "Pyropup",
           "nameZhHans": "小火柴"
         },
@@ -9504,7 +9504,7 @@
           "stage": 2,
           "name": "マッチバ",
           "source": "IMG_6781.png",
-          "image": "assets/monsters/IMG_6781.webp",
+          "image": "assets/official/tata/matchiba/t2-512.webp",
           "nameEn": "Pyrohound",
           "nameZhHans": "火柴柴"
         },
@@ -9512,7 +9512,7 @@
           "stage": 3,
           "name": "フレベロス",
           "source": "IMG_6782.png",
-          "image": "assets/monsters/IMG_6782.webp",
+          "image": "assets/official/tata/matchiba/t3-512.webp",
           "nameEn": "Hellhound",
           "nameZhHans": "烈焰三头犬"
         },
@@ -9520,7 +9520,7 @@
           "stage": 4,
           "name": "ヘルベロス",
           "source": "IMG_6783.png",
-          "image": "assets/monsters/IMG_6783.webp",
+          "image": "assets/official/tata/matchiba/t4-512.webp",
           "nameEn": "Pyrodaemon",
           "nameZhHans": "狱火三头犬"
         }
@@ -9650,7 +9650,7 @@
           "stage": 1,
           "name": "パチルフ",
           "source": "IMG_6789.png",
-          "image": "assets/monsters/IMG_6789.webp",
+          "image": "assets/official/tata/denrou/t1-512.webp",
           "nameEn": "Voltkit",
           "nameZhHans": "小电狼"
         },
@@ -9658,7 +9658,7 @@
           "stage": 2,
           "name": "デンロウ",
           "source": "IMG_6790.png",
-          "image": "assets/monsters/IMG_6790.webp",
+          "image": "assets/official/tata/denrou/t2-512.webp",
           "nameEn": "Voltling",
           "nameZhHans": "电狼仔"
         },
@@ -9666,7 +9666,7 @@
           "stage": 3,
           "name": "ライロウ",
           "source": "IMG_6791.png",
-          "image": "assets/monsters/IMG_6791.webp",
+          "image": "assets/official/tata/denrou/t3-512.webp",
           "nameEn": "Voltverine",
           "nameZhHans": "疾风电狼"
         },
@@ -9674,7 +9674,7 @@
           "stage": 4,
           "name": "ジンライロウ",
           "source": "IMG_6792.png",
-          "image": "assets/monsters/IMG_6792.webp",
+          "image": "assets/official/tata/denrou/t4-512.webp",
           "nameEn": "Voltreaver",
           "nameZhHans": "迅雷天狼"
         }
@@ -9874,7 +9874,7 @@
           "stage": 1,
           "name": "ツヨカニ",
           "source": "IMG_6800.png",
-          "image": "assets/monsters/IMG_6800.webp",
+          "image": "assets/official/tata/kenkani/t1-512.webp",
           "nameEn": "Cribbler",
           "nameZhHans": "厚礼蟹"
         },
@@ -9882,7 +9882,7 @@
           "stage": 2,
           "name": "ケンカニ",
           "source": "IMG_6801.png",
-          "image": "assets/monsters/IMG_6801.webp",
+          "image": "assets/official/tata/kenkani/t2-512.webp",
           "nameEn": "Clawzor",
           "nameZhHans": "厚力蟹"
         },
@@ -9890,7 +9890,7 @@
           "stage": 3,
           "name": "クラブロー",
           "source": "IMG_6802.png",
-          "image": "assets/monsters/IMG_6802.webp",
+          "image": "assets/official/tata/kenkani/t3-512.webp",
           "nameEn": "Dreadclaw",
           "nameZhHans": "厚力蟹霸"
         },
@@ -9898,7 +9898,7 @@
           "stage": 4,
           "name": "チョキング",
           "source": "IMG_6803.png",
-          "image": "assets/monsters/IMG_6803.webp",
+          "image": "assets/official/tata/kenkani/t4-512.webp",
           "nameEn": "Cribking",
           "nameZhHans": "厚厉蟹皇"
         }
@@ -10069,7 +10069,7 @@
           "stage": 1,
           "name": "ヒエビ",
           "source": "IMG_6810.png",
-          "image": "assets/monsters/IMG_6810.webp",
+          "image": "assets/official/tata/fureebi/t1-512.webp",
           "nameEn": "Shrimpyro",
           "nameZhHans": "小火虾"
         },
@@ -10077,7 +10077,7 @@
           "stage": 2,
           "name": "フレービ",
           "source": "IMG_6811.png",
-          "image": "assets/monsters/IMG_6811.webp",
+          "image": "assets/official/tata/fureebi/t2-512.webp",
           "nameEn": "Pyroprawn",
           "nameZhHans": "极火虾"
         },
@@ -10085,7 +10085,7 @@
           "stage": 3,
           "name": "バーニフィス",
           "source": "IMG_6812.png",
-          "image": "assets/monsters/IMG_6812.webp",
+          "image": "assets/official/tata/fureebi/t3-512.webp",
           "nameEn": "Pyroclobster",
           "nameZhHans": "火拳虾"
         },
@@ -10093,7 +10093,7 @@
           "stage": 4,
           "name": "ボルケイセ",
           "source": "IMG_6813.png",
-          "image": "assets/monsters/IMG_6813.webp",
+          "image": "assets/official/tata/fureebi/t4-512.webp",
           "nameEn": "Pyroviathan",
           "nameZhHans": "烈焰金刚虾"
         }
@@ -10281,7 +10281,7 @@
           "stage": 1,
           "name": "トラーニー",
           "source": "IMG_6821.png",
-          "image": "assets/monsters/IMG_6821.webp",
+          "image": "assets/official/tata/haamitora/t1-512.webp",
           "nameEn": "Tindercub",
           "nameZhHans": "娇虎学徒"
         },
@@ -10289,7 +10289,7 @@
           "stage": 2,
           "name": "ハーミットラ",
           "source": "IMG_6822.png",
-          "image": "assets/monsters/IMG_6822.webp",
+          "image": "assets/official/tata/haamitora/t2-512.webp",
           "nameEn": "Kitjitsu",
           "nameZhHans": "静虎居士"
         },
@@ -10300,7 +10300,7 @@
           "alternateSources": [
             "IMG_6824.png"
           ],
-          "image": "assets/monsters/IMG_6823.webp",
+          "image": "assets/official/tata/haamitora/t3-512.webp",
           "nameEn": "Taiglow",
           "nameZhHans": "焰虎大师"
         },
@@ -10311,7 +10311,7 @@
           "alternateSources": [
             "IMG_6826.png"
           ],
-          "image": "assets/monsters/IMG_6825.webp",
+          "image": "assets/official/tata/haamitora/t4-512.webp",
           "nameEn": "Saberheart",
           "nameZhHans": "炽心虎尊"
         }
@@ -10565,7 +10565,7 @@
           "stage": 1,
           "name": "ライメー",
           "source": "IMG_6837.png",
-          "image": "assets/monsters/IMG_6837.webp",
+          "image": "assets/official/tata/shiiparusu/t1-512.webp",
           "nameEn": "Fluffle",
           "nameZhHans": "闪电绵羊"
         },
@@ -10573,7 +10573,7 @@
           "stage": 2,
           "name": "シーパルス",
           "source": "IMG_6838.png",
-          "image": "assets/monsters/IMG_6838.webp",
+          "image": "assets/official/tata/shiiparusu/t2-512.webp",
           "nameEn": "Nimbuzzy",
           "nameZhHans": "风暴绵羊"
         },
@@ -10581,7 +10581,7 @@
           "stage": 3,
           "name": "アラシープ",
           "source": "IMG_6839.png",
-          "image": "assets/monsters/IMG_6839.webp",
+          "image": "assets/official/tata/shiiparusu/t3-512.webp",
           "nameEn": "Galewether",
           "nameZhHans": "雷霆绵羊"
         },
@@ -10589,7 +10589,7 @@
           "stage": 4,
           "name": "アマルテラ",
           "source": "IMG_6840.png",
-          "image": "assets/monsters/IMG_6840.webp",
+          "image": "assets/official/tata/shiiparusu/t4-512.webp",
           "nameEn": "Cosmoram",
           "nameZhHans": "寰宇神羊"
         }
@@ -10821,7 +10821,7 @@
           "stage": 1,
           "name": "シズクジ",
           "source": "IMG_6848.png",
-          "image": "assets/monsters/IMG_6848.webp",
+          "image": "assets/official/tata/shizukuchou/t1-512.webp",
           "nameEn": "Dewgrub",
           "nameZhHans": "露水虫"
         },
@@ -10829,7 +10829,7 @@
           "stage": 2,
           "name": "シズクチョウ",
           "source": "IMG_6849.png",
-          "image": "assets/monsters/IMG_6849.webp",
+          "image": "assets/official/tata/shizukuchou/t2-512.webp",
           "nameEn": "Ripplewing",
           "nameZhHans": "露水蝶"
         },
@@ -10840,7 +10840,7 @@
           "alternateSources": [
             "IMG_6851.png"
           ],
-          "image": "assets/monsters/IMG_6850.webp",
+          "image": "assets/official/tata/shizukuchou/t3-512.webp",
           "nameEn": "Waveflutter",
           "nameZhHans": "水舞蝶"
         }
@@ -11026,7 +11026,7 @@
           "stage": 1,
           "name": "ホルリン",
           "source": "IMG_6858.png",
-          "image": "assets/monsters/IMG_6858.webp",
+          "image": "assets/official/tata/doriruu/t1-512.webp",
           "nameEn": "Drilleroo",
           "nameZhHans": "小穿山"
         },
@@ -11037,7 +11037,7 @@
           "alternateSources": [
             "IMG_6860.png"
           ],
-          "image": "assets/monsters/IMG_6859.webp",
+          "image": "assets/official/tata/doriruu/t2-512.webp",
           "nameEn": "Cragolin",
           "nameZhHans": "大钻山"
         },
@@ -11048,7 +11048,7 @@
           "alternateSources": [
             "IMG_6862.png"
           ],
-          "image": "assets/monsters/IMG_6861.webp",
+          "image": "assets/official/tata/doriruu/t3-512.webp",
           "nameEn": "Borelord",
           "nameZhHans": "钻山王"
         }
@@ -11214,7 +11214,7 @@
           "stage": 1,
           "name": "フリコー",
           "source": "IMG_6869.png",
-          "image": "assets/monsters/IMG_6869.webp",
+          "image": "assets/official/tata/riifuro/t1-512.webp",
           "nameEn": "Hootlet",
           "nameZhHans": "钟摆鸮"
         },
@@ -11222,7 +11222,7 @@
           "stage": 2,
           "name": "リーフロ",
           "source": "IMG_6870.png",
-          "image": "assets/monsters/IMG_6870.webp",
+          "image": "assets/official/tata/riifuro/t2-512.webp",
           "nameEn": "Tikowl",
           "nameZhHans": "时羽鸮"
         },
@@ -11230,7 +11230,7 @@
           "stage": 3,
           "name": "ツリーフロ",
           "source": "IMG_6871.png",
-          "image": "assets/monsters/IMG_6871.webp",
+          "image": "assets/official/tata/riifuro/t3-512.webp",
           "nameEn": "Chronerva",
           "nameZhHans": "圣叶鸮"
         },
@@ -11241,7 +11241,7 @@
           "alternateSources": [
             "IMG_6873.png"
           ],
-          "image": "assets/monsters/IMG_6872.webp",
+          "image": "assets/official/tata/riifuro/t4-512.webp",
           "nameEn": "Hypnostrix",
           "nameZhHans": "晖刻神鸮"
         }
@@ -11420,7 +11420,7 @@
           "alternateSources": [
             "IMG_6882.png"
           ],
-          "image": "assets/monsters/IMG_6881.webp",
+          "image": "assets/official/tata/hikikomoru/t1-512.webp",
           "nameEn": "Cavyzap",
           "nameZhHans": "天笼鼠"
         },
@@ -11431,7 +11431,7 @@
           "alternateSources": [
             "IMG_6884.png"
           ],
-          "image": "assets/monsters/IMG_6883.webp",
+          "image": "assets/official/tata/hikikomoru/t2-512.webp",
           "nameEn": "Hippiehog",
           "nameZhHans": "窝居鼠"
         },
@@ -11442,7 +11442,7 @@
           "alternateSources": [
             "IMG_6886.png"
           ],
-          "image": "assets/monsters/IMG_6885.webp",
+          "image": "assets/official/tata/hikikomoru/t3-512.webp",
           "nameEn": "Wheekroller",
           "nameZhHans": "追风鼠"
         },
@@ -11453,7 +11453,7 @@
           "alternateSources": [
             "IMG_6888.png"
           ],
-          "image": "assets/monsters/IMG_6887.webp",
+          "image": "assets/official/tata/hikikomoru/t4-512.webp",
           "nameEn": "Gigagnash",
           "nameZhHans": "暴走机甲鼠"
         }
@@ -11722,7 +11722,7 @@
           "stage": 1,
           "name": "パクマ",
           "source": "写真.pdf p.6-7",
-          "image": "assets/monsters/pakuma.webp",
+          "image": "assets/tata-crops/forms/pakuma/t1.webp",
           "sourceMetadata": {
             "sourceType": "in_game",
             "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",

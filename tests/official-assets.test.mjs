@@ -11,14 +11,20 @@ test('official creator assets retain source traceability', () => {
   const tata = json('data/official-assets/tata-source-map.json');
   const skills = json('data/official-assets/skill-icons.json');
   const events = json('data/official-assets/event-images.json');
-  const records = [...tata.assets, ...skills.icons, ...events.events];
-  assert.equal(records.length, 183);
-  assert.equal(new Set(records.map((record) => record.officialAssetId)).size, 183);
+  const siteIcon = json('data/official-assets/site-icons.json');
+  const records = [...tata.assets, ...skills.icons, ...events.events, siteIcon];
+  assert.equal(records.length, 287);
+  assert.equal(new Set(records.map((record) => record.officialAssetId)).size, 287);
   for (const record of records) {
     assert.match(record.officialAssetId, /^MSOA-\d{5}$/);
     assert.match(record.sourceSha256, /^[a-f0-9]{64}$/);
-    assert.match(record.optimizedPath, /^\/assets\/official\/.+\.webp$/);
-    assert.ok(fs.existsSync(path.join(root, record.optimizedPath.slice(1))));
+    if (record.optimizedPath) {
+      assert.match(record.optimizedPath, /^\/assets\/official\/.+\.webp$/);
+      assert.ok(fs.existsSync(path.join(root, record.optimizedPath.slice(1))));
+    } else {
+      assert.equal(record.outputs.length, 5);
+      assert.ok(record.outputs.every((output) => fs.existsSync(path.join(root, output.path.slice(1)))));
+    }
   }
 });
 
