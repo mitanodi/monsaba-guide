@@ -217,6 +217,10 @@ function reportIssue(issue, playerId) {
   else if (issue === 'duplicate-family') setStatus(message(COPY.duplicateFamily, { player: playerId }), true, '#team-message');
   else if (issue === 'chip-full') setStatus(message(COPY.chipFull, { player: playerId }), true, '#team-message');
 }
+function closePickerForPlacement() {
+  if (!matchMedia('(max-width: 820px)').matches) return;
+  document.dispatchEvent(new CustomEvent('monsaba:formation-picker', { detail: { open: false, revealBoard: true } }));
+}
 function clearDragState() { dragPayload = null; pointerDrag = null; document.querySelector('.formation-drag-ghost')?.remove(); document.querySelector('.formation-picker')?.classList.remove('is-drag-compact'); document.querySelectorAll('.is-dragging,.is-drop-target').forEach((node) => node.classList.remove('is-dragging', 'is-drop-target')); }
 function dropCell(event) { return event.target.closest('[data-drop-cell]'); }
 function createDragGhost(payload, native = false) {
@@ -241,7 +245,7 @@ function applyDrop(index, payload) {
   }
   if (team.slots[index]) { setStatus(COPY.dropOccupied, true, '#team-message'); clearDragState(); return; }
   const member = { familyId: payload.familyId, stage: payload.stage, playerId: payload.playerId, level: payload.level }; const issue = placementIssue(team, index, member, families);
-  if (issue) reportIssue(issue, member.playerId); else { commit(placeMember(team, index, member, families), COPY.placed); track('formation_place'); }
+  if (issue) reportIssue(issue, member.playerId); else { commit(placeMember(team, index, member, families), COPY.placed); track('formation_place'); closePickerForPlacement(); }
   clearDragState();
 }
 function dropFormation(event) { const cell = dropCell(event); if (!cell || !dragPayload) return; event.preventDefault(); applyDrop(Number(cell.dataset.dropCell), dragPayload); }
@@ -299,8 +303,8 @@ function bind() {
   $('#team-picker-list').addEventListener('click', (event) => {
     if (Date.now() < suppressClickUntil) { event.preventDefault(); return; }
     const button = event.target.closest('[data-pick-family]'); if (!button) return; const pick = { familyId: button.dataset.pickFamily, stage: Number(button.dataset.pickStage) };
-    if (replacingIndex !== null) { const previous = team.slots[replacingIndex]; const replacement = { ...pick, playerId: previous.playerId, level: previous.level }; const issue = placementIssue(team, replacingIndex, replacement, families); if (!issue) commit(placeMember(team, replacingIndex, replacement, families), COPY.placed); else reportIssue(issue, replacement.playerId); replacingIndex = null; selected = pick; return; }
-    selected = pick; renderSelection(); renderPicker();
+    if (replacingIndex !== null) { const previous = team.slots[replacingIndex]; const replacement = { ...pick, playerId: previous.playerId, level: previous.level }; const issue = placementIssue(team, replacingIndex, replacement, families); if (!issue) { commit(placeMember(team, replacingIndex, replacement, families), COPY.placed); closePickerForPlacement(); } else reportIssue(issue, replacement.playerId); replacingIndex = null; selected = pick; return; }
+    selected = pick; renderSelection(); renderPicker(); closePickerForPlacement();
   });
   $('#team-picker-list').addEventListener('pointerdown', (event) => { const handle = event.target.closest('[data-drag-handle]'); const source = handle || (matchMedia('(hover: hover) and (pointer: fine)').matches ? event.target.closest('[data-pick-family]') : null); if (source) beginPointerDrag(event, { type: 'picker', familyId: source.dataset.dragFamily, stage: Number(source.dataset.dragStage), playerId: currentPlayer, level: currentLevel }, source, { preventDefault: Boolean(handle), activateImmediately: Boolean(handle) }); });
   $('#team-picker-list').addEventListener('dragstart', (event) => { const source = event.target.closest('[data-drag-family]'); if (!source) return; pointerDrag = null; dragPayload = { type: 'picker', familyId: source.dataset.dragFamily, stage: Number(source.dataset.dragStage), playerId: currentPlayer, level: currentLevel }; event.dataTransfer.effectAllowed = 'copy'; event.dataTransfer.setData('text/plain', 'monsaba-tata'); source.classList.add('is-dragging'); if (matchMedia('(max-width: 820px)').matches) document.querySelector('.formation-picker')?.classList.add('is-drag-compact'); const ghost = createDragGhost(dragPayload, true); event.dataTransfer.setDragImage?.(ghost, 44, 44); });

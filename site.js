@@ -463,14 +463,20 @@
     const pickerToggle = document.createElement('button');
     pickerToggle.type = 'button';
     pickerToggle.className = 'button team-picker-sheet-toggle';
-    pickerToggle.textContent = focusCopy.picker;
+    formationPicker.id ||= 'team-picker-panel';
+    pickerToggle.setAttribute('aria-controls', formationPicker.id);
     pickerToggle.setAttribute('aria-expanded', 'false');
-    pickerToggle.addEventListener('click', () => {
-      const open = !formationPicker.classList.contains('is-sheet-open');
+    const setPickerOpen = (open, revealBoard = false) => {
       formationPicker.classList.toggle('is-sheet-open', open);
       pickerToggle.setAttribute('aria-expanded', String(open));
-      pickerToggle.textContent = open ? focusCopy.pickerClose : focusCopy.picker;
-    });
+      pickerToggle.setAttribute('aria-label', open ? focusCopy.pickerClose : focusCopy.picker);
+      pickerToggle.innerHTML = open ? `<span aria-hidden="true">×</span><span>${focusCopy.pickerClose}</span>` : `<span aria-hidden="true">◀</span><span>${focusCopy.picker}</span>`;
+      if (revealBoard) requestAnimationFrame(() => document.querySelector('#team-board')?.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }));
+    };
+    setPickerOpen(false);
+    pickerToggle.addEventListener('click', () => setPickerOpen(!formationPicker.classList.contains('is-sheet-open')));
+    document.addEventListener('monsaba:formation-picker', (event) => setPickerOpen(Boolean(event.detail?.open), Boolean(event.detail?.revealBoard)));
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && formationPicker.classList.contains('is-sheet-open')) setPickerOpen(false); });
     formationPicker.before(pickerToggle);
   }
 

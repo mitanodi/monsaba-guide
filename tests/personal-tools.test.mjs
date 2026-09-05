@@ -475,7 +475,7 @@ test('配置済みdialogから相手Playerへコピーでき、一覧と盤面�
 });
 
 test('スマホPickerは縦スクロールと専用ハンドルDragを分離し、Drag中は盤面を露出する', () => {
-  const source = read('team-builder/team-builder.js'); const css = read('my-tools.css');
+  const source = read('team-builder/team-builder.js'); const css = read('my-tools.css'); const site = read('site.js'); const styles = read('styles.css');
   assert.match(source, /data-drag-handle/);
   assert.match(source, /closest\('\[data-drag-handle\]'\)/);
   assert.match(source, /matchMedia\('\(hover: hover\) and \(pointer: fine\)'\)/);
@@ -487,6 +487,14 @@ test('スマホPickerは縦スクロールと専用ハンドルDragを分離し�
   assert.match(css, /formation-drag-handle\{[^}]*touch-action:none/);
   assert.match(css, /formation-picker\.is-drag-compact/);
   assert.match(css, /max-height:72svh/);
+  assert.match(source, /closePickerForPlacement/);
+  assert.match(source, /monsaba:formation-picker/);
+  assert.match(site, /setPickerOpen/);
+  assert.match(site, /revealBoard/);
+  assert.match(site, /aria-controls/);
+  assert.match(styles, /team-picker-sheet-toggle\{position:fixed/);
+  assert.match(styles, /transform:translateX\(calc\(100% \+ 20px\)\)/);
+  assert.match(styles, /formation-picker\.is-sheet-open\{visibility:visible;pointer-events:auto;transform:translateX\(0\)/);
 });
 
 test('Lv8解除はconfirmのキャンセルと承認を分け、承認時だけdowngradeする', () => {
