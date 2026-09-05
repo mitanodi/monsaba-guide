@@ -12,12 +12,14 @@ export const TEAM_SLOTS = TEAM_ROWS * TEAM_COLUMNS;
 export const LEGACY_TEAM_SLOTS = 15;
 export const MAX_SAVED_TEAMS = 10;
 export const PLAYER_IDS = Object.freeze([1, 2]);
+const SINGLE_PLAYER_IDS = Object.freeze([1]);
 export const BASE_PLAYER_LIMIT = 10;
-export const MAX_PLAYER_LIMIT = 11;
+export const MAX_PLAYER_LIMIT = 15;
 export const BASE_LEVEL_LIMIT = 7;
 export const MAX_LEVEL_LIMIT = 8;
 export const TEAM_MODES = Object.freeze(['free', 'normal', 'zombie', 'dojo', 'boss']);
 export const MODE_LABELS = Object.freeze({ free: '自由編成', normal: '通常', zombie: 'ゾンビラッシュ', dojo: 'バッジ道場', boss: 'ボスラリー' });
+export const MODE_PLAYER_LIMITS = Object.freeze({ free: 15, normal: 15, zombie: 10, dojo: 5, boss: 15 });
 const isRecord = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
 const blankPlayerSettings = () => ({ 1: { slotLimitPlusOne: false, levelCapPlusOne: false }, 2: { slotLimitPlusOne: false, levelCapPlusOne: false } });
 const blankPlayerChips = () => ({ 1: [], 2: [] });
@@ -57,14 +59,21 @@ function sanitizePlayerChips(value) {
   return Object.fromEntries(PLAYER_IDS.map((playerId) => [playerId, [...new Set((Array.isArray(source[playerId]) ? source[playerId] : []).filter((id) => typeof id === 'string' && /^[a-z0-9-]{1,64}$/.test(id)))].slice(0, 3)]));
 }
 
-export function playerLimit(team, playerId) { return BASE_PLAYER_LIMIT + (team?.playerSettings?.[playerId]?.slotLimitPlusOne === true ? 1 : 0); }
+export function playerLimit(team, playerId) {
+  const mode = TEAM_MODES.includes(team?.mode) ? team.mode : 'zombie';
+  if (mode !== 'zombie' && Number(playerId) !== 1) return 0;
+  const zombieUnlock = mode === 'zombie' && team?.playerSettings?.[playerId]?.slotLimitPlusOne === true ? 1 : 0;
+  return MODE_PLAYER_LIMITS[mode] + zombieUnlock;
+}
+export function activePlayerIds(team) { return team?.mode === 'zombie' ? PLAYER_IDS : SINGLE_PLAYER_IDS; }
 export function levelLimit(team, playerId) { return BASE_LEVEL_LIMIT + (team?.playerSettings?.[playerId]?.levelCapPlusOne === true ? 1 : 0); }
 export function playerCount(team, playerId, excludeIndex = -1) { return (team?.slots || []).reduce((count, slot, index) => count + (index !== excludeIndex && slot?.playerId === playerId ? 1 : 0), 0); }
 
 export function sanitizeTeam(value, families) {
   const familyMap = new Map((families || []).map((family) => [family.id, family]));
   const source = migratedSlots(value);
-  const playerSettings = sanitizePlayerSettings(value?.playerSettings);
+  const mode = TEAM_MODES.includes(value?.mode) ? value.mode : 'zombie';
+  const playerSettings = mode === 'zombie' ? sanitizePlayerSettings(value?.playerSettings) : blankPlayerSettings();
   const strictCurrent = Number(value?.version) >= TEAM_VERSION;
   const counts = { 1: 0, 2: 0 };
   const usedFamilies = { 1: new Set(), 2: new Set() };
@@ -76,19 +85,19 @@ export function sanitizeTeam(value, families) {
     if (!Number.isInteger(stage) || !stages.has(stage)) return null;
     if (strictCurrent && !PLAYER_IDS.includes(Number(raw.playerId))) return null;
     const playerId = PLAYER_IDS.includes(Number(raw.playerId)) ? Number(raw.playerId) : 1;
+    if (!activePlayerIds({ mode }).includes(playerId)) return null;
     const rawLevel = Number(raw.level ?? 1);
     if (strictCurrent && (!Number.isInteger(rawLevel) || rawLevel < 1 || rawLevel > levelLimit({ playerSettings }, playerId))) return null;
     const level = Number.isInteger(rawLevel) && rawLevel >= 1 ? Math.min(rawLevel, levelLimit({ playerSettings }, playerId)) : 1;
     if (usedFamilies[playerId].has(raw.familyId)) return null;
-    if (strictCurrent && counts[playerId] >= playerLimit({ playerSettings }, playerId)) return null;
+    if (counts[playerId] >= playerLimit({ mode, playerSettings }, playerId)) return null;
     usedFamilies[playerId].add(raw.familyId);
     counts[playerId] += 1;
     return { familyId: raw.familyId, stage, playerId, level };
   });
   const name = String(value?.name || '').replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 40);
-  const mode = TEAM_MODES.includes(value?.mode) ? value.mode : 'zombie';
   const validDate = (item) => typeof item === 'string' && Number.isFinite(Date.parse(item)) ? item : null;
-  return { version: TEAM_VERSION, name, mode, showLevels: value?.showLevels !== false, slots, playerSettings, chips: sanitizePlayerChips(value?.chips), challenge: sanitizeChallenge(value?.challenge), createdAt: validDate(value?.createdAt), updatedAt: validDate(value?.updatedAt) };
+  return { version: TEAM_VERSION, name, mode, showLevels: value?.showLevels !== false, slots, playerSettings, chips: mode === 'zombie' ? sanitizePlayerChips(value?.chips) : blankPlayerChips(), challenge: sanitizeChallenge(value?.challenge), createdAt: validDate(value?.createdAt), updatedAt: validDate(value?.updatedAt) };
 }
 
 export function cloneTeam(team, families) { return sanitizeTeam(JSON.parse(JSON.stringify(team)), families); }
@@ -110,7 +119,7 @@ export function placementIssue(team, index, member, families) {
   const family = (families || []).find((item) => item.id === member?.familyId);
   if (!family) return 'invalid-family';
   if (!family.evolutions.some((item) => Number(item.stage) === Number(member.stage))) return 'invalid-stage';
-  const playerId = Number(member.playerId); if (!PLAYER_IDS.includes(playerId)) return 'invalid-player';
+  const playerId = Number(member.playerId); if (!activePlayerIds(team).includes(playerId)) return 'invalid-player';
   const level = Number(member.level); if (!Number.isInteger(level) || level < 1 || level > levelLimit(team, playerId)) return 'invalid-level';
   if ((team?.slots || []).some((slot, slotIndex) => slotIndex !== index && slot?.playerId === playerId && slot.familyId === member.familyId)) return 'duplicate-family';
   const current = team?.slots?.[index]; if (current?.playerId !== playerId && playerCount(team, playerId) >= playerLimit(team, playerId)) return 'player-full';
@@ -123,7 +132,7 @@ export function placeMember(team, index, member, families) {
 }
 export function copyMemberToPlayer(team, sourceIndex, targetPlayerId, families) {
   const next = cloneTeam(team, families); const source = next.slots[sourceIndex]; const playerId = Number(targetPlayerId);
-  if (!source || !PLAYER_IDS.includes(playerId) || source.playerId === playerId) return { ok: false, reason: 'invalid-copy', team: next };
+  if (!source || !activePlayerIds(next).includes(playerId) || source.playerId === playerId) return { ok: false, reason: 'invalid-copy', team: next };
   const targetIndex = next.slots.findIndex((slot) => slot === null);
   if (targetIndex < 0) return { ok: false, reason: 'board-full', team: next };
   const member = { ...source, playerId }; const issue = placementIssue(next, targetIndex, member, families);
@@ -132,7 +141,7 @@ export function copyMemberToPlayer(team, sourceIndex, targetPlayerId, families) 
 }
 export function togglePlayerChip(team, playerId, chipId, families, validChipIds) {
   const next = cloneTeam(team, families); const id = Number(playerId); const allowed = validChipIds instanceof Set ? validChipIds : new Set(validChipIds || []);
-  if (!PLAYER_IDS.includes(id) || !allowed.has(chipId)) return { ok: false, reason: 'invalid-chip', team: next };
+  if (next.mode !== 'zombie' || !PLAYER_IDS.includes(id) || !allowed.has(chipId)) return { ok: false, reason: 'invalid-chip', team: next };
   const selected = next.chips[id]; const existing = selected.indexOf(chipId);
   if (existing >= 0) { selected.splice(existing, 1); return { ok: true, reason: null, selected: false, team: next }; }
   if (selected.length >= 3) return { ok: false, reason: 'chip-full', team: next };
@@ -145,7 +154,7 @@ export function setPlayerUnlock(team, playerId, setting, enabled, families, opti
   const next = cloneTeam(team, families);
   if (!PLAYER_IDS.includes(Number(playerId)) || !['slotLimitPlusOne', 'levelCapPlusOne'].includes(setting)) return { ok: false, reason: 'invalid-setting', team: next };
   const id = Number(playerId);
-  if (!enabled && setting === 'slotLimitPlusOne' && playerCount(next, id) > BASE_PLAYER_LIMIT) return { ok: false, reason: 'player-over-limit', team: next };
+  if (!enabled && setting === 'slotLimitPlusOne' && playerCount(next, id) > MODE_PLAYER_LIMITS[next.mode]) return { ok: false, reason: 'player-over-limit', team: next };
   const levelEight = next.slots.some((slot) => slot?.playerId === id && slot.level === MAX_LEVEL_LIMIT);
   if (!enabled && setting === 'levelCapPlusOne' && levelEight && options.downgrade !== true) return { ok: false, reason: 'level-eight-present', team: next };
   next.playerSettings[id][setting] = enabled === true;
@@ -174,13 +183,15 @@ function decodeLegacySlots(values) { let occupied = 0; return values.map((slot) 
 function assertValidV3(parsed, families) {
   if (!Array.isArray(parsed.s) || parsed.s.length !== TEAM_SLOTS || !Array.isArray(parsed.u) || parsed.u.length !== 2) throw new Error();
   if (!parsed.u.every((settings) => Array.isArray(settings) && settings.length === 2 && settings.every((value) => value === 0 || value === 1))) throw new Error();
+  if (!TEAM_MODES.includes(parsed.m)) throw new Error();
   const familyMap = new Map((families || []).map((family) => [family.id, family]));
-  const limits = { 1: BASE_PLAYER_LIMIT + parsed.u[0][0], 2: BASE_PLAYER_LIMIT + parsed.u[1][0] }; const levelCaps = { 1: BASE_LEVEL_LIMIT + parsed.u[0][1], 2: BASE_LEVEL_LIMIT + parsed.u[1][1] }; const counts = { 1: 0, 2: 0 }; const usedFamilies = { 1: new Set(), 2: new Set() };
+  const playerSettings = { 1: { slotLimitPlusOne: !!parsed.u[0][0] }, 2: { slotLimitPlusOne: !!parsed.u[1][0] } };
+  const limits = { 1: playerLimit({ mode: parsed.m, playerSettings }, 1), 2: playerLimit({ mode: parsed.m, playerSettings }, 2) }; const levelCaps = { 1: BASE_LEVEL_LIMIT + parsed.u[0][1], 2: BASE_LEVEL_LIMIT + parsed.u[1][1] }; const counts = { 1: 0, 2: 0 }; const usedFamilies = { 1: new Set(), 2: new Set() };
   for (const slot of parsed.s) {
     if (slot === null) continue;
     if (!Array.isArray(slot) || slot.length !== 4 || !familyMap.has(slot[0])) throw new Error();
     const family = familyMap.get(slot[0]); const stage = Number(slot[1]); const playerId = Number(slot[2]); const level = Number(slot[3]);
-    if (!family.evolutions.some((item) => Number(item.stage) === stage) || !PLAYER_IDS.includes(playerId) || !Number.isInteger(level) || level < 1 || level > levelCaps[playerId]) throw new Error();
+    if (!family.evolutions.some((item) => Number(item.stage) === stage) || !activePlayerIds({ mode: parsed.m }).includes(playerId) || !Number.isInteger(level) || level < 1 || level > levelCaps[playerId]) throw new Error();
     if (usedFamilies[playerId].has(slot[0])) throw new Error();
     usedFamilies[playerId].add(slot[0]);
     counts[playerId] += 1;
@@ -244,10 +255,11 @@ export function teamText(team, families, locale = globalThis.document?.body?.dat
   const rows = Array.from({ length: TEAM_ROWS }, (_, row) => team.slots.slice(row * TEAM_COLUMNS, row * TEAM_COLUMNS + TEAM_COLUMNS).map((slot) => {
     if (!slot) return empty; const family = familyMap.get(slot.familyId); const evolution = family?.evolutions.find((item) => Number(item.stage) === slot.stage) || family?.evolutions[0];
     const level = team.mode === 'zombie' && team.showLevels ? ` Lv${slot.level}` : '';
-    return evolution ? `P${slot.playerId} ${globalThis.MONSABA_FAMILY.getTataDisplayName(evolution)} (T${slot.stage}${level})` : empty;
+    const player = team.mode === 'zombie' ? `P${slot.playerId} ` : '';
+    return evolution ? `${player}${globalThis.MONSABA_FAMILY.getTataDisplayName(evolution)} (T${slot.stage}${level})` : empty;
   }).join(' / '));
   const rowLines = rows.map((value, index) => locale === 'en' ? `Row ${index + 1}: ${value}` : locale === 'zh-CN' ? `第${index + 1}行：${value}` : `${index + 1}行目：${value}`).join('\n');
   const chipMap = new Map(chips.map((chip) => [chip.id, chip]));
-  const summary = PLAYER_IDS.map((id) => { const names = team.mode === 'zombie' ? team.chips[id].map((chipId) => chipMap.get(chipId)?.name?.[locale] || chipMap.get(chipId)?.name?.ja).filter(Boolean) : []; return `P${id} ${playerCount(team, id)}/${playerLimit(team, id)}${names.length ? ` [${names.join(' / ')}]` : ''}`; }).join(' · ');
+  const summary = activePlayerIds(team).map((id) => { const names = team.mode === 'zombie' ? team.chips[id].map((chipId) => chipMap.get(chipId)?.name?.[locale] || chipMap.get(chipId)?.name?.ja).filter(Boolean) : []; const prefix = team.mode === 'zombie' ? `P${id} ` : ''; return `${prefix}${playerCount(team, id)}/${playerLimit(team, id)}${names.length ? ` [${names.join(' / ')}]` : ''}`; }).join(' · ');
   return `${team.name ? `${team.name}\n` : ''}${summary}\n${rowLines}\n\nmonster-survival.com`;
 }

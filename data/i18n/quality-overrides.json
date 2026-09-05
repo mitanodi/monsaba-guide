@@ -263,7 +263,18 @@
     "進化名・系統名・alias": "Evolution name, family or alias",
     "共有URL": "Share URL",
     "既存のゾンビラッシュTierで上位の候補：": "Top candidates in existing Zombie Rush Tier:",
-    "モンサバ ゾンビラッシュ Season 1 AI予測Tier｜ゾンビラッシュ攻略": "Clash of Critters Zombie Rush Season 1 AI Prediction Tier | Zombie Rush Strategy"
+    "モンサバ ゾンビラッシュ Season 1 AI予測Tier｜ゾンビラッシュ攻略": "Clash of Critters Zombie Rush Season 1 AI Prediction Tier | Zombie Rush Strategy",
+    "自由編成（15体）": "Free formation (15 Tata)",
+    "通常（15体）": "Normal (15 Tata)",
+    "ゾンビラッシュ（各Player 10体）": "Zombie Rush (10 Tata per Player)",
+    "バッジ道場（5体）": "Badge Dojo (5 Tata)",
+    "ボスラリー（15体）": "Boss Rally (15 Tata)",
+    "一覧からタタ系統と実在する進化段階を選びます。ゾンビラッシュだけはPlayer 1またはPlayer 2も選び、Lv・各Player最大3種類のチップ・上限解放を設定できます。": "Choose a Tata family and an available evolution tier. Only Zombie Rush uses Player 1 and Player 2 and supports levels, up to three chip types per Player, and cap unlocks.",
+    "スマホではTierを選ぶと選択画面が右へ収納されます。盤面のマスを押すか、選択中に表示されるタタ画像を空きマスへドラッグして配置できます。再選択するときは上部中央または盤面内の「タタを選ぶ」を押します。各Tier右側のハンドルからもドラッグできます。": "On mobile, choosing a tier slides the picker away to the right. Tap a board cell or drag the selected Tata image onto an empty cell. To choose again, tap Select Tata at the top center or inside the board. You can also drag from the handle beside each tier.",
+    "配置上限は、自由編成・通常・ボスラリーが15体、バッジ道場が5体です。ゾンビラッシュだけはPlayerごとに10体で、配置上限+1を取得済みの場合は11体まで配置できます。": "The placement limit is 15 Tata for Free, Normal, and Boss Rally, and 5 for Badge Dojo. Only Zombie Rush uses a per-Player limit of 10, or 11 when Placement limit +1 has been acquired and enabled.",
+    "盤面にはT1画像と右下にT1〜T4を表示します。P1/P2とLvはゾンビラッシュだけ表示します。": "The board shows the T1 image and the selected T1–T4 tier at bottom right. P1/P2 and levels appear only in Zombie Rush.",
+    "配置済みのマスを押すとTier変更・移動・削除ができます。ゾンビラッシュではPlayer変更と相手Playerへのコピーもできます。": "Tap a filled cell to change its tier, move it, or remove it. In Zombie Rush, you can also change the Player or copy it to the other Player.",
+    "共有URLには進化段階と配置を含み、ゾンビラッシュではPlayer・上限解放・Lv表示設定・選択チップも含みます。編成名や編成内容を当サイトのサーバーやAnalyticsへ送信しません。": "Share URLs include evolution tiers and positions. In Zombie Rush they also include Players, cap unlocks, level display settings, and selected chips. Formation names and content are not sent to our server or Analytics."
   },
   "zh-CN": {
     "モンサバ攻略DBは、モンスターサバイバル（モンサバ）のタタ63系統・224体を収録。Tier、進化先、スキル効果・数値を一覧で確認できます。": "Clash of Critters 攻略数据库收录 63 个 Tatari 系列、共 224 个 Tatari，可查看 Tier、进化路线、技能效果和已确认数值。",
@@ -529,6 +540,17 @@
     "進化名・系統名・alias": "进化名、系列名或别名",
     "共有URL": "分享链接",
     "既存のゾンビラッシュTierで上位の候補：": "现有 Zombie Rush Tier 中的上位候选：",
-    "モンサバ ゾンビラッシュ Season 1 AI予測Tier｜ゾンビラッシュ攻略": "Clash of Critters Zombie Rush 第1赛季 AI预测Tier｜Zombie Rush攻略"
+    "モンサバ ゾンビラッシュ Season 1 AI予測Tier｜ゾンビラッシュ攻略": "Clash of Critters Zombie Rush 第1赛季 AI预测Tier｜Zombie Rush攻略",
+    "自由編成（15体）": "自由阵容（15只）",
+    "通常（15体）": "普通（15只）",
+    "ゾンビラッシュ（各Player 10体）": "Zombie Rush（每位Player 10只）",
+    "バッジ道場（5体）": "徽章道场（5只）",
+    "ボスラリー（15体）": "首领集结（15只）",
+    "一覧からタタ系統と実在する進化段階を選びます。ゾンビラッシュだけはPlayer 1またはPlayer 2も選び、Lv・各Player最大3種類のチップ・上限解放を設定できます。": "从列表选择塔塔系列和实际存在的进化阶段。只有Zombie Rush需要选择Player 1或Player 2，并可设置等级、每位Player最多3种芯片及上限解锁。",
+    "スマホではTierを選ぶと選択画面が右へ収納されます。盤面のマスを押すか、選択中に表示されるタタ画像を空きマスへドラッグして配置できます。再選択するときは上部中央または盤面内の「タタを選ぶ」を押します。各Tier右側のハンドルからもドラッグできます。": "在手机上选择Tier后，选择面板会向右收起。点击棋盘格或将当前选择的塔塔图片拖到空位即可放置。再次选择时，请点击顶部中央或棋盘区域内的“选择塔塔”。也可从各Tier右侧的手柄拖动。",
+    "配置上限は、自由編成・通常・ボスラリーが15体、バッジ道場が5体です。ゾンビラッシュだけはPlayerごとに10体で、配置上限+1を取得済みの場合は11体まで配置できます。": "自由阵容、普通和首领集结的上阵上限为15只，徽章道场为5只。只有Zombie Rush按Player计算，每位上限10只；已获得并开启上阵上限+1时可放置11只。",
+    "盤面にはT1画像と右下にT1〜T4を表示します。P1/P2とLvはゾンビラッシュだけ表示します。": "棋盘显示T1图片，并在右下角显示所选T1～T4阶段。P1/P2和等级仅在Zombie Rush中显示。",
+    "配置済みのマスを押すとTier変更・移動・削除ができます。ゾンビラッシュではPlayer変更と相手Playerへのコピーもできます。": "点击已放置的格子可更改Tier、移动或删除。在Zombie Rush中还可更改Player或复制给另一位Player。",
+    "共有URLには進化段階と配置を含み、ゾンビラッシュではPlayer・上限解放・Lv表示設定・選択チップも含みます。編成名や編成内容を当サイトのサーバーやAnalyticsへ送信しません。": "分享链接包含进化阶段和位置；在Zombie Rush中还包含Player、上限解锁、等级显示设置和所选芯片。阵容名称与内容不会发送至本站服务器或Analytics。"
   }
 }

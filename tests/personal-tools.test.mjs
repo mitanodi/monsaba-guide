@@ -10,7 +10,7 @@ import {
 import {
   TEAM_KEY, DRAFT_KEY, TEAM_VERSION, SHARE_VERSION, TEAM_ROWS, TEAM_COLUMNS, TEAM_SLOTS, MAX_SAVED_TEAMS, emptyTeam, sanitizeTeam,
   loadTeams, loadDraft, saveDraft, saveTeamList, upsertTeam, placeMember, copyMemberToPlayer, togglePlayerChip, removeMember, moveMember,
-  placementIssue, setPlayerUnlock, playerCount, playerLimit, levelLimit,
+  placementIssue, setPlayerUnlock, playerCount, playerLimit, levelLimit, MODE_PLAYER_LIMITS, activePlayerIds,
   encodeTeam, decodeTeam, analyzeTeam, teamText, stage1ImageFor
 } from '../team-builder/team-core.js';
 
@@ -203,7 +203,7 @@ test('v2共有は36枠を保ち、旧要素へPlayerとLvの安全な初期値�
   assert.deepEqual(migrated.slots[35], { familyId: second.id, stage: 2, playerId: 1, level: 1 });
 });
 
-test('P1/P2は通常各10体で独立し、11体目を拒否する', () => {
+test('ゾンビラッシュはP1/P2各10体で独立し、11体目を拒否する', () => {
   let team = emptyTeam();
   for (let index = 0; index < 10; index += 1) team = placeMember(team, index, { familyId: families[index].id, stage: 1, playerId: 1, level: 1 }, families);
   for (let index = 10; index < 20; index += 1) team = placeMember(team, index, { familyId: families[index - 10].id, stage: 1, playerId: 2, level: 7 }, families);
@@ -211,6 +211,44 @@ test('P1/P2は通常各10体で独立し、11体目を拒否する', () => {
   assert.equal(playerLimit(team, 1), 10); assert.equal(playerLimit(team, 2), 10);
   assert.equal(placementIssue(team, 20, { familyId: families[10].id, stage: 1, playerId: 1, level: 1 }, families), 'player-full');
   assert.equal(placeMember(team, 20, { familyId: families[10].id, stage: 1, playerId: 1, level: 1 }, families).slots[20], null);
+});
+
+test('モード別上限は自由・通常・ボス15体、ゾンビ10体、バッジ道場5体', () => {
+  assert.deepEqual(MODE_PLAYER_LIMITS, { free: 15, normal: 15, zombie: 10, dojo: 5, boss: 15 });
+  for (const [mode, limit] of Object.entries(MODE_PLAYER_LIMITS)) {
+    const team = sanitizeTeam({ ...emptyTeam(), mode }, families);
+    assert.equal(playerLimit(team, 1), limit, mode);
+    assert.deepEqual(activePlayerIds(team), mode === 'zombie' ? [1, 2] : [1], mode);
+    assert.equal(playerLimit(team, 2), mode === 'zombie' ? 10 : 0, mode);
+  }
+});
+
+test('自由・通常・ボスは15体、バッジ道場は5体で配置を停止する', () => {
+  for (const [mode, limit] of [['free', 15], ['normal', 15], ['boss', 15], ['dojo', 5]]) {
+    let team = sanitizeTeam({ ...emptyTeam(), mode }, families);
+    for (let index = 0; index < limit; index += 1) team = placeMember(team, index, { familyId: families[index].id, stage: 1, playerId: 1, level: 1 }, families);
+    assert.equal(playerCount(team, 1), limit, mode);
+    assert.equal(placementIssue(team, limit, { familyId: families[limit].id, stage: 1, playerId: 1, level: 1 }, families), 'player-full', mode);
+  }
+});
+
+test('ゾンビラッシュ以外はP2・チップ・上限解放を保持しない', () => {
+  let source = emptyTeam(); source.mode = 'normal'; source.playerSettings[1].slotLimitPlusOne = true; source.playerSettings[2].levelCapPlusOne = true;
+  source.chips = { 1: ['attack-up-1'], 2: ['attack-up-2'] };
+  source.slots[0] = { familyId: first.id, stage: 1, playerId: 1, level: 1 };
+  source.slots[1] = { familyId: second.id, stage: 1, playerId: 2, level: 1 };
+  const clean = sanitizeTeam(source, families);
+  assert.equal(clean.slots[0].playerId, 1); assert.equal(clean.slots[1], null);
+  assert.deepEqual(clean.chips, { 1: [], 2: [] });
+  assert.deepEqual(clean.playerSettings, { 1: { slotLimitPlusOne: false, levelCapPlusOne: false }, 2: { slotLimitPlusOne: false, levelCapPlusOne: false } });
+  assert.equal(placementIssue(clean, 1, { familyId: second.id, stage: 1, playerId: 2, level: 1 }, families), 'invalid-player');
+});
+
+test('15体編成は共有URLで欠けずに往復する', () => {
+  let team = sanitizeTeam({ ...emptyTeam(), mode: 'free' }, families);
+  for (let index = 0; index < 15; index += 1) team = placeMember(team, index, { familyId: families[index].id, stage: 1, playerId: 1, level: 1 }, families);
+  const decoded = decodeTeam(encodeTeam(team, families), families);
+  assert.equal(decoded.mode, 'free'); assert.equal(playerCount(decoded, 1), 15); assert.equal(playerCount(decoded, 2), 0);
 });
 
 test('配置上限+1はPlayerごとに11体目だけを許可し12体目を拒否する', () => {
@@ -518,10 +556,11 @@ test('Player・Lv・解放設定の変更は共通commitを通りUndoとRedo対�
   assert.match(source, /undoStack\.push\(cloneTeam/); assert.match(source, /redoStack\.push\(cloneTeam/);
 });
 
-test('全セルはbuttonでキーボード操作でき詳細aria-labelにPlayer・Tと任意Lvを含む', () => {
+test('全セルはbuttonでキーボード操作でき詳細aria-labelのPlayer表記をゾンビラッシュだけにする', () => {
   const source = read('team-builder/team-builder.js');
   assert.match(source, /<button class="formation-cell/);
-  assert.match(source, /Player \$\{slot\.playerId\} \$\{getFamilyDisplayLabel\(member\.family\)\} T\$\{slot\.stage\}\$\{level\}/);
+  assert.match(source, /team\.mode === 'zombie' \? `Player \$\{slot\?\.playerId\} ` : ''/);
+  assert.match(source, /\$\{player\}\$\{getFamilyDisplayLabel\(member\.family\)\} T\$\{slot\.stage\}\$\{level\}/);
 });
 
 test('JA・EN・zh-CNの生成ページは新UIを持ち診断UIを持たない', () => {
