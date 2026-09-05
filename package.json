@@ -22,7 +22,8 @@
     "validate:2026-08-30": "node scripts/validate-aug30-update.mjs",
     "validate:phase4": "node scripts/validate-phase4.mjs",
     "validate:phase5": "node scripts/validate-phase5.mjs",
-    "validate": "npm run check:syntax && npm run validate:data && npm run validate:site && npm run validate:growth && npm run validate:zombie-prediction && npm run validate:stale && npm run validate:master && npm run validate:2026-08-30 && npm run validate:i18n && npm run validate:translation-quality && npm run validate:gift-codes && npm run validate:summer-party && npm run validate:tata-images && npm run validate:official-assets && npm run validate:tata-name-i18n && npm run validate:tata-name-localization && npm run validate:og && npm run validate:phase4 && npm run validate:phase5 && node scripts/generate-sitemap.mjs --check",
+    "validate:phase6": "node scripts/validate-phase6.mjs",
+    "validate": "npm run check:syntax && npm run validate:data && npm run validate:site && npm run validate:growth && npm run validate:zombie-prediction && npm run validate:stale && npm run validate:master && npm run validate:2026-08-30 && npm run validate:i18n && npm run validate:translation-quality && npm run validate:gift-codes && npm run validate:summer-party && npm run validate:tata-images && npm run validate:official-assets && npm run validate:tata-name-i18n && npm run validate:tata-name-localization && npm run validate:og && npm run validate:phase4 && npm run validate:phase5 && npm run validate:phase6 && node scripts/generate-sitemap.mjs --check",
     "generate:tata": "node scripts/generate-tata-pages.mjs",
     "generate:beginner": "node scripts/generate-beginner-guide.mjs",
     "generate:updates": "node scripts/generate-update-2026-08-26.mjs",
@@ -75,9 +76,10 @@
     "test:phase3-ux": "node --test tests/phase3-ux.test.mjs",
     "test:phase4": "node --test tests/phase4.test.mjs",
     "test:phase5": "node --test tests/phase5.test.mjs",
+    "test:phase6": "node --test tests/phase6.test.mjs",
     "test:tata-name-i18n": "node --test tests/tata-name-i18n.test.mjs",
     "test:tata-name-localization": "node --test tests/tata-name-localization.test.mjs",
-    "test": "npm run test:friends && npm run test:board && npm run test:community && npm run test:phase2 && npm run test:phase3-ux && npm run test:phase4 && npm run test:phase5 && npm run test:official-x && npm run test:family-display && npm run test:affiliate && npm run test:adsense && npm run test:ga4 && npm run test:personal-tools && npm run test:treasure-hunt && npm run test:i18n && npm run test:pdf-evidence && npm run test:gift-codes && npm run test:summer-party && npm run test:event-research && npm run test:tata-images && npm run test:official-assets && npm run test:official-assets-full && npm run test:official-response && npm run test:tata-name-i18n && npm run test:tata-name-localization && npm run test:og"
+    "test": "npm run test:friends && npm run test:board && npm run test:community && npm run test:phase2 && npm run test:phase3-ux && npm run test:phase4 && npm run test:phase5 && npm run test:phase6 && npm run test:official-x && npm run test:family-display && npm run test:affiliate && npm run test:adsense && npm run test:ga4 && npm run test:personal-tools && npm run test:treasure-hunt && npm run test:i18n && npm run test:pdf-evidence && npm run test:gift-codes && npm run test:summer-party && npm run test:event-research && npm run test:tata-images && npm run test:official-assets && npm run test:official-assets-full && npm run test:official-response && npm run test:tata-name-i18n && npm run test:tata-name-localization && npm run test:og"
   },
   "dependencies": {
     "@upstash/redis": "^1.38.2"

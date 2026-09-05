@@ -58,14 +58,19 @@
   const safeValue = (value) => typeof value === 'number' || typeof value === 'boolean'
     ? value
     : String(value ?? '').replace(/[\r\n\t]/g, ' ').slice(0, 80);
+  const safeAnalyticsPathname = (pathname) => pathname.replace(
+    /^\/((?:en|zh-cn)\/)?tata\/[^/]+\/?$/,
+    (_, locale = '') => `/${locale}tata/:family/`
+  );
+  const productionAnalytics = ['monster-survival.com', 'www.monster-survival.com'].includes(location.hostname);
   const track = (name, properties = {}) => {
     if (!allowedEvents.has(name)) return false;
     const safe = Object.fromEntries(Object.entries(properties).slice(0, 8).map(([key, value]) => [key, safeValue(value)]));
     if (typeof window.va === 'function') window.va('event', name, safe);
-    if (typeof window.gtag === 'function') {
+    if (productionAnalytics && typeof window.gtag === 'function') {
       const allowed = ga4AllowedProperties[name] || [];
       const ga4Safe = Object.fromEntries(allowed.filter((key) => Object.hasOwn(safe, key)).map((key) => [key, safe[key]]));
-      ga4Safe.page_location = `${location.origin}${location.pathname}`;
+      ga4Safe.page_location = `${location.origin}${safeAnalyticsPathname(location.pathname)}`;
       window.gtag('event', name, ga4Safe);
     }
     document.dispatchEvent(new CustomEvent('monsaba:analytics', { detail: { name, properties: safe } }));

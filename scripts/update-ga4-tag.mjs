@@ -37,7 +37,11 @@ export const renderGa4Tag = () => `${GA4_START_MARKER}
   function monsabaSafeAnalyticsUrl(value) {
     try {
       var url = new URL(value, window.location.href);
-      return url.origin + url.pathname;
+      var pathname = url.pathname.replace(
+        /^\/((?:en|zh-cn)\/)?tata\/[^/]+\/?$/,
+        function hideTataFamily(_, locale) { return '/' + (locale || '') + 'tata/:family/'; }
+      );
+      return url.origin + pathname;
     } catch (error) {
       return '';
     }

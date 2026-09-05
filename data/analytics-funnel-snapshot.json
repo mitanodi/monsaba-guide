@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "propertyId": "551944426",
   "measurementId": "G-PTV8TYNYMR",
   "observedAt": "2026-09-05",
@@ -21,5 +21,14 @@
     { "event": "beginner_to_tata", "eventCount": null, "users": null, "status": "not_observed" }
   ],
   "sampleStatus": "INSUFFICIENT_DATA",
-  "note": "The six privacy-safe funnel events were deployed after most of the processed reporting window and were not present in the 36-event report. Null means not observed, not a fabricated zero."
+  "implementation": {
+    "commit": "449a00177967bf85ec6c05af807758de9be0d965",
+    "productionFrom": "2026-09-05T09:03:36+09:00",
+    "codeStatus": "PASS",
+    "eventNameMatch": "PASS",
+    "productionGuard": "PASS",
+    "privacyGuard": "PASS"
+  },
+  "diagnosis": ["implementation_too_recent", "standard_report_ends_before_deployment", "reporting_latency"],
+  "note": "The standard report ends on 2026-09-04, before the six privacy-safe funnel events reached Production on 2026-09-05. Null means not observed, not a fabricated zero."
 }

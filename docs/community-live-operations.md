@@ -2,6 +2,14 @@
 
 最初の実投稿が入るまでは `INSUFFICIENT DATA` とし、架空投稿・架空Helpful・架空クリア報告を作らない。
 
+## Phase 6確認（2026-09-05）
+
+- Production実投稿: 0件
+- Team Builder保存状態: P1ベロパカT1、P1コパンダT1、P2コパンダT1、P1チップ3種をUI上で確認
+- 真実性: 実ゲームで使った編成か未確認
+- 投稿フォーム: 開いたが、title・Difficulty・Resultを推測入力せず未送信
+- 次のHuman Action: 編成内容が本物か投稿者が確認し、必要なら正しいTier・Lv・Chipへ直してから公開確認へ進む
+
 ## 読み取り専用の自動監査
 
 ```sh

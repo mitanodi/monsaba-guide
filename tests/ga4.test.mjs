@@ -71,10 +71,11 @@ test('page_viewはconfigによる自動送信だけでhistory listenerを追加�
 
 test('GA4のpage locationとreferrerからquery・fragmentを除外する', () => {
   const generator = read('scripts/update-ga4-tag.mjs');
-  assert.match(generator, /return url\.origin \+ url\.pathname/);
+  assert.match(generator, /return url\.origin \+ pathname/);
+  assert.match(generator, /tata\/:family/);
   assert.match(generator, /page_location: monsabaPageLocation/);
   assert.match(generator, /page_referrer: monsabaPageReferrer/);
-  assert.match(read('growth.js'), /ga4Safe\.page_location = `\$\{location\.origin\}\$\{location\.pathname\}`/);
+  assert.match(read('growth.js'), /safeAnalyticsPathname\(location\.pathname\)/);
   assert.ok(generator.indexOf('protectPrivateSearchParameters') < generator.indexOf('googletagmanager.com/gtag/js'));
   assert.match(generator, /\['q', 's', 'search', 'query', 'keyword'\]/);
   assert.match(generator, /history\.replaceState/);

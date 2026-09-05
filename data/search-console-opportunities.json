@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "observedAt": "2026-09-05",
+  "source": "Google Search Console authenticated UI",
+  "property": "sc-domain:monster-survival.com",
+  "period": {
+    "label": "28_days",
+    "availableDateRange": "2026-08-23/2026-09-02",
+    "siteAverageCtr": 0.233,
+    "siteAveragePosition": 5.0
+  },
+  "selectionRule": "impressions are material, position is 4 through 15, and CTR is below the site average",
+  "opportunities": [
+    {
+      "query": "モンスターサバイバル最強キャラ",
+      "page": "/tata-tier/",
+      "clicks": 78,
+      "impressions": 458,
+      "ctr": 0.17,
+      "position": 6.5,
+      "opportunityType": "ctr_and_ranking",
+      "recommendedAction": "既存Tierページの強い構造は維持し、検索意図に合う内部リンク文言と冒頭説明を次回データで比較する。",
+      "confidence": "high",
+      "landingBreakdown": [{ "page": "/tata-tier/", "clicks": 78, "impressions": 455, "ctr": 0.171, "position": 6.5 }]
+    },
+    {
+      "query": "モンバサ 最強",
+      "page": "/tata-tier/",
+      "clicks": 51,
+      "impressions": 341,
+      "ctr": 0.15,
+      "position": 6.5,
+      "opportunityType": "query_variant",
+      "recommendedAction": "表記ゆれ需要として監視し、誤記をtitleやH1へ追加しない。",
+      "confidence": "medium",
+      "landingBreakdown": [{ "page": "/tata-tier/", "clicks": 51, "impressions": 341, "ctr": 0.15, "position": 6.5 }]
+    },
+    {
+      "query": "モンスターサバイバル 道場",
+      "page": "/badge-dojo/",
+      "clicks": 21,
+      "impressions": 126,
+      "ctr": 0.167,
+      "position": 5.8,
+      "opportunityType": "ctr",
+      "recommendedAction": "Badge Dojoへの内部リンクを明示的な『バッジ道場攻略』表現で統一する候補として観測する。",
+      "confidence": "high",
+      "landingBreakdown": [{ "page": "/badge-dojo/", "clicks": 21, "impressions": 102, "ctr": 0.206, "position": 4.9 }]
+    },
+    {
+      "query": "モンスターサバイバル パクマ",
+      "page": "/tata/pakuma/",
+      "clicks": 16,
+      "impressions": 119,
+      "ctr": 0.134,
+      "position": 7.1,
+      "opportunityType": "entity_landing_and_cannibalization_watch",
+      "recommendedAction": "パクマ個別ページを正規Landingとして維持し、TOP・updates・Tierとの小規模な表示分散を次回も監視する。",
+      "confidence": "high",
+      "landingBreakdown": [
+        { "page": "/tata/pakuma/", "clicks": 14, "impressions": 73, "ctr": 0.192, "position": 5.5 },
+        { "page": "/", "clicks": 3, "impressions": 54, "ctr": 0.056, "position": 9.7 }
+      ]
+    },
+    {
+      "query": "モンスターサバイバー 進化",
+      "page": "/evolution-priority/",
+      "clicks": 11,
+      "impressions": 137,
+      "ctr": 0.08,
+      "position": 5.1,
+      "opportunityType": "ctr_and_query_variant",
+      "recommendedAction": "進化優先度ページの冒頭から進化条件・必要星数へ到達しやすいかを確認し、誤記は見出しへ追加しない。",
+      "confidence": "medium",
+      "landingBreakdown": [{ "page": "/evolution-priority/", "clicks": 11, "impressions": 136, "ctr": 0.081, "position": 5.1 }]
+    },
+    {
+      "query": "モンスターサバイバル タタ",
+      "page": "/tata-tier/",
+      "clicks": 11,
+      "impressions": 111,
+      "ctr": 0.099,
+      "position": 7.3,
+      "opportunityType": "intent_clarification",
+      "recommendedAction": "Tierから図鑑・属性別への導線が検索直後に理解できるかを確認する。新ページは作らない。",
+      "confidence": "medium",
+      "landingBreakdown": [{ "page": "/tata-tier/", "clicks": 11, "impressions": 102, "ctr": 0.108, "position": 7.1 }]
+    },
+    {
+      "query": "モンスターサバイバル 攻略",
+      "page": "/",
+      "clicks": 10,
+      "impressions": 99,
+      "ctr": 0.101,
+      "position": 12.6,
+      "opportunityType": "ranking_and_landing_strength",
+      "recommendedAction": "TOPの攻略ハブ導線を維持し、データ期間が伸びてから/guides/との役割を再評価する。",
+      "confidence": "high",
+      "landingBreakdown": [{ "page": "/", "clicks": 10, "impressions": 99, "ctr": 0.101, "position": 12.6 }]
+    },
+    {
+      "query": "モンスターサバイバル 進化",
+      "page": "/evolution-priority/",
+      "clicks": 7,
+      "impressions": 120,
+      "ctr": 0.058,
+      "position": 7.5,
+      "opportunityType": "ctr",
+      "recommendedAction": "進化優先度と進化の試練の違いを内部リンク文言で明確化する候補として継続観測する。",
+      "confidence": "high",
+      "landingBreakdown": [{ "page": "/evolution-priority/", "clicks": 7, "impressions": 119, "ctr": 0.059, "position": 7.5 }]
+    },
+    {
+      "query": "モンサバ ティア",
+      "page": "/tata-tier/",
+      "clicks": 7,
+      "impressions": 70,
+      "ctr": 0.10,
+      "position": 7.4,
+      "opportunityType": "ctr",
+      "recommendedAction": "既に強いTierクラスタを変更せず、次回期間で表記別CTRが継続するか確認する。",
+      "confidence": "medium",
+      "landingBreakdown": [{ "page": "/tata-tier/", "clicks": 7, "impressions": 56, "ctr": 0.125, "position": 7.2 }]
+    },
+    {
+      "query": "モンスターサバイバル 進化の試練",
+      "page": "/evolution/",
+      "clicks": 5,
+      "impressions": 70,
+      "ctr": 0.071,
+      "position": 4.8,
+      "opportunityType": "ctr",
+      "recommendedAction": "進化の試練ページの説明と関連導線を確認する。順位が高いためtitle・H1は変更しない。",
+      "confidence": "high",
+      "landingBreakdown": [{ "page": "/evolution/", "clicks": 5, "impressions": 70, "ctr": 0.071, "position": 4.8 }]
+    }
+  ],
+  "contentGaps": [],
+  "cannibalization": [{
+    "query": "モンスターサバイバル パクマ",
+    "status": "watch",
+    "note": "個別ページが主要クリックを獲得しており、現時点でredirectやcanonical変更を行う根拠は不足。"
+  }],
+  "decision": {
+    "seoChangesApplied": 0,
+    "newPagesCreated": 0,
+    "reason": "実データ期間が短く、主要Tierページは既に高CTR。今回の候補は次回比較用の基準値として保存する。"
+  }
+}

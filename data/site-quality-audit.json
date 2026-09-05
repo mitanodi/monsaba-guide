@@ -3690,7 +3690,7 @@
   ],
   "liveOperations": {
     "community": {
-      "observedAt": "2026-09-05",
+      "observedAt": "2026-09-05T01:22:17.573Z",
       "postCount": 0,
       "sampleStatus": "INSUFFICIENT_DATA"
     },
@@ -3795,7 +3795,7 @@
       },
       {
         "file": "growth.js",
-        "bytes": 9211
+        "bytes": 9531
       },
       {
         "file": "team-builder/team-builder.js",
