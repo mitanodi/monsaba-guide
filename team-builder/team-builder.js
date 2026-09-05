@@ -120,7 +120,8 @@ function renderSelection() {
   if (!family || !evolution) { selected = null; renderSelection(); return; }
   const image = stage1Image(family);
   const level = levelsVisible() ? ` · Lv${currentLevel}` : '';
-  node.innerHTML = `${image ? `<img src="${esc(image.src)}"${responsiveAttrs(image)} width="64" height="64" alt="${esc(getFamilyDisplayLabel(family))}">` : `<span class="formation-image-placeholder">${esc(COPY.placeholder)}</span>`}<div><small>${esc(COPY.selected)}</small><b>P${currentPlayer} · ${esc(getFamilyDisplayLabel(family))} · T${selected.stage}${level}</b><span>${esc(getTataDisplayName(evolution))}</span></div>`;
+  const dragLabel = `${COPY.dragToBoard}: ${getFamilyDisplayLabel(family)} T${selected.stage}`;
+  node.innerHTML = `${image ? `<img src="${esc(image.src)}"${responsiveAttrs(image)} width="64" height="64" alt="${esc(getFamilyDisplayLabel(family))}" draggable="true" data-selected-drag data-drag-family="${esc(family.id)}" data-drag-stage="${selected.stage}" aria-label="${esc(dragLabel)}" title="${esc(dragLabel)}">` : `<span class="formation-image-placeholder">${esc(COPY.placeholder)}</span>`}<div><small>${esc(COPY.selected)}</small><b>P${currentPlayer} · ${esc(getFamilyDisplayLabel(family))} · T${selected.stage}${level}</b><span>${esc(getTataDisplayName(evolution))}</span><small class="formation-selection-drag-hint">${esc(COPY.dragToBoard)}</small></div>`;
   const selectionStatus = levelsVisible() ? message(COPY.selectCell, { player: currentPlayer, name: getFamilyDisplayLabel(family), stage: selected.stage, level: currentLevel }) : message(COPY.selectCell.replace(/ Lv\{level\}/, ''), { player: currentPlayer, name: getFamilyDisplayLabel(family), stage: selected.stage, level: currentLevel });
   setStatus(selectionStatus, false, '#team-message');
 }
@@ -297,6 +298,16 @@ function bind() {
   $('#team-board').addEventListener('dragover', (event) => { const cell = dropCell(event); if (!cell || !dragPayload) return; event.preventDefault(); event.dataTransfer.dropEffect = dragPayload.type === 'board' ? 'move' : 'copy'; document.querySelectorAll('.is-drop-target').forEach((node) => node.classList.remove('is-drop-target')); cell.classList.add('is-drop-target'); });
   $('#team-board').addEventListener('dragleave', (event) => { const cell = dropCell(event); if (cell && !cell.contains(event.relatedTarget)) cell.classList.remove('is-drop-target'); });
   $('#team-board').addEventListener('drop', dropFormation); $('#team-board').addEventListener('dragend', clearDragState);
+  $('#team-selection').addEventListener('pointerdown', (event) => {
+    const source = event.target.closest('[data-selected-drag]'); if (!source) return;
+    beginPointerDrag(event, { type: 'picker', familyId: source.dataset.dragFamily, stage: Number(source.dataset.dragStage), playerId: currentPlayer, level: currentLevel }, source, { preventDefault: true, activateImmediately: true });
+  });
+  $('#team-selection').addEventListener('dragstart', (event) => {
+    const source = event.target.closest('[data-selected-drag]'); if (!source) return;
+    pointerDrag = null; dragPayload = { type: 'picker', familyId: source.dataset.dragFamily, stage: Number(source.dataset.dragStage), playerId: currentPlayer, level: currentLevel };
+    event.dataTransfer.effectAllowed = 'copy'; event.dataTransfer.setData('text/plain', 'monsaba-selected-tata'); source.classList.add('is-dragging'); const ghost = createDragGhost(dragPayload, true); event.dataTransfer.setDragImage?.(ghost, 44, 44);
+  });
+  $('#team-selection').addEventListener('dragend', clearDragState);
   $('#team-player-settings').addEventListener('click', (event) => { const button = event.target.closest('[data-current-player]'); if (button) { currentPlayer = Number(button.dataset.currentPlayer); currentLevel = Math.min(currentLevel, levelLimit(team, currentPlayer)); renderAll(); } });
   $('#team-player-settings').addEventListener('change', (event) => { if (event.target.matches('[data-player-unlock]')) changeUnlock(event.target); });
   $('#team-placement-controls').addEventListener('click', (event) => { const player = event.target.closest('[data-current-player]'); const level = event.target.closest('[data-current-level]'); if (player) { currentPlayer = Number(player.dataset.currentPlayer); currentLevel = Math.min(currentLevel, levelLimit(team, currentPlayer)); renderAll(); } if (level) { currentLevel = Number(level.dataset.currentLevel); renderPlacementControls(); renderSelection(); } });

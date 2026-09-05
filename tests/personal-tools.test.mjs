@@ -493,8 +493,15 @@ test('スマホPickerは縦スクロールと専用ハンドルDragを分離し�
   assert.match(site, /revealBoard/);
   assert.match(site, /aria-controls/);
   assert.match(styles, /team-picker-sheet-toggle\{position:fixed/);
+  assert.match(styles, /team-picker-sheet-toggle\{[^}]*left:50%[^}]*min-width:184px[^}]*min-height:68px/);
   assert.match(styles, /transform:translateX\(calc\(100% \+ 20px\)\)/);
   assert.match(styles, /formation-picker\.is-sheet-open\{visibility:visible;pointer-events:auto;transform:translateX\(0\)/);
+  assert.match(site, /data-team-picker-open/);
+  assert.match(site, /data-team-board-focus/);
+  assert.match(css, /formation-primary-actions/);
+  assert.match(source, /data-selected-drag/);
+  assert.match(source, /monsaba-selected-tata/);
+  assert.match(css, /formation-selection \[data-selected-drag\]\{[^}]*touch-action:none/);
 });
 
 test('Lv8解除はconfirmのキャンセルと承認を分け、承認時だけdowngradeする', () => {

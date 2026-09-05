@@ -437,9 +437,9 @@
   }
 
   const focusCopy = {
-    ja: { focus: '集中モード', close: '集中モードを終了', picker: 'タタを選ぶ', pickerClose: '選択を閉じる' },
-    en: { focus: 'Focus mode', close: 'Exit focus mode', picker: 'Choose Tata', pickerClose: 'Close picker' },
-    'zh-CN': { focus: '专注模式', close: '退出专注模式', picker: '选择 Tata', pickerClose: '关闭选择器' }
+    ja: { focus: '集中モード', close: '集中モードを終了', picker: 'タタを選ぶ', pickerClose: '選択を閉じる', build: '編成を組む' },
+    en: { focus: 'Focus mode', close: 'Exit focus mode', picker: 'Choose Tata', pickerClose: 'Close picker', build: 'Build formation' },
+    'zh-CN': { focus: '专注模式', close: '退出专注模式', picker: '选择 Tata', pickerClose: '关闭选择器', build: '开始编队' }
   }[locale];
   const formationShell = document.querySelector('.formation-shell');
   const formationPicker = document.querySelector('.formation-picker');
@@ -477,6 +477,17 @@
     pickerToggle.addEventListener('click', () => setPickerOpen(!formationPicker.classList.contains('is-sheet-open')));
     document.addEventListener('monsaba:formation-picker', (event) => setPickerOpen(Boolean(event.detail?.open), Boolean(event.detail?.revealBoard)));
     document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && formationPicker.classList.contains('is-sheet-open')) setPickerOpen(false); });
+    document.querySelectorAll('[data-team-picker-open]').forEach((button) => {
+      button.textContent = focusCopy.picker;
+      button.addEventListener('click', () => {
+        setPickerOpen(true);
+        requestAnimationFrame(() => formationPicker.scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }));
+      });
+    });
+    document.querySelectorAll('[data-team-board-focus]').forEach((button) => {
+      button.textContent = focusCopy.build;
+      button.addEventListener('click', () => setPickerOpen(false, true));
+    });
     formationPicker.before(pickerToggle);
   }
 
