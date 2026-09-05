@@ -68,3 +68,68 @@ Performance: 新しい依存・大型画像・フレームワーク追加0。ブ
 HUMAN_VERIFICATION_REQUIRED: 物理iPhone Safariのtouch/キーボード/safe-area、OS保存画像・Discord実貼付、実Community投稿後の2端末検証。投稿0件のためmulti-mode Communityは設計のみ（mode discriminator、mode別上限、ZR専用設定、既存ZR互換が必要）。実データなしの大規模投稿UI変更はしない。
 
 ローカル検証: `npm run generate:site`、`npm test`、`npm run validate`成功。npm test内の全生成idempotency成功。並行生成中の中間HTMLを検証して出た一時エラーは、生成/検証を直列に再実行して解消。公開後の記録は追記する。
+
+## 公開後検証と54項目の報告
+
+実装修正をmainへpush。既存Vercel Git Integrationのみを使用。Production READY・独自domain alias・commit SHA一致を確認。
+本番でFree15→Dojo5→Free15、編集dialog、PC盤面画像移動、モバイル選択後収納、選択中画像→5行4列への配置を再確認。監査前に控えた4体Boss編成を共有URLで戻し、名前欄の入力操作で端末草稿にも再保存した。ユーザーの元のブラウザーtabは操作しない。
+
+| # | 項目 | 結果 |
+|---|---|---|
+| 1 | 開始HEAD | `14039956b7de58b3fd7b60631091105c05a8a107` |
+| 2 | 実装完了HEAD | `0a81205efc3354fad5dcf3c022ec26c6111584e8`（本節は公開後追記） |
+| 3 | Astra機能 | in-app browserのnavigation/AX/DOM読取/click/fill/select/key/drag/viewport/screenshot/console |
+| 4 | route数 | 全384、自動metadata対象354indexable。主要15×3localeを詳細比較 |
+| 5 | viewport数 | 10幅。全routeは390、主要は390/1366、他幅は代表3route |
+| 6 | JA | 主要15routeのbefore/local-after/production、編成・検索等の実操作 |
+| 7 | EN | 同じ主要15route、mode操作、5属性overflowとlead修正 |
+| 8 | zh-CN | 同じ主要15route、mode操作、5属性lead修正 |
+| 9 | A before | 5原因 |
+| 10 | A after | 検出した5原因を修正・再検証、既知残存0 |
+| 11 | B before | 5原因 |
+| 12 | B after | 検出した5原因を修正、既知残存0 |
+| 13 | C before | 0（未検出を完全性の保証としない） |
+| 14 | C after | 0 |
+| 15 | Navigation | 既存目的別構造を維持。モバイル開閉・Escape確認 |
+| 16 | TOP | 編成ツール紹介を5mode・mode別保存へ更新、3言語反映 |
+| 17 | Tata一覧 | 既存構造維持。検索・読み込み済み画像検査 |
+| 18 | Tata detail | ゲーム情報維持。64系統の全route描画、詳細代表を3言語で比較 |
+| 19 | Tier | 順位変更なし。通常＋火filterを実操作、評価保留を維持 |
+| 20 | Beginner | 育成値変更なし。早めT3の3候補を確認 |
+| 21 | Search | page検索・global検索成功。新たな検索仕様変更なし |
+| 22 | Compare | 2体比較・query反映成功。既存2列を維持 |
+| 23 | Team Builder | mode草稿、state/DOM同期、click/native drag、投稿guard、空状態修正 |
+| 24 | Mode安全性 | 15→5→15、P2一時非表示→復元、再読込、URL復元、Undo/Redo |
+| 25 | Mobile Picker | 自動収納・再表示・Escapeを確認。×閉じるは既存維持 |
+| 26 | Mobile Drag | ローカル上段/下段、本番下段で選択画像から配置成功。物理touch未確認 |
+| 27 | PC Drag | 本番でスズメラ1行2列→1行1列成功 |
+| 28 | Community | 非ZR投稿を防止。実投稿0、偽投稿0。multi-modeは設計のみ |
+| 29 | Events | 状態filterを確認。開催日・ゲーム情報は変更なし |
+| 30 | Design System | 既存を維持。flex min-widthと長語折返し、hidden button修正 |
+| 31 | Accessibility | label、dialog、keyboard等部分確認。包括WCAG監査未実施 |
+| 32 | Performance | 新依存/大型画像0。反復描画確認。定量CWV/Lighthouse未測定 |
+| 33 | SEO | validate成功、canonical/hreflang・354indexable維持。意図的title/H1変更なし |
+| 34 | Analytics | GA4 privacy/重複検査成功、計測コード自体は変更なし |
+| 35 | 公式画像 | 225 verifiedを維持。公式原本変更なし |
+| 36 | pending | 5維持: nenbutsuhebi T4 / pakuma T2,T3,T4 / sukedako T4 |
+| 37 | Broken links | 生成・参照検査0、本番全384HTTP成功 |
+| 38 | Broken images | ローカル全384・本番代表90の読み込み済み画像破損0 |
+| 39 | Overflow | 本番代表90異常0。修正英語5routeを320幅でも0 |
+| 40 | Console errors | 最終本番巡回tabのerrorログ0 |
+| 41 | API errors | Community read API200/0posts、Friends reloadで一覧表示。新deployment error/fatalログ0（確認時点） |
+| 42 | generate | 成功 |
+| 43 | validate | 成功 |
+| 44 | tests | 全npm test成功 |
+| 45 | idempotency | 最終成功。翻訳辞書更新後のasset hash収束を再生成で確認 |
+| 46 | GitHub Actions | [Validate site成功](https://github.com/mitanodi/monsaba-guide/actions/runs/33977534455) |
+| 47 | Deployment | `dpl_AUAirX87GRuMm7NKuLFCxXCyFn6P` |
+| 48 | Production | READY、monster-survival.com alias、Git source、build約13秒、frameworkなし |
+| 49 | working tree | 実装push後は既存untracked promo/のみ。本節は報告追記commit |
+| 50 | promo | 未操作・未stage |
+| 51 | chigonoki | 未アクセス・未変更 |
+| 52 | AdSense | 未変更、adsEnabled:false維持 |
+| 53 | ads.txt | 未変更 |
+| 54 | A8 | 承認コード/遷移先/計測/配置設定未変更、affiliateEnabled:true維持 |
+
+ASTRA_CONFIRMEDは本書の実操作と描画検査のみ。CODE_CONFIRMEDは草稿保全・mode上限・投稿guard・SEO/データ/計測の自動検証。HUMAN_VERIFICATION_REQUIREDは上記の物理実機・OS保存・実投稿後の確認。未検証項目を合格扱いしない。
+運用監視: 今回deploymentのerror/fatalを直近1hで照会して0件。継続監視automation/新Drainsは作成・変更していない。
