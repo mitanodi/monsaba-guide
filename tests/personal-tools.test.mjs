@@ -474,6 +474,21 @@ test('配置済みdialogから相手Playerへコピーでき、一覧と盤面�
   assert.match(css, /formation-cell\.is-drop-target/); assert.match(css, /cursor:grab/);
 });
 
+test('スマホPickerは縦スクロールと専用ハンドルDragを分離し、Drag中は盤面を露出する', () => {
+  const source = read('team-builder/team-builder.js'); const css = read('my-tools.css');
+  assert.match(source, /data-drag-handle/);
+  assert.match(source, /closest\('\[data-drag-handle\]'\)/);
+  assert.match(source, /matchMedia\('\(hover: hover\) and \(pointer: fine\)'\)/);
+  assert.doesNotMatch(source, /formation-pick-card[^`]*<img[^`]*draggable="true"/);
+  assert.match(source, /formation-drag-ghost/);
+  assert.match(source, /is-drag-compact/);
+  assert.match(source, /renderPicker\(\{ resetScroll: true \}\)/);
+  assert.match(css, /formation-picker-list\{[^}]*min-height:0[^}]*overflow-y:auto[^}]*-webkit-overflow-scrolling:touch[^}]*touch-action:pan-y/);
+  assert.match(css, /formation-drag-handle\{[^}]*touch-action:none/);
+  assert.match(css, /formation-picker\.is-drag-compact/);
+  assert.match(css, /max-height:72svh/);
+});
+
 test('Lv8解除はconfirmのキャンセルと承認を分け、承認時だけdowngradeする', () => {
   const source = read('team-builder/team-builder.js');
   assert.match(source, /confirm\(COPY\.levelOffConfirm\)/);

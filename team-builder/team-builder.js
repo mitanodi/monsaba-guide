@@ -150,10 +150,12 @@ function renderChipSettings() {
 }
 
 function renderFilters() { $('#team-attribute-filters').innerHTML = Object.entries(ATTRIBUTE_LABELS).map(([key, label]) => `<button type="button" class="attribute-filter${attribute === key ? ' is-active' : ''}" data-attribute="${esc(key)}" aria-pressed="${attribute === key}">${esc(label)}</button>`).join(''); }
-function renderPicker() {
+function renderPicker({ resetScroll = false } = {}) {
   const query = $('#team-picker-search').value; const ownedOnly = $('#team-owned-only').checked;
   const rows = families.filter((family) => (attribute === 'all' || family.attribute === attribute) && (!ownedOnly || (roster.entries[family.id]?.stage || 0) > 0) && familyMatches(family, query, getFamilySearchAliases(family)));
-  $('#team-picker-list').innerHTML = rows.map((family) => { const image = stage1Image(family); const original = getJapaneseSecondaryLabel(family.evolutions[0]); const dragStage = selected?.familyId === family.id ? selected.stage : 1; return `<article class="formation-pick-card" data-family="${esc(family.id)}">${image ? `<img loading="lazy" decoding="async" src="${esc(image.src)}"${responsiveAttrs(image)} width="72" height="72" alt="${esc(getFamilyDisplayLabel(family))}" draggable="true" data-drag-family="${esc(family.id)}" data-drag-stage="${dragStage}" title="${esc(COPY.dragToBoard)}">` : `<span class="formation-image-placeholder">${esc(COPY.placeholder)}</span>`}<div class="formation-pick-info"><div><b>${esc(getFamilyDisplayLabel(family))}</b>${original ? `<small class="dynamic-original-name">${esc(original)}</small>` : ''}<small>${esc(ATTRIBUTE_LABELS[family.attribute] || family.attribute)} ${esc(COPY.attribute)}</small></div><div class="formation-stage-options">${family.evolutions.map((item) => `<button type="button" draggable="true" class="${selected?.familyId === family.id && selected.stage === Number(item.stage) ? 'is-selected' : ''}" data-pick-family="${esc(family.id)}" data-pick-stage="${item.stage}" data-drag-family="${esc(family.id)}" data-drag-stage="${item.stage}" aria-pressed="${selected?.familyId === family.id && selected.stage === Number(item.stage)}" title="${esc(COPY.dragToBoard)}"><span>T${item.stage}</span>${esc(getTataDisplayName(item))}</button>`).join('')}</div><a href="${localePrefix}/tata/${encodeURIComponent(family.id)}/">${esc(COPY.detail)}</a></div></article>`; }).join('') || `<p>${esc(COPY.noResults)}</p>`;
+  const list = $('#team-picker-list');
+  list.innerHTML = rows.map((family) => { const image = stage1Image(family); const original = getJapaneseSecondaryLabel(family.evolutions[0]); const familyLabel = getFamilyDisplayLabel(family); return `<article class="formation-pick-card" data-family="${esc(family.id)}">${image ? `<img loading="lazy" decoding="async" src="${esc(image.src)}"${responsiveAttrs(image)} width="72" height="72" alt="${esc(familyLabel)}" draggable="false">` : `<span class="formation-image-placeholder">${esc(COPY.placeholder)}</span>`}<div class="formation-pick-info"><div><b>${esc(familyLabel)}</b>${original ? `<small class="dynamic-original-name">${esc(original)}</small>` : ''}<small>${esc(ATTRIBUTE_LABELS[family.attribute] || family.attribute)} ${esc(COPY.attribute)}</small></div><div class="formation-stage-options">${family.evolutions.map((item) => { const dragLabel = `${COPY.dragToBoard}: ${familyLabel} T${item.stage}`; return `<span class="formation-stage-choice"><button type="button" draggable="true" class="${selected?.familyId === family.id && selected.stage === Number(item.stage) ? 'is-selected' : ''}" data-pick-family="${esc(family.id)}" data-pick-stage="${item.stage}" data-drag-family="${esc(family.id)}" data-drag-stage="${item.stage}" aria-pressed="${selected?.familyId === family.id && selected.stage === Number(item.stage)}" title="${esc(COPY.dragToBoard)}"><span>T${item.stage}</span>${esc(getTataDisplayName(item))}</button><button type="button" class="formation-drag-handle" draggable="true" data-drag-handle data-drag-family="${esc(family.id)}" data-drag-stage="${item.stage}" aria-label="${esc(dragLabel)}" title="${esc(dragLabel)}"><span aria-hidden="true">⠿</span></button></span>`; }).join('')}</div><a href="${localePrefix}/tata/${encodeURIComponent(family.id)}/">${esc(COPY.detail)}</a></div></article>`; }).join('') || `<p>${esc(COPY.noResults)}</p>`;
+  if (resetScroll) list.scrollTop = 0;
 }
 
 function renderSaved() { $('#saved-team-list').innerHTML = savedTeams.map((item, index) => `<article class="saved-team"><div><b>${esc(item.name || COPY.unnamed)}</b><p>${esc(displayMode(item.mode))} / P1 ${playerCount(item, 1)} · P2 ${playerCount(item, 2)} / ${item.updatedAt ? new Date(item.updatedAt).toLocaleString(locale === 'zh-CN' ? 'zh-CN' : locale) : ''}</p></div><div class="tool-actions"><button type="button" class="ghost-button" data-load-team="${index}">${esc(COPY.open)}</button><button type="button" class="ghost-button" data-delete-team="${index}">${esc(COPY.remove)}</button></div></article>`).join('') || `<p>${esc(COPY.saveLimit)}</p>`; }
@@ -215,8 +217,23 @@ function reportIssue(issue, playerId) {
   else if (issue === 'duplicate-family') setStatus(message(COPY.duplicateFamily, { player: playerId }), true, '#team-message');
   else if (issue === 'chip-full') setStatus(message(COPY.chipFull, { player: playerId }), true, '#team-message');
 }
-function clearDragState() { dragPayload = null; pointerDrag = null; document.querySelectorAll('.is-dragging,.is-drop-target').forEach((node) => node.classList.remove('is-dragging', 'is-drop-target')); }
+function clearDragState() { dragPayload = null; pointerDrag = null; document.querySelector('.formation-drag-ghost')?.remove(); document.querySelector('.formation-picker')?.classList.remove('is-drag-compact'); document.querySelectorAll('.is-dragging,.is-drop-target').forEach((node) => node.classList.remove('is-dragging', 'is-drop-target')); }
 function dropCell(event) { return event.target.closest('[data-drop-cell]'); }
+function createDragGhost(payload, native = false) {
+  document.querySelector('.formation-drag-ghost')?.remove();
+  const ghost = document.createElement('div'); ghost.className = `formation-drag-ghost${native ? ' is-native' : ''}`; ghost.setAttribute('aria-hidden', 'true');
+  if (payload.type === 'picker') {
+    const family = familyById(payload.familyId); const image = family && stage1Image(family);
+    if (image) { const img = document.createElement('img'); img.src = image.src; img.alt = ''; ghost.append(img); }
+    const copy = document.createElement('span'); const name = document.createElement('strong'); name.textContent = family ? getFamilyDisplayLabel(family) : payload.familyId; const stage = document.createElement('small'); stage.textContent = `T${payload.stage}`; copy.append(name, stage); ghost.append(copy);
+  } else {
+    const member = memberFor(team.slots[payload.index]); const image = member && stage1Image(member.family);
+    if (image) { const img = document.createElement('img'); img.src = image.src; img.alt = ''; ghost.append(img); }
+    const copy = document.createElement('span'); const name = document.createElement('strong'); name.textContent = member ? getFamilyDisplayLabel(member.family) : COPY.board; const stage = document.createElement('small'); stage.textContent = member ? `T${member.evolution.stage}` : ''; copy.append(name, stage); ghost.append(copy);
+  }
+  document.body.append(ghost); return ghost;
+}
+function moveDragGhost(event) { const ghost = document.querySelector('.formation-drag-ghost:not(.is-native)'); if (ghost) { ghost.style.left = `${event.clientX}px`; ghost.style.top = `${event.clientY}px`; } }
 function applyDrop(index, payload) {
   if (payload.type === 'board') {
     if (payload.index !== index) { commit(moveMember(team, payload.index, index, families), COPY.moved); track('formation_place'); }
@@ -228,13 +245,13 @@ function applyDrop(index, payload) {
   clearDragState();
 }
 function dropFormation(event) { const cell = dropCell(event); if (!cell || !dragPayload) return; event.preventDefault(); applyDrop(Number(cell.dataset.dropCell), dragPayload); }
-function beginPointerDrag(event, payload, source) { if (event.button !== 0 || pointerDrag) return; pointerDrag = { pointerId: event.pointerId, startX: event.clientX, startY: event.clientY, payload, source, active: false }; }
+function beginPointerDrag(event, payload, source, { preventDefault = false, activateImmediately = false } = {}) { if (event.button !== 0 || pointerDrag) return; if (preventDefault) event.preventDefault(); try { source.setPointerCapture?.(event.pointerId); } catch { /* synthetic events and older browsers can omit capture */ } pointerDrag = { pointerId: event.pointerId, startX: event.clientX, startY: event.clientY, payload, source, active: activateImmediately }; if (activateImmediately) { dragPayload = payload; source.classList.add('is-dragging'); createDragGhost(payload); if (payload.type === 'picker') document.querySelector('.formation-picker')?.classList.add('is-drag-compact'); moveDragGhost(event); } }
 function bindPointerDrag() {
   document.addEventListener('pointermove', (event) => {
     if (!pointerDrag || pointerDrag.pointerId !== event.pointerId) return;
     if (!pointerDrag.active && Math.hypot(event.clientX - pointerDrag.startX, event.clientY - pointerDrag.startY) < 8) return;
-    if (!pointerDrag.active) { pointerDrag.active = true; dragPayload = pointerDrag.payload; pointerDrag.source.classList.add('is-dragging'); pointerDrag.source.setPointerCapture?.(event.pointerId); }
-    event.preventDefault(); const cell = document.elementFromPoint(event.clientX, event.clientY)?.closest('[data-drop-cell]');
+    if (!pointerDrag.active) { pointerDrag.active = true; dragPayload = pointerDrag.payload; pointerDrag.source.classList.add('is-dragging'); createDragGhost(dragPayload); if (dragPayload.type === 'picker') document.querySelector('.formation-picker')?.classList.add('is-drag-compact'); }
+    event.preventDefault(); moveDragGhost(event); const cell = document.elementFromPoint(event.clientX, event.clientY)?.closest('[data-drop-cell]');
     document.querySelectorAll('.is-drop-target').forEach((node) => node.classList.remove('is-drop-target')); if (cell) cell.classList.add('is-drop-target');
   }, { passive: false });
   document.addEventListener('pointerup', (event) => {
@@ -272,7 +289,7 @@ function bind() {
     const cell = event.target.closest('[data-cell]'); if (cell) placeOrMove(Number(cell.dataset.cell));
   });
   $('#team-board').addEventListener('pointerdown', (event) => { const source = event.target.closest('[data-drag-cell]'); if (source) beginPointerDrag(event, { type: 'board', index: Number(source.dataset.dragCell) }, source.closest('.formation-cell')); });
-  $('#team-board').addEventListener('dragstart', (event) => { const source = event.target.closest('[data-drag-cell]'); if (!source) return; pointerDrag = null; dragPayload = { type: 'board', index: Number(source.dataset.dragCell) }; event.dataTransfer.effectAllowed = 'move'; event.dataTransfer.setData('text/plain', 'monsaba-formation'); source.closest('.formation-cell')?.classList.add('is-dragging'); });
+  $('#team-board').addEventListener('dragstart', (event) => { const source = event.target.closest('[data-drag-cell]'); if (!source) return; pointerDrag = null; dragPayload = { type: 'board', index: Number(source.dataset.dragCell) }; event.dataTransfer.effectAllowed = 'move'; event.dataTransfer.setData('text/plain', 'monsaba-formation'); source.closest('.formation-cell')?.classList.add('is-dragging'); const ghost = createDragGhost(dragPayload, true); event.dataTransfer.setDragImage?.(ghost, 44, 44); });
   $('#team-board').addEventListener('dragover', (event) => { const cell = dropCell(event); if (!cell || !dragPayload) return; event.preventDefault(); event.dataTransfer.dropEffect = dragPayload.type === 'board' ? 'move' : 'copy'; document.querySelectorAll('.is-drop-target').forEach((node) => node.classList.remove('is-drop-target')); cell.classList.add('is-drop-target'); });
   $('#team-board').addEventListener('dragleave', (event) => { const cell = dropCell(event); if (cell && !cell.contains(event.relatedTarget)) cell.classList.remove('is-drop-target'); });
   $('#team-board').addEventListener('drop', dropFormation); $('#team-board').addEventListener('dragend', clearDragState);
@@ -285,10 +302,10 @@ function bind() {
     if (replacingIndex !== null) { const previous = team.slots[replacingIndex]; const replacement = { ...pick, playerId: previous.playerId, level: previous.level }; const issue = placementIssue(team, replacingIndex, replacement, families); if (!issue) commit(placeMember(team, replacingIndex, replacement, families), COPY.placed); else reportIssue(issue, replacement.playerId); replacingIndex = null; selected = pick; return; }
     selected = pick; renderSelection(); renderPicker();
   });
-  $('#team-picker-list').addEventListener('pointerdown', (event) => { const source = event.target.closest('[data-drag-family]'); if (source) beginPointerDrag(event, { type: 'picker', familyId: source.dataset.dragFamily, stage: Number(source.dataset.dragStage), playerId: currentPlayer, level: currentLevel }, source); });
-  $('#team-picker-list').addEventListener('dragstart', (event) => { const source = event.target.closest('[data-drag-family]'); if (!source) return; pointerDrag = null; dragPayload = { type: 'picker', familyId: source.dataset.dragFamily, stage: Number(source.dataset.dragStage), playerId: currentPlayer, level: currentLevel }; event.dataTransfer.effectAllowed = 'copy'; event.dataTransfer.setData('text/plain', 'monsaba-tata'); source.classList.add('is-dragging'); });
+  $('#team-picker-list').addEventListener('pointerdown', (event) => { const handle = event.target.closest('[data-drag-handle]'); const source = handle || (matchMedia('(hover: hover) and (pointer: fine)').matches ? event.target.closest('[data-pick-family]') : null); if (source) beginPointerDrag(event, { type: 'picker', familyId: source.dataset.dragFamily, stage: Number(source.dataset.dragStage), playerId: currentPlayer, level: currentLevel }, source, { preventDefault: Boolean(handle), activateImmediately: Boolean(handle) }); });
+  $('#team-picker-list').addEventListener('dragstart', (event) => { const source = event.target.closest('[data-drag-family]'); if (!source) return; pointerDrag = null; dragPayload = { type: 'picker', familyId: source.dataset.dragFamily, stage: Number(source.dataset.dragStage), playerId: currentPlayer, level: currentLevel }; event.dataTransfer.effectAllowed = 'copy'; event.dataTransfer.setData('text/plain', 'monsaba-tata'); source.classList.add('is-dragging'); if (matchMedia('(max-width: 820px)').matches) document.querySelector('.formation-picker')?.classList.add('is-drag-compact'); const ghost = createDragGhost(dragPayload, true); event.dataTransfer.setDragImage?.(ghost, 44, 44); });
   $('#team-picker-list').addEventListener('dragend', clearDragState);
-  $('#team-picker-search').addEventListener('input', renderPicker); $('#team-owned-only').addEventListener('change', renderPicker);
+  $('#team-picker-search').addEventListener('input', () => renderPicker({ resetScroll: true })); $('#team-owned-only').addEventListener('change', () => renderPicker({ resetScroll: true }));
   $('#team-show-levels').addEventListener('change', (event) => { const next = cloneTeam(team, families); next.showLevels = event.target.checked; commit(next, COPY.changed); });
   $('#team-chip-settings').addEventListener('input', (event) => { if (!event.target.matches('#team-chip-search')) return; chipQuery = event.target.value; renderChipResults(); });
   $('#team-chip-settings').addEventListener('click', (event) => {
@@ -296,7 +313,7 @@ function bind() {
     const button = event.target.closest('[data-chip-id]'); if (!button) return; const playerId = Number(button.dataset.chipPlayer || currentPlayer); const result = togglePlayerChip(team, playerId, button.dataset.chipId, families, validChipIds);
     if (!result.ok) { reportIssue(result.reason, playerId); return; } currentPlayer = playerId; commit(result.team, result.selected ? COPY.chipSelected : COPY.chipRemoved);
   });
-  $('#team-attribute-filters').addEventListener('click', (event) => { const button = event.target.closest('[data-attribute]'); if (!button) return; attribute = button.dataset.attribute; renderFilters(); renderPicker(); });
+  $('#team-attribute-filters').addEventListener('click', (event) => { const button = event.target.closest('[data-attribute]'); if (!button) return; attribute = button.dataset.attribute; renderFilters(); renderPicker({ resetScroll: true }); });
   $('#team-edit-close').addEventListener('click', () => $('#team-edit-dialog').close());
   $('#team-edit-content').addEventListener('click', (event) => {
     if (editingIndex === null || !team.slots[editingIndex]) return; const slot = team.slots[editingIndex]; let candidate = null;
