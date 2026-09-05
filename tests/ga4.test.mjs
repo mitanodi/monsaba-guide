@@ -49,6 +49,17 @@ test('全HTMLにGoogle tag loaderとconfigが各1個だけある', () => {
   }
 });
 
+test('生成済みGA4インラインスクリプトがJavaScriptとして構文解析できる', () => {
+  for (const file of walkHtml()) {
+    const html = read(file);
+    const scripts = [...html.matchAll(/<script data-monsaba-ga4="(?:privacy|config)">([\s\S]*?)<\/script>/g)];
+    assert.equal(scripts.length, 2, `${file}: inline script count`);
+    for (const [, source] of scripts) {
+      assert.doesNotThrow(() => new Function(source), `${file}: invalid inline JavaScript`);
+    }
+  }
+});
+
 test('主要ページでもGA4 tagを1個だけ読み込む', () => {
   for (const file of ['index.html', 'board/index.html', 'board/thread/index.html', 'friends/index.html', 'search/index.html', 'tata-tier/index.html', 'privacy/index.html']) {
     const html = read(file);

@@ -38,7 +38,7 @@ export const renderGa4Tag = () => `${GA4_START_MARKER}
     try {
       var url = new URL(value, window.location.href);
       var pathname = url.pathname.replace(
-        /^\/((?:en|zh-cn)\/)?tata\/[^/]+\/?$/,
+        /^\\/((?:en|zh-cn)\\/)?tata\\/[^/]+\\/?$/,
         function hideTataFamily(_, locale) { return '/' + (locale || '') + 'tata/:family/'; }
       );
       return url.origin + pathname;
