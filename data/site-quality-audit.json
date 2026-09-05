@@ -3692,11 +3692,11 @@
     "bundles": [
       {
         "file": "styles.css",
-        "bytes": 94933
+        "bytes": 94813
       },
       {
         "file": "site.js",
-        "bytes": 28513
+        "bytes": 28297
       },
       {
         "file": "growth.js",

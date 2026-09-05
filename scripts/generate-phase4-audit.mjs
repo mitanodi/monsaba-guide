@@ -123,7 +123,7 @@ const structuralIssues = indexable.flatMap((page) => [
   ...(page.hasVisibleBreadcrumb !== page.hasBreadcrumbSchema ? [{ route: page.route, issue: 'breadcrumb_visible_schema_mismatch' }] : []),
   ...(!page.alternates.length ? [{ route: page.route, issue: 'missing_hreflang' }] : [])
 ]);
-const bundles = ['styles.css', 'site.js', 'growth.js', 'team-builder/team-builder.js', 'team-builder/community/community.js'].map((file) => ({ file, bytes: fs.statSync(path.join(root, file)).size }));
+const bundles = ['styles.css', 'site.js', 'growth.js', 'team-builder/team-builder.js', 'team-builder/community/community.js'].map((file) => ({ file, bytes: Buffer.byteLength(fs.readFileSync(path.join(root, file), 'utf8').replace(/\r\n/g, '\n')) }));
 const report = {
   version: 1, asOf: policy.asOf,
   totals: { pages: pages.length, indexable: indexable.length, brokenLinks: brokenLinks.length, brokenImages: brokenImages.length, structuralIssues: structuralIssues.length, reviewRequired: freshnessAudit.filter((item) => item.reviewRequired).length },
