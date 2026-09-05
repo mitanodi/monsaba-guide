@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "property": "sc-domain:monster-survival.com",
+  "observedAt": "2026-09-05",
+  "source": "Google Search Console authenticated UI",
+  "lastUpdatedLabel": "8.5 hours ago",
+  "periods": {
+    "7d": {
+      "dateRange": "2026-08-27/2026-09-02",
+      "clicks": 5704,
+      "impressions": 25190,
+      "ctr": 0.226,
+      "averagePosition": 5.1
+    },
+    "28d": {
+      "availableDateRange": "2026-08-23/2026-09-02",
+      "clicks": 6693,
+      "impressions": 28717,
+      "ctr": 0.233,
+      "averagePosition": 5.0,
+      "note": "The property is newer than 28 days, so the report only contains the available dates shown."
+    }
+  },
+  "selectedQueries28d": [
+    { "query": "モンスターサバイバル tier", "clicks": 243, "impressions": 666 },
+    { "query": "モンサバ 最強", "clicks": 98, "impressions": 379 },
+    { "query": "モンスターサバイバル 攻略", "clicks": 10, "impressions": 99 },
+    { "query": "モンサバ", "clicks": 10, "impressions": 97 },
+    { "query": "モンサバ 進化", "clicks": 10, "impressions": 61 },
+    { "query": "モンサバ 攻略", "clicks": 6, "impressions": 57 },
+    { "query": "モンサバ タタ", "clicks": 3, "impressions": 35 },
+    { "query": "モンスターサバイバル ゾンビラッシュ攻略", "clicks": 2, "impressions": 35 },
+    { "query": "モンサバ イベント", "clicks": 1, "impressions": 17 },
+    { "query": "モンサバ ゾンビラッシュ", "clicks": 0, "impressions": 20 },
+    { "query": "モンスターサバイバル 編成", "clicks": 0, "impressions": 1 }
+  ],
+  "selectedLandingPages28d": [
+    { "route": "/tata-tier/", "clicks": 3952, "impressions": 13971 },
+    { "route": "/beginner-guide/", "clicks": 50, "impressions": 449 },
+    { "route": "/evolution/", "clicks": 32, "impressions": 329 },
+    { "route": "/zombie-rush/", "clicks": 25, "impressions": 563 },
+    { "route": "/team-builder/", "clicks": 9, "impressions": 35 },
+    { "route": "/events/", "clicks": 7, "impressions": 53 }
+  ],
+  "indexInspection": [
+    { "route": "/", "status": "indexed" },
+    { "route": "/tata-tier/", "status": "indexed" },
+    { "route": "/beginner-guide/", "status": "indexed" },
+    { "route": "/team-builder/", "status": "indexed" },
+    { "route": "/events/", "status": "indexed" },
+    { "route": "/zombie-rush/", "status": "indexed" }
+  ],
+  "decision": {
+    "status": "MEASURED",
+    "changes": "documentation_and_monitoring_only",
+    "reason": "Tier and evolution already match strong demand. Zombie Rush and event queries need more observation before changing page titles or information architecture."
+  }
+}

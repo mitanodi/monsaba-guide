@@ -7,6 +7,9 @@ const policy = asJson('data/freshness-policy.json');
 const freshness = asJson('data/page-freshness.json');
 const sources = asJson('data/external-source-watch.json');
 const questions = asJson('data/official-question-queue.json');
+const communityLive = asJson('data/community-live-audit.json');
+const searchConsole = asJson('data/search-console-snapshot.json');
+const analyticsFunnel = asJson('data/analytics-funnel-snapshot.json');
 const ignored = new Set(['.git', '.vercel', 'node_modules', 'promo']);
 const posix = (value) => value.replaceAll('\\', '/');
 
@@ -136,7 +139,12 @@ const report = {
   },
   freshness: freshnessAudit,
   officialQuestions: questions.items.map((item) => ({ id: item.id, category: item.category, status: item.status, affectedRoutes: item.affectedRoutes })),
-  performance: { bundles, localStorageNamespaces: ['monsabaFormationDraft:v2', 'monsabaSavedFormations:v2', 'monsabaRoster:v1', 'monsabaFavorites:v1', 'monsabaCommunityDraft:v1'], communityPagination: true, previewImagesLazy: true }
+  liveOperations: {
+    community: { observedAt: communityLive.observedAt, postCount: communityLive.postCount, sampleStatus: communityLive.sampleStatus },
+    searchConsole: { observedAt: searchConsole.observedAt, periods: searchConsole.periods, indexInspection: searchConsole.indexInspection },
+    analyticsFunnel: { observedAt: analyticsFunnel.observedAt, sampleStatus: analyticsFunnel.sampleStatus, funnels: analyticsFunnel.funnels }
+  },
+  performance: { bundles, localStorageNamespaces: ['monsabaFormationDraft:v2', 'monsabaSavedFormations:v2', 'monsabaMyRoster:v1', 'monsabaFavorites:v1', 'monsabaCommunityDraft:v1'], communityPagination: true, previewImagesLazy: true }
 };
 fs.writeFileSync(path.join(root, 'data/site-quality-audit.json'), `${JSON.stringify(report, null, 2)}\n`);
 
@@ -147,9 +155,53 @@ for (const priority of ['HIGH', 'MEDIUM', 'LOW']) {
   const rows = reviews.filter((item) => item.priority === priority);
   reviewLines.push(...(rows.length ? rows.map((item) => `- \`${item.route}\` — ${item.reasons.join(', ') || 'review required'}`) : ['- なし']), '');
 }
-reviewLines.push('## 公式回答待ち', '', ...questions.items.filter((item) => item.status !== 'production_ready').map((item) => `- \`${item.id}\` (${item.category}) — 影響: ${item.affectedRoutes.join(', ')}`));
+reviewLines.push('## 公式回答待ち', '', ...questions.items.filter((item) => item.status !== 'resolved').map((item) => `- \`${item.id}\` (${item.category} / ${item.status}) — 影響: ${item.affectedRoutes.join(', ')}`), '');
+reviewLines.push('## Live Operations', '', `- Community実投稿: ${communityLive.postCount}件 — ${communityLive.sampleStatus}`, `- Analytics 6 funnel: ${analyticsFunnel.sampleStatus}`, `- Search Console: ${searchConsole.decision.status}（${searchConsole.periods['28d'].clicks.toLocaleString('ja-JP')} clicks / ${searchConsole.periods['28d'].impressions.toLocaleString('ja-JP')} impressions）`);
 fs.writeFileSync(path.join(root, 'docs/review-queue.md'), `${reviewLines.join('\n')}\n`);
 
-const intent = `# Search intent / Landing Page\n\n|検索意図|主Landing Page|補助ページ|\n|---|---|---|\n|モンサバ / モンサバ 攻略|/|/guides/|\n|モンサバ タタ|/#tatari|/attribute/|\n|モンサバ Tier / 最強|/tata-tier/|/evolution-priority/|\n|モンサバ 初心者|/beginner-guide/|/my-monsaba/|\n|モンサバ 進化|/evolution/|/evolution-priority/, /evolution/trials/|\n|モンサバ ゾンビラッシュ|/zombie-rush/|/zombie-rush/chips/|\n|モンサバ 編成|/team-builder/|/team-builder/community/|\n|モンサバ イベント|/events/|各イベント詳細|\n\nTier・初心者・進化・個別タタ・Zombie Rushは、主検索意図を上表へ分離し、相互リンクで補完する。\n`;
+const percent = (value) => `${(value * 100).toFixed(1)}%`;
+const landingRows = searchConsole.selectedLandingPages28d.map((item) => `|\`${item.route}\`|${item.clicks.toLocaleString('ja-JP')}|${item.impressions.toLocaleString('ja-JP')}|${item.impressions ? percent(item.clicks / item.impressions) : '未計測'}|`).join('\n');
+const queryRows = searchConsole.selectedQueries28d.map((item) => `|${item.query}|${item.clicks.toLocaleString('ja-JP')}|${item.impressions.toLocaleString('ja-JP')}|`).join('\n');
+const intent = `# Search intent / Landing Page
+
+実績取得日: ${searchConsole.observedAt}（Google Search Console）
+
+## 意図とLanding
+
+|検索意図|主Landing Page|補助ページ|
+|---|---|---|
+|モンサバ / モンサバ 攻略|/|/guides/|
+|モンサバ タタ|/#tatari|/attribute/|
+|モンサバ Tier / 最強|/tata-tier/|/evolution-priority/|
+|モンサバ 初心者|/beginner-guide/|/my-monsaba/|
+|モンサバ 進化|/evolution/|/evolution-priority/, /evolution/trials/|
+|モンサバ ゾンビラッシュ|/zombie-rush/|/zombie-rush/chips/|
+|モンサバ 編成|/team-builder/|/team-builder/community/|
+|モンサバ イベント|/events/|各イベント詳細|
+
+## Search Console実績
+
+|期間|Clicks|Impressions|CTR|Average position|
+|---|---:|---:|---:|---:|
+|直近7日|${searchConsole.periods['7d'].clicks.toLocaleString('ja-JP')}|${searchConsole.periods['7d'].impressions.toLocaleString('ja-JP')}|${percent(searchConsole.periods['7d'].ctr)}|${searchConsole.periods['7d'].averagePosition.toFixed(1)}|
+|直近28日表示|${searchConsole.periods['28d'].clicks.toLocaleString('ja-JP')}|${searchConsole.periods['28d'].impressions.toLocaleString('ja-JP')}|${percent(searchConsole.periods['28d'].ctr)}|${searchConsole.periods['28d'].averagePosition.toFixed(1)}|
+
+サイト開設から28日未満のため、28日表示に含まれる実データは ${searchConsole.periods['28d'].availableDateRange} のみ。
+
+|主要Landing|Clicks|Impressions|概算CTR|
+|---|---:|---:|---:|
+${landingRows}
+
+|重点query|Clicks|Impressions|
+|---|---:|---:|
+${queryRows}
+
+## 判断
+
+- Tierと進化は既存Landingが検索意図に合致しているため、大規模なtitle・構造変更は行わない。
+- Zombie Rushとイベントは表示回数に対してクリック余地があるが、期間が短いため見出し・内部リンク候補として継続観測する。
+- 編成・Communityは検索sampleが不足しているため、推測によるSEO変更やPopular表示を行わない。
+- 主要6 LandingはURL検査ですべてGoogle登録済み。
+`;
 fs.writeFileSync(path.join(root, 'docs/search-intent-map.md'), intent);
 console.log(`Phase 4監査生成: indexable ${indexable.length} / review ${reviews.length} / broken link ${brokenLinks.length} / broken image ${brokenImages.length}`);

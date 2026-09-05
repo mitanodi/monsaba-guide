@@ -5,7 +5,7 @@
   const locale = document.body.dataset.locale || 'ja';
   if (!buttons.length || !cards.length) return;
   let owned = {};
-  try { const raw = JSON.parse(localStorage.getItem('monsabaRoster:v1') || '{}'); owned = raw.entries || raw; } catch { owned = {}; }
+  try { const raw = JSON.parse(localStorage.getItem('monsabaMyRoster:v1') || '{}'); owned = raw.entries || raw; } catch { owned = {}; }
   const hasRoster = Object.keys(owned).length > 0;
   for (const card of cards) {
     const familyId = card.dataset.beginnerFamily; const entry = owned[familyId]; const status = card.querySelector('.beginner-owned-status');

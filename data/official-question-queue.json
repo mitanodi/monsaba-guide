@@ -1,12 +1,13 @@
 {
-  "version": 1,
+  "version": 2,
   "updated": "2026-09-05",
+  "statuses": ["waiting", "answered", "partially_answered", "resolved"],
   "workflow": ["answer_received", "evidence_saved", "db_diff_generated", "affected_pages_extracted", "tests_passed", "production_ready"],
   "items": [
     {
       "id": "asset-nenbutsuhebi-t4",
       "category": "tata_image",
-      "status": "awaiting_answer",
+      "status": "waiting",
       "question": "ネンブツヘビ系T4のCreator Asset提供可否と正式ファイルを確認",
       "entities": [{"familyId": "nenbutsuhebi", "stage": 4}],
       "affectedRoutes": ["/tata/nenbutsuhebi/", "/evolution/", "/evolution/trials/", "/team-builder/"]
@@ -14,7 +15,7 @@
     {
       "id": "asset-pakuma-t2",
       "category": "tata_image",
-      "status": "awaiting_answer",
+      "status": "waiting",
       "question": "パクマ系T2のCreator Asset提供可否と正式ファイルを確認",
       "entities": [{"familyId": "pakuma", "stage": 2}],
       "affectedRoutes": ["/tata/pakuma/", "/evolution/", "/team-builder/"]
@@ -22,7 +23,7 @@
     {
       "id": "asset-pakuma-t3",
       "category": "tata_image",
-      "status": "awaiting_answer",
+      "status": "waiting",
       "question": "パクマ系T3のCreator Asset提供可否と正式ファイルを確認",
       "entities": [{"familyId": "pakuma", "stage": 3}],
       "affectedRoutes": ["/tata/pakuma/", "/evolution/", "/team-builder/"]
@@ -30,7 +31,7 @@
     {
       "id": "asset-pakuma-t4",
       "category": "tata_image",
-      "status": "awaiting_answer",
+      "status": "waiting",
       "question": "パクマ系T4のCreator Asset提供可否と正式ファイルを確認",
       "entities": [{"familyId": "pakuma", "stage": 4}],
       "affectedRoutes": ["/tata/pakuma/", "/evolution/", "/team-builder/"]
@@ -38,7 +39,7 @@
     {
       "id": "asset-sukedako-t4",
       "category": "tata_image",
-      "status": "awaiting_answer",
+      "status": "waiting",
       "question": "スケダコ系T4のCreator Asset提供可否と正式ファイルを確認",
       "entities": [{"familyId": "sukedako", "stage": 4}],
       "affectedRoutes": ["/tata/sukedako/", "/evolution/", "/evolution/trials/", "/team-builder/"]
@@ -46,7 +47,7 @@
     {
       "id": "localized-tata-names",
       "category": "localized_name",
-      "status": "awaiting_answer",
+      "status": "waiting",
       "question": "未確認の英語名・簡体字中国語名について公式表記を確認",
       "locales": ["en", "zh-CN"],
       "affectedRoutes": ["/tata/*", "/search/", "/team-builder/", "/en/tata/*", "/zh-cn/tata/*"]
@@ -54,14 +55,14 @@
     {
       "id": "event-current-specs",
       "category": "event",
-      "status": "awaiting_answer",
+      "status": "waiting",
       "question": "ランニングパーティー（EN: Running Star）、オタカラ探し、サプライズルーレットの現行期間・報酬・仕様を確認",
       "affectedRoutes": ["/events/", "/events/running-star/", "/events/treasure-hunt/", "/events/surprise-roulette/"]
     },
     {
       "id": "zombie-rush-season-specs",
       "category": "zombie_rush",
-      "status": "awaiting_answer",
+      "status": "waiting",
       "question": "Zombie Rush Season 1の報酬しきい値・期間・現行仕様を確認",
       "affectedRoutes": ["/zombie-rush/", "/zombie-rush/chips/", "/tata-tier/", "/team-builder/"]
     }

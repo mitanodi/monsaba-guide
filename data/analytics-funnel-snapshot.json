@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "propertyId": "551944426",
+  "measurementId": "G-PTV8TYNYMR",
+  "observedAt": "2026-09-05",
+  "source": "Google Analytics authenticated UI",
+  "period": {
+    "label": "past_28_days",
+    "dateRange": "2026-08-08/2026-09-04"
+  },
+  "overall": {
+    "eventCount": 75651,
+    "totalUsers": 5430
+  },
+  "funnels": [
+    { "event": "home_to_tata", "eventCount": null, "users": null, "status": "not_observed" },
+    { "event": "tata_to_compare", "eventCount": null, "users": null, "status": "not_observed" },
+    { "event": "tata_to_team", "eventCount": null, "users": null, "status": "not_observed" },
+    { "event": "team_to_community", "eventCount": null, "users": null, "status": "not_observed" },
+    { "event": "community_to_team", "eventCount": null, "users": null, "status": "not_observed" },
+    { "event": "beginner_to_tata", "eventCount": null, "users": null, "status": "not_observed" }
+  ],
+  "sampleStatus": "INSUFFICIENT_DATA",
+  "note": "The six privacy-safe funnel events were deployed after most of the processed reporting window and were not present in the 36-event report. Null means not observed, not a fabricated zero."
+}

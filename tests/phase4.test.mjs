@@ -10,7 +10,7 @@ const json = (file) => JSON.parse(read(file));
 test('official question queue keeps five exact pending Tata image forms', () => {
   const items = json('data/official-question-queue.json').items.filter((item) => item.category === 'tata_image');
   assert.deepEqual(items.map((item) => `${item.entities[0].familyId}:T${item.entities[0].stage}`).sort(), ['nenbutsuhebi:T4', 'pakuma:T2', 'pakuma:T3', 'pakuma:T4', 'sukedako:T4']);
-  assert.ok(items.every((item) => item.status === 'awaiting_answer' && item.affectedRoutes.length));
+  assert.ok(items.every((item) => item.status === 'waiting' && item.affectedRoutes.length));
 });
 
 test('external source differences remain review candidates only', () => {

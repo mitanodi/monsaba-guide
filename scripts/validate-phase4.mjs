@@ -14,11 +14,12 @@ if (policy.externalChangePolicy !== 'review_candidate_only') errors.push('外部
 if (!policy.rules.some((rule) => rule.pattern === '*')) errors.push('freshness default rule missing');
 
 const ids = new Set();
+const questionStatuses = queue.statuses || ['waiting', 'answered', 'partially_answered', 'resolved'];
 for (const item of queue.items || []) {
   if (!item.id || ids.has(item.id)) errors.push(`official question id invalid: ${item.id}`);
   ids.add(item.id);
   if (!Array.isArray(item.affectedRoutes) || !item.affectedRoutes.length) errors.push(`${item.id}: affectedRoutes missing`);
-  if (!['awaiting_answer', 'answer_received', 'evidence_saved', 'db_diff_generated', 'affected_pages_extracted', 'tests_passed', 'production_ready'].includes(item.status)) errors.push(`${item.id}: unsupported status ${item.status}`);
+  if (!questionStatuses.includes(item.status)) errors.push(`${item.id}: unsupported status ${item.status}`);
 }
 if (queue.items.filter((item) => item.category === 'tata_image').length !== 5) errors.push('確認待ちTata画像は5形態である必要があります');
 for (const category of ['localized_name', 'event', 'zombie_rush']) if (!queue.items.some((item) => item.category === category)) errors.push(`official question category missing: ${category}`);

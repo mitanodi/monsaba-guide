@@ -3604,7 +3604,7 @@
     {
       "id": "asset-nenbutsuhebi-t4",
       "category": "tata_image",
-      "status": "awaiting_answer",
+      "status": "waiting",
       "affectedRoutes": [
         "/tata/nenbutsuhebi/",
         "/evolution/",
@@ -3615,7 +3615,7 @@
     {
       "id": "asset-pakuma-t2",
       "category": "tata_image",
-      "status": "awaiting_answer",
+      "status": "waiting",
       "affectedRoutes": [
         "/tata/pakuma/",
         "/evolution/",
@@ -3625,7 +3625,7 @@
     {
       "id": "asset-pakuma-t3",
       "category": "tata_image",
-      "status": "awaiting_answer",
+      "status": "waiting",
       "affectedRoutes": [
         "/tata/pakuma/",
         "/evolution/",
@@ -3635,7 +3635,7 @@
     {
       "id": "asset-pakuma-t4",
       "category": "tata_image",
-      "status": "awaiting_answer",
+      "status": "waiting",
       "affectedRoutes": [
         "/tata/pakuma/",
         "/evolution/",
@@ -3645,7 +3645,7 @@
     {
       "id": "asset-sukedako-t4",
       "category": "tata_image",
-      "status": "awaiting_answer",
+      "status": "waiting",
       "affectedRoutes": [
         "/tata/sukedako/",
         "/evolution/",
@@ -3656,7 +3656,7 @@
     {
       "id": "localized-tata-names",
       "category": "localized_name",
-      "status": "awaiting_answer",
+      "status": "waiting",
       "affectedRoutes": [
         "/tata/*",
         "/search/",
@@ -3668,7 +3668,7 @@
     {
       "id": "event-current-specs",
       "category": "event",
-      "status": "awaiting_answer",
+      "status": "waiting",
       "affectedRoutes": [
         "/events/",
         "/events/running-star/",
@@ -3679,7 +3679,7 @@
     {
       "id": "zombie-rush-season-specs",
       "category": "zombie_rush",
-      "status": "awaiting_answer",
+      "status": "waiting",
       "affectedRoutes": [
         "/zombie-rush/",
         "/zombie-rush/chips/",
@@ -3688,6 +3688,101 @@
       ]
     }
   ],
+  "liveOperations": {
+    "community": {
+      "observedAt": "2026-09-05",
+      "postCount": 0,
+      "sampleStatus": "INSUFFICIENT_DATA"
+    },
+    "searchConsole": {
+      "observedAt": "2026-09-05",
+      "periods": {
+        "7d": {
+          "dateRange": "2026-08-27/2026-09-02",
+          "clicks": 5704,
+          "impressions": 25190,
+          "ctr": 0.226,
+          "averagePosition": 5.1
+        },
+        "28d": {
+          "availableDateRange": "2026-08-23/2026-09-02",
+          "clicks": 6693,
+          "impressions": 28717,
+          "ctr": 0.233,
+          "averagePosition": 5,
+          "note": "The property is newer than 28 days, so the report only contains the available dates shown."
+        }
+      },
+      "indexInspection": [
+        {
+          "route": "/",
+          "status": "indexed"
+        },
+        {
+          "route": "/tata-tier/",
+          "status": "indexed"
+        },
+        {
+          "route": "/beginner-guide/",
+          "status": "indexed"
+        },
+        {
+          "route": "/team-builder/",
+          "status": "indexed"
+        },
+        {
+          "route": "/events/",
+          "status": "indexed"
+        },
+        {
+          "route": "/zombie-rush/",
+          "status": "indexed"
+        }
+      ]
+    },
+    "analyticsFunnel": {
+      "observedAt": "2026-09-05",
+      "sampleStatus": "INSUFFICIENT_DATA",
+      "funnels": [
+        {
+          "event": "home_to_tata",
+          "eventCount": null,
+          "users": null,
+          "status": "not_observed"
+        },
+        {
+          "event": "tata_to_compare",
+          "eventCount": null,
+          "users": null,
+          "status": "not_observed"
+        },
+        {
+          "event": "tata_to_team",
+          "eventCount": null,
+          "users": null,
+          "status": "not_observed"
+        },
+        {
+          "event": "team_to_community",
+          "eventCount": null,
+          "users": null,
+          "status": "not_observed"
+        },
+        {
+          "event": "community_to_team",
+          "eventCount": null,
+          "users": null,
+          "status": "not_observed"
+        },
+        {
+          "event": "beginner_to_tata",
+          "eventCount": null,
+          "users": null,
+          "status": "not_observed"
+        }
+      ]
+    }
+  },
   "performance": {
     "bundles": [
       {
@@ -3714,7 +3809,7 @@
     "localStorageNamespaces": [
       "monsabaFormationDraft:v2",
       "monsabaSavedFormations:v2",
-      "monsabaRoster:v1",
+      "monsabaMyRoster:v1",
       "monsabaFavorites:v1",
       "monsabaCommunityDraft:v1"
     ],

@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "observedAt": "2026-09-05",
+  "baseUrl": "https://monster-survival.com",
+  "apiStatus": 200,
+  "postCount": 0,
+  "sampleStatus": "INSUFFICIENT_DATA",
+  "nextCursor": null,
+  "checks": {
+    "listApi": "pass",
+    "apiNoindex": "pass",
+    "fakeSeedAbsent": "pass",
+    "detail": "not_testable",
+    "preview6x6": "not_testable",
+    "playerLabels": "not_testable",
+    "tier": "not_testable",
+    "level": "not_testable",
+    "chips": "not_testable",
+    "publicOwnerTokenAbsent": "not_testable",
+    "shareUrl": "not_testable",
+    "teamBuilderLoad": "manual_required",
+    "helpful": "manual_required",
+    "trialReport": "manual_required",
+    "comment": "manual_required",
+    "reply": "manual_required",
+    "edit": "manual_required",
+    "delete": "manual_required",
+    "report": "manual_required"
+  },
+  "sample": null,
+  "note": "No fake post was created. Run this audit after the first real post, then complete the two-device checklist."
+}
