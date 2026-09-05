@@ -7,7 +7,8 @@
     'board_answer_submit', 'board_filter_use', 'board_report', 'board_resolved',
     'board_quick_question_open', 'board_question_example_use', 'board_reply_open', 'board_reply_submit',
     'my_roster_update', 'team_builder_open', 'team_builder_save', 'team_builder_share', 'team_builder_export_image',
-    'formation_open', 'formation_place', 'formation_remove', 'formation_share', 'formation_save', 'formation_export_image'
+    'formation_open', 'formation_place', 'formation_remove', 'formation_share', 'formation_save', 'formation_export_image',
+    'home_to_tata', 'tata_to_compare', 'tata_to_team', 'team_to_community', 'community_to_team', 'beginner_to_tata'
   ]);
   const ga4AllowedProperties = Object.freeze({
     nav_click: ['destination_type', 'source_type'],
@@ -46,7 +47,13 @@
     formation_remove: [],
     formation_share: [],
     formation_save: [],
-    formation_export_image: []
+    formation_export_image: [],
+    home_to_tata: ['source_type', 'destination_type'],
+    tata_to_compare: ['source_type', 'destination_type'],
+    tata_to_team: ['source_type', 'destination_type'],
+    team_to_community: ['source_type', 'destination_type'],
+    community_to_team: ['source_type', 'destination_type'],
+    beginner_to_tata: ['source_type', 'destination_type']
   });
   const safeValue = (value) => typeof value === 'number' || typeof value === 'boolean'
     ? value
@@ -110,6 +117,15 @@
     let url;
     try { url = new URL(link.href, location.href); } catch { return; }
     const common = { destination_type: destinationType(url), source_type: document.body.dataset.pageType || 'page' };
+    const sourcePath = location.pathname.replace(/^\/(?:en|zh-cn)(?=\/)/, '') || '/';
+    const destinationPath = url.pathname.replace(/^\/(?:en|zh-cn)(?=\/)/, '') || '/';
+    const funnel = sourcePath === '/' && (destinationPath.startsWith('/tata/') || url.hash === '#tatari') ? 'home_to_tata'
+      : sourcePath.startsWith('/tata/') && destinationPath.startsWith('/compare/') ? 'tata_to_compare'
+      : sourcePath.startsWith('/tata/') && destinationPath.startsWith('/team-builder/') ? 'tata_to_team'
+      : sourcePath === '/team-builder/' && destinationPath.startsWith('/team-builder/community/') ? 'team_to_community'
+      : sourcePath.startsWith('/team-builder/community/') && destinationPath === '/team-builder/' ? 'community_to_team'
+      : sourcePath === '/beginner-guide/' && destinationPath.startsWith('/tata/') ? 'beginner_to_tata' : '';
+    if (funnel) track(funnel, common);
     if (link.closest('.affiliate-ad')) {
       track('affiliate_click', affiliateProperties(link.closest('.affiliate-ad')));
       return;

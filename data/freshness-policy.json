@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "asOf": "2026-09-05",
+  "statuses": {
+    "latest_verified": "最新確認済み",
+    "official_public": "公式公開確認",
+    "in_game": "ゲーム内確認",
+    "external": "外部確認",
+    "legacy": "過去仕様",
+    "pending": "確認待ち",
+    "community": "Community"
+  },
+  "rules": [
+    { "pattern": "/events/*", "category": "event", "priority": "HIGH", "maxAgeDays": 14 },
+    { "pattern": "/events/", "category": "event_hub", "priority": "HIGH", "maxAgeDays": 7 },
+    { "pattern": "/zombie-rush/*", "category": "zombie_rush", "priority": "HIGH", "maxAgeDays": 14 },
+    { "pattern": "/zombie-rush/", "category": "zombie_rush", "priority": "HIGH", "maxAgeDays": 14 },
+    { "pattern": "/updates/*", "category": "update", "priority": "HIGH", "maxAgeDays": 30 },
+    { "pattern": "/gift-codes/", "category": "gift_codes", "priority": "HIGH", "maxAgeDays": 7 },
+    { "pattern": "/tata-tier/", "category": "tier", "priority": "MEDIUM", "maxAgeDays": 30 },
+    { "pattern": "/evolution-priority/", "category": "tier", "priority": "MEDIUM", "maxAgeDays": 45 },
+    { "pattern": "*", "category": "evergreen", "priority": "LOW", "maxAgeDays": 180 }
+  ],
+  "externalChangePolicy": "review_candidate_only",
+  "notes": "しきい値超過や外部ソース差分は本文を自動変更せず、review required候補として出力する。"
+}

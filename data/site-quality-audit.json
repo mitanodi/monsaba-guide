@@ -1,0 +1,3724 @@
+{
+  "version": 1,
+  "asOf": "2026-09-05",
+  "totals": {
+    "pages": 384,
+    "indexable": 354,
+    "brokenLinks": 0,
+    "brokenImages": 0,
+    "structuralIssues": 0,
+    "reviewRequired": 0
+  },
+  "duplicates": {
+    "titles": [],
+    "descriptions": [],
+    "h1": []
+  },
+  "brokenLinks": [],
+  "brokenImages": [],
+  "structuralIssues": [],
+  "internalLinkGraph": {
+    "orphans": [],
+    "requiredWithinThreeClicks": [
+      {
+        "route": "/",
+        "depth": 0,
+        "pass": true
+      },
+      {
+        "route": "/tata-tier/",
+        "depth": 1,
+        "pass": true
+      },
+      {
+        "route": "/beginner-guide/",
+        "depth": 1,
+        "pass": true
+      },
+      {
+        "route": "/team-builder/",
+        "depth": 1,
+        "pass": true
+      },
+      {
+        "route": "/team-builder/community/",
+        "depth": 1,
+        "pass": true
+      },
+      {
+        "route": "/zombie-rush/",
+        "depth": 1,
+        "pass": true
+      },
+      {
+        "route": "/events/",
+        "depth": 1,
+        "pass": true
+      }
+    ],
+    "maxDepth": 2
+  },
+  "freshness": [
+    {
+      "route": "/about/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/about-data/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/attribute/fire/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/attribute/grass/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/attribute/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/attribute/rock/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/attribute/thunder/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/attribute/water/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/badge-dojo/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/beginner-guide/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/board/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/boss-rally/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/compare-guides/purabi-vs-denjika/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/consult/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/about/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/about-data/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/attribute/fire/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/attribute/grass/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/attribute/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/attribute/rock/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/attribute/thunder/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/attribute/water/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/badge-dojo/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/beginner-guide/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/board/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/boss-rally/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/compare-guides/purabi-vs-denjika/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/consult/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/events/fishing-tournament/",
+      "verified": "2026-08-31",
+      "ageDays": 5,
+      "category": "event",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/events/",
+      "verified": "2026-09-05",
+      "ageDays": 0,
+      "category": "event_hub",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/events/island-treasure/",
+      "verified": "2026-08-31",
+      "ageDays": 5,
+      "category": "event",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/events/magic-farm/",
+      "verified": "2026-08-31",
+      "ageDays": 5,
+      "category": "event",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/events/running-party/",
+      "verified": "2026-08-31",
+      "ageDays": 5,
+      "category": "event",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/events/summer-party/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "event",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/events/treasure-hunt/",
+      "verified": "2026-09-05",
+      "ageDays": 0,
+      "category": "event",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/events/zombie-siege/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "event",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/evolution/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/evolution/t3/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/evolution/t4/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/evolution/trials/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/evolution-priority/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "tier",
+      "priority": "MEDIUM",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/faq/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/friends/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/gift-codes/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "gift_codes",
+      "priority": "HIGH",
+      "status": "externally-confirmed",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/guides/",
+      "verified": "2026-08-25",
+      "ageDays": 11,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/normal-guide/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/privacy/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/roles/area-damage/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/roles/buff/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/roles/debuff/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/roles/heal/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/roles/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/roles/paralysis/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/roles/pierce/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/roles/shield/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/roles/slow/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/roles/stun/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/roles/tank/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/stages/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/atatama/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/batarisu/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/birimori/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/birinamazu/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/biripiyo/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/boruzarashi/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/capibarrie/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/daishell/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/denjika/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/denrou/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/doriruu/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/erekineko/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/erekoon/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/fugumaru/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/fukurogumo/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/fureebi/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/fureimuji/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/furuggu/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/gantoru/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/gaoden/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/greenbee/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/guuhog/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/haamitora/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/hanarenaishi/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/hihidog/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/hikaru/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/hikikomoru/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/himawarin/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/himori/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/hinyao/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/kaenjack/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/kenkani/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/komakiri/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/korokon/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/korotama/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/kowagaru/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/kunbuu/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/marushu/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/matchiba/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/mogurin/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/mumukaba/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/nekoori/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/nemukurage/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/nenbutsuhebi/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/pakuma/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/potakage/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/pupunku/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/purabi/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/riifuro/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/rokubuhi/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/rokuju/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/sabooru/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/shiiparusu/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/shizukuchou/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/sukedako/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/tafupen/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/takepanda/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/togegyo/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/tsubaruka/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/tsubutsumuri/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/umimi/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/yaminome/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/yanzaru/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/yotsubird/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata-tier/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "tier",
+      "priority": "MEDIUM",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/team-builder/community/",
+      "verified": "2026-09-04",
+      "ageDays": 1,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "community-user-generated",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/team-builder/",
+      "verified": "2026-09-03",
+      "ageDays": 2,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/updates/2026-08-26/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "update",
+      "priority": "HIGH",
+      "status": "implemented-details-verifying",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/updates/2026-08-30/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "update",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/updates/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "update",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/zombie-rush/chips/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "zombie_rush",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/zombie-rush/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "zombie_rush",
+      "priority": "HIGH",
+      "status": "implemented-details-verifying",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/events/fishing-tournament/",
+      "verified": "2026-08-31",
+      "ageDays": 5,
+      "category": "event",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/events/",
+      "verified": "2026-09-05",
+      "ageDays": 0,
+      "category": "event_hub",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/events/island-treasure/",
+      "verified": "2026-08-31",
+      "ageDays": 5,
+      "category": "event",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/events/magic-farm/",
+      "verified": "2026-08-31",
+      "ageDays": 5,
+      "category": "event",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/events/running-party/",
+      "verified": "2026-08-31",
+      "ageDays": 5,
+      "category": "event",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/events/summer-party/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "event",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/events/treasure-hunt/",
+      "verified": "2026-09-05",
+      "ageDays": 0,
+      "category": "event",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/events/zombie-siege/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "event",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/evolution/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/evolution/t3/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/evolution/t4/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/evolution/trials/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/evolution-priority/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "tier",
+      "priority": "MEDIUM",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/faq/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/friends/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/gift-codes/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "gift_codes",
+      "priority": "HIGH",
+      "status": "externally-confirmed",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/guides/",
+      "verified": "2026-08-25",
+      "ageDays": 11,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/normal-guide/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/privacy/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/roles/area-damage/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/roles/buff/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/roles/debuff/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/roles/heal/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/roles/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/roles/paralysis/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/roles/pierce/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/roles/shield/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/roles/slow/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/roles/stun/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/roles/tank/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/stages/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/atatama/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/batarisu/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/birimori/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/birinamazu/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/biripiyo/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/boruzarashi/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/capibarrie/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/daishell/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/denjika/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/denrou/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/doriruu/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/erekineko/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/erekoon/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/fugumaru/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/fukurogumo/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/fureebi/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/fureimuji/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/furuggu/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/gantoru/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/gaoden/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/greenbee/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/guuhog/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/haamitora/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/hanarenaishi/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/hihidog/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/hikaru/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/hikikomoru/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/himawarin/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/himori/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/hinyao/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/kaenjack/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/kenkani/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/komakiri/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/korokon/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/korotama/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/kowagaru/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/kunbuu/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/marushu/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/matchiba/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/mogurin/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/mumukaba/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/nekoori/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/nemukurage/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/nenbutsuhebi/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/pakuma/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/potakage/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/pupunku/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/purabi/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/riifuro/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/rokubuhi/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/rokuju/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/sabooru/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/shiiparusu/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/shizukuchou/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/sukedako/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/tafupen/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/takepanda/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/togegyo/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/tsubaruka/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/tsubutsumuri/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/umimi/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/yaminome/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/yanzaru/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/yotsubird/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata-tier/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "tier",
+      "priority": "MEDIUM",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/team-builder/community/",
+      "verified": "2026-09-04",
+      "ageDays": 1,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "community-user-generated",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/team-builder/",
+      "verified": "2026-09-03",
+      "ageDays": 2,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/updates/2026-08-26/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "update",
+      "priority": "HIGH",
+      "status": "implemented-details-verifying",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/updates/2026-08-30/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "update",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/updates/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "update",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/about/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/about-data/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/attribute/fire/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/attribute/grass/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/attribute/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/attribute/rock/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/attribute/thunder/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/attribute/water/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/badge-dojo/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/beginner-guide/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/board/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/boss-rally/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/compare-guides/purabi-vs-denjika/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/consult/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/events/fishing-tournament/",
+      "verified": "2026-08-31",
+      "ageDays": 5,
+      "category": "event",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/events/",
+      "verified": "2026-09-05",
+      "ageDays": 0,
+      "category": "event_hub",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/events/island-treasure/",
+      "verified": "2026-08-31",
+      "ageDays": 5,
+      "category": "event",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/events/magic-farm/",
+      "verified": "2026-08-31",
+      "ageDays": 5,
+      "category": "event",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/events/running-party/",
+      "verified": "2026-08-31",
+      "ageDays": 5,
+      "category": "event",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/events/summer-party/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "event",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/events/treasure-hunt/",
+      "verified": "2026-09-05",
+      "ageDays": 0,
+      "category": "event",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/events/zombie-siege/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "event",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/evolution/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/evolution/t3/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/evolution/t4/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/evolution/trials/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/evolution-priority/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "tier",
+      "priority": "MEDIUM",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/faq/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/friends/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/gift-codes/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "gift_codes",
+      "priority": "HIGH",
+      "status": "externally-confirmed",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/guides/",
+      "verified": "2026-08-25",
+      "ageDays": 11,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/normal-guide/",
+      "verified": "2026-08-24",
+      "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/privacy/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/roles/area-damage/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/roles/buff/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/roles/debuff/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/roles/heal/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/roles/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/roles/paralysis/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/roles/pierce/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/roles/shield/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/roles/slow/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/roles/stun/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/roles/tank/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/stages/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/atatama/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/batarisu/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/birimori/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/birinamazu/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/biripiyo/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/boruzarashi/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/capibarrie/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/daishell/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/denjika/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/denrou/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/doriruu/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/erekineko/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/erekoon/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/fugumaru/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/fukurogumo/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/fureebi/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/fureimuji/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/furuggu/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/gantoru/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/gaoden/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/greenbee/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/guuhog/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/haamitora/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/hanarenaishi/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/hihidog/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/hikaru/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/hikikomoru/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/himawarin/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/himori/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/hinyao/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/kaenjack/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/kenkani/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/komakiri/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/korokon/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/korotama/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/kowagaru/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/kunbuu/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/marushu/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/matchiba/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/mogurin/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/mumukaba/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/nekoori/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/nemukurage/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/nenbutsuhebi/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/pakuma/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/potakage/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/pupunku/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/purabi/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/riifuro/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/rokubuhi/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/rokuju/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/sabooru/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/shiiparusu/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/shizukuchou/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/sukedako/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/tafupen/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/takepanda/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/togegyo/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/tsubaruka/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/tsubutsumuri/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/umimi/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/yaminome/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/yanzaru/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/yotsubird/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata-tier/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "tier",
+      "priority": "MEDIUM",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/team-builder/community/",
+      "verified": "2026-09-04",
+      "ageDays": 1,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "community-user-generated",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/team-builder/",
+      "verified": "2026-09-03",
+      "ageDays": 2,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/updates/2026-08-26/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "update",
+      "priority": "HIGH",
+      "status": "implemented-details-verifying",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/updates/2026-08-30/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "update",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/updates/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "update",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/zombie-rush/chips/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "zombie_rush",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/zombie-rush/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "zombie_rush",
+      "priority": "HIGH",
+      "status": "implemented-details-verifying",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zombie-rush/chips/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "zombie_rush",
+      "priority": "HIGH",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zombie-rush/",
+      "verified": "2026-08-28",
+      "ageDays": 8,
+      "category": "zombie_rush",
+      "priority": "HIGH",
+      "status": "implemented-details-verifying",
+      "reviewRequired": false,
+      "reasons": []
+    }
+  ],
+  "officialQuestions": [
+    {
+      "id": "asset-nenbutsuhebi-t4",
+      "category": "tata_image",
+      "status": "awaiting_answer",
+      "affectedRoutes": [
+        "/tata/nenbutsuhebi/",
+        "/evolution/",
+        "/evolution/trials/",
+        "/team-builder/"
+      ]
+    },
+    {
+      "id": "asset-pakuma-t2",
+      "category": "tata_image",
+      "status": "awaiting_answer",
+      "affectedRoutes": [
+        "/tata/pakuma/",
+        "/evolution/",
+        "/team-builder/"
+      ]
+    },
+    {
+      "id": "asset-pakuma-t3",
+      "category": "tata_image",
+      "status": "awaiting_answer",
+      "affectedRoutes": [
+        "/tata/pakuma/",
+        "/evolution/",
+        "/team-builder/"
+      ]
+    },
+    {
+      "id": "asset-pakuma-t4",
+      "category": "tata_image",
+      "status": "awaiting_answer",
+      "affectedRoutes": [
+        "/tata/pakuma/",
+        "/evolution/",
+        "/team-builder/"
+      ]
+    },
+    {
+      "id": "asset-sukedako-t4",
+      "category": "tata_image",
+      "status": "awaiting_answer",
+      "affectedRoutes": [
+        "/tata/sukedako/",
+        "/evolution/",
+        "/evolution/trials/",
+        "/team-builder/"
+      ]
+    },
+    {
+      "id": "localized-tata-names",
+      "category": "localized_name",
+      "status": "awaiting_answer",
+      "affectedRoutes": [
+        "/tata/*",
+        "/search/",
+        "/team-builder/",
+        "/en/tata/*",
+        "/zh-cn/tata/*"
+      ]
+    },
+    {
+      "id": "event-current-specs",
+      "category": "event",
+      "status": "awaiting_answer",
+      "affectedRoutes": [
+        "/events/",
+        "/events/running-star/",
+        "/events/treasure-hunt/",
+        "/events/surprise-roulette/"
+      ]
+    },
+    {
+      "id": "zombie-rush-season-specs",
+      "category": "zombie_rush",
+      "status": "awaiting_answer",
+      "affectedRoutes": [
+        "/zombie-rush/",
+        "/zombie-rush/chips/",
+        "/tata-tier/",
+        "/team-builder/"
+      ]
+    }
+  ],
+  "performance": {
+    "bundles": [
+      {
+        "file": "styles.css",
+        "bytes": 94933
+      },
+      {
+        "file": "site.js",
+        "bytes": 28513
+      },
+      {
+        "file": "growth.js",
+        "bytes": 9211
+      },
+      {
+        "file": "team-builder/team-builder.js",
+        "bytes": 53792
+      },
+      {
+        "file": "team-builder/community/community.js",
+        "bytes": 19772
+      }
+    ],
+    "localStorageNamespaces": [
+      "monsabaFormationDraft:v2",
+      "monsabaSavedFormations:v2",
+      "monsabaRoster:v1",
+      "monsabaFavorites:v1",
+      "monsabaCommunityDraft:v1"
+    ],
+    "communityPagination": true,
+    "previewImagesLazy": true
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "en": {
+    "手持ち登録状況を確認中": "Checking your roster",
+    "編成で使う": "Use in Team Builder",
+    "投稿前の編成プレビュー": "Formation preview before publishing",
+    "まずT3": "Start with T3",
+    "まずT3（必要6星）": "Start with T3 (6 stars required)"
+  },
+  "zh-CN": {
+    "手持ち登録状況を確認中": "正在确认持有状态",
+    "編成で使う": "用于阵容编辑器",
+    "投稿前の編成プレビュー": "发布前阵容预览",
+    "まずT3": "先升至T3",
+    "まずT3（必要6星）": "先升至T3（需要6星）"
+  }
+}

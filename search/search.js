@@ -121,6 +121,10 @@ function runSearch(rawQuery, updateUrl = true) {
     if (matchedSkills.length) skillResults.push({ family, matches: matchedSkills.map((stage) => `T${stage.stage} ${stage.skillName}`) });
   }
   const pageResults = pages.filter((page) => contains(query, page.title, page.description, page.keywords));
+  const toolRoutes = ['/compare/', '/consult/', '/search/', '/my-monsaba/', '/team-builder/', '/events/treasure-hunt/'];
+  const toolResults = pageResults.filter((page) => toolRoutes.includes(page.href));
+  const eventResults = pageResults.filter((page) => page.href.startsWith('/events/') && !toolResults.includes(page));
+  const guideResults = pageResults.filter((page) => !eventResults.includes(page) && !toolResults.includes(page));
   const chipResults = chips.filter((chip) => contains(query, chip.name.ja, chip.effect.ja, chip.tags));
   const trialResults = trials.filter((family) => contains(query, family.familyName, family.conditions.map((item) => [item.tataName, item.condition])));
   const total = familyResults.length + evolutionResults.length + skillResults.length + chipResults.length + trialResults.length + pageResults.length;
@@ -131,7 +135,9 @@ function runSearch(rawQuery, updateUrl = true) {
     section('スキル', skillResults, (item) => resultLink(`/tata/${encodeURIComponent(item.family.id)}/`, getFamilyDisplayLabel(item.family), item.matches.join(' / '), item.family)),
     section('ゾンビラッシュチップ', chipResults, (chip) => resultLink('/zombie-rush/chips/', chip.name.ja, `Rank ${chip.rarity} / ${chip.effect.ja}`)),
     section('進化試練', trialResults, (family) => resultLink(`/evolution/trials/`, `${family.familyName}系`, family.conditions.map((item) => `T${item.stage} ${item.tataName}`).join(' / '))),
-    section('攻略ページ', pageResults, (page) => resultLink(page.href, page.title, page.description))
+    section('イベント', eventResults, (page) => resultLink(page.href, page.title, page.description)),
+    section('ガイド', guideResults, (page) => resultLink(page.href, page.title, page.description)),
+    section('ツール', toolResults, (page) => resultLink(page.href, page.title, page.description))
   ].join('');
   $('#searchResults').innerHTML = total ? sections : '<div class="empty"><p>一致する情報がありません。別の名称や正式な属性名で検索してください。</p><nav class="attribute-guide-nav" aria-label="代替の探し方"><a href="/consult/">条件から攻略相談</a><a href="/tata-tier/">Tierから探す</a><a href="/attribute/grass/">属性から探す</a><a href="/guides/">攻略目的から探す</a></nav></div>';
   return total;

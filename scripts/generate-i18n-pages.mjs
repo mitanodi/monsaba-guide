@@ -17,6 +17,8 @@ const communityOverrides = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n
 for (const locale of ['en', 'zh-CN']) Object.assign(overrides[locale], communityOverrides[locale]);
 const phase3Overrides = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/phase3.json'), 'utf8'));
 for (const locale of ['en', 'zh-CN']) Object.assign(overrides[locale], phase3Overrides[locale]);
+const phase4Overrides = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/phase4.json'), 'utf8'));
+for (const locale of ['en', 'zh-CN']) Object.assign(overrides[locale], phase4Overrides[locale]);
 const notices = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/notices.json'), 'utf8'));
 const tatari = JSON.parse(fs.readFileSync(path.join(root, 'data/tatari.json'), 'utf8'));
 const localizeTataNames = createTataHtmlLocalizer(tatari);

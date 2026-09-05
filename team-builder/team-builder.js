@@ -61,6 +61,7 @@ const ATTRIBUTE_LABELS = {
 let families = []; let chips = []; let chipById = new Map(); let validChipIds = new Set(); let imageByFamily = new Map(); let roster = { entries: {} }; let team = emptyTeam(); let savedTeams = [];
 let selected = null; let currentPlayer = 1; let currentLevel = 1; let movingFrom = null; let editingIndex = null; let replacingIndex = null; let attribute = 'all'; let chipQuery = ''; let dragPayload = null; let pointerDrag = null; let suppressClickUntil = 0;
 let undoStack = []; let redoStack = []; const HISTORY_LIMIT = 50;
+const ONBOARDING_KEY = 'monsabaTeamBuilderOnboarding:v1'; let exportPreset = 'original';
 
 const message = (template, values = {}) => Object.entries(values).reduce((text, [key, value]) => text.replaceAll(`{${key}}`, value), template);
 const familyById = (id) => families.find((family) => family.id === id);
@@ -101,8 +102,8 @@ function renderBoard() {
 
 function renderPlayerSettings() {
   $('#team-player-settings').innerHTML = PLAYER_IDS.map((id) => {
-    const levelSetting = levelsVisible() ? `<label for="${settingId(id, 'levelCapPlusOne')}"><input id="${settingId(id, 'levelCapPlusOne')}" type="checkbox" data-player-unlock="${id}" data-setting="levelCapPlusOne" ${team.playerSettings[id].levelCapPlusOne ? 'checked' : ''}> ${esc(COPY.levelUnlock)} <small>(Lv${levelLimit(team, id)})</small></label>` : '';
-    return `<section class="formation-player-card is-player-${id}"><div class="formation-player-head"><button type="button" data-current-player="${id}" aria-pressed="${currentPlayer === id}"><span class="formation-player-dot" aria-hidden="true"></span><b>Player ${id}</b></button><strong>${playerCount(team, id)} / ${playerLimit(team, id)}</strong></div><label for="${settingId(id, 'slotLimitPlusOne')}"><input id="${settingId(id, 'slotLimitPlusOne')}" type="checkbox" data-player-unlock="${id}" data-setting="slotLimitPlusOne" ${team.playerSettings[id].slotLimitPlusOne ? 'checked' : ''}> ${esc(COPY.slotUnlock)}</label>${levelSetting}</section>`;
+    const levelSetting = levelsVisible() ? `<label for="${settingId(id, 'levelCapPlusOne')}" title="${esc(locale === 'ja' ? 'ゲーム内でLv上限+1を取得済みの場合だけON' : COPY.levelUnlock)}"><input id="${settingId(id, 'levelCapPlusOne')}" type="checkbox" data-player-unlock="${id}" data-setting="levelCapPlusOne" ${team.playerSettings[id].levelCapPlusOne ? 'checked' : ''}> ${esc(COPY.levelUnlock)} <small>(Lv${levelLimit(team, id)})</small></label>` : '';
+    return `<section class="formation-player-card is-player-${id}"><div class="formation-player-head"><button type="button" data-current-player="${id}" aria-pressed="${currentPlayer === id}"><span class="formation-player-dot" aria-hidden="true"></span><b>Player ${id}</b></button><strong>${playerCount(team, id)} / ${playerLimit(team, id)}</strong></div><label for="${settingId(id, 'slotLimitPlusOne')}" title="${esc(locale === 'ja' ? 'ゲーム内で配置上限+1を取得済みの場合だけON' : COPY.slotUnlock)}"><input id="${settingId(id, 'slotLimitPlusOne')}" type="checkbox" data-player-unlock="${id}" data-setting="slotLimitPlusOne" ${team.playerSettings[id].slotLimitPlusOne ? 'checked' : ''}> ${esc(COPY.slotUnlock)}</label>${levelSetting}</section>`;
   }).join('');
 }
 
@@ -168,6 +169,20 @@ function refreshEditor() { if (editingIndex === null || !team.slots[editingIndex
 async function copyText(text) { try { await navigator.clipboard.writeText(text); return true; } catch { const area = document.createElement('textarea'); area.value = text; area.style.position = 'fixed'; area.style.opacity = '0'; document.body.append(area); area.select(); const ok = document.execCommand('copy'); area.remove(); return ok; } }
 function revealShareFallback(url) { const input = $('#team-share-fallback'); input.hidden = false; input.value = url; input.focus(); input.select(); }
 
+function showOnboarding() { $('#team-onboarding')?.showModal(); }
+function setupPhase4Controls() {
+  const dialog = document.createElement('dialog'); dialog.id = 'team-onboarding'; dialog.className = 'formation-edit-dialog'; dialog.setAttribute('aria-labelledby', 'team-onboarding-title');
+  const heading = locale === 'en' ? 'Build a formation in 5 steps' : locale === 'zh-CN' ? '用5步创建阵容' : '5ステップで編成を作る';
+  const steps = locale === 'en' ? ['Choose Player 1 or 2', 'Choose a Tata', 'Place it on the board', 'Set level, tier, and chips', 'Copy a URL, save an image, or publish'] : locale === 'zh-CN' ? ['选择Player', '选择塔塔', '放到棋盘', '设置等级、Tier和芯片', '复制链接、保存图片或投稿'] : ['Playerを選ぶ', 'タタを選ぶ', '盤面へ置く', 'Lv・Tier・チップを設定', 'URL・画像・Communityで共有'];
+  dialog.innerHTML = `<div class="section-head simple-head"><h2 id="team-onboarding-title">${esc(heading)}</h2><button type="button" class="ghost-button" data-onboarding-close aria-label="${locale === 'en' ? 'Close tutorial' : locale === 'zh-CN' ? '关闭教程' : 'チュートリアルを閉じる'}">×</button></div><ol class="number-list">${steps.map((step) => `<li>${esc(step)}</li>`).join('')}</ol><p><small>${locale === 'en' ? 'Keyboard: / focuses search, Delete removes the selected cell, Ctrl/⌘+Z undoes, Escape cancels.' : locale === 'zh-CN' ? '键盘：/聚焦搜索，Delete删除所选格，Ctrl/⌘+Z撤销，Escape取消。' : 'キーボード：/で検索、Deleteで選択中の配置を削除、Ctrl/⌘+Zで戻す、Escapeでキャンセル。'}</small></p><button type="button" class="button" data-onboarding-close>${locale === 'en' ? 'Start' : locale === 'zh-CN' ? '开始' : '始める'}</button>`;
+  document.body.append(dialog); dialog.addEventListener('click', (event) => { if (event.target.closest('[data-onboarding-close]')) { localStorage.setItem(ONBOARDING_KEY, 'seen'); dialog.close(); } });
+  const help = document.createElement('button'); help.id = 'team-help'; help.className = 'ghost-button'; help.type = 'button'; help.textContent = locale === 'en' ? 'Help' : locale === 'zh-CN' ? '帮助' : '使い方'; help.addEventListener('click', showOnboarding); $('.formation-history')?.append(help);
+  const actions = $('#team-save')?.parentElement; if (actions) { const label = document.createElement('label'); label.textContent = locale === 'en' ? 'Image ratio ' : locale === 'zh-CN' ? '图片比例 ' : '画像比率 '; const select = document.createElement('select'); select.id = 'team-export-preset'; for (const [value, name] of [['original', locale === 'ja' ? '従来' : 'Original'], ['16-9', '16:9'], ['1-1', '1:1']]) { const option = document.createElement('option'); option.value = value; option.textContent = name; select.append(option); } select.addEventListener('change', () => { exportPreset = select.value; }); label.append(select); const discord = document.createElement('button'); discord.id = 'team-discord'; discord.className = 'ghost-button'; discord.type = 'button'; discord.textContent = 'Discord'; discord.title = locale === 'ja' ? 'Discordへ貼り付けやすいMarkdown形式をコピー' : 'Copy Discord-ready Markdown'; discord.addEventListener('click', async () => { const url = `${location.origin}${localePrefix}/team-builder/#build=${encodeTeam(team, families, chips)}`; await copyText(`**${team.name || COPY.boardMemo}**\n${teamText(team, families, locale, chips)}\n${url}`); setStatus(locale === 'ja' ? 'Discord向けテキストをコピーしました。' : locale === 'zh-CN' ? '已复制Discord分享文本。' : 'Discord-ready text copied.'); }); actions.append(label, discord); }
+  for (const [selector, title] of [['#team-owned-only', 'My Monsaba'], ['#team-show-levels', 'Lv'], ['#team-chip-settings', 'Chip']]) document.querySelector(selector)?.setAttribute('title', title);
+  document.addEventListener('keydown', (event) => { const editing = event.target.matches('input,textarea,select,[contenteditable=true]'); if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'z') { event.preventDefault(); event.shiftKey ? redo() : undo(); return; } if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'y') { event.preventDefault(); redo(); return; } if (!editing && event.key === '/') { event.preventDefault(); $('#team-picker-search')?.focus(); return; } if (!editing && event.key === 'Delete' && editingIndex !== null && team.slots[editingIndex]) { commit(removeMember(team, editingIndex, families), COPY.removed); $('#team-edit-dialog')?.close(); return; } if (event.key === 'Escape') { movingFrom = null; replacingIndex = null; selected = null; renderAll(); } });
+  if (!localStorage.getItem(ONBOARDING_KEY)) showOnboarding();
+}
+
 async function exportImage() {
   const canvas = $('#team-share-canvas'); const context = canvas.getContext('2d'); context.fillStyle = '#101522'; context.fillRect(0, 0, canvas.width, canvas.height);
   context.fillStyle = '#f8fafc'; context.font = '700 38px sans-serif'; context.textAlign = 'left'; context.fillText(team.name || COPY.boardMemo, 60, 62);
@@ -190,7 +205,8 @@ async function exportImage() {
     context.fillStyle = 'rgba(0,0,0,.84)'; if (levelsVisible()) context.fillRect(x + 5, y + cell - 42, 64, 37); context.fillRect(x + cell - 62, y + cell - 42, 57, 37); context.fillStyle = '#fff'; if (levelsVisible()) context.fillText(`Lv${slot.level}`, x + 37, y + cell - 15); context.fillText(`T${slot.stage}`, x + cell - 34, y + cell - 15);
   }
   context.textAlign = 'left'; context.fillStyle = '#cbd5e1'; context.font = '22px sans-serif'; context.fillText('monster-survival.com', 60, canvas.height - 35);
-  const link = document.createElement('a'); link.download = `monsaba-zombie-rush-formation-${new Date().toISOString().slice(0, 10)}.png`; link.href = canvas.toDataURL('image/png'); link.click();
+  let output = canvas; if (exportPreset !== 'original') { const [width, height] = exportPreset === '16-9' ? [1600, 900] : [1200, 1200]; output = document.createElement('canvas'); output.width = width; output.height = height; const out = output.getContext('2d'); out.fillStyle = '#101522'; out.fillRect(0, 0, width, height); const scale = Math.min(width / canvas.width, height / canvas.height); const drawWidth = canvas.width * scale; const drawHeight = canvas.height * scale; out.drawImage(canvas, (width - drawWidth) / 2, (height - drawHeight) / 2, drawWidth, drawHeight); }
+  const link = document.createElement('a'); link.download = `monsaba-zombie-rush-formation-${exportPreset}-${new Date().toISOString().slice(0, 10)}.png`; link.href = output.toDataURL('image/png'); link.click();
 }
 
 function reportIssue(issue, playerId) {
@@ -312,7 +328,8 @@ async function boot() {
   const [tatari, imageData, chipData] = await Promise.all(['/data/tatari.json', '/data/tata-images.json', '/data/zombie-rush/chips.json'].map(async (url) => { const response = await fetch(url); if (!response.ok) throw new Error('Data load failed.'); return response.json(); }));
   families = tatari.families || []; chips = chipData.chips || []; chipById = new Map(chips.map((chip) => [chip.id, chip])); validChipIds = new Set(chipById.keys()); imageByFamily = new Map((imageData.families || []).map((item) => [item.familyId, item])); roster = loadRoster(localStorage, families); savedTeams = loadTeams(localStorage, families);
   const shared = location.hash.match(/^#build=([A-Za-z0-9_-]+)$/)?.[1]; if (shared) { try { team = decodeTeam(shared, families, chips); setStatus(COPY.shared); } catch (error) { setStatus(error.message, true); } } else { const draft = loadDraft(localStorage, families); if (draft) { team = draft; setStatus(COPY.restored, false, '#team-message'); } }
-  $('#team-name').value = team.name; $('#team-mode').value = team.mode; $('#team-owned-only').checked = new URLSearchParams(location.search).get('roster') === '1'; renderFilters(); bind(); renderAll(); track('formation_open');
+  const query = new URLSearchParams(location.search); const beginnerFamily = query.get('family'); if (query.get('from') === 'beginner' && familyById(beginnerFamily)) selected = { familyId: beginnerFamily, stage: 1 };
+  $('#team-name').value = team.name; $('#team-mode').value = team.mode; $('#team-owned-only').checked = query.get('roster') === '1'; renderFilters(); bind(); renderAll(); setupPhase4Controls(); track('formation_open');
 }
 
 boot().catch((error) => setStatus(error.message, true));
