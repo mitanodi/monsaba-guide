@@ -29,3 +29,4 @@
 .formation-drag-ghost.is-native{left:-9999px;top:-9999px;transform:none}.formation-drag-ghost img{width:46px;height:46px;object-fit:contain}.formation-drag-ghost span{display:grid;min-width:0}.formation-drag-ghost strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px}.formation-drag-ghost small{color:#526173;font-weight:900}
 @media(max-width:820px){.formation-picker{max-height:72vh!important;max-height:72svh!important;max-height:72dvh!important}.formation-picker-list{max-height:44vh!important;max-height:44svh!important;max-height:44dvh!important}.formation-picker.is-drag-compact{transition:none;transform:translateX(calc(100% + 20px))}}
 @media(prefers-reduced-motion:reduce){.formation-picker{transition:none!important}}
+#team-community-publish[hidden]{display:none!important}

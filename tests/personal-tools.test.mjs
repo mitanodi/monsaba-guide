@@ -11,7 +11,7 @@ import {
   TEAM_KEY, DRAFT_KEY, TEAM_VERSION, SHARE_VERSION, TEAM_ROWS, TEAM_COLUMNS, TEAM_SLOTS, MAX_SAVED_TEAMS, emptyTeam, sanitizeTeam,
   loadTeams, loadDraft, saveDraft, saveTeamList, upsertTeam, placeMember, copyMemberToPlayer, togglePlayerChip, removeMember, moveMember,
   placementIssue, setPlayerUnlock, playerCount, playerLimit, levelLimit, MODE_PLAYER_LIMITS, activePlayerIds,
-  encodeTeam, decodeTeam, analyzeTeam, teamText, stage1ImageFor
+  encodeTeam, decodeTeam, analyzeTeam, teamText, stage1ImageFor, switchModeDraft, saveModeDrafts, loadModeDrafts
 } from '../team-builder/team-core.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -33,6 +33,34 @@ function storage(seed = {}) {
     has: (key) => values.has(key)
   };
 }
+
+test('mode drafts retain Free 15 → Dojo and Boss 15 → Zombie after reload', () => {
+  for (const [sourceMode, destination, limit] of [['free', 'dojo', 5], ['boss', 'zombie', 10]]) {
+    let original = { ...emptyTeam(), mode: sourceMode, name: 'Original formation' };
+    for (let i = 0; i < 15; i++) original = placeMember(original, i, { familyId: families[i].id, stage: 1, playerId: 1, level: 1 }, families);
+    const result = switchModeDraft(original, destination, {}, families);
+    assert.equal(result.team.slots.filter(Boolean).length, limit);
+    assert.equal(original.slots.filter(Boolean).length, 15);
+    const device = storage();
+    saveModeDrafts(device, result.drafts, families);
+    const restored = switchModeDraft(result.team, sourceMode, loadModeDrafts(device, families), families);
+    assert.deepEqual(restored.team, original);
+    assert.deepEqual(decodeTeam(encodeTeam(restored.team, families, chips), families, chips).slots, original.slots);
+  }
+});
+
+test('ZR P2, chips and Lv8 survive Normal mode and return after reload', () => {
+  let original = emptyTeam();
+  original.playerSettings[2] = { slotLimitPlusOne: true, levelCapPlusOne: true };
+  original = placeMember(original, 30, { familyId: first.id, stage: 1, playerId: 2, level: 8 }, families);
+  original.chips[2] = [chips[0].id];
+  const result = switchModeDraft(original, 'normal', {}, families);
+  assert.equal(playerCount(result.team, 2), 0);
+  const device = storage(); saveModeDrafts(device, result.drafts, families);
+  const restored = switchModeDraft(result.team, 'zombie', loadModeDrafts(device, families), families);
+  assert.deepEqual(restored.team, original);
+  assert.throws(() => saveModeDrafts({ setItem() { throw new Error('quota'); } }, result.drafts, families), /quota/);
+});
 
 test('データIntegrityは64系統・230体', () => {
   assert.equal(families.length, 64);
@@ -420,16 +448,16 @@ test('編成メーカーはTOP・ゾンビラッシュ攻略・チップ一覧�
   const zombie = read('zombie-rush/index.html');
   const chipsPage = read('zombie-rush/chips/index.html');
   assert.match(top, /class="wrap zombie-entry team-builder-entry"/);
-  assert.match(top, /タタ配置/); assert.match(top, /Lv・チップ設定/); assert.match(top, /P1\/P2対応/); assert.match(top, /保存・共有/);
+  assert.match(top, /タタ配置/); assert.match(top, /5モード対応/); assert.match(top, /モード別保存/); assert.match(top, /保存・共有/);
   assert.match(zombie, /data-cta-id="team_builder_zombie_guide"/);
   assert.match(chipsPage, /href="\/team-builder\/">チップを使って編成を作る<\/a>/);
 });
 
 test('EN・zh-CNにも編成メーカー導線が自然な文言で生成される', () => {
-  assert.match(read('en/index.html'), /Zombie Rush Team Builder/);
+  assert.match(read('en/index.html'), /Clash of Critters Team Builder/);
   assert.match(read('en/zombie-rush/index.html'), /Open Team Builder/);
   assert.match(read('en/zombie-rush/chips/index.html'), /Build a Team with Chips/);
-  assert.match(read('zh-cn/index.html'), /Zombie Rush阵容编辑器/);
+  assert.match(read('zh-cn/index.html'), /Clash of Critters 阵容编辑器/);
   assert.match(read('zh-cn/zombie-rush/index.html'), /打开阵容编辑器/);
   assert.match(read('zh-cn/zombie-rush/chips/index.html'), /使用芯片创建阵容/);
 });

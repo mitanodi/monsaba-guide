@@ -1,0 +1,70 @@
+# Full-site interaction audit — 2026-09-06
+
+開始HEAD: `14039956b7de58b3fd7b60631091105c05a8a107`。main と origin/main 一致を fetch 後に確認。
+
+ASTRA_CONFIRMED は利用可能な Codex in-app browser による UI/DOM 操作の確認を指す。物理 iPhone の確認ではない。
+使用機能: navigation, accessibility tree, DOM read-only inspection, click, text input, select, viewport override, screenshots.
+実装済みの API 文書を確認して使用。タタ選択では AX の checkbox 表示と HTML button の違いを確認し、実DOMに合わせて操作。
+
+改善前: 15ルート × JA/EN/zh-CN × 390/1366px = 90状態。
+各状態で確認したのはタイトル、H1（390px）、ページ横幅、読み込み済み画像の破損、AXツリー。巡回だけでは interaction PASS としない。
+スクリーンショット90枚はローカル `C:/Users/asahi/.codex/visualizations/astra-monsaba-audit-20260905` に保存。Gitへ大量PNGを追加しない。
+
+対象: TOP, Tier, Beginner, Evolution Priority, Search, Compare, My Monsaba, Team Builder, Community, Events, Zombie Rush, Chips, Consult, Friends, コパンダ系詳細。
+
+| ID | Route / Locale / Viewport | Severity | Issue / Actual | Expected | Evidence | Root cause / Fix | Risk / Status |
+|---|---|---|---|---|---|---|---|
+| A01 | /team-builder/ JA 1366 | A | 自由6体→道場5体→自由5体。確認なしで1体喪失 | 元モードへ戻すと6体復元 | ASTRA_CONFIRMED: 6系統を選択・1行目に配置して往復 | CODE_CONFIRMED: mode変更直後sanitizeTeamで上限超過を削除。モード別草稿を先に永続保存 | 保存/Undo/共有の回帰確認が必要。修正中 |
+| A02 | /team-builder/ JA 390 | B | ボスラリーで新規編成後、selectはZR、見出しと上限はBoss 0/15 | selectと盤面の一致 | ASTRA_CONFIRMED: new操作後AX | CODE_CONFIRMED: persistDraftが古いDOM値をteamへ書き戻し、新規操作がrender後にselect変更。stateを正としrenderで同期 | Undo/Redo・保存読込も検証。修正中 |
+| B01 | / JA 390/1366 | B | 編成メーカー紹介はZR専用に見える | 5modeとZR専用設定の説明 | ASTRA_CONFIRMED: TOP紹介文 | 対象コピーの更新候補 | SEO title/H1は維持。未修正 |
+| B02 | /team-builder/ JA 390 | B | 保存0件で「保存できる編成は最大10件です」のみ | 未保存と次の操作を説明 | ASTRA_CONFIRMED: 保存した編成section | empty stateと上限エラー文の兼用を分離 | 3言語コピー。修正中 |
+
+CODE_CONFIRMED: 非ZRの「みんなの編成へ投稿」は内部でmodeをZRへ上書きしてencodeする。投稿を行わずコードで確認。ZR専用の投稿UIとして他モードでは非表示にする。
+
+検索: JAの検索欄にコパンダを入力→2結果。グローバル検索ダイアログでタケパンダを入力・送信→3結果。最初のAX setValue試行は入力イベントの差で結果なしとなったため、Playwright fillで再確認しサイト不具合とは判定しなかった。
+
+## 修正・再検証記録
+
+上表は発見時の記録。下記が最終的な修正状況。
+
+| ID | 重要度 | 原因と修正 | ローカル再検証 |
+|---|---|---|---|
+| A01 | A | モード別草稿を切替前に保存。保存失敗時は切替を中止 | Free15→Dojo5→Free15、ZR P1=4/P2=2→Normal4→ZR4/2、再読込、共有URL復元、Undo/Redo成功 |
+| A02 | B | stateを正として名前・modeを描画で同期。新規は現在modeを維持 | selectと見出し・上限の一致、Undo/Redo成功 |
+| B01 | B | TOP紹介を5モード・モード別草稿に変更。ZR専用項目は明記 | 3言語で表示、title/H1は維持 |
+| B02 | B | 保存0件の説明と保存上限エラーを分離 | 次の保存操作が分かる空状態を表示 |
+| A03 | A | 英語属性5ページのflex子のmin-width:autoと長語で横にはみ出す。min-width:0と見出し改行を適用 | fire/grass/rock/thunder/water、320/390/1366でscrollWidth=clientWidth |
+| A04 | A | 盤面のpointer capture先が親divで通常clickが編集buttonに届かない。capture先をbuttonに統一 | スズメラをclick→編集、移動・入替、削除、Undo成功 |
+| A05 | A | native dragstart後のpointercancelがnative drag payloadまで消す。pointer gestureが残る場合のみclear | PCでスズメラを1行2列→1行1列へ画像ドラッグ成功 |
+| B03 | B | 非ZR投稿ボタンが内部でmodeをZRに変換。非ZRで非表示、handlerもガード | 非ZR投稿button不可視、ZRのみ表示。投稿自体は行わない |
+| B04 | B | 属性ページの冒頭説明に部分翻訳が混在 | 5属性の冒頭説明をEN/zh-CNの完全な文に置換。攻略データは変更しない |
+
+発見した根本原因単位: A 5件、B 5件、C 0件。A03は影響5routeを1件として数える。サイト全体に未知の問題がないという意味ではない。
+
+## 実操作の範囲
+
+- 主要15route × 3locale × 390/1366pxのbefore/after計180状態を比較。afterは横はみ出し・読み込み済み壊れ画像・H1異常0。
+- 追加幅: 320/375/430/768/820/1024/1440/1920のTOP、Team Builder、Compare（24状態）。幅390等はviewport幅で、Windowsの縦スクロールバー分clientWidthが15px小さくなる。
+- 全384のindex.html routeを390幅のブラウザーで描画。最初に英語属性5件のoverflowを検出、全件読み込み済み画像破損0。修正5件を320/390/1366で再確認。
+- `scripts/audit-astra-routes.mjs`: 全384routeのHTTP、title、H1、canonical、indexableのhreflang、内部リンク・画像参照を確認。サイトの生成対象は404を含め129×3=387HTML、通常routeは384、indexableは354。
+- Tier: 通常＋火で5評価済み系統、評価保留は別枠。Beginner: 早めのT3で3候補。Events: 確認済みで2件。既存情報構造・評価値は変更しない。
+- Compare: コパンダ/ベロパカの2体選択→比較、2列結果とURL query反映。
+- Consult: 初心者質問ボタン→3つの早期T3候補・根拠・次の関連リンク。生成AIではない表示を維持。
+- Chips: 最初の効果detailsを開き、効果本文とPDF出典が表示。ゲーム内数値は編集しない。
+- Mobile Picker: 検索→T1選択→自動収納、再表示、Escape収納。アニメーション直後のisVisibleだけで判定せず、完了後classも確認。
+- Mobile Drag: 選択中フグマル画像→5行4列、選択中ホネギョ画像→1行2列へ配置成功。viewport模擬であり物理iOSのtouch検証ではない。
+- PC Drag: nativeドラッグ修正後、スズメラの1行2列→1行1列をaria-labelで確認。
+- 共有: 15体のURLを生成し別ページ経由で復元。テキスト/DiscordのUI操作、16:9画像の成功通知を確認。OSクリップボードの実内容と全画像比率の端末保存結果までは未確認。
+- EN: Dojo/Free、zh-CN: Normal/ZRを実操作。非ZRの1人表示、ZR P1/P2と設定表示を確認。
+- Community: 本番一覧API200・0件、UI空状態・絞込を確認。偽投稿、helpful、trial、comment等の書込み0。実投稿カードや別端末往復は未検証。
+
+## 維持した設計と残る確認
+
+既存の目的別ナビ、TOP導線、タタ一覧/個別、Tier根拠、初心者優先度、検索/比較、Events状態分離は維持。大規模な見た目の置換は行わない。競合から採用/維持する考え方は `astra-competitor-ux-benchmark.md` に記載。
+
+Accessibility: 名前付きボタン、スキップリンク、selectとlabel、編集dialog、Escape、Undo/Redoを点検。包括的なWCAG適合やスクリーンリーダー実機試験は未実施。
+Performance: 新しい依存・大型画像・フレームワーク追加0。ブラウザーで主要routeを反復して読み込み、render/layoutを確認。LighthouseスコアやフィールドCore Web Vitalsの測定値は未取得であり、改善率は主張しない。
+
+HUMAN_VERIFICATION_REQUIRED: 物理iPhone Safariのtouch/キーボード/safe-area、OS保存画像・Discord実貼付、実Community投稿後の2端末検証。投稿0件のためmulti-mode Communityは設計のみ（mode discriminator、mode別上限、ZR専用設定、既存ZR互換が必要）。実データなしの大規模投稿UI変更はしない。
+
+ローカル検証: `npm run generate:site`、`npm test`、`npm run validate`成功。npm test内の全生成idempotency成功。並行生成中の中間HTMLを検証して出た一時エラーは、生成/検証を直列に再実行して解消。公開後の記録は追記する。

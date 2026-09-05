@@ -1,5 +1,13 @@
 {
   "en": {
+    "モンサバ 草属性の13系統を収録。回復・妨害・前衛役を中心に、育成目安をまとめています。": "Explore 13 Grass families, with development guidance focused on healing, disruption and frontline roles.",
+    "モンサバ 水属性の13系統を収録。火力・耐久・サポート性能を比較して育成候補を整理しています。": "Explore 13 Water families and compare damage, durability and support to plan your development priorities.",
+    "モンサバ 火属性の13系統を収録。火力・サポート性能を比較して育成候補を整理しています。": "Explore 13 Fire families and compare damage and support to plan your development priorities.",
+    "モンサバ 雷属性の13系統 / 47体を収録。おすすめタタと育成目安をまとめています。": "Explore 13 Lightning families and 47 forms, with recommended Tata and development guidance.",
+    "モンサバ 岩属性の12系統を収録。前衛・火力・サポート性能を比較して育成候補を整理しています。": "Explore 12 Rock families and compare frontline, damage and support roles to plan your development priorities.",
+    "自由編成・通常・ゾンビラッシュ・バッジ道場・ボスラリーに対応。モード別に編成を保存・共有できます。Lv・チップ・P1/P2はゾンビラッシュで設定できます。": "Build and share formations for Free, Normal, Zombie Rush, Badge Dojo and Boss Rally. Each mode keeps its own draft. Levels, chips and P1/P2 settings are available in Zombie Rush.",
+    "5モード対応": "5 modes",
+    "モード別保存": "Drafts for each mode",
     "モンサバ攻略DBは、モンスターサバイバル（モンサバ）のタタ63系統・224体を収録。Tier、進化先、スキル効果・数値を一覧で確認できます。": "Clash of Critters Guide DB covers 63 Tatari families and 224 Tatari, with tier ratings, evolution paths, skill effects and verified values.",
     "モンサバ攻略DBで、モンサバのタタTier、進化先、スキル効果・数値を一覧で確認できます。": "Explore Clash of Critters Tatari tier ratings, evolution paths, skill effects and verified values.",
     "モンスターサバイバル（モンサバ）の非公式攻略データベースです。": "An unofficial strategy database for Clash of Critters.",
@@ -277,6 +285,14 @@
     "共有URLには進化段階と配置を含み、ゾンビラッシュではPlayer・上限解放・Lv表示設定・選択チップも含みます。編成名や編成内容を当サイトのサーバーやAnalyticsへ送信しません。": "Share URLs include evolution tiers and positions. In Zombie Rush they also include Players, cap unlocks, level display settings, and selected chips. Formation names and content are not sent to our server or Analytics."
   },
   "zh-CN": {
+    "モンサバ 草属性の13系統を収録。回復・妨害・前衛役を中心に、育成目安をまとめています。": "收录13个草属性系列，围绕治疗、控制与前排定位提供培养参考。",
+    "モンサバ 水属性の13系統を収録。火力・耐久・サポート性能を比較して育成候補を整理しています。": "收录13个水属性系列，对比输出、生存与辅助能力，帮助规划培养优先级。",
+    "モンサバ 火属性の13系統を収録。火力・サポート性能を比較して育成候補を整理しています。": "收录13个火属性系列，对比输出与辅助能力，帮助规划培养优先级。",
+    "モンサバ 雷属性の13系統 / 47体を収録。おすすめタタと育成目安をまとめています。": "收录13个雷属性系列、47种形态，提供塔塔推荐与培养参考。",
+    "モンサバ 岩属性の12系統を収録。前衛・火力・サポート性能を比較して育成候補を整理しています。": "收录12个岩属性系列，对比前排、输出与辅助定位，帮助规划培养优先级。",
+    "自由編成・通常・ゾンビラッシュ・バッジ道場・ボスラリーに対応。モード別に編成を保存・共有できます。Lv・チップ・P1/P2はゾンビラッシュで設定できます。": "支持自由阵容、普通、Zombie Rush、徽章道场和首领集结。各模式单独保存草稿，并可分享阵容。等级、芯片和P1/P2设置仅适用于Zombie Rush。",
+    "5モード対応": "支持5种模式",
+    "モード別保存": "各模式单独保存",
     "モンサバ攻略DBは、モンスターサバイバル（モンサバ）のタタ63系統・224体を収録。Tier、進化先、スキル効果・数値を一覧で確認できます。": "Clash of Critters 攻略数据库收录 63 个 Tatari 系列、共 224 个 Tatari，可查看 Tier、进化路线、技能效果和已确认数值。",
     "モンサバ攻略DBで、モンサバのタタTier、進化先、スキル効果・数値を一覧で確認できます。": "可在 Clash of Critters 攻略数据库中查看 Tatari Tier、进化路线、技能效果和已确认数值。",
     "モンスターサバイバル（モンサバ）の非公式攻略データベースです。": "Clash of Critters 非官方攻略数据库。",

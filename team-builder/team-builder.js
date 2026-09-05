@@ -1,7 +1,7 @@
 import { familyMatches, loadRoster } from '../my-monsaba/roster-core.js';
 import {
   HANDOFF_KEY, MODE_LABELS, TEAM_ROWS, TEAM_COLUMNS, PLAYER_IDS, BASE_LEVEL_LIMIT, MAX_LEVEL_LIMIT,
-  emptyTeam, cloneTeam, sanitizeTeam, loadTeams, loadDraft, saveDraft, saveTeamList, upsertTeam,
+  emptyTeam, cloneTeam, sanitizeTeam, loadTeams, loadDraft, saveDraft, saveTeamList, upsertTeam, loadModeDrafts, saveModeDrafts, switchModeDraft,
   placementIssue, placeMember, copyMemberToPlayer, togglePlayerChip, removeMember, moveMember, setPlayerUnlock, playerCount, playerLimit, activePlayerIds,
   levelLimit, encodeTeam, decodeTeam, teamText, stage1ImageFor
 } from './team-core.js';
@@ -60,7 +60,12 @@ const ATTRIBUTE_LABELS = {
 
 let families = []; let chips = []; let chipById = new Map(); let validChipIds = new Set(); let imageByFamily = new Map(); let roster = { entries: {} }; let team = emptyTeam(); let savedTeams = [];
 let selected = null; let currentPlayer = 1; let currentLevel = 1; let movingFrom = null; let editingIndex = null; let replacingIndex = null; let attribute = 'all'; let chipQuery = ''; let dragPayload = null; let pointerDrag = null; let suppressClickUntil = 0;
-let undoStack = []; let redoStack = []; const HISTORY_LIMIT = 50;
+let undoStack = []; let redoStack = []; let modeDrafts = {}; const HISTORY_LIMIT = 50;
+const modeCopy = {
+  ja: { switched: 'モードを切り替えました。元の編成は保持されています。モードを戻すと復元できます。', failed: '元の編成を端末に保存できないため、切り替えを中止しました。共有リンクで編成を控えてください。', hint: '編成はモード別に自動保存されます。切り替えるとそのモードの編成を復元します。初回は上限内のタタを引き継ぎ、元の編成も保持します。', empty: '保存した編成はまだありません。「この編成を保存」で追加できます。' },
+  en: { switched: 'Mode switched. Your previous formation is kept; switch back to restore it.', failed: 'Could not save your current formation on this device, so the mode was not changed. Keep a share link as a backup.', hint: 'Each mode has its own autosaved formation. Switching restores it. On the first visit, eligible Tata are copied within the new limit; the original is kept.', empty: 'No saved formations yet. Use “Save this formation” to add one.' },
+  'zh-CN': { switched: '已切换模式。原阵容已保留，切回原模式即可恢复。', failed: '无法在此设备保存当前阵容，因此已取消切换。请复制分享链接备份。', hint: '每种模式单独自动保存阵容，切换时恢复。首次切换会在新模式上限内复制可用塔塔，并保留原阵容。', empty: '还没有保存的阵容。点击“保存此阵容”即可添加。' }
+}[locale];
 const ONBOARDING_KEY = 'monsabaTeamBuilderOnboarding:v1'; let exportPreset = 'original';
 
 const message = (template, values = {}) => Object.entries(values).reduce((text, [key, value]) => text.replaceAll(`{${key}}`, value), template);
@@ -81,7 +86,7 @@ const chipEffect = (chip) => chip?.effect?.[locale] || chip?.effect?.ja || '';
 
 function setStatus(text, error = false, target = '#team-action-status') { const node = $(target); if (!node) return; node.textContent = text; node.classList.toggle('is-error', error); }
 function track(name) { window.MONSABA_TRACK?.event(name); }
-function persistDraft() { team.name = $('#team-name').value; team.mode = $('#team-mode').value; try { saveDraft(localStorage, team, families); } catch { /* private storage */ } }
+function persistDraft() { modeDrafts[team.mode] = cloneTeam(team, families); try { saveModeDrafts(localStorage, modeDrafts, families); saveDraft(localStorage, team, families); } catch { /* private storage */ } }
 function commit(next, status = '') { undoStack.push(cloneTeam(team, families)); if (undoStack.length > HISTORY_LIMIT) undoStack.shift(); redoStack = []; team = sanitizeTeam(next, families); persistDraft(); renderAll(); if (status) setStatus(status, false, '#team-message'); }
 function undo() { if (!undoStack.length) return; redoStack.push(cloneTeam(team, families)); team = undoStack.pop(); persistDraft(); renderAll(); }
 function redo() { if (!redoStack.length) return; undoStack.push(cloneTeam(team, families)); team = redoStack.pop(); persistDraft(); renderAll(); }
@@ -177,7 +182,7 @@ function renderPicker({ resetScroll = false } = {}) {
 }
 
 function renderSaved() { $('#saved-team-list').innerHTML = savedTeams.map((item, index) => { const counts = activePlayerIds(item).map((id) => item.mode === 'zombie' ? `P${id} ${playerCount(item, id)}` : `${playerCount(item, id)}/${playerLimit(item, id)}`).join(' · '); return `<article class="saved-team"><div><b>${esc(item.name || COPY.unnamed)}</b><p>${esc(displayMode(item.mode))} / ${counts} / ${item.updatedAt ? new Date(item.updatedAt).toLocaleString(locale === 'zh-CN' ? 'zh-CN' : locale) : ''}</p></div><div class="tool-actions"><button type="button" class="ghost-button" data-load-team="${index}">${esc(COPY.open)}</button><button type="button" class="ghost-button" data-delete-team="${index}">${esc(COPY.remove)}</button></div></article>`; }).join('') || `<p>${esc(COPY.saveLimit)}</p>`; }
-function renderAll() { if (!activePlayerIds(team).includes(currentPlayer)) currentPlayer = 1; renderModeControls(); renderPlayerSettings(); renderPlacementControls(); renderChipSettings(); renderBoard(); renderSelection(); renderPicker(); renderSaved(); }
+function renderAll() { $('#team-name').value = team.name; $('#team-mode').value = team.mode; if (!activePlayerIds(team).includes(currentPlayer)) currentPlayer = 1; renderModeControls(); renderPlayerSettings(); renderPlacementControls(); renderChipSettings(); renderBoard(); renderSelection(); renderPicker(); renderSaved(); if (!savedTeams.length) $('#saved-team-list').textContent = modeCopy.empty; const publish = $('#team-community-publish'); if (publish) publish.hidden = team.mode !== 'zombie'; }
 
 function editControls(slot, member) {
   const maxLevel = levelLimit(team, slot.playerId); const otherPlayer = slot.playerId === 1 ? 2 : 1;
@@ -283,7 +288,9 @@ function bindPointerDrag() {
     if (!active) return; event.preventDefault(); suppressClickUntil = Date.now() + 400; const cell = document.elementFromPoint(event.clientX, event.clientY)?.closest('[data-drop-cell]');
     if (cell && dragPayload) applyDrop(Number(cell.dataset.dropCell), dragPayload); else clearDragState();
   });
-  document.addEventListener('pointercancel', () => { pointerDrag = null; clearDragState(); });
+  // Native HTML dragstart clears pointerDrag; its following pointercancel must
+  // not discard the native drag payload before the drop event.
+  document.addEventListener('pointercancel', () => { if (pointerDrag) clearDragState(); });
 }
 function placeOrMove(index) {
   if (movingFrom !== null) { const from = movingFrom; movingFrom = null; if (from !== index) commit(moveMember(team, from, index, families), COPY.moved); else renderAll(); return; }
@@ -312,7 +319,7 @@ function bind() {
     if (remove) { const index = Number(remove.dataset.quickRemove); commit(removeMember(team, index, families), COPY.removed); track('formation_remove'); return; }
     const cell = event.target.closest('[data-cell]'); if (cell) placeOrMove(Number(cell.dataset.cell));
   });
-  $('#team-board').addEventListener('pointerdown', (event) => { const source = event.target.closest('[data-drag-cell]'); if (source) beginPointerDrag(event, { type: 'board', index: Number(source.dataset.dragCell) }, source.closest('.formation-cell')); });
+  $('#team-board').addEventListener('pointerdown', (event) => { const source = event.target.closest('[data-drag-cell]'); if (source) beginPointerDrag(event, { type: 'board', index: Number(source.dataset.dragCell) }, source); });
   $('#team-board').addEventListener('dragstart', (event) => { const source = event.target.closest('[data-drag-cell]'); if (!source) return; pointerDrag = null; dragPayload = { type: 'board', index: Number(source.dataset.dragCell) }; event.dataTransfer.effectAllowed = 'move'; event.dataTransfer.setData('text/plain', 'monsaba-formation'); source.closest('.formation-cell')?.classList.add('is-dragging'); const ghost = createDragGhost(dragPayload, true); event.dataTransfer.setDragImage?.(ghost, 44, 44); });
   $('#team-board').addEventListener('dragover', (event) => { const cell = dropCell(event); if (!cell || !dragPayload) return; event.preventDefault(); event.dataTransfer.dropEffect = dragPayload.type === 'board' ? 'move' : 'copy'; document.querySelectorAll('.is-drop-target').forEach((node) => node.classList.remove('is-drop-target')); cell.classList.add('is-drop-target'); });
   $('#team-board').addEventListener('dragleave', (event) => { const cell = dropCell(event); if (cell && !cell.contains(event.relatedTarget)) cell.classList.remove('is-drop-target'); });
@@ -363,10 +370,18 @@ function bind() {
   $('#team-edit-dialog').addEventListener('close', () => { editingIndex = null; });
   $('#team-undo').addEventListener('click', undo); $('#team-redo').addEventListener('click', redo);
   $('#team-clear').addEventListener('click', () => { if (team.slots.some(Boolean) && !confirm(COPY.clearConfirm)) return; const next = emptyTeam(); next.mode = team.mode; commit(next, COPY.cleared); $('#team-name').value = ''; });
-  $('#team-new').addEventListener('click', () => { if ((team.slots.some(Boolean) || team.name) && !confirm(COPY.newConfirm)) return; commit(emptyTeam(), COPY.cleared); $('#team-name').value = ''; $('#team-mode').value = 'zombie'; selected = null; currentPlayer = 1; currentLevel = 1; });
-  $('#team-mode').addEventListener('change', () => { const next = cloneTeam(team, families); next.mode = $('#team-mode').value; commit(next, COPY.changed); }); $('#team-name').addEventListener('input', () => { team.name = $('#team-name').value; persistDraft(); });
+  $('#team-new').addEventListener('click', () => { if ((team.slots.some(Boolean) || team.name) && !confirm(COPY.newConfirm)) return; const next = emptyTeam(); next.mode = team.mode; selected = null; movingFrom = null; replacingIndex = null; currentPlayer = 1; currentLevel = 1; commit(next, COPY.cleared); });
+  $('#team-mode').addEventListener('change', () => {
+    const mode = $('#team-mode').value;
+    if (mode === team.mode) return;
+    const result = switchModeDraft(team, mode, modeDrafts, families);
+    try { modeDrafts = saveModeDrafts(localStorage, result.drafts, families); }
+    catch { $('#team-mode').value = team.mode; setStatus(modeCopy.failed, true, '#team-message'); return; }
+    selected = null; movingFrom = null; replacingIndex = null; currentPlayer = 1; currentLevel = 1;
+    commit(result.team, modeCopy.switched);
+  }); $('#team-name').addEventListener('input', () => { team.name = $('#team-name').value; persistDraft(); });
   $('#team-save').addEventListener('click', () => { try { persistDraft(); const result = upsertTeam(localStorage, savedTeams, team, families); team = result.team; savedTeams = result.teams; renderSaved(); setStatus(COPY.saved); track('formation_save'); } catch (error) { setStatus(error.message, true); } });
-  $('#team-community-publish')?.addEventListener('click', () => { try { team.name = $('#team-name').value; team.mode = 'zombie'; localStorage.setItem('monsabaCommunityDraft:v1', encodeTeam(team, families, chips)); track('formation_publish_start'); location.href = `${localePrefix}/team-builder/community/?publish=1`; } catch (error) { setStatus(error.message, true); } });
+  $('#team-community-publish')?.addEventListener('click', () => { if (team.mode !== 'zombie') return; try { localStorage.setItem('monsabaCommunityDraft:v1', encodeTeam(team, families, chips)); track('formation_publish_start'); location.href = `${localePrefix}/team-builder/community/?publish=1`; } catch (error) { setStatus(error.message, true); } });
   $('#saved-team-list').addEventListener('click', (event) => { const load = event.target.closest('[data-load-team]'); const remove = event.target.closest('[data-delete-team]'); if (load) { undoStack.push(cloneTeam(team, families)); team = sanitizeTeam(savedTeams[Number(load.dataset.loadTeam)], families); $('#team-name').value = team.name; $('#team-mode').value = team.mode; persistDraft(); renderAll(); } if (remove && confirm(COPY.confirmDelete)) { savedTeams.splice(Number(remove.dataset.deleteTeam), 1); saveTeamList(localStorage, savedTeams, families); renderSaved(); } });
   $('#team-share').addEventListener('click', async () => { const encoded = encodeTeam(team, families, chips); const url = `${location.origin}${localePrefix}/team-builder/#build=${encoded}`; history.replaceState(null, '', `#build=${encoded}`); const copied = await copyText(url); if (!copied) revealShareFallback(url); setStatus(copied ? COPY.shared : COPY.shareFallback, !copied); track('formation_share'); });
   $('#team-text').addEventListener('click', async () => { await copyText(teamText(team, families, locale, chips)); setStatus(COPY.textCopied); });
@@ -379,6 +394,8 @@ async function boot() {
   const [tatari, imageData, chipData] = await Promise.all(['/data/tatari.json', '/data/tata-images.json', '/data/zombie-rush/chips.json'].map(async (url) => { const response = await fetch(url); if (!response.ok) throw new Error('Data load failed.'); return response.json(); }));
   families = tatari.families || []; chips = chipData.chips || []; chipById = new Map(chips.map((chip) => [chip.id, chip])); validChipIds = new Set(chipById.keys()); imageByFamily = new Map((imageData.families || []).map((item) => [item.familyId, item])); roster = loadRoster(localStorage, families); savedTeams = loadTeams(localStorage, families);
   const shared = location.hash.match(/^#build=([A-Za-z0-9_-]+)$/)?.[1]; if (shared) { try { team = decodeTeam(shared, families, chips); setStatus(COPY.shared); } catch (error) { setStatus(error.message, true); } } else { const draft = loadDraft(localStorage, families); if (draft) { team = draft; setStatus(COPY.restored, false, '#team-message'); } }
+  modeDrafts = loadModeDrafts(localStorage, families);
+  const modeHint = document.createElement('p'); modeHint.id = 'team-mode-hint'; modeHint.className = 'field-hint'; modeHint.textContent = modeCopy.hint; $('#team-mode').parentElement.after(modeHint); $('#team-mode').setAttribute('aria-describedby', modeHint.id);
   const query = new URLSearchParams(location.search); const beginnerFamily = query.get('family'); if (query.get('from') === 'beginner' && familyById(beginnerFamily)) selected = { familyId: beginnerFamily, stage: 1 };
   $('#team-name').value = team.name; $('#team-mode').value = team.mode; $('#team-owned-only').checked = query.get('roster') === '1'; renderFilters(); bind(); renderAll(); setupPhase4Controls(); track('formation_open');
 }

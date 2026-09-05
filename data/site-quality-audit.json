@@ -3787,7 +3787,7 @@
     "bundles": [
       {
         "file": "styles.css",
-        "bytes": 95552
+        "bytes": 95631
       },
       {
         "file": "site.js",
@@ -3799,7 +3799,7 @@
       },
       {
         "file": "team-builder/team-builder.js",
-        "bytes": 62179
+        "bytes": 64862
       },
       {
         "file": "team-builder/community/community.js",

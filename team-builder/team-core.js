@@ -3,6 +3,7 @@ import '../family-display.js';
 
 export const TEAM_KEY = 'monsabaTeamBuilds:v1';
 export const DRAFT_KEY = 'monsabaFormationDraft:v2';
+export const MODE_DRAFTS_KEY = 'monsabaFormationModeDrafts:v1';
 export const HANDOFF_KEY = 'monsabaBoardTeamHandoff:v1';
 export const TEAM_VERSION = 3;
 export const SHARE_VERSION = 4;
@@ -101,6 +102,24 @@ export function sanitizeTeam(value, families) {
 }
 
 export function cloneTeam(team, families) { return sanitizeTeam(JSON.parse(JSON.stringify(team)), families); }
+export function loadModeDrafts(storage, families) {
+  try {
+    const source = JSON.parse(storage?.getItem(MODE_DRAFTS_KEY) || '{}');
+    return Object.fromEntries(TEAM_MODES.filter((mode) => isRecord(source?.[mode]) && source[mode].mode === mode).map((mode) => [mode, sanitizeTeam(source[mode], families)]));
+  } catch { return {}; }
+}
+export function saveModeDrafts(storage, drafts, families) {
+  if (!storage?.setItem) throw new Error('Storage unavailable');
+  const clean = Object.fromEntries(TEAM_MODES.filter((mode) => drafts[mode]).map((mode) => [mode, sanitizeTeam({ ...drafts[mode], mode }, families)]));
+  storage.setItem(MODE_DRAFTS_KEY, JSON.stringify(clean));
+  return clean;
+}
+export function switchModeDraft(team, mode, drafts, families) {
+  if (!TEAM_MODES.includes(mode)) throw new Error('Invalid formation mode');
+  const source = cloneTeam(team, families);
+  const next = drafts[mode] ? cloneTeam(drafts[mode], families) : sanitizeTeam({ ...source, mode, createdAt: null, updatedAt: null }, families);
+  return { team: next, drafts: { ...drafts, [source.mode]: source, [mode]: next } };
+}
 export function loadTeams(storage, families) { try { const parsed = JSON.parse(storage?.getItem(TEAM_KEY) || '[]'); return Array.isArray(parsed) ? parsed.slice(0, MAX_SAVED_TEAMS).map((item) => sanitizeTeam(item, families)) : []; } catch { return []; } }
 export function loadDraft(storage, families) { try { const raw = storage?.getItem(DRAFT_KEY); return raw ? sanitizeTeam(JSON.parse(raw), families) : null; } catch { return null; } }
 export function saveDraft(storage, team, families) { if (!storage?.setItem) return null; const clean = sanitizeTeam(team, families); storage.setItem(DRAFT_KEY, JSON.stringify(clean)); return clean; }
