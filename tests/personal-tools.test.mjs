@@ -8,10 +8,10 @@ import {
   removeRoster, exportRoster, importRosterText, familyMatches, rosterSummary, growthCandidates, modeCandidates
 } from '../my-monsaba/roster-core.js';
 import {
-  TEAM_KEY, DRAFT_KEY, TEAM_VERSION, SHARE_VERSION, TEAM_ROWS, TEAM_COLUMNS, TEAM_SLOTS, MAX_SAVED_TEAMS, emptyTeam, sanitizeTeam,
+  TEAM_KEY, DRAFT_KEY, TEAM_VERSION, SHARE_VERSION, TEAM_ROWS, TEAM_COLUMNS, TEAM_SLOTS, STANDARD_TEAM_ROWS, STANDARD_TEAM_COLUMNS, STANDARD_TEAM_SLOTS, MAX_SAVED_TEAMS, emptyTeam, sanitizeTeam,
   loadTeams, loadDraft, saveDraft, saveTeamList, upsertTeam, placeMember, copyMemberToPlayer, togglePlayerChip, removeMember, moveMember,
   placementIssue, setPlayerUnlock, playerCount, playerLimit, levelLimit, MODE_PLAYER_LIMITS, activePlayerIds,
-  encodeTeam, decodeTeam, analyzeTeam, teamText, stage1ImageFor, switchModeDraft, saveModeDrafts, loadModeDrafts
+  encodeTeam, decodeTeam, analyzeTeam, teamText, stage1ImageFor, switchModeDraft, saveModeDrafts, loadModeDrafts, boardRows, boardColumns, boardSlotCount
 } from '../team-builder/team-core.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -138,6 +138,16 @@ test('編成は常に6×6の36枠、許可IDと実在進化段階だけを保持
   assert.equal(TEAM_ROWS, 6);
   assert.equal(TEAM_COLUMNS, 6);
   assert.equal(TEAM_SLOTS, 36);
+});
+
+test('表示盤面はゾンビラッシュだけ6×6、その他モードは5×5', () => {
+  assert.deepEqual([STANDARD_TEAM_ROWS, STANDARD_TEAM_COLUMNS, STANDARD_TEAM_SLOTS], [5, 5, 25]);
+  for (const mode of ['free', 'normal', 'dojo', 'boss']) {
+    const team = sanitizeTeam({ ...emptyTeam(), mode }, families);
+    assert.deepEqual([boardRows(team), boardColumns(team), boardSlotCount(team)], [5, 5, 25], mode);
+    assert.equal(placementIssue(team, 25, { familyId: first.id, stage: 1, playerId: 1, level: 1 }, families), 'invalid-slot');
+  }
+  assert.deepEqual([boardRows(emptyTeam()), boardColumns(emptyTeam()), boardSlotCount(emptyTeam())], [6, 6, 36]);
 });
 
 test('編成の配置・stage変更・削除・入替はデータ構造で保持', () => {
@@ -400,11 +410,14 @@ test('互換用集計では別Playerの同一系統を重複扱いしない', ()
   assert.equal(Object.values(analysis.tiers).reduce((a, b) => a + b, 0), 2);
 });
 
-test('コピー用テキストは6行の36枠を持つ', () => {
+test('コピー用テキストはゾンビラッシュ6行、その他モード5行を持つ', () => {
   const text = teamText(emptyTeam(), families);
   assert.match(text, /1行目/);
   assert.match(text, /6行目/);
   assert.match(text, /monster-survival\.com/);
+  const normalText = teamText(sanitizeTeam({ ...emptyTeam(), mode: 'normal' }, families), families);
+  assert.match(normalText, /5行目/);
+  assert.doesNotMatch(normalText, /6行目/);
 });
 
 test('コピー用テキストはゾンビラッシュの選択チップを含み、Lv非表示時はLvを含めない', () => {
@@ -519,6 +532,9 @@ test('画像出力は2Player集計・赤青枠・任意Lv・Tier・チップ・�
   for (const token of ['playerCount(team, id)', 'playerLimit(team, id)', '`Lv${slot.level}`', '`T${slot.stage}`', 'chipById.get(chipId)', 'monster-survival.com']) assert.match(source, new RegExp(token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   assert.doesNotMatch(source, /COPY\.direction|context\.fillText\(`P\$\{id\}[^\n]*levelLimit/);
   assert.match(source, /slot\.playerId === 1 \? '#ef5f61' : '#4a91e8'/);
+  assert.match(source, /canvas\.toBlob/);
+  assert.match(source, /URL\.createObjectURL/);
+  assert.doesNotMatch(source, /output\.toDataURL/);
 });
 
 test('Player・Tier・Lv・移動・変更・削除は配置済みdialogから編集できる', () => {

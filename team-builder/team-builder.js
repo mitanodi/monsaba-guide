@@ -1,6 +1,7 @@
 import { familyMatches, loadRoster } from '../my-monsaba/roster-core.js';
 import {
-  HANDOFF_KEY, MODE_LABELS, TEAM_ROWS, TEAM_COLUMNS, PLAYER_IDS, BASE_LEVEL_LIMIT, MAX_LEVEL_LIMIT,
+  HANDOFF_KEY, MODE_LABELS, PLAYER_IDS, BASE_LEVEL_LIMIT, MAX_LEVEL_LIMIT,
+  boardRows, boardColumns, boardSlotCount,
   emptyTeam, cloneTeam, sanitizeTeam, loadTeams, loadDraft, saveDraft, saveTeamList, upsertTeam, loadModeDrafts, saveModeDrafts, switchModeDraft,
   placementIssue, placeMember, copyMemberToPlayer, togglePlayerChip, removeMember, moveMember, setPlayerUnlock, playerCount, playerLimit, activePlayerIds,
   levelLimit, encodeTeam, decodeTeam, teamText, stage1ImageFor
@@ -92,7 +93,7 @@ function undo() { if (!undoStack.length) return; redoStack.push(cloneTeam(team, 
 function redo() { if (!redoStack.length) return; undoStack.push(cloneTeam(team, families)); team = redoStack.pop(); persistDraft(); renderAll(); }
 
 function cellLabel(slot, index) {
-  const row = Math.floor(index / TEAM_COLUMNS) + 1; const column = index % TEAM_COLUMNS + 1; const member = memberFor(slot);
+  const columns = boardColumns(team); const row = Math.floor(index / columns) + 1; const column = index % columns + 1; const member = memberFor(slot);
   const position = locale === 'en' ? `${COPY.row}${row}${COPY.column}${column}` : `${row}${COPY.row}${column}${COPY.column}`;
   const level = levelsVisible() ? ` Lv${slot?.level}` : '';
   const player = team.mode === 'zombie' ? `Player ${slot?.playerId} ` : '';
@@ -100,7 +101,8 @@ function cellLabel(slot, index) {
 }
 
 function renderBoard() {
-  $('#team-board').innerHTML = team.slots.map((slot, index) => {
+  const board = $('#team-board'); board.style.setProperty('--formation-columns', boardColumns(team)); board.dataset.boardSize = `${boardRows(team)}x${boardColumns(team)}`;
+  board.innerHTML = team.slots.slice(0, boardSlotCount(team)).map((slot, index) => {
     const member = memberFor(slot); const selectedMove = movingFrom === index ? ' is-move-source' : '';
     if (!member) return `<button class="formation-cell is-empty${selectedMove}" type="button" data-cell="${index}" data-drop-cell="${index}" aria-label="${esc(cellLabel(slot, index))}"><span aria-hidden="true">＋</span></button>`;
     const image = stage1Image(member.family); const imageHtml = image ? `<img loading="lazy" decoding="async" src="${esc(image.src)}"${responsiveAttrs(image)} width="${image.width}" height="${image.height}" alt="${esc(getFamilyDisplayLabel(member.family))}">` : `<span class="formation-image-placeholder">${esc(COPY.placeholder)}</span>`;
@@ -223,9 +225,9 @@ async function exportImage() {
       }
     }
   }
-  const boardX = 90; const boardY = 170; const cell = 168; const gap = 10;
-  for (let index = 0; index < team.slots.length; index += 1) {
-    const x = boardX + (index % TEAM_COLUMNS) * (cell + gap); const y = boardY + Math.floor(index / TEAM_COLUMNS) * (cell + gap); const slot = team.slots[index]; const member = memberFor(slot);
+  const boardY = 170; const cell = 168; const gap = 10; const columns = boardColumns(team); const slotCount = boardSlotCount(team); const boardWidth = columns * cell + (columns - 1) * gap; const boardX = Math.round((canvas.width - boardWidth) / 2);
+  for (let index = 0; index < slotCount; index += 1) {
+    const x = boardX + (index % columns) * (cell + gap); const y = boardY + Math.floor(index / columns) * (cell + gap); const slot = team.slots[index]; const member = memberFor(slot);
     context.fillStyle = '#171a25'; context.fillRect(x, y, cell, cell); context.strokeStyle = slot ? (slot.playerId === 1 ? '#ef5f61' : '#4a91e8') : '#30364b'; context.lineWidth = slot ? 6 : 3; context.strokeRect(x, y, cell, cell); if (!member) continue;
     const source = stage1Image(member.family); if (source) { const image = new Image(); image.src = source.src; try { await image.decode(); context.drawImage(image, x + 7, y + 7, cell - 14, cell - 14); } catch { /* badges remain */ } }
     context.font = '700 22px sans-serif'; context.textAlign = 'center'; if (team.mode === 'zombie') { context.fillStyle = slot.playerId === 1 ? '#ef5f61' : '#4a91e8'; context.fillRect(x + 5, y + 5, 43, 34); context.fillStyle = '#fff'; context.fillText(`P${slot.playerId}`, x + 26, y + 29); }
@@ -233,7 +235,21 @@ async function exportImage() {
   }
   context.textAlign = 'left'; context.fillStyle = '#cbd5e1'; context.font = '22px sans-serif'; context.fillText('monster-survival.com', 60, canvas.height - 35);
   let output = canvas; if (exportPreset !== 'original') { const [width, height] = exportPreset === '16-9' ? [1600, 900] : [1200, 1200]; output = document.createElement('canvas'); output.width = width; output.height = height; const out = output.getContext('2d'); out.fillStyle = '#101522'; out.fillRect(0, 0, width, height); const scale = Math.min(width / canvas.width, height / canvas.height); const drawWidth = canvas.width * scale; const drawHeight = canvas.height * scale; out.drawImage(canvas, (width - drawWidth) / 2, (height - drawHeight) / 2, drawWidth, drawHeight); }
-  const link = document.createElement('a'); link.download = `monsaba-zombie-rush-formation-${exportPreset}-${new Date().toISOString().slice(0, 10)}.png`; link.href = output.toDataURL('image/png'); link.click();
+  const modeName = team.mode === 'zombie' ? 'zombie-rush' : team.mode;
+  await saveCanvasImage(output, `monsaba-${modeName}-formation-${exportPreset}-${new Date().toISOString().slice(0, 10)}.png`);
+}
+
+async function saveCanvasImage(canvas, filename) {
+  const blob = await new Promise((resolve, reject) => canvas.toBlob((value) => value ? resolve(value) : reject(new Error('PNG conversion failed.')), 'image/png'));
+  const mobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  if (mobile && typeof navigator.share === 'function' && typeof File === 'function') {
+    const file = new File([blob], filename, { type: 'image/png' });
+    if (!navigator.canShare || navigator.canShare({ files: [file] })) {
+      await navigator.share({ files: [file], title: team.name || COPY.boardMemo });
+      return;
+    }
+  }
+  const url = URL.createObjectURL(blob); const link = document.createElement('a'); link.download = filename; link.href = url; link.hidden = true; document.body.append(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 60_000);
 }
 
 function reportIssue(issue, playerId) {
