@@ -13,6 +13,9 @@ export const TEAM_SLOTS = TEAM_ROWS * TEAM_COLUMNS;
 export const STANDARD_TEAM_ROWS = 5;
 export const STANDARD_TEAM_COLUMNS = 5;
 export const STANDARD_TEAM_SLOTS = STANDARD_TEAM_ROWS * STANDARD_TEAM_COLUMNS;
+export const DOJO_TEAM_ROWS = 4;
+export const DOJO_TEAM_COLUMNS = 3;
+export const DOJO_TEAM_SLOTS = DOJO_TEAM_ROWS * DOJO_TEAM_COLUMNS;
 export const LEGACY_TEAM_SLOTS = 15;
 export const MAX_SAVED_TEAMS = 10;
 export const PLAYER_IDS = Object.freeze([1, 2]);
@@ -70,8 +73,8 @@ export function playerLimit(team, playerId) {
   return MODE_PLAYER_LIMITS[mode] + zombieUnlock;
 }
 export function activePlayerIds(team) { return team?.mode === 'zombie' ? PLAYER_IDS : SINGLE_PLAYER_IDS; }
-export function boardRows(team) { return team?.mode === 'zombie' ? TEAM_ROWS : STANDARD_TEAM_ROWS; }
-export function boardColumns(team) { return team?.mode === 'zombie' ? TEAM_COLUMNS : STANDARD_TEAM_COLUMNS; }
+export function boardRows(team) { return team?.mode === 'zombie' ? TEAM_ROWS : team?.mode === 'dojo' ? DOJO_TEAM_ROWS : STANDARD_TEAM_ROWS; }
+export function boardColumns(team) { return team?.mode === 'zombie' ? TEAM_COLUMNS : team?.mode === 'dojo' ? DOJO_TEAM_COLUMNS : STANDARD_TEAM_COLUMNS; }
 export function boardSlotCount(team) { return boardRows(team) * boardColumns(team); }
 export function levelLimit(team, playerId) { return BASE_LEVEL_LIMIT + (team?.playerSettings?.[playerId]?.levelCapPlusOne === true ? 1 : 0); }
 export function playerCount(team, playerId, excludeIndex = -1) { return (team?.slots || []).reduce((count, slot, index) => count + (index !== excludeIndex && slot?.playerId === playerId ? 1 : 0), 0); }
@@ -103,14 +106,15 @@ export function sanitizeTeam(value, families) {
     return { familyId: raw.familyId, stage, playerId, level };
   });
   if (mode !== 'zombie') {
-    const visible = slots.slice(0, STANDARD_TEAM_SLOTS);
-    const overflow = slots.slice(STANDARD_TEAM_SLOTS).filter(Boolean);
+    const visibleSlotCount = boardSlotCount({ mode });
+    const visible = slots.slice(0, visibleSlotCount);
+    const overflow = slots.slice(visibleSlotCount).filter(Boolean);
     for (const member of overflow) {
       const emptyIndex = visible.indexOf(null);
       if (emptyIndex < 0) break;
       visible[emptyIndex] = member;
     }
-    slots = [...visible, ...Array(TEAM_SLOTS - STANDARD_TEAM_SLOTS).fill(null)];
+    slots = [...visible, ...Array(TEAM_SLOTS - visibleSlotCount).fill(null)];
   }
   const name = String(value?.name || '').replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 40);
   const validDate = (item) => typeof item === 'string' && Number.isFinite(Date.parse(item)) ? item : null;

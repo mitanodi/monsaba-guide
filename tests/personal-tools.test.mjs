@@ -8,7 +8,7 @@ import {
   removeRoster, exportRoster, importRosterText, familyMatches, rosterSummary, growthCandidates, modeCandidates
 } from '../my-monsaba/roster-core.js';
 import {
-  TEAM_KEY, DRAFT_KEY, TEAM_VERSION, SHARE_VERSION, TEAM_ROWS, TEAM_COLUMNS, TEAM_SLOTS, STANDARD_TEAM_ROWS, STANDARD_TEAM_COLUMNS, STANDARD_TEAM_SLOTS, MAX_SAVED_TEAMS, emptyTeam, sanitizeTeam,
+  TEAM_KEY, DRAFT_KEY, TEAM_VERSION, SHARE_VERSION, TEAM_ROWS, TEAM_COLUMNS, TEAM_SLOTS, STANDARD_TEAM_ROWS, STANDARD_TEAM_COLUMNS, STANDARD_TEAM_SLOTS, DOJO_TEAM_ROWS, DOJO_TEAM_COLUMNS, DOJO_TEAM_SLOTS, MAX_SAVED_TEAMS, emptyTeam, sanitizeTeam,
   loadTeams, loadDraft, saveDraft, saveTeamList, upsertTeam, placeMember, copyMemberToPlayer, togglePlayerChip, removeMember, moveMember,
   placementIssue, setPlayerUnlock, playerCount, playerLimit, levelLimit, MODE_PLAYER_LIMITS, activePlayerIds,
   encodeTeam, decodeTeam, analyzeTeam, teamText, stage1ImageFor, switchModeDraft, saveModeDrafts, loadModeDrafts, boardRows, boardColumns, boardSlotCount
@@ -140,13 +140,17 @@ test('編成は常に6×6の36枠、許可IDと実在進化段階だけを保持
   assert.equal(TEAM_SLOTS, 36);
 });
 
-test('表示盤面はゾンビラッシュだけ6×6、その他モードは5×5', () => {
+test('表示盤面はゾンビラッシュ6×6、バッジ道場は横3×縦4、その他モード5×5', () => {
   assert.deepEqual([STANDARD_TEAM_ROWS, STANDARD_TEAM_COLUMNS, STANDARD_TEAM_SLOTS], [5, 5, 25]);
-  for (const mode of ['free', 'normal', 'dojo', 'boss']) {
+  assert.deepEqual([DOJO_TEAM_ROWS, DOJO_TEAM_COLUMNS, DOJO_TEAM_SLOTS], [4, 3, 12]);
+  for (const mode of ['free', 'normal', 'boss']) {
     const team = sanitizeTeam({ ...emptyTeam(), mode }, families);
     assert.deepEqual([boardRows(team), boardColumns(team), boardSlotCount(team)], [5, 5, 25], mode);
     assert.equal(placementIssue(team, 25, { familyId: first.id, stage: 1, playerId: 1, level: 1 }, families), 'invalid-slot');
   }
+  const dojo = sanitizeTeam({ ...emptyTeam(), mode: 'dojo' }, families);
+  assert.deepEqual([boardRows(dojo), boardColumns(dojo), boardSlotCount(dojo)], [4, 3, 12]);
+  assert.equal(placementIssue(dojo, 12, { familyId: first.id, stage: 1, playerId: 1, level: 1 }, families), 'invalid-slot');
   assert.deepEqual([boardRows(emptyTeam()), boardColumns(emptyTeam()), boardSlotCount(emptyTeam())], [6, 6, 36]);
 });
 
