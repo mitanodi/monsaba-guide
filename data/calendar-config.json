@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "updated": "2026-09-08",
+  "timeZone": "Asia/Tokyo",
+  "dailyResetHour": 9,
+  "teamEventRotation": {
+    "status": "confirmed_anchor",
+    "anchorStart": "2026-09-06T09:00:00+09:00",
+    "durationHours": 72,
+    "sequence": [
+      { "id": "fishing-tournament", "name": { "ja": "釣り大会", "en": "Fishing Tournament", "zh-CN": "钓鱼大赛" }, "href": "/events/fishing-tournament/" },
+      { "id": "treasure-hunt", "name": { "ja": "お宝探し", "en": "Treasure Hunt", "zh-CN": "寻宝" }, "href": "/events/treasure-hunt/" },
+      { "id": "running-party", "name": { "ja": "ランニングパーティー", "en": "Running Party", "zh-CN": "跑步派对" }, "href": "/events/running-party/" },
+      { "id": "zombie-siege", "name": { "ja": "ゾンビ包囲戦", "en": "Zombie Siege", "zh-CN": "僵尸围攻" }, "href": "/events/zombie-siege/" },
+      { "id": "magic-farm", "name": { "ja": "魔法の農場", "en": "Magic Farm", "zh-CN": "魔法农场" }, "href": "/events/magic-farm/" }
+    ]
+  },
+  "islandTreasure": {
+    "resetHour": 9,
+    "recruitmentWeekday": 3,
+    "battleStartWeekday": 4,
+    "battleDays": 6,
+    "anchorWeek": null,
+    "cycleWeeks": 4,
+    "standardWeeks": [1, 2, 3],
+    "leagueWeek": 4,
+    "standardName": { "ja": "アイランドトレジャー", "en": "Island Treasure", "zh-CN": "岛屿宝藏" },
+    "leagueName": { "ja": "リーグ：サンドトレジャー", "en": "League: Sand Treasure", "zh-CN": "联赛：沙滩宝藏" }
+  },
+  "bossRotationConfig": {
+    "bossAnchorStart": null,
+    "bossAnchorBoss": null,
+    "bossDurationDays": 2,
+    "sequence": [
+      { "id": "frankenfish", "name": { "ja": "怪魚ゾンビ", "en": "Frankenfish", "zh-CN": "怪鱼僵尸" } },
+      { "id": "pop-star", "name": { "ja": "ロックスターゾンビ", "en": "Pop Star", "zh-CN": "摇滚明星僵尸" } },
+      { "id": "road-bully", "name": { "ja": "走り屋ゾンビ", "en": "Road Bully", "zh-CN": "飙车族僵尸" } },
+      { "id": "tipsy-zobo", "name": { "ja": "酔っ払いゾンビ", "en": "Tipsy Zobo", "zh-CN": "醉酒僵尸" } },
+      { "id": "dean-zobo", "name": { "ja": "社長ゾンビ", "en": "Dean Zobo", "zh-CN": "社长僵尸" } }
+    ],
+    "currentObservation": {
+      "status": "in_game_observed",
+      "observedAt": "2026-09-08",
+      "currentBoss": "pop-star",
+      "nextBoss": "road-bully",
+      "note": "交代時刻のアンカー確認待ち"
+    }
+  }
+}
