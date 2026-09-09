@@ -567,6 +567,16 @@ test('配置済みの緑マスはチェックだけでなく宝形状名を直�
   assert.match(css, /cell-treasure-shape/);
 });
 
+test('発見済みマス右上のマイナスから単独マスまたは宝全体を取り消せる', () => {
+  assert.match(js, /cell-found-remove/);
+  assert.match(js, /function removeFoundAtCell/);
+  assert.match(js, /removePlacedTreasure\(placedTreasure\.id\)/);
+  assert.match(js, /setCell\(index, 'unknown'\)/);
+  assert.match(css, /\.cell-found-remove/);
+  assert.match(css, /position:absolute/);
+  assert.match(css, /top:3px;right:3px/);
+});
+
 test('発見済みモードから宝形状を選び盤面へ配置できる', () => {
   assert.match(js, /foundShapeChooser/);
   assert.match(js, /発見した宝の形/);

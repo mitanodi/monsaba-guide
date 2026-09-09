@@ -948,6 +948,14 @@ function boot() {
     renderFoundShapeChooser();
     if (model.preferences.autoCalculate) scheduleCalculate();
   }
+  function removeFoundAtCell(index) {
+    const placedTreasure = model.placedTreasures.find((placement) => placement.cells.includes(index));
+    if (placedTreasure) {
+      removePlacedTreasure(placedTreasure.id);
+      return;
+    }
+    if (model.cells[index] === 'found') setCell(index, 'unknown');
+  }
   function commitTreasureChange(message) {
     model.shapeMode = 'picker';
     model.spec = shapeCountsToSpec(model.shapeCounts);
@@ -1017,8 +1025,15 @@ function boot() {
       const markContent = placedTreasure
         ? `<span class="cell-treasure-shape">${placedShapeLabel}</span><span class="cell-found-check">✓</span>`
         : STATE_MARKS[state];
-      button.innerHTML = `<span class="cell-mark${placedTreasure ? ' is-placed-treasure' : ''}" aria-hidden="true">${markContent}</span><small class="cell-probability">${probabilityText}</small><em class="cell-rank" aria-hidden="true">${rankText}</em>`;
-      button.addEventListener('click', () => {
+      const removeMark = state === 'found'
+        ? '<span class="cell-found-remove" aria-hidden="true">−</span>'
+        : '';
+      button.innerHTML = `${removeMark}<span class="cell-mark${placedTreasure ? ' is-placed-treasure' : ''}" aria-hidden="true">${markContent}</span><small class="cell-probability">${probabilityText}</small><em class="cell-rank" aria-hidden="true">${rankText}</em>`;
+      button.addEventListener('click', (event) => {
+        if (event.target.closest('.cell-found-remove')) {
+          removeFoundAtCell(index);
+          return;
+        }
         if (selectedPlacement) {
           if (!selectTreasureCell(index)) placeSelectedTreasure(index);
           return;
