@@ -673,20 +673,6 @@ function boot() {
         showPickerStatus(foundShapeText.progress(key.replace('x', '×'), 0, area));
       });
       options.append(button);
-      if (selectedPlacement?.key === key && key.split('x')[0] !== key.split('x')[1]) {
-        const rotate = document.createElement('button');
-        rotate.type = 'button';
-        rotate.className = 'found-shape-direction';
-        rotate.textContent = selectedPlacement.rotated ? placementText.horizontal : placementText.vertical;
-        rotate.addEventListener('click', () => {
-          placementRotation[key] = !placementRotation[key];
-          selectedPlacement.rotated = placementRotation[key];
-          pendingPlacementCells = [];
-          buildBoard();
-          renderFoundShapeChooser();
-        });
-        options.append(rotate);
-      }
     });
   }
   function showPickerStatus(message, error = false) {
@@ -849,7 +835,7 @@ function boot() {
   }
   function placeSelectedTreasure(startIndex) {
     if (!selectedPlacement) return false;
-    const { key, rotated } = selectedPlacement;
+    const { key } = selectedPlacement;
     const placedCount = model.placedTreasures.filter((placement) => placement.key === key).length;
     if (placedCount >= model.shapeCounts[key]) return false;
     const occupied = new Set(model.placedTreasures.flatMap((placement) => placement.cells));
@@ -886,11 +872,14 @@ function boot() {
       : [...pendingPlacementCells, index];
     const validFootprints = [];
     for (let startIndex = 0; startIndex < model.size * model.size; startIndex += 1) {
-      const footprint = placementCells(model.size, key, startIndex, rotated);
-      if (footprint
-        && pendingPlacementCells.every((cell) => footprint.cells.includes(cell))
-        && !footprint.cells.some((cell) => model.cells[cell] === 'miss' || occupied.has(cell))) {
-        validFootprints.push({ startIndex, ...footprint });
+      const orientations = key.split('x')[0] === key.split('x')[1] ? [false] : [false, true];
+      for (const rotated of orientations) {
+        const footprint = placementCells(model.size, key, startIndex, rotated);
+        if (footprint
+          && pendingPlacementCells.every((cell) => footprint.cells.includes(cell))
+          && !footprint.cells.some((cell) => model.cells[cell] === 'miss' || occupied.has(cell))) {
+          validFootprints.push({ startIndex, rotated, ...footprint });
+        }
       }
     }
     if (!validFootprints.length) {
@@ -904,7 +893,7 @@ function boot() {
       const footprint = validFootprints.find((candidate) => candidate.cells.every((cell) => pendingPlacementCells.includes(cell)));
       if (footprint) {
         boardSnapshot();
-        model.placedTreasures.push({ id: `${key}-${Date.now()}-${model.placedTreasures.length}`, key, rotated, ...footprint });
+        model.placedTreasures.push({ id: `${key}-${Date.now()}-${model.placedTreasures.length}`, key, rotated: footprint.rotated, ...footprint });
         footprint.cells.forEach((cell) => { model.cells[cell] = 'found'; });
         selectedPlacement = null;
         pendingPlacementCells = [];
