@@ -311,23 +311,14 @@ inject('events/treasure-hunt/index.html', 'EVENT_GUIDE', '<section class="wrap s
   );
   fs.writeFileSync(treasurePath, treasureHtml);
 }
-inject('events/treasure-hunt/index.html', 'EVENT_SOLVER_CTA', '<section class="wrap static-section"><div class="attribute-guide-nav"><a class="button" href="#board">オタカラソルバーを使う</a><a class="ghost-button" href="#event-guide">イベント攻略を見る</a><a class="ghost-button" href="/events/">イベント一覧へ戻る</a></div></section>');
+inject('events/treasure-hunt/index.html', 'EVENT_SOLVER_CTA', '<section class="wrap static-section"><div class="attribute-guide-nav"><a class="button" href="#board">お宝探しソルバーを使う</a><a class="ghost-button" href="#event-guide">イベント攻略を見る</a><a class="ghost-button" href="/events/">イベント一覧へ戻る</a></div></section>');
 inject('events/treasure-hunt/index.html', 'OFFICIAL_INQUIRY', '<section class="wrap"><div class="notice-box official-inquiry-notice"><h3>公式運営へ確認中</h3><p>詳細仕様・開催期間・報酬内容・その他最新仕様は、2026年9月5日時点で運営担当者の回答待ちです。未確認の期間・報酬・仕様は推測していません。</p></div></section>');
 inject('en/events/treasure-hunt/index.html', 'OFFICIAL_INQUIRY_EN', '<section class="wrap"><div class="notice-box official-inquiry-notice"><h3>Awaiting an official response</h3><p>Details, dates, rewards and the latest specification are awaiting confirmation from the operations team as of Sep 5, 2026. No unconfirmed dates, rewards or rules have been inferred.</p></div></section>');
 inject('zh-cn/events/treasure-hunt/index.html', 'OFFICIAL_INQUIRY_ZH', '<section class="wrap"><div class="notice-box official-inquiry-notice"><h3>等待官方运营团队回复</h3><p>截至2026年9月5日，详细机制、举办时间、奖励内容及其他最新规格仍待运营负责人确认。本站未推测尚未确认的日期、奖励或机制。</p></div></section>');
 inject('events/treasure-hunt/index.html', 'EVENT_FRESHNESS', `<section class="wrap source-note page-freshness"><strong>情報の状態</strong><p><span class="trust-label is-external">外部確認</span> イベント解説を独自に整理しています。</p><p>最終確認日：${japaneseDate(OFFICIAL_RESPONSE_DATE)}</p><a href="/about-data/">データ方針を見る</a></section>`);
-const treasureAssetCopy = {
-  ja: ['運営提供のオタカラ探し素材', 'オタカラ探しフォルダで確認できた公式クリエイター素材です。絵柄をルールや報酬内容の根拠には使用していません。'],
-  en: ['Creator assets for Treasure Hunt', 'Official creator assets found in the Treasure Hunt folder. The artwork is not treated as evidence for rules or rewards.'],
-  'zh-CN': ['寻宝活动创作者素材', '这些是寻宝文件夹中的官方创作者素材；图片本身不作为玩法或奖励的证据。'],
-};
-function treasureAssetGallery(locale) {
-  const [title, note] = treasureAssetCopy[locale];
-  return `<section class="wrap static-section official-event-art"><h2 class="page-h2">${title}</h2><p>${note}</p><div class="official-event-art-grid">${officialEventImages.events.map((image, index) => `<img src="${esc(image.optimizedPath)}" width="${image.width}" height="${image.height}" alt="${esc(`${title} ${index + 1}`)}" loading="lazy" decoding="async">`).join('')}</div></section>`;
-}
-inject('events/treasure-hunt/index.html', 'OFFICIAL_TREASURE_ASSETS', treasureAssetGallery('ja'));
-inject('en/events/treasure-hunt/index.html', 'OFFICIAL_TREASURE_ASSETS', treasureAssetGallery('en'));
-inject('zh-cn/events/treasure-hunt/index.html', 'OFFICIAL_TREASURE_ASSETS', treasureAssetGallery('zh-CN'));
+removeInjected('events/treasure-hunt/index.html', 'OFFICIAL_TREASURE_ASSETS');
+removeInjected('en/events/treasure-hunt/index.html', 'OFFICIAL_TREASURE_ASSETS');
+removeInjected('zh-cn/events/treasure-hunt/index.html', 'OFFICIAL_TREASURE_ASSETS');
 // Localized pages already contain translated copies of the shared blocks. Remove
 // legacy locale-specific blocks so each locale has exactly one guide and one
 // freshness section, including when regenerating from an older checkout.
@@ -350,11 +341,25 @@ function synchronizeTreasurePage(file, locale) {
     : locale === 'en'
       ? `Last checked: ${englishDate(OFFICIAL_RESPONSE_DATE)}`
       : `最后确认：${japaneseDate(OFFICIAL_RESPONSE_DATE)}`;
+  const heroAlt = locale === 'ja'
+    ? ['茶色の宝箱', '青い宝箱', '金色の宝箱', 'ツルハシ']
+    : locale === 'en'
+      ? ['Brown treasure chest', 'Blue treasure chest', 'Gold treasure chest', 'Pickaxe']
+      : ['棕色宝箱', '蓝色宝箱', '金色宝箱', '鹤嘴锄'];
+  const heroLabel = locale === 'ja' ? 'お宝探し' : locale === 'en' ? 'Treasure Hunt' : '寻宝';
+  const heroMedia = `<figure class="treasure-hero-media" aria-label="${heroLabel}">${officialEventImages.events.map((image, index) => `<img src="${esc(image.optimizedPath)}" width="${image.width}" height="${image.height}" alt="${heroAlt[index]}" loading="eager" decoding="async">`).join('')}</figure>`;
+  source = source.replace(/<figure class="treasure-hero-media"[\s\S]*?<\/figure>/, '');
   source = source
     .replace(/"dateModified"\s*:\s*"[^"]+"/, `"dateModified": "${OFFICIAL_RESPONSE_DATE}"`)
     .replace(/<span class="visible-kicker">[\s\S]*?<\/span>/, `<span class="visible-kicker">${kicker}</span>`)
     .replace(/最終確認日：\d{4}年\d{1,2}月\d{1,2}日|Last checked: [A-Z][a-z]{2} \d{1,2}, \d{4}|最后确认：\d{4}年\d{1,2}月\d{1,2}日/, checked)
     .replace(/<footer[\s\S]*?<\/footer>/, footer);
+  source = source.replace('</div></div></div></section><section class="wrap static-section solver-layout">', `</div>${heroMedia}</div></div></section><section class="wrap static-section solver-layout">`);
+  if (locale === 'ja') {
+    source = source
+      .replaceAll('オタカラ探しソルバー', 'お宝探しソルバー')
+      .replaceAll('オタカラソルバーを使う', 'お宝探しソルバーを使う');
+  }
   fs.writeFileSync(target, `${source.trimEnd()}\n`);
 }
 

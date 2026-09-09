@@ -3,7 +3,7 @@ import path from 'node:path';
 
 const root = path.resolve(import.meta.dirname, '..');
 const pages = [
-  { file: 'events/treasure-hunt/index.html', locale: 'ja', prefix: '', home: 'トップ', events: 'イベント', current: 'オタカラ探しソルバー' },
+  { file: 'events/treasure-hunt/index.html', locale: 'ja', prefix: '', home: 'トップ', events: 'イベント', current: 'お宝探しソルバー' },
   { file: 'en/events/treasure-hunt/index.html', locale: 'en', prefix: '/en', home: 'Home', events: 'Events', current: 'Treasure Hunt Solver' },
   { file: 'zh-cn/events/treasure-hunt/index.html', locale: 'zh-CN', prefix: '/zh-cn', home: '首页', events: '活动', current: '寻宝求解器' }
 ];

@@ -43,7 +43,8 @@ test('Tata detail and Treasure Hunt pages expose optimized accessible images', (
   for (const file of ['events/treasure-hunt/index.html', 'en/events/treasure-hunt/index.html', 'zh-cn/events/treasure-hunt/index.html']) {
     const html = read(file);
     assert.equal((html.match(/assets\/official\/events\/treasure-hunt\//g) || []).length, 4);
-    assert.equal((html.match(/official-event-art-grid/g) || []).length, 1);
+    assert.equal((html.match(/treasure-hero-media/g) || []).length, 1);
+    assert.equal((html.match(/official-event-art-grid/g) || []).length, 0);
   }
 });
 

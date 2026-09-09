@@ -31,6 +31,7 @@ const enHtml = read('en/events/treasure-hunt/index.html');
 const zhHtml = read('zh-cn/events/treasure-hunt/index.html');
 const js = read('events/treasure-hunt/solver.js');
 const css = read('events/treasure-hunt/solver.css');
+const globalCss = read('styles.css');
 
 function bruteForceOracle(rawModel) {
   const model = normalizeModel(rawModel);
@@ -100,6 +101,15 @@ test('3つの入力モードだけを公開する', () => {
   assert.doesNotMatch(html, /data-input-mode="hit"|宝ヒット/);
   assert.doesNotMatch(enHtml, /data-input-mode="hit"|Treasure Hit|treasure hits/i);
   assert.doesNotMatch(zhHtml, /data-input-mode="hit"|命中宝物/);
+});
+
+test('日本語名はお宝探しソルバーで、素材画像は上部サムネイルだけに表示する', () => {
+  assert.match(html, /<h1>お宝探しソルバー<\/h1>/);
+  assert.doesNotMatch(html, /オタカラ探しソルバー/);
+  assert.match(html, /class="treasure-hero-media"/);
+  assert.doesNotMatch(html, /運営提供のオタカラ探し素材/);
+  assert.doesNotMatch(html, /official-event-art-grid/);
+  assert.match(globalCss, /\.treasure-hero-media/);
 });
 
 test('循環タップではなく選択状態を直接設定する', () => {
