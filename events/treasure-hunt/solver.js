@@ -860,12 +860,15 @@ function boot() {
     board.style.setProperty('--board-size', model.size);
     board.innerHTML = '';
     model.cells.forEach((state, index) => {
+      const placedTreasure = model.placedTreasures.find((placement) => placement.cells.includes(index));
+      const placedShapeLabel = placedTreasure?.key.replace('x', '×') || '';
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'treasure-cell';
       button.dataset.state = state;
       button.dataset.index = String(index);
-      button.setAttribute('aria-label', `${coordinate(index)}：${STATE_LABELS[state]}`);
+      if (placedTreasure) button.dataset.placedTreasure = placedTreasure.id;
+      button.setAttribute('aria-label', `${coordinate(index)}：${placedTreasure ? `${placedShapeLabel}の宝・発見済み` : STATE_LABELS[state]}`);
       const rankCandidate = lastResult?.topCandidates.find((candidate) => candidate.index === index)
         || (lastResult?.bestIndices.includes(index) ? { index, rank: 1 } : null);
       if (model.preferences.showRecommendations && rankCandidate) {
@@ -877,7 +880,10 @@ function boot() {
         ? `${Math.round(probability * 100)}%`
         : '';
       const rankText = model.preferences.showRecommendations && rankCandidate ? rankMark(rankCandidate.rank) : '';
-      button.innerHTML = `<span class="cell-mark" aria-hidden="true">${STATE_MARKS[state]}</span><small class="cell-probability">${probabilityText}</small><em class="cell-rank" aria-hidden="true">${rankText}</em>`;
+      const markContent = placedTreasure
+        ? `<span class="cell-treasure-shape">${placedShapeLabel}</span><span class="cell-found-check">✓</span>`
+        : STATE_MARKS[state];
+      button.innerHTML = `<span class="cell-mark${placedTreasure ? ' is-placed-treasure' : ''}" aria-hidden="true">${markContent}</span><small class="cell-probability">${probabilityText}</small><em class="cell-rank" aria-hidden="true">${rankText}</em>`;
       button.addEventListener('click', () => {
         if (selectedPlacement) {
           placeSelectedTreasure(index);

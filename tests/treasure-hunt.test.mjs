@@ -560,6 +560,13 @@ test('配置ボタンはドラッグ・ドロップとタップ操作の両方�
   assert.match(css, /treasure-place-button/);
 });
 
+test('配置済みの緑マスはチェックだけでなく宝形状名を直接表示する', () => {
+  assert.match(js, /placedShapeLabel/);
+  assert.match(js, /cell-treasure-shape/);
+  assert.match(js, /dataset\.placedTreasure/);
+  assert.match(css, /cell-treasure-shape/);
+});
+
 test('全形状0は計算不可でNaN・Infinityを返さない', () => {
   const model = createDefaultModel(6);
   model.shapeCounts = normalizeShapeCounts();
