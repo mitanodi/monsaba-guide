@@ -13,8 +13,10 @@ import {
   createDefaultShapeCounts,
   createDefaultModel,
   normalizeModel,
+  normalizePlacedTreasures,
   normalizeShapeCounts,
   orientationsForShape,
+  placementCells,
   parseSpec,
   parseShapeCountsSpec,
   shapeCountsToSpec,
@@ -110,7 +112,7 @@ test('入力モードはaria-pressedと選択中表示を持つ', () => {
   assert.match(js, /setAttribute\('aria-pressed'/);
 });
 
-test('既存v1〜v4保存データをv5へ後方互換変換する', () => {
+test('既存v1〜v4保存データをv6へ後方互換変換する', () => {
   const old = { size: 5, spec: '1x2:1', cells: Array(25).fill('miss') };
   const restored = normalizeModel(old);
   assert.equal(restored.version, STORAGE_VERSION);
@@ -240,7 +242,8 @@ test('確率・おすすめ・自動再計算の切替を持つ', () => {
 });
 
 test('Undoは1操作分の盤面snapshotを復元する', () => {
-  assert.match(js, /history\.push\(\{ size: model\.size, spec: model\.spec, cells: \[\.\.\.model\.cells\] \}\)/);
+  assert.match(js, /placedTreasures: model\.placedTreasures\.map/);
+  assert.match(js, /cells: \[\.\.\.model\.cells\]/);
   assert.match(html, /直前の入力を戻す/);
 });
 
@@ -465,7 +468,7 @@ test('固定seed randomized小規模caseがbrute-force oracleと一致する', (
   }
 });
 
-test('v3の両orientation保存を物理個数を保ってv5へ移行する', () => {
+test('v3の両orientation保存を物理個数を保ってv6へ移行する', () => {
   const saved = {
     version: 3,
     size: 5,
@@ -475,7 +478,7 @@ test('v3の両orientation保存を物理個数を保ってv5へ移行する', ()
   };
   saved.cells[6] = 'found';
   const migrated = normalizeModel(saved);
-  assert.equal(migrated.version, 5);
+  assert.equal(migrated.version, 6);
   assert.equal(migrated.spec, '1x3:2');
   assert.equal(migrated.shapeCounts['1x3'], 2);
   assert.equal(migrated.cells[6], 'found');
@@ -495,13 +498,55 @@ test('回転可能表示と3言語のUI文言を備える', () => {
   assert.doesNotMatch(html, /幅×高さの向きは別々に扱います/);
 });
 
-test('既定宝は2x2と1x3を1個ずつ、全clearでは盤面を触らない', () => {
+test('既定宝は2x2と1x3を1個ずつ、宝設定clearは配置済みセルだけ戻す', () => {
   const defaults = createDefaultShapeCounts();
   assert.equal(defaults['2x2'], 1);
   assert.equal(defaults['1x3'], 1);
   assert.equal(Object.values(defaults).reduce((sum, count) => sum + count, 0), 2);
   assert.match(js, /model\.shapeCounts = normalizeShapeCounts\(\)/);
-  assert.doesNotMatch(js, /clearTreasureSettings[\s\S]{0,240}model\.cells/);
+  assert.match(js, /clearTreasureSettings[\s\S]{0,240}model\.placedTreasures\.flatMap/);
+});
+
+test('宝形状を左上マス基準で縦横に配置でき、盤面外を拒否する', () => {
+  assert.deepEqual(placementCells(7, '1x2', 0, false)?.cells, [0, 7]);
+  assert.deepEqual(placementCells(7, '1x2', 0, true)?.cells, [0, 1]);
+  assert.deepEqual(placementCells(7, '3x4', 0, false)?.cells, [0, 1, 2, 7, 8, 9, 14, 15, 16, 21, 22, 23]);
+  assert.equal(placementCells(7, '3x4', 5, false), null);
+});
+
+test('配置済み宝は個数上限・重なり・空白セルを検証する', () => {
+  const counts = normalizeShapeCounts({ '1x2': 2 });
+  const cells = Array(25).fill('unknown');
+  cells[10] = 'miss';
+  const placed = normalizePlacedTreasures([
+    { id: 'a', key: '1x2', startIndex: 0, rotated: true },
+    { id: 'overlap', key: '1x2', startIndex: 1, rotated: false },
+    { id: 'miss', key: '1x2', startIndex: 10, rotated: true },
+    { id: 'valid', key: '1x2', startIndex: 5, rotated: true }
+  ], 5, counts, cells);
+  assert.deepEqual(placed.map((item) => item.id), ['a', 'valid']);
+});
+
+test('配置した宝はその形と位置を固定して残りの確率を計算する', () => {
+  const model = createDefaultModel(5);
+  model.shapeCounts = normalizeShapeCounts({ '1x2': 2 });
+  model.spec = shapeCountsToSpec(model.shapeCounts);
+  model.placedTreasures = [{ id: 'fixed', key: '1x2', startIndex: 0, rotated: true }];
+  const normalized = normalizeModel(model);
+  const result = solveTreasureModel(normalized);
+  assert.deepEqual(normalized.placedTreasures[0].cells, [0, 1]);
+  assert.equal(result.probabilities[0], 1);
+  assert.equal(result.probabilities[1], 1);
+  assert.ok(Math.abs(result.probabilityMass - 4) < 1e-9);
+});
+
+test('配置ボタンはドラッグ・ドロップとタップ操作の両方を備える', () => {
+  assert.match(js, /place\.draggable =/);
+  assert.match(js, /dragstart/);
+  assert.match(js, /dragover/);
+  assert.match(js, /drop/);
+  assert.match(js, /placeSelectedTreasure/);
+  assert.match(css, /treasure-place-button/);
 });
 
 test('全形状0は計算不可でNaN・Infinityを返さない', () => {
