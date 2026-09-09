@@ -575,6 +575,15 @@ test('発見済みモードから宝形状を選び盤面へ配置できる', ()
   assert.match(css, /found-shape-options/);
 });
 
+test('発見した宝は方向を選び、必要なマスを1つずつ選択して完成できる', () => {
+  assert.match(js, /pendingPlacementCells/);
+  assert.match(js, /function selectTreasureCell/);
+  assert.match(js, /方向を変更/);
+  assert.match(js, /1つずつタップ/);
+  assert.match(css, /is-pending-treasure/);
+  assert.match(css, /found-shape-direction/);
+});
+
 test('全形状0は計算不可でNaN・Infinityを返さない', () => {
   const model = createDefaultModel(6);
   model.shapeCounts = normalizeShapeCounts();

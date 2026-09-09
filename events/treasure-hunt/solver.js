@@ -525,9 +525,9 @@ function boot() {
     'zh-CN': { found: '已找到', place: '放置', rotate: '旋转', remove: '取消放置', placedTitle: '已放置到棋盘的宝物', empty: '尚未放置宝物', selected: (shape) => `已选择${shape}。点击棋盘左上格，或将其拖到棋盘上。`, placed: (shape) => `已将${shape}放置到棋盘`, invalid: '无法放置在该位置。请检查棋盘边界、空白格与宝物重叠。' }
   }[locale];
   const foundShapeText = {
-    ja: { title: '発見した宝の形', manual: '1マスだけ', help: '形を選んでから、盤面の宝をタップしてください。' },
-    en: { title: 'Found treasure shape', manual: 'Single tile', help: 'Choose a shape, then tap the treasure on the board.' },
-    'zh-CN': { title: '已找到的宝物形状', manual: '仅单格', help: '选择形状后，点击棋盘上的宝物。' }
+    ja: { title: '発見した宝の形', manual: '1マスだけ', direction: '方向を変更', help: '形を選び、宝のマスを1つずつタップしてください。', progress: (shape, count, total) => `${shape}：${count}/${total}マス選択中`, invalid: 'そのマスを含む形になりません。隣り合うマスを選んでください。' },
+    en: { title: 'Found treasure shape', manual: 'Single tile', direction: 'Change direction', help: 'Choose a shape, then tap each treasure tile one by one.', progress: (shape, count, total) => `${shape}: ${count}/${total} tiles selected`, invalid: 'That tile does not fit the shape. Choose adjacent tiles.' },
+    'zh-CN': { title: '已找到的宝物形状', manual: '仅单格', direction: '切换方向', help: '选择形状后，逐格点击宝物所在方格。', progress: (shape, count, total) => `${shape}：已选择${count}/${total}格`, invalid: '该方格无法组成所选形状，请选择相邻方格。' }
   }[locale];
   const resultText = {
     ja: {
@@ -582,6 +582,7 @@ function boot() {
   let specSyncTimer = null;
   let calculating = false;
   let selectedPlacement = null;
+  let pendingPlacementCells = [];
   const placementRotation = Object.fromEntries(SHAPE_KEYS.map((key) => [key, false]));
 
   function save() {
@@ -652,6 +653,8 @@ function boot() {
     manual.setAttribute('aria-pressed', String(!selectedPlacement));
     manual.addEventListener('click', () => {
       selectedPlacement = null;
+      pendingPlacementCells = [];
+      buildBoard();
       renderFoundShapeChooser();
     });
     options.append(manual);
@@ -661,12 +664,29 @@ function boot() {
       button.textContent = key.replace('x', '×');
       button.setAttribute('aria-pressed', String(selectedPlacement?.key === key));
       button.addEventListener('click', () => {
-        selectedPlacement = { key, rotated: placementRotation[key] };
+        selectedPlacement = { key, rotated: placementRotation[key], mode: 'cells' };
+        pendingPlacementCells = [];
         renderShapePicker();
+        buildBoard();
         renderFoundShapeChooser();
-        showPickerStatus(placementText.selected(key.replace('x', '×')));
+        const area = key.split('x').map(Number).reduce((product, value) => product * value, 1);
+        showPickerStatus(foundShapeText.progress(key.replace('x', '×'), 0, area));
       });
       options.append(button);
+      if (selectedPlacement?.key === key && key.split('x')[0] !== key.split('x')[1]) {
+        const rotate = document.createElement('button');
+        rotate.type = 'button';
+        rotate.className = 'found-shape-direction';
+        rotate.textContent = `${foundShapeText.direction} ${selectedPlacement.rotated ? '↔' : '↕'}`;
+        rotate.addEventListener('click', () => {
+          placementRotation[key] = !placementRotation[key];
+          selectedPlacement.rotated = placementRotation[key];
+          pendingPlacementCells = [];
+          buildBoard();
+          renderFoundShapeChooser();
+        });
+        options.append(rotate);
+      }
     });
   }
   function showPickerStatus(message, error = false) {
@@ -759,7 +779,7 @@ function boot() {
         place.setAttribute('aria-pressed', String(selectedPlacement?.key === key));
         place.addEventListener('click', () => selectPlacement(key));
         place.addEventListener('dragstart', (event) => {
-          selectedPlacement = { key, rotated: placementRotation[key] };
+          selectedPlacement = { key, rotated: placementRotation[key], mode: 'quick' };
           event.dataTransfer?.setData('text/plain', key);
           if (event.dataTransfer) event.dataTransfer.effectAllowed = 'move';
           showPickerStatus(placementText.selected(`${width}×${height}`));
@@ -821,7 +841,8 @@ function boot() {
   }
   function selectPlacement(key) {
     const [width, height] = key.split('x');
-    selectedPlacement = selectedPlacement?.key === key ? null : { key, rotated: placementRotation[key] };
+    selectedPlacement = selectedPlacement?.key === key ? null : { key, rotated: placementRotation[key], mode: 'quick' };
+    pendingPlacementCells = [];
     renderShapePicker();
     renderFoundShapeChooser();
     showPickerStatus(selectedPlacement ? placementText.selected(`${width}×${height}`) : '');
@@ -842,6 +863,7 @@ function boot() {
     model.placedTreasures.push(placement);
     footprint.cells.forEach((cell) => { model.cells[cell] = 'found'; });
     selectedPlacement = null;
+    pendingPlacementCells = [];
     save();
     clearResult();
     buildBoard();
@@ -849,6 +871,56 @@ function boot() {
     renderFoundShapeChooser();
     showPickerStatus(placementText.placed(`${footprint.width}×${footprint.height}`));
     if (model.preferences.autoCalculate) scheduleCalculate();
+    return true;
+  }
+  function selectTreasureCell(index) {
+    if (!selectedPlacement || selectedPlacement.mode !== 'cells') return false;
+    const { key, rotated } = selectedPlacement;
+    const occupied = new Set(model.placedTreasures.flatMap((placement) => placement.cells));
+    if (model.cells[index] === 'miss' || occupied.has(index)) {
+      showPickerStatus(foundShapeText.invalid, true);
+      return true;
+    }
+    pendingPlacementCells = pendingPlacementCells.includes(index)
+      ? pendingPlacementCells.filter((cell) => cell !== index)
+      : [...pendingPlacementCells, index];
+    const validFootprints = [];
+    for (let startIndex = 0; startIndex < model.size * model.size; startIndex += 1) {
+      const footprint = placementCells(model.size, key, startIndex, rotated);
+      if (footprint
+        && pendingPlacementCells.every((cell) => footprint.cells.includes(cell))
+        && !footprint.cells.some((cell) => model.cells[cell] === 'miss' || occupied.has(cell))) {
+        validFootprints.push({ startIndex, ...footprint });
+      }
+    }
+    if (!validFootprints.length) {
+      pendingPlacementCells = pendingPlacementCells.filter((cell) => cell !== index);
+      showPickerStatus(foundShapeText.invalid, true);
+      buildBoard();
+      return true;
+    }
+    const total = validFootprints[0].cells.length;
+    if (pendingPlacementCells.length === total) {
+      const footprint = validFootprints.find((candidate) => candidate.cells.every((cell) => pendingPlacementCells.includes(cell)));
+      if (footprint) {
+        boardSnapshot();
+        model.placedTreasures.push({ id: `${key}-${Date.now()}-${model.placedTreasures.length}`, key, rotated, ...footprint });
+        footprint.cells.forEach((cell) => { model.cells[cell] = 'found'; });
+        selectedPlacement = null;
+        pendingPlacementCells = [];
+        save();
+        clearResult();
+        buildBoard();
+        renderShapePicker();
+        renderFoundShapeChooser();
+        showPickerStatus(placementText.placed(`${footprint.width}×${footprint.height}`));
+        if (model.preferences.autoCalculate) scheduleCalculate();
+        return true;
+      }
+    }
+    buildBoard();
+    renderFoundShapeChooser();
+    showPickerStatus(foundShapeText.progress(key.replace('x', '×'), pendingPlacementCells.length, total));
     return true;
   }
   function removePlacedTreasure(id) {
@@ -924,6 +996,7 @@ function boot() {
         button.classList.add('is-recommended', `recommendation-tier-${rankCandidate.rank === 1 ? 1 : rankCandidate.rank <= 3 ? 2 : 3}`);
       }
       if (selectedCandidateIndex === index) button.classList.add('is-selected-candidate');
+      if (pendingPlacementCells.includes(index)) button.classList.add('is-pending-treasure');
       const probability = lastResult?.probabilities[index];
       const probabilityText = model.preferences.showProbability && state === 'unknown' && Number.isFinite(probability)
         ? `${Math.round(probability * 100)}%`
@@ -935,7 +1008,7 @@ function boot() {
       button.innerHTML = `<span class="cell-mark${placedTreasure ? ' is-placed-treasure' : ''}" aria-hidden="true">${markContent}</span><small class="cell-probability">${probabilityText}</small><em class="cell-rank" aria-hidden="true">${rankText}</em>`;
       button.addEventListener('click', () => {
         if (selectedPlacement) {
-          placeSelectedTreasure(index);
+          if (!selectTreasureCell(index)) placeSelectedTreasure(index);
           return;
         }
         setCell(index, model.preferences.inputMode);
@@ -1096,7 +1169,10 @@ function boot() {
   }
   function syncPreference(name, value) {
     model.preferences[name] = value;
-    if (name === 'inputMode' && value !== 'found') selectedPlacement = null;
+    if (name === 'inputMode' && value !== 'found') {
+      selectedPlacement = null;
+      pendingPlacementCells = [];
+    }
     save();
     syncControls();
     buildBoard();
