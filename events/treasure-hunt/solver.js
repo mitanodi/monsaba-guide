@@ -520,14 +520,14 @@ function boot() {
     'zh-CN': { rotatable: '可旋转', empty: '尚未选择宝物', total: (count) => `合计：${count}个`, add: (shape, count) => `添加1个${shape}宝物。当前${count}个`, remove: (shape) => `减少1个${shape}宝物`, maxReached: `每种形状最多可设置${MAX_SHAPE_COUNT}个宝物` }
   }[locale];
   const placementText = {
-    ja: { found: '発見済み', place: '配置', rotate: '回転', remove: '配置を取り消す', placedTitle: '盤面に配置した宝', empty: 'まだ配置していません', selected: (shape) => `${shape}を選択中。盤面の左上マスをタップするか、ドラッグしてください。`, placed: (shape) => `${shape}を盤面へ配置しました`, invalid: 'その位置には配置できません。盤面外・空白・他の宝との重なりを確認してください。' },
-    en: { found: 'Found', place: 'Place', rotate: 'Rotate', remove: 'Remove placement', placedTitle: 'Treasures placed on the board', empty: 'No treasures placed yet', selected: (shape) => `${shape} selected. Tap the top-left board tile or drag it onto the board.`, placed: (shape) => `${shape} placed on the board`, invalid: 'Cannot place it there. Check the board edge, empty tiles, and overlaps.' },
-    'zh-CN': { found: '已找到', place: '放置', rotate: '旋转', remove: '取消放置', placedTitle: '已放置到棋盘的宝物', empty: '尚未放置宝物', selected: (shape) => `已选择${shape}。点击棋盘左上格，或将其拖到棋盘上。`, placed: (shape) => `已将${shape}放置到棋盘`, invalid: '无法放置在该位置。请检查棋盘边界、空白格与宝物重叠。' }
+    ja: { found: '発見済み', place: '配置', vertical: '縦 ↕️', horizontal: '横 ↔️', remove: '配置を取り消す', placedTitle: '盤面に配置した宝', empty: 'まだ配置していません', selected: (shape) => `${shape}を選択中。盤面の左上マスをタップするか、ドラッグしてください。`, placed: (shape) => `${shape}を盤面へ配置しました`, invalid: 'その位置には配置できません。盤面外・空白・他の宝との重なりを確認してください。' },
+    en: { found: 'Found', place: 'Place', vertical: 'Vertical ↕️', horizontal: 'Horizontal ↔️', remove: 'Remove placement', placedTitle: 'Treasures placed on the board', empty: 'No treasures placed yet', selected: (shape) => `${shape} selected. Tap the top-left board tile or drag it onto the board.`, placed: (shape) => `${shape} placed on the board`, invalid: 'Cannot place it there. Check the board edge, empty tiles, and overlaps.' },
+    'zh-CN': { found: '已找到', place: '放置', vertical: '纵向 ↕️', horizontal: '横向 ↔️', remove: '取消放置', placedTitle: '已放置到棋盘的宝物', empty: '尚未放置宝物', selected: (shape) => `已选择${shape}。点击棋盘左上格，或将其拖到棋盘上。`, placed: (shape) => `已将${shape}放置到棋盘`, invalid: '无法放置在该位置。请检查棋盘边界、空白格与宝物重叠。' }
   }[locale];
   const foundShapeText = {
-    ja: { title: '発見した宝の形', manual: '1マスだけ', direction: '方向を変更', help: '形を選び、宝のマスを1つずつタップしてください。', progress: (shape, count, total) => `${shape}：${count}/${total}マス選択中`, invalid: 'そのマスを含む形になりません。隣り合うマスを選んでください。' },
-    en: { title: 'Found treasure shape', manual: 'Single tile', direction: 'Change direction', help: 'Choose a shape, then tap each treasure tile one by one.', progress: (shape, count, total) => `${shape}: ${count}/${total} tiles selected`, invalid: 'That tile does not fit the shape. Choose adjacent tiles.' },
-    'zh-CN': { title: '已找到的宝物形状', manual: '仅单格', direction: '切换方向', help: '选择形状后，逐格点击宝物所在方格。', progress: (shape, count, total) => `${shape}：已选择${count}/${total}格`, invalid: '该方格无法组成所选形状，请选择相邻方格。' }
+    ja: { title: '発見した宝の形', manual: '1マスだけ', help: '形を選び、宝のマスを1つずつタップしてください。', progress: (shape, count, total) => `${shape}：${count}/${total}マス選択中`, invalid: 'そのマスを含む形になりません。隣り合うマスを選んでください。' },
+    en: { title: 'Found treasure shape', manual: 'Single tile', help: 'Choose a shape, then tap each treasure tile one by one.', progress: (shape, count, total) => `${shape}: ${count}/${total} tiles selected`, invalid: 'That tile does not fit the shape. Choose adjacent tiles.' },
+    'zh-CN': { title: '已找到的宝物形状', manual: '仅单格', help: '选择形状后，逐格点击宝物所在方格。', progress: (shape, count, total) => `${shape}：已选择${count}/${total}格`, invalid: '该方格无法组成所选形状，请选择相邻方格。' }
   }[locale];
   const resultText = {
     ja: {
@@ -677,7 +677,7 @@ function boot() {
         const rotate = document.createElement('button');
         rotate.type = 'button';
         rotate.className = 'found-shape-direction';
-        rotate.textContent = `${foundShapeText.direction} ${selectedPlacement.rotated ? '↔' : '↕'}`;
+        rotate.textContent = selectedPlacement.rotated ? placementText.horizontal : placementText.vertical;
         rotate.addEventListener('click', () => {
           placementRotation[key] = !placementRotation[key];
           selectedPlacement.rotated = placementRotation[key];
@@ -790,7 +790,7 @@ function boot() {
           rotate.type = 'button';
           rotate.className = 'treasure-rotate-button';
           rotate.dataset.rotateShape = key;
-          rotate.textContent = `${placementText.rotate}${placementRotation[key] ? ' ↔' : ' ↕'}`;
+          rotate.textContent = placementRotation[key] ? placementText.horizontal : placementText.vertical;
           rotate.addEventListener('click', () => {
             placementRotation[key] = !placementRotation[key];
             if (selectedPlacement?.key === key) selectedPlacement.rotated = placementRotation[key];
