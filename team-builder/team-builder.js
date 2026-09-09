@@ -3,7 +3,7 @@ import {
   HANDOFF_KEY, MODE_LABELS, PLAYER_IDS, BASE_LEVEL_LIMIT, MAX_LEVEL_LIMIT,
   boardRows, boardColumns, boardSlotCount,
   emptyTeam, cloneTeam, sanitizeTeam, loadTeams, loadDraft, saveDraft, saveTeamList, upsertTeam, loadModeDrafts, saveModeDrafts, switchModeDraft,
-  placementIssue, placeMember, copyMemberToPlayer, togglePlayerChip, removeMember, moveMember, setPlayerUnlock, playerCount, playerLimit, activePlayerIds,
+  placementIssue, placeMember, randomPlacementIndex, copyMemberToPlayer, togglePlayerChip, removeMember, moveMember, setPlayerUnlock, playerCount, playerLimit, activePlayerIds,
   levelLimit, encodeTeam, decodeTeam, teamText, stage1ImageFor
 } from './team-core.js';
 
@@ -15,7 +15,7 @@ const localePrefix = locale === 'en' ? '/en' : locale === 'zh-CN' ? '/zh-cn' : '
 const COPY = {
   ja: {
     empty: '空き', placeholder: '画像確認中', selectFirst: 'Player・Lvと、一覧のタタ・進化段階を選んでください。', selectFirstBasic: '一覧からタタ・進化段階を選んでください。', selectCell: '選択中：P{player} {name} T{stage} Lv{level}。配置するマスを押してください。', selectCellBasic: '選択中：{name} T{stage}。配置するマスを押してください。',
-    placed: '配置しました。', moved: '配置を移動しました。', movePrompt: '移動先を選んでください。配置済みの場合は所属を保ったまま入れ替えます。', removed: '削除しました。', cleared: '盤面をクリアしました。',
+    placed: '空いているマスへランダム配置しました。', moved: '配置を移動しました。', movePrompt: '移動先を選んでください。配置済みの場合は所属を保ったまま入れ替えます。', removed: '削除しました。', cleared: '盤面をクリアしました。', boardFull: '盤面に空きマスがありません。',
     restored: '前回の編成を復元しました。', shared: '短い共有URLをコピーしました。編成内容はAnalyticsへ送信しません。', shareFallback: 'コピーできませんでした。下のURLを選択してコピーしてください。',
     saved: 'この端末に編成を保存しました。', imageSaved: '編成の共有画像を保存しました。', noResults: '条件に一致するタタがありません。', unnamed: '名前なし編成', open: '開く', remove: '削除',
     change: 'タタを変更', changePrompt: '一覧から変更後のタタとTierを選んでください。', move: '移動・入替', detail: '詳細を見る', row: '行', column: '列', board: 'ゾンビラッシュ編成盤',
@@ -28,7 +28,7 @@ const COPY = {
   },
   en: {
     empty: 'Empty', placeholder: 'Image pending', selectFirst: 'Choose a player, level, Tata family, and tier.', selectFirstBasic: 'Choose a Tata family and tier.', selectCell: 'P{player} {name} T{stage} Lv{level} selected. Tap a cell.', selectCellBasic: '{name} T{stage} selected. Tap a cell.',
-    placed: 'Placed.', moved: 'Moved.', movePrompt: 'Choose a destination. Occupied cells swap while retaining ownership.', removed: 'Removed.', cleared: 'Board cleared.',
+    placed: 'Placed in a random empty cell.', moved: 'Moved.', movePrompt: 'Choose a destination. Occupied cells swap while retaining ownership.', removed: 'Removed.', cleared: 'Board cleared.', boardFull: 'There are no empty cells on the board.',
     restored: 'Your previous formation was restored.', shared: 'Short share URL copied. Formation details are not sent to Analytics.', shareFallback: 'Copy failed. Select and copy the URL below.',
     saved: 'Formation saved on this device.', imageSaved: 'Formation image saved.', noResults: 'No Tata matches these filters.', unnamed: 'Unnamed formation', open: 'Open', remove: 'Delete',
     change: 'Change Tata', changePrompt: 'Choose the replacement Tata and tier from the list.', move: 'Move / swap', detail: 'View details', row: ' row ', column: ', column ', board: 'Zombie Rush formation board',
@@ -41,7 +41,7 @@ const COPY = {
   },
   'zh-CN': {
     empty: '空位', placeholder: '图片确认中', selectFirst: '请选择玩家、等级、塔塔系列和进化阶段。', selectFirstBasic: '请选择塔塔系列和进化阶段。', selectCell: '已选择P{player} {name} T{stage} Lv{level}，请点击格子。', selectCellBasic: '已选择{name} T{stage}，请点击格子。',
-    placed: '已放置。', moved: '已移动。', movePrompt: '请选择目标格；已有塔塔时会交换位置并保留玩家归属。', removed: '已删除。', cleared: '已清空棋盘。',
+    placed: '已随机放入一个空位。', moved: '已移动。', movePrompt: '请选择目标格；已有塔塔时会交换位置并保留玩家归属。', removed: '已删除。', cleared: '已清空棋盘。', boardFull: '棋盘上没有空位。',
     restored: '已恢复上次阵容。', shared: '已复制短分享链接。阵容内容不会发送至Analytics。', shareFallback: '无法复制，请选择并复制下方链接。',
     saved: '阵容已保存在此设备。', imageSaved: '已保存阵容图片。', noResults: '没有符合条件的塔塔。', unnamed: '未命名阵容', open: '打开', remove: '删除',
     change: '更换塔塔', changePrompt: '请从列表选择替换后的塔塔和Tier。', move: '移动/交换', detail: '查看详情', row: '行', column: '列', board: 'Zombie Rush阵容棋盘',
@@ -147,7 +147,7 @@ function renderModeControls() {
   const zombie = team.mode === 'zombie'; const wrapper = $('#team-show-levels-wrap'); const toggle = $('#team-show-levels'); const chipSection = $('#team-chip-settings');
   wrapper.hidden = !zombie; toggle.checked = team.showLevels; chipSection.hidden = !zombie;
   $('#team-board-title').textContent = boardLabel();
-  $('#team-board-title').nextElementSibling.textContent = zombie ? (locale === 'ja' ? 'Playerと進化段階を選び、配置したいマスを押します。ゾンビラッシュではLvとチップも設定できます。' : locale === 'zh-CN' ? '选择Player和进化阶段，再点击要放置的格子。Zombie Rush中还可设置等级和芯片。' : 'Choose a Player and evolution tier, then tap a cell. Zombie Rush also supports levels and chips.') : (locale === 'ja' ? 'タタと進化段階を選び、配置したいマスを押します。' : locale === 'zh-CN' ? '选择塔塔系列和进化阶段，再点击要放置的格子。' : 'Choose a Tata family and evolution tier, then tap the cell where you want to place it.');
+  $('#team-board-title').nextElementSibling.textContent = zombie ? (locale === 'ja' ? 'Playerと進化段階を選ぶと、空きマスへランダム配置します。ゾンビラッシュではLvとチップも設定できます。' : locale === 'zh-CN' ? '选择Player和进化阶段后，会随机放入一个空位。Zombie Rush中还可设置等级和芯片。' : 'Choose a Player and evolution tier to place it in a random empty cell. Zombie Rush also supports levels and chips.') : (locale === 'ja' ? 'タタと進化段階を選ぶと、空きマスへランダム配置します。' : locale === 'zh-CN' ? '选择塔塔系列和进化阶段后，会随机放入一个空位。' : 'Choose a Tata family and evolution tier to place it in a random empty cell.');
   $('#team-mode').querySelectorAll('option').forEach((option) => {
     const limit = playerLimit({ mode: option.value }, 1);
     const twoPlayer = option.value === 'zombie';
@@ -257,6 +257,7 @@ function reportIssue(issue, playerId) {
   else if (issue === 'invalid-level') setStatus(message(COPY.invalidLevel, { player: playerId, limit: levelLimit(team, playerId) }), true, '#team-message');
   else if (issue === 'duplicate-family') setStatus(message(team.mode === 'zombie' ? COPY.duplicateFamily : COPY.duplicateFamilyBasic, { player: playerId }), true, '#team-message');
   else if (issue === 'chip-full') setStatus(message(COPY.chipFull, { player: playerId }), true, '#team-message');
+  else if (issue === 'board-full') setStatus(COPY.boardFull, true, '#team-message');
 }
 function closePickerForPlacement() {
   if (!matchMedia('(max-width: 820px)').matches) return;
@@ -316,6 +317,23 @@ function placeOrMove(index) {
   commit(placeMember(team, index, member, families), COPY.placed); track('formation_place');
 }
 
+function placeRandomly(pick) {
+  const member = { ...pick, playerId: currentPlayer, level: currentLevel };
+  const index = randomPlacementIndex(team, member, families);
+  if (index < 0) {
+    const emptyIndex = team.slots.slice(0, boardSlotCount(team)).findIndex((slot) => !slot);
+    const issue = emptyIndex < 0 ? 'board-full' : placementIssue(team, emptyIndex, member, families);
+    reportIssue(issue, currentPlayer);
+    selected = pick;
+    renderSelection();
+    return;
+  }
+  selected = null;
+  commit(placeMember(team, index, member, families), COPY.placed);
+  track('formation_place');
+  closePickerForPlacement();
+}
+
 function changeUnlock(target) {
   const playerId = Number(target.dataset.playerUnlock); const setting = target.dataset.setting; const enabled = target.checked;
   let result = setPlayerUnlock(team, playerId, setting, enabled, families);
@@ -357,7 +375,7 @@ function bind() {
     if (Date.now() < suppressClickUntil) { event.preventDefault(); return; }
     const button = event.target.closest('[data-pick-family]'); if (!button) return; const pick = { familyId: button.dataset.pickFamily, stage: Number(button.dataset.pickStage) };
     if (replacingIndex !== null) { const previous = team.slots[replacingIndex]; const replacement = { ...pick, playerId: previous.playerId, level: previous.level }; const issue = placementIssue(team, replacingIndex, replacement, families); if (!issue) { commit(placeMember(team, replacingIndex, replacement, families), COPY.placed); closePickerForPlacement(); } else reportIssue(issue, replacement.playerId); replacingIndex = null; selected = pick; return; }
-    selected = pick; renderSelection(); renderPicker(); closePickerForPlacement();
+    placeRandomly(pick);
   });
   $('#team-picker-list').addEventListener('pointerdown', (event) => { const handle = event.target.closest('[data-drag-handle]'); const source = handle || (matchMedia('(hover: hover) and (pointer: fine)').matches ? event.target.closest('[data-pick-family]') : null); if (source) beginPointerDrag(event, { type: 'picker', familyId: source.dataset.dragFamily, stage: Number(source.dataset.dragStage), playerId: currentPlayer, level: currentLevel }, source, { preventDefault: Boolean(handle), activateImmediately: Boolean(handle) }); });
   $('#team-picker-list').addEventListener('dragstart', (event) => { const source = event.target.closest('[data-drag-family]'); if (!source) return; pointerDrag = null; dragPayload = { type: 'picker', familyId: source.dataset.dragFamily, stage: Number(source.dataset.dragStage), playerId: currentPlayer, level: currentLevel }; event.dataTransfer.effectAllowed = 'copy'; event.dataTransfer.setData('text/plain', 'monsaba-tata'); source.classList.add('is-dragging'); if (matchMedia('(max-width: 820px)').matches) document.querySelector('.formation-picker')?.classList.add('is-drag-compact'); const ghost = createDragGhost(dragPayload, true); event.dataTransfer.setDragImage?.(ghost, 44, 44); });

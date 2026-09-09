@@ -169,6 +169,14 @@ export function placeMember(team, index, member, families) {
   const next = cloneTeam(team, families); if (placementIssue(next, index, member, families)) return next;
   next.slots[index] = { familyId: member.familyId, stage: Number(member.stage), playerId: Number(member.playerId), level: Number(member.level) }; return next;
 }
+export function randomPlacementIndex(team, member, families, random = Math.random) {
+  const candidates = Array.from({ length: boardSlotCount(team) }, (_, index) => index)
+    .filter((index) => !team?.slots?.[index] && !placementIssue(team, index, member, families));
+  if (!candidates.length) return -1;
+  const value = Number(random());
+  const offset = Number.isFinite(value) ? Math.min(candidates.length - 1, Math.max(0, Math.floor(value * candidates.length))) : 0;
+  return candidates[offset];
+}
 export function copyMemberToPlayer(team, sourceIndex, targetPlayerId, families) {
   const next = cloneTeam(team, families); const source = next.slots[sourceIndex]; const playerId = Number(targetPlayerId);
   if (!source || !activePlayerIds(next).includes(playerId) || source.playerId === playerId) return { ok: false, reason: 'invalid-copy', team: next };

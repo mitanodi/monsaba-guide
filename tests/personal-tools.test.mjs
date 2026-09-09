@@ -9,7 +9,7 @@ import {
 } from '../my-monsaba/roster-core.js';
 import {
   TEAM_KEY, DRAFT_KEY, TEAM_VERSION, SHARE_VERSION, TEAM_ROWS, TEAM_COLUMNS, TEAM_SLOTS, STANDARD_TEAM_ROWS, STANDARD_TEAM_COLUMNS, STANDARD_TEAM_SLOTS, DOJO_TEAM_ROWS, DOJO_TEAM_COLUMNS, DOJO_TEAM_SLOTS, MAX_SAVED_TEAMS, emptyTeam, sanitizeTeam,
-  loadTeams, loadDraft, saveDraft, saveTeamList, upsertTeam, placeMember, copyMemberToPlayer, togglePlayerChip, removeMember, moveMember,
+  loadTeams, loadDraft, saveDraft, saveTeamList, upsertTeam, placeMember, randomPlacementIndex, copyMemberToPlayer, togglePlayerChip, removeMember, moveMember,
   placementIssue, setPlayerUnlock, playerCount, playerLimit, levelLimit, MODE_PLAYER_LIMITS, activePlayerIds,
   encodeTeam, decodeTeam, analyzeTeam, teamText, stage1ImageFor, switchModeDraft, saveModeDrafts, loadModeDrafts, boardRows, boardColumns, boardSlotCount
 } from '../team-builder/team-core.js';
@@ -152,6 +152,17 @@ test('表示盤面はゾンビラッシュ6×6、バッジ道場は横3×縦4、
   assert.deepEqual([boardRows(dojo), boardColumns(dojo), boardSlotCount(dojo)], [4, 3, 12]);
   assert.equal(placementIssue(dojo, 12, { familyId: first.id, stage: 1, playerId: 1, level: 1 }, families), 'invalid-slot');
   assert.deepEqual([boardRows(emptyTeam()), boardColumns(emptyTeam()), boardSlotCount(emptyTeam())], [6, 6, 36]);
+});
+
+test('一覧でT1・T2を選ぶと有効な空きマスからランダム配置先を選ぶ', () => {
+  const occupied = placeMember(emptyTeam(), 0, { familyId: first.id, stage: 1, playerId: 1, level: 1 }, families);
+  const member = { familyId: second.id, stage: 2, playerId: 1, level: 1 };
+  assert.equal(randomPlacementIndex(occupied, member, families, () => 0), 1);
+  assert.equal(randomPlacementIndex(occupied, member, families, () => 0.999999), 35);
+  assert.equal(randomPlacementIndex(occupied, { ...member, familyId: first.id }, families, () => 0.5), -1);
+  const source = read('team-builder/team-builder.js');
+  assert.match(source, /placeRandomly\(pick\)/);
+  assert.match(source, /randomPlacementIndex\(team, member, families\)/);
 });
 
 test('編成の配置・stage変更・削除・入替はデータ構造で保持', () => {
