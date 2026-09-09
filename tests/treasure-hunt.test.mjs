@@ -152,10 +152,10 @@ test('旧宝ヒット保存データを発見済みへ統合する', () => {
   assert.equal(migrated.preferences.inputMode, 'found');
 });
 
-test('表示設定と自動再計算設定を保存構造に保持する', () => {
+test('表示設定を保持し旧autoCalculate=falseも常時自動計算へ移行する', () => {
   const value = createDefaultModel(6);
-  value.preferences = { inputMode: 'found', showProbability: false, showRecommendations: false, autoCalculate: true };
-  assert.deepEqual(normalizeModel(value).preferences, value.preferences);
+  value.preferences = { inputMode: 'found', showProbability: false, showRecommendations: false, autoCalculate: false };
+  assert.deepEqual(normalizeModel(value).preferences, { ...value.preferences, autoCalculate: true });
 });
 
 test('宝specを従来形式で解釈する', () => {
@@ -245,11 +245,13 @@ test('TOP5選択は盤面状態を変更しない説明を持つ', () => {
   assert.match(js, /selectedCandidateIndex = index/);
 });
 
-test('確率・おすすめ・自動再計算の切替を持つ', () => {
+test('確率とおすすめの表示切替を保ち、確率は初回から常時自動計算する', () => {
   for (const id of ['showProbability', 'showRecommendations', 'autoCalculate']) {
     assert.match(html, new RegExp(`id="${id}"`));
   }
-  assert.match(js, /scheduleCalculate/);
+  assert.match(js, /autoCalculateControl\?\.closest\('label'\)\?\.remove\(\)/);
+  assert.match(js, /buildBoard\(\);\s*scheduleCalculate\(\);\s*\}/);
+  assert.doesNotMatch(js, /if \(model\.preferences\.autoCalculate\) scheduleCalculate\(\)/);
 });
 
 test('Undoは1操作分の盤面snapshotを復元する', () => {

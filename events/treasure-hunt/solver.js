@@ -15,7 +15,7 @@ const DEFAULT_PREFERENCES = {
   inputMode: 'miss',
   showProbability: true,
   showRecommendations: true,
-  autoCalculate: false
+  autoCalculate: true
 };
 const DEFAULT_SAMPLE_BUDGET = 20000;
 const DEFAULT_EXACT_NODE_LIMIT = 250000;
@@ -185,7 +185,9 @@ export function normalizeModel(value) {
         : STATES.includes(value?.preferences?.inputMode) ? value.preferences.inputMode : DEFAULT_PREFERENCES.inputMode,
       showProbability: value?.preferences?.showProbability !== false,
       showRecommendations: value?.preferences?.showRecommendations !== false,
-      autoCalculate: value?.preferences?.autoCalculate === true
+      // Automatic probability calculation is now mandatory. This also
+      // migrates saved settings created when it could be disabled.
+      autoCalculate: true
     }
   };
 }
@@ -635,7 +637,8 @@ function boot() {
     $('#treasureSpec').value = model.spec;
     $('#showProbability').checked = model.preferences.showProbability;
     $('#showRecommendations').checked = model.preferences.showRecommendations;
-    $('#autoCalculate').checked = model.preferences.autoCalculate;
+    const autoCalculateControl = $('#autoCalculate');
+    if (autoCalculateControl) autoCalculateControl.checked = true;
     document.querySelectorAll('[data-input-mode]').forEach((button) => {
       const selected = button.dataset.inputMode === model.preferences.inputMode;
       button.setAttribute('aria-pressed', String(selected));
@@ -894,7 +897,7 @@ function boot() {
     renderShapePicker();
     renderFoundShapeChooser();
     showPickerStatus(placementText.placed(`${footprint.width}×${footprint.height}`));
-    if (model.preferences.autoCalculate) scheduleCalculate();
+    scheduleCalculate();
     return true;
   }
   function selectTreasureCell(index) {
@@ -941,7 +944,7 @@ function boot() {
         renderShapePicker();
         renderFoundShapeChooser();
         showPickerStatus(placementText.placed(`${footprint.width}×${footprint.height}`));
-        if (model.preferences.autoCalculate) scheduleCalculate();
+        scheduleCalculate();
         return true;
       }
     }
@@ -961,7 +964,7 @@ function boot() {
     buildBoard();
     renderShapePicker();
     renderFoundShapeChooser();
-    if (model.preferences.autoCalculate) scheduleCalculate();
+    scheduleCalculate();
   }
   function removeFoundAtCell(index) {
     const placedTreasure = model.placedTreasures.find((placement) => placement.cells.includes(index));
@@ -980,7 +983,7 @@ function boot() {
     buildBoard();
     renderShapePicker();
     showPickerStatus(message);
-    if (model.preferences.autoCalculate) scheduleCalculate();
+    scheduleCalculate();
   }
   function changeShapeCount(key, delta) {
     const current = model.shapeCounts[key];
@@ -1079,7 +1082,7 @@ function boot() {
     save();
     clearResult();
     buildBoard();
-    if (model.preferences.autoCalculate) scheduleCalculate();
+    scheduleCalculate();
   }
   function clearResult() {
     lastResult = null;
@@ -1226,7 +1229,7 @@ function boot() {
     showStatus('直前の入力を戻しました', '必要なら続けて復元できます。');
     $('#undo').classList.remove('is-attention');
     updateUndoState();
-    if (model.preferences.autoCalculate) scheduleCalculate();
+    scheduleCalculate();
   }
   function resetBoard() {
     if (!window.confirm('本当に盤面をすべてリセットしますか？')) return;
@@ -1250,6 +1253,7 @@ function boot() {
     updateUndoState();
     updateResetRestoreState();
     showStatus('盤面をすべてリセットしました', '入力モード・宝の形と個数・表示設定はそのままです。');
+    scheduleCalculate();
   }
   function restoreResetBoard() {
     if (!lastResetSnapshot) return;
@@ -1258,7 +1262,7 @@ function boot() {
     restoreSnapshot(snapshot);
     updateResetRestoreState();
     showStatus('リセット前の盤面を一括復元しました', '空白・発見済み・配置済みの宝をまとめて戻しました。');
-    if (model.preferences.autoCalculate) scheduleCalculate();
+    scheduleCalculate();
   }
 
   document.querySelectorAll('[data-input-mode]').forEach((button) => {
@@ -1272,18 +1276,19 @@ function boot() {
     save();
     clearResult();
     buildBoard();
+    scheduleCalculate();
   });
   $('#treasureSpec').addEventListener('input', () => {
     window.clearTimeout(specSyncTimer);
     specSyncTimer = window.setTimeout(() => {
       syncSpecFromTextarea();
-      if (model.preferences.autoCalculate) scheduleCalculate();
+      scheduleCalculate();
     }, 300);
   });
   $('#treasureSpec').addEventListener('change', () => {
     window.clearTimeout(specSyncTimer);
     syncSpecFromTextarea();
-    if (model.preferences.autoCalculate) scheduleCalculate();
+    scheduleCalculate();
   });
   $('#clearTreasureSettings').addEventListener('click', () => {
     model.placedTreasures.flatMap((placement) => placement.cells).forEach((cell) => { model.cells[cell] = 'unknown'; });
@@ -1293,7 +1298,8 @@ function boot() {
   });
   $('#showProbability').addEventListener('change', (event) => syncPreference('showProbability', event.target.checked));
   $('#showRecommendations').addEventListener('change', (event) => syncPreference('showRecommendations', event.target.checked));
-  $('#autoCalculate').addEventListener('change', (event) => syncPreference('autoCalculate', event.target.checked));
+  const autoCalculateControl = $('#autoCalculate');
+  autoCalculateControl?.closest('label')?.remove();
   $('#calculate').addEventListener('click', calculate);
   $('#calculateMobile').addEventListener('click', calculate);
   $('#undo').addEventListener('click', undoLastInput);
@@ -1306,6 +1312,7 @@ function boot() {
   updateUndoState();
   updateResetRestoreState();
   buildBoard();
+  scheduleCalculate();
 }
 
 if (typeof document !== 'undefined') boot();
