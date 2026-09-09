@@ -572,7 +572,11 @@ test('発見済みモードから宝形状を選び盤面へ配置できる', ()
   assert.match(js, /発見した宝の形/);
   assert.match(js, /1マスだけ/);
   assert.match(js, /model\.preferences\.inputMode !== 'found'/);
+  assert.match(js, /found-shape-placed/);
+  assert.match(js, /found-shape-remove/);
+  assert.match(js, /removePlacedTreasure\(placement\.id\)/);
   assert.match(css, /found-shape-options/);
+  assert.match(css, /found-shape-remove/);
 });
 
 test('発見した長方形宝は方向指定なしで縦横を自動判定し、マスを1つずつ選択できる', () => {
