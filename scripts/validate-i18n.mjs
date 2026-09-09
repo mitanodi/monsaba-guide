@@ -45,6 +45,9 @@ function collectProtected(value, key = '') {
 }
 for (const relative of ['data/tatari.json', 'data/tata-skills.json', 'data/content-guides.json', 'data/events.json', 'data/summer-party.json', 'data/items.json', 'data/systems.json', 'data/stages.json', 'data/zombie-rush/seasons/season-1.json']) collectProtected(JSON.parse(read(relative)));
 collectProtected(JSON.parse(read('data/i18n/localized-names.json')));
+for (const item of JSON.parse(read('data/tatari-name-catalog.json')).names || []) {
+  for (const name of [item.japaneseName, item.englishName, item.simplifiedChineseName, item.previousJapaneseName]) if (name) protectedTerms.add(name);
+}
 for (const term of ['系', 'パクマ', '魔法の農場リメイク', 'サンドワームゾンビ', 'スノーフィストゾンビ', 'ドアゾンビ', 'ナムアミダイジャ', '子ダコ']) protectedTerms.add(term);
 const sortedProtectedTerms = [...protectedTerms].sort((a, b) => b.length - a.length);
 const untranslated = { en: new Set(), 'zh-CN': new Set() };

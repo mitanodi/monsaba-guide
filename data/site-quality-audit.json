@@ -2,7 +2,7 @@
   "version": 1,
   "asOf": "2026-09-05",
   "totals": {
-    "pages": 384,
+    "pages": 390,
     "indexable": 354,
     "brokenLinks": 0,
     "brokenImages": 0,
@@ -3799,7 +3799,7 @@
       },
       {
         "file": "team-builder/team-builder.js",
-        "bytes": 64862
+        "bytes": 66121
       },
       {
         "file": "team-builder/community/community.js",

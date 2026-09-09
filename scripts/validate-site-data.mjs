@@ -48,7 +48,7 @@ for (const family of tatari.families || []) counts[family.attribute] = (counts[f
 expect(JSON.stringify(counts) === JSON.stringify({草:13, 水:13, 火:13, 雷:13, 岩:12}), `属性系統数: ${JSON.stringify(counts)}`);
 expect((tatari.families || []).length === 64, `総系統数: ${(tatari.families || []).length}`);
 const renamedFamilies = (tatari.families || []).filter((family) => family.familyName !== getFamilyDisplayName(family));
-expect(renamedFamilies.length === 32, `初期形態名とlegacy familyNameが異なる系統数: ${renamedFamilies.length}`);
+expect(renamedFamilies.length === 36, `初期形態名とlegacy familyNameが異なる系統数: ${renamedFamilies.length}`);
 for (const family of tatari.families || []) {
   expect(getFamilyDisplayName(family) === family.evolutions[0]?.name, `${family.id}: 表示名が初期形態名と不一致`);
   const aliases = getFamilySearchAliases(family);
@@ -60,7 +60,7 @@ for (const [mode, expected] of Object.entries({ tier: 'SS', normal: 'SS', zombie
   expect(bowzuhebi?.[mode] === expected, `nenbutsuhebi ${mode}: ${bowzuhebi?.[mode] || '未設定'} / expected ${expected}`);
 }
 const pikaru = (tatari.families || []).find((family) => family.id === 'hikaru');
-const pikaruNames = ['ピカル', 'ボルタル', 'ルシフェル', 'ルミナリオン'];
+const pikaruNames = ['ピカル', 'ボルタル', 'ルシフタル', 'ルミナリオン'];
 expect(JSON.stringify(pikaru?.evolutions?.map((stage) => stage.name)) === JSON.stringify(pikaruNames), `hikaru進化列: ${pikaru?.evolutions?.map((stage) => stage.name).join(' → ')}`);
 expect(getFamilyDisplayLabel(pikaru) === 'ピカル系', 'hikaruの表示系統名がピカル系ではありません');
 
@@ -179,7 +179,7 @@ for (const family of renamedFamilies) {
 }
 for (const file of htmlFiles) {
   const html = read(file);
-  for (const wrongName of ['ヒカル系', 'ホルタル', 'ルシフタル']) expect(!html.includes(wrongName), `${file}: 旧ピカル系表示 ${wrongName} が残っています`);
+  for (const wrongName of ['ヒカル系', 'ホルタル']) expect(!html.includes(wrongName), `${file}: 旧ピカル系表示 ${wrongName} が残っています`);
 }
 
 const sharedLayout = read('scripts/shared-layout.mjs');
@@ -223,7 +223,7 @@ const tierHtml = read('tata-tier/index.html');
 expect((tierHtml.match(/class="overall-card"/g) || []).length > 0, 'Tierの静的HTMLがありません');
 expect((tierHtml.match(/class="tier-chart-tata"/g) || []).length === 64, 'Tierチャートは64系統ではありません');
 expect((tierHtml.match(/class="tier-chart-row /g) || []).length === 4, 'Tierチャートは4区分ではありません');
-expect(tierHtml.includes('ビリジカ系') && tierHtml.includes('シズクジ系'), 'Tierチャートの日本名表示が不正です');
+expect(tierHtml.includes('ビリジカ系') && tierHtml.includes('シズクムシ系'), 'Tierチャートの日本名表示が不正です');
 expect((read('evolution-priority/index.html').match(/class="evolution-card"/g) || []).length > 0, '進化優先度の静的HTMLがありません');
 const updatePreviewHtml = read('updates/2026-08-26/index.html');
 expect(updatePreviewHtml.includes('2026年8月26日 実装済み・詳細確認中'), '8/26アップデートページに公開後ステータスがありません');
@@ -308,7 +308,7 @@ expect(!publicFiles.map(read).join('\n').match(/adsbygoogle|doubleclick\.net|goo
 const matchesAffiliatePath = (pattern, route) => pattern.endsWith('*') ? route.startsWith(pattern.slice(0, -1)) : route === pattern;
 const routeForHtmlFile = (file) => file === 'index.html' ? '/' : file.endsWith('/index.html') ? `/${file.slice(0, -10)}` : `/${file}`;
 const affiliateEligibleFiles = htmlFiles.filter((file) => monetization.pageProfiles?.some((rule) => matchesAffiliatePath(rule.match, routeForHtmlFile(file))));
-expect(affiliateEligibleFiles.length === tatari.families.length + 16, `affiliate対象ページ数: ${affiliateEligibleFiles.length}`);
+expect(affiliateEligibleFiles.length === tatari.families.length + 17, `affiliate対象ページ数: ${affiliateEligibleFiles.length}`);
 for (const file of affiliateEligibleFiles) expect(read(file).includes('/monetization.js'), `${file}: monetization.jsがありません`);
 for (const route of ['/privacy/', '/about/', '/about-data/', '/updates/', '/search/', '/consult/', '/faq/']) {
   expect(!monetization.pageProfiles?.some((rule) => matchesAffiliatePath(rule.match, route)), `affiliate非対象ページ ${route} が有効です`);

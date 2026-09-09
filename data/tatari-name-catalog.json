@@ -8,8 +8,9 @@
   },
   "summary": {
     "rowCount": 236,
-    "matchedExisting": 230,
-    "newNameOnly": 6
+    "appliedToExistingForms": 230,
+    "supplementalForms": 6,
+    "mappedTotal": 236
   },
   "names": [
     {
@@ -19,7 +20,11 @@
       "sourceRow": 2,
       "existingFamilyId": "daishell",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "daishell",
+      "mappedStage": 1,
+      "sitePath": "/tata/daishell/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ダイシェル",
@@ -28,7 +33,11 @@
       "sourceRow": 3,
       "existingFamilyId": "daishell",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "daishell",
+      "mappedStage": 2,
+      "sitePath": "/tata/daishell/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "トスリス",
@@ -37,7 +46,11 @@
       "sourceRow": 4,
       "existingFamilyId": "batarisu",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "batarisu",
+      "mappedStage": 1,
+      "sitePath": "/tata/batarisu/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "バタリス",
@@ -46,7 +59,11 @@
       "sourceRow": 5,
       "existingFamilyId": "batarisu",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "batarisu",
+      "mappedStage": 2,
+      "sitePath": "/tata/batarisu/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "フタバード",
@@ -55,7 +72,11 @@
       "sourceRow": 6,
       "existingFamilyId": "yotsubird",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "yotsubird",
+      "mappedStage": 1,
+      "sitePath": "/tata/yotsubird/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ヨツバード",
@@ -64,7 +85,11 @@
       "sourceRow": 7,
       "existingFamilyId": "yotsubird",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "yotsubird",
+      "mappedStage": 2,
+      "sitePath": "/tata/yotsubird/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "サボリトゲ",
@@ -73,7 +98,11 @@
       "sourceRow": 8,
       "existingFamilyId": "guuhog",
       "existingStage": 1,
-      "previousJapaneseName": "ハリネム"
+      "previousJapaneseName": "ハリネム",
+      "mappedFamilyId": "guuhog",
+      "mappedStage": 1,
+      "sitePath": "/tata/guuhog/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "アクビトゲ",
@@ -82,7 +111,11 @@
       "sourceRow": 9,
       "existingFamilyId": "guuhog",
       "existingStage": 2,
-      "previousJapaneseName": "グウホッグ"
+      "previousJapaneseName": "グウホッグ",
+      "mappedFamilyId": "guuhog",
+      "mappedStage": 2,
+      "sitePath": "/tata/guuhog/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ビパピー",
@@ -91,7 +124,11 @@
       "sourceRow": 10,
       "existingFamilyId": "hihidog",
       "existingStage": 1,
-      "previousJapaneseName": "ヒパピー"
+      "previousJapaneseName": "ヒパピー",
+      "mappedFamilyId": "hihidog",
+      "mappedStage": 1,
+      "sitePath": "/tata/hihidog/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ビビドッグ",
@@ -100,7 +137,11 @@
       "sourceRow": 11,
       "existingFamilyId": "hihidog",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "hihidog",
+      "mappedStage": 2,
+      "sitePath": "/tata/hihidog/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "カピラス",
@@ -109,7 +150,11 @@
       "sourceRow": 12,
       "existingFamilyId": "capibarrie",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "capibarrie",
+      "mappedStage": 1,
+      "sitePath": "/tata/capibarrie/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "カピバルリー",
@@ -118,7 +163,11 @@
       "sourceRow": 13,
       "existingFamilyId": "capibarrie",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "capibarrie",
+      "mappedStage": 2,
+      "sitePath": "/tata/capibarrie/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "スズメラ",
@@ -127,7 +176,11 @@
       "sourceRow": 14,
       "existingFamilyId": "kaenjack",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "kaenjack",
+      "mappedStage": 1,
+      "sitePath": "/tata/kaenjack/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "カエンジャク",
@@ -136,7 +189,11 @@
       "sourceRow": 15,
       "existingFamilyId": "kaenjack",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "kaenjack",
+      "mappedStage": 2,
+      "sitePath": "/tata/kaenjack/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ナンモナイシ",
@@ -145,7 +202,11 @@
       "sourceRow": 16,
       "existingFamilyId": "hanarenaishi",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "hanarenaishi",
+      "mappedStage": 1,
+      "sitePath": "/tata/hanarenaishi/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ハナレナイシ",
@@ -154,7 +215,11 @@
       "sourceRow": 17,
       "existingFamilyId": "hanarenaishi",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "hanarenaishi",
+      "mappedStage": 2,
+      "sitePath": "/tata/hanarenaishi/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "マドブヒ",
@@ -163,7 +228,11 @@
       "sourceRow": 18,
       "existingFamilyId": "rokubuhi",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "rokubuhi",
+      "mappedStage": 1,
+      "sitePath": "/tata/rokubuhi/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ロクブヒ",
@@ -172,7 +241,11 @@
       "sourceRow": 19,
       "existingFamilyId": "rokubuhi",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "rokubuhi",
+      "mappedStage": 2,
+      "sitePath": "/tata/rokubuhi/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ノロナマズ",
@@ -181,7 +254,11 @@
       "sourceRow": 20,
       "existingFamilyId": "birinamazu",
       "existingStage": 1,
-      "previousJapaneseName": "ノロマズ"
+      "previousJapaneseName": "ノロマズ",
+      "mappedFamilyId": "birinamazu",
+      "mappedStage": 1,
+      "sitePath": "/tata/birinamazu/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ビリナマズ",
@@ -190,7 +267,11 @@
       "sourceRow": 21,
       "existingFamilyId": "birinamazu",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "birinamazu",
+      "mappedStage": 2,
+      "sitePath": "/tata/birinamazu/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ネコオリ",
@@ -199,7 +280,11 @@
       "sourceRow": 22,
       "existingFamilyId": "nekoori",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "nekoori",
+      "mappedStage": 1,
+      "sitePath": "/tata/nekoori/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "チルネコ",
@@ -208,7 +293,11 @@
       "sourceRow": 23,
       "existingFamilyId": "nekoori",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "nekoori",
+      "mappedStage": 2,
+      "sitePath": "/tata/nekoori/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "チルレオ",
@@ -217,7 +306,11 @@
       "sourceRow": 24,
       "existingFamilyId": "nekoori",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "nekoori",
+      "mappedStage": 3,
+      "sitePath": "/tata/nekoori/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ブリズレオ",
@@ -226,7 +319,11 @@
       "sourceRow": 25,
       "existingFamilyId": "nekoori",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "nekoori",
+      "mappedStage": 4,
+      "sitePath": "/tata/nekoori/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ヒバイヌ",
@@ -235,7 +332,11 @@
       "sourceRow": 26,
       "existingFamilyId": "matchiba",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "matchiba",
+      "mappedStage": 1,
+      "sitePath": "/tata/matchiba/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "マッチバ",
@@ -244,7 +345,11 @@
       "sourceRow": 27,
       "existingFamilyId": "matchiba",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "matchiba",
+      "mappedStage": 2,
+      "sitePath": "/tata/matchiba/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "フレベロス",
@@ -253,7 +358,11 @@
       "sourceRow": 28,
       "existingFamilyId": "matchiba",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "matchiba",
+      "mappedStage": 3,
+      "sitePath": "/tata/matchiba/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ヘルベロス",
@@ -262,7 +371,11 @@
       "sourceRow": 29,
       "existingFamilyId": "matchiba",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "matchiba",
+      "mappedStage": 4,
+      "sitePath": "/tata/matchiba/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "フルッグ",
@@ -271,7 +384,11 @@
       "sourceRow": 30,
       "existingFamilyId": "furuggu",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "furuggu",
+      "mappedStage": 1,
+      "sitePath": "/tata/furuggu/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "フルルッグ",
@@ -280,7 +397,11 @@
       "sourceRow": 31,
       "existingFamilyId": "furuggu",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "furuggu",
+      "mappedStage": 2,
+      "sitePath": "/tata/furuggu/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ドラフルッグ",
@@ -289,7 +410,11 @@
       "sourceRow": 32,
       "existingFamilyId": "furuggu",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "furuggu",
+      "mappedStage": 3,
+      "sitePath": "/tata/furuggu/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "フルグロウン",
@@ -298,7 +423,11 @@
       "sourceRow": 33,
       "existingFamilyId": "furuggu",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "furuggu",
+      "mappedStage": 4,
+      "sitePath": "/tata/furuggu/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "コロジュー",
@@ -307,7 +436,11 @@
       "sourceRow": 34,
       "existingFamilyId": "rokuju",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "rokuju",
+      "mappedStage": 1,
+      "sitePath": "/tata/rokuju/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ロクジュー",
@@ -316,7 +449,11 @@
       "sourceRow": 35,
       "existingFamilyId": "rokuju",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "rokuju",
+      "mappedStage": 2,
+      "sitePath": "/tata/rokuju/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ジオジュラ",
@@ -325,7 +462,11 @@
       "sourceRow": 36,
       "existingFamilyId": "rokuju",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "rokuju",
+      "mappedStage": 3,
+      "sitePath": "/tata/rokuju/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ジュラゴン",
@@ -334,7 +475,11 @@
       "sourceRow": 37,
       "existingFamilyId": "rokuju",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "rokuju",
+      "mappedStage": 4,
+      "sitePath": "/tata/rokuju/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ガオデン",
@@ -343,7 +488,11 @@
       "sourceRow": 38,
       "existingFamilyId": "gaoden",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "gaoden",
+      "mappedStage": 1,
+      "sitePath": "/tata/gaoden/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ガルルデン",
@@ -352,7 +501,11 @@
       "sourceRow": 39,
       "existingFamilyId": "gaoden",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "gaoden",
+      "mappedStage": 2,
+      "sitePath": "/tata/gaoden/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "キングデン",
@@ -361,7 +514,11 @@
       "sourceRow": 40,
       "existingFamilyId": "gaoden",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "gaoden",
+      "mappedStage": 3,
+      "sitePath": "/tata/gaoden/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "エンペラデン",
@@ -370,7 +527,11 @@
       "sourceRow": 41,
       "existingFamilyId": "gaoden",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "gaoden",
+      "mappedStage": 4,
+      "sitePath": "/tata/gaoden/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ナミアシカ",
@@ -379,7 +540,11 @@
       "sourceRow": 42,
       "existingFamilyId": "boruzarashi",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "boruzarashi",
+      "mappedStage": 1,
+      "sitePath": "/tata/boruzarashi/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ボルザラシ",
@@ -388,7 +553,11 @@
       "sourceRow": 43,
       "existingFamilyId": "boruzarashi",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "boruzarashi",
+      "mappedStage": 2,
+      "sitePath": "/tata/boruzarashi/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ダブザラシ",
@@ -397,7 +566,11 @@
       "sourceRow": 44,
       "existingFamilyId": "boruzarashi",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "boruzarashi",
+      "mappedStage": 3,
+      "sitePath": "/tata/boruzarashi/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ダイドオウ",
@@ -406,7 +579,11 @@
       "sourceRow": 45,
       "existingFamilyId": "boruzarashi",
       "existingStage": 4,
-      "previousJapaneseName": "ダイドウオウ"
+      "previousJapaneseName": "ダイドウオウ",
+      "mappedFamilyId": "boruzarashi",
+      "mappedStage": 4,
+      "sitePath": "/tata/boruzarashi/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ヒモリ",
@@ -415,7 +592,11 @@
       "sourceRow": 46,
       "existingFamilyId": "himori",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "himori",
+      "mappedStage": 1,
+      "sitePath": "/tata/himori/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ツノイモリ",
@@ -424,7 +605,11 @@
       "sourceRow": 47,
       "existingFamilyId": "himori",
       "existingStage": 2,
-      "previousJapaneseName": "フレイモリ"
+      "previousJapaneseName": "フレイモリ",
+      "mappedFamilyId": "himori",
+      "mappedStage": 2,
+      "sitePath": "/tata/himori/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "フレイドラ",
@@ -433,7 +618,11 @@
       "sourceRow": 48,
       "existingFamilyId": "himori",
       "existingStage": 3,
-      "previousJapaneseName": "ボルケザード"
+      "previousJapaneseName": "ボルケザード",
+      "mappedFamilyId": "himori",
+      "mappedStage": 3,
+      "sitePath": "/tata/himori/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "インフェルドラ",
@@ -442,7 +631,11 @@
       "sourceRow": 49,
       "existingFamilyId": "himori",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "himori",
+      "mappedStage": 4,
+      "sitePath": "/tata/himori/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "コマキリ",
@@ -451,7 +644,11 @@
       "sourceRow": 50,
       "existingFamilyId": "komakiri",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "komakiri",
+      "mappedStage": 1,
+      "sitePath": "/tata/komakiri/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ハナキリ",
@@ -460,7 +657,11 @@
       "sourceRow": 51,
       "existingFamilyId": "komakiri",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "komakiri",
+      "mappedStage": 2,
+      "sitePath": "/tata/komakiri/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ヴァルキリ",
@@ -469,7 +670,11 @@
       "sourceRow": 52,
       "existingFamilyId": "komakiri",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "komakiri",
+      "mappedStage": 3,
+      "sitePath": "/tata/komakiri/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "サクランティス",
@@ -478,7 +683,11 @@
       "sourceRow": 53,
       "existingFamilyId": "komakiri",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "komakiri",
+      "mappedStage": 4,
+      "sitePath": "/tata/komakiri/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "コロカメ",
@@ -487,7 +696,11 @@
       "sourceRow": 54,
       "existingFamilyId": "gantoru",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "gantoru",
+      "mappedStage": 1,
+      "sitePath": "/tata/gantoru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ガントル",
@@ -496,7 +709,11 @@
       "sourceRow": 55,
       "existingFamilyId": "gantoru",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "gantoru",
+      "mappedStage": 2,
+      "sitePath": "/tata/gantoru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ガンタス",
@@ -505,7 +722,11 @@
       "sourceRow": 56,
       "existingFamilyId": "gantoru",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "gantoru",
+      "mappedStage": 3,
+      "sitePath": "/tata/gantoru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ガンバンタス",
@@ -514,7 +735,11 @@
       "sourceRow": 57,
       "existingFamilyId": "gantoru",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "gantoru",
+      "mappedStage": 4,
+      "sitePath": "/tata/gantoru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ビリジカ",
@@ -523,7 +748,11 @@
       "sourceRow": 58,
       "existingFamilyId": "denjika",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "denjika",
+      "mappedStage": 1,
+      "sitePath": "/tata/denjika/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "デンジカ",
@@ -532,7 +761,11 @@
       "sourceRow": 59,
       "existingFamilyId": "denjika",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "denjika",
+      "mappedStage": 2,
+      "sitePath": "/tata/denjika/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ジバシカ",
@@ -541,7 +774,11 @@
       "sourceRow": 60,
       "existingFamilyId": "denjika",
       "existingStage": 3,
-      "previousJapaneseName": "ジバジカ"
+      "previousJapaneseName": "ジバジカ",
+      "mappedFamilyId": "denjika",
+      "mappedStage": 3,
+      "sitePath": "/tata/denjika/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "マグネイクス",
@@ -550,7 +787,11 @@
       "sourceRow": 61,
       "existingFamilyId": "denjika",
       "existingStage": 4,
-      "previousJapaneseName": "マグネクス"
+      "previousJapaneseName": "マグネクス",
+      "mappedFamilyId": "denjika",
+      "mappedStage": 4,
+      "sitePath": "/tata/denjika/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ウミミ",
@@ -559,7 +800,11 @@
       "sourceRow": 62,
       "existingFamilyId": "umimi",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "umimi",
+      "mappedStage": 1,
+      "sitePath": "/tata/umimi/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ウミピョン",
@@ -568,7 +813,11 @@
       "sourceRow": 63,
       "existingFamilyId": "umimi",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "umimi",
+      "mappedStage": 2,
+      "sitePath": "/tata/umimi/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ウミロップ",
@@ -577,7 +826,11 @@
       "sourceRow": 64,
       "existingFamilyId": "umimi",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "umimi",
+      "mappedStage": 3,
+      "sitePath": "/tata/umimi/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "アクアリーナ",
@@ -586,7 +839,11 @@
       "sourceRow": 65,
       "existingFamilyId": "umimi",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "umimi",
+      "mappedStage": 4,
+      "sitePath": "/tata/umimi/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "タマキツネ",
@@ -595,7 +852,11 @@
       "sourceRow": 66,
       "existingFamilyId": "korokon",
       "existingStage": 1,
-      "previousJapaneseName": "コロコン"
+      "previousJapaneseName": "コロコン",
+      "mappedFamilyId": "korokon",
+      "mappedStage": 1,
+      "sitePath": "/tata/korokon/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ニコキツネ",
@@ -604,7 +865,11 @@
       "sourceRow": 67,
       "existingFamilyId": "korokon",
       "existingStage": 2,
-      "previousJapaneseName": "ニコン"
+      "previousJapaneseName": "ニコン",
+      "mappedFamilyId": "korokon",
+      "mappedStage": 2,
+      "sitePath": "/tata/korokon/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ミセキツネ",
@@ -613,7 +878,11 @@
       "sourceRow": 68,
       "existingFamilyId": "korokon",
       "existingStage": 3,
-      "previousJapaneseName": "ヨウエンビ"
+      "previousJapaneseName": "ヨウエンビ",
+      "mappedFamilyId": "korokon",
+      "mappedStage": 3,
+      "sitePath": "/tata/korokon/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "キツネビア",
@@ -622,7 +891,11 @@
       "sourceRow": 69,
       "existingFamilyId": "korokon",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "korokon",
+      "mappedStage": 4,
+      "sitePath": "/tata/korokon/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "グリンビィ",
@@ -631,7 +904,11 @@
       "sourceRow": 70,
       "existingFamilyId": "greenbee",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "greenbee",
+      "mappedStage": 1,
+      "sitePath": "/tata/greenbee/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "チョイワルブーン",
@@ -640,7 +917,11 @@
       "sourceRow": 71,
       "existingFamilyId": "greenbee",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "greenbee",
+      "mappedStage": 2,
+      "sitePath": "/tata/greenbee/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "チョーワルブーン",
@@ -649,7 +930,11 @@
       "sourceRow": 72,
       "existingFamilyId": "greenbee",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "greenbee",
+      "mappedStage": 3,
+      "sitePath": "/tata/greenbee/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ブーンマント",
@@ -658,7 +943,11 @@
       "sourceRow": 73,
       "existingFamilyId": "greenbee",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "greenbee",
+      "mappedStage": 4,
+      "sitePath": "/tata/greenbee/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ヤンザル",
@@ -667,7 +956,11 @@
       "sourceRow": 74,
       "existingFamilyId": "yanzaru",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "yanzaru",
+      "mappedStage": 1,
+      "sitePath": "/tata/yanzaru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ワルキー",
@@ -676,7 +969,11 @@
       "sourceRow": 75,
       "existingFamilyId": "yanzaru",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "yanzaru",
+      "mappedStage": 2,
+      "sitePath": "/tata/yanzaru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "エテコウハ",
@@ -685,7 +982,11 @@
       "sourceRow": 76,
       "existingFamilyId": "yanzaru",
       "existingStage": 3,
-      "previousJapaneseName": "イビルザル"
+      "previousJapaneseName": "イビルザル",
+      "mappedFamilyId": "yanzaru",
+      "mappedStage": 3,
+      "sitePath": "/tata/yanzaru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "サルタイセイ",
@@ -694,7 +995,11 @@
       "sourceRow": 77,
       "existingFamilyId": "yanzaru",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "yanzaru",
+      "mappedStage": 4,
+      "sitePath": "/tata/yanzaru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ライロウ",
@@ -703,7 +1008,11 @@
       "sourceRow": 78,
       "existingFamilyId": "denrou",
       "existingStage": 1,
-      "previousJapaneseName": "パチルフ"
+      "previousJapaneseName": "パチルフ",
+      "mappedFamilyId": "denrou",
+      "mappedStage": 1,
+      "sitePath": "/tata/denrou/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "デンロウ",
@@ -712,7 +1021,11 @@
       "sourceRow": 79,
       "existingFamilyId": "denrou",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "denrou",
+      "mappedStage": 2,
+      "sitePath": "/tata/denrou/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ジンロウ",
@@ -721,7 +1034,11 @@
       "sourceRow": 80,
       "existingFamilyId": "denrou",
       "existingStage": 3,
-      "previousJapaneseName": "ライロウ"
+      "previousJapaneseName": "ライロウ",
+      "mappedFamilyId": "denrou",
+      "mappedStage": 3,
+      "sitePath": "/tata/denrou/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ジンライロウ",
@@ -730,7 +1047,11 @@
       "sourceRow": 81,
       "existingFamilyId": "denrou",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "denrou",
+      "mappedStage": 4,
+      "sitePath": "/tata/denrou/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "トコペンギン",
@@ -739,7 +1060,11 @@
       "sourceRow": 82,
       "existingFamilyId": "tafupen",
       "existingStage": 1,
-      "previousJapaneseName": "トコペン"
+      "previousJapaneseName": "トコペン",
+      "mappedFamilyId": "tafupen",
+      "mappedStage": 1,
+      "sitePath": "/tata/tafupen/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "タフペンギン",
@@ -748,7 +1073,11 @@
       "sourceRow": 83,
       "existingFamilyId": "tafupen",
       "existingStage": 2,
-      "previousJapaneseName": "タフペン"
+      "previousJapaneseName": "タフペン",
+      "mappedFamilyId": "tafupen",
+      "mappedStage": 2,
+      "sitePath": "/tata/tafupen/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "フブペンギン",
@@ -757,7 +1086,11 @@
       "sourceRow": 84,
       "existingFamilyId": "tafupen",
       "existingStage": 3,
-      "previousJapaneseName": "フブペン"
+      "previousJapaneseName": "フブペン",
+      "mappedFamilyId": "tafupen",
+      "mappedStage": 3,
+      "sitePath": "/tata/tafupen/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ペンペラー",
@@ -766,7 +1099,11 @@
       "sourceRow": 85,
       "existingFamilyId": "tafupen",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "tafupen",
+      "mappedStage": 4,
+      "sitePath": "/tata/tafupen/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ヒノムシ",
@@ -775,7 +1112,11 @@
       "sourceRow": 86,
       "existingFamilyId": "fureimuji",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "fureimuji",
+      "mappedStage": 1,
+      "sitePath": "/tata/fureimuji/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "フレイムシ",
@@ -784,7 +1125,11 @@
       "sourceRow": 87,
       "existingFamilyId": "fureimuji",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "fureimuji",
+      "mappedStage": 2,
+      "sitePath": "/tata/fureimuji/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "バタフレア",
@@ -793,7 +1138,11 @@
       "sourceRow": 88,
       "existingFamilyId": "fureimuji",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "fureimuji",
+      "mappedStage": 3,
+      "sitePath": "/tata/fureimuji/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "バタブレイズ",
@@ -802,7 +1151,11 @@
       "sourceRow": 89,
       "existingFamilyId": "fureimuji",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "fureimuji",
+      "mappedStage": 4,
+      "sitePath": "/tata/fureimuji/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "コパンダ",
@@ -811,7 +1164,11 @@
       "sourceRow": 90,
       "existingFamilyId": "takepanda",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "takepanda",
+      "mappedStage": 1,
+      "sitePath": "/tata/takepanda/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "タケパンダ",
@@ -820,7 +1177,11 @@
       "sourceRow": 91,
       "existingFamilyId": "takepanda",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "takepanda",
+      "mappedStage": 2,
+      "sitePath": "/tata/takepanda/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "パンドウラク",
@@ -829,7 +1190,11 @@
       "sourceRow": 92,
       "existingFamilyId": "takepanda",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "takepanda",
+      "mappedStage": 3,
+      "sitePath": "/tata/takepanda/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "パンダオウ",
@@ -838,7 +1203,11 @@
       "sourceRow": 93,
       "existingFamilyId": "takepanda",
       "existingStage": 4,
-      "previousJapaneseName": "バンブオウ"
+      "previousJapaneseName": "バンブオウ",
+      "mappedFamilyId": "takepanda",
+      "mappedStage": 4,
+      "sitePath": "/tata/takepanda/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "モグリン",
@@ -847,7 +1216,11 @@
       "sourceRow": 94,
       "existingFamilyId": "mogurin",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "mogurin",
+      "mappedStage": 1,
+      "sitePath": "/tata/mogurin/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "モグテント",
@@ -856,7 +1229,11 @@
       "sourceRow": 95,
       "existingFamilyId": "mogurin",
       "existingStage": 2,
-      "previousJapaneseName": "モグデント"
+      "previousJapaneseName": "モグデント",
+      "mappedFamilyId": "mogurin",
+      "mappedStage": 2,
+      "sitePath": "/tata/mogurin/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "モグトリデ",
@@ -865,7 +1242,11 @@
       "sourceRow": 96,
       "existingFamilyId": "mogurin",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "mogurin",
+      "mappedStage": 3,
+      "sitePath": "/tata/mogurin/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "モグパレス",
@@ -874,7 +1255,11 @@
       "sourceRow": 97,
       "existingFamilyId": "mogurin",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "mogurin",
+      "mappedStage": 4,
+      "sitePath": "/tata/mogurin/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "モエミン",
@@ -883,7 +1268,11 @@
       "sourceRow": 98,
       "existingFamilyId": "erekoon",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "erekoon",
+      "mappedStage": 1,
+      "sitePath": "/tata/erekoon/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "エレコーン",
@@ -892,7 +1281,11 @@
       "sourceRow": 99,
       "existingFamilyId": "erekoon",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "erekoon",
+      "mappedStage": 2,
+      "sitePath": "/tata/erekoon/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "エレキリン",
@@ -901,7 +1294,11 @@
       "sourceRow": 100,
       "existingFamilyId": "erekoon",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "erekoon",
+      "mappedStage": 3,
+      "sitePath": "/tata/erekoon/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ボルキリン",
@@ -910,7 +1307,11 @@
       "sourceRow": 101,
       "existingFamilyId": "erekoon",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "erekoon",
+      "mappedStage": 4,
+      "sitePath": "/tata/erekoon/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ツヨカニ",
@@ -919,7 +1320,11 @@
       "sourceRow": 102,
       "existingFamilyId": "kenkani",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "kenkani",
+      "mappedStage": 1,
+      "sitePath": "/tata/kenkani/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ケンカニ",
@@ -928,7 +1333,11 @@
       "sourceRow": 103,
       "existingFamilyId": "kenkani",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "kenkani",
+      "mappedStage": 2,
+      "sitePath": "/tata/kenkani/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "クラブロー",
@@ -937,7 +1346,11 @@
       "sourceRow": 104,
       "existingFamilyId": "kenkani",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "kenkani",
+      "mappedStage": 3,
+      "sitePath": "/tata/kenkani/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "チョキング",
@@ -946,7 +1359,11 @@
       "sourceRow": 105,
       "existingFamilyId": "kenkani",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "kenkani",
+      "mappedStage": 4,
+      "sitePath": "/tata/kenkani/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ヒエビ",
@@ -955,7 +1372,11 @@
       "sourceRow": 106,
       "existingFamilyId": "fureebi",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "fureebi",
+      "mappedStage": 1,
+      "sitePath": "/tata/fureebi/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "フレービ",
@@ -964,7 +1385,11 @@
       "sourceRow": 107,
       "existingFamilyId": "fureebi",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "fureebi",
+      "mappedStage": 2,
+      "sitePath": "/tata/fureebi/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "バーニフィス",
@@ -973,7 +1398,11 @@
       "sourceRow": 108,
       "existingFamilyId": "fureebi",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "fureebi",
+      "mappedStage": 3,
+      "sitePath": "/tata/fureebi/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ボルケイセ",
@@ -982,7 +1411,11 @@
       "sourceRow": 109,
       "existingFamilyId": "fureebi",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "fureebi",
+      "mappedStage": 4,
+      "sitePath": "/tata/fureebi/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ヒマワリン",
@@ -991,7 +1424,11 @@
       "sourceRow": 110,
       "existingFamilyId": "himawarin",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "himawarin",
+      "mappedStage": 1,
+      "sitePath": "/tata/himawarin/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "キラワー",
@@ -1000,7 +1437,11 @@
       "sourceRow": 111,
       "existingFamilyId": "himawarin",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "himawarin",
+      "mappedStage": 2,
+      "sitePath": "/tata/himawarin/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "サーフワリン",
@@ -1009,7 +1450,11 @@
       "sourceRow": 112,
       "existingFamilyId": "himawarin",
       "existingStage": 3,
-      "previousJapaneseName": "サーフクリン"
+      "previousJapaneseName": "サーフクリン",
+      "mappedFamilyId": "himawarin",
+      "mappedStage": 3,
+      "sitePath": "/tata/himawarin/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "サンフワリン",
@@ -1018,7 +1463,11 @@
       "sourceRow": 113,
       "existingFamilyId": "himawarin",
       "existingStage": 4,
-      "previousJapaneseName": "サンフクリン"
+      "previousJapaneseName": "サンフクリン",
+      "mappedFamilyId": "himawarin",
+      "mappedStage": 4,
+      "sitePath": "/tata/himawarin/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "コワガルー",
@@ -1027,7 +1476,11 @@
       "sourceRow": 114,
       "existingFamilyId": "kowagaru",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "kowagaru",
+      "mappedStage": 1,
+      "sitePath": "/tata/kowagaru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ボコガルー",
@@ -1036,7 +1489,11 @@
       "sourceRow": 115,
       "existingFamilyId": "kowagaru",
       "existingStage": 2,
-      "previousJapaneseName": "ツヨガルー"
+      "previousJapaneseName": "ツヨガルー",
+      "mappedFamilyId": "kowagaru",
+      "mappedStage": 2,
+      "sitePath": "/tata/kowagaru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ガルッキー",
@@ -1045,7 +1502,11 @@
       "sourceRow": 116,
       "existingFamilyId": "kowagaru",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "kowagaru",
+      "mappedStage": 3,
+      "sitePath": "/tata/kowagaru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ガルチャンプ",
@@ -1054,7 +1515,11 @@
       "sourceRow": 117,
       "existingFamilyId": "kowagaru",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "kowagaru",
+      "mappedStage": 4,
+      "sitePath": "/tata/kowagaru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ビリピヨ",
@@ -1063,7 +1528,11 @@
       "sourceRow": 118,
       "existingFamilyId": "biripiyo",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "biripiyo",
+      "mappedStage": 1,
+      "sitePath": "/tata/biripiyo/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "エレクトリ",
@@ -1072,7 +1541,11 @@
       "sourceRow": 119,
       "existingFamilyId": "biripiyo",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "biripiyo",
+      "mappedStage": 2,
+      "sitePath": "/tata/biripiyo/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ビリビバシ",
@@ -1081,7 +1554,11 @@
       "sourceRow": 120,
       "existingFamilyId": "biripiyo",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "biripiyo",
+      "mappedStage": 3,
+      "sitePath": "/tata/biripiyo/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ライオウム",
@@ -1090,7 +1567,11 @@
       "sourceRow": 121,
       "existingFamilyId": "biripiyo",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "biripiyo",
+      "mappedStage": 4,
+      "sitePath": "/tata/biripiyo/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ポタカゲ",
@@ -1099,7 +1580,11 @@
       "sourceRow": 122,
       "existingFamilyId": "potakage",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "potakage",
+      "mappedStage": 1,
+      "sitePath": "/tata/potakage/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ピチャカゲ",
@@ -1108,7 +1593,11 @@
       "sourceRow": 123,
       "existingFamilyId": "potakage",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "potakage",
+      "mappedStage": 2,
+      "sitePath": "/tata/potakage/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "アクアガマ",
@@ -1117,7 +1606,11 @@
       "sourceRow": 124,
       "existingFamilyId": "potakage",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "potakage",
+      "mappedStage": 3,
+      "sitePath": "/tata/potakage/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "イガマスター",
@@ -1126,7 +1619,11 @@
       "sourceRow": 125,
       "existingFamilyId": "potakage",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "potakage",
+      "mappedStage": 4,
+      "sitePath": "/tata/potakage/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ワンブー",
@@ -1135,7 +1632,11 @@
       "sourceRow": 126,
       "existingFamilyId": "kunbuu",
       "existingStage": 1,
-      "previousJapaneseName": "クンブー"
+      "previousJapaneseName": "クンブー",
+      "mappedFamilyId": "kunbuu",
+      "mappedStage": 1,
+      "sitePath": "/tata/kunbuu/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ハンバーブー",
@@ -1144,7 +1645,11 @@
       "sourceRow": 127,
       "existingFamilyId": "kunbuu",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "kunbuu",
+      "mappedStage": 2,
+      "sitePath": "/tata/kunbuu/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ブヒナベブー",
@@ -1153,7 +1658,11 @@
       "sourceRow": 128,
       "existingFamilyId": "kunbuu",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "kunbuu",
+      "mappedStage": 3,
+      "sitePath": "/tata/kunbuu/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "グリルブー",
@@ -1162,7 +1671,11 @@
       "sourceRow": 129,
       "existingFamilyId": "kunbuu",
       "existingStage": 4,
-      "previousJapaneseName": "カロリキング"
+      "previousJapaneseName": "カロリキング",
+      "mappedFamilyId": "kunbuu",
+      "mappedStage": 4,
+      "sitePath": "/tata/kunbuu/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "フクログモ",
@@ -1171,7 +1684,11 @@
       "sourceRow": 130,
       "existingFamilyId": "fukurogumo",
       "existingStage": 1,
-      "previousJapaneseName": "フクロクモ"
+      "previousJapaneseName": "フクロクモ",
+      "mappedFamilyId": "fukurogumo",
+      "mappedStage": 1,
+      "sitePath": "/tata/fukurogumo/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ボトルグモ",
@@ -1180,7 +1697,11 @@
       "sourceRow": 131,
       "existingFamilyId": "fukurogumo",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "fukurogumo",
+      "mappedStage": 2,
+      "sitePath": "/tata/fukurogumo/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "チュラリウム",
@@ -1189,7 +1710,11 @@
       "sourceRow": 132,
       "existingFamilyId": "fukurogumo",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "fukurogumo",
+      "mappedStage": 3,
+      "sitePath": "/tata/fukurogumo/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "シンラリウム",
@@ -1198,7 +1723,11 @@
       "sourceRow": 133,
       "existingFamilyId": "fukurogumo",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "fukurogumo",
+      "mappedStage": 4,
+      "sitePath": "/tata/fukurogumo/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ツブツムリ",
@@ -1207,7 +1736,11 @@
       "sourceRow": 134,
       "existingFamilyId": "tsubutsumuri",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "tsubutsumuri",
+      "mappedStage": 1,
+      "sitePath": "/tata/tsubutsumuri/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "イシツムリ",
@@ -1216,7 +1749,11 @@
       "sourceRow": 135,
       "existingFamilyId": "tsubutsumuri",
       "existingStage": 2,
-      "previousJapaneseName": "ジェムツムリ"
+      "previousJapaneseName": "ジェムツムリ",
+      "mappedFamilyId": "tsubutsumuri",
+      "mappedStage": 2,
+      "sitePath": "/tata/tsubutsumuri/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "クォーツムリ",
@@ -1225,7 +1762,11 @@
       "sourceRow": 136,
       "existingFamilyId": "tsubutsumuri",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "tsubutsumuri",
+      "mappedStage": 3,
+      "sitePath": "/tata/tsubutsumuri/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "アメジスネイル",
@@ -1234,7 +1775,11 @@
       "sourceRow": 137,
       "existingFamilyId": "tsubutsumuri",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "tsubutsumuri",
+      "mappedStage": 4,
+      "sitePath": "/tata/tsubutsumuri/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "プラビ",
@@ -1243,7 +1788,11 @@
       "sourceRow": 138,
       "existingFamilyId": "purabi",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "purabi",
+      "mappedStage": 1,
+      "sitePath": "/tata/purabi/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "スタピョン",
@@ -1252,7 +1801,11 @@
       "sourceRow": 139,
       "existingFamilyId": "purabi",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "purabi",
+      "mappedStage": 2,
+      "sitePath": "/tata/purabi/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ステラビット",
@@ -1261,7 +1814,11 @@
       "sourceRow": 140,
       "existingFamilyId": "purabi",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "purabi",
+      "mappedStage": 3,
+      "sitePath": "/tata/purabi/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "アストラビット",
@@ -1270,7 +1827,11 @@
       "sourceRow": 141,
       "existingFamilyId": "purabi",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "purabi",
+      "mappedStage": 4,
+      "sitePath": "/tata/purabi/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ネムクラゲ",
@@ -1279,7 +1840,11 @@
       "sourceRow": 142,
       "existingFamilyId": "nemukurage",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "nemukurage",
+      "mappedStage": 1,
+      "sitePath": "/tata/nemukurage/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "スヤクラゲ",
@@ -1288,7 +1853,11 @@
       "sourceRow": 143,
       "existingFamilyId": "nemukurage",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "nemukurage",
+      "mappedStage": 2,
+      "sitePath": "/tata/nemukurage/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ルナドール",
@@ -1297,7 +1866,11 @@
       "sourceRow": 144,
       "existingFamilyId": "nemukurage",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "nemukurage",
+      "mappedStage": 3,
+      "sitePath": "/tata/nemukurage/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "オロラクイン",
@@ -1306,7 +1879,11 @@
       "sourceRow": 145,
       "existingFamilyId": "nemukurage",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "nemukurage",
+      "mappedStage": 4,
+      "sitePath": "/tata/nemukurage/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "トラーニー",
@@ -1315,7 +1892,11 @@
       "sourceRow": 146,
       "existingFamilyId": "haamitora",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "haamitora",
+      "mappedStage": 1,
+      "sitePath": "/tata/haamitora/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ハーミットラ",
@@ -1324,7 +1905,11 @@
       "sourceRow": 147,
       "existingFamilyId": "haamitora",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "haamitora",
+      "mappedStage": 2,
+      "sitePath": "/tata/haamitora/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "マスタイガー",
@@ -1333,7 +1918,11 @@
       "sourceRow": 148,
       "existingFamilyId": "haamitora",
       "existingStage": 3,
-      "previousJapaneseName": "ゼンガー"
+      "previousJapaneseName": "ゼンガー",
+      "mappedFamilyId": "haamitora",
+      "mappedStage": 3,
+      "sitePath": "/tata/haamitora/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "マスタイガー",
@@ -1342,7 +1931,11 @@
       "sourceRow": 149,
       "existingFamilyId": "haamitora",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "haamitora",
+      "mappedStage": 4,
+      "sitePath": "/tata/haamitora/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "サボール",
@@ -1351,7 +1944,11 @@
       "sourceRow": 150,
       "existingFamilyId": "sabooru",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "sabooru",
+      "mappedStage": 1,
+      "sitePath": "/tata/sabooru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "サボケン",
@@ -1360,7 +1957,11 @@
       "sourceRow": 151,
       "existingFamilyId": "sabooru",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "sabooru",
+      "mappedStage": 2,
+      "sitePath": "/tata/sabooru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "サボディビル",
@@ -1369,7 +1970,11 @@
       "sourceRow": 152,
       "existingFamilyId": "sabooru",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "sabooru",
+      "mappedStage": 3,
+      "sitePath": "/tata/sabooru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "コロタマ",
@@ -1378,7 +1983,11 @@
       "sourceRow": 153,
       "existingFamilyId": "korotama",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "korotama",
+      "mappedStage": 1,
+      "sitePath": "/tata/korotama/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "コロロック",
@@ -1387,7 +1996,11 @@
       "sourceRow": 154,
       "existingFamilyId": "korotama",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "korotama",
+      "mappedStage": 2,
+      "sitePath": "/tata/korotama/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "スカリギオ",
@@ -1396,7 +2009,11 @@
       "sourceRow": 155,
       "existingFamilyId": "korotama",
       "existingStage": 3,
-      "previousJapaneseName": "スカラーべ"
+      "previousJapaneseName": "スカラーべ",
+      "mappedFamilyId": "korotama",
+      "mappedStage": 3,
+      "sitePath": "/tata/korotama/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "スカリギオ",
@@ -1405,7 +2022,11 @@
       "sourceRow": 156,
       "existingFamilyId": "korotama",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "korotama",
+      "mappedStage": 4,
+      "sitePath": "/tata/korotama/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ライメー",
@@ -1414,7 +2035,11 @@
       "sourceRow": 157,
       "existingFamilyId": "shiiparusu",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "shiiparusu",
+      "mappedStage": 1,
+      "sitePath": "/tata/shiiparusu/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "シーパルス",
@@ -1423,7 +2048,11 @@
       "sourceRow": 158,
       "existingFamilyId": "shiiparusu",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "shiiparusu",
+      "mappedStage": 2,
+      "sitePath": "/tata/shiiparusu/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "アラシープ",
@@ -1432,7 +2061,11 @@
       "sourceRow": 159,
       "existingFamilyId": "shiiparusu",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "shiiparusu",
+      "mappedStage": 3,
+      "sitePath": "/tata/shiiparusu/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "アマルテラ",
@@ -1441,7 +2074,11 @@
       "sourceRow": 160,
       "existingFamilyId": "shiiparusu",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "shiiparusu",
+      "mappedStage": 4,
+      "sitePath": "/tata/shiiparusu/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "シズクムシ",
@@ -1450,7 +2087,11 @@
       "sourceRow": 161,
       "existingFamilyId": "shizukuchou",
       "existingStage": 1,
-      "previousJapaneseName": "シズクジ"
+      "previousJapaneseName": "シズクジ",
+      "mappedFamilyId": "shizukuchou",
+      "mappedStage": 1,
+      "sitePath": "/tata/shizukuchou/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "シズクチョウ",
@@ -1459,7 +2100,11 @@
       "sourceRow": 162,
       "existingFamilyId": "shizukuchou",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "shizukuchou",
+      "mappedStage": 2,
+      "sitePath": "/tata/shizukuchou/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ミストリア",
@@ -1468,14 +2113,21 @@
       "sourceRow": 163,
       "existingFamilyId": "shizukuchou",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "shizukuchou",
+      "mappedStage": 3,
+      "sitePath": "/tata/shizukuchou/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "エーテリファル",
       "englishName": "Morphanessa",
       "simplifiedChineseName": "潋滟水蝶",
       "sourceRow": 164,
-      "status": "new-name-only"
+      "status": "supplemental-name-only",
+      "mappedFamilyId": "shizukuchou",
+      "mappedStage": 4,
+      "sitePath": "/tata/shizukuchou/"
     },
     {
       "japaneseName": "ププスカンク",
@@ -1484,7 +2136,11 @@
       "sourceRow": 165,
       "existingFamilyId": "pupunku",
       "existingStage": 1,
-      "previousJapaneseName": "ププンク"
+      "previousJapaneseName": "ププンク",
+      "mappedFamilyId": "pupunku",
+      "mappedStage": 1,
+      "sitePath": "/tata/pupunku/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "クサスカンク",
@@ -1493,7 +2149,11 @@
       "sourceRow": 166,
       "existingFamilyId": "pupunku",
       "existingStage": 2,
-      "previousJapaneseName": "クサンク"
+      "previousJapaneseName": "クサンク",
+      "mappedFamilyId": "pupunku",
+      "mappedStage": 2,
+      "sitePath": "/tata/pupunku/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ドカスカンク",
@@ -1502,7 +2162,11 @@
       "sourceRow": 167,
       "existingFamilyId": "pupunku",
       "existingStage": 3,
-      "previousJapaneseName": "マグマスク"
+      "previousJapaneseName": "マグマスク",
+      "mappedFamilyId": "pupunku",
+      "mappedStage": 3,
+      "sitePath": "/tata/pupunku/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ボンバスカー",
@@ -1511,7 +2175,11 @@
       "sourceRow": 168,
       "existingFamilyId": "pupunku",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "pupunku",
+      "mappedStage": 4,
+      "sitePath": "/tata/pupunku/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "マルッシュ",
@@ -1520,7 +2188,11 @@
       "sourceRow": 169,
       "existingFamilyId": "marushu",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "marushu",
+      "mappedStage": 1,
+      "sitePath": "/tata/marushu/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "マボロッシュ",
@@ -1529,7 +2201,11 @@
       "sourceRow": 170,
       "existingFamilyId": "marushu",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "marushu",
+      "mappedStage": 2,
+      "sitePath": "/tata/marushu/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "マダムッシュ",
@@ -1538,7 +2214,11 @@
       "sourceRow": 171,
       "existingFamilyId": "marushu",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "marushu",
+      "mappedStage": 3,
+      "sitePath": "/tata/marushu/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "イルミラージュ",
@@ -1547,7 +2227,11 @@
       "sourceRow": 172,
       "existingFamilyId": "marushu",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "marushu",
+      "mappedStage": 4,
+      "sitePath": "/tata/marushu/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ボウズヘビ",
@@ -1556,7 +2240,11 @@
       "sourceRow": 173,
       "existingFamilyId": "nenbutsuhebi",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "nenbutsuhebi",
+      "mappedStage": 1,
+      "sitePath": "/tata/nenbutsuhebi/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ネンブツヘビ",
@@ -1565,7 +2253,11 @@
       "sourceRow": 174,
       "existingFamilyId": "nenbutsuhebi",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "nenbutsuhebi",
+      "mappedStage": 2,
+      "sitePath": "/tata/nenbutsuhebi/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ナムアミダイジャ",
@@ -1574,7 +2266,11 @@
       "sourceRow": 175,
       "existingFamilyId": "nenbutsuhebi",
       "existingStage": 3,
-      "previousJapaneseName": "ボンノオロチ"
+      "previousJapaneseName": "ボンノオロチ",
+      "mappedFamilyId": "nenbutsuhebi",
+      "mappedStage": 3,
+      "sitePath": "/tata/nenbutsuhebi/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ナムアミダイジャ",
@@ -1583,7 +2279,11 @@
       "sourceRow": 176,
       "existingFamilyId": "nenbutsuhebi",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "nenbutsuhebi",
+      "mappedStage": 4,
+      "sitePath": "/tata/nenbutsuhebi/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "エレキネコ",
@@ -1592,7 +2292,11 @@
       "sourceRow": 177,
       "existingFamilyId": "erekineko",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "erekineko",
+      "mappedStage": 1,
+      "sitePath": "/tata/erekineko/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "デンニャン",
@@ -1601,7 +2305,11 @@
       "sourceRow": 178,
       "existingFamilyId": "erekineko",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "erekineko",
+      "mappedStage": 2,
+      "sitePath": "/tata/erekineko/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "スピニャット",
@@ -1610,7 +2318,11 @@
       "sourceRow": 179,
       "existingFamilyId": "erekineko",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "erekineko",
+      "mappedStage": 3,
+      "sitePath": "/tata/erekineko/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "スケダコ",
@@ -1619,7 +2331,11 @@
       "sourceRow": 180,
       "existingFamilyId": "sukedako",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "sukedako",
+      "mappedStage": 1,
+      "sitePath": "/tata/sukedako/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ウオダコ",
@@ -1628,7 +2344,11 @@
       "sourceRow": 181,
       "existingFamilyId": "sukedako",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "sukedako",
+      "mappedStage": 2,
+      "sitePath": "/tata/sukedako/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "オクドーム",
@@ -1637,7 +2357,11 @@
       "sourceRow": 182,
       "existingFamilyId": "sukedako",
       "existingStage": 3,
-      "previousJapaneseName": "オクトーム"
+      "previousJapaneseName": "オクトーム",
+      "mappedFamilyId": "sukedako",
+      "mappedStage": 3,
+      "sitePath": "/tata/sukedako/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ロードパス",
@@ -1646,7 +2370,11 @@
       "sourceRow": 183,
       "existingFamilyId": "sukedako",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "sukedako",
+      "mappedStage": 4,
+      "sitePath": "/tata/sukedako/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ヒニャオ",
@@ -1655,7 +2383,11 @@
       "sourceRow": 184,
       "existingFamilyId": "hinyao",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "hinyao",
+      "mappedStage": 1,
+      "sitePath": "/tata/hinyao/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "マネビネコ",
@@ -1664,7 +2396,11 @@
       "sourceRow": 185,
       "existingFamilyId": "hinyao",
       "existingStage": 2,
-      "previousJapaneseName": "マネヒネコ"
+      "previousJapaneseName": "マネヒネコ",
+      "mappedFamilyId": "hinyao",
+      "mappedStage": 2,
+      "sitePath": "/tata/hinyao/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ネコマダラ",
@@ -1673,7 +2409,11 @@
       "sourceRow": 186,
       "existingFamilyId": "hinyao",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "hinyao",
+      "mappedStage": 3,
+      "sitePath": "/tata/hinyao/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ベロパカ",
@@ -1682,7 +2422,11 @@
       "sourceRow": 187,
       "existingFamilyId": "tsubaruka",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "tsubaruka",
+      "mappedStage": 1,
+      "sitePath": "/tata/tsubaruka/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ツバルカ",
@@ -1691,7 +2435,11 @@
       "sourceRow": 188,
       "existingFamilyId": "tsubaruka",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "tsubaruka",
+      "mappedStage": 2,
+      "sitePath": "/tata/tsubaruka/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "フォレスタルパ",
@@ -1700,14 +2448,21 @@
       "sourceRow": 189,
       "existingFamilyId": "tsubaruka",
       "existingStage": 3,
-      "previousJapaneseName": "ビチャルパカ"
+      "previousJapaneseName": "ビチャルパカ",
+      "mappedFamilyId": "tsubaruka",
+      "mappedStage": 3,
+      "sitePath": "/tata/tsubaruka/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ジャンガルパカ",
       "englishName": "Blechlama",
       "simplifiedChineseName": "一塌糊驼",
       "sourceRow": 190,
-      "status": "new-name-only"
+      "status": "supplemental-name-only",
+      "mappedFamilyId": "tsubaruka",
+      "mappedStage": 4,
+      "sitePath": "/tata/tsubaruka/"
     },
     {
       "japaneseName": "ホルリン",
@@ -1716,7 +2471,11 @@
       "sourceRow": 191,
       "existingFamilyId": "doriruu",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "doriruu",
+      "mappedStage": 1,
+      "sitePath": "/tata/doriruu/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ドリルー",
@@ -1725,7 +2484,11 @@
       "sourceRow": 192,
       "existingFamilyId": "doriruu",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "doriruu",
+      "mappedStage": 2,
+      "sitePath": "/tata/doriruu/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ボーランバ",
@@ -1734,7 +2497,11 @@
       "sourceRow": 193,
       "existingFamilyId": "doriruu",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "doriruu",
+      "mappedStage": 3,
+      "sitePath": "/tata/doriruu/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ビリリモリ",
@@ -1743,7 +2510,11 @@
       "sourceRow": 194,
       "existingFamilyId": "birimori",
       "existingStage": 1,
-      "previousJapaneseName": "ビリモ"
+      "previousJapaneseName": "ビリモ",
+      "mappedFamilyId": "birimori",
+      "mappedStage": 1,
+      "sitePath": "/tata/birimori/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "パルバット",
@@ -1752,7 +2523,11 @@
       "sourceRow": 195,
       "existingFamilyId": "birimori",
       "existingStage": 2,
-      "previousJapaneseName": "ビリモリ"
+      "previousJapaneseName": "ビリモリ",
+      "mappedFamilyId": "birimori",
+      "mappedStage": 2,
+      "sitePath": "/tata/birimori/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ヴァンパルス",
@@ -1761,7 +2536,11 @@
       "sourceRow": 196,
       "existingFamilyId": "birimori",
       "existingStage": 3,
-      "previousJapaneseName": "パルバット"
+      "previousJapaneseName": "パルバット",
+      "mappedFamilyId": "birimori",
+      "mappedStage": 3,
+      "sitePath": "/tata/birimori/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ヴァンパルス",
@@ -1770,7 +2549,11 @@
       "sourceRow": 197,
       "existingFamilyId": "birimori",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "birimori",
+      "mappedStage": 4,
+      "sitePath": "/tata/birimori/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ホネギョ",
@@ -1779,7 +2562,11 @@
       "sourceRow": 198,
       "existingFamilyId": "togegyo",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "togegyo",
+      "mappedStage": 1,
+      "sitePath": "/tata/togegyo/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "トゲギョ",
@@ -1788,7 +2575,11 @@
       "sourceRow": 199,
       "existingFamilyId": "togegyo",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "togegyo",
+      "mappedStage": 2,
+      "sitePath": "/tata/togegyo/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ガイセーン",
@@ -1797,7 +2588,11 @@
       "sourceRow": 200,
       "existingFamilyId": "togegyo",
       "existingStage": 3,
-      "previousJapaneseName": "ガイアーマ"
+      "previousJapaneseName": "ガイアーマ",
+      "mappedFamilyId": "togegyo",
+      "mappedStage": 3,
+      "sitePath": "/tata/togegyo/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "アビスカル",
@@ -1806,7 +2601,11 @@
       "sourceRow": 201,
       "existingFamilyId": "togegyo",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "togegyo",
+      "mappedStage": 4,
+      "sitePath": "/tata/togegyo/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "フリコー",
@@ -1815,7 +2614,11 @@
       "sourceRow": 202,
       "existingFamilyId": "riifuro",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "riifuro",
+      "mappedStage": 1,
+      "sitePath": "/tata/riifuro/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "リーフロ",
@@ -1824,7 +2627,11 @@
       "sourceRow": 203,
       "existingFamilyId": "riifuro",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "riifuro",
+      "mappedStage": 2,
+      "sitePath": "/tata/riifuro/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ツリーフロ",
@@ -1833,7 +2640,11 @@
       "sourceRow": 204,
       "existingFamilyId": "riifuro",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "riifuro",
+      "mappedStage": 3,
+      "sitePath": "/tata/riifuro/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "クロノウル",
@@ -1842,7 +2653,11 @@
       "sourceRow": 205,
       "existingFamilyId": "riifuro",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "riifuro",
+      "mappedStage": 4,
+      "sitePath": "/tata/riifuro/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ムムカバ",
@@ -1851,7 +2666,11 @@
       "sourceRow": 206,
       "existingFamilyId": "mumukaba",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "mumukaba",
+      "mappedStage": 1,
+      "sitePath": "/tata/mumukaba/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "マリリンバ",
@@ -1860,7 +2679,11 @@
       "sourceRow": 207,
       "existingFamilyId": "mumukaba",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "mumukaba",
+      "mappedStage": 2,
+      "sitePath": "/tata/mumukaba/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "モンロンバ",
@@ -1869,7 +2692,11 @@
       "sourceRow": 208,
       "existingFamilyId": "mumukaba",
       "existingStage": 3,
-      "previousJapaneseName": "モンローバ"
+      "previousJapaneseName": "モンローバ",
+      "mappedFamilyId": "mumukaba",
+      "mappedStage": 3,
+      "sitePath": "/tata/mumukaba/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ヒポディーバ",
@@ -1878,7 +2705,11 @@
       "sourceRow": 209,
       "existingFamilyId": "mumukaba",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "mumukaba",
+      "mappedStage": 4,
+      "sitePath": "/tata/mumukaba/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "フグマル",
@@ -1887,7 +2718,11 @@
       "sourceRow": 210,
       "existingFamilyId": "fugumaru",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "fugumaru",
+      "mappedStage": 1,
+      "sitePath": "/tata/fugumaru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ニギリマル",
@@ -1896,7 +2731,11 @@
       "sourceRow": 211,
       "existingFamilyId": "fugumaru",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "fugumaru",
+      "mappedStage": 2,
+      "sitePath": "/tata/fugumaru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "フナモリマル",
@@ -1905,7 +2744,11 @@
       "sourceRow": 212,
       "existingFamilyId": "fugumaru",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "fugumaru",
+      "mappedStage": 3,
+      "sitePath": "/tata/fugumaru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "タイショウマル",
@@ -1914,7 +2757,11 @@
       "sourceRow": 213,
       "existingFamilyId": "fugumaru",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "fugumaru",
+      "mappedStage": 4,
+      "sitePath": "/tata/fugumaru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ピカル",
@@ -1923,7 +2770,11 @@
       "sourceRow": 214,
       "existingFamilyId": "hikaru",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "hikaru",
+      "mappedStage": 1,
+      "sitePath": "/tata/hikaru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ボルタル",
@@ -1932,7 +2783,11 @@
       "sourceRow": 215,
       "existingFamilyId": "hikaru",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "hikaru",
+      "mappedStage": 2,
+      "sitePath": "/tata/hikaru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ルシフタル",
@@ -1941,7 +2796,11 @@
       "sourceRow": 216,
       "existingFamilyId": "hikaru",
       "existingStage": 3,
-      "previousJapaneseName": "ルシフェル"
+      "previousJapaneseName": "ルシフェル",
+      "mappedFamilyId": "hikaru",
+      "mappedStage": 3,
+      "sitePath": "/tata/hikaru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ルミナリオン",
@@ -1950,7 +2809,11 @@
       "sourceRow": 217,
       "existingFamilyId": "hikaru",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "hikaru",
+      "mappedStage": 4,
+      "sitePath": "/tata/hikaru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "アタタマ",
@@ -1959,7 +2822,11 @@
       "sourceRow": 218,
       "existingFamilyId": "atatama",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "atatama",
+      "mappedStage": 1,
+      "sitePath": "/tata/atatama/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ヒガマ",
@@ -1968,7 +2835,11 @@
       "sourceRow": 219,
       "existingFamilyId": "atatama",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "atatama",
+      "mappedStage": 2,
+      "sitePath": "/tata/atatama/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "メラガマ",
@@ -1977,7 +2848,11 @@
       "sourceRow": 220,
       "existingFamilyId": "atatama",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "atatama",
+      "mappedStage": 3,
+      "sitePath": "/tata/atatama/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ダルマグマ",
@@ -1986,7 +2861,11 @@
       "sourceRow": 221,
       "existingFamilyId": "atatama",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "atatama",
+      "mappedStage": 4,
+      "sitePath": "/tata/atatama/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ヤミノメ",
@@ -1995,7 +2874,11 @@
       "sourceRow": 222,
       "existingFamilyId": "yaminome",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "yaminome",
+      "mappedStage": 1,
+      "sitePath": "/tata/yaminome/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ヤミノハナ",
@@ -2004,7 +2887,11 @@
       "sourceRow": 223,
       "existingFamilyId": "yaminome",
       "existingStage": 2,
-      "previousJapaneseName": "ヤミハナ"
+      "previousJapaneseName": "ヤミハナ",
+      "mappedFamilyId": "yaminome",
+      "mappedStage": 2,
+      "sitePath": "/tata/yaminome/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "マカマンドラ",
@@ -2013,7 +2900,11 @@
       "sourceRow": 224,
       "existingFamilyId": "yaminome",
       "existingStage": 3,
-      "previousJapaneseName": "ヤミマンドラ"
+      "previousJapaneseName": "ヤミマンドラ",
+      "mappedFamilyId": "yaminome",
+      "mappedStage": 3,
+      "sitePath": "/tata/yaminome/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "マカマドウケ",
@@ -2022,35 +2913,51 @@
       "sourceRow": 225,
       "existingFamilyId": "yaminome",
       "existingStage": 4,
-      "previousJapaneseName": "ダークラウン"
+      "previousJapaneseName": "ダークラウン",
+      "mappedFamilyId": "yaminome",
+      "mappedStage": 4,
+      "sitePath": "/tata/yaminome/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ヌスケ",
       "englishName": "Ringtail",
       "simplifiedChineseName": "干脆面",
       "sourceRow": 226,
-      "status": "new-name-only"
+      "status": "supplemental-name-only",
+      "mappedFamilyId": "nusuke",
+      "mappedStage": 1,
+      "sitePath": "/tata/nusuke/"
     },
     {
       "japaneseName": "ラクディット",
       "englishName": "Rizzler",
       "simplifiedChineseName": "改头浣面",
       "sourceRow": 227,
-      "status": "new-name-only"
+      "status": "supplemental-name-only",
+      "mappedFamilyId": "nusuke",
+      "mappedStage": 2,
+      "sitePath": "/tata/nusuke/"
     },
     {
       "japaneseName": "マスクーン",
       "englishName": "Zorrock",
       "simplifiedChineseName": "怪盗千面",
       "sourceRow": 228,
-      "status": "new-name-only"
+      "status": "supplemental-name-only",
+      "mappedFamilyId": "nusuke",
+      "mappedStage": 3,
+      "sitePath": "/tata/nusuke/"
     },
     {
       "japaneseName": "トリックーン",
       "englishName": "Phantothief",
       "simplifiedChineseName": "偷心假面",
       "sourceRow": 229,
-      "status": "new-name-only"
+      "status": "supplemental-name-only",
+      "mappedFamilyId": "nusuke",
+      "mappedStage": 4,
+      "sitePath": "/tata/nusuke/"
     },
     {
       "japaneseName": "トジコモル",
@@ -2059,7 +2966,11 @@
       "sourceRow": 230,
       "existingFamilyId": "hikikomoru",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "hikikomoru",
+      "mappedStage": 1,
+      "sitePath": "/tata/hikikomoru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ヒキコモル",
@@ -2068,7 +2979,11 @@
       "sourceRow": 231,
       "existingFamilyId": "hikikomoru",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "hikikomoru",
+      "mappedStage": 2,
+      "sitePath": "/tata/hikikomoru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "モルターボ",
@@ -2077,7 +2992,11 @@
       "sourceRow": 232,
       "existingFamilyId": "hikikomoru",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "hikikomoru",
+      "mappedStage": 3,
+      "sitePath": "/tata/hikikomoru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "モルボット",
@@ -2086,7 +3005,11 @@
       "sourceRow": 233,
       "existingFamilyId": "hikikomoru",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "hikikomoru",
+      "mappedStage": 4,
+      "sitePath": "/tata/hikikomoru/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "パクマ",
@@ -2095,7 +3018,11 @@
       "sourceRow": 234,
       "existingFamilyId": "pakuma",
       "existingStage": 1,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "pakuma",
+      "mappedStage": 1,
+      "sitePath": "/tata/pakuma/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "クマッシュ",
@@ -2104,7 +3031,11 @@
       "sourceRow": 235,
       "existingFamilyId": "pakuma",
       "existingStage": 2,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "pakuma",
+      "mappedStage": 2,
+      "sitePath": "/tata/pakuma/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "マリンベア",
@@ -2113,7 +3044,11 @@
       "sourceRow": 236,
       "existingFamilyId": "pakuma",
       "existingStage": 3,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "pakuma",
+      "mappedStage": 3,
+      "sitePath": "/tata/pakuma/",
+      "status": "applied-to-site"
     },
     {
       "japaneseName": "ブリズリー",
@@ -2122,7 +3057,11 @@
       "sourceRow": 237,
       "existingFamilyId": "pakuma",
       "existingStage": 4,
-      "previousJapaneseName": null
+      "previousJapaneseName": null,
+      "mappedFamilyId": "pakuma",
+      "mappedStage": 4,
+      "sitePath": "/tata/pakuma/",
+      "status": "applied-to-site"
     }
   ]
 }

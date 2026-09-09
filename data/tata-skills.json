@@ -172,7 +172,7 @@
         },
         {
           "stage": 4,
-          "tataName": "バンブオウ",
+          "tataName": "パンダオウ",
           "skillName": "竹海戦術",
           "description": "バンブオウがオーラ・草を展開し、仲間全員のHPを増加させる。タケノコ攻撃も継続する。",
           "values": [
@@ -312,7 +312,7 @@
         },
         {
           "stage": 3,
-          "tataName": "ビチャルパカ",
+          "tataName": "フォレスタルパ",
           "skillName": "ツバ嵐",
           "description": "敵にツバを吐き、数回ダメージを与える。「束縛」と減速エリアを付与する。",
           "values": [
@@ -347,7 +347,7 @@
           ],
           "evolutionSource": "IMG_6256.png",
           "nameEn": "Ptooielama",
-          "nameZhHans": "啊哑驼"
+          "nameZhHans": "啊呸驼"
         }
       ]
     },
@@ -358,7 +358,7 @@
       "stages": [
         {
           "stage": 1,
-          "tataName": "ビリモ",
+          "tataName": "ビリリモリ",
           "skillName": "パルスエコー",
           "description": "広範囲の敵に「傷痕」を付与する。傷痕終了時に追加ダメージを与える。",
           "values": [
@@ -392,7 +392,7 @@
         },
         {
           "stage": 2,
-          "tataName": "ビリモリ",
+          "tataName": "パルバット",
           "skillName": "パルスリンク",
           "description": "広範囲の敵に「傷痕」と「コウモリ・被ダメージ増加」を付与する。",
           "values": [
@@ -435,7 +435,7 @@
         },
         {
           "stage": 3,
-          "tataName": "パルバット",
+          "tataName": "ヴァンパルス",
           "skillName": "パルスバースト",
           "description": "広範囲の敵に「完全傷痕」と「コウモリ・被ダメージ増加」を付与する。",
           "values": [
@@ -524,7 +524,7 @@
             "IMG_6271.png"
           ],
           "evolutionSource": "IMG_6264.png",
-          "nameEn": "Umbraveil",
+          "nameEn": "夜翼领主",
           "nameZhHans": "夜翼领主"
         }
       ]
@@ -601,7 +601,7 @@
         },
         {
           "stage": 3,
-          "tataName": "ガイアーマ",
+          "tataName": "ガイセーン",
           "skillName": "ダゴンサージ",
           "description": "引きずり、スタン、潮流・ダメージ減少を組み合わせる。",
           "values": [
@@ -845,7 +845,7 @@
       "stages": [
         {
           "stage": 1,
-          "tataName": "ヒパピー",
+          "tataName": "ビパピー",
           "skillName": "チェインボルト",
           "description": "チェインボルトを放ち続ける。",
           "values": [
@@ -975,7 +975,7 @@
       "stages": [
         {
           "stage": 1,
-          "tataName": "ノロマズ",
+          "tataName": "ノロナマズ",
           "skillName": "電気玉",
           "description": "電気玉を発射する。",
           "values": [
@@ -1180,7 +1180,7 @@
       "stages": [
         {
           "stage": 1,
-          "tataName": "ハリネム",
+          "tataName": "サボリトゲ",
           "skillName": "反撃トゲ",
           "description": "敵を貫通するトゲを発射し、うたた寝をしながら自身を回復し続ける。",
           "values": [
@@ -1222,7 +1222,7 @@
         },
         {
           "stage": 2,
-          "tataName": "グウホッグ",
+          "tataName": "アクビトゲ",
           "skillName": "広域反撃トゲ",
           "description": "敵を貫通するトゲを多く発射し、いびきをかきながら自身を回復し続ける。",
           "values": [
@@ -1968,7 +1968,7 @@
         },
         {
           "stage": 2,
-          "tataName": "ツヨガルー",
+          "tataName": "ボコガルー",
           "skillName": "ストレート",
           "description": "パンチで範囲ダメージを与え、溜めるほどダメージが増加する。「被ダメージ増加」を付与する。",
           "values": [
@@ -2119,7 +2119,7 @@
       "stages": [
         {
           "stage": 1,
-          "tataName": "クンブー",
+          "tataName": "ワンブー",
           "skillName": "辛口定食",
           "description": "HPを消費して唐辛子を発射し、消費HPに応じた範囲ダメージを与える。仲間に料理シールドを付与する。",
           "values": [
@@ -2277,7 +2277,7 @@
         },
         {
           "stage": 4,
-          "tataName": "カロリキング",
+          "tataName": "グリルブー",
           "skillName": "カロリー爆弾",
           "description": "火鍋フルコース系の効果に加え、オーラ・炎を展開して仲間全員の攻撃力を増加させる。",
           "values": [
@@ -2387,7 +2387,7 @@
         },
         {
           "stage": 2,
-          "tataName": "ジェムツムリ",
+          "tataName": "イシツムリ",
           "skillName": "共鳴水晶",
           "description": "水晶を発射し、戦闘開始時に水晶クラスターを召喚。水晶同士の共鳴で範囲ダメージを与える。",
           "values": [
@@ -2514,7 +2514,7 @@
       "stages": [
         {
           "stage": 1,
-          "tataName": "ププンク",
+          "tataName": "ププスカンク",
           "skillName": "ププガス",
           "description": "臭いガスを噴き出して継続的に範囲ダメージを与え、一定間隔でガスを引火させる。",
           "values": [
@@ -2552,7 +2552,7 @@
         },
         {
           "stage": 2,
-          "tataName": "クサンク",
+          "tataName": "クサスカンク",
           "skillName": "引火ガス",
           "description": "臭いガスを噴き出し、一定間隔で拡散しながら引火させる。",
           "values": [
@@ -2594,7 +2594,7 @@
         },
         {
           "stage": 3,
-          "tataName": "マグマスク",
+          "tataName": "ドカスカンク",
           "skillName": "爆発ガス",
           "description": "臭いガスをより短い間隔で拡散し、一定攻撃回数ごとに引火させる。",
           "values": [
@@ -2930,7 +2930,7 @@
         },
         {
           "stage": 3,
-          "tataName": "オクトーム",
+          "tataName": "オクドーム",
           "skillName": "捨て身タコ",
           "description": "水の玉を発射し、小範囲ダメージを与えながら「子ダコ」を召喚する。",
           "values": [
@@ -3083,7 +3083,7 @@
         },
         {
           "stage": 2,
-          "tataName": "マネヒネコ",
+          "tataName": "マネビネコ",
           "skillName": "アツアツニャン弾",
           "description": "霊球を投げ、バウンス回数と攻撃範囲をさらに増やす。",
           "values": [
@@ -3269,7 +3269,7 @@
         },
         {
           "stage": 3,
-          "tataName": "モンローバ",
+          "tataName": "モンロンバ",
           "skillName": "モンローのキス",
           "description": "キス攻撃・誘惑特効・ピンクシールドに加え、範囲ダメージを強化する。",
           "values": [
@@ -3471,7 +3471,7 @@
         },
         {
           "stage": 3,
-          "tataName": "ルシフェル",
+          "tataName": "ルシフタル",
           "skillName": "シャイニングシールド",
           "description": "静電気シールドを付与し、継続的な麻痺ダメージと短時間の束縛を与える。",
           "values": [
@@ -3898,7 +3898,7 @@
         },
         {
           "stage": 2,
-          "tataName": "ヤミハナ",
+          "tataName": "ヤミノハナ",
           "skillName": "花ポイズン",
           "description": "狂毒の種を複数発射し、小範囲ダメージと毒を与える。",
           "values": [
@@ -3953,7 +3953,7 @@
         },
         {
           "stage": 3,
-          "tataName": "ヤミマンドラ",
+          "tataName": "マカマンドラ",
           "skillName": "魔花ポイズン",
           "description": "狂毒の種と毒に加え、「毒エリア」を残す。",
           "values": [
@@ -4012,7 +4012,7 @@
         },
         {
           "stage": 4,
-          "tataName": "ダークラウン",
+          "tataName": "マカマドウケ",
           "skillName": "進化ポイズン",
           "description": "魔花ポイズン系の効果に加え、オーラ・草を展開して仲間全員のHPを増加させる。",
           "values": [
@@ -4088,7 +4088,7 @@
       "stages": [
         {
           "stage": 1,
-          "tataName": "コロコン",
+          "tataName": "タマキツネ",
           "skillName": "火の玉",
           "description": "小さい火の玉を発射する。",
           "values": [
@@ -4114,7 +4114,7 @@
         },
         {
           "stage": 2,
-          "tataName": "ニコン",
+          "tataName": "ニコキツネ",
           "skillName": "花火",
           "description": "命中すると拡散する花火の玉を発射する。",
           "values": [
@@ -4144,11 +4144,11 @@
           ],
           "evolutionSource": "IMG_6519.png",
           "nameEn": "Flametail",
-          "nameZhHans": "咪咪狐"
+          "nameZhHans": "眯眯狐"
         },
         {
           "stage": 3,
-          "tataName": "ヨウエンビ",
+          "tataName": "ミセキツネ",
           "skillName": "炎火",
           "description": "命中すると開花する炎火の玉を発射する。",
           "values": [
@@ -4262,7 +4262,7 @@
         },
         {
           "stage": 2,
-          "tataName": "モグデント",
+          "tataName": "モグテント",
           "skillName": "サンドボール",
           "description": "連続で砂ボールを発射し、低い精度で視界妨害を与える。近くに敵がいる場合は穴潜り状態になる。",
           "values": [
@@ -4778,7 +4778,7 @@
       "stages": [
         {
           "stage": 1,
-          "tataName": "フクロクモ",
+          "tataName": "フクログモ",
           "skillName": "露バブル",
           "description": "緑の泡で範囲ダメージを与える。霧シールドを持たない時は攻撃を止め、霧シールドを生成する。",
           "values": [
@@ -5378,7 +5378,7 @@
         },
         {
           "stage": 3,
-          "tataName": "スカラーべ",
+          "tataName": "スカリギオ",
           "skillName": "三球猛攻",
           "description": "最大3個のフン玉を残して継続的な小範囲ダメージと減速を与える。",
           "values": [
@@ -5546,7 +5546,7 @@
         },
         {
           "stage": 3,
-          "tataName": "イビルザル",
+          "tataName": "エテコウハ",
           "skillName": "サルシク",
           "description": "棍棒で範囲ダメージを与え、分身を2体召喚する。",
           "values": [
@@ -5834,7 +5834,7 @@
         },
         {
           "stage": 3,
-          "tataName": "サーフクリン",
+          "tataName": "サーフワリン",
           "skillName": "必勝の陽光",
           "description": "光を放ち、仲間を回復しながら攻防を強化し、周囲にダメージを与える。",
           "values": [
@@ -5872,7 +5872,7 @@
         },
         {
           "stage": 4,
-          "tataName": "サンフクリン",
+          "tataName": "サンフワリン",
           "skillName": "凱旋の陽光",
           "description": "必勝の陽光系の効果に加え、オーラ・草で仲間全員のHPを増加する。",
           "values": [
@@ -6305,7 +6305,7 @@
         },
         {
           "stage": 2,
-          "tataName": "フレイモリ",
+          "tataName": "ツノイモリ",
           "skillName": "スコーチボール",
           "description": "スコーチボールを発射し、範囲ダメージと燃焼を与える。",
           "values": [
@@ -6339,11 +6339,11 @@
           ],
           "evolutionSource": "IMG_6657.png",
           "nameEn": "Ignisnap",
-          "nameZhHans": "蓝角蝶螈"
+          "nameZhHans": "蓝角蝾螈"
         },
         {
           "stage": 3,
-          "tataName": "ボルケザード",
+          "tataName": "フレイドラ",
           "skillName": "ブレイズボール",
           "description": "ブレイズボールで燃焼を与え、増強燃焼による追加ダメージを発生させる。",
           "values": [
@@ -7282,7 +7282,7 @@
         },
         {
           "stage": 4,
-          "tataName": "ダイドウオウ",
+          "tataName": "ダイドオウ",
           "skillName": "ハドウボール",
           "description": "2個のバウンドボールとダメージ減少に加え、オーラ・水で仲間全員を継続回復する。",
           "values": [
@@ -7622,7 +7622,7 @@
         },
         {
           "stage": 3,
-          "tataName": "ジバジカ",
+          "tataName": "ジバシカ",
           "skillName": "エレキランス",
           "description": "雷の槍を放ち、一定頻度で無限貫通しながら麻痺を与える。",
           "values": [
@@ -7677,7 +7677,7 @@
         },
         {
           "stage": 4,
-          "tataName": "マグネクス",
+          "tataName": "マグネイクス",
           "skillName": "超科学エレキランス",
           "description": "無限貫通する雷槍と麻痺に加え、オーラ・雷で仲間全員の攻撃速度を増加する。",
           "values": [
@@ -7747,7 +7747,7 @@
       "stages": [
         {
           "stage": 1,
-          "tataName": "トコペン",
+          "tataName": "トコペンギン",
           "skillName": "アイスカウンター",
           "description": "「氷のシールド」を獲得し、シールドが消える時に氷を発射して範囲ダメージを与える。",
           "values": [
@@ -7777,7 +7777,7 @@
         },
         {
           "stage": 2,
-          "tataName": "タフペン",
+          "tataName": "タフペンギン",
           "skillName": "フロストカウンター",
           "description": "氷のシールドを獲得し、被弾スタックに応じた氷攻撃で範囲ダメージを与える。",
           "values": [
@@ -7815,7 +7815,7 @@
         },
         {
           "stage": 3,
-          "tataName": "フブペン",
+          "tataName": "フブペンギン",
           "skillName": "クリスタルカウンター",
           "description": "被弾スタック式の氷カウンターに加え、氷鎧で攻撃を受けるたびHPを減少させる。",
           "values": [
@@ -8379,7 +8379,7 @@
         },
         {
           "stage": 3,
-          "tataName": "ボンノオロチ",
+          "tataName": "ナムアミダイジャ",
           "skillName": "功徳キャノン",
           "description": "低速音波と無限貫通する高速音波を連射し、スタンを付与することがある。",
           "values": [
@@ -8660,7 +8660,7 @@
       "stages": [
         {
           "stage": 1,
-          "tataName": "パチルフ",
+          "tataName": "ライロウ",
           "skillName": "残影の連撃",
           "description": "残影攻撃で範囲ダメージを与える。",
           "values": [
@@ -8741,7 +8741,7 @@
         },
         {
           "stage": 3,
-          "tataName": "ライロウ",
+          "tataName": "ジンロウ",
           "skillName": "疾風の連撃",
           "description": "残影攻撃で麻痺を与え、攻撃中は一時的に無敵になる。",
           "values": [
@@ -9343,7 +9343,7 @@
         },
         {
           "stage": 3,
-          "tataName": "ゼンガー",
+          "tataName": "マスタイガー",
           "skillName": "灼炎クラッシュ",
           "description": "突進攻撃で回復し、命中した敵に燃焼を与える。ピンチ時は座禅で回復する。",
           "values": [
@@ -9731,7 +9731,7 @@
       "stages": [
         {
           "stage": 1,
-          "tataName": "シズクジ",
+          "tataName": "シズクムシ",
           "skillName": "水眠弾",
           "description": "水の弾で減速を与え、一定の確率で睡眠を付与する。",
           "values": [

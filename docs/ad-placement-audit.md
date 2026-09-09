@@ -1,7 +1,7 @@
 # A8広告配置監査
 
 生成元: `data/monetization.json` / `data/affiliate-offers.json`
-対象: 公開HTML 129ページ（404を含む）
+対象: 公開HTML 131ページ（404を含む）
 監査日: 2026-08-28
 
 ## Before
@@ -113,6 +113,7 @@
 | https://monster-survival.com/tata/nekoori/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/nemukurage/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/nenbutsuhebi/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/tata/nusuke/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/pakuma/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/potakage/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/pupunku/ | 0 | — | — | — | 非表示 |
@@ -133,6 +134,7 @@
 | https://monster-survival.com/tata/yaminome/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/yanzaru/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/yotsubird/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/tatari-names/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/team-builder/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/team-builder/community/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/team-builder/community/detail/ | 0 | — | — | — | 非表示 |
@@ -253,6 +255,7 @@
 | https://monster-survival.com/tata/nekoori/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/nemukurage/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/nenbutsuhebi/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/tata/nusuke/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/pakuma/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/potakage/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/pupunku/ | 0 | — | — | — | 非表示 |
@@ -273,6 +276,7 @@
 | https://monster-survival.com/tata/yaminome/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/yanzaru/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/yotsubird/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/tatari-names/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/team-builder/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/team-builder/community/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/team-builder/community/detail/ | 0 | — | — | — | 非表示 |

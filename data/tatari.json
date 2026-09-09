@@ -112,7 +112,7 @@
         },
         {
           "stage": 4,
-          "name": "バンブオウ",
+          "name": "パンダオウ",
           "source": "IMG_6245.png",
           "image": "assets/official/tata/takepanda/t4-512.webp",
           "alternateSources": [
@@ -323,6 +323,13 @@
             "IMG_6910.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "タケパンダ",
+        "コパンダ",
+        "パンドウラク",
+        "バンブオウ",
+        "パンダオウ"
       ]
     },
     {
@@ -348,11 +355,11 @@
         },
         {
           "stage": 3,
-          "name": "ビチャルパカ",
+          "name": "フォレスタルパ",
           "source": "IMG_6256.png",
           "image": "assets/official/tata/tsubaruka/t3-512.webp",
           "nameEn": "Ptooielama",
-          "nameZhHans": "啊哑驼"
+          "nameZhHans": "啊呸驼"
         }
       ],
       "skills": [
@@ -455,6 +462,12 @@
             "IMG_6260.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ツバルカ",
+        "ベロパカ",
+        "ビチャルパカ",
+        "フォレスタルパ"
       ]
     },
     {
@@ -464,7 +477,7 @@
       "evolutions": [
         {
           "stage": 1,
-          "name": "ビリモ",
+          "name": "ビリリモリ",
           "source": "IMG_6261.png",
           "image": "assets/official/tata/birimori/t1-512.webp",
           "nameEn": "Zaplet",
@@ -472,7 +485,7 @@
         },
         {
           "stage": 2,
-          "name": "ビリモリ",
+          "name": "パルバット",
           "source": "IMG_6262.png",
           "image": "assets/official/tata/birimori/t2-512.webp",
           "nameEn": "Synthhog",
@@ -480,7 +493,7 @@
         },
         {
           "stage": 3,
-          "name": "パルバット",
+          "name": "ヴァンパルス",
           "source": "IMG_6263.png",
           "image": "assets/official/tata/birimori/t3-512.webp",
           "nameEn": "Sonarbat",
@@ -491,7 +504,7 @@
           "name": "ヴァンパルス",
           "source": "IMG_6264.png",
           "image": "assets/official/tata/birimori/t4-512.webp",
-          "nameEn": "Umbraveil",
+          "nameEn": "夜翼领主",
           "nameZhHans": "夜翼领主"
         }
       ],
@@ -651,6 +664,13 @@
             "IMG_6271.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ビリモリ",
+        "ビリモ",
+        "ビリリモリ",
+        "パルバット",
+        "ヴァンパルス"
       ]
     },
     {
@@ -676,7 +696,7 @@
         },
         {
           "stage": 3,
-          "name": "ガイアーマ",
+          "name": "ガイセーン",
           "source": "IMG_6275.png",
           "image": "assets/official/tata/togegyo/t3-512.webp",
           "nameEn": "Armorjaw",
@@ -840,6 +860,13 @@
             "IMG_6284.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "トゲギョ",
+        "ホネギョ",
+        "ガイアーマ",
+        "ガイセーン",
+        "アビスカル"
       ]
     },
     {
@@ -913,6 +940,10 @@
             "IMG_6290.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ヨツバード",
+        "フタバード"
       ]
     },
     {
@@ -998,6 +1029,10 @@
             "IMG_6294.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "カエンジャク",
+        "スズメラ"
       ]
     },
     {
@@ -1007,7 +1042,7 @@
       "evolutions": [
         {
           "stage": 1,
-          "name": "ヒパピー",
+          "name": "ビパピー",
           "source": "IMG_6295.png",
           "image": "assets/official/tata/hihidog/t1-512.webp",
           "nameEn": "Zapup",
@@ -1079,6 +1114,11 @@
             "IMG_6298.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ビビドッグ",
+        "ヒパピー",
+        "ビパピー"
       ]
     },
     {
@@ -1148,6 +1188,10 @@
             "IMG_6302.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ハナレナイシ",
+        "ナンモナイシ"
       ]
     },
     {
@@ -1157,7 +1201,7 @@
       "evolutions": [
         {
           "stage": 1,
-          "name": "ノロマズ",
+          "name": "ノロナマズ",
           "source": "IMG_6303.png",
           "image": "assets/official/tata/birinamazu/t1-512.webp",
           "nameEn": "Wobbler",
@@ -1221,6 +1265,11 @@
             "IMG_6306.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ビリナマズ",
+        "ノロマズ",
+        "ノロナマズ"
       ]
     },
     {
@@ -1298,6 +1347,10 @@
             "IMG_6310.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ダイシェル",
+        "チーシェル"
       ]
     },
     {
@@ -1383,6 +1436,10 @@
             "IMG_6314.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "バタリス",
+        "トスリス"
       ]
     },
     {
@@ -1392,7 +1449,7 @@
       "evolutions": [
         {
           "stage": 1,
-          "name": "ハリネム",
+          "name": "サボリトゲ",
           "source": "IMG_6315.png",
           "image": "assets/official/tata/guuhog/t1-512.webp",
           "nameEn": "Dozy",
@@ -1400,7 +1457,7 @@
         },
         {
           "stage": 2,
-          "name": "グウホッグ",
+          "name": "アクビトゲ",
           "source": "IMG_6316.png",
           "image": "assets/official/tata/guuhog/t2-512.webp",
           "nameEn": "Snoozebo",
@@ -1484,6 +1541,12 @@
             "IMG_6318.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "グウホッグ",
+        "ハリネム",
+        "サボリトゲ",
+        "アクビトゲ"
       ]
     },
     {
@@ -1558,6 +1621,10 @@
             "IMG_6323.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "カピバルリー",
+        "カピラス"
       ]
     },
     {
@@ -1635,6 +1702,10 @@
             "IMG_6327.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ロクブヒ",
+        "マドブヒ"
       ]
     },
     {
@@ -1857,6 +1928,12 @@
             "IMG_6340.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "マルッシュ",
+        "マボロッシュ",
+        "マダムッシュ",
+        "イルミラージュ"
       ]
     },
     {
@@ -2066,6 +2143,12 @@
             "IMG_6361.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "フグマル",
+        "ニギリマル",
+        "フナモリマル",
+        "タイショウマル"
       ]
     },
     {
@@ -2229,6 +2312,12 @@
             "IMG_6371.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "グリンビィ",
+        "チョイワルブーン",
+        "チョーワルブーン",
+        "ブーンマント"
       ]
     },
     {
@@ -2246,7 +2335,7 @@
         },
         {
           "stage": 2,
-          "name": "ツヨガルー",
+          "name": "ボコガルー",
           "source": "IMG_6373.png",
           "image": "assets/official/tata/kowagaru/t2-512.webp",
           "nameEn": "Puncharoo",
@@ -2424,6 +2513,13 @@
             "IMG_6382.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "コワガルー",
+        "ツヨガルー",
+        "ボコガルー",
+        "ガルッキー",
+        "ガルチャンプ"
       ]
     },
     {
@@ -2433,7 +2529,7 @@
       "evolutions": [
         {
           "stage": 1,
-          "name": "クンブー",
+          "name": "ワンブー",
           "source": "IMG_6383.png",
           "image": "assets/official/tata/kunbuu/t1-512.webp",
           "nameEn": "Souphog",
@@ -2457,7 +2553,7 @@
         },
         {
           "stage": 4,
-          "name": "カロリキング",
+          "name": "グリルブー",
           "source": "IMG_6386.png",
           "image": "assets/official/tata/kunbuu/t4-512.webp",
           "nameEn": "Searhog",
@@ -2680,6 +2776,14 @@
             "IMG_6405.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "クンブー",
+        "ワンブー",
+        "ハンバーブー",
+        "ブヒナベブー",
+        "カロリキング",
+        "グリルブー"
       ]
     },
     {
@@ -2697,7 +2801,7 @@
         },
         {
           "stage": 2,
-          "name": "ジェムツムリ",
+          "name": "イシツムリ",
           "source": "IMG_6408.png",
           "image": "assets/official/tata/tsubutsumuri/t2-512.webp",
           "nameEn": "Gemsnail",
@@ -2855,6 +2959,13 @@
             "IMG_6419.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ツブツムリ",
+        "ジェムツムリ",
+        "イシツムリ",
+        "クォーツムリ",
+        "アメジスネイル"
       ]
     },
     {
@@ -2864,7 +2975,7 @@
       "evolutions": [
         {
           "stage": 1,
-          "name": "ププンク",
+          "name": "ププスカンク",
           "source": "IMG_6420.png",
           "image": "assets/official/tata/pupunku/t1-512.webp",
           "nameEn": "Fumekit",
@@ -2872,7 +2983,7 @@
         },
         {
           "stage": 2,
-          "name": "クサンク",
+          "name": "クサスカンク",
           "source": "IMG_6421.png",
           "image": "assets/official/tata/pupunku/t2-512.webp",
           "nameEn": "Sulfunk",
@@ -2880,7 +2991,7 @@
         },
         {
           "stage": 3,
-          "name": "マグマスク",
+          "name": "ドカスカンク",
           "source": "IMG_6422.png",
           "image": "assets/official/tata/pupunku/t3-512.webp",
           "nameEn": "Magmusk",
@@ -3053,6 +3164,15 @@
             "IMG_6429.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ププンク",
+        "ププスカンク",
+        "クサンク",
+        "クサスカンク",
+        "マグマスク",
+        "ドカスカンク",
+        "ボンバスカー"
       ]
     },
     {
@@ -3227,6 +3347,11 @@
             "IMG_6441.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "エレキネコ",
+        "デンニャン",
+        "スピニャット"
       ]
     },
     {
@@ -3252,7 +3377,7 @@
         },
         {
           "stage": 3,
-          "name": "オクトーム",
+          "name": "オクドーム",
           "source": "IMG_6445.png",
           "image": "assets/official/tata/sukedako/t3-512.webp",
           "nameEn": "Fishopus",
@@ -3446,6 +3571,13 @@
             "notes": "子ダコ撃破時の爆発倍率は画面で数値未確認のため登録していない"
           }
         }
+      ],
+      "searchAliases": [
+        "スケダコ",
+        "ウオダコ",
+        "オクトーム",
+        "オクドーム",
+        "ロードパス"
       ]
     },
     {
@@ -3463,7 +3595,7 @@
         },
         {
           "stage": 2,
-          "name": "マネヒネコ",
+          "name": "マネビネコ",
           "source": "IMG_6451.png",
           "image": "assets/official/tata/hinyao/t2-512.webp",
           "nameEn": "Nekoflare",
@@ -3600,6 +3732,12 @@
             "IMG_6459.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ヒニャオ",
+        "マネヒネコ",
+        "マネビネコ",
+        "ネコマダラ"
       ]
     },
     {
@@ -3625,7 +3763,7 @@
         },
         {
           "stage": 3,
-          "name": "モンローバ",
+          "name": "モンロンバ",
           "source": "IMG_6463.png",
           "image": "assets/official/tata/mumukaba/t3-512.webp",
           "nameEn": "Lilypo",
@@ -3824,6 +3962,13 @@
             "IMG_6473.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ムムカバ",
+        "マリリンバ",
+        "モンローバ",
+        "モンロンバ",
+        "ヒポディーバ"
       ]
     },
     {
@@ -3833,7 +3978,11 @@
         "ヒカル",
         "ホルタル",
         "ルシフタル",
-        "ヒカル系"
+        "ヒカル系",
+        "ピカル",
+        "ボルタル",
+        "ルシフェル",
+        "ルミナリオン"
       ],
       "attribute": "雷",
       "evolutions": [
@@ -3855,7 +4004,7 @@
         },
         {
           "stage": 3,
-          "name": "ルシフェル",
+          "name": "ルシフタル",
           "source": "IMG_6478.png",
           "image": "assets/official/tata/hikaru/t3-512.webp",
           "nameEn": "Glimmerwing",
@@ -4327,6 +4476,12 @@
             "IMG_6502.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "アタタマ",
+        "ヒガマ",
+        "メラガマ",
+        "ダルマグマ"
       ]
     },
     {
@@ -4344,7 +4499,7 @@
         },
         {
           "stage": 2,
-          "name": "ヤミハナ",
+          "name": "ヤミノハナ",
           "source": "IMG_6504.png",
           "image": "assets/official/tata/yaminome/t2-512.webp",
           "nameEn": "Snapshade",
@@ -4352,7 +4507,7 @@
         },
         {
           "stage": 3,
-          "name": "ヤミマンドラ",
+          "name": "マカマンドラ",
           "source": "IMG_6505.png",
           "image": "assets/official/tata/yaminome/t3-512.webp",
           "nameEn": "Thornwisp",
@@ -4360,7 +4515,7 @@
         },
         {
           "stage": 4,
-          "name": "ダークラウン",
+          "name": "マカマドウケ",
           "source": "IMG_6506.png",
           "image": "assets/official/tata/yaminome/t4-512.webp",
           "nameEn": "Chomperwraith",
@@ -4586,6 +4741,15 @@
             "IMG_6517.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ヤミノメ",
+        "ヤミハナ",
+        "ヤミノハナ",
+        "ヤミマンドラ",
+        "マカマンドラ",
+        "ダークラウン",
+        "マカマドウケ"
       ]
     },
     {
@@ -4595,7 +4759,7 @@
       "evolutions": [
         {
           "stage": 1,
-          "name": "コロコン",
+          "name": "タマキツネ",
           "source": "IMG_6518.png",
           "image": "assets/official/tata/korokon/t1-512.webp",
           "nameEn": "Sparkit",
@@ -4603,15 +4767,15 @@
         },
         {
           "stage": 2,
-          "name": "ニコン",
+          "name": "ニコキツネ",
           "source": "IMG_6519.png",
           "image": "assets/official/tata/korokon/t2-512.webp",
           "nameEn": "Flametail",
-          "nameZhHans": "咪咪狐"
+          "nameZhHans": "眯眯狐"
         },
         {
           "stage": 3,
-          "name": "ヨウエンビ",
+          "name": "ミセキツネ",
           "source": "IMG_6520.png",
           "image": "assets/official/tata/korokon/t3-512.webp",
           "nameEn": "Flarevix",
@@ -4748,6 +4912,15 @@
             "IMG_6527.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "コロコン",
+        "タマキツネ",
+        "ニコン",
+        "ニコキツネ",
+        "ヨウエンビ",
+        "ミセキツネ",
+        "キツネビア"
       ]
     },
     {
@@ -4765,7 +4938,7 @@
         },
         {
           "stage": 2,
-          "name": "モグデント",
+          "name": "モグテント",
           "source": "IMG_6529.png",
           "image": "assets/official/tata/mogurin/t2-512.webp",
           "nameEn": "Watchroo",
@@ -4918,6 +5091,13 @@
             "IMG_6537.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "モグリン",
+        "モグデント",
+        "モグテント",
+        "モグトリデ",
+        "モグパレス"
       ]
     },
     {
@@ -5132,6 +5312,12 @@
             "IMG_6551.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ビリピヨ",
+        "エレクトリ",
+        "ビリビバシ",
+        "ライオウム"
       ]
     },
     {
@@ -5348,6 +5534,12 @@
             "IMG_6564.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ポタカゲ",
+        "ピチャカゲ",
+        "アクアガマ",
+        "イガマスター"
       ]
     },
     {
@@ -5357,7 +5549,7 @@
       "evolutions": [
         {
           "stage": 1,
-          "name": "フクロクモ",
+          "name": "フクログモ",
           "source": "IMG_6565.png",
           "image": "assets/official/tata/fukurogumo/t1-512.webp",
           "nameEn": "Sackling",
@@ -5532,6 +5724,13 @@
             "IMG_6578.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "フクロクモ",
+        "フクログモ",
+        "ボトルグモ",
+        "チュラリウム",
+        "シンラリウム"
       ]
     },
     {
@@ -5779,6 +5978,12 @@
             "IMG_6590.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ネムクラゲ",
+        "スヤクラゲ",
+        "ルナドール",
+        "オロラクイン"
       ]
     },
     {
@@ -5914,6 +6119,11 @@
             "IMG_6593.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "サボール",
+        "サボケン",
+        "サボディビル"
       ]
     },
     {
@@ -5939,7 +6149,7 @@
         },
         {
           "stage": 3,
-          "name": "スカラーべ",
+          "name": "スカリギオ",
           "source": "IMG_6600.png",
           "image": "assets/official/tata/korotama/t3-512.webp",
           "nameEn": "Zenscarab",
@@ -6124,6 +6334,12 @@
             "IMG_6606.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "コロタマ",
+        "コロロック",
+        "スカラーべ",
+        "スカリギオ"
       ]
     },
     {
@@ -6149,7 +6365,7 @@
         },
         {
           "stage": 3,
-          "name": "イビルザル",
+          "name": "エテコウハ",
           "source": "IMG_6610.png",
           "image": "assets/official/tata/yanzaru/t3-512.webp",
           "nameEn": "Rockwu",
@@ -6278,6 +6494,13 @@
             "IMG_6616.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ヤンザル",
+        "ワルキー",
+        "イビルザル",
+        "エテコウハ",
+        "サルタイセイ"
       ]
     },
     {
@@ -6448,6 +6671,12 @@
             "IMG_6626.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ガオデン",
+        "ガルルデン",
+        "キングデン",
+        "エンペラデン"
       ]
     },
     {
@@ -6473,7 +6702,7 @@
         },
         {
           "stage": 3,
-          "name": "サーフクリン",
+          "name": "サーフワリン",
           "source": "IMG_6629.png",
           "image": "assets/official/tata/himawarin/t3-512.webp",
           "nameEn": "Solaflora",
@@ -6481,7 +6710,7 @@
         },
         {
           "stage": 4,
-          "name": "サンフクリン",
+          "name": "サンフワリン",
           "source": "IMG_6630.png",
           "image": "assets/official/tata/himawarin/t4-512.webp",
           "nameEn": "Heliabloom",
@@ -6618,6 +6847,14 @@
             "IMG_6636.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ヒマワリン",
+        "キラワー",
+        "サーフクリン",
+        "サーフワリン",
+        "サンフクリン",
+        "サンフワリン"
       ]
     },
     {
@@ -6825,6 +7062,12 @@
             "IMG_6646.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ネコオリ",
+        "チルネコ",
+        "チルレオ",
+        "ブリズレオ"
       ]
     },
     {
@@ -6995,6 +7238,12 @@
             "IMG_6655.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "フルッグ",
+        "フルルッグ",
+        "ドラフルッグ",
+        "フルグロウン"
       ]
     },
     {
@@ -7012,15 +7261,15 @@
         },
         {
           "stage": 2,
-          "name": "フレイモリ",
+          "name": "ツノイモリ",
           "source": "IMG_6657.png",
           "image": "assets/official/tata/himori/t2-512.webp",
           "nameEn": "Ignisnap",
-          "nameZhHans": "蓝角蝶螈"
+          "nameZhHans": "蓝角蝾螈"
         },
         {
           "stage": 3,
-          "name": "ボルケザード",
+          "name": "フレイドラ",
           "source": "IMG_6658.png",
           "image": "assets/official/tata/himori/t3-512.webp",
           "nameEn": "Azurion",
@@ -7189,6 +7438,14 @@
             "IMG_6664.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ヒモリ",
+        "フレイモリ",
+        "ツノイモリ",
+        "ボルケザード",
+        "フレイドラ",
+        "インフェルドラ"
       ]
     },
     {
@@ -7359,6 +7616,12 @@
             "IMG_6674.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "コマキリ",
+        "ハナキリ",
+        "ヴァルキリ",
+        "サクランティス"
       ]
     },
     {
@@ -7591,6 +7854,12 @@
             "IMG_6685.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ウミミ",
+        "ウミピョン",
+        "ウミロップ",
+        "アクアリーナ"
       ]
     },
     {
@@ -7844,6 +8113,12 @@
             "IMG_6700.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "プラビ",
+        "スタピョン",
+        "ステラビット",
+        "アストラビット"
       ]
     },
     {
@@ -7990,6 +8265,12 @@
             "IMG_6709.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ロクジュー",
+        "コロジュー",
+        "ジオジュラ",
+        "ジュラゴン"
       ]
     },
     {
@@ -8023,7 +8304,7 @@
         },
         {
           "stage": 4,
-          "name": "ダイドウオウ",
+          "name": "ダイドオウ",
           "source": "IMG_6713.png",
           "image": "assets/official/tata/boruzarashi/t4-512.webp",
           "nameEn": "Sealord",
@@ -8180,6 +8461,13 @@
             "IMG_6718.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ボルザラシ",
+        "ナミアシカ",
+        "ダブザラシ",
+        "ダイドウオウ",
+        "ダイドオウ"
       ]
     },
     {
@@ -8374,6 +8662,12 @@
             "IMG_6727.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ガントル",
+        "コロカメ",
+        "ガンタス",
+        "ガンバンタス"
       ]
     },
     {
@@ -8399,7 +8693,7 @@
         },
         {
           "stage": 3,
-          "name": "ジバジカ",
+          "name": "ジバシカ",
           "source": "IMG_6730.png",
           "image": "assets/official/tata/denjika/t3-512.webp",
           "nameEn": "Zapantler",
@@ -8407,7 +8701,7 @@
         },
         {
           "stage": 4,
-          "name": "マグネクス",
+          "name": "マグネイクス",
           "source": "IMG_6731.png",
           "image": "assets/official/tata/denjika/t4-512.webp",
           "nameEn": "Magnedart",
@@ -8619,6 +8913,14 @@
             "IMG_6739.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "デンジカ",
+        "ビリジカ",
+        "ジバジカ",
+        "ジバシカ",
+        "マグネクス",
+        "マグネイクス"
       ]
     },
     {
@@ -8628,7 +8930,7 @@
       "evolutions": [
         {
           "stage": 1,
-          "name": "トコペン",
+          "name": "トコペンギン",
           "source": "IMG_6740.png",
           "image": "assets/official/tata/tafupen/t1-512.webp",
           "nameEn": "Waddledo",
@@ -8636,7 +8938,7 @@
         },
         {
           "stage": 2,
-          "name": "タフペン",
+          "name": "タフペンギン",
           "source": "IMG_6741.png",
           "image": "assets/official/tata/tafupen/t2-512.webp",
           "nameEn": "Swaystroll",
@@ -8644,7 +8946,7 @@
         },
         {
           "stage": 3,
-          "name": "フブペン",
+          "name": "フブペンギン",
           "source": "IMG_6742.png",
           "image": "assets/official/tata/tafupen/t3-512.webp",
           "nameEn": "Stoodbeak",
@@ -8818,6 +9120,15 @@
             "IMG_6750.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "タフペン",
+        "トコペン",
+        "トコペンギン",
+        "タフペンギン",
+        "フブペン",
+        "フブペンギン",
+        "ペンペラー"
       ]
     },
     {
@@ -9013,6 +9324,12 @@
             "IMG_6760.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "フレイムシ",
+        "ヒノムシ",
+        "バタフレア",
+        "バタブレイズ"
       ]
     },
     {
@@ -9212,6 +9529,12 @@
             "IMG_6771.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "エレコーン",
+        "モエミン",
+        "エレキリン",
+        "ボルキリン"
       ]
     },
     {
@@ -9237,7 +9560,7 @@
         },
         {
           "stage": 3,
-          "name": "ボンノオロチ",
+          "name": "ナムアミダイジャ",
           "source": "IMG_6774.png",
           "image": "assets/official/tata/nenbutsuhebi/t3-512.webp",
           "nameEn": "Clangnaga",
@@ -9485,6 +9808,12 @@
             "notes": ""
           }
         }
+      ],
+      "searchAliases": [
+        "ネンブツヘビ",
+        "ボウズヘビ",
+        "ボンノオロチ",
+        "ナムアミダイジャ"
       ]
     },
     {
@@ -9639,6 +9968,12 @@
             "IMG_6788.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "マッチバ",
+        "ヒバイヌ",
+        "フレベロス",
+        "ヘルベロス"
       ]
     },
     {
@@ -9648,7 +9983,7 @@
       "evolutions": [
         {
           "stage": 1,
-          "name": "パチルフ",
+          "name": "ライロウ",
           "source": "IMG_6789.png",
           "image": "assets/official/tata/denrou/t1-512.webp",
           "nameEn": "Voltkit",
@@ -9664,7 +9999,7 @@
         },
         {
           "stage": 3,
-          "name": "ライロウ",
+          "name": "ジンロウ",
           "source": "IMG_6791.png",
           "image": "assets/official/tata/denrou/t3-512.webp",
           "nameEn": "Voltverine",
@@ -9863,6 +10198,13 @@
             "IMG_6799.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "デンロウ",
+        "パチルフ",
+        "ライロウ",
+        "ジンロウ",
+        "ジンライロウ"
       ]
     },
     {
@@ -10058,6 +10400,12 @@
             "IMG_6809.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ケンカニ",
+        "ツヨカニ",
+        "クラブロー",
+        "チョキング"
       ]
     },
     {
@@ -10270,6 +10618,12 @@
             "IMG_6820.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "フレービ",
+        "ヒエビ",
+        "バーニフィス",
+        "ボルケイセ"
       ]
     },
     {
@@ -10295,7 +10649,7 @@
         },
         {
           "stage": 3,
-          "name": "ゼンガー",
+          "name": "マスタイガー",
           "source": "IMG_6823.png",
           "alternateSources": [
             "IMG_6824.png"
@@ -10550,6 +10904,12 @@
             "IMG_6835.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ハーミットラ",
+        "トラーニー",
+        "ゼンガー",
+        "マスタイガー"
       ]
     },
     {
@@ -10557,7 +10917,11 @@
       "familyName": "シーパルス",
       "searchAliases": [
         "ライマー",
-        "ライマー系"
+        "ライマー系",
+        "シーパルス",
+        "ライメー",
+        "アラシープ",
+        "アマルテラ"
       ],
       "attribute": "雷",
       "evolutions": [
@@ -10819,7 +11183,7 @@
       "evolutions": [
         {
           "stage": 1,
-          "name": "シズクジ",
+          "name": "シズクムシ",
           "source": "IMG_6848.png",
           "image": "assets/official/tata/shizukuchou/t1-512.webp",
           "nameEn": "Dewgrub",
@@ -11015,6 +11379,12 @@
             "IMG_6857.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "シズクチョウ",
+        "シズクジ",
+        "シズクムシ",
+        "ミストリア"
       ]
     },
     {
@@ -11203,6 +11573,11 @@
             "IMG_6868.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ドリルー",
+        "ホルリン",
+        "ボーランバ"
       ]
     },
     {
@@ -11406,6 +11781,12 @@
             "IMG_6880.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "リーフロ",
+        "フリコー",
+        "ツリーフロ",
+        "クロノウル"
       ]
     },
     {
@@ -11705,6 +12086,12 @@
             "IMG_6898.png"
           ]
         }
+      ],
+      "searchAliases": [
+        "ヒキコモル",
+        "トジコモル",
+        "モルターボ",
+        "モルボット"
       ]
     },
     {
@@ -12088,7 +12475,13 @@
           27
         ],
         "notes": ""
-      }
+      },
+      "searchAliases": [
+        "パクマ",
+        "クマッシュ",
+        "マリンベア",
+        "ブリズリー"
+      ]
     }
   ]
 }

@@ -39,7 +39,12 @@
       "englishSourcePage": 185,
       "simplifiedChineseName": "泡泡蝌",
       "chineseSourcePage": 124,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 218
+      }
     },
     {
       "familyId": "atatama",
@@ -49,7 +54,12 @@
       "englishSourcePage": 186,
       "simplifiedChineseName": "火蟾蜍",
       "chineseSourcePage": 125,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 219
+      }
     },
     {
       "familyId": "atatama",
@@ -59,7 +69,12 @@
       "englishSourcePage": 187,
       "simplifiedChineseName": "卷舌蟾蜍",
       "chineseSourcePage": 126,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 220
+      }
     },
     {
       "familyId": "atatama",
@@ -69,7 +84,12 @@
       "englishSourcePage": 188,
       "simplifiedChineseName": "火云神蟾",
       "chineseSourcePage": 127,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 221
+      }
     },
     {
       "familyId": "batarisu",
@@ -79,7 +99,12 @@
       "englishSourcePage": 213,
       "simplifiedChineseName": "火花栗",
       "chineseSourcePage": 132,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 4
+      }
     },
     {
       "familyId": "batarisu",
@@ -89,57 +114,87 @@
       "englishSourcePage": 214,
       "simplifiedChineseName": "火焰栗",
       "chineseSourcePage": 133,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 5
+      }
     },
     {
       "familyId": "birimori",
       "stage": 1,
-      "japaneseName": "ビリモ",
+      "japaneseName": "ビリリモリ",
       "englishName": "Zaplet",
       "englishSourcePage": 115,
       "simplifiedChineseName": "电音蝠",
       "chineseSourcePage": 81,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 194
+      }
     },
     {
       "familyId": "birimori",
       "stage": 2,
-      "japaneseName": "ビリモリ",
+      "japaneseName": "パルバット",
       "englishName": "Synthhog",
       "englishSourcePage": 116,
       "simplifiedChineseName": "电波蝠",
       "chineseSourcePage": 82,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 195
+      }
     },
     {
       "familyId": "birimori",
       "stage": 3,
-      "japaneseName": "パルバット",
+      "japaneseName": "ヴァンパルス",
       "englishName": "Sonarbat",
       "englishSourcePage": 117,
       "simplifiedChineseName": "大雷音蝠",
       "chineseSourcePage": 83,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 196
+      }
     },
     {
       "familyId": "birimori",
       "stage": 4,
       "japaneseName": "ヴァンパルス",
-      "englishName": "Umbraveil",
+      "englishName": "夜翼领主",
       "englishSourcePage": 119,
       "simplifiedChineseName": "夜翼领主",
       "chineseSourcePage": 84,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 197
+      }
     },
     {
       "familyId": "birinamazu",
       "stage": 1,
-      "japaneseName": "ノロマズ",
+      "japaneseName": "ノロナマズ",
       "englishName": "Wobbler",
       "englishSourcePage": 217,
       "simplifiedChineseName": "呆呆鱼",
       "chineseSourcePage": 146,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 20
+      }
     },
     {
       "familyId": "birinamazu",
@@ -149,7 +204,12 @@
       "englishSourcePage": 218,
       "simplifiedChineseName": "电憨鱼",
       "chineseSourcePage": 147,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 21
+      }
     },
     {
       "familyId": "biripiyo",
@@ -159,7 +219,12 @@
       "englishSourcePage": 144,
       "simplifiedChineseName": "电咕咕",
       "chineseSourcePage": 168,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 118
+      }
     },
     {
       "familyId": "biripiyo",
@@ -169,7 +234,12 @@
       "englishSourcePage": 145,
       "simplifiedChineseName": "电嘴鸟",
       "chineseSourcePage": 169,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 119
+      }
     },
     {
       "familyId": "biripiyo",
@@ -179,7 +249,12 @@
       "englishSourcePage": 146,
       "simplifiedChineseName": "电歌巨鸟",
       "chineseSourcePage": 170,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 120
+      }
     },
     {
       "familyId": "biripiyo",
@@ -189,7 +264,12 @@
       "englishSourcePage": 147,
       "simplifiedChineseName": "电音歌王",
       "chineseSourcePage": 171,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 121
+      }
     },
     {
       "familyId": "boruzarashi",
@@ -199,7 +279,12 @@
       "englishSourcePage": 60,
       "simplifiedChineseName": "波波狮",
       "chineseSourcePage": 85,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 42
+      }
     },
     {
       "familyId": "boruzarashi",
@@ -209,7 +294,12 @@
       "englishSourcePage": 61,
       "simplifiedChineseName": "球球海狮",
       "chineseSourcePage": 86,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 43
+      }
     },
     {
       "familyId": "boruzarashi",
@@ -219,17 +309,27 @@
       "englishSourcePage": 62,
       "simplifiedChineseName": "浪花海狮",
       "chineseSourcePage": 87,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 44
+      }
     },
     {
       "familyId": "boruzarashi",
       "stage": 4,
-      "japaneseName": "ダイドウオウ",
+      "japaneseName": "ダイドオウ",
       "englishName": "Sealord",
       "englishSourcePage": 63,
       "simplifiedChineseName": "幻海狮王",
       "chineseSourcePage": 88,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 45
+      }
     },
     {
       "familyId": "capibarrie",
@@ -239,7 +339,12 @@
       "englishSourcePage": 227,
       "simplifiedChineseName": "卡橘巴拉",
       "chineseSourcePage": 134,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 12
+      }
     },
     {
       "familyId": "capibarrie",
@@ -249,7 +354,12 @@
       "englishSourcePage": 228,
       "simplifiedChineseName": "卡骑巴拉",
       "chineseSourcePage": 135,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 13
+      }
     },
     {
       "familyId": "daishell",
@@ -259,7 +369,12 @@
       "englishSourcePage": 223,
       "simplifiedChineseName": "胆小蟹",
       "chineseSourcePage": 136,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 2
+      }
     },
     {
       "familyId": "daishell",
@@ -269,7 +384,12 @@
       "englishSourcePage": 224,
       "simplifiedChineseName": "胆大蟹",
       "chineseSourcePage": 137,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 3
+      }
     },
     {
       "familyId": "denjika",
@@ -279,7 +399,12 @@
       "englishSourcePage": 56,
       "simplifiedChineseName": "小电鹿",
       "chineseSourcePage": 33,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 58
+      }
     },
     {
       "familyId": "denjika",
@@ -289,37 +414,57 @@
       "englishSourcePage": 57,
       "simplifiedChineseName": "电鹿",
       "chineseSourcePage": 34,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 59
+      }
     },
     {
       "familyId": "denjika",
       "stage": 3,
-      "japaneseName": "ジバジカ",
+      "japaneseName": "ジバシカ",
       "englishName": "Zapantler",
       "englishSourcePage": 58,
       "simplifiedChineseName": "磁角电鹿",
       "chineseSourcePage": 35,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 60
+      }
     },
     {
       "familyId": "denjika",
       "stage": 4,
-      "japaneseName": "マグネクス",
+      "japaneseName": "マグネイクス",
       "englishName": "Magnedart",
       "englishSourcePage": 59,
       "simplifiedChineseName": "电鹿族长",
       "chineseSourcePage": 36,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 61
+      }
     },
     {
       "familyId": "denrou",
       "stage": 1,
-      "japaneseName": "パチルフ",
+      "japaneseName": "ライロウ",
       "englishName": "Voltkit",
       "englishSourcePage": 76,
       "simplifiedChineseName": "小电狼",
       "chineseSourcePage": 156,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 78
+      }
     },
     {
       "familyId": "denrou",
@@ -329,17 +474,27 @@
       "englishSourcePage": 77,
       "simplifiedChineseName": "电狼仔",
       "chineseSourcePage": 157,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 79
+      }
     },
     {
       "familyId": "denrou",
       "stage": 3,
-      "japaneseName": "ライロウ",
+      "japaneseName": "ジンロウ",
       "englishName": "Voltverine",
       "englishSourcePage": 78,
       "simplifiedChineseName": "疾风电狼",
       "chineseSourcePage": 158,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 80
+      }
     },
     {
       "familyId": "denrou",
@@ -349,7 +504,12 @@
       "englishSourcePage": 79,
       "simplifiedChineseName": "迅雷天狼",
       "chineseSourcePage": 159,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 81
+      }
     },
     {
       "familyId": "doriruu",
@@ -359,7 +519,12 @@
       "englishSourcePage": 97,
       "simplifiedChineseName": "小穿山",
       "chineseSourcePage": 193,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 191
+      }
     },
     {
       "familyId": "doriruu",
@@ -369,7 +534,12 @@
       "englishSourcePage": 98,
       "simplifiedChineseName": "大钻山",
       "chineseSourcePage": 194,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 192
+      }
     },
     {
       "familyId": "doriruu",
@@ -379,7 +549,12 @@
       "englishSourcePage": 99,
       "simplifiedChineseName": "钻山王",
       "chineseSourcePage": 195,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 193
+      }
     },
     {
       "familyId": "erekineko",
@@ -389,7 +564,12 @@
       "englishSourcePage": 204,
       "simplifiedChineseName": "电喵宝",
       "chineseSourcePage": 109,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 177
+      }
     },
     {
       "familyId": "erekineko",
@@ -399,7 +579,12 @@
       "englishSourcePage": 205,
       "simplifiedChineseName": "电财喵",
       "chineseSourcePage": 110,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 178
+      }
     },
     {
       "familyId": "erekineko",
@@ -409,7 +594,12 @@
       "englishSourcePage": 206,
       "simplifiedChineseName": "雷伏金喵",
       "chineseSourcePage": 111,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 179
+      }
     },
     {
       "familyId": "erekoon",
@@ -419,7 +609,12 @@
       "englishSourcePage": 86,
       "simplifiedChineseName": "萌角兽",
       "chineseSourcePage": 160,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 98
+      }
     },
     {
       "familyId": "erekoon",
@@ -429,7 +624,12 @@
       "englishSourcePage": 87,
       "simplifiedChineseName": "电角兽",
       "chineseSourcePage": 161,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 99
+      }
     },
     {
       "familyId": "erekoon",
@@ -439,7 +639,12 @@
       "englishSourcePage": 88,
       "simplifiedChineseName": "霹雳角兽",
       "chineseSourcePage": 162,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 100
+      }
     },
     {
       "familyId": "erekoon",
@@ -449,7 +654,12 @@
       "englishSourcePage": 89,
       "simplifiedChineseName": "雷极角兽",
       "chineseSourcePage": 163,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 101
+      }
     },
     {
       "familyId": "fugumaru",
@@ -459,7 +669,12 @@
       "englishSourcePage": 124,
       "simplifiedChineseName": "气球河豚",
       "chineseSourcePage": 196,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 210
+      }
     },
     {
       "familyId": "fugumaru",
@@ -469,7 +684,12 @@
       "englishSourcePage": 125,
       "simplifiedChineseName": "寿司河豚",
       "chineseSourcePage": 197,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 211
+      }
     },
     {
       "familyId": "fugumaru",
@@ -479,7 +699,12 @@
       "englishSourcePage": 126,
       "simplifiedChineseName": "大师河豚",
       "chineseSourcePage": 198,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 212
+      }
     },
     {
       "familyId": "fugumaru",
@@ -489,17 +714,27 @@
       "englishSourcePage": 127,
       "simplifiedChineseName": "军舰河豚王",
       "chineseSourcePage": 199,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 213
+      }
     },
     {
       "familyId": "fukurogumo",
       "stage": 1,
-      "japaneseName": "フクロクモ",
+      "japaneseName": "フクログモ",
       "englishName": "Sackling",
       "englishSourcePage": 152,
       "simplifiedChineseName": "叶露蛛",
       "chineseSourcePage": 228,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 130
+      }
     },
     {
       "familyId": "fukurogumo",
@@ -509,7 +744,12 @@
       "englishSourcePage": 153,
       "simplifiedChineseName": "叶瓶蛛",
       "chineseSourcePage": 229,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 131
+      }
     },
     {
       "familyId": "fukurogumo",
@@ -519,7 +759,12 @@
       "englishSourcePage": 154,
       "simplifiedChineseName": "森林瓶蛛",
       "chineseSourcePage": 230,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 132
+      }
     },
     {
       "familyId": "fukurogumo",
@@ -529,7 +774,12 @@
       "englishSourcePage": 155,
       "simplifiedChineseName": "森罗瓶蛛",
       "chineseSourcePage": 231,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 133
+      }
     },
     {
       "familyId": "fureebi",
@@ -539,7 +789,12 @@
       "englishSourcePage": 108,
       "simplifiedChineseName": "小火虾",
       "chineseSourcePage": 97,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 106
+      }
     },
     {
       "familyId": "fureebi",
@@ -549,7 +804,12 @@
       "englishSourcePage": 109,
       "simplifiedChineseName": "极火虾",
       "chineseSourcePage": 98,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 107
+      }
     },
     {
       "familyId": "fureebi",
@@ -559,7 +819,12 @@
       "englishSourcePage": 110,
       "simplifiedChineseName": "火拳虾",
       "chineseSourcePage": 99,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 108
+      }
     },
     {
       "familyId": "fureebi",
@@ -569,7 +834,12 @@
       "englishSourcePage": 111,
       "simplifiedChineseName": "烈焰金刚虾",
       "chineseSourcePage": 100,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 109
+      }
     },
     {
       "familyId": "fureimuji",
@@ -579,7 +849,12 @@
       "englishSourcePage": 17,
       "simplifiedChineseName": "绒焰虫",
       "chineseSourcePage": 8,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 86
+      }
     },
     {
       "familyId": "fureimuji",
@@ -589,7 +864,12 @@
       "englishSourcePage": 18,
       "simplifiedChineseName": "焦焰蝶",
       "chineseSourcePage": 9,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 87
+      }
     },
     {
       "familyId": "fureimuji",
@@ -599,7 +879,12 @@
       "englishSourcePage": 19,
       "simplifiedChineseName": "炽焰蝶",
       "chineseSourcePage": 10,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 88
+      }
     },
     {
       "familyId": "fureimuji",
@@ -609,7 +894,12 @@
       "englishSourcePage": 20,
       "simplifiedChineseName": "曜焰蝶王",
       "chineseSourcePage": 11,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 89
+      }
     },
     {
       "familyId": "furuggu",
@@ -619,7 +909,12 @@
       "englishSourcePage": 48,
       "simplifiedChineseName": "火果蛙",
       "chineseSourcePage": 25,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 30
+      }
     },
     {
       "familyId": "furuggu",
@@ -629,7 +924,12 @@
       "englishSourcePage": 49,
       "simplifiedChineseName": "大果蛙",
       "chineseSourcePage": 26,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 31
+      }
     },
     {
       "familyId": "furuggu",
@@ -639,7 +939,12 @@
       "englishSourcePage": 50,
       "simplifiedChineseName": "巨果蛙",
       "chineseSourcePage": 27,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 32
+      }
     },
     {
       "familyId": "furuggu",
@@ -649,7 +954,12 @@
       "englishSourcePage": 51,
       "simplifiedChineseName": "极果蛙",
       "chineseSourcePage": 28,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 33
+      }
     },
     {
       "familyId": "gantoru",
@@ -659,7 +969,12 @@
       "englishSourcePage": 36,
       "simplifiedChineseName": "小岩龟",
       "chineseSourcePage": 224,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 54
+      }
     },
     {
       "familyId": "gantoru",
@@ -669,7 +984,12 @@
       "englishSourcePage": 37,
       "simplifiedChineseName": "盘岩龟",
       "chineseSourcePage": 225,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 55
+      }
     },
     {
       "familyId": "gantoru",
@@ -679,7 +999,12 @@
       "englishSourcePage": 38,
       "simplifiedChineseName": "岩背龟",
       "chineseSourcePage": 226,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 56
+      }
     },
     {
       "familyId": "gantoru",
@@ -689,7 +1014,12 @@
       "englishSourcePage": 39,
       "simplifiedChineseName": "磐石龟",
       "chineseSourcePage": 227,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 57
+      }
     },
     {
       "familyId": "gaoden",
@@ -699,7 +1029,12 @@
       "englishSourcePage": 32,
       "simplifiedChineseName": "小电狮",
       "chineseSourcePage": 12,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 38
+      }
     },
     {
       "familyId": "gaoden",
@@ -709,7 +1044,12 @@
       "englishSourcePage": 33,
       "simplifiedChineseName": "闪电狮",
       "chineseSourcePage": 13,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 39
+      }
     },
     {
       "familyId": "gaoden",
@@ -719,7 +1059,12 @@
       "englishSourcePage": 34,
       "simplifiedChineseName": "雷电狮鹫",
       "chineseSourcePage": 14,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 40
+      }
     },
     {
       "familyId": "gaoden",
@@ -729,7 +1074,12 @@
       "englishSourcePage": 35,
       "simplifiedChineseName": "雷翼狮王",
       "chineseSourcePage": 15,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 41
+      }
     },
     {
       "familyId": "greenbee",
@@ -739,7 +1089,12 @@
       "englishSourcePage": 132,
       "simplifiedChineseName": "绿甲虫",
       "chineseSourcePage": 200,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 70
+      }
     },
     {
       "familyId": "greenbee",
@@ -749,7 +1104,12 @@
       "englishSourcePage": 133,
       "simplifiedChineseName": "酷甲虫",
       "chineseSourcePage": 201,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 71
+      }
     },
     {
       "familyId": "greenbee",
@@ -759,7 +1119,12 @@
       "englishSourcePage": 134,
       "simplifiedChineseName": "甲虫霸霸",
       "chineseSourcePage": 202,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 72
+      }
     },
     {
       "familyId": "greenbee",
@@ -769,27 +1134,42 @@
       "englishSourcePage": 135,
       "simplifiedChineseName": "甲虫侠",
       "chineseSourcePage": 203,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 73
+      }
     },
     {
       "familyId": "guuhog",
       "stage": 1,
-      "japaneseName": "ハリネム",
+      "japaneseName": "サボリトゲ",
       "englishName": "Dozy",
       "englishSourcePage": 225,
       "simplifiedChineseName": "打盹刺",
       "chineseSourcePage": 142,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 8
+      }
     },
     {
       "familyId": "guuhog",
       "stage": 2,
-      "japaneseName": "グウホッグ",
+      "japaneseName": "アクビトゲ",
       "englishName": "Snoozebo",
       "englishSourcePage": 226,
       "simplifiedChineseName": "呼噜刺",
       "chineseSourcePage": 143,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 9
+      }
     },
     {
       "familyId": "haamitora",
@@ -799,7 +1179,12 @@
       "englishSourcePage": 25,
       "simplifiedChineseName": "娇虎学徒",
       "chineseSourcePage": 69,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 146
+      }
     },
     {
       "familyId": "haamitora",
@@ -809,17 +1194,27 @@
       "englishSourcePage": 26,
       "simplifiedChineseName": "静虎居士",
       "chineseSourcePage": 70,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 147
+      }
     },
     {
       "familyId": "haamitora",
       "stage": 3,
-      "japaneseName": "ゼンガー",
+      "japaneseName": "マスタイガー",
       "englishName": "Taiglow",
       "englishSourcePage": 27,
       "simplifiedChineseName": "焰虎大师",
       "chineseSourcePage": 71,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 148
+      }
     },
     {
       "familyId": "haamitora",
@@ -829,7 +1224,12 @@
       "englishSourcePage": 28,
       "simplifiedChineseName": "炽心虎尊",
       "chineseSourcePage": 72,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 149
+      }
     },
     {
       "familyId": "hanarenaishi",
@@ -839,7 +1239,12 @@
       "englishSourcePage": 215,
       "simplifiedChineseName": "鸭梨",
       "chineseSourcePage": 140,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 16
+      }
     },
     {
       "familyId": "hanarenaishi",
@@ -849,17 +1254,27 @@
       "englishSourcePage": 216,
       "simplifiedChineseName": "不分梨",
       "chineseSourcePage": 141,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 17
+      }
     },
     {
       "familyId": "hihidog",
       "stage": 1,
-      "japaneseName": "ヒパピー",
+      "japaneseName": "ビパピー",
       "englishName": "Zapup",
       "englishSourcePage": 221,
       "simplifiedChineseName": "电嘟狗",
       "chineseSourcePage": 138,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 10
+      }
     },
     {
       "familyId": "hihidog",
@@ -869,7 +1284,12 @@
       "englishSourcePage": 222,
       "simplifiedChineseName": "猛电犬",
       "chineseSourcePage": 139,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 11
+      }
     },
     {
       "familyId": "hikaru",
@@ -879,7 +1299,12 @@
       "englishSourcePage": 181,
       "simplifiedChineseName": "微光萤",
       "chineseSourcePage": 120,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 214
+      }
     },
     {
       "familyId": "hikaru",
@@ -889,17 +1314,27 @@
       "englishSourcePage": 182,
       "simplifiedChineseName": "幻彩萤",
       "chineseSourcePage": 121,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 215
+      }
     },
     {
       "familyId": "hikaru",
       "stage": 3,
-      "japaneseName": "ルシフェル",
+      "japaneseName": "ルシフタル",
       "englishName": "Glimmerwing",
       "englishSourcePage": 183,
       "simplifiedChineseName": "曜光萤",
       "chineseSourcePage": 122,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 216
+      }
     },
     {
       "familyId": "hikaru",
@@ -909,7 +1344,12 @@
       "englishSourcePage": 184,
       "simplifiedChineseName": "极光萤",
       "chineseSourcePage": 123,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 217
+      }
     },
     {
       "familyId": "hikikomoru",
@@ -919,7 +1359,12 @@
       "englishSourcePage": 104,
       "simplifiedChineseName": "天笼鼠",
       "chineseSourcePage": 57,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 230
+      }
     },
     {
       "familyId": "hikikomoru",
@@ -929,7 +1374,12 @@
       "englishSourcePage": 105,
       "simplifiedChineseName": "窝居鼠",
       "chineseSourcePage": 58,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 231
+      }
     },
     {
       "familyId": "hikikomoru",
@@ -939,7 +1389,12 @@
       "englishSourcePage": 106,
       "simplifiedChineseName": "追风鼠",
       "chineseSourcePage": 59,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 232
+      }
     },
     {
       "familyId": "hikikomoru",
@@ -949,7 +1404,12 @@
       "englishSourcePage": 107,
       "simplifiedChineseName": "暴走机甲鼠",
       "chineseSourcePage": 60,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 233
+      }
     },
     {
       "familyId": "himawarin",
@@ -959,7 +1419,12 @@
       "englishSourcePage": 40,
       "simplifiedChineseName": "盆盆葵",
       "chineseSourcePage": 16,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 110
+      }
     },
     {
       "familyId": "himawarin",
@@ -969,27 +1434,42 @@
       "englishSourcePage": 41,
       "simplifiedChineseName": "啦啦葵",
       "chineseSourcePage": 17,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 111
+      }
     },
     {
       "familyId": "himawarin",
       "stage": 3,
-      "japaneseName": "サーフクリン",
+      "japaneseName": "サーフワリン",
       "englishName": "Solaflora",
       "englishSourcePage": 42,
       "simplifiedChineseName": "冲浪葵",
       "chineseSourcePage": 18,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 112
+      }
     },
     {
       "familyId": "himawarin",
       "stage": 4,
-      "japaneseName": "サンフクリン",
+      "japaneseName": "サンフワリン",
       "englishName": "Heliabloom",
       "englishSourcePage": 43,
       "simplifiedChineseName": "逐日金葵",
       "chineseSourcePage": 19,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 113
+      }
     },
     {
       "familyId": "himori",
@@ -999,27 +1479,42 @@
       "englishSourcePage": 52,
       "simplifiedChineseName": "蓝舌火蜥",
       "chineseSourcePage": 29,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 46
+      }
     },
     {
       "familyId": "himori",
       "stage": 2,
-      "japaneseName": "フレイモリ",
+      "japaneseName": "ツノイモリ",
       "englishName": "Ignisnap",
       "englishSourcePage": 53,
-      "simplifiedChineseName": "蓝角蝶螈",
+      "simplifiedChineseName": "蓝角蝾螈",
       "chineseSourcePage": 30,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 47
+      }
     },
     {
       "familyId": "himori",
       "stage": 3,
-      "japaneseName": "ボルケザード",
+      "japaneseName": "フレイドラ",
       "englishName": "Azurion",
       "englishSourcePage": 54,
       "simplifiedChineseName": "焰尾龙",
       "chineseSourcePage": 31,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 48
+      }
     },
     {
       "familyId": "himori",
@@ -1029,7 +1524,12 @@
       "englishSourcePage": 55,
       "simplifiedChineseName": "曜尾龙",
       "chineseSourcePage": 32,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 49
+      }
     },
     {
       "familyId": "hinyao",
@@ -1039,17 +1539,27 @@
       "englishSourcePage": 112,
       "simplifiedChineseName": "火喵宝",
       "chineseSourcePage": 187,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 184
+      }
     },
     {
       "familyId": "hinyao",
       "stage": 2,
-      "japaneseName": "マネヒネコ",
+      "japaneseName": "マネビネコ",
       "englishName": "Nekoflare",
       "englishSourcePage": 113,
       "simplifiedChineseName": "火财喵",
       "chineseSourcePage": 188,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 185
+      }
     },
     {
       "familyId": "hinyao",
@@ -1059,7 +1569,12 @@
       "englishSourcePage": 114,
       "simplifiedChineseName": "炙炎银喵",
       "chineseSourcePage": 189,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 186
+      }
     },
     {
       "familyId": "kaenjack",
@@ -1069,7 +1584,12 @@
       "englishSourcePage": 211,
       "simplifiedChineseName": "小火雀",
       "chineseSourcePage": 144,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 14
+      }
     },
     {
       "familyId": "kaenjack",
@@ -1079,7 +1599,12 @@
       "englishSourcePage": 212,
       "simplifiedChineseName": "烈火雀",
       "chineseSourcePage": 145,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 15
+      }
     },
     {
       "familyId": "kenkani",
@@ -1089,7 +1614,12 @@
       "englishSourcePage": 90,
       "simplifiedChineseName": "厚礼蟹",
       "chineseSourcePage": 148,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 102
+      }
     },
     {
       "familyId": "kenkani",
@@ -1099,7 +1629,12 @@
       "englishSourcePage": 91,
       "simplifiedChineseName": "厚力蟹",
       "chineseSourcePage": 149,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 103
+      }
     },
     {
       "familyId": "kenkani",
@@ -1109,7 +1644,12 @@
       "englishSourcePage": 92,
       "simplifiedChineseName": "厚力蟹霸",
       "chineseSourcePage": 150,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 104
+      }
     },
     {
       "familyId": "kenkani",
@@ -1119,7 +1659,12 @@
       "englishSourcePage": 93,
       "simplifiedChineseName": "厚厉蟹皇",
       "chineseSourcePage": 151,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 105
+      }
     },
     {
       "familyId": "komakiri",
@@ -1129,7 +1674,12 @@
       "englishSourcePage": 9,
       "simplifiedChineseName": "小粉螳",
       "chineseSourcePage": 41,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 50
+      }
     },
     {
       "familyId": "komakiri",
@@ -1139,7 +1689,12 @@
       "englishSourcePage": 10,
       "simplifiedChineseName": "兰花螳",
       "chineseSourcePage": 42,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 51
+      }
     },
     {
       "familyId": "komakiri",
@@ -1149,7 +1704,12 @@
       "englishSourcePage": 11,
       "simplifiedChineseName": "霓裳兰螳",
       "chineseSourcePage": 43,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 52
+      }
     },
     {
       "familyId": "komakiri",
@@ -1159,37 +1719,57 @@
       "englishSourcePage": 12,
       "simplifiedChineseName": "兰花女王",
       "chineseSourcePage": 44,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 53
+      }
     },
     {
       "familyId": "korokon",
       "stage": 1,
-      "japaneseName": "コロコン",
+      "japaneseName": "タマキツネ",
       "englishName": "Sparkit",
       "englishSourcePage": 189,
       "simplifiedChineseName": "球球狐",
       "chineseSourcePage": 89,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 66
+      }
     },
     {
       "familyId": "korokon",
       "stage": 2,
-      "japaneseName": "ニコン",
+      "japaneseName": "ニコキツネ",
       "englishName": "Flametail",
       "englishSourcePage": 190,
-      "simplifiedChineseName": "咪咪狐",
+      "simplifiedChineseName": "眯眯狐",
       "chineseSourcePage": 90,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 67
+      }
     },
     {
       "familyId": "korokon",
       "stage": 3,
-      "japaneseName": "ヨウエンビ",
+      "japaneseName": "ミセキツネ",
       "englishName": "Flarevix",
       "englishSourcePage": 191,
       "simplifiedChineseName": "艳尾狐",
       "chineseSourcePage": 91,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 68
+      }
     },
     {
       "familyId": "korokon",
@@ -1199,7 +1779,12 @@
       "englishSourcePage": 192,
       "simplifiedChineseName": "幻尾狐",
       "chineseSourcePage": 92,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 69
+      }
     },
     {
       "familyId": "korotama",
@@ -1209,7 +1794,12 @@
       "englishSourcePage": 200,
       "simplifiedChineseName": "十克郎",
       "chineseSourcePage": 179,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 153
+      }
     },
     {
       "familyId": "korotama",
@@ -1219,17 +1809,27 @@
       "englishSourcePage": 201,
       "simplifiedChineseName": "石颗郎",
       "chineseSourcePage": 180,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 154
+      }
     },
     {
       "familyId": "korotama",
       "stage": 3,
-      "japaneseName": "スカラーべ",
+      "japaneseName": "スカリギオ",
       "englishName": "Zenscarab",
       "englishSourcePage": 202,
       "simplifiedChineseName": "施课郎",
       "chineseSourcePage": 181,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 155
+      }
     },
     {
       "familyId": "korotama",
@@ -1239,7 +1839,12 @@
       "englishSourcePage": 203,
       "simplifiedChineseName": "圣光大祭司",
       "chineseSourcePage": 182,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 156
+      }
     },
     {
       "familyId": "kowagaru",
@@ -1249,17 +1854,27 @@
       "englishSourcePage": 140,
       "simplifiedChineseName": "怂小袋",
       "chineseSourcePage": 164,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 114
+      }
     },
     {
       "familyId": "kowagaru",
       "stage": 2,
-      "japaneseName": "ツヨガルー",
+      "japaneseName": "ボコガルー",
       "englishName": "Puncharoo",
       "englishSourcePage": 141,
       "simplifiedChineseName": "拳击袋",
       "chineseSourcePage": 165,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 115
+      }
     },
     {
       "familyId": "kowagaru",
@@ -1269,7 +1884,12 @@
       "englishSourcePage": 142,
       "simplifiedChineseName": "拳王阿袋",
       "chineseSourcePage": 166,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 116
+      }
     },
     {
       "familyId": "kowagaru",
@@ -1279,17 +1899,27 @@
       "englishSourcePage": 143,
       "simplifiedChineseName": "传奇阿袋",
       "chineseSourcePage": 167,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 117
+      }
     },
     {
       "familyId": "kunbuu",
       "stage": 1,
-      "japaneseName": "クンブー",
+      "japaneseName": "ワンブー",
       "englishName": "Souphog",
       "englishSourcePage": 148,
       "simplifiedChineseName": "碗仔猪",
       "chineseSourcePage": 172,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 126
+      }
     },
     {
       "familyId": "kunbuu",
@@ -1299,7 +1929,12 @@
       "englishSourcePage": 149,
       "simplifiedChineseName": "汉堡猪",
       "chineseSourcePage": 173,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 127
+      }
     },
     {
       "familyId": "kunbuu",
@@ -1309,17 +1944,27 @@
       "englishSourcePage": 150,
       "simplifiedChineseName": "火锅猪",
       "chineseSourcePage": 174,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 128
+      }
     },
     {
       "familyId": "kunbuu",
       "stage": 4,
-      "japaneseName": "カロリキング",
+      "japaneseName": "グリルブー",
       "englishName": "Searhog",
       "englishSourcePage": 151,
       "simplifiedChineseName": "煎扒猪",
       "chineseSourcePage": 175,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 129
+      }
     },
     {
       "familyId": "marushu",
@@ -1329,7 +1974,12 @@
       "englishSourcePage": 173,
       "simplifiedChineseName": "嘟嘟菇",
       "chineseSourcePage": 105,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 169
+      }
     },
     {
       "familyId": "marushu",
@@ -1339,7 +1989,12 @@
       "englishSourcePage": 174,
       "simplifiedChineseName": "致幻菇",
       "chineseSourcePage": 106,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 170
+      }
     },
     {
       "familyId": "marushu",
@@ -1349,7 +2004,12 @@
       "englishSourcePage": 175,
       "simplifiedChineseName": "靡醉菇",
       "chineseSourcePage": 107,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 171
+      }
     },
     {
       "familyId": "marushu",
@@ -1359,7 +2019,12 @@
       "englishSourcePage": 176,
       "simplifiedChineseName": "极乐魔菇",
       "chineseSourcePage": 108,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 172
+      }
     },
     {
       "familyId": "matchiba",
@@ -1369,7 +2034,12 @@
       "englishSourcePage": 68,
       "simplifiedChineseName": "小火柴",
       "chineseSourcePage": 212,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 26
+      }
     },
     {
       "familyId": "matchiba",
@@ -1379,7 +2049,12 @@
       "englishSourcePage": 69,
       "simplifiedChineseName": "火柴柴",
       "chineseSourcePage": 213,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 27
+      }
     },
     {
       "familyId": "matchiba",
@@ -1389,7 +2064,12 @@
       "englishSourcePage": 70,
       "simplifiedChineseName": "烈焰三头犬",
       "chineseSourcePage": 214,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 28
+      }
     },
     {
       "familyId": "matchiba",
@@ -1399,7 +2079,12 @@
       "englishSourcePage": 71,
       "simplifiedChineseName": "狱火三头犬",
       "chineseSourcePage": 215,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 29
+      }
     },
     {
       "familyId": "mogurin",
@@ -1409,17 +2094,27 @@
       "englishSourcePage": 136,
       "simplifiedChineseName": "小地鼠",
       "chineseSourcePage": 204,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 94
+      }
     },
     {
       "familyId": "mogurin",
       "stage": 2,
-      "japaneseName": "モグデント",
+      "japaneseName": "モグテント",
       "englishName": "Watchroo",
       "englishSourcePage": 137,
       "simplifiedChineseName": "前哨鼠",
       "chineseSourcePage": 205,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 95
+      }
     },
     {
       "familyId": "mogurin",
@@ -1429,7 +2124,12 @@
       "englishSourcePage": 138,
       "simplifiedChineseName": "堡垒鼠",
       "chineseSourcePage": 206,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 96
+      }
     },
     {
       "familyId": "mogurin",
@@ -1439,7 +2139,12 @@
       "englishSourcePage": 139,
       "simplifiedChineseName": "地皇鼠",
       "chineseSourcePage": 207,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 97
+      }
     },
     {
       "familyId": "mumukaba",
@@ -1449,7 +2154,12 @@
       "englishSourcePage": 207,
       "simplifiedChineseName": "梦梦河马",
       "chineseSourcePage": 208,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 206
+      }
     },
     {
       "familyId": "mumukaba",
@@ -1459,17 +2169,27 @@
       "englishSourcePage": 208,
       "simplifiedChineseName": "露露河马",
       "chineseSourcePage": 209,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 207
+      }
     },
     {
       "familyId": "mumukaba",
       "stage": 3,
-      "japaneseName": "モンローバ",
+      "japaneseName": "モンロンバ",
       "englishName": "Lilypo",
       "englishSourcePage": 209,
       "simplifiedChineseName": "丽丽河马",
       "chineseSourcePage": 210,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 208
+      }
     },
     {
       "familyId": "mumukaba",
@@ -1479,7 +2199,12 @@
       "englishSourcePage": 210,
       "simplifiedChineseName": "珍珍河马",
       "chineseSourcePage": 211,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 209
+      }
     },
     {
       "familyId": "nekoori",
@@ -1489,7 +2214,12 @@
       "englishSourcePage": 44,
       "simplifiedChineseName": "猫冰",
       "chineseSourcePage": 20,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 22
+      }
     },
     {
       "familyId": "nekoori",
@@ -1499,7 +2229,12 @@
       "englishSourcePage": 45,
       "simplifiedChineseName": "冰团猫",
       "chineseSourcePage": 21,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 23
+      }
     },
     {
       "familyId": "nekoori",
@@ -1509,7 +2244,12 @@
       "englishSourcePage": 46,
       "simplifiedChineseName": "冰雪猫王",
       "chineseSourcePage": 22,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 24
+      }
     },
     {
       "familyId": "nekoori",
@@ -1519,7 +2259,12 @@
       "englishSourcePage": 47,
       "simplifiedChineseName": "凛月猫王",
       "chineseSourcePage": 23,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 25
+      }
     },
     {
       "familyId": "nemukurage",
@@ -1529,7 +2274,12 @@
       "englishSourcePage": 160,
       "simplifiedChineseName": "悠眠水母",
       "chineseSourcePage": 216,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 142
+      }
     },
     {
       "familyId": "nemukurage",
@@ -1539,7 +2289,12 @@
       "englishSourcePage": 161,
       "simplifiedChineseName": "织梦水母",
       "chineseSourcePage": 217,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 143
+      }
     },
     {
       "familyId": "nemukurage",
@@ -1549,7 +2304,12 @@
       "englishSourcePage": 162,
       "simplifiedChineseName": "爱洛公主",
       "chineseSourcePage": 218,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 144
+      }
     },
     {
       "familyId": "nemukurage",
@@ -1559,7 +2319,12 @@
       "englishSourcePage": 163,
       "simplifiedChineseName": "星海女王",
       "chineseSourcePage": 219,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 145
+      }
     },
     {
       "familyId": "nenbutsuhebi",
@@ -1569,7 +2334,12 @@
       "englishSourcePage": 72,
       "simplifiedChineseName": "小功德蛇",
       "chineseSourcePage": 77,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 173
+      }
     },
     {
       "familyId": "nenbutsuhebi",
@@ -1579,17 +2349,27 @@
       "englishSourcePage": 73,
       "simplifiedChineseName": "大功德君",
       "chineseSourcePage": 78,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 174
+      }
     },
     {
       "familyId": "nenbutsuhebi",
       "stage": 3,
-      "japaneseName": "ボンノオロチ",
+      "japaneseName": "ナムアミダイジャ",
       "englishName": "Clangnaga",
       "englishSourcePage": 74,
       "simplifiedChineseName": "德思内克",
       "chineseSourcePage": 79,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 175
+      }
     },
     {
       "familyId": "nenbutsuhebi",
@@ -1599,7 +2379,12 @@
       "englishSourcePage": 75,
       "simplifiedChineseName": "圣音灵蛇",
       "chineseSourcePage": 80,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 176
+      }
     },
     {
       "familyId": "pakuma",
@@ -1609,7 +2394,12 @@
       "englishSourcePage": 232,
       "simplifiedChineseName": "贪吃熊",
       "chineseSourcePage": 220,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 234
+      }
     },
     {
       "familyId": "pakuma",
@@ -1619,7 +2409,12 @@
       "englishSourcePage": 233,
       "simplifiedChineseName": "摸鱼熊",
       "chineseSourcePage": 221,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 235
+      }
     },
     {
       "familyId": "pakuma",
@@ -1629,7 +2424,12 @@
       "englishSourcePage": 234,
       "simplifiedChineseName": "来势熊熊",
       "chineseSourcePage": 222,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 236
+      }
     },
     {
       "familyId": "pakuma",
@@ -1639,7 +2439,12 @@
       "englishSourcePage": 235,
       "simplifiedChineseName": "盖世英熊",
       "chineseSourcePage": 223,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 237
+      }
     },
     {
       "familyId": "potakage",
@@ -1649,7 +2454,12 @@
       "englishSourcePage": 193,
       "simplifiedChineseName": "水滴蜥",
       "chineseSourcePage": 65,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 122
+      }
     },
     {
       "familyId": "potakage",
@@ -1659,7 +2469,12 @@
       "englishSourcePage": 194,
       "simplifiedChineseName": "水隐蜥",
       "chineseSourcePage": 66,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 123
+      }
     },
     {
       "familyId": "potakage",
@@ -1669,7 +2484,12 @@
       "englishSourcePage": 195,
       "simplifiedChineseName": "水影忍者",
       "chineseSourcePage": 67,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 124
+      }
     },
     {
       "familyId": "potakage",
@@ -1679,37 +2499,57 @@
       "englishSourcePage": 196,
       "simplifiedChineseName": "御水宗师",
       "chineseSourcePage": 68,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 125
+      }
     },
     {
       "familyId": "pupunku",
       "stage": 1,
-      "japaneseName": "ププンク",
+      "japaneseName": "ププスカンク",
       "englishName": "Fumekit",
       "englishSourcePage": 168,
       "simplifiedChineseName": "噗噗鼬",
       "chineseSourcePage": 183,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 165
+      }
     },
     {
       "familyId": "pupunku",
       "stage": 2,
-      "japaneseName": "クサンク",
+      "japaneseName": "クサスカンク",
       "englishName": "Sulfunk",
       "englishSourcePage": 169,
       "simplifiedChineseName": "臭屁鼬",
       "chineseSourcePage": 184,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 166
+      }
     },
     {
       "familyId": "pupunku",
       "stage": 3,
-      "japaneseName": "マグマスク",
+      "japaneseName": "ドカスカンク",
       "englishName": "Magmusk",
       "englishSourcePage": 170,
       "simplifiedChineseName": "爆火鼬",
       "chineseSourcePage": 185,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 167
+      }
     },
     {
       "familyId": "pupunku",
@@ -1719,7 +2559,12 @@
       "englishSourcePage": 172,
       "simplifiedChineseName": "燃尾飞鼬",
       "chineseSourcePage": 186,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 168
+      }
     },
     {
       "familyId": "purabi",
@@ -1729,7 +2574,12 @@
       "englishSourcePage": 21,
       "simplifiedChineseName": "星兔蛋",
       "chineseSourcePage": 49,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 138
+      }
     },
     {
       "familyId": "purabi",
@@ -1739,7 +2589,12 @@
       "englishSourcePage": 22,
       "simplifiedChineseName": "星兔兔",
       "chineseSourcePage": 50,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 139
+      }
     },
     {
       "familyId": "purabi",
@@ -1749,7 +2604,12 @@
       "englishSourcePage": 23,
       "simplifiedChineseName": "星兔姬",
       "chineseSourcePage": 51,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 140
+      }
     },
     {
       "familyId": "purabi",
@@ -1759,7 +2619,12 @@
       "englishSourcePage": 24,
       "simplifiedChineseName": "星兔偶像",
       "chineseSourcePage": 52,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 141
+      }
     },
     {
       "familyId": "riifuro",
@@ -1769,7 +2634,12 @@
       "englishSourcePage": 100,
       "simplifiedChineseName": "钟摆鸮",
       "chineseSourcePage": 116,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 202
+      }
     },
     {
       "familyId": "riifuro",
@@ -1779,7 +2649,12 @@
       "englishSourcePage": 101,
       "simplifiedChineseName": "时羽鸮",
       "chineseSourcePage": 117,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 203
+      }
     },
     {
       "familyId": "riifuro",
@@ -1789,7 +2664,12 @@
       "englishSourcePage": 102,
       "simplifiedChineseName": "圣叶鸮",
       "chineseSourcePage": 118,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 204
+      }
     },
     {
       "familyId": "riifuro",
@@ -1799,7 +2679,12 @@
       "englishSourcePage": 103,
       "simplifiedChineseName": "晖刻神鸮",
       "chineseSourcePage": 119,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 205
+      }
     },
     {
       "familyId": "rokubuhi",
@@ -1809,7 +2694,12 @@
       "englishSourcePage": 230,
       "simplifiedChineseName": "泥巴猪",
       "chineseSourcePage": 130,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 18
+      }
     },
     {
       "familyId": "rokubuhi",
@@ -1819,7 +2709,12 @@
       "englishSourcePage": 229,
       "simplifiedChineseName": "摇滚岩猪",
       "chineseSourcePage": 131,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 19
+      }
     },
     {
       "familyId": "rokuju",
@@ -1829,7 +2724,12 @@
       "englishSourcePage": 5,
       "simplifiedChineseName": "小岩蜥",
       "chineseSourcePage": 37,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 34
+      }
     },
     {
       "familyId": "rokuju",
@@ -1839,7 +2739,12 @@
       "englishSourcePage": 6,
       "simplifiedChineseName": "烈岩蜥",
       "chineseSourcePage": 38,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 35
+      }
     },
     {
       "familyId": "rokuju",
@@ -1849,7 +2754,12 @@
       "englishSourcePage": 7,
       "simplifiedChineseName": "岩暴龙",
       "chineseSourcePage": 39,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 36
+      }
     },
     {
       "familyId": "rokuju",
@@ -1859,7 +2769,12 @@
       "englishSourcePage": 8,
       "simplifiedChineseName": "陨岩龙",
       "chineseSourcePage": 40,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 37
+      }
     },
     {
       "familyId": "sabooru",
@@ -1869,7 +2784,12 @@
       "englishSourcePage": 197,
       "simplifiedChineseName": "仙刺球",
       "chineseSourcePage": 176,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 150
+      }
     },
     {
       "familyId": "sabooru",
@@ -1879,7 +2799,12 @@
       "englishSourcePage": 198,
       "simplifiedChineseName": "仙刺掌",
       "chineseSourcePage": 177,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 151
+      }
     },
     {
       "familyId": "sabooru",
@@ -1889,7 +2814,12 @@
       "englishSourcePage": 199,
       "simplifiedChineseName": "仙刺大王",
       "chineseSourcePage": 178,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 152
+      }
     },
     {
       "familyId": "shiiparusu",
@@ -1899,7 +2829,12 @@
       "englishSourcePage": 164,
       "simplifiedChineseName": "闪电绵羊",
       "chineseSourcePage": 73,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 157
+      }
     },
     {
       "familyId": "shiiparusu",
@@ -1909,7 +2844,12 @@
       "englishSourcePage": 165,
       "simplifiedChineseName": "风暴绵羊",
       "chineseSourcePage": 74,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 158
+      }
     },
     {
       "familyId": "shiiparusu",
@@ -1919,7 +2859,12 @@
       "englishSourcePage": 166,
       "simplifiedChineseName": "雷霆绵羊",
       "chineseSourcePage": 75,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 159
+      }
     },
     {
       "familyId": "shiiparusu",
@@ -1929,17 +2874,27 @@
       "englishSourcePage": 167,
       "simplifiedChineseName": "寰宇神羊",
       "chineseSourcePage": 76,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 160
+      }
     },
     {
       "familyId": "shizukuchou",
       "stage": 1,
-      "japaneseName": "シズクジ",
+      "japaneseName": "シズクムシ",
       "englishName": "Dewgrub",
       "englishSourcePage": 29,
       "simplifiedChineseName": "露水虫",
       "chineseSourcePage": 5,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 161
+      }
     },
     {
       "familyId": "shizukuchou",
@@ -1949,7 +2904,12 @@
       "englishSourcePage": 30,
       "simplifiedChineseName": "露水蝶",
       "chineseSourcePage": 6,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 162
+      }
     },
     {
       "familyId": "shizukuchou",
@@ -1959,7 +2919,12 @@
       "englishSourcePage": 31,
       "simplifiedChineseName": "水舞蝶",
       "chineseSourcePage": 7,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 163
+      }
     },
     {
       "familyId": "sukedako",
@@ -1969,7 +2934,12 @@
       "englishSourcePage": 177,
       "simplifiedChineseName": "呆呆章鱼",
       "chineseSourcePage": 112,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 180
+      }
     },
     {
       "familyId": "sukedako",
@@ -1979,17 +2949,27 @@
       "englishSourcePage": 178,
       "simplifiedChineseName": "困惑章鱼",
       "chineseSourcePage": 113,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 181
+      }
     },
     {
       "familyId": "sukedako",
       "stage": 3,
-      "japaneseName": "オクトーム",
+      "japaneseName": "オクドーム",
       "englishName": "Fishopus",
       "englishSourcePage": 179,
       "simplifiedChineseName": "不是章鱼",
       "chineseSourcePage": 114,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 182
+      }
     },
     {
       "familyId": "sukedako",
@@ -1999,37 +2979,57 @@
       "englishSourcePage": 180,
       "simplifiedChineseName": "国王章鱼",
       "chineseSourcePage": 115,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 183
+      }
     },
     {
       "familyId": "tafupen",
       "stage": 1,
-      "japaneseName": "トコペン",
+      "japaneseName": "トコペンギン",
       "englishName": "Waddledo",
       "englishSourcePage": 64,
       "simplifiedChineseName": "企呼呼",
       "chineseSourcePage": 93,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 82
+      }
     },
     {
       "familyId": "tafupen",
       "stage": 2,
-      "japaneseName": "タフペン",
+      "japaneseName": "タフペンギン",
       "englishName": "Swaystroll",
       "englishSourcePage": 65,
       "simplifiedChineseName": "企鼓鼓",
       "chineseSourcePage": 94,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 83
+      }
     },
     {
       "familyId": "tafupen",
       "stage": 3,
-      "japaneseName": "フブペン",
+      "japaneseName": "フブペンギン",
       "englishName": "Stoodbeak",
       "englishSourcePage": 66,
       "simplifiedChineseName": "企汹汹",
       "chineseSourcePage": 95,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 84
+      }
     },
     {
       "familyId": "tafupen",
@@ -2039,7 +3039,12 @@
       "englishSourcePage": 67,
       "simplifiedChineseName": "企霸霸",
       "chineseSourcePage": 96,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 85
+      }
     },
     {
       "familyId": "takepanda",
@@ -2049,7 +3054,12 @@
       "englishSourcePage": 80,
       "simplifiedChineseName": "熊猫猫",
       "chineseSourcePage": 61,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 90
+      }
     },
     {
       "familyId": "takepanda",
@@ -2059,7 +3069,12 @@
       "englishSourcePage": 85,
       "simplifiedChineseName": "熊熊猫",
       "chineseSourcePage": 62,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 91
+      }
     },
     {
       "familyId": "takepanda",
@@ -2069,17 +3084,27 @@
       "englishSourcePage": 82,
       "simplifiedChineseName": "熊猫小侠",
       "chineseSourcePage": 63,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 92
+      }
     },
     {
       "familyId": "takepanda",
       "stage": 4,
-      "japaneseName": "バンブオウ",
+      "japaneseName": "パンダオウ",
       "englishName": "Pandagrand",
       "englishSourcePage": 83,
       "simplifiedChineseName": "熊猫大侠",
       "chineseSourcePage": 64,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 93
+      }
     },
     {
       "familyId": "togegyo",
@@ -2089,7 +3114,12 @@
       "englishSourcePage": 120,
       "simplifiedChineseName": "小骨鱼",
       "chineseSourcePage": 152,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 198
+      }
     },
     {
       "familyId": "togegyo",
@@ -2099,17 +3129,27 @@
       "englishSourcePage": 121,
       "simplifiedChineseName": "刺骨鱼",
       "chineseSourcePage": 153,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 199
+      }
     },
     {
       "familyId": "togegyo",
       "stage": 3,
-      "japaneseName": "ガイアーマ",
+      "japaneseName": "ガイセーン",
       "englishName": "Armorjaw",
       "englishSourcePage": 122,
       "simplifiedChineseName": "铠骨鱼",
       "chineseSourcePage": 154,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 200
+      }
     },
     {
       "familyId": "togegyo",
@@ -2119,7 +3159,12 @@
       "englishSourcePage": 123,
       "simplifiedChineseName": "印斯茅斯之主",
       "chineseSourcePage": 155,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 201
+      }
     },
     {
       "familyId": "tsubaruka",
@@ -2129,7 +3174,12 @@
       "englishSourcePage": 94,
       "simplifiedChineseName": "小舌驼",
       "chineseSourcePage": 190,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 187
+      }
     },
     {
       "familyId": "tsubaruka",
@@ -2139,17 +3189,27 @@
       "englishSourcePage": 95,
       "simplifiedChineseName": "口水驼",
       "chineseSourcePage": 191,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 188
+      }
     },
     {
       "familyId": "tsubaruka",
       "stage": 3,
-      "japaneseName": "ビチャルパカ",
+      "japaneseName": "フォレスタルパ",
       "englishName": "Ptooielama",
       "englishSourcePage": 96,
-      "simplifiedChineseName": "啊哑驼",
+      "simplifiedChineseName": "啊呸驼",
       "chineseSourcePage": 192,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 189
+      }
     },
     {
       "familyId": "tsubutsumuri",
@@ -2159,17 +3219,27 @@
       "englishSourcePage": 156,
       "simplifiedChineseName": "晶粒蜗牛",
       "chineseSourcePage": 101,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 134
+      }
     },
     {
       "familyId": "tsubutsumuri",
       "stage": 2,
-      "japaneseName": "ジェムツムリ",
+      "japaneseName": "イシツムリ",
       "englishName": "Gemsnail",
       "englishSourcePage": 157,
       "simplifiedChineseName": "晶石蜗牛",
       "chineseSourcePage": 102,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 135
+      }
     },
     {
       "familyId": "tsubutsumuri",
@@ -2179,7 +3249,12 @@
       "englishSourcePage": 158,
       "simplifiedChineseName": "晶矿蜗牛",
       "chineseSourcePage": 103,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 136
+      }
     },
     {
       "familyId": "tsubutsumuri",
@@ -2189,7 +3264,12 @@
       "englishSourcePage": 159,
       "simplifiedChineseName": "晶芯蜗牛",
       "chineseSourcePage": 104,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 137
+      }
     },
     {
       "familyId": "umimi",
@@ -2199,7 +3279,12 @@
       "englishSourcePage": 13,
       "simplifiedChineseName": "小海兔",
       "chineseSourcePage": 45,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 62
+      }
     },
     {
       "familyId": "umimi",
@@ -2209,7 +3294,12 @@
       "englishSourcePage": 14,
       "simplifiedChineseName": "海兔姬",
       "chineseSourcePage": 46,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 63
+      }
     },
     {
       "familyId": "umimi",
@@ -2219,7 +3309,12 @@
       "englishSourcePage": 15,
       "simplifiedChineseName": "海兔公主",
       "chineseSourcePage": 47,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 64
+      }
     },
     {
       "familyId": "umimi",
@@ -2229,7 +3324,12 @@
       "englishSourcePage": 16,
       "simplifiedChineseName": "海兔女王",
       "chineseSourcePage": 48,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 65
+      }
     },
     {
       "familyId": "yaminome",
@@ -2239,37 +3339,57 @@
       "englishSourcePage": 128,
       "simplifiedChineseName": "暗影花",
       "chineseSourcePage": 53,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 222
+      }
     },
     {
       "familyId": "yaminome",
       "stage": 2,
-      "japaneseName": "ヤミハナ",
+      "japaneseName": "ヤミノハナ",
       "englishName": "Snapshade",
       "englishSourcePage": 129,
       "simplifiedChineseName": "幽影花",
       "chineseSourcePage": 54,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 223
+      }
     },
     {
       "familyId": "yaminome",
       "stage": 3,
-      "japaneseName": "ヤミマンドラ",
+      "japaneseName": "マカマンドラ",
       "englishName": "Thornwisp",
       "englishSourcePage": 130,
       "simplifiedChineseName": "幻影花",
       "chineseSourcePage": 55,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 224
+      }
     },
     {
       "familyId": "yaminome",
       "stage": 4,
-      "japaneseName": "ダークラウン",
+      "japaneseName": "マカマドウケ",
       "englishName": "Chomperwraith",
       "englishSourcePage": 131,
       "simplifiedChineseName": "秘影花灵",
       "chineseSourcePage": 56,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 225
+      }
     },
     {
       "familyId": "yanzaru",
@@ -2279,7 +3399,12 @@
       "englishSourcePage": 1,
       "simplifiedChineseName": "顽皮吗喽",
       "chineseSourcePage": 1,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 74
+      }
     },
     {
       "familyId": "yanzaru",
@@ -2289,17 +3414,27 @@
       "englishSourcePage": 2,
       "simplifiedChineseName": "棍棒吗喽",
       "chineseSourcePage": 2,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 75
+      }
     },
     {
       "familyId": "yanzaru",
       "stage": 3,
-      "japaneseName": "イビルザル",
+      "japaneseName": "エテコウハ",
       "englishName": "Rockwu",
       "englishSourcePage": 3,
       "simplifiedChineseName": "天命吗喽",
       "chineseSourcePage": 3,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 76
+      }
     },
     {
       "familyId": "yanzaru",
@@ -2309,7 +3444,12 @@
       "englishSourcePage": 4,
       "simplifiedChineseName": "大圣吗喽",
       "chineseSourcePage": 4,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 77
+      }
     },
     {
       "familyId": "yotsubird",
@@ -2319,7 +3459,12 @@
       "englishSourcePage": 219,
       "simplifiedChineseName": "菜鸡",
       "chineseSourcePage": 128,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 6
+      }
     },
     {
       "familyId": "yotsubird",
@@ -2329,7 +3474,12 @@
       "englishSourcePage": 220,
       "simplifiedChineseName": "幸运鸡",
       "chineseSourcePage": 129,
-      "confidence": "confirmed"
+      "confidence": "confirmed",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 7
+      }
     }
   ]
 }

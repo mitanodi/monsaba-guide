@@ -24,6 +24,7 @@ const fuzzyMatch = (query, value) => {
   return distance(query, candidate.slice(0, Math.max(query.length, candidate.length))) <= Math.max(1, Math.floor(query.length / 6));
 };
 const pages = [
+  { title:'ヌスケ系 名称情報', href:'/tata/nusuke/', description:'ヌスケ・ラクディット・マスクーン・トリックーンの多言語名称', keywords:'ヌスケ ラクディット マスクーン トリックーン Ringtail Rizzler Zorrock Phantothief 干脆面 改头浣面 怪盗千面 偷心假面' },
   { title:'タタ名称一覧', href:'/tatari-names/', description:'日本語・英語・簡体中国語のタタ名称236件', keywords:'タタ 名前 名称 一覧 Tatari names 中文 English 多言語' },
   { title:'サマーパーティ攻略', href:'/events/summer-party/', description:'15セット・135カード枠、パック確率、交換、スター、カードコレクション', keywords:'サマーパーティ カードアルバム アルバム カードコレクション カードローダー 思い出ギャラリー カード交換 カードパック カード 確率 summer party Summer Bash album card collection card loader memory gallery 夏日派对 卡册 卡包 卡片交换' },
   { title:'モンサバ 最新ギフトコード一覧', href:'/gift-codes/', description:'2026年8月30日時点のギフトコード8種と入力方法', keywords:'ギフトコード gift code 兑换码 openfestc26 openfestb26 openfesta26 welcome2026 GoonBug HelloTatari WeeklyGift WelcomeGift' },
