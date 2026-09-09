@@ -564,17 +564,6 @@ function boot() {
     }
   }[locale];
   board.setAttribute('role', 'group');
-  const mobileCalculate = document.createElement('button');
-  const mobileViewport = window.matchMedia('(max-width: 760px)');
-  mobileCalculate.id = 'calculateMobile';
-  mobileCalculate.className = 'button';
-  mobileCalculate.type = 'button';
-  mobileCalculate.textContent = '確率を計算';
-  Object.assign(mobileCalculate.style, { width: '100%', minHeight: '44px', marginTop: '8px' });
-  const syncMobileCalculate = () => { mobileCalculate.hidden = !mobileViewport.matches; };
-  mobileViewport.addEventListener?.('change', syncMobileCalculate);
-  syncMobileCalculate();
-  $('.input-palette').append(mobileCalculate);
   const boardActionText = {
     ja: { undo: '1個前に戻る', reset: '全てをリセット', restoreReset: '一括復元' },
     en: { undo: 'Undo One', reset: 'Reset All', restoreReset: 'Restore Reset' },
@@ -1181,10 +1170,6 @@ function boot() {
   }
   function setCalculating(value) {
     calculating = value;
-    [$('#calculate'), $('#calculateMobile')].forEach((button) => {
-      button.disabled = value;
-      button.textContent = value ? resultText.calculating : resultText.calculate;
-    });
     board.setAttribute('aria-busy', String(value));
   }
   function calculate() {
@@ -1300,8 +1285,6 @@ function boot() {
   $('#showRecommendations').addEventListener('change', (event) => syncPreference('showRecommendations', event.target.checked));
   const autoCalculateControl = $('#autoCalculate');
   autoCalculateControl?.closest('label')?.remove();
-  $('#calculate').addEventListener('click', calculate);
-  $('#calculateMobile').addEventListener('click', calculate);
   $('#undo').addEventListener('click', undoLastInput);
   $('#undoBelowBoard').addEventListener('click', undoLastInput);
   $('#reset').addEventListener('click', resetBoard);

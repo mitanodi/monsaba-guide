@@ -659,12 +659,11 @@ test('5〜8盤面サイズを維持する', () => {
   for (const size of [5, 6, 7, 8]) assert.match(html, new RegExp(`value="${size}"`));
 });
 
-test('計算中表示とbutton無効化を持つ', () => {
-  assert.match(js, /button\.disabled = value/);
+test('計算ボタンを表示せず自動計算中の盤面状態を通知する', () => {
   assert.match(js, /計算中…/);
   assert.match(js, /aria-busy/);
-  assert.match(js, /mobileCalculate\.id = 'calculateMobile'/);
-  assert.match(js, /max-width: 760px/);
+  assert.doesNotMatch(html, /id="calculate"/);
+  assert.doesNotMatch(js, /calculateMobile/);
 });
 
 test('exactと偏りを抑えたapproximationのUI文言を3言語で持つ', () => {

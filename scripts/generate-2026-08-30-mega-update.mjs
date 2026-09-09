@@ -356,6 +356,7 @@ function synchronizeTreasurePage(file, locale) {
     .replace('<li>「確率を計算」を押す</li>', '<li>入力するたびに確率が自動更新されます</li>')
     .replace('<li>Press “Calculate Probability”</li>', '<li>Probabilities update automatically as you enter results</li>')
     .replace('<li>按“计算概率”</li>', '<li>每次输入后概率都会自动更新</li>')
+    .replace(/<button id="calculate" class="button" type="button">[^<]+<\/button>/, '')
     .replace(/<footer[\s\S]*?<\/footer>/, footer);
   source = source.replace('</div></div></div></section><section class="wrap static-section solver-layout">', `</div>${heroMedia}</div></div></section><section class="wrap static-section solver-layout">`);
   if (locale === 'ja') {
