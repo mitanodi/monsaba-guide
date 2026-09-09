@@ -4,7 +4,7 @@ import {
   boardRows, boardColumns, boardSlotCount,
   emptyTeam, cloneTeam, sanitizeTeam, loadTeams, loadDraft, saveDraft, saveTeamList, upsertTeam, loadModeDrafts, saveModeDrafts, switchModeDraft,
   placementIssue, placeMember, randomPlacementIndex, copyMemberToPlayer, togglePlayerChip, removeMember, moveMember, setPlayerUnlock, playerCount, playerLimit, activePlayerIds,
-  levelLimit, encodeTeam, decodeTeam, teamText, stage1ImageFor, formationExportTitle
+  levelLimit, encodeTeam, decodeTeam, teamText, stageImageFor, formationExportTitle
 } from './team-core.js';
 
 const $ = (selector) => document.querySelector(selector);
@@ -71,7 +71,8 @@ const ONBOARDING_KEY = 'monsabaTeamBuilderOnboarding:v1'; let exportPreset = 'or
 
 const message = (template, values = {}) => Object.entries(values).reduce((text, [key, value]) => text.replaceAll(`{${key}}`, value), template);
 const familyById = (id) => families.find((family) => family.id === id);
-const stage1Image = (family) => stage1ImageFor(family, imageByFamily);
+const stageImage = (family, stage) => stageImageFor(family, stage, imageByFamily);
+const stage1Image = (family) => stageImage(family, 1);
 const responsiveAttrs = (image) => image?.srcset ? ` srcset="${esc(image.srcset)}" sizes="72px"` : '';
 const memberFor = (slot) => { const family = familyById(slot?.familyId); return family ? { family, evolution: family.evolutions.find((item) => Number(item.stage) === Number(slot.stage)) || family.evolutions[0] } : null; };
 const displayMode = (mode) => ({ ja: MODE_LABELS, en: { free: 'Free', normal: 'Normal', zombie: 'Zombie Rush', dojo: 'Badge Dojo', boss: 'Boss Rally' }, 'zh-CN': { free: '自由阵容', normal: '普通', zombie: 'Zombie Rush', dojo: '徽章道场', boss: '首领集结' } }[locale] || MODE_LABELS)[mode];
@@ -105,7 +106,7 @@ function renderBoard() {
   board.innerHTML = team.slots.slice(0, boardSlotCount(team)).map((slot, index) => {
     const member = memberFor(slot); const selectedMove = movingFrom === index ? ' is-move-source' : '';
     if (!member) return `<button class="formation-cell is-empty${selectedMove}" type="button" data-cell="${index}" data-drop-cell="${index}" aria-label="${esc(cellLabel(slot, index))}"><span aria-hidden="true">＋</span></button>`;
-    const image = stage1Image(member.family); const imageHtml = image ? `<img loading="lazy" decoding="async" src="${esc(image.src)}"${responsiveAttrs(image)} width="${image.width}" height="${image.height}" alt="${esc(getFamilyDisplayLabel(member.family))}">` : `<span class="formation-image-placeholder">${esc(COPY.placeholder)}</span>`;
+    const image = stageImage(member.family, slot.stage); const imageHtml = image ? `<img loading="lazy" decoding="async" src="${esc(image.src)}"${responsiveAttrs(image)} width="${image.width}" height="${image.height}" alt="${esc(getTataDisplayName(member.evolution))}">` : `<span class="formation-image-placeholder">${esc(COPY.placeholder)}</span>`;
     const removeLabel = message(team.mode === 'zombie' ? COPY.quickRemove : COPY.quickRemoveBasic, { player: slot.playerId, name: getFamilyDisplayLabel(member.family) });
     const levelBadge = levelsVisible() ? `<span class="formation-level-badge">Lv${slot.level}</span>` : '';
     const playerBadge = team.mode === 'zombie' ? `<span class="formation-player-badge">P${slot.playerId}</span>` : '';
@@ -135,10 +136,10 @@ function renderSelection() {
   if (!selected) { node.innerHTML = `<p>${esc(levelsVisible() ? COPY.selectFirst : COPY.selectFirstBasic)}</p>`; return; }
   const family = familyById(selected.familyId); const evolution = family?.evolutions.find((item) => Number(item.stage) === selected.stage);
   if (!family || !evolution) { selected = null; renderSelection(); return; }
-  const image = stage1Image(family);
+  const image = stageImage(family, selected.stage);
   const level = levelsVisible() ? ` · Lv${currentLevel}` : ''; const player = team.mode === 'zombie' ? `P${currentPlayer} · ` : '';
   const dragLabel = `${COPY.dragToBoard}: ${getFamilyDisplayLabel(family)} T${selected.stage}`;
-  node.innerHTML = `${image ? `<img src="${esc(image.src)}"${responsiveAttrs(image)} width="64" height="64" alt="${esc(getFamilyDisplayLabel(family))}" draggable="true" data-selected-drag data-drag-family="${esc(family.id)}" data-drag-stage="${selected.stage}" aria-label="${esc(dragLabel)}" title="${esc(dragLabel)}">` : `<span class="formation-image-placeholder">${esc(COPY.placeholder)}</span>`}<div><small>${esc(COPY.selected)}</small><b>${player}${esc(getFamilyDisplayLabel(family))} · T${selected.stage}${level}</b><span>${esc(getTataDisplayName(evolution))}</span><small class="formation-selection-drag-hint">${esc(COPY.dragToBoard)}</small></div>`;
+  node.innerHTML = `${image ? `<img src="${esc(image.src)}"${responsiveAttrs(image)} width="64" height="64" alt="${esc(getTataDisplayName(evolution))}" draggable="true" data-selected-drag data-drag-family="${esc(family.id)}" data-drag-stage="${selected.stage}" aria-label="${esc(dragLabel)}" title="${esc(dragLabel)}">` : `<span class="formation-image-placeholder">${esc(COPY.placeholder)}</span>`}<div><small>${esc(COPY.selected)}</small><b>${player}${esc(getFamilyDisplayLabel(family))} · T${selected.stage}${level}</b><span>${esc(getTataDisplayName(evolution))}</span><small class="formation-selection-drag-hint">${esc(COPY.dragToBoard)}</small></div>`;
   const selectionStatus = message(levelsVisible() ? COPY.selectCell : COPY.selectCellBasic, { player: currentPlayer, name: getFamilyDisplayLabel(family), stage: selected.stage, level: currentLevel });
   setStatus(selectionStatus, false, '#team-message');
 }
@@ -191,7 +192,8 @@ function editControls(slot, member) {
   const levels = levelsVisible() ? `<fieldset><legend>${esc(COPY.level)}</legend><div class="formation-level-options">${Array.from({ length: maxLevel }, (_, index) => index + 1).map((level) => `<button type="button" data-edit-level="${level}" aria-pressed="${slot.level === level}">Lv${level}</button>`).join('')}</div></fieldset>` : '';
   const playerControls = team.mode === 'zombie' ? `<fieldset><legend>${esc(COPY.player)}</legend><div class="formation-segmented">${PLAYER_IDS.map((id) => `<button type="button" class="is-player-${id}" data-edit-player="${id}" aria-pressed="${slot.playerId === id}">P${id}</button>`).join('')}</div></fieldset>` : '';
   const copyAction = team.mode === 'zombie' ? `<button type="button" class="ghost-button" data-copy-player="${otherPlayer}">${esc(message(COPY.copyToPlayer, { player: otherPlayer }))}</button>` : '';
-  return `<div class="formation-edit-summary">${stage1Image(member.family) ? `<img src="${esc(stage1Image(member.family).src)}" width="80" height="80" alt="${esc(getFamilyDisplayLabel(member.family))}">` : `<span class="formation-image-placeholder">${esc(COPY.placeholder)}</span>`}<div><b>${esc(getFamilyDisplayLabel(member.family))}</b><span>${esc(getTataDisplayName(member.evolution))}</span></div></div>${playerControls}<fieldset><legend>Tier</legend><div class="formation-stage-options">${member.family.evolutions.map((item) => `<button type="button" class="${Number(item.stage) === slot.stage ? 'is-selected' : ''}" data-edit-stage="${item.stage}" aria-pressed="${Number(item.stage) === slot.stage}"><span>T${item.stage}</span>${esc(getTataDisplayName(item))}</button>`).join('')}</div></fieldset>${levels}<div class="tool-actions">${copyAction}<button type="button" class="ghost-button" data-edit-change>${esc(COPY.change)}</button><button type="button" class="ghost-button" data-edit-move>${esc(COPY.move)}</button><button type="button" class="ghost-button danger-button" data-edit-remove>${esc(COPY.remove)}</button><a class="ghost-button" href="${localePrefix}/tata/${encodeURIComponent(member.family.id)}/">${esc(COPY.detail)}</a></div>`;
+  const image = stageImage(member.family, slot.stage);
+  return `<div class="formation-edit-summary">${image ? `<img src="${esc(image.src)}" width="80" height="80" alt="${esc(getTataDisplayName(member.evolution))}">` : `<span class="formation-image-placeholder">${esc(COPY.placeholder)}</span>`}<div><b>${esc(getFamilyDisplayLabel(member.family))}</b><span>${esc(getTataDisplayName(member.evolution))}</span></div></div>${playerControls}<fieldset><legend>Tier</legend><div class="formation-stage-options">${member.family.evolutions.map((item) => `<button type="button" class="${Number(item.stage) === slot.stage ? 'is-selected' : ''}" data-edit-stage="${item.stage}" aria-pressed="${Number(item.stage) === slot.stage}"><span>T${item.stage}</span>${esc(getTataDisplayName(item))}</button>`).join('')}</div></fieldset>${levels}<div class="tool-actions">${copyAction}<button type="button" class="ghost-button" data-edit-change>${esc(COPY.change)}</button><button type="button" class="ghost-button" data-edit-move>${esc(COPY.move)}</button><button type="button" class="ghost-button danger-button" data-edit-remove>${esc(COPY.remove)}</button><a class="ghost-button" href="${localePrefix}/tata/${encodeURIComponent(member.family.id)}/">${esc(COPY.detail)}</a></div>`;
 }
 function openEditor(index) { const slot = team.slots[index]; const member = memberFor(slot); if (!member) return; editingIndex = index; $('#team-edit-content').innerHTML = editControls(slot, member); $('#team-edit-dialog').showModal(); }
 function refreshEditor() { if (editingIndex === null || !team.slots[editingIndex]) return; $('#team-edit-content').innerHTML = editControls(team.slots[editingIndex], memberFor(team.slots[editingIndex])); }
@@ -229,7 +231,7 @@ async function exportImage() {
   for (let index = 0; index < slotCount; index += 1) {
     const x = boardX + (index % columns) * (cell + gap); const y = boardY + Math.floor(index / columns) * (cell + gap); const slot = team.slots[index]; const member = memberFor(slot);
     context.fillStyle = '#171a25'; context.fillRect(x, y, cell, cell); context.strokeStyle = slot ? (slot.playerId === 1 ? '#ef5f61' : '#4a91e8') : '#30364b'; context.lineWidth = slot ? 6 : 3; context.strokeRect(x, y, cell, cell); if (!member) continue;
-    const source = stage1Image(member.family); if (source) { const image = new Image(); image.src = source.src; try { await image.decode(); context.drawImage(image, x + 7, y + 7, cell - 14, cell - 14); } catch { /* badges remain */ } }
+    const source = stageImage(member.family, slot.stage); if (source) { const image = new Image(); image.src = source.src; try { await image.decode(); context.drawImage(image, x + 7, y + 7, cell - 14, cell - 14); } catch { /* badges remain */ } }
     context.font = '700 22px sans-serif'; context.textAlign = 'center'; if (team.mode === 'zombie') { context.fillStyle = slot.playerId === 1 ? '#ef5f61' : '#4a91e8'; context.fillRect(x + 5, y + 5, 43, 34); context.fillStyle = '#fff'; context.fillText(`P${slot.playerId}`, x + 26, y + 29); }
     context.fillStyle = 'rgba(0,0,0,.84)'; if (levelsVisible()) context.fillRect(x + 5, y + cell - 42, 64, 37); context.fillRect(x + cell - 62, y + cell - 42, 57, 37); context.fillStyle = '#fff'; if (levelsVisible()) context.fillText(`Lv${slot.level}`, x + 37, y + cell - 15); context.fillText(`T${slot.stage}`, x + cell - 34, y + cell - 15);
   }
@@ -269,11 +271,11 @@ function createDragGhost(payload, native = false) {
   document.querySelector('.formation-drag-ghost')?.remove();
   const ghost = document.createElement('div'); ghost.className = `formation-drag-ghost${native ? ' is-native' : ''}`; ghost.setAttribute('aria-hidden', 'true');
   if (payload.type === 'picker') {
-    const family = familyById(payload.familyId); const image = family && stage1Image(family);
+    const family = familyById(payload.familyId); const image = family && stageImage(family, payload.stage);
     if (image) { const img = document.createElement('img'); img.src = image.src; img.alt = ''; ghost.append(img); }
     const copy = document.createElement('span'); const name = document.createElement('strong'); name.textContent = family ? getFamilyDisplayLabel(family) : payload.familyId; const stage = document.createElement('small'); stage.textContent = `T${payload.stage}`; copy.append(name, stage); ghost.append(copy);
   } else {
-    const member = memberFor(team.slots[payload.index]); const image = member && stage1Image(member.family);
+    const member = memberFor(team.slots[payload.index]); const image = member && stageImage(member.family, team.slots[payload.index]?.stage);
     if (image) { const img = document.createElement('img'); img.src = image.src; img.alt = ''; ghost.append(img); }
     const copy = document.createElement('span'); const name = document.createElement('strong'); name.textContent = member ? getFamilyDisplayLabel(member.family) : COPY.board; const stage = document.createElement('small'); stage.textContent = member ? `T${member.evolution.stage}` : ''; copy.append(name, stage); ghost.append(copy);
   }

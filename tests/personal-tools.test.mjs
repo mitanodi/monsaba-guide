@@ -11,7 +11,7 @@ import {
   TEAM_KEY, DRAFT_KEY, TEAM_VERSION, SHARE_VERSION, TEAM_ROWS, TEAM_COLUMNS, TEAM_SLOTS, STANDARD_TEAM_ROWS, STANDARD_TEAM_COLUMNS, STANDARD_TEAM_SLOTS, DOJO_TEAM_ROWS, DOJO_TEAM_COLUMNS, DOJO_TEAM_SLOTS, MAX_SAVED_TEAMS, emptyTeam, sanitizeTeam,
   loadTeams, loadDraft, saveDraft, saveTeamList, upsertTeam, placeMember, randomPlacementIndex, copyMemberToPlayer, togglePlayerChip, removeMember, moveMember,
   placementIssue, setPlayerUnlock, playerCount, playerLimit, levelLimit, MODE_PLAYER_LIMITS, activePlayerIds,
-  encodeTeam, decodeTeam, analyzeTeam, teamText, stage1ImageFor, formationExportTitle, switchModeDraft, saveModeDrafts, loadModeDrafts, boardRows, boardColumns, boardSlotCount
+  encodeTeam, decodeTeam, analyzeTeam, teamText, stageImageFor, stage1ImageFor, formationExportTitle, switchModeDraft, saveModeDrafts, loadModeDrafts, boardRows, boardColumns, boardSlotCount
 } from '../team-builder/team-core.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -432,12 +432,20 @@ test('短縮共有はPlayer・Tier・Lv・両Player解放・将来投稿メタ�
   assert.equal(emptyTeam().challenge.highestRound, null);
 });
 
-test('T2〜T4を選んでも盤面画像resolverはverified T1だけを返す', () => {
+test('盤面画像resolverは選択したT1〜T4のverified画像を返し、未確認段階はT1へ安全にfallbackする', () => {
   const images = json('data/tata-images.json');
   const imageMap = new Map(images.families.map((item) => [item.familyId, item]));
-  const image = stage1ImageFor(first, imageMap);
-  assert.equal(image.status, 'verified');
-  assert.match(image.src, /(?:\/t1-512\.webp|\/forms\/[^/]+\/t1\.webp)$/);
+  const complete = families.find((family) => {
+    const entry = imageMap.get(family.id);
+    return family.evolutions.length >= 4 && [1, 2, 3, 4].every((stage) => entry?.forms?.some((image) => Number(image.stage) === stage && image.status === 'verified' && image.src));
+  });
+  assert.ok(complete);
+  const sources = [1, 2, 3, 4].map((stage) => stageImageFor(complete, stage, imageMap)?.src);
+  assert.equal(new Set(sources).size, 4);
+  sources.forEach((src, index) => assert.equal(src, imageMap.get(complete.id).forms.find((image) => Number(image.stage) === index + 1).src));
+  const pendingFamily = families.find((family) => imageMap.get(family.id)?.forms?.some((image) => image.status !== 'verified' || !image.src));
+  const pendingStage = imageMap.get(pendingFamily.id).forms.find((image) => image.status !== 'verified' || !image.src).stage;
+  assert.equal(stageImageFor(pendingFamily, pendingStage, imageMap)?.src, stage1ImageFor(pendingFamily, imageMap)?.src);
   assert.equal(stage1ImageFor(first, new Map([[first.id, { stage1: { status: 'pending' } }]])), null);
 });
 

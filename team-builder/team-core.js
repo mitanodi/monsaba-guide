@@ -293,7 +293,15 @@ export function decodeTeam(value, families, chips = []) {
   } catch { throw new Error('共有データを読み込めませんでした。'); }
 }
 
-export function stage1ImageFor(family, imageByFamily) { const image = imageByFamily?.get?.(family?.id)?.stage1; return image?.status === 'verified' && image.src ? image : null; }
+export function stageImageFor(family, stage, imageByFamily) {
+  const familyImages = imageByFamily?.get?.(family?.id);
+  const requested = familyImages?.forms?.find((image) => Number(image.stage) === Number(stage));
+  if (requested?.status === 'verified' && requested.src) return requested;
+  const fallback = familyImages?.stage1;
+  return fallback?.status === 'verified' && fallback.src ? fallback : null;
+}
+
+export function stage1ImageFor(family, imageByFamily) { return stageImageFor(family, 1, imageByFamily); }
 
 // Kept for compatibility with existing imports. The Zombie Rush UI does not render automated ratings.
 export function analyzeTeam(team, families, ratings) {
