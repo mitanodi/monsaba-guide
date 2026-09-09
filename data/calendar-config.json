@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-08",
+  "updated": "2026-09-10",
   "timeZone": "Asia/Tokyo",
   "dailyResetHour": 9,
   "teamEventRotation": {
@@ -28,22 +28,22 @@
     "leagueName": { "ja": "リーグ：サンドトレジャー", "en": "League: Sand Treasure", "zh-CN": "联赛：沙滩宝藏" }
   },
   "bossRotationConfig": {
-    "bossAnchorStart": null,
-    "bossAnchorBoss": null,
+    "bossAnchorStart": "2026-09-09T00:00:00+09:00",
+    "bossAnchorBoss": "tire-zombie",
     "bossDurationDays": 2,
     "sequence": [
-      { "id": "frankenfish", "name": { "ja": "怪魚ゾンビ", "en": "Frankenfish", "zh-CN": "怪鱼僵尸" } },
-      { "id": "pop-star", "name": { "ja": "ロックスターゾンビ", "en": "Pop Star", "zh-CN": "摇滚明星僵尸" } },
-      { "id": "road-bully", "name": { "ja": "走り屋ゾンビ", "en": "Road Bully", "zh-CN": "飙车族僵尸" } },
-      { "id": "tipsy-zobo", "name": { "ja": "酔っ払いゾンビ", "en": "Tipsy Zobo", "zh-CN": "醉酒僵尸" } },
-      { "id": "dean-zobo", "name": { "ja": "社長ゾンビ", "en": "Dean Zobo", "zh-CN": "社长僵尸" } }
+      { "id": "tire-zombie", "name": { "ja": "タイヤゾンビ", "en": "Tire Zombie", "zh-CN": "轮胎僵尸" } },
+      { "id": "drunk-zombie", "name": { "ja": "酔っぱらいゾンビ", "en": "Drunk Zombie", "zh-CN": "醉酒僵尸" } },
+      { "id": "president-zombie", "name": { "ja": "社長ゾンビ", "en": "President Zombie", "zh-CN": "社长僵尸" } },
+      { "id": "monster-fish-zombie", "name": { "ja": "怪魚ゾンビ", "en": "Monster Fish Zombie", "zh-CN": "怪鱼僵尸" } },
+      { "id": "rockstar-zombie", "name": { "ja": "ロックスターゾンビ", "en": "Rockstar Zombie", "zh-CN": "摇滚明星僵尸" } }
     ],
     "currentObservation": {
       "status": "in_game_observed",
-      "observedAt": "2026-09-08",
-      "currentBoss": "pop-star",
-      "nextBoss": "road-bully",
-      "note": "交代時刻のアンカー確認待ち"
+      "observedAt": "2026-09-10",
+      "currentBoss": "tire-zombie",
+      "nextBoss": "drunk-zombie",
+      "note": "2026-09-09から2日単位で確認した継続サイクル"
     }
   }
 }

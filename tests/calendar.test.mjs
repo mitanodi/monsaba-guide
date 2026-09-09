@@ -27,9 +27,17 @@ test('island week changes at 09:00 JST and labels Tuesday as final Day 6',()=>{
   assert.equal(islandAt('2026-09-10T09:00:00+09:00',config).day,1);
 });
 
-test('boss schedule stays ungenerated until a real anchor is configured',()=>{
-  const pending=bossAt('2026-09-08T12:00:00+09:00',config);assert.equal(pending.scheduled,false);assert.equal(pending.observation.currentBoss,'pop-star');assert.equal(pending.observation.nextBoss,'road-bully');
-  const anchored=structuredClone(config);anchored.bossRotationConfig.bossAnchorStart='2026-09-08T09:00:00+09:00';anchored.bossRotationConfig.bossAnchorBoss='pop-star';assert.equal(bossAt('2026-09-10T09:00:00+09:00',anchored).boss.id,'road-bully');
+test('boss rally repeats the confirmed two-day cycle from the tire zombie anchor',()=>{
+  const cases=[
+    ['2026-09-09T00:00:00+09:00','tire-zombie',1],
+    ['2026-09-10T12:00:00+09:00','tire-zombie',2],
+    ['2026-09-11T09:00:00+09:00','drunk-zombie',1],
+    ['2026-09-13T09:00:00+09:00','president-zombie',1],
+    ['2026-09-15T09:00:00+09:00','monster-fish-zombie',1],
+    ['2026-09-17T09:00:00+09:00','rockstar-zombie',1],
+    ['2026-09-19T09:00:00+09:00','tire-zombie',1]
+  ];
+  for(const [at,id,day] of cases){const result=bossAt(at,config);assert.equal(result.scheduled,true);assert.equal(result.boss.id,id);assert.equal(result.day,day);}
 });
 
 test('month generator covers complete calendar weeks at the 09:00 boundary',()=>{
@@ -37,6 +45,6 @@ test('month generator covers complete calendar weeks at the 09:00 boundary',()=>
 });
 
 test('calendar configuration remains separate from localized event pages',async()=>{
-  assert.equal(config.islandTreasure.anchorWeek,null);assert.equal(config.bossRotationConfig.bossAnchorStart,null);assert.equal(config.timeZone,'Asia/Tokyo');assert.equal(config.dailyResetHour,9);
+  assert.equal(config.islandTreasure.anchorWeek,null);assert.equal(config.bossRotationConfig.bossAnchorStart,'2026-09-09T00:00:00+09:00');assert.equal(config.bossRotationConfig.bossAnchorBoss,'tire-zombie');assert.equal(config.timeZone,'Asia/Tokyo');assert.equal(config.dailyResetHour,9);
   for(const path of ['../events/index.html','../en/events/index.html','../zh-cn/events/index.html']){const html=await readFile(new URL(path,import.meta.url),'utf8');assert.match(html,/calendar\/calendar\.js/);assert.match(html,/calendar\/calendar\.css/);}
 });

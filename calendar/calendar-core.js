@@ -28,7 +28,7 @@ export function islandAt(value,config){
 export function bossAt(value,config){
   const rotation=config.bossRotationConfig;if(!rotation.bossAnchorStart||!rotation.bossAnchorBoss)return {scheduled:false,observation:rotation.currentObservation};
   const duration=rotation.bossDurationDays*DAY_MS;const anchor=new Date(rotation.bossAnchorStart).getTime();const anchorIndex=rotation.sequence.findIndex(item=>item.id===rotation.bossAnchorBoss);if(anchorIndex<0)return {scheduled:false,observation:rotation.currentObservation};
-  const instant=new Date(value).getTime();const period=Math.floor((instant-anchor)/duration);const index=mod(anchorIndex+period,rotation.sequence.length);return {scheduled:true,boss:rotation.sequence[index],nextBoss:rotation.sequence[mod(index+1,rotation.sequence.length)],start:anchor+period*duration,end:anchor+(period+1)*duration};
+  const instant=new Date(value).getTime();const period=Math.floor((instant-anchor)/duration);const index=mod(anchorIndex+period,rotation.sequence.length);const start=anchor+period*duration;return {scheduled:true,boss:rotation.sequence[index],nextBoss:rotation.sequence[mod(index+1,rotation.sequence.length)],start,end:start+duration,day:Math.floor((instant-start)/DAY_MS)+1};
 }
 export function monthDays(year,month){
   const firstWeekday=new Date(Date.UTC(year,month-1,1)).getUTCDay();const days=new Date(Date.UTC(year,month,0)).getUTCDate();
