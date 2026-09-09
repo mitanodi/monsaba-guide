@@ -52,7 +52,7 @@ function bruteForceOracle(rawModel) {
     }
     return candidates;
   });
-  const required = new Set(model.cells.flatMap((state, index) => state === 'hit' || state === 'found' ? [index] : []));
+  const required = new Set(model.cells.flatMap((state, index) => state === 'found' ? [index] : []));
   const selectedIndices = Array(shapes.length).fill(-1);
   const tally = Array(model.cells.length).fill(0);
   let configurations = 0;
@@ -91,9 +91,12 @@ function seededRandom(seed) {
   };
 }
 
-test('4つの入力モードを公開する', () => {
-  assert.deepEqual(STATES, ['unknown', 'miss', 'hit', 'found']);
+test('3つの入力モードだけを公開する', () => {
+  assert.deepEqual(STATES, ['unknown', 'miss', 'found']);
   for (const state of STATES) assert.match(html, new RegExp(`data-input-mode="${state}"`));
+  assert.doesNotMatch(html, /data-input-mode="hit"|宝ヒット/);
+  assert.doesNotMatch(enHtml, /data-input-mode="hit"|Treasure Hit|treasure hits/i);
+  assert.doesNotMatch(zhHtml, /data-input-mode="hit"|命中宝物/);
 });
 
 test('循環タップではなく選択状態を直接設定する', () => {
@@ -107,7 +110,7 @@ test('入力モードはaria-pressedと選択中表示を持つ', () => {
   assert.match(js, /setAttribute\('aria-pressed'/);
 });
 
-test('既存v1〜v3保存データをv4へ後方互換変換する', () => {
+test('既存v1〜v4保存データをv5へ後方互換変換する', () => {
   const old = { size: 5, spec: '1x2:1', cells: Array(25).fill('miss') };
   const restored = normalizeModel(old);
   assert.equal(restored.version, STORAGE_VERSION);
@@ -123,6 +126,17 @@ test('不正な旧セル状態は未確認へ安全に戻す', () => {
   const value = createDefaultModel(6);
   value.cells[0] = 'invalid';
   assert.equal(normalizeModel(value).cells[0], 'unknown');
+});
+
+test('旧宝ヒット保存データを発見済みへ統合する', () => {
+  const value = createDefaultModel(6);
+  value.version = 4;
+  value.cells[0] = 'hit';
+  value.preferences.inputMode = 'hit';
+  const migrated = normalizeModel(value);
+  assert.equal(migrated.version, STORAGE_VERSION);
+  assert.equal(migrated.cells[0], 'found');
+  assert.equal(migrated.preferences.inputMode, 'found');
 });
 
 test('表示設定と自動再計算設定を保存構造に保持する', () => {
@@ -169,24 +183,18 @@ test('空白マスを宝配置から除外する', () => {
   assert.equal(solveTreasureModel(model).probabilities[0], 0);
 });
 
-test('宝ヒットを全有効候補へ含める', () => {
-  const model = createDefaultModel(6);
-  model.cells[0] = 'hit';
-  assert.equal(solveTreasureModel(model).probabilities[0], 1);
-});
-
 test('発見済みを全有効候補へ含め残り概算から除く', () => {
-  const hit = createDefaultModel(6);
-  hit.cells[0] = 'hit';
-  const found = createDefaultModel(6);
-  found.cells[0] = 'found';
-  assert.ok(solveTreasureModel(found).remainingPickaxes <= solveTreasureModel(hit).remainingPickaxes);
+  const model = createDefaultModel(6);
+  model.cells[0] = 'found';
+  const result = solveTreasureModel(model);
+  assert.equal(result.probabilities[0], 1);
+  assert.ok(result.remainingPickaxes < solveTreasureModel(createDefaultModel(6)).remainingPickaxes);
 });
 
 test('矛盾入力は候補0件になる', () => {
   const model = createDefaultModel(5);
   model.cells.fill('miss');
-  model.cells[0] = 'hit';
+  model.cells[0] = 'found';
   assert.equal(solveTreasureModel(model).configurations, 0);
 });
 
@@ -243,7 +251,8 @@ test('Resetは確認後に履歴と計算結果を消す', () => {
 });
 
 test('矛盾時は入力見直しとUndoを案内する', () => {
-  assert.match(js, /空白・宝ヒット・発見済み/);
+  assert.match(js, /空白・発見済み/);
+  assert.doesNotMatch(js, /空白・宝ヒット・発見済み/);
   assert.match(js, /is-attention/);
 });
 
@@ -378,7 +387,7 @@ test('盤面入力を90度回転すると確率も90度回転する', () => {
   const original = createDefaultModel(5);
   original.spec = '1x3:1';
   original.cells[0] = 'miss';
-  original.cells[7] = 'hit';
+  original.cells[7] = 'found';
   const rotated = createDefaultModel(5);
   rotated.spec = '1x3:1';
   original.cells.forEach((state, index) => { rotated.cells[rotate(index)] = state; });
@@ -418,10 +427,10 @@ test('同じ入力のapproximationはreloadや実行順に依存せず完全にd
 
 test('optimized exact counterは小規模brute-force oracleと一致する', () => {
   const cases = [
-    { spec: '1x3:1', cells: [[0, 'miss'], [7, 'hit']] },
+    { spec: '1x3:1', cells: [[0, 'miss'], [7, 'found']] },
     { spec: '1x2:2', cells: [[4, 'miss']] },
     { spec: '2x2:1, 1x1:1', cells: [[6, 'found']] },
-    { spec: '2x3:1', cells: [[12, 'hit'], [24, 'miss']] }
+    { spec: '2x3:1', cells: [[12, 'found'], [24, 'miss']] }
   ];
   for (const scenario of cases) {
     const model = createDefaultModel(5);
@@ -446,7 +455,6 @@ test('固定seed randomized小規模caseがbrute-force oracleと一致する', (
     for (let index = 0; index < model.cells.length; index += 1) {
       const roll = random();
       if (roll < 0.025) model.cells[index] = 'miss';
-      else if (roll < 0.035) model.cells[index] = 'hit';
       else if (roll < 0.04) model.cells[index] = 'found';
     }
     const expected = bruteForceOracle(model);
@@ -457,7 +465,7 @@ test('固定seed randomized小規模caseがbrute-force oracleと一致する', (
   }
 });
 
-test('v3の両orientation保存を物理個数を保ってv4へ移行する', () => {
+test('v3の両orientation保存を物理個数を保ってv5へ移行する', () => {
   const saved = {
     version: 3,
     size: 5,
@@ -467,11 +475,11 @@ test('v3の両orientation保存を物理個数を保ってv4へ移行する', ()
   };
   saved.cells[6] = 'found';
   const migrated = normalizeModel(saved);
-  assert.equal(migrated.version, 4);
+  assert.equal(migrated.version, 5);
   assert.equal(migrated.spec, '1x3:2');
   assert.equal(migrated.shapeCounts['1x3'], 2);
   assert.equal(migrated.cells[6], 'found');
-  assert.deepEqual(migrated.preferences, saved.preferences);
+  assert.deepEqual(migrated.preferences, { ...saved.preferences, inputMode: 'found' });
 });
 
 test('回転可能表示と3言語のUI文言を備える', () => {

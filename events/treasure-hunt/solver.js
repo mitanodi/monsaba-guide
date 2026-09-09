@@ -1,8 +1,8 @@
 export const STORAGE_KEY = 'monsaba-treasure-solver-v1';
-export const STORAGE_VERSION = 4;
-export const STATES = ['unknown', 'miss', 'hit', 'found'];
-export const STATE_LABELS = { unknown: '未確認', miss: '空白', hit: '宝ヒット', found: '発見済み' };
-export const STATE_MARKS = { unknown: '?', miss: '×', hit: '◆', found: '✓' };
+export const STORAGE_VERSION = 5;
+export const STATES = ['unknown', 'miss', 'found'];
+export const STATE_LABELS = { unknown: '未確認', miss: '空白', found: '発見済み' };
+export const STATE_MARKS = { unknown: '?', miss: '×', found: '✓' };
 export const SHAPE_KEYS = Object.freeze([
   '1x1', '1x2', '1x3', '1x4',
   '2x2', '2x3', '2x4',
@@ -94,7 +94,7 @@ export function createDefaultModel(size = 6) {
 export function normalizeModel(value) {
   const size = [5, 6, 7, 8].includes(Number(value?.size)) ? Number(value.size) : 6;
   const cells = Array.isArray(value?.cells) && value.cells.length === size * size
-    ? value.cells.map((state) => STATES.includes(state) ? state : 'unknown')
+    ? value.cells.map((state) => state === 'hit' ? 'found' : STATES.includes(state) ? state : 'unknown')
     : Array(size * size).fill('unknown');
   const hasSpec = typeof value?.spec === 'string';
   const rawSpec = hasSpec ? value.spec.trim() : DEFAULT_SPEC;
@@ -121,7 +121,9 @@ export function normalizeModel(value) {
     shapeMode: parsedCounts ? 'picker' : 'advanced',
     cells,
     preferences: {
-      inputMode: STATES.includes(value?.preferences?.inputMode) ? value.preferences.inputMode : DEFAULT_PREFERENCES.inputMode,
+      inputMode: value?.preferences?.inputMode === 'hit'
+        ? 'found'
+        : STATES.includes(value?.preferences?.inputMode) ? value.preferences.inputMode : DEFAULT_PREFERENCES.inputMode,
       showProbability: value?.preferences?.showProbability !== false,
       showRecommendations: value?.preferences?.showRecommendations !== false,
       autoCalculate: value?.preferences?.autoCalculate === true
@@ -370,7 +372,7 @@ export function solveTreasureModel(rawModel, rawOptions = {}) {
     return { configurations: 0, capped: false, approximate: false, probabilities: [], topCandidates: [], bestIndices: [], shapes, treasureArea, probabilityMass: 0 };
   }
   const requiredMask = model.cells.reduce((mask, state, index) => (
-    state === 'hit' || state === 'found' ? mask | (1n << BigInt(index)) : mask
+    state === 'found' ? mask | (1n << BigInt(index)) : mask
   ), 0n);
   const remainingCoverage = Array(shapes.length + 1);
   remainingCoverage[shapes.length] = 0n;
@@ -720,7 +722,7 @@ function boot() {
     buildBoard();
     showStatus(
       '配置候補がありません',
-      '入力した空白・宝ヒット・発見済みのどこかが実際の盤面と違う可能性があります。',
+      '入力した空白・発見済みのどこかが実際の盤面と違う可能性があります。',
       true
     );
     $('#undo').classList.add('is-attention');

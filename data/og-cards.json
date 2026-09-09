@@ -175,21 +175,21 @@
           "description": "残り配置からおすすめマスの確率を計算",
           "badge": "Undo・端末保存対応",
           "ogTitle": "モンサバ オタカラ探しソルバー｜おすすめマス確率計算",
-          "ogDescription": "空白・宝ヒット・発見済みを入力し、残りの有効配置から各マスの宝確率とおすすめマスを計算。"
+          "ogDescription": "空白・発見済みを入力し、残りの有効配置から各マスの宝確率とおすすめマスを計算。"
         },
         "en": {
           "title": "Treasure Hunt Solver",
           "description": "Calculate the best next tile from remaining layouts",
           "badge": "Undo and on-device save",
           "ogTitle": "Clash of Critters Treasure Hunt Solver | Best-Tile Probability",
-          "ogDescription": "Enter misses, treasure hits and found tiles to calculate treasure probabilities and the best next tile from every valid layout."
+          "ogDescription": "Enter empty and found tiles to calculate treasure probabilities and the best next tile from every valid layout."
         },
         "zh-CN": {
           "title": "寻宝求解器",
           "description": "根据剩余布局计算下一步推荐位置",
           "badge": "支持撤销与设备保存",
           "ogTitle": "Clash of Critters 寻宝求解器｜最佳方格概率计算",
-          "ogDescription": "输入未命中、命中宝物与已找到方格，根据剩余有效布局计算每格宝物概率和下一步推荐。"
+          "ogDescription": "输入空白与已找到方格，根据剩余有效布局计算每格宝物概率和下一步推荐。"
         }
       }
     },
