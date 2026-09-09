@@ -11,7 +11,7 @@ import {
   TEAM_KEY, DRAFT_KEY, TEAM_VERSION, SHARE_VERSION, TEAM_ROWS, TEAM_COLUMNS, TEAM_SLOTS, STANDARD_TEAM_ROWS, STANDARD_TEAM_COLUMNS, STANDARD_TEAM_SLOTS, DOJO_TEAM_ROWS, DOJO_TEAM_COLUMNS, DOJO_TEAM_SLOTS, MAX_SAVED_TEAMS, emptyTeam, sanitizeTeam,
   loadTeams, loadDraft, saveDraft, saveTeamList, upsertTeam, placeMember, randomPlacementIndex, copyMemberToPlayer, togglePlayerChip, removeMember, moveMember,
   placementIssue, setPlayerUnlock, playerCount, playerLimit, levelLimit, MODE_PLAYER_LIMITS, activePlayerIds,
-  encodeTeam, decodeTeam, analyzeTeam, teamText, stage1ImageFor, switchModeDraft, saveModeDrafts, loadModeDrafts, boardRows, boardColumns, boardSlotCount
+  encodeTeam, decodeTeam, analyzeTeam, teamText, stage1ImageFor, formationExportTitle, switchModeDraft, saveModeDrafts, loadModeDrafts, boardRows, boardColumns, boardSlotCount
 } from '../team-builder/team-core.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -163,6 +163,19 @@ test('一覧でT1・T2を選ぶと有効な空きマスからランダム配置�
   const source = read('team-builder/team-builder.js');
   assert.match(source, /placeRandomly\(pick\)/);
   assert.match(source, /randomPlacementIndex\(team, member, families\)/);
+});
+
+test('画像書き出しタイトルは全モード・全言語で現在モードと一致する', () => {
+  assert.deepEqual(['free', 'normal', 'zombie', 'dojo', 'boss'].map((mode) => formationExportTitle(mode, 'ja')), [
+    '自由編成', '通常編成', 'ゾンビラッシュ編成', 'バッジ道場編成', 'ボスラリー編成'
+  ]);
+  assert.deepEqual(['free', 'normal', 'zombie', 'dojo', 'boss'].map((mode) => formationExportTitle(mode, 'en')), [
+    'Free formation', 'Normal formation', 'Zombie Rush formation', 'Badge Dojo formation', 'Boss Rally formation'
+  ]);
+  assert.deepEqual(['free', 'normal', 'zombie', 'dojo', 'boss'].map((mode) => formationExportTitle(mode, 'zh-CN')), [
+    '自由阵容', '普通阵容', 'Zombie Rush阵容', '徽章道场阵容', '首领集结阵容'
+  ]);
+  assert.match(read('team-builder/team-builder.js'), /formationExportTitle\(team\.mode, locale\)/);
 });
 
 test('編成の配置・stage変更・削除・入替はデータ構造で保持', () => {

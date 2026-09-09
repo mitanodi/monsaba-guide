@@ -26,6 +26,15 @@ export const BASE_LEVEL_LIMIT = 7;
 export const MAX_LEVEL_LIMIT = 8;
 export const TEAM_MODES = Object.freeze(['free', 'normal', 'zombie', 'dojo', 'boss']);
 export const MODE_LABELS = Object.freeze({ free: '自由編成', normal: '通常', zombie: 'ゾンビラッシュ', dojo: 'バッジ道場', boss: 'ボスラリー' });
+const MODE_EXPORT_LABELS = Object.freeze({
+  ja: { free: '自由編成', normal: '通常編成', zombie: 'ゾンビラッシュ編成', dojo: 'バッジ道場編成', boss: 'ボスラリー編成' },
+  en: { free: 'Free formation', normal: 'Normal formation', zombie: 'Zombie Rush formation', dojo: 'Badge Dojo formation', boss: 'Boss Rally formation' },
+  'zh-CN': { free: '自由阵容', normal: '普通阵容', zombie: 'Zombie Rush阵容', dojo: '徽章道场阵容', boss: '首领集结阵容' }
+});
+export function formationExportTitle(mode, locale = 'ja') {
+  const labels = MODE_EXPORT_LABELS[locale] || MODE_EXPORT_LABELS.ja;
+  return labels[mode] || labels.free;
+}
 export const MODE_PLAYER_LIMITS = Object.freeze({ free: 15, normal: 15, zombie: 10, dojo: 5, boss: 15 });
 const isRecord = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
 const blankPlayerSettings = () => ({ 1: { slotLimitPlusOne: false, levelCapPlusOne: false }, 2: { slotLimitPlusOne: false, levelCapPlusOne: false } });

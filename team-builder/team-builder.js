@@ -4,7 +4,7 @@ import {
   boardRows, boardColumns, boardSlotCount,
   emptyTeam, cloneTeam, sanitizeTeam, loadTeams, loadDraft, saveDraft, saveTeamList, upsertTeam, loadModeDrafts, saveModeDrafts, switchModeDraft,
   placementIssue, placeMember, randomPlacementIndex, copyMemberToPlayer, togglePlayerChip, removeMember, moveMember, setPlayerUnlock, playerCount, playerLimit, activePlayerIds,
-  levelLimit, encodeTeam, decodeTeam, teamText, stage1ImageFor
+  levelLimit, encodeTeam, decodeTeam, teamText, stage1ImageFor, formationExportTitle
 } from './team-core.js';
 
 const $ = (selector) => document.querySelector(selector);
@@ -214,7 +214,7 @@ function setupPhase4Controls() {
 
 async function exportImage() {
   const canvas = $('#team-share-canvas'); const context = canvas.getContext('2d'); context.fillStyle = '#101522'; context.fillRect(0, 0, canvas.width, canvas.height);
-  context.fillStyle = '#f8fafc'; context.font = '700 38px sans-serif'; context.textAlign = 'left'; context.fillText(team.name || COPY.boardMemo, 60, 62);
+  context.fillStyle = '#f8fafc'; context.font = '700 38px sans-serif'; context.textAlign = 'left'; context.fillText(team.name || formationExportTitle(team.mode, locale), 60, 62);
   activePlayerIds(team).forEach((id, index) => { const x = 62 + index * 570; context.fillStyle = id === 1 ? '#ef5f61' : '#4a91e8'; context.fillRect(x, 88, 20, 20); context.fillStyle = '#f8fafc'; context.font = '700 24px sans-serif'; const settings = team.playerSettings[id]; const prefix = team.mode === 'zombie' ? `P${id}  ` : ''; context.fillText(`${prefix}${playerCount(team, id)}/${playerLimit(team, id)}${team.mode === 'zombie' && settings.slotLimitPlusOne ? '  Slot+1' : ''}`, x + 32, 107); });
   if (team.mode === 'zombie') {
     for (const [playerIndex, id] of PLAYER_IDS.entries()) {
