@@ -524,6 +524,11 @@ function boot() {
     en: { found: 'Found', place: 'Place', rotate: 'Rotate', remove: 'Remove placement', placedTitle: 'Treasures placed on the board', empty: 'No treasures placed yet', selected: (shape) => `${shape} selected. Tap the top-left board tile or drag it onto the board.`, placed: (shape) => `${shape} placed on the board`, invalid: 'Cannot place it there. Check the board edge, empty tiles, and overlaps.' },
     'zh-CN': { found: '已找到', place: '放置', rotate: '旋转', remove: '取消放置', placedTitle: '已放置到棋盘的宝物', empty: '尚未放置宝物', selected: (shape) => `已选择${shape}。点击棋盘左上格，或将其拖到棋盘上。`, placed: (shape) => `已将${shape}放置到棋盘`, invalid: '无法放置在该位置。请检查棋盘边界、空白格与宝物重叠。' }
   }[locale];
+  const foundShapeText = {
+    ja: { title: '発見した宝の形', manual: '1マスだけ', help: '形を選んでから、盤面の宝をタップしてください。' },
+    en: { title: 'Found treasure shape', manual: 'Single tile', help: 'Choose a shape, then tap the treasure on the board.' },
+    'zh-CN': { title: '已找到的宝物形状', manual: '仅单格', help: '选择形状后，点击棋盘上的宝物。' }
+  }[locale];
   const resultText = {
     ja: {
       calculate: '確率を計算', calculating: '計算中…', exactTitle: '正確に計算しました',
@@ -623,6 +628,46 @@ function boot() {
     });
     $('#inputModeStatus').textContent = `現在：${STATE_LABELS[model.preferences.inputMode]}を入力中`;
     renderShapePicker();
+    renderFoundShapeChooser();
+  }
+  function renderFoundShapeChooser() {
+    const palette = $('.input-palette');
+    if (!palette) return;
+    let chooser = $('#foundShapeChooser');
+    if (!chooser) {
+      chooser = document.createElement('section');
+      chooser.id = 'foundShapeChooser';
+      chooser.className = 'found-shape-chooser';
+      chooser.innerHTML = '<strong></strong><div class="found-shape-options"></div><small></small>';
+      $('#inputModeStatus').before(chooser);
+    }
+    chooser.hidden = model.preferences.inputMode !== 'found';
+    chooser.querySelector('strong').textContent = foundShapeText.title;
+    chooser.querySelector('small').textContent = foundShapeText.help;
+    const options = chooser.querySelector('.found-shape-options');
+    options.innerHTML = '';
+    const manual = document.createElement('button');
+    manual.type = 'button';
+    manual.textContent = foundShapeText.manual;
+    manual.setAttribute('aria-pressed', String(!selectedPlacement));
+    manual.addEventListener('click', () => {
+      selectedPlacement = null;
+      renderFoundShapeChooser();
+    });
+    options.append(manual);
+    SHAPE_KEYS.filter((key) => model.shapeCounts[key] > model.placedTreasures.filter((placement) => placement.key === key).length).forEach((key) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = key.replace('x', '×');
+      button.setAttribute('aria-pressed', String(selectedPlacement?.key === key));
+      button.addEventListener('click', () => {
+        selectedPlacement = { key, rotated: placementRotation[key] };
+        renderShapePicker();
+        renderFoundShapeChooser();
+        showPickerStatus(placementText.selected(key.replace('x', '×')));
+      });
+      options.append(button);
+    });
   }
   function showPickerStatus(message, error = false) {
     const status = $('#treasurePickerStatus');
@@ -730,6 +775,7 @@ function boot() {
             placementRotation[key] = !placementRotation[key];
             if (selectedPlacement?.key === key) selectedPlacement.rotated = placementRotation[key];
             renderShapePicker();
+            renderFoundShapeChooser();
           });
           controls.append(rotate);
         }
@@ -777,6 +823,7 @@ function boot() {
     const [width, height] = key.split('x');
     selectedPlacement = selectedPlacement?.key === key ? null : { key, rotated: placementRotation[key] };
     renderShapePicker();
+    renderFoundShapeChooser();
     showPickerStatus(selectedPlacement ? placementText.selected(`${width}×${height}`) : '');
   }
   function placeSelectedTreasure(startIndex) {
@@ -799,6 +846,7 @@ function boot() {
     clearResult();
     buildBoard();
     renderShapePicker();
+    renderFoundShapeChooser();
     showPickerStatus(placementText.placed(`${footprint.width}×${footprint.height}`));
     if (model.preferences.autoCalculate) scheduleCalculate();
     return true;
@@ -813,6 +861,7 @@ function boot() {
     clearResult();
     buildBoard();
     renderShapePicker();
+    renderFoundShapeChooser();
     if (model.preferences.autoCalculate) scheduleCalculate();
   }
   function commitTreasureChange(message) {
@@ -1047,6 +1096,7 @@ function boot() {
   }
   function syncPreference(name, value) {
     model.preferences[name] = value;
+    if (name === 'inputMode' && value !== 'found') selectedPlacement = null;
     save();
     syncControls();
     buildBoard();

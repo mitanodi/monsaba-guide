@@ -567,6 +567,14 @@ test('配置済みの緑マスはチェックだけでなく宝形状名を直�
   assert.match(css, /cell-treasure-shape/);
 });
 
+test('発見済みモードから宝形状を選び盤面へ配置できる', () => {
+  assert.match(js, /foundShapeChooser/);
+  assert.match(js, /発見した宝の形/);
+  assert.match(js, /1マスだけ/);
+  assert.match(js, /model\.preferences\.inputMode !== 'found'/);
+  assert.match(css, /found-shape-options/);
+});
+
 test('全形状0は計算不可でNaN・Infinityを返さない', () => {
   const model = createDefaultModel(6);
   model.shapeCounts = normalizeShapeCounts();
