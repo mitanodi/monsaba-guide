@@ -574,13 +574,13 @@ function boot() {
   syncMobileCalculate();
   $('.input-palette').append(mobileCalculate);
   const boardActionText = {
-    ja: { restore: '復元', reset: '全てをリセット' },
-    en: { restore: 'Restore', reset: 'Reset All' },
-    'zh-CN': { restore: '恢复', reset: '全部重置' }
+    ja: { undo: '1個前に戻る', reset: '全てをリセット', restoreReset: '一括復元' },
+    en: { undo: 'Undo One', reset: 'Reset All', restoreReset: 'Restore Reset' },
+    'zh-CN': { undo: '撤销一步', reset: '全部重置', restoreReset: '整体恢复' }
   }[locale];
   const boardActions = document.createElement('div');
   boardActions.className = 'board-reset-actions';
-  boardActions.innerHTML = `<button id="restoreBelowBoard" class="ghost-button" type="button">${boardActionText.restore}</button><button id="resetBelowBoard" class="ghost-button board-reset-all" type="button">${boardActionText.reset}</button>`;
+  boardActions.innerHTML = `<button id="undoBelowBoard" class="ghost-button" type="button">${boardActionText.undo}</button><button id="resetBelowBoard" class="ghost-button board-reset-all" type="button">${boardActionText.reset}</button><button id="restoreResetBelowBoard" class="ghost-button" type="button" disabled>${boardActionText.restoreReset}</button>`;
   board.after(boardActions);
 
   let model = createDefaultModel();
@@ -590,6 +590,7 @@ function boot() {
   let calculateTimer = null;
   let specSyncTimer = null;
   let calculating = false;
+  let lastResetSnapshot = null;
   let selectedPlacement = null;
   let pendingPlacementCells = [];
   const placementRotation = Object.fromEntries(SHAPE_KEYS.map((key) => [key, false]));
@@ -624,7 +625,10 @@ function boot() {
   function updateUndoState() {
     const disabled = history.length === 0;
     $('#undo').disabled = disabled;
-    $('#restoreBelowBoard').disabled = disabled;
+    $('#undoBelowBoard').disabled = disabled;
+  }
+  function updateResetRestoreState() {
+    $('#restoreResetBelowBoard').disabled = !lastResetSnapshot;
   }
   function syncControls() {
     $('#boardSize').value = String(model.size);
@@ -1226,8 +1230,17 @@ function boot() {
   }
   function resetBoard() {
     if (!window.confirm('本当に盤面をすべてリセットしますか？')) return;
+    lastResetSnapshot = {
+      size: model.size,
+      spec: model.spec,
+      shapeCounts: { ...model.shapeCounts },
+      placedTreasures: model.placedTreasures.map((placement) => ({ ...placement, cells: [...placement.cells] })),
+      cells: [...model.cells]
+    };
     model.cells = Array(model.size * model.size).fill('unknown');
     model.placedTreasures = [];
+    selectedPlacement = null;
+    pendingPlacementCells = [];
     history = [];
     save();
     clearResult();
@@ -1235,7 +1248,17 @@ function boot() {
     renderShapePicker();
     renderFoundShapeChooser();
     updateUndoState();
+    updateResetRestoreState();
     showStatus('盤面をすべてリセットしました', '入力モード・宝の形と個数・表示設定はそのままです。');
+  }
+  function restoreResetBoard() {
+    if (!lastResetSnapshot) return;
+    const snapshot = lastResetSnapshot;
+    lastResetSnapshot = null;
+    restoreSnapshot(snapshot);
+    updateResetRestoreState();
+    showStatus('リセット前の盤面を一括復元しました', '空白・発見済み・配置済みの宝をまとめて戻しました。');
+    if (model.preferences.autoCalculate) scheduleCalculate();
   }
 
   document.querySelectorAll('[data-input-mode]').forEach((button) => {
@@ -1274,12 +1297,14 @@ function boot() {
   $('#calculate').addEventListener('click', calculate);
   $('#calculateMobile').addEventListener('click', calculate);
   $('#undo').addEventListener('click', undoLastInput);
-  $('#restoreBelowBoard').addEventListener('click', undoLastInput);
+  $('#undoBelowBoard').addEventListener('click', undoLastInput);
   $('#reset').addEventListener('click', resetBoard);
   $('#resetBelowBoard').addEventListener('click', resetBoard);
+  $('#restoreResetBelowBoard').addEventListener('click', restoreResetBoard);
   restore();
   syncControls();
   updateUndoState();
+  updateResetRestoreState();
   buildBoard();
 }
 

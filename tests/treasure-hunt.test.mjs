@@ -535,13 +535,18 @@ test('盤面端は選択マスを含む位置へ補正し、手動の発見済�
   assert.equal(resolvePlacementAtCell(5, '1x2', 24, true, cells), null);
 });
 
-test('盤面直下に復元とすべてをリセットする操作を置く', () => {
-  assert.match(js, /restoreBelowBoard/);
+test('盤面直下に1個前へ戻る・全リセット・リセット前の一括復元を置く', () => {
+  assert.match(js, /undoBelowBoard/);
   assert.match(js, /resetBelowBoard/);
-  assert.match(js, /復元/);
+  assert.match(js, /restoreResetBelowBoard/);
+  assert.match(js, /1個前に戻る/);
   assert.match(js, /全てをリセット/);
+  assert.match(js, /一括復元/);
+  assert.match(js, /lastResetSnapshot/);
+  assert.match(js, /function restoreResetBoard/);
   assert.match(js, /addEventListener\('click', undoLastInput\)/);
   assert.match(js, /addEventListener\('click', resetBoard\)/);
+  assert.match(js, /addEventListener\('click', restoreResetBoard\)/);
   assert.match(css, /\.board-reset-actions/);
 });
 
