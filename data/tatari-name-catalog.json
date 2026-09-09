@@ -1,0 +1,2128 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "fileName": "Tatari_Name (1).xlsx",
+    "sheet": "塔塔名字 Tatari Names",
+    "importedAt": "2026-09-09",
+    "scope": "names_only"
+  },
+  "summary": {
+    "rowCount": 236,
+    "matchedExisting": 230,
+    "newNameOnly": 6
+  },
+  "names": [
+    {
+      "japaneseName": "チーシェル",
+      "englishName": "Shellshy",
+      "simplifiedChineseName": "胆小蟹",
+      "sourceRow": 2,
+      "existingFamilyId": "daishell",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ダイシェル",
+      "englishName": "Boldclaw",
+      "simplifiedChineseName": "胆大蟹",
+      "sourceRow": 3,
+      "existingFamilyId": "daishell",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "トスリス",
+      "englishName": "Cindermunk",
+      "simplifiedChineseName": "火花栗",
+      "sourceRow": 4,
+      "existingFamilyId": "batarisu",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "バタリス",
+      "englishName": "Embertail",
+      "simplifiedChineseName": "火焰栗",
+      "sourceRow": 5,
+      "existingFamilyId": "batarisu",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "フタバード",
+      "englishName": "Clucky",
+      "simplifiedChineseName": "菜鸡",
+      "sourceRow": 6,
+      "existingFamilyId": "yotsubird",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ヨツバード",
+      "englishName": "Cluckeroo",
+      "simplifiedChineseName": "幸运鸡",
+      "sourceRow": 7,
+      "existingFamilyId": "yotsubird",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "サボリトゲ",
+      "englishName": "Dozy",
+      "simplifiedChineseName": "打盹刺",
+      "sourceRow": 8,
+      "existingFamilyId": "guuhog",
+      "existingStage": 1,
+      "previousJapaneseName": "ハリネム"
+    },
+    {
+      "japaneseName": "アクビトゲ",
+      "englishName": "Snoozebo",
+      "simplifiedChineseName": "呼噜刺",
+      "sourceRow": 9,
+      "existingFamilyId": "guuhog",
+      "existingStage": 2,
+      "previousJapaneseName": "グウホッグ"
+    },
+    {
+      "japaneseName": "ビパピー",
+      "englishName": "Zapup",
+      "simplifiedChineseName": "电嘟狗",
+      "sourceRow": 10,
+      "existingFamilyId": "hihidog",
+      "existingStage": 1,
+      "previousJapaneseName": "ヒパピー"
+    },
+    {
+      "japaneseName": "ビビドッグ",
+      "englishName": "Zapooch",
+      "simplifiedChineseName": "猛电犬",
+      "sourceRow": 11,
+      "existingFamilyId": "hihidog",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "カピラス",
+      "englishName": "Capywata",
+      "simplifiedChineseName": "卡橘巴拉",
+      "sourceRow": 12,
+      "existingFamilyId": "capibarrie",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "カピバルリー",
+      "englishName": "Capypapa",
+      "simplifiedChineseName": "卡骑巴拉",
+      "sourceRow": 13,
+      "existingFamilyId": "capibarrie",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "スズメラ",
+      "englishName": "Sparkrow",
+      "simplifiedChineseName": "小火雀",
+      "sourceRow": 14,
+      "existingFamilyId": "kaenjack",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "カエンジャク",
+      "englishName": "Scorchwing",
+      "simplifiedChineseName": "烈火雀",
+      "sourceRow": 15,
+      "existingFamilyId": "kaenjack",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ナンモナイシ",
+      "englishName": "Solpear",
+      "simplifiedChineseName": "鸭梨",
+      "sourceRow": 16,
+      "existingFamilyId": "hanarenaishi",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ハナレナイシ",
+      "englishName": "Pearpair",
+      "simplifiedChineseName": "不分梨",
+      "sourceRow": 17,
+      "existingFamilyId": "hanarenaishi",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "マドブヒ",
+      "englishName": "Mudrump",
+      "simplifiedChineseName": "泥巴猪",
+      "sourceRow": 18,
+      "existingFamilyId": "rokubuhi",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ロクブヒ",
+      "englishName": "Rockhog",
+      "simplifiedChineseName": "摇滚岩猪",
+      "sourceRow": 19,
+      "existingFamilyId": "rokubuhi",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ノロナマズ",
+      "englishName": "Wobbler",
+      "simplifiedChineseName": "呆呆鱼",
+      "sourceRow": 20,
+      "existingFamilyId": "birinamazu",
+      "existingStage": 1,
+      "previousJapaneseName": "ノロマズ"
+    },
+    {
+      "japaneseName": "ビリナマズ",
+      "englishName": "Boltskipper",
+      "simplifiedChineseName": "电憨鱼",
+      "sourceRow": 21,
+      "existingFamilyId": "birinamazu",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ネコオリ",
+      "englishName": "Frostnip",
+      "simplifiedChineseName": "猫冰",
+      "sourceRow": 22,
+      "existingFamilyId": "nekoori",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "チルネコ",
+      "englishName": "Frostpaw",
+      "simplifiedChineseName": "冰团猫",
+      "sourceRow": 23,
+      "existingFamilyId": "nekoori",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "チルレオ",
+      "englishName": "Frostique",
+      "simplifiedChineseName": "冰雪猫王",
+      "sourceRow": 24,
+      "existingFamilyId": "nekoori",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ブリズレオ",
+      "englishName": "Frostluna",
+      "simplifiedChineseName": "凛月猫王",
+      "sourceRow": 25,
+      "existingFamilyId": "nekoori",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ヒバイヌ",
+      "englishName": "Pyropup",
+      "simplifiedChineseName": "小火柴",
+      "sourceRow": 26,
+      "existingFamilyId": "matchiba",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "マッチバ",
+      "englishName": "Pyrohound",
+      "simplifiedChineseName": "火柴柴",
+      "sourceRow": 27,
+      "existingFamilyId": "matchiba",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "フレベロス",
+      "englishName": "Hellhound",
+      "simplifiedChineseName": "烈焰三头犬",
+      "sourceRow": 28,
+      "existingFamilyId": "matchiba",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ヘルベロス",
+      "englishName": "Pyrodaemon",
+      "simplifiedChineseName": "狱火三头犬",
+      "sourceRow": 29,
+      "existingFamilyId": "matchiba",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "フルッグ",
+      "englishName": "Frugling",
+      "simplifiedChineseName": "火果蛙",
+      "sourceRow": 30,
+      "existingFamilyId": "furuggu",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "フルルッグ",
+      "englishName": "Frugatoad",
+      "simplifiedChineseName": "大果蛙",
+      "sourceRow": 31,
+      "existingFamilyId": "furuggu",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ドラフルッグ",
+      "englishName": "Frugagon",
+      "simplifiedChineseName": "巨果蛙",
+      "sourceRow": 32,
+      "existingFamilyId": "furuggu",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "フルグロウン",
+      "englishName": "Frugantuan",
+      "simplifiedChineseName": "极果蛙",
+      "sourceRow": 33,
+      "existingFamilyId": "furuggu",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "コロジュー",
+      "englishName": "Rubblet",
+      "simplifiedChineseName": "小岩蜥",
+      "sourceRow": 34,
+      "existingFamilyId": "rokuju",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ロクジュー",
+      "englishName": "Cobbledon",
+      "simplifiedChineseName": "烈岩蜥",
+      "sourceRow": 35,
+      "existingFamilyId": "rokuju",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ジオジュラ",
+      "englishName": "Rockzilla",
+      "simplifiedChineseName": "岩暴龙",
+      "sourceRow": 36,
+      "existingFamilyId": "rokuju",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ジュラゴン",
+      "englishName": "Meteorax",
+      "simplifiedChineseName": "陨岩龙",
+      "sourceRow": 37,
+      "existingFamilyId": "rokuju",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ガオデン",
+      "englishName": "Zappur",
+      "simplifiedChineseName": "小电狮",
+      "sourceRow": 38,
+      "existingFamilyId": "gaoden",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ガルルデン",
+      "englishName": "Electroar",
+      "simplifiedChineseName": "闪电狮",
+      "sourceRow": 39,
+      "existingFamilyId": "gaoden",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "キングデン",
+      "englishName": "Blitzmane",
+      "simplifiedChineseName": "雷电狮鹫",
+      "sourceRow": 40,
+      "existingFamilyId": "gaoden",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "エンペラデン",
+      "englishName": "Stormlion",
+      "simplifiedChineseName": "雷翼狮王",
+      "sourceRow": 41,
+      "existingFamilyId": "gaoden",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ナミアシカ",
+      "englishName": "Sealing",
+      "simplifiedChineseName": "波波狮",
+      "sourceRow": 42,
+      "existingFamilyId": "boruzarashi",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ボルザラシ",
+      "englishName": "Sealoon",
+      "simplifiedChineseName": "球球海狮",
+      "sourceRow": 43,
+      "existingFamilyId": "boruzarashi",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ダブザラシ",
+      "englishName": "Seaswirl",
+      "simplifiedChineseName": "浪花海狮",
+      "sourceRow": 44,
+      "existingFamilyId": "boruzarashi",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ダイドオウ",
+      "englishName": "Sealord",
+      "simplifiedChineseName": "幻海狮王",
+      "sourceRow": 45,
+      "existingFamilyId": "boruzarashi",
+      "existingStage": 4,
+      "previousJapaneseName": "ダイドウオウ"
+    },
+    {
+      "japaneseName": "ヒモリ",
+      "englishName": "Blueflick",
+      "simplifiedChineseName": "蓝舌火蜥",
+      "sourceRow": 46,
+      "existingFamilyId": "himori",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ツノイモリ",
+      "englishName": "Ignisnap",
+      "simplifiedChineseName": "蓝角蝾螈",
+      "sourceRow": 47,
+      "existingFamilyId": "himori",
+      "existingStage": 2,
+      "previousJapaneseName": "フレイモリ"
+    },
+    {
+      "japaneseName": "フレイドラ",
+      "englishName": "Azurion",
+      "simplifiedChineseName": "焰尾龙",
+      "sourceRow": 48,
+      "existingFamilyId": "himori",
+      "existingStage": 3,
+      "previousJapaneseName": "ボルケザード"
+    },
+    {
+      "japaneseName": "インフェルドラ",
+      "englishName": "Newflamander",
+      "simplifiedChineseName": "曜尾龙",
+      "sourceRow": 49,
+      "existingFamilyId": "himori",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "コマキリ",
+      "englishName": "Manteeny",
+      "simplifiedChineseName": "小粉螳",
+      "sourceRow": 50,
+      "existingFamilyId": "komakiri",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ハナキリ",
+      "englishName": "Stalkerix",
+      "simplifiedChineseName": "兰花螳",
+      "sourceRow": 51,
+      "existingFamilyId": "komakiri",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ヴァルキリ",
+      "englishName": "Serrabloom",
+      "simplifiedChineseName": "霓裳兰螳",
+      "sourceRow": 52,
+      "existingFamilyId": "komakiri",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "サクランティス",
+      "englishName": "Orchitoria",
+      "simplifiedChineseName": "兰花女王",
+      "sourceRow": 53,
+      "existingFamilyId": "komakiri",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "コロカメ",
+      "englishName": "Gibber",
+      "simplifiedChineseName": "小岩龟",
+      "sourceRow": 54,
+      "existingFamilyId": "gantoru",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ガントル",
+      "englishName": "Turtuff",
+      "simplifiedChineseName": "盘岩龟",
+      "sourceRow": 55,
+      "existingFamilyId": "gantoru",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ガンタス",
+      "englishName": "Rockshell",
+      "simplifiedChineseName": "岩背龟",
+      "sourceRow": 56,
+      "existingFamilyId": "gantoru",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ガンバンタス",
+      "englishName": "Terraton",
+      "simplifiedChineseName": "磐石龟",
+      "sourceRow": 57,
+      "existingFamilyId": "gantoru",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ビリジカ",
+      "englishName": "Voltfawn",
+      "simplifiedChineseName": "小电鹿",
+      "sourceRow": 58,
+      "existingFamilyId": "denjika",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "デンジカ",
+      "englishName": "Sparkdoe",
+      "simplifiedChineseName": "电鹿",
+      "sourceRow": 59,
+      "existingFamilyId": "denjika",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ジバシカ",
+      "englishName": "Zapantler",
+      "simplifiedChineseName": "磁角电鹿",
+      "sourceRow": 60,
+      "existingFamilyId": "denjika",
+      "existingStage": 3,
+      "previousJapaneseName": "ジバジカ"
+    },
+    {
+      "japaneseName": "マグネイクス",
+      "englishName": "Magnedart",
+      "simplifiedChineseName": "电鹿族长",
+      "sourceRow": 61,
+      "existingFamilyId": "denjika",
+      "existingStage": 4,
+      "previousJapaneseName": "マグネクス"
+    },
+    {
+      "japaneseName": "ウミミ",
+      "englishName": "Droppit",
+      "simplifiedChineseName": "小海兔",
+      "sourceRow": 62,
+      "existingFamilyId": "umimi",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ウミピョン",
+      "englishName": "Bubbit",
+      "simplifiedChineseName": "海兔姬",
+      "sourceRow": 63,
+      "existingFamilyId": "umimi",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ウミロップ",
+      "englishName": "Tideon",
+      "simplifiedChineseName": "海兔公主",
+      "sourceRow": 64,
+      "existingFamilyId": "umimi",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "アクアリーナ",
+      "englishName": "Haplysia",
+      "simplifiedChineseName": "海兔女王",
+      "sourceRow": 65,
+      "existingFamilyId": "umimi",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "タマキツネ",
+      "englishName": "Sparkit",
+      "simplifiedChineseName": "球球狐",
+      "sourceRow": 66,
+      "existingFamilyId": "korokon",
+      "existingStage": 1,
+      "previousJapaneseName": "コロコン"
+    },
+    {
+      "japaneseName": "ニコキツネ",
+      "englishName": "Flametail",
+      "simplifiedChineseName": "眯眯狐",
+      "sourceRow": 67,
+      "existingFamilyId": "korokon",
+      "existingStage": 2,
+      "previousJapaneseName": "ニコン"
+    },
+    {
+      "japaneseName": "ミセキツネ",
+      "englishName": "Flarevix",
+      "simplifiedChineseName": "艳尾狐",
+      "sourceRow": 68,
+      "existingFamilyId": "korokon",
+      "existingStage": 3,
+      "previousJapaneseName": "ヨウエンビ"
+    },
+    {
+      "japaneseName": "キツネビア",
+      "englishName": "Phantifox",
+      "simplifiedChineseName": "幻尾狐",
+      "sourceRow": 69,
+      "existingFamilyId": "korokon",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "グリンビィ",
+      "englishName": "Goonbug",
+      "simplifiedChineseName": "绿甲虫",
+      "sourceRow": 70,
+      "existingFamilyId": "greenbee",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "チョイワルブーン",
+      "englishName": "Capobeetle",
+      "simplifiedChineseName": "酷甲虫",
+      "sourceRow": 71,
+      "existingFamilyId": "greenbee",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "チョーワルブーン",
+      "englishName": "Donscarab",
+      "simplifiedChineseName": "甲虫霸霸",
+      "sourceRow": 72,
+      "existingFamilyId": "greenbee",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ブーンマント",
+      "englishName": "Beetleknight",
+      "simplifiedChineseName": "甲虫侠",
+      "sourceRow": 73,
+      "existingFamilyId": "greenbee",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ヤンザル",
+      "englishName": "Punchimp",
+      "simplifiedChineseName": "顽皮吗喽",
+      "sourceRow": 74,
+      "existingFamilyId": "yanzaru",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ワルキー",
+      "englishName": "Rockfu",
+      "simplifiedChineseName": "棍棒吗喽",
+      "sourceRow": 75,
+      "existingFamilyId": "yanzaru",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "エテコウハ",
+      "englishName": "Rockwu",
+      "simplifiedChineseName": "天命吗喽",
+      "sourceRow": 76,
+      "existingFamilyId": "yanzaru",
+      "existingStage": 3,
+      "previousJapaneseName": "イビルザル"
+    },
+    {
+      "japaneseName": "サルタイセイ",
+      "englishName": "Rockong",
+      "simplifiedChineseName": "大圣吗喽",
+      "sourceRow": 77,
+      "existingFamilyId": "yanzaru",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ライロウ",
+      "englishName": "Voltkit",
+      "simplifiedChineseName": "小电狼",
+      "sourceRow": 78,
+      "existingFamilyId": "denrou",
+      "existingStage": 1,
+      "previousJapaneseName": "パチルフ"
+    },
+    {
+      "japaneseName": "デンロウ",
+      "englishName": "Voltling",
+      "simplifiedChineseName": "电狼仔",
+      "sourceRow": 79,
+      "existingFamilyId": "denrou",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ジンロウ",
+      "englishName": "Voltverine",
+      "simplifiedChineseName": "疾风电狼",
+      "sourceRow": 80,
+      "existingFamilyId": "denrou",
+      "existingStage": 3,
+      "previousJapaneseName": "ライロウ"
+    },
+    {
+      "japaneseName": "ジンライロウ",
+      "englishName": "Voltreaver",
+      "simplifiedChineseName": "迅雷天狼",
+      "sourceRow": 81,
+      "existingFamilyId": "denrou",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "トコペンギン",
+      "englishName": "Waddledo",
+      "simplifiedChineseName": "企呼呼",
+      "sourceRow": 82,
+      "existingFamilyId": "tafupen",
+      "existingStage": 1,
+      "previousJapaneseName": "トコペン"
+    },
+    {
+      "japaneseName": "タフペンギン",
+      "englishName": "Swaystroll",
+      "simplifiedChineseName": "企鼓鼓",
+      "sourceRow": 83,
+      "existingFamilyId": "tafupen",
+      "existingStage": 2,
+      "previousJapaneseName": "タフペン"
+    },
+    {
+      "japaneseName": "フブペンギン",
+      "englishName": "Stoodbeak",
+      "simplifiedChineseName": "企汹汹",
+      "sourceRow": 84,
+      "existingFamilyId": "tafupen",
+      "existingStage": 3,
+      "previousJapaneseName": "フブペン"
+    },
+    {
+      "japaneseName": "ペンペラー",
+      "englishName": "Glideflip",
+      "simplifiedChineseName": "企霸霸",
+      "sourceRow": 85,
+      "existingFamilyId": "tafupen",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ヒノムシ",
+      "englishName": "Ashlarva",
+      "simplifiedChineseName": "绒焰虫",
+      "sourceRow": 86,
+      "existingFamilyId": "fureimuji",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "フレイムシ",
+      "englishName": "Firecoil",
+      "simplifiedChineseName": "焦焰蝶",
+      "sourceRow": 87,
+      "existingFamilyId": "fureimuji",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "バタフレア",
+      "englishName": "Charflutter",
+      "simplifiedChineseName": "炽焰蝶",
+      "sourceRow": 88,
+      "existingFamilyId": "fureimuji",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "バタブレイズ",
+      "englishName": "Chrysolaria",
+      "simplifiedChineseName": "曜焰蝶王",
+      "sourceRow": 89,
+      "existingFamilyId": "fureimuji",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "コパンダ",
+      "englishName": "Pandaroo",
+      "simplifiedChineseName": "熊猫猫",
+      "sourceRow": 90,
+      "existingFamilyId": "takepanda",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "タケパンダ",
+      "englishName": "Pandaroot",
+      "simplifiedChineseName": "熊熊猫",
+      "sourceRow": 91,
+      "existingFamilyId": "takepanda",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "パンドウラク",
+      "englishName": "Pandarrior",
+      "simplifiedChineseName": "熊猫小侠",
+      "sourceRow": 92,
+      "existingFamilyId": "takepanda",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "パンダオウ",
+      "englishName": "Pandagrand",
+      "simplifiedChineseName": "熊猫大侠",
+      "sourceRow": 93,
+      "existingFamilyId": "takepanda",
+      "existingStage": 4,
+      "previousJapaneseName": "バンブオウ"
+    },
+    {
+      "japaneseName": "モグリン",
+      "englishName": "Gopher",
+      "simplifiedChineseName": "小地鼠",
+      "sourceRow": 94,
+      "existingFamilyId": "mogurin",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "モグテント",
+      "englishName": "Watchroo",
+      "simplifiedChineseName": "前哨鼠",
+      "sourceRow": 95,
+      "existingFamilyId": "mogurin",
+      "existingStage": 2,
+      "previousJapaneseName": "モグデント"
+    },
+    {
+      "japaneseName": "モグトリデ",
+      "englishName": "Bastogard",
+      "simplifiedChineseName": "堡垒鼠",
+      "sourceRow": 96,
+      "existingFamilyId": "mogurin",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "モグパレス",
+      "englishName": "Cratzar",
+      "simplifiedChineseName": "地皇鼠",
+      "sourceRow": 97,
+      "existingFamilyId": "mogurin",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "モエミン",
+      "englishName": "Zapuni",
+      "simplifiedChineseName": "萌角兽",
+      "sourceRow": 98,
+      "existingFamilyId": "erekoon",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "エレコーン",
+      "englishName": "Surgehoof",
+      "simplifiedChineseName": "电角兽",
+      "sourceRow": 99,
+      "existingFamilyId": "erekoon",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "エレキリン",
+      "englishName": "Voltmare",
+      "simplifiedChineseName": "霹雳角兽",
+      "sourceRow": 100,
+      "existingFamilyId": "erekoon",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ボルキリン",
+      "englishName": "Boltallion",
+      "simplifiedChineseName": "雷极角兽",
+      "sourceRow": 101,
+      "existingFamilyId": "erekoon",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ツヨカニ",
+      "englishName": "Cribbler",
+      "simplifiedChineseName": "厚礼蟹",
+      "sourceRow": 102,
+      "existingFamilyId": "kenkani",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ケンカニ",
+      "englishName": "Clawzor",
+      "simplifiedChineseName": "厚力蟹",
+      "sourceRow": 103,
+      "existingFamilyId": "kenkani",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "クラブロー",
+      "englishName": "Dreadclaw",
+      "simplifiedChineseName": "厚力蟹霸",
+      "sourceRow": 104,
+      "existingFamilyId": "kenkani",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "チョキング",
+      "englishName": "Cribking",
+      "simplifiedChineseName": "厚厉蟹皇",
+      "sourceRow": 105,
+      "existingFamilyId": "kenkani",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ヒエビ",
+      "englishName": "Shrimpyro",
+      "simplifiedChineseName": "小火虾",
+      "sourceRow": 106,
+      "existingFamilyId": "fureebi",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "フレービ",
+      "englishName": "Pyroprawn",
+      "simplifiedChineseName": "极火虾",
+      "sourceRow": 107,
+      "existingFamilyId": "fureebi",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "バーニフィス",
+      "englishName": "Pyroclobster",
+      "simplifiedChineseName": "火拳虾",
+      "sourceRow": 108,
+      "existingFamilyId": "fureebi",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ボルケイセ",
+      "englishName": "Pyroviathan",
+      "simplifiedChineseName": "烈焰金刚虾",
+      "sourceRow": 109,
+      "existingFamilyId": "fureebi",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ヒマワリン",
+      "englishName": "Buddi",
+      "simplifiedChineseName": "盆盆葵",
+      "sourceRow": 110,
+      "existingFamilyId": "himawarin",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "キラワー",
+      "englishName": "Sunfleur",
+      "simplifiedChineseName": "啦啦葵",
+      "sourceRow": 111,
+      "existingFamilyId": "himawarin",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "サーフワリン",
+      "englishName": "Solaflora",
+      "simplifiedChineseName": "冲浪葵",
+      "sourceRow": 112,
+      "existingFamilyId": "himawarin",
+      "existingStage": 3,
+      "previousJapaneseName": "サーフクリン"
+    },
+    {
+      "japaneseName": "サンフワリン",
+      "englishName": "Heliabloom",
+      "simplifiedChineseName": "逐日金葵",
+      "sourceRow": 113,
+      "existingFamilyId": "himawarin",
+      "existingStage": 4,
+      "previousJapaneseName": "サンフクリン"
+    },
+    {
+      "japaneseName": "コワガルー",
+      "englishName": "Joeyo",
+      "simplifiedChineseName": "怂小袋",
+      "sourceRow": 114,
+      "existingFamilyId": "kowagaru",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ボコガルー",
+      "englishName": "Puncharoo",
+      "simplifiedChineseName": "拳击袋",
+      "sourceRow": 115,
+      "existingFamilyId": "kowagaru",
+      "existingStage": 2,
+      "previousJapaneseName": "ツヨガルー"
+    },
+    {
+      "japaneseName": "ガルッキー",
+      "englishName": "Kangachamp",
+      "simplifiedChineseName": "拳王阿袋",
+      "sourceRow": 116,
+      "existingFamilyId": "kowagaru",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ガルチャンプ",
+      "englishName": "Kaiseroo",
+      "simplifiedChineseName": "传奇阿袋",
+      "sourceRow": 117,
+      "existingFamilyId": "kowagaru",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ビリピヨ",
+      "englishName": "Sparkeet",
+      "simplifiedChineseName": "电咕咕",
+      "sourceRow": 118,
+      "existingFamilyId": "biripiyo",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "エレクトリ",
+      "englishName": "Buzzbeak",
+      "simplifiedChineseName": "电嘴鸟",
+      "sourceRow": 119,
+      "existingFamilyId": "biripiyo",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ビリビバシ",
+      "englishName": "Toucanzam",
+      "simplifiedChineseName": "电歌巨鸟",
+      "sourceRow": 120,
+      "existingFamilyId": "biripiyo",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ライオウム",
+      "englishName": "Technocan",
+      "simplifiedChineseName": "电音歌王",
+      "sourceRow": 121,
+      "existingFamilyId": "biripiyo",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ポタカゲ",
+      "englishName": "Skinklet",
+      "simplifiedChineseName": "水滴蜥",
+      "sourceRow": 122,
+      "existingFamilyId": "potakage",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ピチャカゲ",
+      "englishName": "Skinkoon",
+      "simplifiedChineseName": "水隐蜥",
+      "sourceRow": 123,
+      "existingFamilyId": "potakage",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "アクアガマ",
+      "englishName": "Ninjaguana",
+      "simplifiedChineseName": "水影忍者",
+      "sourceRow": 124,
+      "existingFamilyId": "potakage",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "イガマスター",
+      "englishName": "Hychroma",
+      "simplifiedChineseName": "御水宗师",
+      "sourceRow": 125,
+      "existingFamilyId": "potakage",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ワンブー",
+      "englishName": "Souphog",
+      "simplifiedChineseName": "碗仔猪",
+      "sourceRow": 126,
+      "existingFamilyId": "kunbuu",
+      "existingStage": 1,
+      "previousJapaneseName": "クンブー"
+    },
+    {
+      "japaneseName": "ハンバーブー",
+      "englishName": "Grillhog",
+      "simplifiedChineseName": "汉堡猪",
+      "sourceRow": 127,
+      "existingFamilyId": "kunbuu",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ブヒナベブー",
+      "englishName": "Hothog",
+      "simplifiedChineseName": "火锅猪",
+      "sourceRow": 128,
+      "existingFamilyId": "kunbuu",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "グリルブー",
+      "englishName": "Searhog",
+      "simplifiedChineseName": "煎扒猪",
+      "sourceRow": 129,
+      "existingFamilyId": "kunbuu",
+      "existingStage": 4,
+      "previousJapaneseName": "カロリキング"
+    },
+    {
+      "japaneseName": "フクログモ",
+      "englishName": "Sackling",
+      "simplifiedChineseName": "叶露蛛",
+      "sourceRow": 130,
+      "existingFamilyId": "fukurogumo",
+      "existingStage": 1,
+      "previousJapaneseName": "フクロクモ"
+    },
+    {
+      "japaneseName": "ボトルグモ",
+      "englishName": "Jarachnid",
+      "simplifiedChineseName": "叶瓶蛛",
+      "sourceRow": 131,
+      "existingFamilyId": "fukurogumo",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "チュラリウム",
+      "englishName": "Terracrawler",
+      "simplifiedChineseName": "森林瓶蛛",
+      "sourceRow": 132,
+      "existingFamilyId": "fukurogumo",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "シンラリウム",
+      "englishName": "Weaverfang",
+      "simplifiedChineseName": "森罗瓶蛛",
+      "sourceRow": 133,
+      "existingFamilyId": "fukurogumo",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ツブツムリ",
+      "englishName": "Shardsnail",
+      "simplifiedChineseName": "晶粒蜗牛",
+      "sourceRow": 134,
+      "existingFamilyId": "tsubutsumuri",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "イシツムリ",
+      "englishName": "Gemsnail",
+      "simplifiedChineseName": "晶石蜗牛",
+      "sourceRow": 135,
+      "existingFamilyId": "tsubutsumuri",
+      "existingStage": 2,
+      "previousJapaneseName": "ジェムツムリ"
+    },
+    {
+      "japaneseName": "クォーツムリ",
+      "englishName": "Jewelsnail",
+      "simplifiedChineseName": "晶矿蜗牛",
+      "sourceRow": 136,
+      "existingFamilyId": "tsubutsumuri",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "アメジスネイル",
+      "englishName": "Crystalsnail",
+      "simplifiedChineseName": "晶芯蜗牛",
+      "sourceRow": 137,
+      "existingFamilyId": "tsubutsumuri",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "プラビ",
+      "englishName": "Cheerling",
+      "simplifiedChineseName": "星兔蛋",
+      "sourceRow": 138,
+      "existingFamilyId": "purabi",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "スタピョン",
+      "englishName": "Cheerlet",
+      "simplifiedChineseName": "星兔兔",
+      "sourceRow": 139,
+      "existingFamilyId": "purabi",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ステラビット",
+      "englishName": "Cheerspring",
+      "simplifiedChineseName": "星兔姬",
+      "sourceRow": 140,
+      "existingFamilyId": "purabi",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "アストラビット",
+      "englishName": "Cheerstella",
+      "simplifiedChineseName": "星兔偶像",
+      "sourceRow": 141,
+      "existingFamilyId": "purabi",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ネムクラゲ",
+      "englishName": "Lullely",
+      "simplifiedChineseName": "悠眠水母",
+      "sourceRow": 142,
+      "existingFamilyId": "nemukurage",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "スヤクラゲ",
+      "englishName": "Yawnelly",
+      "simplifiedChineseName": "织梦水母",
+      "sourceRow": 143,
+      "existingFamilyId": "nemukurage",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ルナドール",
+      "englishName": "Souverelle",
+      "simplifiedChineseName": "爱洛公主",
+      "sourceRow": 144,
+      "existingFamilyId": "nemukurage",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "オロラクイン",
+      "englishName": "Somnrayna",
+      "simplifiedChineseName": "星海女王",
+      "sourceRow": 145,
+      "existingFamilyId": "nemukurage",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "トラーニー",
+      "englishName": "Tindercub",
+      "simplifiedChineseName": "娇虎学徒",
+      "sourceRow": 146,
+      "existingFamilyId": "haamitora",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ハーミットラ",
+      "englishName": "Kitjitsu",
+      "simplifiedChineseName": "静虎居士",
+      "sourceRow": 147,
+      "existingFamilyId": "haamitora",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "マスタイガー",
+      "englishName": "Taiglow",
+      "simplifiedChineseName": "焰虎大师",
+      "sourceRow": 148,
+      "existingFamilyId": "haamitora",
+      "existingStage": 3,
+      "previousJapaneseName": "ゼンガー"
+    },
+    {
+      "japaneseName": "マスタイガー",
+      "englishName": "Saberheart",
+      "simplifiedChineseName": "炽心虎尊",
+      "sourceRow": 149,
+      "existingFamilyId": "haamitora",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "サボール",
+      "englishName": "Cactobud",
+      "simplifiedChineseName": "仙刺球",
+      "sourceRow": 150,
+      "existingFamilyId": "sabooru",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "サボケン",
+      "englishName": "Cactobloom",
+      "simplifiedChineseName": "仙刺掌",
+      "sourceRow": 151,
+      "existingFamilyId": "sabooru",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "サボディビル",
+      "englishName": "Cactoczar",
+      "simplifiedChineseName": "仙刺大王",
+      "sourceRow": 152,
+      "existingFamilyId": "sabooru",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "コロタマ",
+      "englishName": "Humbug",
+      "simplifiedChineseName": "十克郎",
+      "sourceRow": 153,
+      "existingFamilyId": "korotama",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "コロロック",
+      "englishName": "Humbleetle",
+      "simplifiedChineseName": "石颗郎",
+      "sourceRow": 154,
+      "existingFamilyId": "korotama",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "スカリギオ",
+      "englishName": "Zenscarab",
+      "simplifiedChineseName": "施课郎",
+      "sourceRow": 155,
+      "existingFamilyId": "korotama",
+      "existingStage": 3,
+      "previousJapaneseName": "スカラーべ"
+    },
+    {
+      "japaneseName": "スカリギオ",
+      "englishName": "Hierotyrus",
+      "simplifiedChineseName": "圣光大祭司",
+      "sourceRow": 156,
+      "existingFamilyId": "korotama",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ライメー",
+      "englishName": "Fluffle",
+      "simplifiedChineseName": "闪电绵羊",
+      "sourceRow": 157,
+      "existingFamilyId": "shiiparusu",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "シーパルス",
+      "englishName": "Nimbuzzy",
+      "simplifiedChineseName": "风暴绵羊",
+      "sourceRow": 158,
+      "existingFamilyId": "shiiparusu",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "アラシープ",
+      "englishName": "Galewether",
+      "simplifiedChineseName": "雷霆绵羊",
+      "sourceRow": 159,
+      "existingFamilyId": "shiiparusu",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "アマルテラ",
+      "englishName": "Cosmoram",
+      "simplifiedChineseName": "寰宇神羊",
+      "sourceRow": 160,
+      "existingFamilyId": "shiiparusu",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "シズクムシ",
+      "englishName": "Dewgrub",
+      "simplifiedChineseName": "露水虫",
+      "sourceRow": 161,
+      "existingFamilyId": "shizukuchou",
+      "existingStage": 1,
+      "previousJapaneseName": "シズクジ"
+    },
+    {
+      "japaneseName": "シズクチョウ",
+      "englishName": "Ripplewing",
+      "simplifiedChineseName": "露水蝶",
+      "sourceRow": 162,
+      "existingFamilyId": "shizukuchou",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ミストリア",
+      "englishName": "Waveflutter",
+      "simplifiedChineseName": "水舞蝶",
+      "sourceRow": 163,
+      "existingFamilyId": "shizukuchou",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "エーテリファル",
+      "englishName": "Morphanessa",
+      "simplifiedChineseName": "潋滟水蝶",
+      "sourceRow": 164,
+      "status": "new-name-only"
+    },
+    {
+      "japaneseName": "ププスカンク",
+      "englishName": "Fumekit",
+      "simplifiedChineseName": "噗噗鼬",
+      "sourceRow": 165,
+      "existingFamilyId": "pupunku",
+      "existingStage": 1,
+      "previousJapaneseName": "ププンク"
+    },
+    {
+      "japaneseName": "クサスカンク",
+      "englishName": "Sulfunk",
+      "simplifiedChineseName": "臭屁鼬",
+      "sourceRow": 166,
+      "existingFamilyId": "pupunku",
+      "existingStage": 2,
+      "previousJapaneseName": "クサンク"
+    },
+    {
+      "japaneseName": "ドカスカンク",
+      "englishName": "Magmusk",
+      "simplifiedChineseName": "爆火鼬",
+      "sourceRow": 167,
+      "existingFamilyId": "pupunku",
+      "existingStage": 3,
+      "previousJapaneseName": "マグマスク"
+    },
+    {
+      "japaneseName": "ボンバスカー",
+      "englishName": "Blastniff",
+      "simplifiedChineseName": "燃尾飞鼬",
+      "sourceRow": 168,
+      "existingFamilyId": "pupunku",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "マルッシュ",
+      "englishName": "Funglet",
+      "simplifiedChineseName": "嘟嘟菇",
+      "sourceRow": 169,
+      "existingFamilyId": "marushu",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "マボロッシュ",
+      "englishName": "Trippet",
+      "simplifiedChineseName": "致幻菇",
+      "sourceRow": 170,
+      "existingFamilyId": "marushu",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "マダムッシュ",
+      "englishName": "Hyphoria",
+      "simplifiedChineseName": "靡醉菇",
+      "sourceRow": 171,
+      "existingFamilyId": "marushu",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "イルミラージュ",
+      "englishName": "Ecstamira",
+      "simplifiedChineseName": "极乐魔菇",
+      "sourceRow": 172,
+      "existingFamilyId": "marushu",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ボウズヘビ",
+      "englishName": "Taptail",
+      "simplifiedChineseName": "小功德蛇",
+      "sourceRow": 173,
+      "existingFamilyId": "nenbutsuhebi",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ネンブツヘビ",
+      "englishName": "Rattlecoil",
+      "simplifiedChineseName": "大功德君",
+      "sourceRow": 174,
+      "existingFamilyId": "nenbutsuhebi",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ナムアミダイジャ",
+      "englishName": "Clangnaga",
+      "simplifiedChineseName": "德思内克",
+      "sourceRow": 175,
+      "existingFamilyId": "nenbutsuhebi",
+      "existingStage": 3,
+      "previousJapaneseName": "ボンノオロチ"
+    },
+    {
+      "japaneseName": "ナムアミダイジャ",
+      "englishName": "Dharmadder",
+      "simplifiedChineseName": "圣音灵蛇",
+      "sourceRow": 176,
+      "existingFamilyId": "nenbutsuhebi",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "エレキネコ",
+      "englishName": "Kittazap",
+      "simplifiedChineseName": "电喵宝",
+      "sourceRow": 177,
+      "existingFamilyId": "erekineko",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "デンニャン",
+      "englishName": "Nekowatt",
+      "simplifiedChineseName": "电财喵",
+      "sourceRow": 178,
+      "existingFamilyId": "erekineko",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "スピニャット",
+      "englishName": "Voltazar",
+      "simplifiedChineseName": "雷伏金喵",
+      "sourceRow": 179,
+      "existingFamilyId": "erekineko",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "スケダコ",
+      "englishName": "Dumbopus",
+      "simplifiedChineseName": "呆呆章鱼",
+      "sourceRow": 180,
+      "existingFamilyId": "sukedako",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ウオダコ",
+      "englishName": "Dazopus",
+      "simplifiedChineseName": "困惑章鱼",
+      "sourceRow": 181,
+      "existingFamilyId": "sukedako",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "オクドーム",
+      "englishName": "Fishopus",
+      "simplifiedChineseName": "不是章鱼",
+      "sourceRow": 182,
+      "existingFamilyId": "sukedako",
+      "existingStage": 3,
+      "previousJapaneseName": "オクトーム"
+    },
+    {
+      "japaneseName": "ロードパス",
+      "englishName": "Lordopus",
+      "simplifiedChineseName": "国王章鱼",
+      "sourceRow": 183,
+      "existingFamilyId": "sukedako",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ヒニャオ",
+      "englishName": "Flameow",
+      "simplifiedChineseName": "火喵宝",
+      "sourceRow": 184,
+      "existingFamilyId": "hinyao",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "マネビネコ",
+      "englishName": "Nekoflare",
+      "simplifiedChineseName": "火财喵",
+      "sourceRow": 185,
+      "existingFamilyId": "hinyao",
+      "existingStage": 2,
+      "previousJapaneseName": "マネヒネコ"
+    },
+    {
+      "japaneseName": "ネコマダラ",
+      "englishName": "Silversear",
+      "simplifiedChineseName": "炙炎银喵",
+      "sourceRow": 186,
+      "existingFamilyId": "hinyao",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ベロパカ",
+      "englishName": "Lollama",
+      "simplifiedChineseName": "小舌驼",
+      "sourceRow": 187,
+      "existingFamilyId": "tsubaruka",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ツバルカ",
+      "englishName": "Slobberlama",
+      "simplifiedChineseName": "口水驼",
+      "sourceRow": 188,
+      "existingFamilyId": "tsubaruka",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "フォレスタルパ",
+      "englishName": "Ptooielama",
+      "simplifiedChineseName": "啊呸驼",
+      "sourceRow": 189,
+      "existingFamilyId": "tsubaruka",
+      "existingStage": 3,
+      "previousJapaneseName": "ビチャルパカ"
+    },
+    {
+      "japaneseName": "ジャンガルパカ",
+      "englishName": "Blechlama",
+      "simplifiedChineseName": "一塌糊驼",
+      "sourceRow": 190,
+      "status": "new-name-only"
+    },
+    {
+      "japaneseName": "ホルリン",
+      "englishName": "Drilleroo",
+      "simplifiedChineseName": "小穿山",
+      "sourceRow": 191,
+      "existingFamilyId": "doriruu",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ドリルー",
+      "englishName": "Cragolin",
+      "simplifiedChineseName": "大钻山",
+      "sourceRow": 192,
+      "existingFamilyId": "doriruu",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ボーランバ",
+      "englishName": "Borelord",
+      "simplifiedChineseName": "钻山王",
+      "sourceRow": 193,
+      "existingFamilyId": "doriruu",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ビリリモリ",
+      "englishName": "Zaplet",
+      "simplifiedChineseName": "电音蝠",
+      "sourceRow": 194,
+      "existingFamilyId": "birimori",
+      "existingStage": 1,
+      "previousJapaneseName": "ビリモ"
+    },
+    {
+      "japaneseName": "パルバット",
+      "englishName": "Synthhog",
+      "simplifiedChineseName": "电波蝠",
+      "sourceRow": 195,
+      "existingFamilyId": "birimori",
+      "existingStage": 2,
+      "previousJapaneseName": "ビリモリ"
+    },
+    {
+      "japaneseName": "ヴァンパルス",
+      "englishName": "Sonarbat",
+      "simplifiedChineseName": "大雷音蝠",
+      "sourceRow": 196,
+      "existingFamilyId": "birimori",
+      "existingStage": 3,
+      "previousJapaneseName": "パルバット"
+    },
+    {
+      "japaneseName": "ヴァンパルス",
+      "englishName": "夜翼领主",
+      "simplifiedChineseName": "夜翼领主",
+      "sourceRow": 197,
+      "existingFamilyId": "birimori",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ホネギョ",
+      "englishName": "Maskfry",
+      "simplifiedChineseName": "小骨鱼",
+      "sourceRow": 198,
+      "existingFamilyId": "togegyo",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "トゲギョ",
+      "englishName": "Ospisces",
+      "simplifiedChineseName": "刺骨鱼",
+      "sourceRow": 199,
+      "existingFamilyId": "togegyo",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ガイセーン",
+      "englishName": "Armorjaw",
+      "simplifiedChineseName": "铠骨鱼",
+      "sourceRow": 200,
+      "existingFamilyId": "togegyo",
+      "existingStage": 3,
+      "previousJapaneseName": "ガイアーマ"
+    },
+    {
+      "japaneseName": "アビスカル",
+      "englishName": "Dagondeep",
+      "simplifiedChineseName": "印斯茅斯之主",
+      "sourceRow": 201,
+      "existingFamilyId": "togegyo",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "フリコー",
+      "englishName": "Hootlet",
+      "simplifiedChineseName": "钟摆鸮",
+      "sourceRow": 202,
+      "existingFamilyId": "riifuro",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "リーフロ",
+      "englishName": "Tikowl",
+      "simplifiedChineseName": "时羽鸮",
+      "sourceRow": 203,
+      "existingFamilyId": "riifuro",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ツリーフロ",
+      "englishName": "Chronerva",
+      "simplifiedChineseName": "圣叶鸮",
+      "sourceRow": 204,
+      "existingFamilyId": "riifuro",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "クロノウル",
+      "englishName": "Hypnostrix",
+      "simplifiedChineseName": "晖刻神鸮",
+      "sourceRow": 205,
+      "existingFamilyId": "riifuro",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ムムカバ",
+      "englishName": "Momopo",
+      "simplifiedChineseName": "梦梦河马",
+      "sourceRow": 206,
+      "existingFamilyId": "mumukaba",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "マリリンバ",
+      "englishName": "Lulupo",
+      "simplifiedChineseName": "露露河马",
+      "sourceRow": 207,
+      "existingFamilyId": "mumukaba",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "モンロンバ",
+      "englishName": "Lilypo",
+      "simplifiedChineseName": "丽丽河马",
+      "sourceRow": 208,
+      "existingFamilyId": "mumukaba",
+      "existingStage": 3,
+      "previousJapaneseName": "モンローバ"
+    },
+    {
+      "japaneseName": "ヒポディーバ",
+      "englishName": "Gemmapo",
+      "simplifiedChineseName": "珍珍河马",
+      "sourceRow": 209,
+      "existingFamilyId": "mumukaba",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "フグマル",
+      "englishName": "Blowfin",
+      "simplifiedChineseName": "气球河豚",
+      "sourceRow": 210,
+      "existingFamilyId": "fugumaru",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ニギリマル",
+      "englishName": "Puffbelly",
+      "simplifiedChineseName": "寿司河豚",
+      "sourceRow": 211,
+      "existingFamilyId": "fugumaru",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "フナモリマル",
+      "englishName": "Chefugu",
+      "simplifiedChineseName": "大师河豚",
+      "sourceRow": 212,
+      "existingFamilyId": "fugumaru",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "タイショウマル",
+      "englishName": "Pyromaki",
+      "simplifiedChineseName": "军舰河豚王",
+      "sourceRow": 213,
+      "existingFamilyId": "fugumaru",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ピカル",
+      "englishName": "Glowfly",
+      "simplifiedChineseName": "微光萤",
+      "sourceRow": 214,
+      "existingFamilyId": "hikaru",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ボルタル",
+      "englishName": "Phosflare",
+      "simplifiedChineseName": "幻彩萤",
+      "sourceRow": 215,
+      "existingFamilyId": "hikaru",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ルシフタル",
+      "englishName": "Glimmerwing",
+      "simplifiedChineseName": "曜光萤",
+      "sourceRow": 216,
+      "existingFamilyId": "hikaru",
+      "existingStage": 3,
+      "previousJapaneseName": "ルシフェル"
+    },
+    {
+      "japaneseName": "ルミナリオン",
+      "englishName": "Luminastra",
+      "simplifiedChineseName": "极光萤",
+      "sourceRow": 217,
+      "existingFamilyId": "hikaru",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "アタタマ",
+      "englishName": "Poakie",
+      "simplifiedChineseName": "泡泡蝌",
+      "sourceRow": 218,
+      "existingFamilyId": "atatama",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ヒガマ",
+      "englishName": "Sizzribb",
+      "simplifiedChineseName": "火蟾蜍",
+      "sourceRow": 219,
+      "existingFamilyId": "atatama",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "メラガマ",
+      "englishName": "Lickflicker",
+      "simplifiedChineseName": "卷舌蟾蜍",
+      "sourceRow": 220,
+      "existingFamilyId": "atatama",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ダルマグマ",
+      "englishName": "Ignitoad",
+      "simplifiedChineseName": "火云神蟾",
+      "sourceRow": 221,
+      "existingFamilyId": "atatama",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ヤミノメ",
+      "englishName": "Budboo",
+      "simplifiedChineseName": "暗影花",
+      "sourceRow": 222,
+      "existingFamilyId": "yaminome",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ヤミノハナ",
+      "englishName": "Snapshade",
+      "simplifiedChineseName": "幽影花",
+      "sourceRow": 223,
+      "existingFamilyId": "yaminome",
+      "existingStage": 2,
+      "previousJapaneseName": "ヤミハナ"
+    },
+    {
+      "japaneseName": "マカマンドラ",
+      "englishName": "Thornwisp",
+      "simplifiedChineseName": "幻影花",
+      "sourceRow": 224,
+      "existingFamilyId": "yaminome",
+      "existingStage": 3,
+      "previousJapaneseName": "ヤミマンドラ"
+    },
+    {
+      "japaneseName": "マカマドウケ",
+      "englishName": "Chomperwraith",
+      "simplifiedChineseName": "秘影花灵",
+      "sourceRow": 225,
+      "existingFamilyId": "yaminome",
+      "existingStage": 4,
+      "previousJapaneseName": "ダークラウン"
+    },
+    {
+      "japaneseName": "ヌスケ",
+      "englishName": "Ringtail",
+      "simplifiedChineseName": "干脆面",
+      "sourceRow": 226,
+      "status": "new-name-only"
+    },
+    {
+      "japaneseName": "ラクディット",
+      "englishName": "Rizzler",
+      "simplifiedChineseName": "改头浣面",
+      "sourceRow": 227,
+      "status": "new-name-only"
+    },
+    {
+      "japaneseName": "マスクーン",
+      "englishName": "Zorrock",
+      "simplifiedChineseName": "怪盗千面",
+      "sourceRow": 228,
+      "status": "new-name-only"
+    },
+    {
+      "japaneseName": "トリックーン",
+      "englishName": "Phantothief",
+      "simplifiedChineseName": "偷心假面",
+      "sourceRow": 229,
+      "status": "new-name-only"
+    },
+    {
+      "japaneseName": "トジコモル",
+      "englishName": "Cavyzap",
+      "simplifiedChineseName": "天笼鼠",
+      "sourceRow": 230,
+      "existingFamilyId": "hikikomoru",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ヒキコモル",
+      "englishName": "Hippiehog",
+      "simplifiedChineseName": "窝居鼠",
+      "sourceRow": 231,
+      "existingFamilyId": "hikikomoru",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "モルターボ",
+      "englishName": "Wheekroller",
+      "simplifiedChineseName": "追风鼠",
+      "sourceRow": 232,
+      "existingFamilyId": "hikikomoru",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "モルボット",
+      "englishName": "Gigagnash",
+      "simplifiedChineseName": "暴走机甲鼠",
+      "sourceRow": 233,
+      "existingFamilyId": "hikikomoru",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "パクマ",
+      "englishName": "Snowcub",
+      "simplifiedChineseName": "贪吃熊",
+      "sourceRow": 234,
+      "existingFamilyId": "pakuma",
+      "existingStage": 1,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "クマッシュ",
+      "englishName": "Polarpaw",
+      "simplifiedChineseName": "摸鱼熊",
+      "sourceRow": 235,
+      "existingFamilyId": "pakuma",
+      "existingStage": 2,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "マリンベア",
+      "englishName": "Blizzgrizz",
+      "simplifiedChineseName": "来势熊熊",
+      "sourceRow": 236,
+      "existingFamilyId": "pakuma",
+      "existingStage": 3,
+      "previousJapaneseName": null
+    },
+    {
+      "japaneseName": "ブリズリー",
+      "englishName": "Anglerbear",
+      "simplifiedChineseName": "盖世英熊",
+      "sourceRow": 237,
+      "existingFamilyId": "pakuma",
+      "existingStage": 4,
+      "previousJapaneseName": null
+    }
+  ]
+}
