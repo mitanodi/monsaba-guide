@@ -535,6 +535,15 @@ test('盤面端は選択マスを含む位置へ補正し、手動の発見済�
   assert.equal(resolvePlacementAtCell(5, '1x2', 24, true, cells), null);
 });
 
+test('空白マスは後から発見済みの宝形状で上書きできる', () => {
+  const cells = Array(25).fill('unknown');
+  cells[0] = 'miss';
+  const footprint = resolvePlacementAtCell(5, '1x2', 0, true, cells, [], true);
+  assert.deepEqual(footprint.cells, [0, 1]);
+  assert.match(js, /resolvePlacementAtCell\(model\.size, key, startIndex, rotated, model\.cells, occupied, true\)/);
+  assert.match(js, /if \(occupied\.has\(index\)\)/);
+});
+
 test('配置済み宝は個数上限・重なり・空白セルを検証する', () => {
   const counts = normalizeShapeCounts({ '1x2': 2 });
   const cells = Array(25).fill('unknown');

@@ -96,10 +96,10 @@ export function placementCells(size, key, startIndex, rotated = false) {
   return { width, height, cells };
 }
 
-export function resolvePlacementAtCell(size, key, targetIndex, rotated, cells, occupiedCells = []) {
+export function resolvePlacementAtCell(size, key, targetIndex, rotated, cells, occupiedCells = [], allowMiss = false) {
   const occupied = new Set(occupiedCells);
   const isUsable = (footprint) => footprint
-    && !footprint.cells.some((cell) => cells[cell] === 'miss' || occupied.has(cell));
+    && !footprint.cells.some((cell) => (!allowMiss && cells[cell] === 'miss') || occupied.has(cell));
   const exact = placementCells(size, key, targetIndex, rotated);
   if (isUsable(exact)) return { startIndex: targetIndex, ...exact };
 
@@ -858,11 +858,11 @@ function boot() {
   }
   function placeSelectedTreasure(startIndex) {
     if (!selectedPlacement) return false;
-    const { key } = selectedPlacement;
+    const { key, rotated } = selectedPlacement;
     const placedCount = model.placedTreasures.filter((placement) => placement.key === key).length;
     if (placedCount >= model.shapeCounts[key]) return false;
     const occupied = new Set(model.placedTreasures.flatMap((placement) => placement.cells));
-    const footprint = resolvePlacementAtCell(model.size, key, startIndex, rotated, model.cells, occupied);
+    const footprint = resolvePlacementAtCell(model.size, key, startIndex, rotated, model.cells, occupied, true);
     if (!footprint) {
       showPickerStatus(placementText.invalid, true);
       return false;
@@ -886,7 +886,7 @@ function boot() {
     if (!selectedPlacement || selectedPlacement.mode !== 'cells') return false;
     const { key, rotated } = selectedPlacement;
     const occupied = new Set(model.placedTreasures.flatMap((placement) => placement.cells));
-    if (model.cells[index] === 'miss' || occupied.has(index)) {
+    if (occupied.has(index)) {
       showPickerStatus(foundShapeText.invalid, true);
       return true;
     }
@@ -900,7 +900,7 @@ function boot() {
         const footprint = placementCells(model.size, key, startIndex, rotated);
         if (footprint
           && pendingPlacementCells.every((cell) => footprint.cells.includes(cell))
-          && !footprint.cells.some((cell) => model.cells[cell] === 'miss' || occupied.has(cell))) {
+          && !footprint.cells.some((cell) => occupied.has(cell))) {
           validFootprints.push({ startIndex, rotated, ...footprint });
         }
       }
