@@ -9,6 +9,7 @@ export const SHAPE_KEYS = Object.freeze([
   '3x3', '3x4',
   '4x4'
 ]);
+export const MAX_SHAPE_COUNT = 8;
 const DEFAULT_SPEC = '2x2:1, 1x3:1';
 const DEFAULT_PREFERENCES = {
   inputMode: 'miss',
@@ -43,7 +44,7 @@ export function normalizeShapeCounts(value) {
     const count = Number(rawCount);
     if (!match || !Number.isInteger(count)) continue;
     const key = canonicalShapeKey(match[1], match[2]);
-    counts[key] = Math.min(3, Math.max(0, counts[key] + count));
+    counts[key] = Math.min(MAX_SHAPE_COUNT, Math.max(0, counts[key] + count));
   }
   return counts;
 }
@@ -58,11 +59,13 @@ export function parseShapeCountsSpec(text) {
   const source = String(text ?? '').trim();
   if (!source) return counts;
   for (const part of source.split(',')) {
-    const match = part.trim().match(/^([1-4])x([1-4]):([0-3])$/i);
+    const match = part.trim().match(/^([1-4])x([1-4]):(\d+)$/i);
     if (!match) return null;
     const key = canonicalShapeKey(match[1], match[2]);
-    counts[key] += Number(match[3]);
-    if (counts[key] > 3) return null;
+    const count = Number(match[3]);
+    if (count > MAX_SHAPE_COUNT) return null;
+    counts[key] += count;
+    if (counts[key] > MAX_SHAPE_COUNT) return null;
   }
   return counts;
 }
@@ -72,7 +75,7 @@ export function adjustShapeCount(value, key, delta) {
   const canonicalKey = match ? canonicalShapeKey(match[1], match[2]) : '';
   if (!SHAPE_KEYS.includes(canonicalKey)) throw new Error(`未対応の宝形状です: ${key}`);
   const counts = normalizeShapeCounts(value);
-  counts[canonicalKey] = Math.min(3, Math.max(0, counts[canonicalKey] + Number(delta || 0)));
+  counts[canonicalKey] = Math.min(MAX_SHAPE_COUNT, Math.max(0, counts[canonicalKey] + Number(delta || 0)));
   return counts;
 }
 
@@ -437,9 +440,9 @@ function boot() {
   if (!board) return;
   const locale = document.documentElement.lang === 'en' ? 'en' : document.documentElement.lang === 'zh-CN' ? 'zh-CN' : 'ja';
   const pickerText = {
-    ja: { rotatable: '回転可', empty: '宝が選ばれていません', total: (count) => `合計：${count}個`, add: (shape, count) => `${shape}の宝を1個追加。現在${count}個`, remove: (shape) => `${shape}の宝を1個減らす` },
-    en: { rotatable: 'Rotatable', empty: 'No treasures selected', total: (count) => `Total: ${count}`, add: (shape, count) => `Add one ${shape} treasure. Currently ${count}`, remove: (shape) => `Remove one ${shape} treasure` },
-    'zh-CN': { rotatable: '可旋转', empty: '尚未选择宝物', total: (count) => `合计：${count}个`, add: (shape, count) => `添加1个${shape}宝物。当前${count}个`, remove: (shape) => `减少1个${shape}宝物` }
+    ja: { rotatable: '回転可', empty: '宝が選ばれていません', total: (count) => `合計：${count}個`, add: (shape, count) => `${shape}の宝を1個追加。現在${count}個`, remove: (shape) => `${shape}の宝を1個減らす`, maxReached: `この形状は最大${MAX_SHAPE_COUNT}個まで設定できます` },
+    en: { rotatable: 'Rotatable', empty: 'No treasures selected', total: (count) => `Total: ${count}`, add: (shape, count) => `Add one ${shape} treasure. Currently ${count}`, remove: (shape) => `Remove one ${shape} treasure`, maxReached: `You can set up to ${MAX_SHAPE_COUNT} treasures of this shape` },
+    'zh-CN': { rotatable: '可旋转', empty: '尚未选择宝物', total: (count) => `合计：${count}个`, add: (shape, count) => `添加1个${shape}宝物。当前${count}个`, remove: (shape) => `减少1个${shape}宝物`, maxReached: `每种形状最多可设置${MAX_SHAPE_COUNT}个宝物` }
   }[locale];
   const resultText = {
     ja: {
@@ -633,8 +636,8 @@ function boot() {
   }
   function changeShapeCount(key, delta) {
     const current = model.shapeCounts[key];
-    if (delta > 0 && current >= 3) {
-      showPickerStatus('この形状は最大3個まで設定できます', true);
+    if (delta > 0 && current >= MAX_SHAPE_COUNT) {
+      showPickerStatus(pickerText.maxReached, true);
       return;
     }
     model.shapeCounts = adjustShapeCount(model.shapeCounts, key, delta);

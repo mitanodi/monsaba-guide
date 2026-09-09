@@ -7,6 +7,7 @@ import {
   STORAGE_VERSION,
   STATES,
   SHAPE_KEYS,
+  MAX_SHAPE_COUNT,
   adjustShapeCount,
   canonicalShapeKey,
   createDefaultShapeCounts,
@@ -23,6 +24,8 @@ import {
 const root = path.resolve(import.meta.dirname, '..');
 const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
 const html = read('events/treasure-hunt/index.html');
+const enHtml = read('en/events/treasure-hunt/index.html');
+const zhHtml = read('zh-cn/events/treasure-hunt/index.html');
 const js = read('events/treasure-hunt/solver.js');
 const css = read('events/treasure-hunt/solver.css');
 
@@ -266,21 +269,15 @@ test('10種類のcanonical宝形状pickerと宝設定だけのclear操作を公�
 });
 
 for (const key of SHAPE_KEYS) {
-  test(`${key}はカード操作で0→1→2→3、4回目は3、minusで0まで減る`, () => {
+  test(`${key}はカード操作で最大8個まで追加でき、上限超過と負数を防ぐ`, () => {
     let counts = normalizeShapeCounts();
+    for (let count = 1; count <= MAX_SHAPE_COUNT; count += 1) {
+      counts = adjustShapeCount(counts, key, 1);
+      assert.equal(counts[key], count);
+    }
     counts = adjustShapeCount(counts, key, 1);
-    assert.equal(counts[key], 1);
-    counts = adjustShapeCount(counts, key, 1);
-    assert.equal(counts[key], 2);
-    counts = adjustShapeCount(counts, key, 1);
-    assert.equal(counts[key], 3);
-    counts = adjustShapeCount(counts, key, 1);
-    assert.equal(counts[key], 3);
-    counts = adjustShapeCount(counts, key, -1);
-    assert.equal(counts[key], 2);
-    counts = adjustShapeCount(counts, key, -1);
-    assert.equal(counts[key], 1);
-    counts = adjustShapeCount(counts, key, -1);
+    assert.equal(counts[key], MAX_SHAPE_COUNT);
+    counts = adjustShapeCount(counts, key, -MAX_SHAPE_COUNT);
     assert.equal(counts[key], 0);
   });
 }
@@ -289,24 +286,39 @@ test('逆向き入力をcanonical形状へ統合する', () => {
   const counts = normalizeShapeCounts({ '4x2': 1, '2x4': 2, '1x4': 3, '4x1': 1, '3x4': 2, '4x3': 3 });
   const spec = shapeCountsToSpec(counts);
   const restored = parseShapeCountsSpec(spec);
-  assert.equal(spec, '1x4:3, 2x4:3, 3x4:3');
-  assert.equal(restored['1x4'], 3);
+  assert.equal(spec, '1x4:4, 2x4:3, 3x4:5');
+  assert.equal(restored['1x4'], 4);
   assert.equal(restored['2x4'], 3);
-  assert.equal(restored['3x4'], 3);
+  assert.equal(restored['3x4'], 5);
   const shapes = parseSpec('4x2:1, 2x4:1', 6);
   assert.equal(shapes.length, 2);
   assert.ok(shapes.every(({ w, h }) => w === 2 && h === 4));
 });
 
-test('picker specは0〜3を同期し0個を内部specから省く', () => {
+test('picker specは0〜8を同期し0個を内部specから省く', () => {
   const parsed = parseShapeCountsSpec('4x2:2, 3x1:1, 1x1:0');
   assert.equal(parsed['2x4'], 2);
   assert.equal(parsed['1x3'], 1);
   assert.equal(parsed['1x1'], 0);
   assert.equal(shapeCountsToSpec(parsed), '1x3:1, 2x4:2');
-  assert.equal(parseShapeCountsSpec('4x2:4'), null);
+  assert.equal(parseShapeCountsSpec('4x2:9'), null);
   assert.equal(parseShapeCountsSpec('4x2:1, 2x4:2')['2x4'], 3);
-  assert.equal(parseShapeCountsSpec('4x2:2, 2x4:2'), null);
+  assert.equal(parseShapeCountsSpec('4x2:4, 2x4:4')['2x4'], 8);
+  assert.equal(parseShapeCountsSpec('4x2:5, 2x4:4'), null);
+});
+
+test('7x7で1x2を4個と3x4を1個入力して計算できる', () => {
+  const parsed = parseShapeCountsSpec('1x2:4, 3x4:1');
+  assert.equal(parsed['1x2'], 4);
+  assert.equal(parsed['3x4'], 1);
+  assert.equal(shapeCountsToSpec(parsed), '1x2:4, 3x4:1');
+
+  const model = createDefaultModel(7);
+  model.shapeCounts = parsed;
+  model.spec = shapeCountsToSpec(parsed);
+  const result = solveTreasureModel(model);
+  assert.equal(result.treasureArea, 20);
+  assert.ok(result.configurations > 0);
 });
 
 test('canonical shape IDとorientation一覧を返す', () => {
@@ -468,6 +480,10 @@ test('回転可能表示と3言語のUI文言を備える', () => {
   assert.match(js, /Rotatable/);
   assert.match(js, /可旋转/);
   assert.match(html, /長方形のお宝は縦・横どちらの向きも自動で計算します/);
+  assert.match(html, /各形状8個まで/);
+  assert.match(enHtml, /up to eight per shape/);
+  assert.match(zhHtml, /每种形状最多8个/);
+  assert.doesNotMatch(html, /各形状3個まで/);
   assert.doesNotMatch(html, /幅×高さの向きは別々に扱います/);
 });
 
