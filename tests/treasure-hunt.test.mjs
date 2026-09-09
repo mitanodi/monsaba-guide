@@ -17,6 +17,7 @@ import {
   normalizeShapeCounts,
   orientationsForShape,
   placementCells,
+  resolvePlacementAtCell,
   parseSpec,
   parseShapeCountsSpec,
   shapeCountsToSpec,
@@ -512,6 +513,16 @@ test('宝形状を左上マス基準で縦横に配置でき、盤面外を拒�
   assert.deepEqual(placementCells(7, '1x2', 0, true)?.cells, [0, 1]);
   assert.deepEqual(placementCells(7, '3x4', 0, false)?.cells, [0, 1, 2, 7, 8, 9, 14, 15, 16, 21, 22, 23]);
   assert.equal(placementCells(7, '3x4', 5, false), null);
+});
+
+test('盤面端は選択マスを含む位置へ補正し、手動の発見済みマスも形へ取り込む', () => {
+  const cells = Array(25).fill('unknown');
+  cells[23] = 'found';
+  const edge = resolvePlacementAtCell(5, '1x2', 24, true, cells);
+  assert.equal(edge.startIndex, 23);
+  assert.deepEqual(edge.cells, [23, 24]);
+  cells[23] = 'miss';
+  assert.equal(resolvePlacementAtCell(5, '1x2', 24, true, cells), null);
 });
 
 test('配置済み宝は個数上限・重なり・空白セルを検証する', () => {

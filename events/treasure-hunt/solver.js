@@ -96,6 +96,24 @@ export function placementCells(size, key, startIndex, rotated = false) {
   return { width, height, cells };
 }
 
+export function resolvePlacementAtCell(size, key, targetIndex, rotated, cells, occupiedCells = []) {
+  const occupied = new Set(occupiedCells);
+  const isUsable = (footprint) => footprint
+    && !footprint.cells.some((cell) => cells[cell] === 'miss' || occupied.has(cell));
+  const exact = placementCells(size, key, targetIndex, rotated);
+  if (isUsable(exact)) return { startIndex: targetIndex, ...exact };
+
+  const candidates = [];
+  for (let startIndex = 0; startIndex < size * size; startIndex += 1) {
+    const footprint = placementCells(size, key, startIndex, rotated);
+    if (isUsable(footprint) && footprint.cells.includes(targetIndex)) {
+      candidates.push({ startIndex, ...footprint });
+    }
+  }
+  candidates.sort((a, b) => Math.abs(a.startIndex - targetIndex) - Math.abs(b.startIndex - targetIndex));
+  return candidates[0] || null;
+}
+
 export function normalizePlacedTreasures(value, size, shapeCounts, cells = []) {
   const placed = [];
   const used = new Set();
@@ -766,14 +784,14 @@ function boot() {
     const { key, rotated } = selectedPlacement;
     const placedCount = model.placedTreasures.filter((placement) => placement.key === key).length;
     if (placedCount >= model.shapeCounts[key]) return false;
-    const footprint = placementCells(model.size, key, startIndex, rotated);
     const occupied = new Set(model.placedTreasures.flatMap((placement) => placement.cells));
-    if (!footprint || footprint.cells.some((cell) => model.cells[cell] !== 'unknown' || occupied.has(cell))) {
+    const footprint = resolvePlacementAtCell(model.size, key, startIndex, rotated, model.cells, occupied);
+    if (!footprint) {
       showPickerStatus(placementText.invalid, true);
       return false;
     }
     boardSnapshot();
-    const placement = { id: `${key}-${Date.now()}-${model.placedTreasures.length}`, key, startIndex, rotated, ...footprint };
+    const placement = { id: `${key}-${Date.now()}-${model.placedTreasures.length}`, key, startIndex: footprint.startIndex, rotated, ...footprint };
     model.placedTreasures.push(placement);
     footprint.cells.forEach((cell) => { model.cells[cell] = 'found'; });
     selectedPlacement = null;
