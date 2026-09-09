@@ -403,7 +403,9 @@ function bind() {
   });
   $('#team-edit-dialog').addEventListener('close', () => { editingIndex = null; });
   $('#team-undo').addEventListener('click', undo); $('#team-redo').addEventListener('click', redo);
-  $('#team-clear').addEventListener('click', () => { if (team.slots.some(Boolean) && !confirm(COPY.clearConfirm)) return; const next = emptyTeam(); next.mode = team.mode; commit(next, COPY.cleared); $('#team-name').value = ''; });
+  const clearBoard = () => { if (team.slots.some(Boolean) && !confirm(COPY.clearConfirm)) return; const next = emptyTeam(); next.mode = team.mode; commit(next, COPY.cleared); $('#team-name').value = ''; };
+  $('#team-clear').addEventListener('click', clearBoard);
+  $('#team-clear-bottom').addEventListener('click', clearBoard);
   $('#team-new').addEventListener('click', () => { if ((team.slots.some(Boolean) || team.name) && !confirm(COPY.newConfirm)) return; const next = emptyTeam(); next.mode = team.mode; selected = null; movingFrom = null; replacingIndex = null; currentPlayer = 1; currentLevel = 1; commit(next, COPY.cleared); });
   $('#team-mode').addEventListener('change', () => {
     const mode = $('#team-mode').value;

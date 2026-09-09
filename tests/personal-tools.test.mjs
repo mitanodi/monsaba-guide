@@ -178,6 +178,17 @@ test('画像書き出しタイトルは全モード・全言語で現在モー�
   assert.match(read('team-builder/team-builder.js'), /formationExportTitle\(team\.mode, locale\)/);
 });
 
+test('盤面直下にも同じ確認・Undo対応のリセット操作を持つ', () => {
+  for (const path of ['team-builder/index.html', 'en/team-builder/index.html', 'zh-cn/team-builder/index.html']) {
+    const html = read(path);
+    assert.match(html, /id="team-board"[\s\S]*id="team-clear-bottom"[\s\S]*id="team-selection"/);
+  }
+  const source = read('team-builder/team-builder.js');
+  assert.match(source, /const clearBoard = \(\) =>/);
+  assert.match(source, /#team-clear-bottom'\)\.addEventListener\('click', clearBoard\)/);
+  assert.match(source, /commit\(next, COPY\.cleared\)/);
+});
+
 test('編成の配置・stage変更・削除・入替はデータ構造で保持', () => {
   let team = placeMember(emptyTeam(), 0, { familyId: first.id, stage: 1, playerId: 1, level: 1 }, families);
   team = placeMember(team, 0, { familyId: first.id, stage: 4, playerId: 1, level: 7 }, families);
