@@ -573,6 +573,15 @@ function boot() {
   mobileViewport.addEventListener?.('change', syncMobileCalculate);
   syncMobileCalculate();
   $('.input-palette').append(mobileCalculate);
+  const boardActionText = {
+    ja: { restore: '復元', reset: '全てをリセット' },
+    en: { restore: 'Restore', reset: 'Reset All' },
+    'zh-CN': { restore: '恢复', reset: '全部重置' }
+  }[locale];
+  const boardActions = document.createElement('div');
+  boardActions.className = 'board-reset-actions';
+  boardActions.innerHTML = `<button id="restoreBelowBoard" class="ghost-button" type="button">${boardActionText.restore}</button><button id="resetBelowBoard" class="ghost-button board-reset-all" type="button">${boardActionText.reset}</button>`;
+  board.after(boardActions);
 
   let model = createDefaultModel();
   let history = [];
@@ -613,7 +622,9 @@ function boot() {
     return ['①', '②', '③', '④', '⑤'][Math.min(Math.max(rank, 1), 5) - 1];
   }
   function updateUndoState() {
-    $('#undo').disabled = history.length === 0;
+    const disabled = history.length === 0;
+    $('#undo').disabled = disabled;
+    $('#restoreBelowBoard').disabled = disabled;
   }
   function syncControls() {
     $('#boardSize').value = String(model.size);
@@ -1204,6 +1215,28 @@ function boot() {
     syncControls();
     buildBoard();
   }
+  function undoLastInput() {
+    const snapshot = history.pop();
+    if (!snapshot) return;
+    restoreSnapshot(snapshot);
+    showStatus('直前の入力を戻しました', '必要なら続けて復元できます。');
+    $('#undo').classList.remove('is-attention');
+    updateUndoState();
+    if (model.preferences.autoCalculate) scheduleCalculate();
+  }
+  function resetBoard() {
+    if (!window.confirm('本当に盤面をすべてリセットしますか？')) return;
+    model.cells = Array(model.size * model.size).fill('unknown');
+    model.placedTreasures = [];
+    history = [];
+    save();
+    clearResult();
+    buildBoard();
+    renderShapePicker();
+    renderFoundShapeChooser();
+    updateUndoState();
+    showStatus('盤面をすべてリセットしました', '入力モード・宝の形と個数・表示設定はそのままです。');
+  }
 
   document.querySelectorAll('[data-input-mode]').forEach((button) => {
     button.addEventListener('click', () => syncPreference('inputMode', button.dataset.inputMode));
@@ -1240,26 +1273,10 @@ function boot() {
   $('#autoCalculate').addEventListener('change', (event) => syncPreference('autoCalculate', event.target.checked));
   $('#calculate').addEventListener('click', calculate);
   $('#calculateMobile').addEventListener('click', calculate);
-  $('#undo').addEventListener('click', () => {
-    const snapshot = history.pop();
-    if (!snapshot) return;
-    restoreSnapshot(snapshot);
-    showStatus('直前の入力を戻しました', '必要なら続けてUndoできます。');
-    $('#undo').classList.remove('is-attention');
-    updateUndoState();
-    if (model.preferences.autoCalculate) scheduleCalculate();
-  });
-  $('#reset').addEventListener('click', () => {
-    if (!window.confirm('本当に盤面をリセットしますか？')) return;
-    model.cells = Array(model.size * model.size).fill('unknown');
-    model.placedTreasures = [];
-    history = [];
-    save();
-    clearResult();
-    buildBoard();
-    updateUndoState();
-    showStatus('盤面をリセットしました', '入力モードと表示設定はそのままです。');
-  });
+  $('#undo').addEventListener('click', undoLastInput);
+  $('#restoreBelowBoard').addEventListener('click', undoLastInput);
+  $('#reset').addEventListener('click', resetBoard);
+  $('#resetBelowBoard').addEventListener('click', resetBoard);
   restore();
   syncControls();
   updateUndoState();

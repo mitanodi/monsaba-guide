@@ -259,7 +259,7 @@ test('Undoは1操作分の盤面snapshotを復元する', () => {
 });
 
 test('Resetは確認後に履歴と計算結果を消す', () => {
-  assert.match(js, /confirm\('本当に盤面をリセットしますか？'\)/);
+  assert.match(js, /confirm\('本当に盤面をすべてリセットしますか？'\)/);
   assert.match(js, /history = \[\]/);
   assert.match(js, /clearResult\(\)/);
 });
@@ -533,6 +533,16 @@ test('盤面端は選択マスを含む位置へ補正し、手動の発見済�
   assert.deepEqual(edge.cells, [23, 24]);
   cells[23] = 'miss';
   assert.equal(resolvePlacementAtCell(5, '1x2', 24, true, cells), null);
+});
+
+test('盤面直下に復元とすべてをリセットする操作を置く', () => {
+  assert.match(js, /restoreBelowBoard/);
+  assert.match(js, /resetBelowBoard/);
+  assert.match(js, /復元/);
+  assert.match(js, /全てをリセット/);
+  assert.match(js, /addEventListener\('click', undoLastInput\)/);
+  assert.match(js, /addEventListener\('click', resetBoard\)/);
+  assert.match(css, /\.board-reset-actions/);
 });
 
 test('空白マスは後から発見済みの宝形状で上書きできる', () => {
