@@ -444,7 +444,7 @@
     {
       "officialTataName": "パチルフ",
       "familyId": "denrou",
-      "databaseTataName": "ライロウ",
+      "databaseTataName": "パチルフ",
       "stage": 1,
       "mappingStatus": "official-name-review",
       "direction": "up",
@@ -754,7 +754,7 @@
     {
       "officialTataName": "ワンブー",
       "familyId": "kunbuu",
-      "databaseTataName": "ワンブー",
+      "databaseTataName": "クンブー",
       "stage": 1,
       "mappingStatus": "official-name-review",
       "direction": "down",
@@ -804,7 +804,7 @@
     {
       "officialTataName": "フクロウグモ",
       "familyId": "fukurogumo",
-      "databaseTataName": "フクログモ",
+      "databaseTataName": "フクロクモ",
       "stage": 1,
       "mappingStatus": "official-name-review",
       "direction": "up",
@@ -979,7 +979,7 @@
     {
       "officialTataName": "シズクジ",
       "familyId": "shizukuchou",
-      "databaseTataName": "シズクムシ",
+      "databaseTataName": "シズクジ",
       "stage": 1,
       "mappingStatus": "official-name-review",
       "direction": "down",
@@ -1034,7 +1034,7 @@
     {
       "officialTataName": "ププンク",
       "familyId": "pupunku",
-      "databaseTataName": "ププスカンク",
+      "databaseTataName": "ププンク",
       "stage": 1,
       "mappingStatus": "official-name-review",
       "direction": "up",
@@ -1224,7 +1224,7 @@
     {
       "officialTataName": "ビリモ",
       "familyId": "birimori",
-      "databaseTataName": "ビリリモリ",
+      "databaseTataName": "ビリモ",
       "stage": 1,
       "mappingStatus": "official-name-review",
       "direction": "down",

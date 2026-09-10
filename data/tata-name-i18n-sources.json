@@ -124,7 +124,7 @@
     {
       "familyId": "birimori",
       "stage": 1,
-      "japaneseName": "ビリリモリ",
+      "japaneseName": "ビリモ",
       "englishName": "Zaplet",
       "englishSourcePage": 115,
       "simplifiedChineseName": "电音蝠",
@@ -139,7 +139,7 @@
     {
       "familyId": "birimori",
       "stage": 2,
-      "japaneseName": "パルバット",
+      "japaneseName": "ビリモリ",
       "englishName": "Synthhog",
       "englishSourcePage": 116,
       "simplifiedChineseName": "电波蝠",
@@ -154,7 +154,7 @@
     {
       "familyId": "birimori",
       "stage": 3,
-      "japaneseName": "ヴァンパルス",
+      "japaneseName": "パルバット",
       "englishName": "Sonarbat",
       "englishSourcePage": 117,
       "simplifiedChineseName": "大雷音蝠",
@@ -170,7 +170,7 @@
       "familyId": "birimori",
       "stage": 4,
       "japaneseName": "ヴァンパルス",
-      "englishName": "夜翼领主",
+      "englishName": "Umbraveil",
       "englishSourcePage": 119,
       "simplifiedChineseName": "夜翼领主",
       "chineseSourcePage": 84,
@@ -184,7 +184,7 @@
     {
       "familyId": "birinamazu",
       "stage": 1,
-      "japaneseName": "ノロナマズ",
+      "japaneseName": "ノロマズ",
       "englishName": "Wobbler",
       "englishSourcePage": 217,
       "simplifiedChineseName": "呆呆鱼",
@@ -319,7 +319,7 @@
     {
       "familyId": "boruzarashi",
       "stage": 4,
-      "japaneseName": "ダイドオウ",
+      "japaneseName": "ダイドウオウ",
       "englishName": "Sealord",
       "englishSourcePage": 63,
       "simplifiedChineseName": "幻海狮王",
@@ -424,7 +424,7 @@
     {
       "familyId": "denjika",
       "stage": 3,
-      "japaneseName": "ジバシカ",
+      "japaneseName": "ジバジカ",
       "englishName": "Zapantler",
       "englishSourcePage": 58,
       "simplifiedChineseName": "磁角电鹿",
@@ -439,7 +439,7 @@
     {
       "familyId": "denjika",
       "stage": 4,
-      "japaneseName": "マグネイクス",
+      "japaneseName": "マグネクス",
       "englishName": "Magnedart",
       "englishSourcePage": 59,
       "simplifiedChineseName": "电鹿族长",
@@ -454,7 +454,7 @@
     {
       "familyId": "denrou",
       "stage": 1,
-      "japaneseName": "ライロウ",
+      "japaneseName": "パチルフ",
       "englishName": "Voltkit",
       "englishSourcePage": 76,
       "simplifiedChineseName": "小电狼",
@@ -484,7 +484,7 @@
     {
       "familyId": "denrou",
       "stage": 3,
-      "japaneseName": "ジンロウ",
+      "japaneseName": "ライロウ",
       "englishName": "Voltverine",
       "englishSourcePage": 78,
       "simplifiedChineseName": "疾风电狼",
@@ -724,7 +724,7 @@
     {
       "familyId": "fukurogumo",
       "stage": 1,
-      "japaneseName": "フクログモ",
+      "japaneseName": "フクロクモ",
       "englishName": "Sackling",
       "englishSourcePage": 152,
       "simplifiedChineseName": "叶露蛛",
@@ -1144,7 +1144,7 @@
     {
       "familyId": "guuhog",
       "stage": 1,
-      "japaneseName": "サボリトゲ",
+      "japaneseName": "ハリネム",
       "englishName": "Dozy",
       "englishSourcePage": 225,
       "simplifiedChineseName": "打盹刺",
@@ -1159,7 +1159,7 @@
     {
       "familyId": "guuhog",
       "stage": 2,
-      "japaneseName": "アクビトゲ",
+      "japaneseName": "グウホッグ",
       "englishName": "Snoozebo",
       "englishSourcePage": 226,
       "simplifiedChineseName": "呼噜刺",
@@ -1204,7 +1204,7 @@
     {
       "familyId": "haamitora",
       "stage": 3,
-      "japaneseName": "マスタイガー",
+      "japaneseName": "ゼンガー",
       "englishName": "Taiglow",
       "englishSourcePage": 27,
       "simplifiedChineseName": "焰虎大师",
@@ -1264,7 +1264,7 @@
     {
       "familyId": "hihidog",
       "stage": 1,
-      "japaneseName": "ビパピー",
+      "japaneseName": "ヒパピー",
       "englishName": "Zapup",
       "englishSourcePage": 221,
       "simplifiedChineseName": "电嘟狗",
@@ -1324,7 +1324,7 @@
     {
       "familyId": "hikaru",
       "stage": 3,
-      "japaneseName": "ルシフタル",
+      "japaneseName": "ルシフェル",
       "englishName": "Glimmerwing",
       "englishSourcePage": 183,
       "simplifiedChineseName": "曜光萤",
@@ -1444,7 +1444,7 @@
     {
       "familyId": "himawarin",
       "stage": 3,
-      "japaneseName": "サーフワリン",
+      "japaneseName": "サーフクリン",
       "englishName": "Solaflora",
       "englishSourcePage": 42,
       "simplifiedChineseName": "冲浪葵",
@@ -1459,7 +1459,7 @@
     {
       "familyId": "himawarin",
       "stage": 4,
-      "japaneseName": "サンフワリン",
+      "japaneseName": "サンフクリン",
       "englishName": "Heliabloom",
       "englishSourcePage": 43,
       "simplifiedChineseName": "逐日金葵",
@@ -1489,7 +1489,7 @@
     {
       "familyId": "himori",
       "stage": 2,
-      "japaneseName": "ツノイモリ",
+      "japaneseName": "フレイモリ",
       "englishName": "Ignisnap",
       "englishSourcePage": 53,
       "simplifiedChineseName": "蓝角蝾螈",
@@ -1504,7 +1504,7 @@
     {
       "familyId": "himori",
       "stage": 3,
-      "japaneseName": "フレイドラ",
+      "japaneseName": "ボルケザード",
       "englishName": "Azurion",
       "englishSourcePage": 54,
       "simplifiedChineseName": "焰尾龙",
@@ -1549,7 +1549,7 @@
     {
       "familyId": "hinyao",
       "stage": 2,
-      "japaneseName": "マネビネコ",
+      "japaneseName": "マネヒネコ",
       "englishName": "Nekoflare",
       "englishSourcePage": 113,
       "simplifiedChineseName": "火财喵",
@@ -1729,7 +1729,7 @@
     {
       "familyId": "korokon",
       "stage": 1,
-      "japaneseName": "タマキツネ",
+      "japaneseName": "コロコン",
       "englishName": "Sparkit",
       "englishSourcePage": 189,
       "simplifiedChineseName": "球球狐",
@@ -1744,7 +1744,7 @@
     {
       "familyId": "korokon",
       "stage": 2,
-      "japaneseName": "ニコキツネ",
+      "japaneseName": "ニコン",
       "englishName": "Flametail",
       "englishSourcePage": 190,
       "simplifiedChineseName": "眯眯狐",
@@ -1759,7 +1759,7 @@
     {
       "familyId": "korokon",
       "stage": 3,
-      "japaneseName": "ミセキツネ",
+      "japaneseName": "ヨウエンビ",
       "englishName": "Flarevix",
       "englishSourcePage": 191,
       "simplifiedChineseName": "艳尾狐",
@@ -1819,7 +1819,7 @@
     {
       "familyId": "korotama",
       "stage": 3,
-      "japaneseName": "スカリギオ",
+      "japaneseName": "スカラーべ",
       "englishName": "Zenscarab",
       "englishSourcePage": 202,
       "simplifiedChineseName": "施课郎",
@@ -1864,7 +1864,7 @@
     {
       "familyId": "kowagaru",
       "stage": 2,
-      "japaneseName": "ボコガルー",
+      "japaneseName": "ツヨガルー",
       "englishName": "Puncharoo",
       "englishSourcePage": 141,
       "simplifiedChineseName": "拳击袋",
@@ -1909,7 +1909,7 @@
     {
       "familyId": "kunbuu",
       "stage": 1,
-      "japaneseName": "ワンブー",
+      "japaneseName": "クンブー",
       "englishName": "Souphog",
       "englishSourcePage": 148,
       "simplifiedChineseName": "碗仔猪",
@@ -1954,7 +1954,7 @@
     {
       "familyId": "kunbuu",
       "stage": 4,
-      "japaneseName": "グリルブー",
+      "japaneseName": "カロリキング",
       "englishName": "Searhog",
       "englishSourcePage": 151,
       "simplifiedChineseName": "煎扒猪",
@@ -2104,7 +2104,7 @@
     {
       "familyId": "mogurin",
       "stage": 2,
-      "japaneseName": "モグテント",
+      "japaneseName": "モグデント",
       "englishName": "Watchroo",
       "englishSourcePage": 137,
       "simplifiedChineseName": "前哨鼠",
@@ -2179,7 +2179,7 @@
     {
       "familyId": "mumukaba",
       "stage": 3,
-      "japaneseName": "モンロンバ",
+      "japaneseName": "モンローバ",
       "englishName": "Lilypo",
       "englishSourcePage": 209,
       "simplifiedChineseName": "丽丽河马",
@@ -2359,7 +2359,7 @@
     {
       "familyId": "nenbutsuhebi",
       "stage": 3,
-      "japaneseName": "ナムアミダイジャ",
+      "japaneseName": "ボンノオロチ",
       "englishName": "Clangnaga",
       "englishSourcePage": 74,
       "simplifiedChineseName": "德思内克",
@@ -2509,7 +2509,7 @@
     {
       "familyId": "pupunku",
       "stage": 1,
-      "japaneseName": "ププスカンク",
+      "japaneseName": "ププンク",
       "englishName": "Fumekit",
       "englishSourcePage": 168,
       "simplifiedChineseName": "噗噗鼬",
@@ -2524,7 +2524,7 @@
     {
       "familyId": "pupunku",
       "stage": 2,
-      "japaneseName": "クサスカンク",
+      "japaneseName": "クサンク",
       "englishName": "Sulfunk",
       "englishSourcePage": 169,
       "simplifiedChineseName": "臭屁鼬",
@@ -2539,7 +2539,7 @@
     {
       "familyId": "pupunku",
       "stage": 3,
-      "japaneseName": "ドカスカンク",
+      "japaneseName": "マグマスク",
       "englishName": "Magmusk",
       "englishSourcePage": 170,
       "simplifiedChineseName": "爆火鼬",
@@ -2884,7 +2884,7 @@
     {
       "familyId": "shizukuchou",
       "stage": 1,
-      "japaneseName": "シズクムシ",
+      "japaneseName": "シズクジ",
       "englishName": "Dewgrub",
       "englishSourcePage": 29,
       "simplifiedChineseName": "露水虫",
@@ -2959,7 +2959,7 @@
     {
       "familyId": "sukedako",
       "stage": 3,
-      "japaneseName": "オクドーム",
+      "japaneseName": "オクトーム",
       "englishName": "Fishopus",
       "englishSourcePage": 179,
       "simplifiedChineseName": "不是章鱼",
@@ -2989,7 +2989,7 @@
     {
       "familyId": "tafupen",
       "stage": 1,
-      "japaneseName": "トコペンギン",
+      "japaneseName": "トコペン",
       "englishName": "Waddledo",
       "englishSourcePage": 64,
       "simplifiedChineseName": "企呼呼",
@@ -3004,7 +3004,7 @@
     {
       "familyId": "tafupen",
       "stage": 2,
-      "japaneseName": "タフペンギン",
+      "japaneseName": "タフペン",
       "englishName": "Swaystroll",
       "englishSourcePage": 65,
       "simplifiedChineseName": "企鼓鼓",
@@ -3019,7 +3019,7 @@
     {
       "familyId": "tafupen",
       "stage": 3,
-      "japaneseName": "フブペンギン",
+      "japaneseName": "フブペン",
       "englishName": "Stoodbeak",
       "englishSourcePage": 66,
       "simplifiedChineseName": "企汹汹",
@@ -3094,7 +3094,7 @@
     {
       "familyId": "takepanda",
       "stage": 4,
-      "japaneseName": "パンダオウ",
+      "japaneseName": "バンブオウ",
       "englishName": "Pandagrand",
       "englishSourcePage": 83,
       "simplifiedChineseName": "熊猫大侠",
@@ -3139,7 +3139,7 @@
     {
       "familyId": "togegyo",
       "stage": 3,
-      "japaneseName": "ガイセーン",
+      "japaneseName": "ガイアーマ",
       "englishName": "Armorjaw",
       "englishSourcePage": 122,
       "simplifiedChineseName": "铠骨鱼",
@@ -3199,7 +3199,7 @@
     {
       "familyId": "tsubaruka",
       "stage": 3,
-      "japaneseName": "フォレスタルパ",
+      "japaneseName": "ビチャルパカ",
       "englishName": "Ptooielama",
       "englishSourcePage": 96,
       "simplifiedChineseName": "啊呸驼",
@@ -3229,7 +3229,7 @@
     {
       "familyId": "tsubutsumuri",
       "stage": 2,
-      "japaneseName": "イシツムリ",
+      "japaneseName": "ジェムツムリ",
       "englishName": "Gemsnail",
       "englishSourcePage": 157,
       "simplifiedChineseName": "晶石蜗牛",
@@ -3349,7 +3349,7 @@
     {
       "familyId": "yaminome",
       "stage": 2,
-      "japaneseName": "ヤミノハナ",
+      "japaneseName": "ヤミハナ",
       "englishName": "Snapshade",
       "englishSourcePage": 129,
       "simplifiedChineseName": "幽影花",
@@ -3364,7 +3364,7 @@
     {
       "familyId": "yaminome",
       "stage": 3,
-      "japaneseName": "マカマンドラ",
+      "japaneseName": "ヤミマンドラ",
       "englishName": "Thornwisp",
       "englishSourcePage": 130,
       "simplifiedChineseName": "幻影花",
@@ -3379,7 +3379,7 @@
     {
       "familyId": "yaminome",
       "stage": 4,
-      "japaneseName": "マカマドウケ",
+      "japaneseName": "ダークラウン",
       "englishName": "Chomperwraith",
       "englishSourcePage": 131,
       "simplifiedChineseName": "秘影花灵",
@@ -3424,7 +3424,7 @@
     {
       "familyId": "yanzaru",
       "stage": 3,
-      "japaneseName": "エテコウハ",
+      "japaneseName": "イビルザル",
       "englishName": "Rockwu",
       "englishSourcePage": 3,
       "simplifiedChineseName": "天命吗喽",

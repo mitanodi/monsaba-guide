@@ -20,6 +20,7 @@ const json = (file) => JSON.parse(read(file));
 const tatari = json('data/tatari.json');
 const skills = json('data/tata-skills.json');
 const source = json('data/tata-name-i18n-sources.json');
+const currentJapaneseNames = json('data/tata-japanese-name-corrections-2026-09-10.json');
 const totalForms = tatari.families.reduce((total, family) => total + family.evolutions.length, 0);
 const cloneFixture = () => ({
   source: structuredClone(source),
@@ -143,5 +144,58 @@ test('all generated locale detail cards show both official names without replaci
         assert.ok(html.includes(`简体中文:</b> ${evolution.nameZhHans}`), `${localePath}:${family.id}:T${evolution.stage}:zh-CN`);
       }
     }
+  }
+});
+
+test('independent current-name fixture protects externally confirmed Japanese names and stages', () => {
+  for (const expected of currentJapaneseNames.corrections) {
+    const family = tatari.families.find((item) => item.id === expected.familyId);
+    const evolution = family?.evolutions.find((item) => item.stage === expected.stage);
+    assert.ok(evolution, `${expected.familyId}:T${expected.stage}`);
+    assert.equal(evolution.name, expected.name, `${expected.familyId}:T${expected.stage}:ja`);
+    if (expected.englishName) assert.equal(evolution.nameEn, expected.englishName, `${expected.familyId}:T${expected.stage}:en`);
+    assert.equal(getFamilyDisplayName(family), family.evolutions[0].name, `${expected.familyId}:family-display`);
+  }
+});
+
+test('seven priority families have the reviewed stage chains and legacy names remain searchable', () => {
+  const expected = {
+    korotama: ['コロタマ', 'コロロック', 'スカラーべ', 'スカリギオ'],
+    yanzaru: ['ヤンザル', 'ワルキー', 'イビルザル', 'サルタイセイ'],
+    birimori: ['ビリモ', 'ビリモリ', 'パルバット', 'ヴァンパルス'],
+    korokon: ['コロコン', 'ニコン', 'ヨウエンビ', 'キツネビア'],
+    himori: ['ヒモリ', 'フレイモリ', 'ボルケザード', 'インフェルドラ'],
+    tafupen: ['トコペン', 'タフペン', 'フブペン', 'ペンペラー'],
+    shizukuchou: ['シズクジ', 'シズクチョウ', 'ミストリア']
+  };
+  for (const [familyId, chain] of Object.entries(expected)) {
+    const family = tatari.families.find((item) => item.id === familyId);
+    assert.deepEqual(family.evolutions.map((item) => item.name), chain, familyId);
+    assert.equal(getFamilyDisplayName(family), chain[0], `${familyId}:T1 family label`);
+  }
+  const legacy = {
+    korotama: ['スカリギオ'],
+    yanzaru: ['エテコウハ'],
+    birimori: ['ビリリモリ'],
+    korokon: ['タマキツネ', 'ニコキツネ', 'ミセキツネ'],
+    himori: ['ツノイモリ', 'フレイドラ'],
+    tafupen: ['トコペンギン', 'タフペンギン', 'フブペンギン'],
+    shizukuchou: ['シズクムシ']
+  };
+  for (const [familyId, names] of Object.entries(legacy)) {
+    const family = tatari.families.find((item) => item.id === familyId);
+    const aliases = getFamilySearchAliases(family);
+    for (const name of names) assert.ok(aliases.includes(name), `${familyId}:${name}`);
+  }
+});
+
+test('no stage name is silently copied to another stage and pending evolutions stay unavailable', () => {
+  for (const family of tatari.families) {
+    const names = family.evolutions.map((item) => item.name);
+    assert.equal(new Set(names).size, names.length, `${family.id}: duplicate Japanese stage name`);
+  }
+  for (const pending of currentJapaneseNames.pending) {
+    const family = tatari.families.find((item) => item.id === pending.familyId);
+    assert.equal(family.evolutions.some((item) => item.stage === pending.stage), false, `${pending.familyId}:T${pending.stage}:pending`);
   }
 });

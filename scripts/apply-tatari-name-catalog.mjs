@@ -5,6 +5,7 @@ const root=path.resolve(import.meta.dirname,'..');
 const read=file=>JSON.parse(fs.readFileSync(path.join(root,file),'utf8'));
 const write=(file,data)=>fs.writeFileSync(path.join(root,file),`${JSON.stringify(data,null,2)}\n`);
 const catalog=read('data/tatari-name-catalog.json');
+const currentJapaneseNames=read('data/tata-japanese-name-corrections-2026-09-10.json');
 const tatari=read('data/tatari.json');
 const skills=read('data/tata-skills.json');
 const source=read('data/tata-name-i18n-sources.json');
@@ -14,6 +15,18 @@ const assetMap=read('data/official-assets/tata-source-map.json');
 const dictionaries={en:read('data/i18n/en.json'),'zh-CN':read('data/i18n/zh-CN.json')};
 const families=new Map(tatari.families.map(f=>[f.id,f]));
 const sourceRows=new Map(source.forms.map(row=>[`${row.familyId}:${row.stage}`,row]));
+
+const catalogRows=new Map(catalog.names.filter(item=>item.existingFamilyId).map(item=>[`${item.existingFamilyId}:${item.existingStage}`,item]));
+for(const correction of currentJapaneseNames.corrections){
+  const key=`${correction.familyId}:${correction.stage}`;
+  const item=catalogRows.get(key);
+  if(!item) throw new Error(`Unresolved current Japanese name correction ${key}`);
+  if(item.japaneseName!==correction.name){
+    item.previousJapaneseName=item.japaneseName;
+    item.japaneseName=correction.name;
+  }
+  if(correction.englishName) item.englishName=correction.englishName;
+}
 
 for(const item of catalog.names.filter(item=>item.existingFamilyId)){
   const family=families.get(item.existingFamilyId);

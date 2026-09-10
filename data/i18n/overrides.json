@@ -175,7 +175,19 @@
     "で確認します。": ".",
     "で確認してください。": ".",
     "を確認してください。": ".",
-    "をLv5へ上げる立ち回りが紹介されている。プラビ系のLv5強化は、ボスラッシュを耐えるための重要なポイントになる。環境・編成で最適タイミングは変わるため、あくまで目安として見る。": "The referenced strategy raises this Tatari to Lv. 5. Strengthening the プラビ family to Lv. 5 can be important for surviving Boss Rush. The best timing depends on your environment and team, so treat this as a guideline."
+    "をLv5へ上げる立ち回りが紹介されている。プラビ系のLv5強化は、ボスラッシュを耐えるための重要なポイントになる。環境・編成で最適タイミングは変わるため、あくまで目安として見る。": "The referenced strategy raises this Tatari to Lv. 5. Strengthening the プラビ family to Lv. 5 can be important for surviving Boss Rush. The best timing depends on your environment and team, so treat this as a guideline.",
+    "モンサバ お宝探しソルバー": "Clash of Critters Treasure Hunt Solver",
+    "お宝探しソルバー": "Treasure Hunt Solver",
+    "モンサバ お宝探しソルバー｜おすすめマス確率計算": "Clash of Critters Treasure Hunt Solver | Best-Square Probability",
+    "入力するたびに確率が自動更新されます": "Probabilities update automatically as you enter information",
+    "お宝探しソルバーを使う": "Open the Treasure Hunt Solver",
+    "お宝探し": "Treasure Hunt",
+    "茶色の宝箱": "Brown Treasure Chest",
+    "青い宝箱": "Blue Treasure Chest",
+    "金色の宝箱": "Gold Treasure Chest",
+    "ツルハシ": "Pickaxe",
+    "Playerと進化段階を選ぶと、空きマスへランダム配置します。ゾンビラッシュではLvとチップも設定できます。": "Choose a player and evolution stage to place the Tatari in a random empty slot. Zombie Rush also lets you set its level and chip.",
+    "盤面をリセット": "Reset Board"
   },
   "zh-CN": {
     "公式クリエイター素材": "官方创作者素材",
@@ -341,6 +353,18 @@
     "魔法の農場リメイク": "魔法の農場リメイク",
     "をLv5へ上げる立ち回りが紹介されている。プラビ系のLv5強化は、ボスラッシュを耐えるための重要なポイントになる。環境・編成で最適タイミングは変わるため、あくまで目安として見る。": "参考攻略介绍了将该 Tatari 提升至 Lv.5 的打法。プラビ系的 Lv.5 强化是承受 Boss Rush 的重要环节。最佳时机会因环境和阵容而异，请仅作为参考。",
     "サンドワームゾンビ": "サンドワームゾンビ",
-    "スノーフィストゾンビ": "スノーフィストゾンビ"
+    "スノーフィストゾンビ": "スノーフィストゾンビ",
+    "モンサバ お宝探しソルバー": "Clash of Critters 寻宝求解器",
+    "お宝探しソルバー": "寻宝求解器",
+    "モンサバ お宝探しソルバー｜おすすめマス確率計算": "Clash of Critters 寻宝求解器｜推荐方格概率",
+    "入力するたびに確率が自動更新されます": "每次输入后都会自动更新概率",
+    "お宝探しソルバーを使う": "使用寻宝求解器",
+    "お宝探し": "寻宝",
+    "茶色の宝箱": "棕色宝箱",
+    "青い宝箱": "蓝色宝箱",
+    "金色の宝箱": "金色宝箱",
+    "ツルハシ": "十字镐",
+    "Playerと進化段階を選ぶと、空きマスへランダム配置します。ゾンビラッシュではLvとチップも設定できます。": "选择玩家和进化阶段后，会随机放入一个空位。Zombie Rush 中还可设置等级和芯片。",
+    "盤面をリセット": "重置阵容盘"
   }
 }

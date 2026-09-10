@@ -71,7 +71,7 @@ for(const item of predictions){
   expect(['大幅上昇','上昇','維持','下降','大幅下降','実質下降'].includes(item.movement),`${item.familyId}: 変動表記が不正です`);
 }
 
-for(const [id,name] of Object.entries({denjika:'ビリジカ',shizukuchou:'シズクムシ',nenbutsuhebi:'ボウズヘビ',fukurogumo:'フクログモ',shiiparusu:'ライメー',kunbuu:'ワンブー'})){
+for(const [id,name] of Object.entries({denjika:'ビリジカ',shizukuchou:'シズクジ',nenbutsuhebi:'ボウズヘビ',fukurogumo:'フクロクモ',shiiparusu:'ライメー',kunbuu:'クンブー'})){
   expect(byId.get(id)?.evolutions?.[0]?.name===name,`${id}: 現在確認済みのstage 1名 ${name} が維持されていません`);
 }
 expect(script.includes('getFamilyDisplayLabel(family)')&&!script.includes('officialTataName)}系'), 'カード表示がstage 1名 + 系ルールを使っていません');
