@@ -11,7 +11,7 @@ import {
   TEAM_KEY, DRAFT_KEY, TEAM_VERSION, SHARE_VERSION, TEAM_ROWS, TEAM_COLUMNS, TEAM_SLOTS, STANDARD_TEAM_ROWS, STANDARD_TEAM_COLUMNS, STANDARD_TEAM_SLOTS, DOJO_TEAM_ROWS, DOJO_TEAM_COLUMNS, DOJO_TEAM_SLOTS, MAX_SAVED_TEAMS, emptyTeam, sanitizeTeam,
   loadTeams, loadDraft, saveDraft, saveTeamList, upsertTeam, placeMember, randomPlacementIndex, copyMemberToPlayer, togglePlayerChip, removeMember, moveMember,
   placementIssue, setPlayerUnlock, playerCount, playerLimit, levelLimit, MODE_PLAYER_LIMITS, activePlayerIds,
-  encodeTeam, decodeTeam, analyzeTeam, teamText, stageImageFor, stage1ImageFor, formationExportTitle, switchModeDraft, saveModeDrafts, loadModeDrafts, boardRows, boardColumns, boardSlotCount
+  encodeTeam, decodeTeam, analyzeTeam, teamText, stageImageFor, stage1ImageFor, formationExportTitle, formationContextLabel, switchModeDraft, saveModeDrafts, loadModeDrafts, boardRows, boardColumns, boardSlotCount
 } from '../team-builder/team-core.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -175,7 +175,22 @@ test('画像書き出しタイトルは全モード・全言語で現在モー�
   assert.deepEqual(['free', 'normal', 'zombie', 'dojo', 'boss'].map((mode) => formationExportTitle(mode, 'zh-CN')), [
     '自由阵容', '普通阵容', 'Zombie Rush阵容', '徽章道场阵容', '首领集结阵容'
   ]);
-  assert.match(read('team-builder/team-builder.js'), /formationExportTitle\(team\.mode, locale\)/);
+  assert.equal(formationExportTitle({ ...emptyTeam(), mode: 'free' }, 'ja'), '');
+  assert.equal(formationExportTitle({ ...emptyTeam(), mode: 'boss', name: '対社長・周回編成' }, 'ja'), '対社長・周回編成');
+  assert.match(read('team-builder/team-builder.js'), /formationExportTitle\(team, locale\)/);
+});
+
+test('モード別の対象と任意補足を共有・画像ラベルへ保持する', () => {
+  const team = emptyTeam(); team.mode = 'boss'; team.context = { bossId: 'tire', dojoAttribute: null, normalStage: '', note: '耐久重視' };
+  const restored = decodeTeam(encodeTeam(team, families, chips), families, chips);
+  assert.deepEqual(restored.context, team.context);
+  assert.equal(formationContextLabel(restored, 'ja'), 'タイヤゾンビ｜耐久重視');
+  const dojo = sanitizeTeam({ ...emptyTeam(), mode: 'dojo', context: { dojoAttribute: 'thunder' } }, families);
+  assert.equal(formationContextLabel(dojo, 'ja'), '雷道場');
+  const normal = sanitizeTeam({ ...emptyTeam(), mode: 'normal', context: { normalStage: '3-10' } }, families);
+  assert.equal(formationContextLabel(normal, 'ja'), 'ステージ 3-10');
+  const source = read('team-builder/team-builder.js');
+  assert.match(source, /タイヤゾンビ/); assert.match(source, /炎道場/); assert.match(source, /水道場/); assert.match(source, /雷道場/); assert.match(source, /岩道場/);
 });
 
 test('盤面直下にも同じ確認・Undo対応のリセット操作を持つ', () => {

@@ -5,8 +5,8 @@ export const TEAM_KEY = 'monsabaTeamBuilds:v1';
 export const DRAFT_KEY = 'monsabaFormationDraft:v2';
 export const MODE_DRAFTS_KEY = 'monsabaFormationModeDrafts:v1';
 export const HANDOFF_KEY = 'monsabaBoardTeamHandoff:v1';
-export const TEAM_VERSION = 3;
-export const SHARE_VERSION = 4;
+export const TEAM_VERSION = 4;
+export const SHARE_VERSION = 5;
 export const TEAM_ROWS = 6;
 export const TEAM_COLUMNS = 6;
 export const TEAM_SLOTS = TEAM_ROWS * TEAM_COLUMNS;
@@ -31,9 +31,25 @@ const MODE_EXPORT_LABELS = Object.freeze({
   en: { free: 'Free formation', normal: 'Normal formation', zombie: 'Zombie Rush formation', dojo: 'Badge Dojo formation', boss: 'Boss Rally formation' },
   'zh-CN': { free: '自由阵容', normal: '普通阵容', zombie: 'Zombie Rush阵容', dojo: '徽章道场阵容', boss: '首领集结阵容' }
 });
-export function formationExportTitle(mode, locale = 'ja') {
+export const BOSS_RALLY_OPTIONS = Object.freeze(['tire', 'drunk', 'president', 'monster-fish', 'rockstar']);
+export const DOJO_OPTIONS = Object.freeze(['fire', 'grass', 'water', 'thunder', 'rock']);
+const CONTEXT_LABELS = Object.freeze({
+  ja: { tire: 'タイヤゾンビ', drunk: '酔っぱらいゾンビ', president: '社長ゾンビ', 'monster-fish': '怪魚ゾンビ', rockstar: 'ロックスターゾンビ', fire: '炎道場', grass: '草道場', water: '水道場', thunder: '雷道場', rock: '岩道場' },
+  en: { tire: 'Tire Zombie', drunk: 'Drunk Zombie', president: 'President Zombie', 'monster-fish': 'Monster Fish Zombie', rockstar: 'Rockstar Zombie', fire: 'Fire Dojo', grass: 'Grass Dojo', water: 'Water Dojo', thunder: 'Thunder Dojo', rock: 'Rock Dojo' },
+  'zh-CN': { tire: '轮胎僵尸', drunk: '醉汉僵尸', president: '社长僵尸', 'monster-fish': '怪鱼僵尸', rockstar: '摇滚明星僵尸', fire: '火道场', grass: '草道场', water: '水道场', thunder: '雷道场', rock: '岩道场' }
+});
+export function formationExportTitle(teamOrMode, locale = 'ja') {
   const labels = MODE_EXPORT_LABELS[locale] || MODE_EXPORT_LABELS.ja;
-  return labels[mode] || labels.free;
+  if (typeof teamOrMode === 'string') return labels[teamOrMode] || labels.free;
+  const team = teamOrMode || {};
+  if (String(team.name || '').trim()) return String(team.name).trim();
+  return team.mode === 'free' ? '' : (labels[team.mode] || labels.free);
+}
+export function formationContextLabel(team, locale = 'ja') {
+  const labels = CONTEXT_LABELS[locale] || CONTEXT_LABELS.ja;
+  const context = team?.context || {};
+  const automatic = team?.mode === 'boss' ? labels[context.bossId] : team?.mode === 'dojo' ? labels[context.dojoAttribute] : team?.mode === 'normal' && context.normalStage ? `${locale === 'en' ? 'Stage' : locale === 'zh-CN' ? '关卡' : 'ステージ'} ${context.normalStage}` : '';
+  return [automatic, context.note].filter(Boolean).join('｜');
 }
 export const MODE_PLAYER_LIMITS = Object.freeze({ free: 15, normal: 15, zombie: 10, dojo: 5, boss: 15 });
 const isRecord = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -41,7 +57,13 @@ const blankPlayerSettings = () => ({ 1: { slotLimitPlusOne: false, levelCapPlusO
 const blankPlayerChips = () => ({ 1: [], 2: [] });
 
 export function emptyTeam() {
-  return { version: TEAM_VERSION, name: '', mode: 'zombie', showLevels: true, slots: Array(TEAM_SLOTS).fill(null), playerSettings: blankPlayerSettings(), chips: blankPlayerChips(), challenge: { difficulty: null, seasonId: null, highestRound: null, cleared: null, tags: [] }, createdAt: null, updatedAt: null };
+  return { version: TEAM_VERSION, name: '', mode: 'zombie', context: { bossId: null, dojoAttribute: null, normalStage: '', note: '' }, showLevels: true, slots: Array(TEAM_SLOTS).fill(null), playerSettings: blankPlayerSettings(), chips: blankPlayerChips(), challenge: { difficulty: null, seasonId: null, highestRound: null, cleared: null, tags: [] }, createdAt: null, updatedAt: null };
+}
+
+function sanitizeContext(value) {
+  const source = isRecord(value) ? value : {};
+  const text = (item, max) => String(item || '').replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, max);
+  return { bossId: BOSS_RALLY_OPTIONS.includes(source.bossId) ? source.bossId : null, dojoAttribute: DOJO_OPTIONS.includes(source.dojoAttribute) ? source.dojoAttribute : null, normalStage: text(source.normalStage, 24), note: text(source.note, 40) };
 }
 
 function migratedSlots(value) {
@@ -93,7 +115,7 @@ export function sanitizeTeam(value, families) {
   const source = migratedSlots(value);
   const mode = TEAM_MODES.includes(value?.mode) ? value.mode : 'zombie';
   const playerSettings = mode === 'zombie' ? sanitizePlayerSettings(value?.playerSettings) : blankPlayerSettings();
-  const strictCurrent = Number(value?.version) >= TEAM_VERSION;
+  const strictCurrent = Number(value?.version) >= 3;
   const counts = { 1: 0, 2: 0 };
   const usedFamilies = { 1: new Set(), 2: new Set() };
   let slots = Array.from({ length: TEAM_SLOTS }, (_, index) => {
@@ -127,7 +149,7 @@ export function sanitizeTeam(value, families) {
   }
   const name = String(value?.name || '').replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 40);
   const validDate = (item) => typeof item === 'string' && Number.isFinite(Date.parse(item)) ? item : null;
-  return { version: TEAM_VERSION, name, mode, showLevels: value?.showLevels !== false, slots, playerSettings, chips: mode === 'zombie' ? sanitizePlayerChips(value?.chips) : blankPlayerChips(), challenge: sanitizeChallenge(value?.challenge), createdAt: validDate(value?.createdAt), updatedAt: validDate(value?.updatedAt) };
+  return { version: TEAM_VERSION, name, mode, context: sanitizeContext(value?.context), showLevels: value?.showLevels !== false, slots, playerSettings, chips: mode === 'zombie' ? sanitizePlayerChips(value?.chips) : blankPlayerChips(), challenge: sanitizeChallenge(value?.challenge), createdAt: validDate(value?.createdAt), updatedAt: validDate(value?.updatedAt) };
 }
 
 export function cloneTeam(team, families) { return sanitizeTeam(JSON.parse(JSON.stringify(team)), families); }
@@ -229,6 +251,7 @@ export function encodeTeam(team, families, chips = []) {
   const challenge = clean.challenge; const hasChallenge = challenge.difficulty !== null || challenge.seasonId !== null || challenge.highestRound !== null || challenge.cleared !== null || challenge.tags.length > 0;
   const chipIndexes = new Map(chips.map((chip, index) => [chip.id, index])); const playerChips = PLAYER_IDS.map((id) => clean.chips[id].flatMap((chipId) => chipIndexes.has(chipId) ? [chipIndexes.get(chipId)] : []));
   const compact = { v: SHARE_VERSION, m: TEAM_MODES.indexOf(clean.mode), u: unlocks, s: slots };
+  if (clean.context.bossId || clean.context.dojoAttribute || clean.context.normalStage || clean.context.note) compact.c = [clean.context.bossId, clean.context.dojoAttribute, clean.context.normalStage, clean.context.note];
   if (!clean.showLevels) compact.l = 0;
   if (playerChips.some((items) => items.length)) compact.p = playerChips;
   if (hasChallenge) compact.x = [challenge.difficulty, challenge.seasonId, challenge.highestRound, challenge.cleared, challenge.tags];
@@ -272,7 +295,8 @@ function decodeV4(parsed, families, chips) {
   const challenge = Array.isArray(parsed.x) ? { difficulty: parsed.x[0], seasonId: parsed.x[1], highestRound: parsed.x[2], cleared: parsed.x[3], tags: parsed.x[4] } : undefined;
   const expanded = { v: TEAM_VERSION, r: TEAM_ROWS, c: TEAM_COLUMNS, m: TEAM_MODES[parsed.m], s: slots.map((slot) => slot ? [slot.familyId, slot.stage, slot.playerId, slot.level] : null), u: PLAYER_IDS.map((id) => [playerSettings[id].slotLimitPlusOne ? 1 : 0, playerSettings[id].levelCapPlusOne ? 1 : 0]), x: challenge };
   assertValidV3(expanded, families);
-  return sanitizeTeam({ version: TEAM_VERSION, mode: expanded.m, showLevels: parsed.l !== 0, slots, playerSettings, chips: playerChips, challenge }, families);
+  const context = Array.isArray(parsed.c) ? { bossId: parsed.c[0], dojoAttribute: parsed.c[1], normalStage: parsed.c[2], note: parsed.c[3] } : undefined;
+  return sanitizeTeam({ version: TEAM_VERSION, mode: expanded.m, context, showLevels: parsed.l !== 0, slots, playerSettings, chips: playerChips, challenge }, families);
 }
 
 export function decodeTeam(value, families, chips = []) {
@@ -281,13 +305,13 @@ export function decodeTeam(value, families, chips = []) {
     const parsed = JSON.parse(fromBase64Url(value)); if (!isRecord(parsed)) throw new Error();
     const legacyV1 = parsed.v === 1 && Array.isArray(parsed.s) && parsed.s.length === LEGACY_TEAM_SLOTS;
     const legacyV2 = parsed.v === 2 && parsed.r === TEAM_ROWS && parsed.c === TEAM_COLUMNS && Array.isArray(parsed.s) && parsed.s.length === TEAM_SLOTS;
-    const current = parsed.v === TEAM_VERSION && parsed.r === TEAM_ROWS && parsed.c === TEAM_COLUMNS;
-    const shortV4 = parsed.v === SHARE_VERSION;
+    const current = [3, TEAM_VERSION].includes(parsed.v) && parsed.r === TEAM_ROWS && parsed.c === TEAM_COLUMNS;
+    const shortV4 = [4, SHARE_VERSION].includes(parsed.v) && Number.isInteger(parsed.m);
     if (!legacyV1 && !legacyV2 && !current && !shortV4) throw new Error();
     if (shortV4) return decodeV4(parsed, families, chips);
     if (current) {
       assertValidV3(parsed, families);
-      return sanitizeTeam({ version: parsed.v, mode: parsed.m, slots: parsed.s.map((slot) => slot ? { familyId: slot[0], stage: slot[1], playerId: slot[2], level: slot[3] } : null), playerSettings: { 1: { slotLimitPlusOne: !!parsed.u[0][0], levelCapPlusOne: !!parsed.u[0][1] }, 2: { slotLimitPlusOne: !!parsed.u[1][0], levelCapPlusOne: !!parsed.u[1][1] } }, challenge: parsed.x }, families);
+      return sanitizeTeam({ version: parsed.v, name: parsed.n, mode: parsed.m, context: parsed.context, slots: parsed.s.map((slot) => slot ? { familyId: slot[0], stage: slot[1], playerId: slot[2], level: slot[3] } : null), playerSettings: { 1: { slotLimitPlusOne: !!parsed.u[0][0], levelCapPlusOne: !!parsed.u[0][1] }, 2: { slotLimitPlusOne: !!parsed.u[1][0], levelCapPlusOne: !!parsed.u[1][1] } }, challenge: parsed.x }, families);
     }
     return sanitizeTeam({ version: parsed.v, mode: parsed.m, slots: decodeLegacySlots(parsed.s) }, families);
   } catch { throw new Error('共有データを読み込めませんでした。'); }
@@ -326,5 +350,6 @@ export function teamText(team, families, locale = globalThis.document?.body?.dat
   const rowLines = rows.map((value, index) => locale === 'en' ? `Row ${index + 1}: ${value}` : locale === 'zh-CN' ? `第${index + 1}行：${value}` : `${index + 1}行目：${value}`).join('\n');
   const chipMap = new Map(chips.map((chip) => [chip.id, chip]));
   const summary = activePlayerIds(team).map((id) => { const names = team.mode === 'zombie' ? team.chips[id].map((chipId) => chipMap.get(chipId)?.name?.[locale] || chipMap.get(chipId)?.name?.ja).filter(Boolean) : []; const prefix = team.mode === 'zombie' ? `P${id} ` : ''; return `${prefix}${playerCount(team, id)}/${playerLimit(team, id)}${names.length ? ` [${names.join(' / ')}]` : ''}`; }).join(' · ');
-  return `${team.name ? `${team.name}\n` : ''}${summary}\n${rowLines}\n\nmonster-survival.com`;
+  const title = formationExportTitle(team, locale); const context = formationContextLabel(team, locale);
+  return `${title ? `${title}\n` : ''}${context ? `${context}\n` : ''}${summary}\n${rowLines}\n\nmonster-survival.com`;
 }

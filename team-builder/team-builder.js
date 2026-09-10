@@ -4,7 +4,7 @@ import {
   boardRows, boardColumns, boardSlotCount,
   emptyTeam, cloneTeam, sanitizeTeam, loadTeams, loadDraft, saveDraft, saveTeamList, upsertTeam, loadModeDrafts, saveModeDrafts, switchModeDraft,
   placementIssue, placeMember, randomPlacementIndex, copyMemberToPlayer, togglePlayerChip, removeMember, moveMember, setPlayerUnlock, playerCount, playerLimit, activePlayerIds,
-  levelLimit, encodeTeam, decodeTeam, teamText, stageImageFor, formationExportTitle
+  levelLimit, encodeTeam, decodeTeam, teamText, stageImageFor, formationExportTitle, formationContextLabel, BOSS_RALLY_OPTIONS, DOJO_OPTIONS
 } from './team-core.js';
 
 const $ = (selector) => document.querySelector(selector);
@@ -175,6 +175,30 @@ function renderChipSettings() {
   renderChipResults();
 }
 
+const detailCopy = {
+  ja: { boss: '対象ボス', dojo: '道場属性', stage: '通常ステージ', note: '補足', optional: '任意', choose: '選択してください', stagePlaceholder: '例：3-10', notePlaceholder: '例：周回用・高火力重視', freeHint: '編成名を空欄にすると、保存画像にもタイトルを表示しません。' },
+  en: { boss: 'Boss', dojo: 'Dojo attribute', stage: 'Normal stage', note: 'Notes', optional: 'Optional', choose: 'Select', stagePlaceholder: 'Example: 3-10', notePlaceholder: 'Example: Farming / high damage', freeHint: 'Leave Team Name blank to export an image without a title.' },
+  'zh-CN': { boss: '目标首领', dojo: '道场属性', stage: '普通关卡', note: '补充说明', optional: '选填', choose: '请选择', stagePlaceholder: '例：3-10', notePlaceholder: '例：刷图用・高输出', freeHint: '阵容名称留空时，导出的图片也不会显示标题。' }
+}[locale];
+const bossLabels = {
+  ja: { tire: 'タイヤゾンビ', drunk: '酔っぱらいゾンビ', president: '社長ゾンビ', 'monster-fish': '怪魚ゾンビ', rockstar: 'ロックスターゾンビ' },
+  en: { tire: 'Tire Zombie', drunk: 'Drunk Zombie', president: 'President Zombie', 'monster-fish': 'Monster Fish Zombie', rockstar: 'Rockstar Zombie' },
+  'zh-CN': { tire: '轮胎僵尸', drunk: '醉汉僵尸', president: '社长僵尸', 'monster-fish': '怪鱼僵尸', rockstar: '摇滚明星僵尸' }
+}[locale];
+const dojoLabels = {
+  ja: { fire: '炎道場', grass: '草道場', water: '水道場', thunder: '雷道場', rock: '岩道場' },
+  en: { fire: 'Fire Dojo', grass: 'Grass Dojo', water: 'Water Dojo', thunder: 'Thunder Dojo', rock: 'Rock Dojo' },
+  'zh-CN': { fire: '火道场', grass: '草道场', water: '水道场', thunder: '雷道场', rock: '岩道场' }
+}[locale];
+function optionMarkup(values, labels, selected) { return `<option value="">${esc(detailCopy.choose)}</option>${values.map((value) => `<option value="${esc(value)}"${selected === value ? ' selected' : ''}>${esc(labels[value])}</option>`).join('')}`; }
+function renderModeDetails() {
+  let node = $('#team-mode-details');
+  if (!node) { node = document.createElement('div'); node.id = 'team-mode-details'; node.className = 'formation-mode-details'; $('#team-mode').closest('.tool-toolbar').after(node); }
+  const context = team.context;
+  const primary = team.mode === 'boss' ? `<label>${esc(detailCopy.boss)} <span class="optional">${esc(detailCopy.optional)}</span><select data-team-context="bossId">${optionMarkup(BOSS_RALLY_OPTIONS, bossLabels, context.bossId)}</select></label>` : team.mode === 'dojo' ? `<label>${esc(detailCopy.dojo)} <span class="optional">${esc(detailCopy.optional)}</span><select data-team-context="dojoAttribute">${optionMarkup(DOJO_OPTIONS, dojoLabels, context.dojoAttribute)}</select></label>` : team.mode === 'normal' ? `<label>${esc(detailCopy.stage)} <span class="optional">${esc(detailCopy.optional)}</span><input data-team-context="normalStage" maxlength="24" value="${esc(context.normalStage)}" placeholder="${esc(detailCopy.stagePlaceholder)}"></label>` : '';
+  node.innerHTML = `${primary}<label>${esc(detailCopy.note)} <span class="optional">${esc(detailCopy.optional)}</span><input data-team-context="note" maxlength="40" value="${esc(context.note)}" placeholder="${esc(detailCopy.notePlaceholder)}"></label>${team.mode === 'free' ? `<p>${esc(detailCopy.freeHint)}</p>` : ''}`;
+}
+
 function renderFilters() { $('#team-attribute-filters').innerHTML = Object.entries(ATTRIBUTE_LABELS).map(([key, label]) => `<button type="button" class="attribute-filter${attribute === key ? ' is-active' : ''}" data-attribute="${esc(key)}" aria-pressed="${attribute === key}">${esc(label)}</button>`).join(''); }
 function renderPicker({ resetScroll = false } = {}) {
   const query = $('#team-picker-search').value; const ownedOnly = $('#team-owned-only').checked;
@@ -185,7 +209,7 @@ function renderPicker({ resetScroll = false } = {}) {
 }
 
 function renderSaved() { $('#saved-team-list').innerHTML = savedTeams.map((item, index) => { const counts = activePlayerIds(item).map((id) => item.mode === 'zombie' ? `P${id} ${playerCount(item, id)}` : `${playerCount(item, id)}/${playerLimit(item, id)}`).join(' · '); return `<article class="saved-team"><div><b>${esc(item.name || COPY.unnamed)}</b><p>${esc(displayMode(item.mode))} / ${counts} / ${item.updatedAt ? new Date(item.updatedAt).toLocaleString(locale === 'zh-CN' ? 'zh-CN' : locale) : ''}</p></div><div class="tool-actions"><button type="button" class="ghost-button" data-load-team="${index}">${esc(COPY.open)}</button><button type="button" class="ghost-button" data-delete-team="${index}">${esc(COPY.remove)}</button></div></article>`; }).join('') || `<p>${esc(COPY.saveLimit)}</p>`; }
-function renderAll() { $('#team-name').value = team.name; $('#team-mode').value = team.mode; if (!activePlayerIds(team).includes(currentPlayer)) currentPlayer = 1; renderModeControls(); renderPlayerSettings(); renderPlacementControls(); renderChipSettings(); renderBoard(); renderSelection(); renderPicker(); renderSaved(); if (!savedTeams.length) $('#saved-team-list').textContent = modeCopy.empty; const publish = $('#team-community-publish'); if (publish) publish.hidden = team.mode !== 'zombie'; }
+function renderAll() { $('#team-name').value = team.name; $('#team-mode').value = team.mode; if (!activePlayerIds(team).includes(currentPlayer)) currentPlayer = 1; renderModeControls(); renderModeDetails(); renderPlayerSettings(); renderPlacementControls(); renderChipSettings(); renderBoard(); renderSelection(); renderPicker(); renderSaved(); if (!savedTeams.length) $('#saved-team-list').textContent = modeCopy.empty; const publish = $('#team-community-publish'); if (publish) publish.hidden = team.mode !== 'zombie'; }
 
 function editControls(slot, member) {
   const maxLevel = levelLimit(team, slot.playerId); const otherPlayer = slot.playerId === 1 ? 2 : 1;
@@ -216,18 +240,20 @@ function setupPhase4Controls() {
 
 async function exportImage() {
   const canvas = $('#team-share-canvas'); const context = canvas.getContext('2d'); context.fillStyle = '#101522'; context.fillRect(0, 0, canvas.width, canvas.height);
-  context.fillStyle = '#f8fafc'; context.font = '700 38px sans-serif'; context.textAlign = 'left'; context.fillText(team.name || formationExportTitle(team.mode, locale), 60, 62);
-  activePlayerIds(team).forEach((id, index) => { const x = 62 + index * 570; context.fillStyle = id === 1 ? '#ef5f61' : '#4a91e8'; context.fillRect(x, 88, 20, 20); context.fillStyle = '#f8fafc'; context.font = '700 24px sans-serif'; const settings = team.playerSettings[id]; const prefix = team.mode === 'zombie' ? `P${id}  ` : ''; context.fillText(`${prefix}${playerCount(team, id)}/${playerLimit(team, id)}${team.mode === 'zombie' && settings.slotLimitPlusOne ? '  Slot+1' : ''}`, x + 32, 107); });
+  const exportTitle = formationExportTitle(team, locale); const exportDetail = formationContextLabel(team, locale); const detailOffset = exportDetail ? 38 : 0;
+  context.fillStyle = '#f8fafc'; context.font = '700 38px sans-serif'; context.textAlign = 'left'; if (exportTitle) context.fillText(exportTitle, 60, 62);
+  if (exportDetail) { context.fillStyle = '#cbd5e1'; context.font = '600 24px sans-serif'; context.fillText(exportDetail, 60, exportTitle ? 100 : 62); }
+  activePlayerIds(team).forEach((id, index) => { const x = 62 + index * 570; context.fillStyle = id === 1 ? '#ef5f61' : '#4a91e8'; context.fillRect(x, 88 + detailOffset, 20, 20); context.fillStyle = '#f8fafc'; context.font = '700 24px sans-serif'; const settings = team.playerSettings[id]; const prefix = team.mode === 'zombie' ? `P${id}  ` : ''; context.fillText(`${prefix}${playerCount(team, id)}/${playerLimit(team, id)}${team.mode === 'zombie' && settings.slotLimitPlusOne ? '  Slot+1' : ''}`, x + 32, 107 + detailOffset); });
   if (team.mode === 'zombie') {
     for (const [playerIndex, id] of PLAYER_IDS.entries()) {
       const baseX = 94 + playerIndex * 570;
       for (const [chipIndex, chipId] of team.chips[id].entries()) {
         const chip = chipById.get(chipId); if (!chip?.icon) continue; const image = new Image(); image.src = chip.icon;
-        try { await image.decode(); context.drawImage(image, baseX + chipIndex * 42, 119, 34, 34); } catch { /* omit unavailable chip image */ }
+        try { await image.decode(); context.drawImage(image, baseX + chipIndex * 42, 119 + detailOffset, 34, 34); } catch { /* omit unavailable chip image */ }
       }
     }
   }
-  const boardY = 170; const cell = 168; const gap = 10; const columns = boardColumns(team); const slotCount = boardSlotCount(team); const boardWidth = columns * cell + (columns - 1) * gap; const boardX = Math.round((canvas.width - boardWidth) / 2);
+  const boardY = 170 + detailOffset; const cell = 168; const gap = 10; const columns = boardColumns(team); const slotCount = boardSlotCount(team); const boardWidth = columns * cell + (columns - 1) * gap; const boardX = Math.round((canvas.width - boardWidth) / 2);
   for (let index = 0; index < slotCount; index += 1) {
     const x = boardX + (index % columns) * (cell + gap); const y = boardY + Math.floor(index / columns) * (cell + gap); const slot = team.slots[index]; const member = memberFor(slot);
     context.fillStyle = '#171a25'; context.fillRect(x, y, cell, cell); context.strokeStyle = slot ? (slot.playerId === 1 ? '#ef5f61' : '#4a91e8') : '#30364b'; context.lineWidth = slot ? 6 : 3; context.strokeRect(x, y, cell, cell); if (!member) continue;
@@ -405,7 +431,7 @@ function bind() {
   });
   $('#team-edit-dialog').addEventListener('close', () => { editingIndex = null; });
   $('#team-undo').addEventListener('click', undo); $('#team-redo').addEventListener('click', redo);
-  const clearBoard = () => { if (team.slots.some(Boolean) && !confirm(COPY.clearConfirm)) return; const next = emptyTeam(); next.mode = team.mode; commit(next, COPY.cleared); $('#team-name').value = ''; };
+  const clearBoard = () => { if (team.slots.some(Boolean) && !confirm(COPY.clearConfirm)) return; const next = emptyTeam(); next.mode = team.mode; next.name = team.name; next.context = { ...team.context }; commit(next, COPY.cleared); };
   $('#team-clear').addEventListener('click', clearBoard);
   $('#team-clear-bottom').addEventListener('click', clearBoard);
   $('#team-new').addEventListener('click', () => { if ((team.slots.some(Boolean) || team.name) && !confirm(COPY.newConfirm)) return; const next = emptyTeam(); next.mode = team.mode; selected = null; movingFrom = null; replacingIndex = null; currentPlayer = 1; currentLevel = 1; commit(next, COPY.cleared); });
@@ -418,6 +444,8 @@ function bind() {
     selected = null; movingFrom = null; replacingIndex = null; currentPlayer = 1; currentLevel = 1;
     commit(result.team, modeCopy.switched);
   }); $('#team-name').addEventListener('input', () => { team.name = $('#team-name').value; persistDraft(); });
+  document.addEventListener('input', (event) => { const key = event.target.dataset?.teamContext; if (!key) return; team.context[key] = event.target.value; persistDraft(); });
+  document.addEventListener('change', (event) => { const key = event.target.dataset?.teamContext; if (!key) return; team.context[key] = event.target.value || null; persistDraft(); });
   $('#team-save').addEventListener('click', () => { try { persistDraft(); const result = upsertTeam(localStorage, savedTeams, team, families); team = result.team; savedTeams = result.teams; renderSaved(); setStatus(COPY.saved); track('formation_save'); } catch (error) { setStatus(error.message, true); } });
   $('#team-community-publish')?.addEventListener('click', () => { if (team.mode !== 'zombie') return; try { localStorage.setItem('monsabaCommunityDraft:v1', encodeTeam(team, families, chips)); track('formation_publish_start'); location.href = `${localePrefix}/team-builder/community/?publish=1`; } catch (error) { setStatus(error.message, true); } });
   $('#saved-team-list').addEventListener('click', (event) => { const load = event.target.closest('[data-load-team]'); const remove = event.target.closest('[data-delete-team]'); if (load) { undoStack.push(cloneTeam(team, families)); team = sanitizeTeam(savedTeams[Number(load.dataset.loadTeam)], families); $('#team-name').value = team.name; $('#team-mode').value = team.mode; persistDraft(); renderAll(); } if (remove && confirm(COPY.confirmDelete)) { savedTeams.splice(Number(remove.dataset.deleteTeam), 1); saveTeamList(localStorage, savedTeams, families); renderSaved(); } });
