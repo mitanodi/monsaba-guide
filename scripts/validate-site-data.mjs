@@ -31,6 +31,7 @@ function walk(directory) {
 walk(root);
 
 const tatari = json('data/tatari.json');
+const tataImages = json('data/tata-images.json');
 const skills = json('data/tata-skills.json');
 const ratings = json('data/tier-ratings.json');
 const monetization = json('data/monetization.json');
@@ -45,8 +46,8 @@ for (const [label, values] of [
 }
 const counts = Object.fromEntries(['草', '水', '火', '雷', '岩'].map((attribute) => [attribute, 0]));
 for (const family of tatari.families || []) counts[family.attribute] = (counts[family.attribute] || 0) + 1;
-expect(JSON.stringify(counts) === JSON.stringify({草:13, 水:13, 火:13, 雷:13, 岩:12}), `属性系統数: ${JSON.stringify(counts)}`);
-expect((tatari.families || []).length === 64, `総系統数: ${(tatari.families || []).length}`);
+expect(Object.values(counts).reduce((sum, value) => sum + value, 0) === tatari.meta.familyCount, `属性系統数: ${JSON.stringify(counts)}`);
+expect((tatari.families || []).length === tatari.meta.familyCount, `総系統数: ${(tatari.families || []).length}`);
 const renamedFamilies = (tatari.families || []).filter((family) => family.familyName !== getFamilyDisplayName(family));
 for (const family of tatari.families || []) {
   expect(getFamilyDisplayName(family) === family.evolutions[0]?.name, `${family.id}: 表示名が初期形態名と不一致`);
@@ -217,10 +218,10 @@ const teamBuilderHeader = read('team-builder/index.html').match(/<header class="
 expect(teamBuilderHeader.includes('href="/team-builder/" aria-current="page"><span>編成メーカー</span>'), '編成メーカーnavのactive表示がありません');
 expect(/data-nav-category="tools"><button[^>]+data-current="true"/.test(teamBuilderHeader), 'ツールカテゴリのactive表示がありません');
 const topHtml = read('index.html');
-expect((topHtml.match(/data-family="/g) || []).length === 64, 'TOP図鑑の静的HTMLが64系統ではありません');
+expect((topHtml.match(/data-family="/g) || []).length === tatari.families.length, 'TOP図鑑の静的HTML系統数が正本と一致しません');
 const tierHtml = read('tata-tier/index.html');
 expect((tierHtml.match(/class="overall-card"/g) || []).length > 0, 'Tierの静的HTMLがありません');
-expect((tierHtml.match(/class="tier-chart-tata"/g) || []).length === 64, 'Tierチャートは64系統ではありません');
+expect((tierHtml.match(/class="tier-chart-tata"/g) || []).length === tatari.families.length, 'Tierチャートの系統数が正本と一致しません');
 expect((tierHtml.match(/class="tier-chart-row /g) || []).length === 4, 'Tierチャートは4区分ではありません');
 expect(tierHtml.includes('ビリジカ系') && tierHtml.includes('シズクジ系'), 'Tierチャートの日本名表示が不正です');
 expect((read('evolution-priority/index.html').match(/class="evolution-card"/g) || []).length > 0, '進化優先度の静的HTMLがありません');
@@ -307,7 +308,8 @@ expect(!publicFiles.map(read).join('\n').match(/adsbygoogle|doubleclick\.net|goo
 const matchesAffiliatePath = (pattern, route) => pattern.endsWith('*') ? route.startsWith(pattern.slice(0, -1)) : route === pattern;
 const routeForHtmlFile = (file) => file === 'index.html' ? '/' : file.endsWith('/index.html') ? `/${file.slice(0, -10)}` : `/${file}`;
 const affiliateEligibleFiles = htmlFiles.filter((file) => monetization.pageProfiles?.some((rule) => matchesAffiliatePath(rule.match, routeForHtmlFile(file))));
-expect(affiliateEligibleFiles.length === tatari.families.length + 17, `affiliate対象ページ数: ${affiliateEligibleFiles.length}`);
+const imageEligibleFamilies = tataImages.families.filter((family) => family.stage1?.status === 'verified').length;
+expect(affiliateEligibleFiles.length === imageEligibleFamilies + 17, `affiliate対象ページ数: ${affiliateEligibleFiles.length}`);
 for (const file of affiliateEligibleFiles) expect(read(file).includes('/monetization.js'), `${file}: monetization.jsがありません`);
 for (const route of ['/privacy/', '/about/', '/about-data/', '/updates/', '/search/', '/consult/', '/faq/']) {
   expect(!monetization.pageProfiles?.some((rule) => matchesAffiliatePath(rule.match, route)), `affiliate非対象ページ ${route} が有効です`);

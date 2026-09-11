@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updated": "2026-08-30",
-  "familyCount": 64,
+  "updated": "2026-09-11",
+  "familyCount": 65,
   "source": {
     "sourceType": "community",
     "sourceName": "国内攻略Wiki 進化条件一覧",
@@ -78,6 +78,16 @@
           "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
           "sourceUpdatedAt": "2026-08-28",
           "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "ジャンガルパカ",
+          "condition": "進化条件の詳細を確認中",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "official-store-plus-community",
+          "sourceUrl": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+          "verifiedAt": "2026-09-11"
         }
       ]
     },
@@ -2134,6 +2144,16 @@
           "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
           "sourceUpdatedAt": "2026-08-28",
           "verifiedAt": "2026-08-30"
+        },
+        {
+          "stage": 4,
+          "tataName": "エーテリファル",
+          "condition": "進化条件の詳細を確認中",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "official-store-plus-community",
+          "sourceUrl": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+          "verifiedAt": "2026-09-11"
         }
       ]
     },
@@ -2283,6 +2303,43 @@
           "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
           "sourceUpdatedAt": "2026-08-28",
           "verifiedAt": "2026-08-30"
+        }
+      ]
+    },
+    {
+      "familyId": "nusuke",
+      "familyName": "ヌスケ",
+      "attribute": "岩",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ラクディット",
+          "condition": "進化条件のアイコン意味・AND/ORを確認中",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/129.html",
+          "verifiedAt": "2026-09-11"
+        },
+        {
+          "stage": 3,
+          "tataName": "マスクーン",
+          "condition": "進化条件のアイコン意味・AND/ORを確認中",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/129.html",
+          "verifiedAt": "2026-09-11"
+        },
+        {
+          "stage": 4,
+          "tataName": "トリックーン",
+          "condition": "進化条件のアイコン意味・AND/ORを確認中",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "community",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/129.html",
+          "verifiedAt": "2026-09-11"
         }
       ]
     }

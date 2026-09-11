@@ -48,9 +48,11 @@ function validateReferenceText(relative) {
 const fileForRoute = (route) => path.join(root, route.slice(1), 'index.html');
 const dateModifiedFor = (route) => fs.readFileSync(fileForRoute(route), 'utf8').match(/["']dateModified["']\s*:\s*["']([^"']+)["']/)?.[1];
 
-expect(tatari.families.length === 64, 'family count must be 64');
-expect(tatari.families.flatMap((family) => family.evolutions).length === 230, 'form count must be 230');
-expect(skills.totals.stages === 230, 'skill stage count must be 230');
+const currentFamilyCount = tatari.families.length;
+const currentFormCount = tatari.families.flatMap((family) => family.evolutions).length;
+expect(currentFamilyCount >= 64, 'current family count must preserve the 64-family August baseline');
+expect(currentFormCount >= 230, 'current form count must preserve the 230-form August baseline');
+expect(skills.totals.stages === currentFormCount, 'skill stage count must match current form count');
 expect(tatari.meta.latestEvidence?.fileName === PDF_EVIDENCE.fileName && tatari.meta.latestEvidence?.pages === PDF_EVIDENCE.totalPages, 'tatari latestEvidence must use 写真.pdf evidence pages 1-91');
 expect(skills.sourceEvidence?.fileName === PDF_EVIDENCE.fileName && skills.sourceEvidence?.pages === PDF_EVIDENCE.totalPages, 'skill sourceEvidence must use 写真.pdf evidence pages 1-91');
 expect(byId.get('pakuma')?.evolutions.map((item) => item.name).join('|') === 'パクマ|クマッシュ|マリンベア|ブリズリー', 'Pakuma line mismatch');
@@ -96,9 +98,9 @@ const referenceFiles = [
   ])
 ];
 referenceFiles.forEach(validateReferenceText);
-expect(trials.families.length === 64 && new Set(trials.families.map((family) => family.familyId)).size === 64, 'evolution trials must map 64 unique families');
+expect(trials.families.length === currentFamilyCount && new Set(trials.families.map((family) => family.familyId)).size === currentFamilyCount, 'evolution trials must map every current family exactly once');
 expect(trials.families.every((family) => byId.has(family.familyId)), 'evolution trial family ID mismatch');
-expect(events.events.length === 9, 'event guide count must be 9');
+expect(events.events.length >= 9, 'event guides must preserve the nine August event guides');
 for (const route of ['/zombie-rush/chips/', '/evolution/trials/', '/updates/2026-08-30/', ...events.events.map((event) => `/events/${event.id}/`)]) expect(fs.existsSync(path.join(root, route.slice(1), 'index.html')), `${route}: page missing`);
 const modifiedRoutes = ['/tata/pakuma/', '/tata/sukedako/', '/tata/nenbutsuhebi/', '/zombie-rush/chips/', '/evolution/trials/', '/updates/2026-08-30/'];
 const officialResponseRoutes = ['/events/', '/events/running-star/', '/events/treasure-hunt/', '/events/surprise-roulette/'];

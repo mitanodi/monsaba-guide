@@ -1,9 +1,225 @@
-{"version":1,"lastChecked":"2026-08-30","availabilityStatement":"listed_as_available","active":[
-{"code":"openfestc26","isNew":true,"reward":null,"rewardStatus":"pending","expiresAt":null,"expiryStatus":"unannounced","confirmationStatus":"external_latest","lastChecked":"2026-08-30"},
-{"code":"openfestb26","isNew":true,"reward":null,"rewardStatus":"pending","expiresAt":null,"expiryStatus":"unannounced","confirmationStatus":"external_latest","lastChecked":"2026-08-30"},
-{"code":"openfesta26","isNew":true,"reward":null,"rewardStatus":"pending","expiresAt":null,"expiryStatus":"unannounced","confirmationStatus":"external_latest","lastChecked":"2026-08-30"},
-{"code":"welcome2026","isNew":false,"reward":[{"item":"candy","quantity":2000},{"item":"blue_lunch_box","quantity":1},{"item":"marble","quantity":60},{"item":"silver_brick","quantity":100},{"item":"capsule","quantity":1}],"rewardStatus":"multi_source_confirmed","expiresAt":null,"expiryStatus":"unannounced","confirmationStatus":"multi_source_confirmed","lastChecked":"2026-08-30"},
-{"code":"GoonBug","isNew":false,"reward":[{"item":"greenbee","quantity":1},{"item":"candy","quantity":4000},{"item":"blue_lunch_box","quantity":1}],"rewardStatus":"multi_source_confirmed","expiresAt":null,"expiryStatus":"unannounced","confirmationStatus":"multi_source_confirmed","lastChecked":"2026-08-30"},
-{"code":"HelloTatari","isNew":false,"reward":[{"item":"marble","quantity":100},{"item":"candy","quantity":4000},{"item":"capsule","quantity":3}],"rewardStatus":"multi_source_confirmed","expiresAt":null,"expiryStatus":"unannounced","confirmationStatus":"multi_source_confirmed","lastChecked":"2026-08-30"},
-{"code":"WeeklyGift","isNew":false,"reward":[{"item":"marble","quantity":50},{"item":"capsule","quantity":3}],"rewardStatus":"multi_source_confirmed","expiresAt":null,"expiryStatus":"unannounced","confirmationStatus":"multi_source_confirmed","lastChecked":"2026-08-30"},
-{"code":"WelcomeGift","isNew":false,"reward":[{"item":"marble","quantity":100},{"item":"capsule","quantity":6}],"rewardStatus":"multi_source_confirmed","expiresAt":null,"expiryStatus":"unannounced","confirmationStatus":"multi_source_confirmed","lastChecked":"2026-08-30"}],"expired":[]}
+{
+  "version": 2,
+  "lastChecked": "2026-09-11",
+  "availabilityStatement": "publicly_listed_not_all_redeemed",
+  "active": [
+    {
+      "code": "ttukkapet26",
+      "isNew": true,
+      "reward": [
+        {
+          "item": "candy",
+          "quantity": 1500
+        },
+        {
+          "item": "silver_brick",
+          "quantity": 5
+        },
+        {
+          "item": "capsule",
+          "quantity": 1
+        }
+      ],
+      "rewardStatus": "external_source_unredeemed",
+      "expiresAt": null,
+      "expiryStatus": "unannounced",
+      "confirmationStatus": "externally_listed_unredeemed",
+      "lastChecked": "2026-09-11",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html"
+    },
+    {
+      "code": "openfestc26",
+      "isNew": false,
+      "reward": [
+        {
+          "item": "candy",
+          "quantity": 1000
+        },
+        {
+          "item": "silver_brick",
+          "quantity": 1
+        },
+        {
+          "item": "cookie",
+          "quantity": 1
+        }
+      ],
+      "rewardStatus": "external_source_unredeemed",
+      "expiresAt": null,
+      "expiryStatus": "unannounced",
+      "confirmationStatus": "externally_listed_unredeemed",
+      "lastChecked": "2026-09-11"
+    },
+    {
+      "code": "openfestb26",
+      "isNew": false,
+      "reward": [
+        {
+          "item": "candy",
+          "quantity": 1500
+        },
+        {
+          "item": "silver_brick",
+          "quantity": 1
+        },
+        {
+          "item": "cookie",
+          "quantity": 1
+        }
+      ],
+      "rewardStatus": "external_source_unredeemed",
+      "expiresAt": null,
+      "expiryStatus": "unannounced",
+      "confirmationStatus": "externally_listed_unredeemed",
+      "lastChecked": "2026-09-11"
+    },
+    {
+      "code": "openfesta26",
+      "isNew": false,
+      "reward": [
+        {
+          "item": "candy",
+          "quantity": 3000
+        },
+        {
+          "item": "silver_brick",
+          "quantity": 5
+        },
+        {
+          "item": "capsule",
+          "quantity": 1
+        }
+      ],
+      "rewardStatus": "external_source_unredeemed",
+      "expiresAt": null,
+      "expiryStatus": "unannounced",
+      "confirmationStatus": "externally_listed_unredeemed",
+      "lastChecked": "2026-09-11"
+    },
+    {
+      "code": "welcome2026",
+      "isNew": false,
+      "reward": [
+        {
+          "item": "candy",
+          "quantity": 2000
+        },
+        {
+          "item": "blue_lunch_box",
+          "quantity": 1
+        },
+        {
+          "item": "marble",
+          "quantity": 60
+        },
+        {
+          "item": "silver_brick",
+          "quantity": 100
+        },
+        {
+          "item": "capsule",
+          "quantity": 1
+        }
+      ],
+      "rewardStatus": "multi_source_confirmed",
+      "expiresAt": null,
+      "expiryStatus": "unannounced",
+      "confirmationStatus": "multi_source_confirmed",
+      "lastChecked": "2026-08-30"
+    },
+    {
+      "code": "GoonBug",
+      "isNew": false,
+      "reward": [
+        {
+          "item": "greenbee",
+          "quantity": 1
+        },
+        {
+          "item": "candy",
+          "quantity": 4000
+        },
+        {
+          "item": "blue_lunch_box",
+          "quantity": 1
+        }
+      ],
+      "rewardStatus": "multi_source_confirmed",
+      "expiresAt": null,
+      "expiryStatus": "unannounced",
+      "confirmationStatus": "multi_source_confirmed",
+      "lastChecked": "2026-08-30"
+    },
+    {
+      "code": "HelloTatari",
+      "isNew": false,
+      "reward": [
+        {
+          "item": "marble",
+          "quantity": 100
+        },
+        {
+          "item": "candy",
+          "quantity": 4000
+        },
+        {
+          "item": "capsule",
+          "quantity": 3
+        }
+      ],
+      "rewardStatus": "multi_source_confirmed",
+      "expiresAt": null,
+      "expiryStatus": "unannounced",
+      "confirmationStatus": "multi_source_confirmed",
+      "lastChecked": "2026-08-30"
+    },
+    {
+      "code": "WeeklyGift",
+      "isNew": false,
+      "reward": [
+        {
+          "item": "marble",
+          "quantity": 50
+        },
+        {
+          "item": "capsule",
+          "quantity": 3
+        }
+      ],
+      "rewardStatus": "multi_source_confirmed",
+      "expiresAt": null,
+      "expiryStatus": "unannounced",
+      "confirmationStatus": "multi_source_confirmed",
+      "lastChecked": "2026-08-30"
+    },
+    {
+      "code": "WelcomeGift",
+      "isNew": false,
+      "reward": [
+        {
+          "item": "marble",
+          "quantity": 100
+        },
+        {
+          "item": "capsule",
+          "quantity": 6
+        }
+      ],
+      "rewardStatus": "multi_source_confirmed",
+      "expiresAt": null,
+      "expiryStatus": "unannounced",
+      "confirmationStatus": "multi_source_confirmed",
+      "lastChecked": "2026-08-30"
+    }
+  ],
+  "expired": [],
+  "researchNotes": {
+    "checkedAt": "2026-09-11",
+    "notAdded": [
+      "dcardtatago",
+      "steeamertata"
+    ],
+    "reason": "日本版の適用地域・有効性を確認できる根拠不足",
+    "statusFieldsSeparated": true
+  }
+}

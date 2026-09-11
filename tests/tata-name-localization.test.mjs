@@ -20,8 +20,8 @@ const yanzaru = tatari.families.find((family) => family.id === 'yanzaru');
 
 test('shared resolver returns official names for every canonical form', () => {
   const forms = tatari.families.flatMap((family) => family.evolutions);
-  assert.equal(tatari.families.length, 64);
-  assert.equal(forms.length, 230);
+  assert.equal(tatari.families.length, 65);
+  assert.equal(forms.length, 236);
   for (const form of forms) {
     assert.equal(getTataDisplayName(form, 'ja'), form.name);
     assert.equal(getTataDisplayName(form, 'en'), form.nameEn);

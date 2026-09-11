@@ -24,10 +24,10 @@
     }
   },
   "summary": {
-    "canonicalForms": 230,
-    "englishConfirmed": 230,
-    "simplifiedChineseConfirmed": 230,
-    "bothConfirmed": 230,
+    "canonicalForms": 236,
+    "englishConfirmed": 236,
+    "simplifiedChineseConfirmed": 236,
+    "bothConfirmed": 236,
     "needsReview": 0
   },
   "forms": [
@@ -3480,6 +3480,120 @@
         "sheet": "塔塔名字 Tatari Names",
         "sourceRow": 7
       }
+    },
+    {
+      "familyId": "nusuke",
+      "stage": 1,
+      "japaneseName": "ヌスケ",
+      "englishName": "Ringtail",
+      "simplifiedChineseName": "干脆面",
+      "confidence": "confirmed",
+      "sourceType": "official-name-table",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 226
+      },
+      "implementationSource": {
+        "ja": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+        "en": "https://play.google.com/store/apps/details?hl=en&id=com.farlightgames.pgame.gp"
+      },
+      "checkedAt": "2026-09-11"
+    },
+    {
+      "familyId": "nusuke",
+      "stage": 2,
+      "japaneseName": "ラクディット",
+      "englishName": "Rizzler",
+      "simplifiedChineseName": "改头浣面",
+      "confidence": "confirmed",
+      "sourceType": "official-name-table",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 227
+      },
+      "implementationSource": {
+        "ja": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+        "en": "https://play.google.com/store/apps/details?hl=en&id=com.farlightgames.pgame.gp"
+      },
+      "checkedAt": "2026-09-11"
+    },
+    {
+      "familyId": "nusuke",
+      "stage": 3,
+      "japaneseName": "マスクーン",
+      "englishName": "Zorrock",
+      "simplifiedChineseName": "怪盗千面",
+      "confidence": "confirmed",
+      "sourceType": "official-name-table",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 228
+      },
+      "implementationSource": {
+        "ja": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+        "en": "https://play.google.com/store/apps/details?hl=en&id=com.farlightgames.pgame.gp"
+      },
+      "checkedAt": "2026-09-11"
+    },
+    {
+      "familyId": "nusuke",
+      "stage": 4,
+      "japaneseName": "トリックーン",
+      "englishName": "Phantothief",
+      "simplifiedChineseName": "偷心假面",
+      "confidence": "confirmed",
+      "sourceType": "official-name-table",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 229
+      },
+      "implementationSource": {
+        "ja": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+        "en": "https://play.google.com/store/apps/details?hl=en&id=com.farlightgames.pgame.gp"
+      },
+      "checkedAt": "2026-09-11"
+    },
+    {
+      "familyId": "shizukuchou",
+      "stage": 4,
+      "japaneseName": "エーテリファル",
+      "englishName": "Morphanessa",
+      "simplifiedChineseName": "潋滟水蝶",
+      "confidence": "confirmed",
+      "sourceType": "official-name-table",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 164
+      },
+      "implementationSource": {
+        "ja": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+        "en": "https://play.google.com/store/apps/details?hl=en&id=com.farlightgames.pgame.gp"
+      },
+      "checkedAt": "2026-09-11"
+    },
+    {
+      "familyId": "tsubaruka",
+      "stage": 4,
+      "japaneseName": "ジャンガルパカ",
+      "englishName": "Blechlama",
+      "simplifiedChineseName": "一塌糊驼",
+      "confidence": "confirmed",
+      "sourceType": "official-name-table",
+      "nameListSource": {
+        "file": "Tatari_Name (1).xlsx",
+        "sheet": "塔塔名字 Tatari Names",
+        "sourceRow": 190
+      },
+      "implementationSource": {
+        "ja": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+        "en": "https://play.google.com/store/apps/details?hl=en&id=com.farlightgames.pgame.gp"
+      },
+      "checkedAt": "2026-09-11"
     }
   ]
 }

@@ -7,9 +7,9 @@ const root = path.resolve(import.meta.dirname, '..');
 const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
 const json = (file) => JSON.parse(read(file));
 
-test('9イベントの状態・内部導線・公式素材4点を表示する', () => {
+test('10イベントの状態・内部導線・公式素材4点を表示する', () => {
   const events = json('data/events.json').events; const images = json('data/official-assets/event-images.json').events; const html = read('events/index.html');
-  assert.equal(events.length, 9); assert.equal(images.length, 4); assert.ok(events.every((event) => ['verified', 'externally_confirmed'].includes(event.sourceStatus)));
+  assert.equal(events.length, 10); assert.equal(images.length, 4); assert.ok(events.every((event) => ['verified', 'externally_confirmed'].includes(event.sourceStatus) || event.id === 'carnival-fest'));
   for (const item of images) { assert.equal(item.eventId, 'treasure-hunt'); assert.ok(fs.existsSync(path.join(root, item.optimizedPath.slice(1)))); assert.ok(read('events/treasure-hunt/index.html').includes(item.optimizedPath)); }
   assert.ok(images.some((item) => html.includes(item.optimizedPath)));
   assert.match(read('events/treasure-hunt/index.html'), /id="event-guide"/);

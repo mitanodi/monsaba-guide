@@ -2,6 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const root=path.resolve(import.meta.dirname,'..');
+const tatari=JSON.parse(fs.readFileSync(path.join(root,'data/tatari.json'),'utf8'));
+const canonicalFamilies=new Map(tatari.families.map(family=>[family.id,family]));
 const variants={
   ja:{source:'search/index.html',output:'tatari-names/index.html',title:'タタ名称一覧｜モンサバ攻略DB',description:'タタの日本語・英語・簡体中国語名236件を検索できる名称資料です。',home:'/',breadcrumb:'トップ',heading:'タタ名称一覧',intro:'提供された名称表の全236件を、日本語・英語・簡体中国語で掲載しています。',summary:'既存DB対応 230件／名称資料のみ 6件',caveat:'名称以外の属性・性能・進化関係は、この表だけから推測していません。',search:'名前を検索',display:'表示',all:'すべて',existing:'既存DB対応',newOnly:'名称資料のみ',siteMatch:'サイト内対応',sourceNote:'出典：Tatari_Name (1).xlsx「塔塔名字 Tatari Names」／取込日 2026-09-09。名称資料として掲載し、公式性や能力情報を追加で断定するものではありません。'},
   en:{source:'en/search/index.html',output:'en/tatari-names/index.html',title:'Tatari name catalog | Clash of Critters Guide DB',description:'Search 236 Tatari names in Japanese, English, and Simplified Chinese.',home:'/en/',breadcrumb:'Home',heading:'Tatari name catalog',intro:'All 236 entries from the provided name list, shown in Japanese, English, and Simplified Chinese.',summary:'230 matched to the existing database / 6 names-only entries',caveat:'Attributes, stats, and evolution relationships are not inferred from a names-only list.',search:'Search names',display:'Display',all:'All',existing:'Matched in database',newOnly:'Names only',siteMatch:'Site match',sourceNote:'Source: Tatari_Name (1).xlsx, worksheet “Tatari Names”; imported 2026-09-09. This is a names-only reference and does not independently establish official status or gameplay data.'},
@@ -21,6 +23,7 @@ const catalog=JSON.parse(fs.readFileSync(path.join(root,'data/tatari-name-catalo
 const localeDir=locale=>locale==='ja'?'':`${locale}/`;
 const localName=(item,locale)=>locale==='en'?item.englishName:locale==='zh-cn'?item.simplifiedChineseName:item.japaneseName;
 for(const [familyId,stage] of [['shizukuchou',4],['tsubaruka',4]]){
+  if(canonicalFamilies.get(familyId)?.evolutions?.some(form=>form.stage===stage)) continue;
   const item=catalog.names.find(row=>row.mappedFamilyId===familyId&&row.mappedStage===stage);
   for(const locale of Object.keys(variants)){
     const file=path.join(root,localeDir(locale),`tata/${familyId}/index.html`);
@@ -34,7 +37,7 @@ for(const [familyId,stage] of [['shizukuchou',4],['tsubaruka',4]]){
 }
 
 const nusuke=catalog.names.filter(row=>row.mappedFamilyId==='nusuke').sort((a,b)=>a.mappedStage-b.mappedStage);
-for(const [locale,v] of Object.entries(variants)){
+if(!canonicalFamilies.has('nusuke')) for(const [locale,v] of Object.entries(variants)){
   const sourceFile=path.join(root,v.output);
   let html=fs.readFileSync(sourceFile,'utf8').replace(/<script type="module" src="\/tatari-names\/catalog\.js"><\/script>/,'');
   const title=locale==='ja'?'ヌスケ系 名称情報｜モンサバ攻略DB':locale==='en'?'Ringtail family names | Clash of Critters Guide DB':'干脆面系列名称｜Clash of Critters 攻略数据库';

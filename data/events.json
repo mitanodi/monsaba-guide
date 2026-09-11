@@ -1,12 +1,22 @@
 {
-  "version": 2,
-  "updated": "2026-09-05",
+  "version": 3,
+  "updated": "2026-09-11",
   "communityRotation": {
     "sourceStatus": "externally_confirmed",
     "cadenceLabel": "合計3日ごとの基本ローテーションというコミュニティ情報",
-    "sequence": ["fishing-tournament", "treasure-hunt", "running-party", "zombie-siege", "magic-farm"],
+    "sequence": [
+      "fishing-tournament",
+      "treasure-hunt",
+      "running-party",
+      "zombie-siege",
+      "magic-farm"
+    ],
     "notGuaranteedSchedule": true,
-    "caveats": ["ゾンビ包囲戦の現行版・旧宝箱仕様の分離", "魔法の農場のリメイク", "日本版と海外版の差"],
+    "caveats": [
+      "ゾンビ包囲戦の現行版・旧宝箱仕様の分離",
+      "魔法の農場のリメイク",
+      "日本版と海外版の差"
+    ],
     "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/4.html"
   },
   "events": [
@@ -21,9 +31,47 @@
       "sourceUrl": "https://monster-survival.games-wiki.com/events/running-party",
       "verifiedAt": "2026-08-31",
       "sourceStatus": "externally_confirmed",
-      "communityAliases": ["Marathon Party"],
+      "communityAliases": [
+        "Marathon Party"
+      ],
       "needsHumanVerification": true,
-      "humanVerification": ["イベントTOP", "ヘルプ全文", "全倍率", "ルーレット全マス", "スノーボード説明", "距離報酬", "ランキング報酬", "チーム共有状況", "終了日時"]
+      "humanVerification": [
+        "イベントTOP",
+        "ヘルプ全文",
+        "全倍率",
+        "ルーレット全マス",
+        "スノーボード説明",
+        "距離報酬",
+        "ランキング報酬",
+        "チーム共有状況",
+        "終了日時"
+      ],
+      "officialUpdate": {
+        "sourceType": "official-store",
+        "sourceUrl": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+        "checkedAt": "2026-09-11",
+        "version": "0.47.1",
+        "fact": "新テーマ「ラフティング大会」追加"
+      },
+      "currentTheme": {
+        "label": "ラフトレース",
+        "themeNameInNotice": "ラフティング大会",
+        "relationship": "ランニングパーティーの新テーマ",
+        "scheduledStart": "2026-09-12",
+        "timezone": "Asia/Tokyo",
+        "scheduleStatus": "user-reported",
+        "sourceType": "user-report",
+        "ruleStatus": "pending",
+        "note": "従来テーマと完全に同じルールかは未確認",
+        "searchAliases": [
+          "ランニングパーティ",
+          "ランニングパーティー",
+          "ラフティング大会",
+          "ラフトレース",
+          "Marathon Party",
+          "Raft Race"
+        ]
+      }
     },
     {
       "id": "running-star",
@@ -36,9 +84,16 @@
       "sourceUrl": "https://monster-survival.games-wiki.com/events/running-star",
       "verifiedAt": "2026-08-31",
       "sourceStatus": "externally_confirmed",
-      "communityAliases": ["Marathon Star"],
+      "communityAliases": [
+        "Marathon Star"
+      ],
       "needsHumanVerification": true,
-      "humanVerification": ["詳細仕様", "開催期間", "報酬内容", "その他最新仕様"],
+      "humanVerification": [
+        "詳細仕様",
+        "開催期間",
+        "報酬内容",
+        "その他最新仕様"
+      ],
       "officialNames": {
         "ja": "ランニングパーティー",
         "en": "Running Star",
@@ -49,7 +104,12 @@
       "officialInquiry": {
         "status": "awaiting_official_response",
         "requestedAt": "2026-09-05",
-        "scope": ["details", "period", "rewards", "latest_specification"]
+        "scope": [
+          "details",
+          "period",
+          "rewards",
+          "latest_specification"
+        ]
       }
     },
     {
@@ -63,17 +123,77 @@
       "sourceUrl": "https://monster-survival.games-wiki.com/events/island-treasure",
       "verifiedAt": "2026-08-31",
       "sourceStatus": "externally_confirmed",
-      "communityAliases": ["Island Goldrush", "Deepsea Dive"],
+      "communityAliases": [
+        "Island Goldrush",
+        "Deepsea Dive"
+      ],
       "needsHumanVerification": true,
       "territoryValues": [
-        { "name": "小さな草地", "pointsPerHour": 60, "hp": 100 },
-        { "name": "普通の草地", "pointsPerHour": 180, "hp": 160 },
-        { "name": "大きな草地", "pointsPerHour": 360, "hp": 320 },
-        { "name": "金鉱", "pointsPerHour": 600, "hp": 540 },
-        { "name": "大きな金鉱", "pointsPerHour": 960, "hp": 760 },
-        { "name": "巨大な金鉱", "pointsPerHour": 1800, "hp": 1000 }
+        {
+          "name": "小さな草地",
+          "pointsPerHour": 60,
+          "hp": 100
+        },
+        {
+          "name": "普通の草地",
+          "pointsPerHour": 180,
+          "hp": 160
+        },
+        {
+          "name": "大きな草地",
+          "pointsPerHour": 360,
+          "hp": 320
+        },
+        {
+          "name": "金鉱",
+          "pointsPerHour": 600,
+          "hp": 540
+        },
+        {
+          "name": "大きな金鉱",
+          "pointsPerHour": 960,
+          "hp": 760
+        },
+        {
+          "name": "巨大な金鉱",
+          "pointsPerHour": 1800,
+          "hp": 1000
+        }
       ],
-      "humanVerification": ["深海の秘宝ヘルプ", "現行報酬", "疲労・濃縮ドリンク", "3ラウンド報酬"]
+      "humanVerification": [
+        "深海の秘宝ヘルプ",
+        "現行報酬",
+        "疲労・濃縮ドリンク",
+        "3ラウンド報酬"
+      ],
+      "officialUpdate": {
+        "sourceType": "user-shared-patch-note-transcription",
+        "sourceUrl": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+        "checkedAt": "2026-09-11",
+        "version": "0.47.1",
+        "fact": "新しい繰り返し報酬追加",
+        "officialOutline": {
+          "sourceType": "official-store",
+          "sourceUrl": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+          "checkedAt": "2026-09-11",
+          "version": "0.47.1"
+        },
+        "changes": [
+          "MVP報酬へフェスボックス追加",
+          "フェスボックス初回獲得時にパーティホール追加",
+          "バンケットハウスでギフトボックスを共有",
+          "訪問者はランダムなビー玉報酬を獲得",
+          "ギフトボックスは獲得から5日間有効",
+          "期限切れギフトボックスは金レンガへ自動変換",
+          "バンケットハウスで実績を展示",
+          "チームキルランキングのエアドロップ報酬を削除"
+        ],
+        "unknowns": [
+          "変換レート",
+          "ビー玉の抽選範囲",
+          "訪問回数制限"
+        ]
+      }
     },
     {
       "id": "magic-farm",
@@ -86,10 +206,16 @@
       "sourceUrl": "https://monster-survival.games-wiki.com/events/magic-farm",
       "verifiedAt": "2026-08-31",
       "sourceStatus": "externally_confirmed",
-      "communityAliases": ["Cozy Farm"],
+      "communityAliases": [
+        "Cozy Farm"
+      ],
       "legacyRuleStatus": "legacy",
       "needsHumanVerification": true,
-      "humanVerification": ["現行UI", "重量ボーナス", "マイルストーン"]
+      "humanVerification": [
+        "現行UI",
+        "重量ボーナス",
+        "マイルストーン"
+      ]
     },
     {
       "id": "fishing-tournament",
@@ -102,9 +228,33 @@
       "sourceUrl": "https://monster-survival.games-wiki.com/events/fishing-tournament",
       "verifiedAt": "2026-08-31",
       "sourceStatus": "externally_confirmed",
-      "communityAliases": ["Fishing Contest"],
+      "communityAliases": [
+        "Fishing Contest"
+      ],
       "needsHumanVerification": true,
-      "humanVerification": ["現行海域魚一覧", "現行ランキング報酬", "釣り竿解放"]
+      "humanVerification": [
+        "現行海域魚一覧",
+        "現行ランキング報酬",
+        "釣り竿解放"
+      ],
+      "officialUpdate": {
+        "sourceType": "user-shared-patch-note-transcription",
+        "sourceUrl": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+        "checkedAt": "2026-09-11",
+        "version": "0.47.1",
+        "fact": "新しい繰り返し報酬追加",
+        "threshold": {
+          "item": "シルバーサカナコイン",
+          "amount": 20000000
+        },
+        "repeatRewardContents": null,
+        "officialOutline": {
+          "sourceType": "official-store",
+          "sourceUrl": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+          "checkedAt": "2026-09-11",
+          "version": "0.47.1"
+        }
+      }
     },
     {
       "id": "treasure-hunt",
@@ -117,13 +267,27 @@
       "sourceUrl": "https://monster-survival.games-wiki.com/events/treasure-hunt",
       "verifiedAt": "2026-08-31",
       "sourceStatus": "externally_confirmed",
-      "communityAliases": ["Treasure Hunt"],
+      "communityAliases": [
+        "Treasure Hunt"
+      ],
       "needsHumanVerification": true,
-      "humanVerification": ["イベントTOP", "日本版4人選択画面", "鍵と中央宝箱", "盤面拡張", "爆弾効果", "終了日時"],
+      "humanVerification": [
+        "イベントTOP",
+        "日本版4人選択画面",
+        "鍵と中央宝箱",
+        "盤面拡張",
+        "爆弾効果",
+        "終了日時"
+      ],
       "officialInquiry": {
         "status": "awaiting_official_response",
         "requestedAt": "2026-09-05",
-        "scope": ["details", "period", "rewards", "latest_specification"]
+        "scope": [
+          "details",
+          "period",
+          "rewards",
+          "latest_specification"
+        ]
       }
     },
     {
@@ -138,8 +302,17 @@
       "evidence": "23ページPDF",
       "sourceStatus": "verified",
       "verifiedAt": "2026-08-31",
-      "communityAliases": ["Summer Party", "Summer Bash"],
-      "externalCrossCheck": ["15セット", "135カード", "Card Packs", "Star Shop", "Trading"]
+      "communityAliases": [
+        "Summer Party",
+        "Summer Bash"
+      ],
+      "externalCrossCheck": [
+        "15セット",
+        "135カード",
+        "Card Packs",
+        "Star Shop",
+        "Trading"
+      ]
     },
     {
       "id": "zombie-siege",
@@ -153,15 +326,28 @@
       "sourceUrl": "https://monster-survival.games-wiki.com/events/zombie-siege",
       "verifiedAt": "2026-09-01",
       "sourceStatus": "verified",
-      "communityAliases": ["Zobo Shooter"],
+      "communityAliases": [
+        "Zobo Shooter"
+      ],
       "overseasStatus": "community_reference_only",
       "needsHumanVerification": true,
-      "humanVerification": ["現行ヘルプ全文", "レイジ・ロックオンの正確なドロップ条件", "ボス別の現行キル率・得点値"],
+      "humanVerification": [
+        "現行ヘルプ全文",
+        "レイジ・ロックオンの正確なドロップ条件",
+        "ボス別の現行キル率・得点値"
+      ],
       "strategy": {
         "preparationMultiplier": 1,
         "scoreMultiplier": 200,
-        "buffOrder": ["レイジ", "ロックオン"],
-        "targetPriority": ["シャーマンゾンビ", "電撃ゾンビ", "状況に応じた次の高得点ボス"],
+        "buffOrder": [
+          "レイジ",
+          "ロックオン"
+        ],
+        "targetPriority": [
+          "シャーマンゾンビ",
+          "電撃ゾンビ",
+          "状況に応じた次の高得点ボス"
+        ],
         "roomSelection": "×200周辺の人数と競合を確認し、混雑時は早めに別部屋を検討"
       },
       "fieldVerification": {
@@ -190,12 +376,136 @@
       "verifiedAt": "2026-08-31",
       "sourceStatus": "externally_confirmed",
       "needsHumanVerification": true,
-      "humanVerification": ["現行ヘルプ", "段階・報酬"],
+      "humanVerification": [
+        "現行ヘルプ",
+        "段階・報酬"
+      ],
       "officialInquiry": {
         "status": "awaiting_official_response",
         "requestedAt": "2026-09-05",
-        "scope": ["details", "period", "rewards", "latest_specification"]
+        "scope": [
+          "details",
+          "period",
+          "rewards",
+          "latest_specification"
+        ]
       }
+    },
+    {
+      "id": "carnival-fest",
+      "name": "カーニバルフェス",
+      "status": "implemented",
+      "href": "/events/carnival-fest/",
+      "summary": "v0.47.1で追加されたイベント。詳細な報酬・確率は外部攻略資料で確認し、ゲーム内検証待ち。",
+      "verificationStatus": "official-store-confirmed",
+      "sourceType": "official-store",
+      "sourceUrl": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+      "verifiedAt": "2026-09-11",
+      "officialNames": {
+        "ja": "カーニバルフェス",
+        "en": "Carnival Rush",
+        "zh-CN": null
+      },
+      "needsHumanVerification": true,
+      "humanVerification": [
+        "開催中サーバー",
+        "全報酬",
+        "全確率"
+      ]
     }
-  ]
+  ],
+  "officialSystemUpdates": [
+    {
+      "id": "boss-rally-cookie-reward",
+      "fact": "各ボスの全難易度クリアごとにランキングのクッキー報酬を基本値の10%加算（上限50%）",
+      "calculation": "base-value-additive",
+      "unknowns": [
+        "同一ボス再クリア",
+        "リセット時期",
+        "過去クリア分"
+      ],
+      "sourceType": "user-shared-patch-note-transcription",
+      "checkedAt": "2026-09-11",
+      "officialOutline": {
+        "sourceType": "official-store",
+        "sourceUrl": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+        "checkedAt": "2026-09-11",
+        "version": "0.47.1"
+      }
+    },
+    {
+      "id": "camp-day-night-bamboo",
+      "fact": "キャンプ場の昼夜変化、時間帯に応じたタタの様子の変化、建物ショップの「竹林の街」追加",
+      "sourceType": "user-shared-patch-note-transcription",
+      "checkedAt": "2026-09-11",
+      "officialOutline": {
+        "sourceType": "official-store",
+        "sourceUrl": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+        "checkedAt": "2026-09-11",
+        "version": "0.47.1"
+      }
+    },
+    {
+      "id": "friend-limit-80",
+      "fact": "フレンド上限80人",
+      "sourceType": "official-store",
+      "sourceUrl": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+      "checkedAt": "2026-09-11",
+      "version": "0.47.1"
+    },
+    {
+      "id": "card-album-filters",
+      "fact": "カード交換時の星ランク絞り込みと、プレゼントカードの連続受取演出最適化",
+      "sourceType": "user-shared-patch-note-transcription",
+      "checkedAt": "2026-09-11",
+      "officialOutline": {
+        "sourceType": "official-store",
+        "sourceUrl": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+        "checkedAt": "2026-09-11",
+        "version": "0.47.1"
+      }
+    },
+    {
+      "id": "recommended-tatari-entry",
+      "fact": "ボスラリー・ゾンビラッシュ・アイランドトレジャーの上級プレイヤー使用率と参考編成への入口を「オススメのタタ」画面へ移動",
+      "sourceType": "user-shared-patch-note-transcription",
+      "checkedAt": "2026-09-11",
+      "numericUsageRates": null
+    },
+    {
+      "id": "status-display-fix",
+      "fact": "一部画面のタタのステータス表示不具合を修正",
+      "sourceType": "user-shared-patch-note-transcription",
+      "checkedAt": "2026-09-11",
+      "balanceChange": false
+    },
+    {
+      "id": "zombie-rush-pakuma-effect",
+      "fact": "パクマ系のゾンビラッシュ専用スキルのエフェクト表現を最適化",
+      "sourceType": "user-shared-patch-note-transcription",
+      "checkedAt": "2026-09-11",
+      "balanceChange": false
+    },
+    {
+      "id": "zombie-rush-special-chip-repeat-fix",
+      "fact": "一部の特殊チップを繰り返し選択できる不具合を修正",
+      "sourceType": "user-shared-patch-note-transcription",
+      "checkedAt": "2026-09-11",
+      "affectedChipIds": null
+    }
+  ],
+  "season2Preview": {
+    "status": "announced-for-next-update-not-implemented",
+    "sourceType": "user-shared-patch-note-transcription",
+    "checkedAt": "2026-09-11",
+    "items": [
+      "ゾンビラッシュ専用スキルとチップ等のバランス調整",
+      "専用スキルのステータス確認機能",
+      "シーズンランキングのリセット",
+      "ステージ難易度の調整",
+      "Season 1最高到達難易度の1つ前を引き継ぐ"
+    ],
+    "noNumericChanges": true,
+    "wordingCaveat": "最高到達難易度を最高クリア難易度へ読み替えない"
+  }
 }

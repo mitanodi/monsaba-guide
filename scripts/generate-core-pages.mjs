@@ -83,7 +83,7 @@ function diffStages(from, to) {
     if (!before.has(label)) added.push({ label, value });
     else if (before.get(label) !== value) changed.push({ label, from: before.get(label), to: value });
   }
-  for (const [label, value] of before) if (!after.has(label)) missing.push({ label, value });
+  if (after.size) for (const [label, value] of before) if (!after.has(label)) missing.push({ label, value });
   return { skillNameChanged: from.skillName !== to.skillName, descriptionChanged: from.description !== to.description, added, changed, missing };
 }
 function transitionMeta(family, from, to, delta) {

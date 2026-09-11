@@ -106,7 +106,10 @@ export function validateTataNameSources({ source, tatari, skills, generatedHtml 
       }
       const { pageCount } = documents.get(rule.locale);
       const sourcePage = row?.[rule.pageField];
-      if (!Number.isInteger(sourcePage) || sourcePage < 1 || (Number.isInteger(pageCount) && sourcePage > pageCount)) {
+      const nameListSource = row?.sourceType === 'official-name-table' && exactString(row?.nameListSource?.file) && Number.isInteger(row?.nameListSource?.sourceRow);
+      if (nameListSource) {
+        // Publisher-supplied name-table rows cover forms added after the PDF export.
+      } else if (!Number.isInteger(sourcePage) || sourcePage < 1 || (Number.isInteger(pageCount) && sourcePage > pageCount)) {
         fail('invalidPages', 'Invalid Tata name source page', {
           family: row?.familyId ?? 'missing',
           stage: row?.stage ?? 'missing',
@@ -192,7 +195,13 @@ export function validateTataNameSources({ source, tatari, skills, generatedHtml 
         && row?.confidence === 'confirmed'
         && exactString(sourceName)
         && dbName === sourceName;
-      if (validSource) coverage[rule.locale] += 1;
+      const validNameListSource = row?.sourceType === 'official-name-table'
+        && exactString(row?.nameListSource?.file)
+        && Number.isInteger(row?.nameListSource?.sourceRow)
+        && row?.confidence === 'confirmed'
+        && exactString(sourceName)
+        && dbName === sourceName;
+      if (validSource || validNameListSource) coverage[rule.locale] += 1;
     }
 
     const skillStage = skills?.byFamily?.[family.id]?.stages?.find((item) => item.stage === evolution.stage);

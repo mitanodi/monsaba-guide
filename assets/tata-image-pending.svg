@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">公式画像未取得</title>
+  <desc id="desc">公式のタタ画像を取得できるまで使用する案内表示</desc>
+  <rect width="512" height="512" rx="32" fill="#eef2f6"/>
+  <path d="M176 216h160v112H176z" fill="none" stroke="#60758b" stroke-width="14" stroke-dasharray="18 14"/>
+  <circle cx="222" cy="254" r="18" fill="#60758b"/>
+  <path d="m194 308 48-44 30 28 22-18 24 34" fill="none" stroke="#60758b" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="256" y="376" text-anchor="middle" font-family="sans-serif" font-size="28" fill="#33485e">OFFICIAL IMAGE PENDING</text>
+</svg>

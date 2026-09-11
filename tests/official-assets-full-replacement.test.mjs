@@ -12,15 +12,15 @@ const sha256 = (file) => crypto.createHash('sha256').update(fs.readFileSync(file
 const images = json('data/tata-images.json');
 const tatari = json('data/tatari.json');
 const sourceMap = json('data/official-assets/tata-source-map.json');
-const expectedPending = ['nenbutsuhebi:T4', 'pakuma:T2', 'pakuma:T3', 'pakuma:T4', 'sukedako:T4'];
+const expectedPending = ['nenbutsuhebi:T4', 'nusuke:T1', 'nusuke:T2', 'nusuke:T3', 'nusuke:T4', 'pakuma:T2', 'pakuma:T3', 'pakuma:T4', 'shizukuchou:T4', 'sukedako:T4', 'tsubaruka:T4'];
 
 const forms = images.families.flatMap((family) => family.forms.map((form) => ({ familyId: family.familyId, ...form })));
 const official = forms.filter((form) => form.sourceType === 'official_creator_asset');
 const pending = forms.filter((form) => form.status === 'pending');
 
-test('all 230 Tata forms have one stage-correct mapping with only five expected pending', () => {
-  assert.equal(forms.length, 230);
-  assert.equal(new Set(forms.map((form) => `${form.familyId}:T${form.stage}`)).size, 230);
+test('all 236 Tata forms have one stage-correct mapping with eleven expected pending', () => {
+  assert.equal(forms.length, 236);
+  assert.equal(new Set(forms.map((form) => `${form.familyId}:T${form.stage}`)).size, 236);
   assert.equal(official.length, 224);
   assert.deepEqual(pending.map((form) => `${form.familyId}:T${form.stage}`).sort(), expectedPending);
   assert.equal(forms.filter((form) => form.status === 'verified' && form.sourceType !== 'official_creator_asset').length, 1);

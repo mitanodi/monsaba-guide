@@ -5,22 +5,21 @@ import path from 'node:path';
 
 const root = path.resolve(import.meta.dirname, '..');
 const data = JSON.parse(fs.readFileSync(path.join(root, 'data/gift-codes.json'), 'utf8'));
-const codes = ['openfestc26','openfestb26','openfesta26','welcome2026','GoonBug','HelloTatari','WeeklyGift','WelcomeGift'];
+const codes = ['ttukkapet26','openfestc26','openfestb26','openfesta26','welcome2026','GoonBug','HelloTatari','WeeklyGift','WelcomeGift'];
 const pages = ['gift-codes/index.html','en/gift-codes/index.html','zh-cn/gift-codes/index.html'];
 
 test('gift code data preserves all exact strings, order and unknown states', () => {
   assert.deepEqual(data.active.map((entry) => entry.code), codes);
-  assert.equal(data.active.length, 8);
+  assert.equal(data.active.length, 9);
   assert.equal(data.expired.length, 0);
-  assert.deepEqual(data.active.slice(0,3).map((entry) => entry.reward), [null,null,null]);
-  assert.ok(data.active.slice(0,3).every((entry) => entry.isNew && entry.rewardStatus === 'pending'));
+  assert.ok(data.active.slice(0,4).every((entry) => Array.isArray(entry.reward) && entry.rewardStatus === 'external_source_unredeemed'));
   assert.ok(data.active.every((entry) => entry.expiresAt === null && entry.expiryStatus === 'unannounced'));
 });
 
-test('all locales render eight cards in exact order with canonical and hreflang', () => {
+test('all locales render nine cards in exact order with canonical and hreflang', () => {
   for (const relative of pages) {
     const html = fs.readFileSync(path.join(root, relative), 'utf8');
-    assert.equal((html.match(/class="gift-code-card"/g) || []).length, 8, relative);
+    assert.equal((html.match(/class="gift-code-card"/g) || []).length, 9, relative);
     let cursor = -1;
     for (const code of codes) { const next = html.indexOf(`<code>${code}</code>`, cursor + 1); assert.ok(next > cursor, `${relative}: ${code}`); cursor = next; }
     for (const hreflang of ['ja','en','zh-Hans','x-default']) assert.match(html, new RegExp(`hreflang="${hreflang}"`));

@@ -62,9 +62,9 @@ test('ZR P2, chips and Lv8 survive Normal mode and return after reload', () => {
   assert.throws(() => saveModeDrafts({ setItem() { throw new Error('quota'); } }, result.drafts, families), /quota/);
 });
 
-test('データIntegrityは64系統・230体', () => {
-  assert.equal(families.length, 64);
-  assert.equal(families.flatMap((family) => family.evolutions).length, 230);
+test('データIntegrityは65系統・236体', () => {
+  assert.equal(families.length, 65);
+  assert.equal(families.flatMap((family) => family.evolutions).length, 236);
   assert.deepEqual(new Set(families.map((family) => family.attribute)), new Set(['草', '水', '火', '雷', '岩']));
 });
 

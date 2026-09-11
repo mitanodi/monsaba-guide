@@ -3,8 +3,8 @@
     "screenshotTotal": 668,
     "processedRange": "IMG_6242〜IMG_6910",
     "processedScreenshotCount": 668,
-    "familyCount": 64,
-    "monsterCount": 230,
+    "familyCount": 65,
+    "monsterCount": 236,
     "status": "all_user_screenshots_processed",
     "nonIndexScreenshots": [
       "IMG_6272.png",
@@ -66,9 +66,11 @@
       "sha256": "82FF3DEE280A21ECBB99ED46BDA893C1533AF8D2D76A7AF166D7D43B726B1211",
       "pages": 91,
       "verifiedAt": "2026-08-30",
-      "gameVersion": "0.46.1",
+      "gameVersion": "0.47.1",
       "physicalPages": 92,
-      "excludedFrontMatterPages": 1
+      "excludedFrontMatterPages": 1,
+      "checkedAt": "2026-09-11",
+      "sourceUrl": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp"
     }
   },
   "families": [
@@ -360,6 +362,19 @@
           "image": "assets/official/tata/tsubaruka/t3-512.webp",
           "nameEn": "Ptooielama",
           "nameZhHans": "啊呸驼"
+        },
+        {
+          "stage": 4,
+          "name": "ジャンガルパカ",
+          "source": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+          "image": null,
+          "nameEn": "Blechlama",
+          "nameZhHans": "一塌糊驼",
+          "verification": {
+            "implementation": "official-store-confirmed",
+            "names": "official-name-table-confirmed",
+            "checkedAt": "2026-09-11"
+          }
         }
       ],
       "skills": [
@@ -11207,6 +11222,19 @@
           "image": "assets/official/tata/shizukuchou/t3-512.webp",
           "nameEn": "Waveflutter",
           "nameZhHans": "水舞蝶"
+        },
+        {
+          "stage": 4,
+          "name": "エーテリファル",
+          "source": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+          "image": null,
+          "nameEn": "Morphanessa",
+          "nameZhHans": "潋滟水蝶",
+          "verification": {
+            "implementation": "official-store-confirmed",
+            "names": "official-name-table-confirmed",
+            "checkedAt": "2026-09-11"
+          }
         }
       ],
       "skills": [
@@ -12482,6 +12510,136 @@
         "マリンベア",
         "ブリズリー"
       ]
+    },
+    {
+      "id": "nusuke",
+      "familyName": "ヌスケ",
+      "attribute": "岩",
+      "evolutions": [
+        {
+          "stage": 1,
+          "name": "ヌスケ",
+          "source": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+          "image": null,
+          "nameEn": "Ringtail",
+          "nameZhHans": "干脆面",
+          "verification": {
+            "implementation": "official-store-confirmed",
+            "names": "official-name-table-confirmed",
+            "checkedAt": "2026-09-11"
+          }
+        },
+        {
+          "stage": 2,
+          "name": "ラクディット",
+          "source": "https://w.atwiki.jp/monstersurvival/pages/129.html",
+          "image": null,
+          "nameEn": "Rizzler",
+          "nameZhHans": "改头浣面",
+          "verification": {
+            "implementation": "external-guide-confirmed",
+            "names": "official-name-table-confirmed",
+            "checkedAt": "2026-09-11"
+          }
+        },
+        {
+          "stage": 3,
+          "name": "マスクーン",
+          "source": "https://w.atwiki.jp/monstersurvival/pages/129.html",
+          "image": null,
+          "nameEn": "Zorrock",
+          "nameZhHans": "怪盗千面",
+          "verification": {
+            "implementation": "external-guide-confirmed",
+            "names": "official-name-table-confirmed",
+            "checkedAt": "2026-09-11"
+          }
+        },
+        {
+          "stage": 4,
+          "name": "トリックーン",
+          "source": "https://w.atwiki.jp/monstersurvival/pages/129.html",
+          "image": null,
+          "nameEn": "Phantothief",
+          "nameZhHans": "偷心假面",
+          "verification": {
+            "implementation": "external-guide-confirmed",
+            "names": "official-name-table-confirmed",
+            "checkedAt": "2026-09-11"
+          }
+        }
+      ],
+      "skills": [
+        {
+          "stage": 1,
+          "name": "コソコソッと登場",
+          "summary": "効果の詳細は外部攻略資料で確認。ゲーム内数値は未確認です。",
+          "stats": [],
+          "sources": [
+            "https://w.atwiki.jp/monstersurvival/pages/129.html"
+          ]
+        },
+        {
+          "stage": 2,
+          "name": "変面トリック",
+          "summary": "効果の詳細は外部攻略資料で確認。ゲーム内数値は未確認です。",
+          "stats": [],
+          "sources": [
+            "https://w.atwiki.jp/monstersurvival/pages/129.html"
+          ]
+        },
+        {
+          "stage": 3,
+          "name": "千面マジック",
+          "summary": "効果の詳細は外部攻略資料で確認。ゲーム内数値は未確認です。",
+          "stats": [],
+          "sources": [
+            "https://w.atwiki.jp/monstersurvival/pages/129.html"
+          ]
+        },
+        {
+          "stage": 4,
+          "name": "仮面フィナーレ",
+          "summary": "効果の詳細は外部攻略資料で確認。ゲーム内数値は未確認です。",
+          "stats": [],
+          "sources": [
+            "https://w.atwiki.jp/monstersurvival/pages/129.html"
+          ]
+        }
+      ],
+      "searchAliases": [
+        "ヌスケ",
+        "ラクディット",
+        "マスクーン",
+        "トリックーン",
+        "Ringtail",
+        "Rizzler",
+        "Zorrock",
+        "Phantothief",
+        "干脆面",
+        "改头浣面",
+        "怪盗千面",
+        "偷心假面"
+      ],
+      "zombieRushSkills": {
+        "sourceType": "external-guide",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/129.html",
+        "checkedAt": "2026-09-11",
+        "entries": [
+          {
+            "level": 3,
+            "name": "盗みにも道義あり"
+          },
+          {
+            "level": 5,
+            "name": "一投千金"
+          },
+          {
+            "level": 7,
+            "name": "祝砲エース"
+          }
+        ]
+      }
     }
   ]
 }

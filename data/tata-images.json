@@ -11,10 +11,10 @@
     "googleDriveHotlinking": false
   },
   "counts": {
-    "families": 64,
-    "forms": 230,
+    "families": 65,
+    "forms": 236,
     "verifiedForms": 225,
-    "pendingForms": 5,
+    "pendingForms": 11,
     "officialCreatorAssetForms": 224
   },
   "officialPendingReview": {
@@ -42,7 +42,10 @@
         "familyId": "sukedako",
         "stage": 4
       }
-    ]
+    ],
+    "nusuke": "Official creator image not obtained as of 2026-09-11",
+    "shizukuchouT4": "Official creator image not obtained",
+    "tsubarukaT4": "Official creator image not obtained"
   },
   "families": [
     {
@@ -220,6 +223,14 @@
           "sourceSha256": "88fed46730773583438e76750cfed80711493095f3ab5ac37e67e84014674e32",
           "optimizedPath": "/assets/official/tata/tsubaruka/t3-512.webp",
           "verifiedAt": "2026-09-04"
+        },
+        {
+          "stage": 4,
+          "name": "ジャンガルパカ",
+          "src": null,
+          "status": "pending",
+          "reason": "official_image_not_obtained",
+          "verifiedAt": "2026-09-11"
         }
       ]
     },
@@ -5454,6 +5465,14 @@
           "sourceSha256": "6482a16276fd9b8bb456541daf27f79c619e8cba31a01c9fc389c98ad0a79f35",
           "optimizedPath": "/assets/official/tata/shizukuchou/t3-512.webp",
           "verifiedAt": "2026-09-04"
+        },
+        {
+          "stage": 4,
+          "name": "エーテリファル",
+          "src": null,
+          "status": "pending",
+          "reason": "official_image_not_obtained",
+          "verifiedAt": "2026-09-11"
         }
       ]
     },
@@ -5783,6 +5802,55 @@
           "height": null,
           "status": "pending",
           "reason": "locked_silhouette_only"
+        }
+      ]
+    },
+    {
+      "order": 65,
+      "familyId": "nusuke",
+      "familyDisplay": "ヌスケ",
+      "attribute": "岩",
+      "stage1": {
+        "stage": 1,
+        "name": "ヌスケ",
+        "src": "/assets/tata-image-pending.svg",
+        "width": 512,
+        "height": 512,
+        "status": "pending",
+        "reason": "official_image_not_obtained"
+      },
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ヌスケ",
+          "src": null,
+          "status": "pending",
+          "reason": "official_image_not_obtained",
+          "verifiedAt": "2026-09-11"
+        },
+        {
+          "stage": 2,
+          "name": "ラクディット",
+          "src": null,
+          "status": "pending",
+          "reason": "official_image_not_obtained",
+          "verifiedAt": "2026-09-11"
+        },
+        {
+          "stage": 3,
+          "name": "マスクーン",
+          "src": null,
+          "status": "pending",
+          "reason": "official_image_not_obtained",
+          "verifiedAt": "2026-09-11"
+        },
+        {
+          "stage": 4,
+          "name": "トリックーン",
+          "src": null,
+          "status": "pending",
+          "reason": "official_image_not_obtained",
+          "verifiedAt": "2026-09-11"
         }
       ]
     }

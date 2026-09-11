@@ -22,7 +22,7 @@ expect(officialForms.length === 224, `official Tata forms must be 224, got ${off
 expect(tataSources.assets.length === 224, `Tata source records must be 224, got ${tataSources.assets.length}`);
 expect(tataSources.counts.pending_to_official === 114, 'pending to official count must be 114');
 expect(tataSources.counts.verified_to_official === 110, 'verified-to-official replacement count must be 110');
-expect(JSON.stringify(pending) === JSON.stringify(['nenbutsuhebi:T4', 'pakuma:T2', 'pakuma:T3', 'pakuma:T4', 'sukedako:T4']), `pending forms mismatch: ${pending.join(', ')}`);
+expect(JSON.stringify(pending) === JSON.stringify(['nenbutsuhebi:T4', 'nusuke:T1', 'nusuke:T2', 'nusuke:T3', 'nusuke:T4', 'pakuma:T2', 'pakuma:T3', 'pakuma:T4', 'shizukuchou:T4', 'sukedako:T4', 'tsubaruka:T4']), `pending forms mismatch: ${pending.join(', ')}`);
 expect(skillIcons.count === 58 && skillIcons.icons.length === 58, 'skill icon count must be 58');
 expect(eventImages.count === 4 && eventImages.events.length === 4, 'event image count must be 4');
 expect(siteIcons.count === 1 && siteIcons.outputs.length === 5, 'site icon source/output count mismatch');
@@ -66,4 +66,4 @@ if (errors.length) {
   console.error(errors.map((error) => `- ${error}`).join('\n'));
   process.exit(1);
 }
-console.log('公式素材検証成功: asset 287 / Tata 224 / skill 58 / event 4 / site icon 1 / pending 5');
+console.log('公式素材検証成功: asset 287 / Tata 224 / skill 58 / event 4 / site icon 1 / pending 11');

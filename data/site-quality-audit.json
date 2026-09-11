@@ -2,8 +2,8 @@
   "version": 1,
   "asOf": "2026-09-05",
   "totals": {
-    "pages": 390,
-    "indexable": 354,
+    "pages": 393,
+    "indexable": 360,
     "brokenLinks": 0,
     "brokenImages": 0,
     "structuralIssues": 0,
@@ -335,6 +335,16 @@
       "ageDays": 8,
       "category": "evergreen",
       "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/events/carnival-fest/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "event",
+      "priority": "HIGH",
       "status": "verified",
       "reviewRequired": false,
       "reasons": []
@@ -1100,6 +1110,16 @@
       "reasons": []
     },
     {
+      "route": "/en/tata/nusuke/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
       "route": "/en/tata/pakuma/",
       "verified": "2026-08-30",
       "ageDays": 6,
@@ -1376,6 +1396,16 @@
       "category": "zombie_rush",
       "priority": "HIGH",
       "status": "implemented-details-verifying",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/events/carnival-fest/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "event",
+      "priority": "HIGH",
+      "status": "verified",
       "reviewRequired": false,
       "reasons": []
     },
@@ -2140,6 +2170,16 @@
       "reasons": []
     },
     {
+      "route": "/tata/nusuke/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
       "route": "/tata/pakuma/",
       "verified": "2026-08-30",
       "ageDays": 6,
@@ -2535,6 +2575,16 @@
       "ageDays": 8,
       "category": "evergreen",
       "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/events/carnival-fest/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "event",
+      "priority": "HIGH",
       "status": "verified",
       "reviewRequired": false,
       "reasons": []
@@ -3293,6 +3343,16 @@
       "route": "/zh-cn/tata/nenbutsuhebi/",
       "verified": "2026-08-30",
       "ageDays": 6,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/nusuke/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
       "category": "evergreen",
       "priority": "LOW",
       "status": "verified",

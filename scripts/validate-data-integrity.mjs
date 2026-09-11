@@ -32,7 +32,7 @@ fail(seasonOne.meta?.effectiveDate === '2026-08-26', 'season-1.json: effectiveDa
 const families = Array.isArray(tatari.families) ? tatari.families : [];
 const familyIds = families.map((family) => family.id);
 const validIds = new Set(familyIds);
-fail(familyIds.length === 64, `tatari.json: family count ${familyIds.length}, expected 64`);
+fail(familyIds.length === tatari.meta?.familyCount, `tatari.json: family count ${familyIds.length}, metadata ${tatari.meta?.familyCount}`);
 fail(new Set(familyIds).size === familyIds.length, 'tatari.json: duplicate family id');
 
 let evolutionCount = 0;
@@ -53,7 +53,7 @@ for (const family of families) {
     fail(typeof stage.name === 'string' && stage.name.length > 0, `${family.id} T${stage.stage}: evolution name is required`);
   }
 }
-fail(evolutionCount === 230, `tatari.json: evolution count ${evolutionCount}, expected 230`);
+fail(evolutionCount === tatari.meta?.monsterCount, `tatari.json: evolution count ${evolutionCount}, metadata ${tatari.meta?.monsterCount}`);
 fail(tatari.meta?.familyCount === familyIds.length && tatari.meta?.monsterCount === evolutionCount, 'tatari.json: meta counts must match calculated totals');
 
 const skillFamilies = Object.keys(skills.byFamily || {});

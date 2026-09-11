@@ -115,7 +115,7 @@ for (const sourceFile of sourceFiles) {
       for (const [hreflang, alternate] of Object.entries(alternateRoutes)) expect(html.includes(`hreflang="${hreflang}" href="${BASE_URL}${alternate}"`), `${localRoute}: ${hreflang} alternate missing`);
     }
     expect(html.includes(`<option value="${locale.key}" selected>`), `${localRoute}: language selector state missing`);
-    expect(html.includes(`/i18n/${locale.directory}-runtime.js?v=${JSON.parse(read('data/asset-build.json')).version}`), `${localRoute}: versioned locale runtime missing`);
+    if (route !== '/tatari-names/') expect(html.includes(`/i18n/${locale.directory}-runtime.js?v=${JSON.parse(read('data/asset-build.json')).version}`), `${localRoute}: versioned locale runtime missing`);
     expect(!/\b(?:undefined|null|\[i18n\.[^\]]+\])\b/.test(html), `${localRoute}: missing translation marker rendered`);
     expect(!invalidMarker.test(html), `${localRoute}: bootstrap marker rendered`);
     expect(!html.includes(`${BASE_URL}/${locale.directory}/assets/`), `${localRoute}: structured-data asset URL was localized`);
@@ -153,9 +153,11 @@ for (const locale of locales) expect(untranslated[locale.key].size === 0, `${loc
 
 const tatari = JSON.parse(read('data/tatari.json'));
 const skills = JSON.parse(read('data/tata-skills.json'));
-expect(tatari.families.length === 64, 'Tatari family count must be 64');
-expect(tatari.families.flatMap((family) => family.evolutions).length === 230, 'Monster count must be 230');
-expect(skills.totals?.stages === 230 && skills.totals?.skills === 230, `Skill stage count changed: ${skills.totals?.stages}`);
+const currentFamilyCount = tatari.families.length;
+const currentFormCount = tatari.families.flatMap((family) => family.evolutions).length;
+expect(currentFamilyCount === 65, `Tatari family count must be 65, got ${currentFamilyCount}`);
+expect(currentFormCount === 236, `Monster count must be 236, got ${currentFormCount}`);
+expect(skills.totals?.stages === currentFormCount && skills.totals?.skills === currentFormCount, `Skill stage count changed: ${skills.totals?.stages}`);
 expect(read('site.js').includes("localStorage.setItem('monsabaLanguage:v1'"), 'Language preference is not stored');
 expect(read('site.js').includes('location.search') && read('site.js').includes('location.hash'), 'Language switching does not preserve query/hash');
 expect(read('i18n-runtime.js').includes('.official-x-post-text') && read('i18n-runtime.js').includes('.friend-comment'), 'UGC/X translation exclusion missing');

@@ -101,8 +101,8 @@ test('localized Summer Party copy, pending label, footer and Chinese skip link a
   assert.match(ja, /カード名21件確認中/);
   assert.match(en, /21 card names pending/);
   assert.match(zh, /21 个卡名待确认/);
-  assert.match(en, /<div class="footer-meta">64 families \/ 230 Tatari<\/div>/);
-  assert.match(zh, /<div class="footer-meta">64 个系列 \/ 230 个 Tatari<\/div>/);
+  assert.match(en, /<div class="footer-meta">65 families \/ 236 Tatari<\/div>/);
+  assert.match(zh, /<div class="footer-meta">65 个系列 \/ 236 个 Tatari<\/div>/);
   assert.match(zh, />跳到正文<\/a>/);
   assert.doesNotMatch(zh, />Skip to content<\/a>/);
 });

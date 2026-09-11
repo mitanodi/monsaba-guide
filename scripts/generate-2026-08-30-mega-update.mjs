@@ -151,6 +151,7 @@ const eventDetails = {
   'fishing-tournament': ['海域・コイン・QTE', '4人チームで、ピンボールから釣り竿を集めて海域で釣ります。ゴールドサカナコインはランキング、シルバーサカナコインは累計報酬と上位釣り竿解放に使い、大型魚ではQTEが発生します。', '個人報酬・竿解放は高倍率、ランキングの試行回数確保は1倍中心というコミュニティ攻略です。まき餌はチームが同時に釣れる時間へ合わせます。', '現行海域魚一覧、ランキング報酬、釣り竿解放値は日本語ゲーム画面で再確認待ちです。'],
   'treasure-hunt': ['4本の鍵と盤面拡張', '開始後に4人を選び、1人の盤面でオタカラを3回見つけると鍵を1個獲得します。鍵4個で中央宝箱を開き、同じメンバーから複数の鍵も取得できます。', '鍵ごとに必要アイテム数が5増え、盤面は最大3回拡張します。1〜3マスを追加で掘る爆弾を考慮し、独自ソルバーで候補手順を比較します。', '日本版のチーム選択・鍵・盤面拡張・爆弾画面はユーザー提供スクリーンショットで再確認待ちです。'],
   'surprise-roulette': ['公式告知確認', '8月26日の公式更新で段階追加と手動レベルアップが案内されました。', 'ゲーム内の段階と報酬を見て、必要分だけ進める設計です。', '現行ヘルプ、各段階の詳細数値と報酬はゲーム内確認待ちです。']
+  ,'carnival-fest': ['v0.47.1で追加', 'クエストでラッキーコインを獲得し、ラッキーマシンで特定アイコンをそろえて報酬を得るイベントです。', 'まずゲーム内のクエストと開催期間を確認し、未確認の確率や必要コイン数を前提にしないで進めます。', '開催中サーバー、全報酬、確率、日別解放条件は確認待ちです。']
 };
 const officialInquiryNoticeJa = (event) => event.officialInquiry?.status === 'awaiting_official_response'
   ? '<div class="notice-box official-inquiry-notice"><h3>公式運営へ確認中</h3><p>詳細仕様・開催期間・報酬内容・その他最新仕様は、2026年9月5日時点で運営担当者の回答待ちです。未確認の期間・報酬・仕様は推測していません。</p></div>'
@@ -165,7 +166,7 @@ for (const event of events.events) {
   const [heading, current, strategy, pending] = eventDetails[event.id];
   write(`/events/${event.id}/`, shell({
     route: `/events/${event.id}/`, title: `${event.name} 攻略｜モンサバ イベント`, description: event.summary,
-    type: 'Article', updated: event.officialInquiry ? OFFICIAL_RESPONSE_DATE : EVENT_RESEARCH_DATE,
+    type: 'Article', updated: event.id === 'carnival-fest' ? events.updated : event.officialInquiry ? OFFICIAL_RESPONSE_DATE : EVENT_RESEARCH_DATE,
     body: `<article class="wrap static-section"><div class="trust-label-row"><span class="trust-label is-external">コミュニティ確認</span><span class="trust-label is-pending">現行詳細は確認待ち</span></div>${officialInquiryNoticeJa(event)}<h2 class="page-h2">${esc(heading)}</h2><div class="event-status-grid"><article><h3>イベント概要・基本ルール</h3><p>${esc(current)}</p></article><article><h3>攻略の流れ・優先事項</h3><p>${esc(strategy)}</p></article></div><section><h2 class="page-h2">初心者が最初にやること</h2><p>${esc(strategy)}</p><p class="section-note">現行の倍率・必要数・報酬値を確認できていない項目は数値を掲載していません。</p></section><section><h2 class="page-h2">重要アイテムと報酬</h2><p>現在の日本版で名称・必要数・報酬内容を確認できる資料が不足しています。過去情報を現行報酬として表示せず、確認後に追加します。</p></section><section><h2 class="page-h2">よくある失敗</h2><p>開催期間や過去の倍率・報酬を現行仕様だと決めつけないでください。ゲーム内の開催表示とヘルプを優先してください。</p></section><div class="summary-box"><strong>Human Verification</strong><p>${esc(pending)}</p></div><h2 class="page-h2">情報源</h2><p><a href="${esc(event.sourceUrl)}" target="_blank" rel="noopener noreferrer">国内攻略情報</a>を2026年8月31日に照合し、当サイトで独自に要約しました。画像・表・記事本文は転載せず、詳細仕様を公式確認済みとは表示していません。</p><nav class="attribute-guide-nav"><a href="/events/">イベント攻略へ戻る</a><a href="/beginner-guide/">初心者ガイド</a><a href="/team-builder/">編成メーカー</a><a href="/items/">アイテムDB</a><a href="/evolution/trials/">関連する進化試練を見る</a></nav></article>`
   }));
 }
@@ -221,7 +222,7 @@ function localizedShell(locale, { route, title, description, body, type = 'Colle
   const formattedDate = locale === 'en' ? englishDate(updated) : japaneseDate(updated);
   const kicker = updated === DEFAULT_CONTENT_DATE
     ? 'v0.46.1 · Aug 30, 2026'
-    : locale === 'en' ? `v0.46.1 · ${formattedDate}` : `v0.46.1・${formattedDate}确认`;
+    : locale === 'en' ? `${updated >= '2026-09-09' ? 'v0.47.1' : 'v0.46.1'} · ${formattedDate}` : `${updated >= '2026-09-09' ? 'v0.47.1' : 'v0.46.1'}・${formattedDate}确认`;
   const checked = updated === DEFAULT_CONTENT_DATE
     ? config.checked
     : locale === 'en' ? `Last checked: ${formattedDate}` : `最后确认：${formattedDate}`;
@@ -252,7 +253,8 @@ const localizedEvents = {
     'magic-farm':['Magic Farm Guide','The post-August 26 version scores total crop weight, with fertilizer criticals and invited Tatari bonuses.','How it works','Use fertilizer to raise total crop weight. Criticals can reach 5×, while an invited personal or friend Tatari adds a bonus based on Stars, evolution, feeding and shiny status.','Priority','Confirm the best displayed support bonus and next weight milestone before spending fertilizer. Harvest-and-feed instructions are legacy.','The current UI, weight bonuses and milestone rewards need Japanese in-game screenshots.'],
     'fishing-tournament':['Fishing Tournament Guide','A four-player sea event using rods, gold and silver fish coins, bait and large-fish QTEs.','How it works','Collect rods from Pinball. Gold Fish Coins are used for ranking; Silver Fish Coins advance personal rewards and unlock better rods.','Priority','Community guidance uses higher multipliers for Silver progress and rod unlocks, then 1× for more ranking attempts. Coordinate shared bait timing.','The current sea fish list, ranking rewards and rod unlock values need Japanese in-game screenshots.'],
     'treasure-hunt':['Treasure Hunt Guide','Use four keys, expanding boards, increasing costs and bombs to plan the opening order.','How it works','Choose four members after the event starts. Finding treasure three times on one member’s board awards a key; four keys open the central chest.','Priority','Each key raises the item cost by 5, boards expand up to three times, and bombs dig 1–3 extra cells. Use the independent solver without importing third-party logic.','Japanese team, key, expansion and bomb screens still need confirmation.'],
-    'surprise-roulette':['Surprise Roulette Guide','The August 26 official update announced added stages and manual level-up.','Official notice','The official update announced additional stages and manual level-up.','Priority','Check the current stage and reward before spending event resources.','Current help, stage values and rewards need an in-game check.']
+    'surprise-roulette':['Surprise Roulette Guide','The August 26 official update announced added stages and manual level-up.','Official notice','The official update announced additional stages and manual level-up.','Priority','Check the current stage and reward before spending event resources.','Current help, stage values and rewards need an in-game check.'],
+    'carnival-fest':['Carnival Rush Guide','An event added in v0.47.1; detailed rewards and rates still need in-game confirmation.','How it works','Complete quests for Lucky Coins and match specific icons on the Lucky Machine to receive rewards.','Priority','Check the live event period and quests before spending coins.','Current servers, all rewards, rates and daily unlocks need confirmation.']
   },
   'zh-CN': {
     'running-party':['跑步派对攻略','4人共享滑雪距离与团队进度的周期活动。','活动玩法','从弹珠机获得滑雪板，通过转盘前进；每人的距离计入4人总距离，队友距离奖励中的活动道具也会共享。','优先建议','社区攻略建议以5倍、10倍稳定推进；更高倍率的单次波动更大。','完整帮助、全部倍率与当前奖励仍需日文游戏截图确认。'],
@@ -261,7 +263,8 @@ const localizedEvents = {
     'magic-farm':['魔法农场攻略','8月26日改版后以作物总重量计分，并含肥料暴击与邀请Tatari加成。','活动玩法','使用肥料提高作物总重量，暴击最高5倍；自己或好友Tatari的星级、进化、喂食与闪亮状态会转化为重量加成。','优先建议','先确认画面上最高的支援加成与下一个重量里程碑，再使用肥料；旧收获与喂食流程属于旧规则。','当前界面、重量加成与里程碑奖励仍需日文游戏截图。'],
     'fishing-tournament':['钓鱼大赛攻略','使用海域、金银鱼币、鱼竿、鱼饵与大型鱼QTE推进的4人活动。','活动玩法','从弹珠机收集鱼竿；金鱼币用于排名，银鱼币用于个人累计奖励与解锁更高级鱼竿。','优先建议','社区攻略以高倍率推进银币与鱼竿解锁，再用1倍增加排名尝试次数；鱼饵应与队友同时钓鱼的时间协调。','当前海域鱼类、排名奖励与鱼竿解锁数值仍需日文游戏截图。'],
     'treasure-hunt':['寻宝攻略','结合4把钥匙、盘面扩张、费用递增与炸弹规划开启顺序。','活动玩法','活动开始后选择4名成员；在一名成员的盘面找到3次宝物可得1把钥匙，4把钥匙开启中央宝箱。','优先建议','每把钥匙使道具成本增加5，盘面最多扩张3次，炸弹额外挖掘1–3格；使用本站独立求解器，不导入第三方逻辑。','日本版队伍、钥匙、扩张与炸弹画面仍待确认。'],
-    'surprise-roulette':['惊喜轮盘攻略','8月26日官方更新已公告新增阶段与手动升级。','官方公告','官方更新已公告新增阶段与手动升级。','优先建议','使用活动资源前先确认当前阶段与奖励。','当前帮助、阶段数值与奖励仍需游戏内确认。']
+    'surprise-roulette':['惊喜轮盘攻略','8月26日官方更新已公告新增阶段与手动升级。','官方公告','官方更新已公告新增阶段与手动升级。','优先建议','使用活动资源前先确认当前阶段与奖励。','当前帮助、阶段数值与奖励仍需游戏内确认。'],
+    'carnival-fest':['Carnival Rush 攻略','v0.47.1新增活动；详细奖励与概率仍待游戏内确认。','活动玩法','完成任务取得幸运币，在幸运机中配出指定图标即可获得奖励。','优先建议','消耗幸运币前先确认实际举办时间与任务。','当前服务器、全部奖励、概率和每日解锁条件仍待确认。']
   }
 };
 for (const locale of Object.keys(localeConfig)) for (const event of events.events) {

@@ -1,11 +1,11 @@
 {
-  "version": 1,
+  "version": "2026-09-11",
   "source": "data/tatari.json",
   "description": "Tata skill data copied from the existing structured tatari.json source. Values are preserved as published strings and are not inferred.",
   "totals": {
-    "families": 64,
-    "stages": 230,
-    "skills": 230,
+    "families": 65,
+    "stages": 236,
+    "skills": 236,
     "unreadable": 0
   },
   "issues": [],
@@ -348,6 +348,20 @@
           "evolutionSource": "IMG_6256.png",
           "nameEn": "Ptooielama",
           "nameZhHans": "啊呸驼"
+        },
+        {
+          "stage": 4,
+          "tataName": "ジャンガルパカ",
+          "skillName": "ドシャツバ嵐",
+          "description": "スキル名のみ外部攻略資料で確認。効果と数値はゲーム内資料待ちです。",
+          "values": [],
+          "sources": [
+            "https://w.atwiki.jp/monstersurvival/pages/60.html"
+          ],
+          "evolutionSource": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+          "nameEn": "Blechlama",
+          "nameZhHans": "一塌糊驼",
+          "verificationStatus": "name-confirmed-values-pending"
         }
       ]
     },
@@ -9909,6 +9923,20 @@
           "evolutionSource": "IMG_6850.png",
           "nameEn": "Waveflutter",
           "nameZhHans": "水舞蝶"
+        },
+        {
+          "stage": 4,
+          "tataName": "エーテリファル",
+          "skillName": "永眠ミサイル",
+          "description": "スキル名のみ外部攻略資料で確認。効果と数値はゲーム内資料待ちです。",
+          "values": [],
+          "sources": [
+            "https://w.atwiki.jp/monstersurvival/pages/37.html"
+          ],
+          "evolutionSource": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+          "nameEn": "Morphanessa",
+          "nameZhHans": "潋滟水蝶",
+          "verificationStatus": "name-confirmed-values-pending"
         }
       ]
     },
@@ -10807,6 +10835,73 @@
           "nameZhHans": "盖世英熊"
         }
       ]
+    },
+    "nusuke": {
+      "familyId": "nusuke",
+      "familyName": "ヌスケ",
+      "attribute": "岩",
+      "stages": [
+        {
+          "stage": 1,
+          "tataName": "ヌスケ",
+          "skillName": "コソコソッと登場",
+          "skillNameEn": "Bushy Debut",
+          "description": "外部攻略資料でスキル名と概要を確認。ゲーム内の効果数値は未確認です。",
+          "values": [],
+          "sources": [
+            "https://w.atwiki.jp/monstersurvival/pages/129.html"
+          ],
+          "evolutionSource": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+          "nameEn": "Ringtail",
+          "nameZhHans": "干脆面",
+          "verificationStatus": "external-guide-confirmed-values-pending"
+        },
+        {
+          "stage": 2,
+          "tataName": "ラクディット",
+          "skillName": "変面トリック",
+          "skillNameEn": "Sleight of Hand",
+          "description": "外部攻略資料でスキル名と概要を確認。ゲーム内の効果数値は未確認です。",
+          "values": [],
+          "sources": [
+            "https://w.atwiki.jp/monstersurvival/pages/129.html"
+          ],
+          "evolutionSource": "https://w.atwiki.jp/monstersurvival/pages/129.html",
+          "nameEn": "Rizzler",
+          "nameZhHans": "改头浣面",
+          "verificationStatus": "external-guide-confirmed-values-pending"
+        },
+        {
+          "stage": 3,
+          "tataName": "マスクーン",
+          "skillName": "千面マジック",
+          "skillNameEn": "Myriad Masks",
+          "description": "外部攻略資料でスキル名と概要を確認。ゲーム内の効果数値は未確認です。",
+          "values": [],
+          "sources": [
+            "https://w.atwiki.jp/monstersurvival/pages/129.html"
+          ],
+          "evolutionSource": "https://w.atwiki.jp/monstersurvival/pages/129.html",
+          "nameEn": "Zorrock",
+          "nameZhHans": "怪盗千面",
+          "verificationStatus": "external-guide-confirmed-values-pending"
+        },
+        {
+          "stage": 4,
+          "tataName": "トリックーン",
+          "skillName": "仮面フィナーレ",
+          "skillNameEn": "The Final Act",
+          "description": "外部攻略資料でスキル名と概要を確認。ゲーム内の効果数値は未確認です。",
+          "values": [],
+          "sources": [
+            "https://w.atwiki.jp/monstersurvival/pages/129.html"
+          ],
+          "evolutionSource": "https://w.atwiki.jp/monstersurvival/pages/129.html",
+          "nameEn": "Phantothief",
+          "nameZhHans": "偷心假面",
+          "verificationStatus": "external-guide-confirmed-values-pending"
+        }
+      ]
     }
   },
   "sourceEvidence": {
@@ -10817,5 +10912,26 @@
     "gameVersion": "0.46.1",
     "physicalPages": 92,
     "excludedFrontMatterPages": 1
-  }
+  },
+  "latestUpdateEvidence": [
+    {
+      "sourceType": "official-store",
+      "url": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+      "checkedAt": "2026-09-11",
+      "scope": [
+        "nusuke-implementation",
+        "new-t4-implementation"
+      ]
+    },
+    {
+      "sourceType": "external-guide",
+      "url": "https://w.atwiki.jp/monstersurvival/pages/129.html",
+      "checkedAt": "2026-09-11",
+      "scope": [
+        "nusuke-evolution",
+        "skill-names",
+        "zombie-rush-skill-names"
+      ]
+    }
+  ]
 }

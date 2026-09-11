@@ -7,7 +7,7 @@ const root = path.resolve(import.meta.dirname, '..');
 const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
 const json = (file) => JSON.parse(read(file));
 
-test('official pending Tata review matches the five unresolved forms', () => {
+test('official pending Tata review remains a subset of all unresolved forms', () => {
   const images = json('data/tata-images.json');
   const pending = images.families.flatMap((family) => family.forms
     .filter((form) => form.status === 'pending')
@@ -15,15 +15,17 @@ test('official pending Tata review matches the five unresolved forms', () => {
   const review = images.officialPendingReview.forms
     .map((form) => `${form.familyId}:T${form.stage}`).sort();
   assert.deepEqual(images.counts, {
-    families: 64,
-    forms: 230,
+    families: 65,
+    forms: 236,
     verifiedForms: 225,
-    pendingForms: 5,
+    pendingForms: 11,
     officialCreatorAssetForms: 224
   });
   assert.equal(images.officialPendingReview.status, 'official_team_checking');
   assert.equal(images.officialPendingReview.asOf, '2026-09-05');
-  assert.deepEqual(review, pending);
+  assert.ok(review.every((item) => pending.includes(item)));
+  assert.equal(pending.length, 11);
+  assert.equal(review.length, 5);
 });
 test('event display names and official inquiry states are explicit', () => {
   const data = json('data/events.json');

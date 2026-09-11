@@ -61,6 +61,10 @@ function verifiedChanges(stages) {
     const after = stages[index];
     const items = [];
     if (before.skillName !== after.skillName) items.push(`スキル名：${before.skillName} → ${after.skillName}`);
+    if (!(after.values || []).length) {
+      changes.push({ before, after, items });
+      continue;
+    }
     const beforeValues = new Map((before.values || []).map((value) => [value.label, value.value]));
     for (const value of after.values || []) {
       const oldValue = beforeValues.get(value.label);
