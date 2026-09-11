@@ -33,7 +33,7 @@ test('all major consumers use the shared Tata image mapping', () => {
     assert.match(read(file), /data\/tata-images\.json/, `${file}: shared mapping missing`);
   }
   assert.match(read('team-builder/team-core.js'), /stage1ImageFor/);
-  assert.match(read('team-builder/team-builder.js'), /stage1Image\(member\.family\)/);
+  assert.match(read('team-builder/team-builder.js'), /stageImage\(member\.family, slot\.stage\)/);
 });
 
 test('Tata detail and Treasure Hunt pages expose optimized accessible images', () => {

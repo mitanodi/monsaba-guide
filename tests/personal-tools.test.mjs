@@ -447,7 +447,7 @@ test('短縮共有はPlayer・Tier・Lv・両Player解放・将来投稿メタ�
   assert.equal(emptyTeam().challenge.highestRound, null);
 });
 
-test('盤面画像resolverは選択したT1〜T4のverified画像を返し、未確認段階はT1へ安全にfallbackする', () => {
+test('盤面画像resolverは確認済みT1〜T4を優先し、未確認段階だけT1へfallbackする', () => {
   const images = json('data/tata-images.json');
   const imageMap = new Map(images.families.map((item) => [item.familyId, item]));
   const complete = families.find((family) => {
@@ -462,6 +462,13 @@ test('盤面画像resolverは選択したT1〜T4のverified画像を返し、未
   const pendingStage = imageMap.get(pendingFamily.id).forms.find((image) => image.status !== 'verified' || !image.src).stage;
   assert.equal(stageImageFor(pendingFamily, pendingStage, imageMap)?.src, stage1ImageFor(pendingFamily, imageMap)?.src);
   assert.equal(stage1ImageFor(first, new Map([[first.id, { stage1: { status: 'pending' } }]])), null);
+});
+
+test('編成メーカーの盤面・編集・画像保存・ドラッグは選択Tierの画像を使う', () => {
+  const source = read('team-builder/team-builder.js');
+  assert.equal((source.match(/stageImage\(member\.family, slot\.stage\)/g) || []).length, 3);
+  assert.match(source, /stageImage\(member\.family, team\.slots\[payload\.index\]\?\.stage\)/);
+  assert.doesNotMatch(source, /stage1Image\(member\.family\)/);
 });
 
 test('互換用集計では別Playerの同一系統を重複扱いしない', () => {
