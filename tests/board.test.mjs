@@ -1,3 +1,5 @@
+// API validation tests use an explicit production environment with isolated/mock requests.
+process.env.VERCEL_ENV = 'production';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
