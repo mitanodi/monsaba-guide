@@ -2,7 +2,7 @@
 
 現行：https://monster-survival.com/
 
-検証したAstra Preview：https://monsaba-guide-j7xw9pqld-qyr2qqggjs-6136s-projects.vercel.app/
+検証したAstra Preview：https://monsaba-guide-cjzzc6lt3-qyr2qqggjs-6136s-projects.vercel.app/
 
 Vercel認証を維持。所有者ログインで閲覧可能。一時共有URLは最終回答に提示し、認証Cookieや共有トークンをRepositoryに保存しない。
 

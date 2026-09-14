@@ -4,7 +4,7 @@
 
 【現行サイト】https://monster-survival.com/
 
-【Astra実験版】https://monsaba-guide-j7xw9pqld-qyr2qqggjs-6136s-projects.vercel.app/
+【Astra実験版】https://monsaba-guide-cjzzc6lt3-qyr2qqggjs-6136s-projects.vercel.app/
 
 既存Vercel認証を維持している。所有者ログインで閲覧。一時共有リンクは最終回答に提示（約23時間有効）。
 
@@ -14,8 +14,8 @@
 |---:|---|---|
 | 1 | Current HEAD | `6111788e392892c19a4452a3fb186cc97fc8bd45`。開始時・最終origin/main・Production deploymentのGit SHAが一致 |
 | 2 | Backup Tag | `pre-astra-redesign-20260915`。annotated tagをremoteへpush。復旧Git bundleと初期Git状態をRepository外へ保存 |
-| 3 | Experiment Branch | `astra-redesign-experiment`。性能と比較画像の計測HEADは `1f410b66a8516077e1a85488bf852b09c3d8b585`。最終追加で言語セレクターのイベント接続を修正。最終HEADは回答に記載 |
-| 4 | Preview URL | 上記。既存project `monsaba-guide`、検証deployment `dpl_9ZNzKMXjVYckLZkdpf1AiFD3WRYF`、target=null、READY。新projectなし |
+| 3 | Experiment Branch | `astra-redesign-experiment`。最終実装HEAD `8d5338032a06045e3b34b5af72b8bcbd836d6035`。性能と比較画像の計測HEADは `1f410b66a8516077e1a85488bf852b09c3d8b585`。最終追加で言語セレクターのイベント接続を修正。報告書込み最終HEADは回答に記載 |
+| 4 | Preview URL | 上記。既存project `monsaba-guide`、最終実装deployment `dpl_AT3J1qMLvQRBRSrXzDaA1b6n3Gqq`、target=null、READY。新projectなし |
 | 5 | 実際のAstra機能 | Chromeブラウザ、DOM/snapshot、Screenshot、6/8幅responsive、click/tap/fill/select、scroll、hover、keyboard/Escape、desktop drag、CDP touch drag、clipboardとshare読込、画像目視比較、lab Performance API、axe |
 | 6 | Current問題数 | 15件。詳細はcurrent-audit.md。内容の正確さや保存互換などCurrentの長所も記録 |
 | 7 | 再設計方針 | 「探す→判断→育成→編成→今日の予定」。検索・図鑑・Calendar・編成を中心とする。非公式表示を維持 |
@@ -46,7 +46,7 @@
 | 32 | JA | 新UI対応、390px操作、全主要ルート検証 |
 | 33 | EN | 新UI明示翻訳、長いHeader/Tier件数の折返し修正。未確認固有名詞を新たに翻訳しない |
 | 34 | zh-CN | 新UI対応、同じdata・ルール・URL階層。主要ルート検証 |
-| 35 | Tests | generate / validate / npm test / idempotency / HTTP smoke成功。追加回帰6件。GitHub CI `34896031649` SUCCESS。HTTP101 pages・5 JSON・25 Hero |
+| 35 | Tests | generate / validate / npm test / idempotency / HTTP smoke成功。追加回帰6件。最終実装GitHub CI `34897344647` SUCCESS。HTTP101 pages・5 JSON・25 Hero |
 | 36 | Astra QA | 54ルート×8幅=432条件、横overflow0、broken image0、console/page error0。操作10群＋追加4群成功。Previewの12種類のAPI書込み要求はすべて405で拒否 |
 | 37 | Before score | 7.0 / 10（15項目平均）。主観評価の基準をcomparison.mdに記載 |
 | 38 | After score | 8.2 / 10。同条件の実操作と画像比較に基づく設計評価。利用者満足度の統計ではない |
