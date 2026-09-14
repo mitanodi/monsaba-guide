@@ -28,7 +28,7 @@ const pages = [
   { title:'ラフトレース（ランニングパーティー）', href:'/events/running-party/', description:'ラフティング大会として告知されたランニングパーティーの新テーマ', keywords:'ランニングパーティ ランニングパーティー ラフティング大会 ラフトレース Marathon Party Raft Race' },
   { title:'タタ名称一覧', href:'/tatari-names/', description:'日本語・英語・簡体中国語のタタ名称236件', keywords:'タタ 名前 名称 一覧 Tatari names 中文 English 多言語' },
   { title:'サマーパーティ攻略', href:'/events/summer-party/', description:'15セット・135カード枠、パック確率、交換、スター、カードコレクション', keywords:'サマーパーティ カードアルバム アルバム カードコレクション カードローダー 思い出ギャラリー カード交換 カードパック カード 確率 summer party Summer Bash album card collection card loader memory gallery 夏日派对 卡册 卡包 卡片交换' },
-  { title:'モンサバ 最新ギフトコード一覧', href:'/gift-codes/', description:'2026年8月30日時点のギフトコード8種と入力方法', keywords:'ギフトコード gift code 兑换码 openfestc26 openfestb26 openfesta26 welcome2026 GoonBug HelloTatari WeeklyGift WelcomeGift' },
+  { title:'モンサバ 最新ギフトコード一覧', href:'/gift-codes/', description:'2026年9月14日時点の一覧掲載12件・NEW表示3件と入力方法', keywords:'ギフトコード gift code 兑换码 bulipaohuata dcardtatago steeamertata ttukkapet26 openfestc26 openfestb26 openfesta26 welcome2026 GoonBug HelloTatari WeeklyGift WelcomeGift' },
   { title:'モンサバ初心者攻略', href:'/beginner-guide/', description:'最初にやること・おすすめタタ・育成順', keywords:'初心者 序盤 最初 はじめ 初めて t3 育成順' },
   { title:'タタ図鑑', href:'/#tatari', description:'64系統の進化・スキル一覧', keywords:'タタ 図鑑 一覧 進化 スキル' },
   { title:'コンテンツ攻略ハブ', href:'/guides/', description:'通常・ゾンビラッシュ・ボスラリー・バッジ道場を目的から探す', keywords:'攻略 ハブ コンテンツ 適性 編成' },

@@ -1,11 +1,41 @@
 {
-  "version": 2,
-  "lastChecked": "2026-09-11",
+  "version": 3,
+  "lastChecked": "2026-09-14",
   "availabilityStatement": "publicly_listed_not_all_redeemed",
   "active": [
     {
-      "code": "ttukkapet26",
+      "code": "bulipaohuata",
       "isNew": true,
+      "reward": null,
+      "rewardStatus": "unknown",
+      "expiresAt": null,
+      "expiryStatus": "unknown",
+      "confirmationStatus": "user_screenshot_listed",
+      "lastChecked": "2026-09-14"
+    },
+    {
+      "code": "dcardtatago",
+      "isNew": true,
+      "reward": null,
+      "rewardStatus": "unknown",
+      "expiresAt": null,
+      "expiryStatus": "unknown",
+      "confirmationStatus": "user_screenshot_listed",
+      "lastChecked": "2026-09-14"
+    },
+    {
+      "code": "steeamertata",
+      "isNew": true,
+      "reward": null,
+      "rewardStatus": "unknown",
+      "expiresAt": null,
+      "expiryStatus": "unknown",
+      "confirmationStatus": "user_screenshot_listed",
+      "lastChecked": "2026-09-14"
+    },
+    {
+      "code": "ttukkapet26",
+      "isNew": false,
       "reward": [
         {
           "item": "candy",
@@ -24,7 +54,7 @@
       "expiresAt": null,
       "expiryStatus": "unannounced",
       "confirmationStatus": "externally_listed_unredeemed",
-      "lastChecked": "2026-09-11",
+      "lastChecked": "2026-09-14",
       "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html"
     },
     {
@@ -48,7 +78,7 @@
       "expiresAt": null,
       "expiryStatus": "unannounced",
       "confirmationStatus": "externally_listed_unredeemed",
-      "lastChecked": "2026-09-11"
+      "lastChecked": "2026-09-14"
     },
     {
       "code": "openfestb26",
@@ -71,7 +101,7 @@
       "expiresAt": null,
       "expiryStatus": "unannounced",
       "confirmationStatus": "externally_listed_unredeemed",
-      "lastChecked": "2026-09-11"
+      "lastChecked": "2026-09-14"
     },
     {
       "code": "openfesta26",
@@ -94,7 +124,7 @@
       "expiresAt": null,
       "expiryStatus": "unannounced",
       "confirmationStatus": "externally_listed_unredeemed",
-      "lastChecked": "2026-09-11"
+      "lastChecked": "2026-09-14"
     },
     {
       "code": "welcome2026",
@@ -125,7 +155,7 @@
       "expiresAt": null,
       "expiryStatus": "unannounced",
       "confirmationStatus": "multi_source_confirmed",
-      "lastChecked": "2026-08-30"
+      "lastChecked": "2026-09-14"
     },
     {
       "code": "GoonBug",
@@ -148,7 +178,7 @@
       "expiresAt": null,
       "expiryStatus": "unannounced",
       "confirmationStatus": "multi_source_confirmed",
-      "lastChecked": "2026-08-30"
+      "lastChecked": "2026-09-14"
     },
     {
       "code": "HelloTatari",
@@ -171,7 +201,7 @@
       "expiresAt": null,
       "expiryStatus": "unannounced",
       "confirmationStatus": "multi_source_confirmed",
-      "lastChecked": "2026-08-30"
+      "lastChecked": "2026-09-14"
     },
     {
       "code": "WeeklyGift",
@@ -190,7 +220,7 @@
       "expiresAt": null,
       "expiryStatus": "unannounced",
       "confirmationStatus": "multi_source_confirmed",
-      "lastChecked": "2026-08-30"
+      "lastChecked": "2026-09-14"
     },
     {
       "code": "WelcomeGift",
@@ -209,17 +239,14 @@
       "expiresAt": null,
       "expiryStatus": "unannounced",
       "confirmationStatus": "multi_source_confirmed",
-      "lastChecked": "2026-08-30"
+      "lastChecked": "2026-09-14"
     }
   ],
   "expired": [],
   "researchNotes": {
-    "checkedAt": "2026-09-11",
-    "notAdded": [
-      "dcardtatago",
-      "steeamertata"
-    ],
-    "reason": "日本版の適用地域・有効性を確認できる根拠不足",
+    "checkedAt": "2026-09-14",
+    "evidence": "docs/evidence/gift-codes-2026-09-14.md",
+    "reason": "ユーザー提供スクリーンショットで12件の一覧掲載と新規3件のNEW表示を確認。利用可否・期限・報酬は未確認のものを推測しない",
     "statusFieldsSeparated": true
   }
 }

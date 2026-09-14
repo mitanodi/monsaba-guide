@@ -4,17 +4,21 @@ import path from 'node:path';
 const root = path.resolve(import.meta.dirname, '..');
 const fail = (message) => { throw new Error(`Gift codes validation: ${message}`); };
 const data = JSON.parse(fs.readFileSync(path.join(root, 'data/gift-codes.json'), 'utf8'));
-const expected = ['ttukkapet26','openfestc26','openfestb26','openfesta26','welcome2026','GoonBug','HelloTatari','WeeklyGift','WelcomeGift'];
+const expected = ['bulipaohuata','dcardtatago','steeamertata','ttukkapet26','openfestc26','openfestb26','openfesta26','welcome2026','GoonBug','HelloTatari','WeeklyGift','WelcomeGift'];
 if (JSON.stringify(data.active.map((entry) => entry.code)) !== JSON.stringify(expected)) fail('code order or exact casing differs');
 if (data.active.length !== expected.length || data.expired.length !== 0) fail('active/expired separation is invalid');
-if (!data.active[0].isNew || data.active.slice(0,4).some((entry) => !Array.isArray(entry.reward) || entry.rewardStatus !== 'external_source_unredeemed')) fail('externally sourced code state is invalid');
-if (data.active.some((entry) => entry.expiresAt !== null || entry.expiryStatus !== 'unannounced')) fail('unknown expiry was not preserved');
+if (!data.active.slice(0,3).every((entry) => entry.isNew && entry.reward === null && entry.rewardStatus === 'unknown' && entry.confirmationStatus === 'user_screenshot_listed')) fail('NEW screenshot evidence state is invalid');
+if (data.active.slice(3).some((entry) => entry.isNew)) fail('only the first three codes may be NEW');
+if (data.active.some((entry) => entry.expiresAt !== null || !['unknown','unannounced'].includes(entry.expiryStatus))) fail('unknown expiry was not preserved');
+if (new Set(expected).size !== expected.length) fail('expected fixture contains duplicate codes');
 const files = ['gift-codes/index.html','en/gift-codes/index.html','zh-cn/gift-codes/index.html'];
 for (const relative of files) {
   const html = fs.readFileSync(path.join(root, relative), 'utf8');
   if ((html.match(/class="gift-code-card"/g) || []).length !== expected.length) fail(`${relative} does not render ${expected.length} cards`);
   let cursor = -1;
   for (const code of expected) { const next = html.indexOf(`<code>${code}</code>`, cursor + 1); if (next < 0) fail(`${relative} missing ${code}`); cursor = next; }
+  for (const code of expected) if (!html.includes(`data-copy-code="${code}"`)) fail(`${relative} copy value differs for ${code}`);
+  if ((html.match(/class="gift-code-new"/g) || []).length !== 3) fail(`${relative} does not render exactly 3 NEW badges`);
   if (!html.includes('rel="canonical"') || !html.includes('hreflang="ja"') || !html.includes('hreflang="en"') || !html.includes('hreflang="zh-Hans"') || !html.includes('hreflang="x-default"')) fail(`${relative} SEO alternates incomplete`);
   if (!html.includes('BreadcrumbList') || !html.includes('WebPage') || !html.includes('inLanguage')) fail(`${relative} structured data incomplete`);
 }
