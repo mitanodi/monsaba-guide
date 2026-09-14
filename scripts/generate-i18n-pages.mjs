@@ -16,6 +16,9 @@ for (const locale of ['en', 'zh-CN']) {
   }
   overrides[locale]['チップを設定'] = locale === 'en' ? 'Configure chips' : '配置芯片';
   overrides[locale]['Player設定・上限解放'] = locale === 'en' ? 'Player settings & limits' : 'Player设置与上限';
+  overrides[locale]['既存アフィリエイト広告枠・配置プレビュー'] = locale === 'en' ? 'Existing affiliate placement · layout preview' : '现有联盟广告位 · 布局预览';
+  overrides[locale]['既存広告を確認'] = locale === 'en' ? 'Inspect existing ads' : '查看现有广告';
+  for(const name of ['ワラウ','マクロミル'])overrides[locale][name]=name;
 }
 const glossary = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/glossary.json'), 'utf8'));
 for (const term of glossary.terms) for (const locale of ['en', 'zh-CN']) overrides[locale][term.ja] = term[locale];

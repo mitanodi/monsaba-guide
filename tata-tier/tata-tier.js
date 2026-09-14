@@ -95,7 +95,7 @@ function renderCard(item){
   const image=imageByFamily.get(f.id)?.stage1;
   const chain=f.evolutions.map(e=>esc(e.name)).join(' → ');
   return `<article class="overall-card" data-id="${esc(f.id)}" data-attribute="${esc(f.attribute)}" data-overall="${esc(group.rank)}">
-    <a class="overall-image" href="/tata/${encodeURIComponent(f.id)}/"><img loading="lazy" decoding="async" src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(first.name||getFamilyDisplayName(f))}"></a>
+    <a class="overall-image" href="/tata/${encodeURIComponent(f.id)}/"><img loading="lazy" decoding="async" src="${esc(image.src)}" srcset="/assets/astra/${esc(f.id)}-128.webp 128w, ${esc(image.srcset||`${image.src} ${image.width}w`)}" sizes="92px" width="${image.width}" height="${image.height}" alt="${esc(first.name||getFamilyDisplayName(f))}"></a>
     <div class="overall-body">
       <div class="overall-top">
         <span class="tier-badge rank-${esc(group.rank.toLowerCase())}">${esc(group.rank)}</span>

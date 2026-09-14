@@ -11,14 +11,6 @@
   // Keep mobile and desktop navigation state truthful after a viewport change.
   const mobile=matchMedia('(max-width:1099px)');
   mobile.addEventListener('change',()=>{document.querySelector('.site-header')?.classList.remove('nav-open');document.querySelector('.mobile-nav-toggle')?.setAttribute('aria-expanded','false');});
-  // Nonessential tier prose is still in the DOM and readable without JavaScript.
-  if(document.body.dataset.astraPage==='/tata-tier/'){
-    const chart=document.querySelector('.tier-chart');const section=chart?.closest('section');
-    if(chart&&section&&!section.querySelector('.astra-tier-explanation')){
-      const prose=[...section.children].filter(el=>['P'].includes(el.tagName));
-      if(prose.length){const details=document.createElement('details');details.className='astra-tier-explanation';const summary=document.createElement('summary');summary.textContent=copy.details;details.append(summary,...prose);chart.after(details);}
-    }
-  }
   // Preview is explicitly read-only, including keyboard form submission.
   const isCommunity=/\/(team-builder\/community|board|friends)\//.test(location.pathname);
   if(isCommunity){document.addEventListener('submit',event=>{if(event.target.id.includes('filter')||event.submitter?.value==='cancel')return;event.preventDefault();event.stopImmediatePropagation();const status=event.target.querySelector('[role=status]')||document.createElement('p');status.textContent=copy.readonly;status.setAttribute('role','status');event.target.append(status);},true);document.querySelectorAll('button[type=submit],input[type=submit]').forEach(button=>{if(!button.closest('form')?.id.includes('filter')){button.disabled=true;button.title=copy.readonly;}});}

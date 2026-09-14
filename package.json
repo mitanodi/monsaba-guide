@@ -40,9 +40,9 @@
     "generate:ga4": "node scripts/update-ga4-tag.mjs",
     "generate:copy": "node scripts/update-static-copy.mjs",
     "generate:freshness": "node scripts/update-content-timestamps.mjs",
-    "generate:heroes": "node scripts/update-responsive-heroes.mjs",
+    "generate:heroes": "node scripts/update-responsive-heroes.mjs && node scripts/build-astra-images.mjs",
     "generate:affiliate-audit": "node scripts/generate-ad-placement-audit.mjs",
-    "generate:asset-version": "node scripts/update-asset-version.mjs",
+    "generate:asset-version": "node scripts/build-astra-css.mjs && node scripts/update-asset-version.mjs",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
     "generate:og": "node scripts/generate-og-cards.mjs",
     "generate:phase4": "node scripts/update-phase4-structured-data.mjs && node scripts/generate-phase4-audit.mjs",
@@ -91,6 +91,8 @@
   },
   "devDependencies": {
     "cheerio": "^1.2.0",
+    "lightningcss": "^1.33.0",
+    "postcss": "^8.5.28",
     "sharp": "^0.35.4"
   }
 }

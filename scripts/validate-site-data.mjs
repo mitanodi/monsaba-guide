@@ -258,7 +258,8 @@ for (const [file, hero] of Object.entries({
   'normal-guide/index.html': 'IMG_6945.webp'
 })) {
   const html = read(file);
-  expect(html.includes(`srcset="/assets/heroes/responsive/${hero.replace('.webp', '')}-480.webp`), `${file}: Hero srcsetがありません`);
+  const heroSrcset = file === 'index.html' ? '/assets/astra/hero-120.webp' : `/assets/heroes/responsive/${hero.replace('.webp', '')}-480.webp`;
+  expect(html.includes(`srcset="${heroSrcset}`), `${file}: Hero srcsetがありません`);
   expect(html.includes('sizes="(max-width: 820px)'), `${file}: Hero sizesがありません`);
 }
 

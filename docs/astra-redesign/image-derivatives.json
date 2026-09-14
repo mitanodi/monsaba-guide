@@ -1,0 +1,478 @@
+[
+  {
+    "file": "assets/astra/hero-120.webp",
+    "width": 120,
+    "bytes": 4152,
+    "source": "assets/heroes/top-main.webp",
+    "sourceSha256": "77a233ab69c3a74b05178a05412674725b2869c38f934c0bb66028709bf2fcf1"
+  },
+  {
+    "file": "assets/astra/hero-240.webp",
+    "width": 240,
+    "bytes": 11252,
+    "source": "assets/heroes/top-main.webp",
+    "sourceSha256": "77a233ab69c3a74b05178a05412674725b2869c38f934c0bb66028709bf2fcf1"
+  },
+  {
+    "file": "assets/astra/hero-360.webp",
+    "width": 360,
+    "bytes": 18938,
+    "source": "assets/heroes/top-main.webp",
+    "sourceSha256": "77a233ab69c3a74b05178a05412674725b2869c38f934c0bb66028709bf2fcf1"
+  },
+  {
+    "file": "assets/astra/hero-600.webp",
+    "width": 600,
+    "bytes": 33442,
+    "source": "assets/heroes/top-main.webp",
+    "sourceSha256": "77a233ab69c3a74b05178a05412674725b2869c38f934c0bb66028709bf2fcf1"
+  },
+  {
+    "file": "assets/astra/takepanda-128.webp",
+    "width": 128,
+    "bytes": 3140,
+    "source": "assets/official/tata/takepanda/t1-512.webp",
+    "sourceSha256": "220ee5568c1029cd4a8e254dad810465ea18f66d0c43c4d26413373f0371f405"
+  },
+  {
+    "file": "assets/astra/tsubaruka-128.webp",
+    "width": 128,
+    "bytes": 3430,
+    "source": "assets/official/tata/tsubaruka/t1-512.webp",
+    "sourceSha256": "b3c8ea1245d4c70830b9ebab8673bc02fcc63c3d2184241a239ea350abd07933"
+  },
+  {
+    "file": "assets/astra/birimori-128.webp",
+    "width": 128,
+    "bytes": 3390,
+    "source": "assets/official/tata/birimori/t1-512.webp",
+    "sourceSha256": "3bff3cd71841a30c193278dc4784d6c9f9c1860aefaa45548d6be9c37a0c50bf"
+  },
+  {
+    "file": "assets/astra/togegyo-128.webp",
+    "width": 128,
+    "bytes": 4326,
+    "source": "assets/official/tata/togegyo/t1-512.webp",
+    "sourceSha256": "1aa8e8851cf1e7102c2e89b0feae9c7997676ca65df5c9ee8ffdfadc469e6cc4"
+  },
+  {
+    "file": "assets/astra/yotsubird-128.webp",
+    "width": 128,
+    "bytes": 3520,
+    "source": "assets/official/tata/yotsubird/t1-512.webp",
+    "sourceSha256": "11b509f264ec8f39f7d9afe2b720b6761eceb4cada55ed43cb6e1e813e66e913"
+  },
+  {
+    "file": "assets/astra/kaenjack-128.webp",
+    "width": 128,
+    "bytes": 2832,
+    "source": "assets/official/tata/kaenjack/t1-512.webp",
+    "sourceSha256": "3bb454d573821ec0ebc00783af9bc48663e2c0d897ba5a79f7e97f17df193d67"
+  },
+  {
+    "file": "assets/astra/hihidog-128.webp",
+    "width": 128,
+    "bytes": 3132,
+    "source": "assets/official/tata/hihidog/t1-512.webp",
+    "sourceSha256": "33f858fa25c7e7218f34e3e898039f200f1c1e9156fe5a41f5ecb85f0af505c9"
+  },
+  {
+    "file": "assets/astra/hanarenaishi-128.webp",
+    "width": 128,
+    "bytes": 3464,
+    "source": "assets/official/tata/hanarenaishi/t1-512.webp",
+    "sourceSha256": "dd24eaa512bd096496ed6260ef18a77aefd26af3db13feb272775e194006d7a8"
+  },
+  {
+    "file": "assets/astra/birinamazu-128.webp",
+    "width": 128,
+    "bytes": 2624,
+    "source": "assets/official/tata/birinamazu/t1-512.webp",
+    "sourceSha256": "0be0339dba269fbac8aea2ef8668dc782eab4807b681735c0391bfccea35b695"
+  },
+  {
+    "file": "assets/astra/daishell-128.webp",
+    "width": 128,
+    "bytes": 3984,
+    "source": "assets/official/tata/daishell/t1-512.webp",
+    "sourceSha256": "dff1a5b6202fe833ce4d65e22550614eebbfc3d1077201a2a4e80be3c037e5e0"
+  },
+  {
+    "file": "assets/astra/batarisu-128.webp",
+    "width": 128,
+    "bytes": 3950,
+    "source": "assets/official/tata/batarisu/t1-512.webp",
+    "sourceSha256": "9361650bd87dfcc2b7dcb1ba6a5115756e7efa2d81f338491e83810ffbb3bd1b"
+  },
+  {
+    "file": "assets/astra/guuhog-128.webp",
+    "width": 128,
+    "bytes": 2734,
+    "source": "assets/official/tata/guuhog/t1-512.webp",
+    "sourceSha256": "f3c457818c9f11890b6022c77362a7f71c6de627019bae590de832bdc825d049"
+  },
+  {
+    "file": "assets/astra/capibarrie-128.webp",
+    "width": 128,
+    "bytes": 3272,
+    "source": "assets/official/tata/capibarrie/t1-512.webp",
+    "sourceSha256": "c7c0cf2b49ef5a24dcd97092f5d1028aa65bd6e02c2056af75097712637ed22f"
+  },
+  {
+    "file": "assets/astra/rokubuhi-128.webp",
+    "width": 128,
+    "bytes": 3094,
+    "source": "assets/official/tata/rokubuhi/t1-512.webp",
+    "sourceSha256": "c688f1daa340704847223bf69d1ac9f17ba62c6d6c44468c5c193ed5e47ce427"
+  },
+  {
+    "file": "assets/astra/marushu-128.webp",
+    "width": 128,
+    "bytes": 4486,
+    "source": "assets/official/tata/marushu/t1-512.webp",
+    "sourceSha256": "e7144b364de8bba36ab6ebd33fcb70e6ce56751c1068a5fb18c83d2aff8cbba2"
+  },
+  {
+    "file": "assets/astra/fugumaru-128.webp",
+    "width": 128,
+    "bytes": 3028,
+    "source": "assets/official/tata/fugumaru/t1-512.webp",
+    "sourceSha256": "b1ced0d1ccf4ea1a9bfc488cd67ab6828bf2bd37a70e27bf8c381ffe1e352acc"
+  },
+  {
+    "file": "assets/astra/greenbee-128.webp",
+    "width": 128,
+    "bytes": 3344,
+    "source": "assets/official/tata/greenbee/t1-512.webp",
+    "sourceSha256": "6ae19abb36049a692f468ab296270eef484e9e6200b825fc7054c9d2a40f6125"
+  },
+  {
+    "file": "assets/astra/kowagaru-128.webp",
+    "width": 128,
+    "bytes": 3910,
+    "source": "assets/official/tata/kowagaru/t1-512.webp",
+    "sourceSha256": "2cbd682505caa8f86d7a7c39f0a487b59644ae354788b56b4155de5a330ef4bd"
+  },
+  {
+    "file": "assets/astra/kunbuu-128.webp",
+    "width": 128,
+    "bytes": 3984,
+    "source": "assets/official/tata/kunbuu/t1-512.webp",
+    "sourceSha256": "c18254f92af475ff98dc1420ca85c913b4d800223355831b0fe64d5dacc8a6a7"
+  },
+  {
+    "file": "assets/astra/tsubutsumuri-128.webp",
+    "width": 128,
+    "bytes": 3470,
+    "source": "assets/official/tata/tsubutsumuri/t1-512.webp",
+    "sourceSha256": "fefd42d3adc566b93baa2285350f488faa925e5b39da1e1b3d70ecaf78ff7b96"
+  },
+  {
+    "file": "assets/astra/pupunku-128.webp",
+    "width": 128,
+    "bytes": 3126,
+    "source": "assets/official/tata/pupunku/t1-512.webp",
+    "sourceSha256": "3de07ef031ae5c51b79f23d524831a9ef6caed73696423cdd5c6a311127f3848"
+  },
+  {
+    "file": "assets/astra/erekineko-128.webp",
+    "width": 128,
+    "bytes": 4338,
+    "source": "assets/official/tata/erekineko/t1-512.webp",
+    "sourceSha256": "ce5ce92e9b1a619daa2e61ae6312dfc0c7864f15762f510d393abcf5a3d6a06f"
+  },
+  {
+    "file": "assets/astra/sukedako-128.webp",
+    "width": 128,
+    "bytes": 4172,
+    "source": "assets/official/tata/sukedako/t1-512.webp",
+    "sourceSha256": "5bd1c7f1f144d6dfd4f97f1ef6c835cbfb32df3245937bb647ea8c0f79494936"
+  },
+  {
+    "file": "assets/astra/hinyao-128.webp",
+    "width": 128,
+    "bytes": 4298,
+    "source": "assets/official/tata/hinyao/t1-512.webp",
+    "sourceSha256": "facbded3dc08f0697fb3b4cf7738460258c536cb9077790a4e018c7645fd80ff"
+  },
+  {
+    "file": "assets/astra/mumukaba-128.webp",
+    "width": 128,
+    "bytes": 4034,
+    "source": "assets/official/tata/mumukaba/t1-512.webp",
+    "sourceSha256": "2a668e0d7932245d652da911c36d7ea31bdac9e381633edb968635abe25d6317"
+  },
+  {
+    "file": "assets/astra/hikaru-128.webp",
+    "width": 128,
+    "bytes": 4084,
+    "source": "assets/official/tata/hikaru/t1-512.webp",
+    "sourceSha256": "b4904ba096a20ccf6e8c098cfffbf14679d6ef88c1a46cbad2521ae41874ec6c"
+  },
+  {
+    "file": "assets/astra/atatama-128.webp",
+    "width": 128,
+    "bytes": 3428,
+    "source": "assets/official/tata/atatama/t1-512.webp",
+    "sourceSha256": "e2976ba27833356be62c35db81e46e76b5419154003c9893c124a0e72cc8d0fe"
+  },
+  {
+    "file": "assets/astra/yaminome-128.webp",
+    "width": 128,
+    "bytes": 3730,
+    "source": "assets/official/tata/yaminome/t1-512.webp",
+    "sourceSha256": "469febe534dde0f8b475f4fd06aaffcbdb2ca98495af7392f9483e3fc98d1dfe"
+  },
+  {
+    "file": "assets/astra/korokon-128.webp",
+    "width": 128,
+    "bytes": 3114,
+    "source": "assets/official/tata/korokon/t1-512.webp",
+    "sourceSha256": "fd74c544eaef129b1f4f4aa01428e17dcb85b378bb2e764c84c805ba3e42b74d"
+  },
+  {
+    "file": "assets/astra/mogurin-128.webp",
+    "width": 128,
+    "bytes": 3678,
+    "source": "assets/official/tata/mogurin/t1-512.webp",
+    "sourceSha256": "578c8438ab1b31db153c0121b1df76c5d307d15e7d67bfe0325d834f8b1f2894"
+  },
+  {
+    "file": "assets/astra/biripiyo-128.webp",
+    "width": 128,
+    "bytes": 3886,
+    "source": "assets/official/tata/biripiyo/t1-512.webp",
+    "sourceSha256": "c2e0908c108f08875545c6d3bba089a7e9e72713b1605d17420ff293b4c0e820"
+  },
+  {
+    "file": "assets/astra/potakage-128.webp",
+    "width": 128,
+    "bytes": 3164,
+    "source": "assets/official/tata/potakage/t1-512.webp",
+    "sourceSha256": "dba587cd98a53f1ef3c9179f2cefd6d7c1c4fd9eac5118e6cc9930e693908300"
+  },
+  {
+    "file": "assets/astra/fukurogumo-128.webp",
+    "width": 128,
+    "bytes": 4344,
+    "source": "assets/official/tata/fukurogumo/t1-512.webp",
+    "sourceSha256": "f4426d1fff8adcd36975d94b2f324da8b2fa12d7a75f11588a5288ffd2b09f3c"
+  },
+  {
+    "file": "assets/astra/nemukurage-128.webp",
+    "width": 128,
+    "bytes": 4222,
+    "source": "assets/official/tata/nemukurage/t1-512.webp",
+    "sourceSha256": "ecc7eb63b5235de33f5f5f7d463b5f8061111302f35926a23693c8b2157744e6"
+  },
+  {
+    "file": "assets/astra/sabooru-128.webp",
+    "width": 128,
+    "bytes": 3958,
+    "source": "assets/official/tata/sabooru/t1-512.webp",
+    "sourceSha256": "e07e42207e5d0ad3670e6c68d90ab9a00867669f34c4bfb6b3f7ba64223e0eb5"
+  },
+  {
+    "file": "assets/astra/korotama-128.webp",
+    "width": 128,
+    "bytes": 3182,
+    "source": "assets/official/tata/korotama/t1-512.webp",
+    "sourceSha256": "4c362b158a95fccf7c3be8bead75c5f45671df12444ab0002ea28b915fc339e1"
+  },
+  {
+    "file": "assets/astra/yanzaru-128.webp",
+    "width": 128,
+    "bytes": 3218,
+    "source": "assets/official/tata/yanzaru/t1-512.webp",
+    "sourceSha256": "dca7c41c695e7dfeef6a5761ef66399b4fa95e146afed37c1e1a78ae3ce02614"
+  },
+  {
+    "file": "assets/astra/gaoden-128.webp",
+    "width": 128,
+    "bytes": 3916,
+    "source": "assets/official/tata/gaoden/t1-512.webp",
+    "sourceSha256": "b5536cccfae9288fc838bc12fbbc08f8780cec0303593744fecc4165f34c4930"
+  },
+  {
+    "file": "assets/astra/himawarin-128.webp",
+    "width": 128,
+    "bytes": 4148,
+    "source": "assets/official/tata/himawarin/t1-512.webp",
+    "sourceSha256": "ae28d78f36bf23a7ca31c96a7602d3e3ab28e46eb21e71f635bbdacb007a4e51"
+  },
+  {
+    "file": "assets/astra/nekoori-128.webp",
+    "width": 128,
+    "bytes": 4096,
+    "source": "assets/official/tata/nekoori/t1-512.webp",
+    "sourceSha256": "cfc954fd56e8c0abcf2f6fbe0448170121dd3bbe5e26269021ee843f9f9ff7ca"
+  },
+  {
+    "file": "assets/astra/furuggu-128.webp",
+    "width": 128,
+    "bytes": 3984,
+    "source": "assets/official/tata/furuggu/t1-512.webp",
+    "sourceSha256": "e5d5975e49d0891ac5c133a86dd726fd615ed396cf83bc7cff9d064d43200655"
+  },
+  {
+    "file": "assets/astra/himori-128.webp",
+    "width": 128,
+    "bytes": 3778,
+    "source": "assets/official/tata/himori/t1-512.webp",
+    "sourceSha256": "51e5a3622baa504d7fc0d31c4b8602ba39aaf243612faeaf701223627fd35ed7"
+  },
+  {
+    "file": "assets/astra/komakiri-128.webp",
+    "width": 128,
+    "bytes": 3960,
+    "source": "assets/official/tata/komakiri/t1-512.webp",
+    "sourceSha256": "014451e93225cf97c1fa2d51ec95a9d9c8f978080251205259091570ffe12b75"
+  },
+  {
+    "file": "assets/astra/umimi-128.webp",
+    "width": 128,
+    "bytes": 3674,
+    "source": "assets/official/tata/umimi/t1-512.webp",
+    "sourceSha256": "a83eb843804229534f48fe4c0288e9e785bba9827fadf2409b40bbd369bb1758"
+  },
+  {
+    "file": "assets/astra/purabi-128.webp",
+    "width": 128,
+    "bytes": 4008,
+    "source": "assets/official/tata/purabi/t1-512.webp",
+    "sourceSha256": "55d8a83c8f1eab225d2ae5750f851bdb1d39ab2f590ae7045760b40045232dbe"
+  },
+  {
+    "file": "assets/astra/rokuju-128.webp",
+    "width": 128,
+    "bytes": 2850,
+    "source": "assets/official/tata/rokuju/t1-512.webp",
+    "sourceSha256": "d6a906c5d6b20dea9a89fd5ae2e4a6da7eb261abd78c6e46c79da078dea07d4e"
+  },
+  {
+    "file": "assets/astra/boruzarashi-128.webp",
+    "width": 128,
+    "bytes": 3502,
+    "source": "assets/official/tata/boruzarashi/t1-512.webp",
+    "sourceSha256": "bd1e8f9bb666b3748b4695f336745932c26855ee5fa0c76912c7249af1727c8c"
+  },
+  {
+    "file": "assets/astra/gantoru-128.webp",
+    "width": 128,
+    "bytes": 3200,
+    "source": "assets/official/tata/gantoru/t1-512.webp",
+    "sourceSha256": "7079c994490024c71f3db4328b0b69b729044d6c5baec37a6dd6edc87f57d949"
+  },
+  {
+    "file": "assets/astra/denjika-128.webp",
+    "width": 128,
+    "bytes": 3610,
+    "source": "assets/official/tata/denjika/t1-512.webp",
+    "sourceSha256": "d8d141f040d12d6dad20f78913064cdf309c77f61af8df4569ebaa58b93d0057"
+  },
+  {
+    "file": "assets/astra/tafupen-128.webp",
+    "width": 128,
+    "bytes": 4044,
+    "source": "assets/official/tata/tafupen/t1-512.webp",
+    "sourceSha256": "ede5067aed2b6f82f614591f59ef5270e7255617aceeecc2dd936c3715855728"
+  },
+  {
+    "file": "assets/astra/fureimuji-128.webp",
+    "width": 128,
+    "bytes": 3538,
+    "source": "assets/official/tata/fureimuji/t1-512.webp",
+    "sourceSha256": "370c926af695af51458e8388950ad6f2609820354cb527de517ac62ff4785a58"
+  },
+  {
+    "file": "assets/astra/erekoon-128.webp",
+    "width": 128,
+    "bytes": 3538,
+    "source": "assets/official/tata/erekoon/t1-512.webp",
+    "sourceSha256": "a9b76a94f495bcd927e0819d8982b6a8b49a044b5574a8e58eaeabd552906639"
+  },
+  {
+    "file": "assets/astra/nenbutsuhebi-128.webp",
+    "width": 128,
+    "bytes": 3648,
+    "source": "assets/official/tata/nenbutsuhebi/t1-512.webp",
+    "sourceSha256": "3d0db9e96a9833455b091a35ba2e9218dd326657e30c1050a5775a5c5b75bcdb"
+  },
+  {
+    "file": "assets/astra/matchiba-128.webp",
+    "width": 128,
+    "bytes": 3798,
+    "source": "assets/official/tata/matchiba/t1-512.webp",
+    "sourceSha256": "e90c4ffbcfd526f04c646d2dc0def0b4ec663981ac67416ef6d55748583752f8"
+  },
+  {
+    "file": "assets/astra/denrou-128.webp",
+    "width": 128,
+    "bytes": 3734,
+    "source": "assets/official/tata/denrou/t1-512.webp",
+    "sourceSha256": "c0be8ce6e123804e45f731a45a7d927061454d421d783e25e0e79cdfd963ef68"
+  },
+  {
+    "file": "assets/astra/kenkani-128.webp",
+    "width": 128,
+    "bytes": 3910,
+    "source": "assets/official/tata/kenkani/t1-512.webp",
+    "sourceSha256": "6f13883296e71f64fbada39463ddc47009f84fba085b3d143dac826a227341eb"
+  },
+  {
+    "file": "assets/astra/fureebi-128.webp",
+    "width": 128,
+    "bytes": 3444,
+    "source": "assets/official/tata/fureebi/t1-512.webp",
+    "sourceSha256": "ac4d34442477bf83f96e7354591d883c25ef5ddfcf605a8914e557000f6a44df"
+  },
+  {
+    "file": "assets/astra/haamitora-128.webp",
+    "width": 128,
+    "bytes": 4234,
+    "source": "assets/official/tata/haamitora/t1-512.webp",
+    "sourceSha256": "a613c38041a7d4fc0bc481bbacdd9418bfc7e3cf7d15fd32f0b1880fecf4e83b"
+  },
+  {
+    "file": "assets/astra/shiiparusu-128.webp",
+    "width": 128,
+    "bytes": 3638,
+    "source": "assets/official/tata/shiiparusu/t1-512.webp",
+    "sourceSha256": "25f1c5662172676c98caa90a2ea4533d6300dc798595b624e8a6918c7aff0edb"
+  },
+  {
+    "file": "assets/astra/shizukuchou-128.webp",
+    "width": 128,
+    "bytes": 3666,
+    "source": "assets/official/tata/shizukuchou/t1-512.webp",
+    "sourceSha256": "ee15b48009c9962e3c7bfc980da837431f94440a3f31a8924ab8df293cecf9e7"
+  },
+  {
+    "file": "assets/astra/doriruu-128.webp",
+    "width": 128,
+    "bytes": 3188,
+    "source": "assets/official/tata/doriruu/t1-512.webp",
+    "sourceSha256": "5b11d282a3c1ceb6d89f67e5ec645bf2e86c97c8ff1a984176110652cdd0e7d8"
+  },
+  {
+    "file": "assets/astra/riifuro-128.webp",
+    "width": 128,
+    "bytes": 3538,
+    "source": "assets/official/tata/riifuro/t1-512.webp",
+    "sourceSha256": "dfa40c3198c1f17aaf1ceddaf94e5df6f18fcbf7900f596abb7162a9a0c1ebf9"
+  },
+  {
+    "file": "assets/astra/hikikomoru-128.webp",
+    "width": 128,
+    "bytes": 4434,
+    "source": "assets/official/tata/hikikomoru/t1-512.webp",
+    "sourceSha256": "4bc156208225d6fde7ef97993a1def011705dca04119f4f40a732781201c6c03"
+  },
+  {
+    "file": "assets/astra/pakuma-128.webp",
+    "width": 128,
+    "bytes": 1904,
+    "source": "assets/tata-crops/forms/pakuma/t1.webp",
+    "sourceSha256": "d3569d2ef958799e95066fc4415a7b4622ffe2b4ff58eee2ef0bb40d33c8a608"
+  }
+]

@@ -7,7 +7,7 @@ let searchEventTimer;
 
 const stage1Image=id=>state.imageByFamily.get(id)?.stage1;
 const formImage=(id,stage)=>state.imageByFamily.get(id)?.forms.find(item=>item.stage===stage&&item.status==='verified');
-const responsiveAttrs=image=>image?.srcset?` srcset="${esc(image.srcset)}" sizes="${esc(image.sizes||'(max-width: 600px) 44vw, 256px')}"`:'';
+const responsiveAttrs=(image,catalog=false)=>{const id=catalog&&image?.stage===1&&image.src.match(/\/tata\/([^/]+)\/t1-512\.webp$/)?.[1];return image?.srcset?` srcset="${id?`/assets/astra/${esc(id)}-128.webp 128w, `:''}${esc(image.srcset)}" sizes="${catalog?'(max-width:700px) 90px,112px':esc(image.sizes||'(max-width: 600px) 44vw, 256px')}"`:'';};
 const pendingImageLabel=document.documentElement.lang==='en'?'Image pending verification':document.documentElement.lang==='zh-CN'?'图片待确认':'画像確認中';
 
 async function boot(){
@@ -66,7 +66,7 @@ function filteredFamilies(){
 function renderCards(){
   const rows=filteredFamilies(); $('#resultCount').textContent=`${rows.length}系統 / ${rows.reduce((a,f)=>a+f.evolutions.length,0)}体`;
   $('#cards').innerHTML=rows.length?rows.map(f=>{const image=stage1Image(f.id);return `<article class="card catalog-card" tabindex="0" data-family="${esc(f.id)}" aria-label="${esc(getFamilyDisplayLabel(f))}を比較表示">
-    <a class="card-image" href="/tata/${encodeURIComponent(f.id)}/"><img loading="lazy" decoding="async" src="${esc(image.src)}"${responsiveAttrs(image)} width="${image.width}" height="${image.height}" alt="${esc(f.evolutions[0].name)}" /></a>
+    <a class="card-image" href="/tata/${encodeURIComponent(f.id)}/"><img loading="lazy" decoding="async" src="${esc(image.src)}"${responsiveAttrs(image,true)} width="${image.width}" height="${image.height}" alt="${esc(f.evolutions[0].name)}" /></a>
     <div class="card-body"><div class="card-top"><span class="attribute">${attrIcon[f.attribute]||''} ${esc(f.attribute)}属性</span><span class="source-state">${f.evolutions.length}段階</span></div>
     <h3><a href="/tata/${encodeURIComponent(f.id)}/">${esc(getFamilyDisplayLabel(f))}</a></h3><div class="card-bottom"><span class="source-state">T1–T${f.evolutions.length}</span><a class="detail-link" href="/tata/${encodeURIComponent(f.id)}/" aria-label="${esc(getFamilyDisplayLabel(f))}の個別ページを見る">詳細</a></div></div></article>`}).join(''):'<div class="empty">条件に合うタタがありません。検索語や属性を変えてください。</div>';
   $('#cards').querySelectorAll('.card').forEach(card=>{const go=e=>{if(e?.target?.closest('.detail-link'))return;selectFamily(card.dataset.family,true);$('#compare').scrollIntoView({behavior:'smooth',block:'start'})};card.addEventListener('click',go);card.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&!e.target.closest('.detail-link')){e.preventDefault();go(e)}})});
