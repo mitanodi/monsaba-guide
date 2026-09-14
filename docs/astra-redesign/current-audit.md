@@ -10,7 +10,7 @@
 - Repository外 `../astra-evidence/` にGit状態、復旧bundle、Production sitemap、ブラウザJSON、78枚のBefore画像を保存。
 
 ## 実際に確認した能力
-agent-browser 0.37.1でChrome起動・ナビゲーション・snapshot/DOM・viewport・screenshot・click・select・fill・hover・keyboard・scroll・lab vitals。大量の同条件キャプチャは同じChromeへPlaywright CDP接続し実行。ドラッグ、視覚差分、axeは後続操作の結果も最終レポートへ記録。実機iPhoneは未接続。
+agent-browser 0.37.1でChrome起動・ナビゲーション・snapshot/DOM・viewport・screenshot・click・select・fill・hover・keyboard・scroll・lab vitals。同条件キャプチャはPlaywrightのChrome操作でも実行。最終QAでは独立Chrome contextを使い、実行中の別セッションと分離した。ドラッグ、視覚比較、axeの後続結果は最終レポートに記載。実機iPhoneは未接続。
 
 ## 巡回
 TOP・図鑑・Tier・Beginner・takepanda/nusuke詳細・Evolution・Team Builder・Community・Events・Calendar・Search・Compare・My Monsaba・Zombie Rush・Chips・Boss Rally・Badge Dojo・Friends・Board。390/430/768/1366/1440/1920。画像とDOMを保存。

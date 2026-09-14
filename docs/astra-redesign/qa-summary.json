@@ -1,0 +1,13 @@
+{
+  "routes": 54,
+  "viewportConditions": 432,
+  "overflows": 0,
+  "brokenImages": 0,
+  "consoleErrors": [],
+  "pageErrors": [],
+  "accessibilityViolations": [],
+  "interactionGroups": 10,
+  "extraGroups": 4,
+  "beforeScreenshots": 78,
+  "afterScreenshots": 78
+}

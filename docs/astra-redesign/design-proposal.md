@@ -64,3 +64,9 @@ Framework追加なし。HTML変換用のCheerioは開発依存のみ。画像の
 
 ## Review loops
 V1：全体構成・静的生成。V2：同条件のブラウザ操作・画像・overflow・a11yから修正。V3：Previewで再操作・SEO/回帰/性能検証から修正。見た目だけで合格にしない。
+
+## 実装後の予算・コンポーネント対応
+
+CSS最終33,533Bで初期25KBを超過。共通JS5,079B、日程JS1,730Bで12KB内。レスポンシブ修正と領域予約を採用した判断、および転送量でCurrentが勝つ点をcomparison.mdに明記した。
+
+Colorはbg/surface/text/muted/primaryと属性・Tier色、Typographyはsmall/body/title、Spacingは4/8/12/16/24/32px、Radiusは8/14px、Border/Shadowは共通変数。Card/Button/Badge/Tabs/Inputs、既存dialog、Mobile sheet、Statusはこれらを共有。補助説明は既存title・ARIAラベルを維持し、新たなhover専用操作を必須にしない。Tooltipもsurface/text/radius/shadowの同じ組合せを設計基準とする。
