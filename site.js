@@ -18,7 +18,7 @@
   const ui = (source) => window.monsabaI18n?.translate(source) || source;
   const localePrefix = locale === 'en' ? '/en' : locale === 'zh-CN' ? '/zh-cn' : '';
   const localizedRoute = (route) => localePrefix ? `${localePrefix}${route}` : route;
-  const languageSelect = nav.querySelector('#site-language');
+  const languageSelect = header.querySelector('#site-language');
   if (languageSelect) {
     languageSelect.value = locale;
     languageSelect.addEventListener('change', () => {

@@ -14,7 +14,7 @@
 |---:|---|---|
 | 1 | Current HEAD | `6111788e392892c19a4452a3fb186cc97fc8bd45`。開始時・最終origin/main・Production deploymentのGit SHAが一致 |
 | 2 | Backup Tag | `pre-astra-redesign-20260915`。annotated tagをremoteへpush。復旧Git bundleと初期Git状態をRepository外へ保存 |
-| 3 | Experiment Branch | `astra-redesign-experiment`。検証した実装HEADは `1f410b66a8516077e1a85488bf852b09c3d8b585`。以後の報告書commitは文書のみ |
+| 3 | Experiment Branch | `astra-redesign-experiment`。性能と比較画像の計測HEADは `1f410b66a8516077e1a85488bf852b09c3d8b585`。最終追加で言語セレクターのイベント接続を修正。最終HEADは回答に記載 |
 | 4 | Preview URL | 上記。既存project `monsaba-guide`、検証deployment `dpl_9ZNzKMXjVYckLZkdpf1AiFD3WRYF`、target=null、READY。新projectなし |
 | 5 | 実際のAstra機能 | Chromeブラウザ、DOM/snapshot、Screenshot、6/8幅responsive、click/tap/fill/select、scroll、hover、keyboard/Escape、desktop drag、CDP touch drag、clipboardとshare読込、画像目視比較、lab Performance API、axe |
 | 6 | Current問題数 | 15件。詳細はcurrent-audit.md。内容の正確さや保存互換などCurrentの長所も記録 |
@@ -59,7 +59,7 @@
 
 V1で全体構成、静的変換、共通tokenを実装。V2のブラウザ監査で、ナビの描画、細幅overflow、コントラスト、カードのnested interactive、編成設定の配置、Mobile sheetを修正。
 
-V3の実Previewでは、本物のCommunity投稿に含まれる空きマスのARIAを修正。Tierをclientで移動する際のCLSを静的な配置変更で解消し、Calendarと盤面の読込み領域を予約。閉じたシートの固定ボタンが盤面を遮る問題も解消した。英語生成の冪等性を修正し、再実行で安定を確認した。
+V3の実Previewでは、本物のCommunity投稿に含まれる空きマスのARIAを修正。Tierをclientで移動する際のCLSを静的な配置変更で解消し、Calendarと盤面の読込み領域を予約。閉じたシートの固定ボタンが盤面を遮る問題も解消した。英語生成の冪等性を修正し、再実行で安定を確認した。最終の補助操作テストで、Headerへ移した言語セレクターを旧nav配下だけから取得していた問題を修正し、JA→EN→zh-CN→JAの操作検証を追加した。
 
 ## 証拠と成果物
 
