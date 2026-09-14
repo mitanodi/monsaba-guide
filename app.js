@@ -65,7 +65,7 @@ function filteredFamilies(){
 }
 function renderCards(){
   const rows=filteredFamilies(); $('#resultCount').textContent=`${rows.length}系統 / ${rows.reduce((a,f)=>a+f.evolutions.length,0)}体`;
-  $('#cards').innerHTML=rows.length?rows.map(f=>{const image=stage1Image(f.id);return `<article class="card catalog-card" tabindex="0" role="button" data-family="${esc(f.id)}" aria-label="${esc(getFamilyDisplayLabel(f))}を比較表示">
+  $('#cards').innerHTML=rows.length?rows.map(f=>{const image=stage1Image(f.id);return `<article class="card catalog-card" tabindex="0" data-family="${esc(f.id)}" aria-label="${esc(getFamilyDisplayLabel(f))}を比較表示">
     <a class="card-image" href="/tata/${encodeURIComponent(f.id)}/"><img loading="lazy" decoding="async" src="${esc(image.src)}"${responsiveAttrs(image)} width="${image.width}" height="${image.height}" alt="${esc(f.evolutions[0].name)}" /></a>
     <div class="card-body"><div class="card-top"><span class="attribute">${attrIcon[f.attribute]||''} ${esc(f.attribute)}属性</span><span class="source-state">${f.evolutions.length}段階</span></div>
     <h3><a href="/tata/${encodeURIComponent(f.id)}/">${esc(getFamilyDisplayLabel(f))}</a></h3><div class="card-bottom"><span class="source-state">T1–T${f.evolutions.length}</span><a class="detail-link" href="/tata/${encodeURIComponent(f.id)}/" aria-label="${esc(getFamilyDisplayLabel(f))}の個別ページを見る">詳細</a></div></div></article>`}).join(''):'<div class="empty">条件に合うタタがありません。検索語や属性を変えてください。</div>';

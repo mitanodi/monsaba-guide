@@ -18,6 +18,10 @@ const bearer = (req) => String(req.headers.authorization || '').startsWith('Bear
 const service = () => createCommunityService({ store: createCommunityRedisStore(), families, chips, seasons, ipHashSecret: process.env.BOARD_IP_HASH_SECRET || process.env.FRIENDS_IP_HASH_SECRET, adminToken: process.env.BOARD_ADMIN_TOKEN || process.env.FRIENDS_ADMIN_TOKEN });
 
 export default async function handler(req, res) {
+  if (process.env.VERCEL_ENV === 'preview' && !['GET', 'HEAD'].includes(req.method)) {
+    res.setHeader('Allow', 'GET, HEAD');
+    return res.status(405).json({ ok: false, error: { code: 'PREVIEW_READ_ONLY', message: 'This experiment is read-only.' } });
+  }
   try {
     const url = new URL(req.url, `https://${req.headers.host || 'monster-survival.com'}`);
     if (req.method === 'GET') { const current = service(); if (url.searchParams.get('id')) return send(res, 200, { ok: true, ...await current.get(url.searchParams.get('id'), url.searchParams.get('cursor')) }); return send(res, 200, { ok: true, ...await current.list(Object.fromEntries(url.searchParams)) }); }

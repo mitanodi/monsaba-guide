@@ -2,8 +2,8 @@
   "version": 1,
   "asOf": "2026-09-05",
   "totals": {
-    "pages": 393,
-    "indexable": 360,
+    "pages": 396,
+    "indexable": 363,
     "brokenLinks": 0,
     "brokenImages": 0,
     "structuralIssues": 0,
@@ -335,6 +335,16 @@
       "ageDays": 8,
       "category": "evergreen",
       "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/events/calendar/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "event",
+      "priority": "HIGH",
       "status": "verified",
       "reviewRequired": false,
       "reasons": []
@@ -1396,6 +1406,16 @@
       "category": "zombie_rush",
       "priority": "HIGH",
       "status": "implemented-details-verifying",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/events/calendar/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "event",
+      "priority": "HIGH",
+      "status": "verified",
       "reviewRequired": false,
       "reasons": []
     },
@@ -2575,6 +2595,16 @@
       "ageDays": 8,
       "category": "evergreen",
       "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/events/calendar/",
+      "verified": "2026-08-30",
+      "ageDays": 6,
+      "category": "event",
+      "priority": "HIGH",
       "status": "verified",
       "reviewRequired": false,
       "reasons": []
@@ -3859,7 +3889,7 @@
       },
       {
         "file": "team-builder/team-builder.js",
-        "bytes": 71641
+        "bytes": 71783
       },
       {
         "file": "team-builder/community/community.js",

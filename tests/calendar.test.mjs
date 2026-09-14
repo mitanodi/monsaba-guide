@@ -46,5 +46,6 @@ test('month generator covers complete calendar weeks at the 09:00 boundary',()=>
 
 test('calendar configuration remains separate from localized event pages',async()=>{
   assert.equal(config.islandTreasure.anchorWeek,null);assert.equal(config.bossRotationConfig.bossAnchorStart,'2026-09-09T00:00:00+09:00');assert.equal(config.bossRotationConfig.bossAnchorBoss,'tire-zombie');assert.equal(config.timeZone,'Asia/Tokyo');assert.equal(config.dailyResetHour,9);
-  for(const path of ['../events/index.html','../en/events/index.html','../zh-cn/events/index.html']){const html=await readFile(new URL(path,import.meta.url),'utf8');assert.match(html,/calendar\/calendar\.js/);assert.match(html,/calendar\/calendar\.css/);}
+  for(const path of ['../events/calendar/index.html','../en/events/calendar/index.html','../zh-cn/events/calendar/index.html']){const html=await readFile(new URL(path,import.meta.url),'utf8');assert.match(html,/calendar\/calendar\.js/);assert.match(html,/calendar\/calendar\.css/);}
+  for(const path of ['../events/index.html','../en/events/index.html','../zh-cn/events/index.html']){const html=await readFile(new URL(path,import.meta.url),'utf8');assert.match(html,/astra-calendar\.js/);assert.match(html,/events\/calendar\//);assert.doesNotMatch(html,/<script[^>]+src="\/calendar\/calendar\.js/);}
 });

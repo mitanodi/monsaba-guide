@@ -75,6 +75,10 @@ function createService() {
 }
 
 export default async function handler(request, response) {
+  if (process.env.VERCEL_ENV === 'preview' && !['GET', 'HEAD'].includes(request.method)) {
+    response.setHeader('Allow', 'GET, HEAD');
+    return response.status(405).json({ ok: false, error: { code: 'PREVIEW_READ_ONLY', message: 'This experiment is read-only.' } });
+  }
   try {
     if (request.method === 'GET') {
       const url = new URL(request.url, `https://${request.headers.host || 'monster-survival.com'}`);

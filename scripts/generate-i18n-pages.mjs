@@ -3,10 +3,20 @@ import path from 'node:path';
 import { BASE_URL } from './site-config.mjs';
 import { polishTranslation } from './i18n-quality.mjs';
 import { createTataHtmlLocalizer } from './lib/localize-tata-html.mjs';
+import { astraCopy } from './astra-copy.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const config = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/config.json'), 'utf8'));
 const overrides = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/overrides.json'), 'utf8'));
+for (const locale of ['en', 'zh-CN']) {
+  for (const [key, source] of Object.entries(astraCopy.ja)) {
+    const sources = Array.isArray(source) ? source : [source];
+    const targets = Array.isArray(astraCopy[locale][key]) ? astraCopy[locale][key] : [astraCopy[locale][key]];
+    sources.forEach((text, index) => { overrides[locale][text] = targets[index]; overrides[locale][`${text} ↗`] = `${targets[index]} ↗`; });
+  }
+  overrides[locale]['チップを設定'] = locale === 'en' ? 'Configure chips' : '配置芯片';
+  overrides[locale]['Player設定・上限解放'] = locale === 'en' ? 'Player settings & limits' : 'Player设置与上限';
+}
 const glossary = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/glossary.json'), 'utf8'));
 for (const term of glossary.terms) for (const locale of ['en', 'zh-CN']) overrides[locale][term.ja] = term[locale];
 const qualityOverrides = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/quality-overrides.json'), 'utf8'));
