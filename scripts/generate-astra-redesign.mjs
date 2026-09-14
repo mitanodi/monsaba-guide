@@ -64,6 +64,7 @@ for(const file of walk(root)){
     $('.hero .hero-media img').attr('sizes','(max-width: 700px) 150px, 300px');
   }
   if(route==='/tata-tier/'){
+    const byline=$('.article-byline');if(byline.length)byline.after($('#tier-list'));
     const chart=$('.tier-chart');if(chart.length){const section=chart.closest('section');section.addClass('astra-tier-primary');if(!section.find('.astra-tier-explanation').length){const prose=section.find('.section-head p');const details=$(`<details class="astra-tier-explanation"><summary>${c.details}</summary></details>`);prose.remove();details.append(prose);chart.after(details);}}
     $('.tier-page-hero').addClass('astra-compact-hero');
   }

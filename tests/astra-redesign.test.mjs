@@ -20,6 +20,10 @@ test('Tool, search and community pages have no experimental advertisement',()=>{
   for(const route of ['team-builder/','team-builder/community/','events/calendar/','search/','compare/','my-monsaba/','board/','friends/']){const $=load(read(route+'index.html'));assert.equal($('.astra-ad').length,0);}
   const $=load(read('index.html'));assert.equal($('.astra-ad').length,1);assert.equal($('script[data-monsaba-ga4=loader]').attr('type'),'text/plain');assert.equal($('script[src*="monetization.js"]').attr('type'),'text/plain');
 });
+
+test('Tier chart is in its final reading position before client scripts run',()=>{
+  for(const locale of ['','en/','zh-cn/']){const $=load(read(`${locale}tata-tier/index.html`));assert.equal($('.article-byline').next().attr('id'),'tier-list');}
+});
 test('Preview API rejects every write method before accessing a data service',async()=>{
   const previous=process.env.VERCEL_ENV;process.env.VERCEL_ENV='preview';
   try{for(const api of ['community','board','friends']){const {default:handler}=await import(`../api/${api}.js`);for(const method of ['POST','DELETE','PUT','PATCH']){let code,body;const response={setHeader(){},status(v){code=v;return this;},json(v){body=v;return this;}};await handler({method,headers:{}},response);assert.equal(code,405,api+method);assert.equal(body.error.code,'PREVIEW_READ_ONLY');}}}finally{if(previous===undefined)delete process.env.VERCEL_ENV;else process.env.VERCEL_ENV=previous;}
