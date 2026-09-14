@@ -1,5 +1,7 @@
 # Current audit
 
+> Finalization追記：今回の性能・広告再監査は [finalization-report.md](finalization-report.md)、[final-performance.md](final-performance.md)、[monetization-plan.md](monetization-plan.md) を参照。以下はInitial完成時の記録。広告実配信はJA 4ページのみと再確認し、設定上の候補と区別した。
+
 ## Control
 - Production HEAD / initial local HEAD / origin/main: `6111788e392892c19a4452a3fb186cc97fc8bd45`
 - Production deployment: `dpl_5y5wX8JXWhydYpLGEs5W23i3Z6W5` (READY, Git main)

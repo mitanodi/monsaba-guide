@@ -1,5 +1,7 @@
 # Astra 全面再設計実験 — 最終報告
 
+> Finalization追記：今回の性能・広告再監査は [finalization-report.md](finalization-report.md)、[final-performance.md](final-performance.md)、[monetization-plan.md](monetization-plan.md) を参照。以下はInitial完成時の記録。広告実配信はJA 4ページのみと再確認し、設定上の候補と区別した。
+
 実装とPreview検証が完了。**mainへmergeしていない。Productionには反映していない。採否は未決定。**
 
 【現行サイト】https://monster-survival.com/

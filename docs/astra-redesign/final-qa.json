@@ -1,0 +1,267 @@
+{
+  "implementationHead": "596eefde70ede7f5dafdabcb59a857900dcd293f",
+  "preview": "https://monsaba-guide-e9r7jh6yt-qyr2qqggjs-6136s-projects.vercel.app",
+  "pages": 54,
+  "viewports": [
+    320,
+    375,
+    390,
+    430,
+    768,
+    1366,
+    1440,
+    1920
+  ],
+  "conditions": 432,
+  "overflow": 0,
+  "brokenImages": 0,
+  "consoleErrors": [],
+  "pageErrors": [],
+  "axeViolations": [],
+  "interactionChecks": [
+    {
+      "name": "Home search / clear / attribute filter",
+      "pass": true
+    },
+    {
+      "name": "Mobile menu / Escape / keyboard search",
+      "pass": true
+    },
+    {
+      "name": "Global search result",
+      "pass": true
+    },
+    {
+      "name": "Tier mode / attribute switch",
+      "pass": true
+    },
+    {
+      "name": "Compare two families / swap",
+      "pass": true
+    },
+    {
+      "name": "My Monsaba local registration persists",
+      "pass": true
+    },
+    {
+      "name": "Team all five modes render / mobile selection",
+      "pass": true
+    },
+    {
+      "name": "Team drag / edit / save / compatible share",
+      "pass": true
+    },
+    {
+      "name": "Calendar month next / previous / today",
+      "pass": true
+    },
+    {
+      "name": "Community reads without a write",
+      "pass": true
+    }
+  ],
+  "team": {
+    "swap": true,
+    "delete": true,
+    "undo": true,
+    "redo": true,
+    "save": true,
+    "shareRestoresTwoMembers": true
+  },
+  "languages": [
+    {
+      "locale": "en",
+      "modeCount": 5,
+      "picker": true,
+      "disclosures": true
+    },
+    {
+      "locale": "zh-CN",
+      "modeCount": 5,
+      "picker": true,
+      "disclosures": true
+    },
+    {
+      "locale": "ja",
+      "modeCount": 5,
+      "picker": true,
+      "disclosures": true
+    }
+  ],
+  "events": [
+    {
+      "locale": "ja",
+      "filters": true,
+      "hover": true,
+      "keyboardNavigation": true
+    },
+    {
+      "locale": "/en",
+      "filters": true,
+      "hover": true,
+      "keyboardNavigation": true
+    },
+    {
+      "locale": "/zh-cn",
+      "filters": true,
+      "hover": true,
+      "keyboardNavigation": true
+    }
+  ],
+  "extra": [
+    {
+      "name": "Preview header and API guards",
+      "pass": true
+    },
+    {
+      "name": "Ad modes / no advertising network / no tool ads",
+      "pass": true
+    },
+    {
+      "name": "390px touch selection, close, drag and mode switch",
+      "pass": true
+    },
+    {
+      "name": "Community honest empty state (browser-only mock)",
+      "pass": true
+    }
+  ],
+  "listenerStress": [
+    {
+      "name": "Menu",
+      "cycles": 50,
+      "before": {
+        "documents": 1,
+        "nodes": 3309,
+        "jsEventListeners": 201
+      },
+      "after": {
+        "documents": 1,
+        "nodes": 3309,
+        "jsEventListeners": 201
+      },
+      "listenerGrowth": 0
+    },
+    {
+      "name": "Search",
+      "cycles": 50,
+      "before": {
+        "documents": 1,
+        "nodes": 3308,
+        "jsEventListeners": 201
+      },
+      "after": {
+        "documents": 1,
+        "nodes": 3308,
+        "jsEventListeners": 201
+      },
+      "listenerGrowth": 0
+    },
+    {
+      "name": "Team picker",
+      "cycles": 50,
+      "before": {
+        "documents": 1,
+        "nodes": 3750,
+        "jsEventListeners": 111
+      },
+      "after": {
+        "documents": 1,
+        "nodes": 3750,
+        "jsEventListeners": 111
+      },
+      "listenerGrowth": 0
+    },
+    {
+      "name": "Calendar month",
+      "cycles": 50,
+      "before": {
+        "documents": 1,
+        "nodes": 1193,
+        "jsEventListeners": 56
+      },
+      "after": {
+        "documents": 1,
+        "nodes": 1193,
+        "jsEventListeners": 56
+      },
+      "listenerGrowth": 0
+    }
+  ],
+  "networkCases": 10,
+  "networkDuplicateImages": 0,
+  "networkMaxCLS": 0.0007851091878854059,
+  "adChecks": {
+    "result": [
+      {
+        "route": "/",
+        "width": 390,
+        "height": 124.6875,
+        "top": 412.53125,
+        "documentTop": 9365.53125,
+        "codeUnchanged": true
+      },
+      {
+        "route": "/",
+        "width": 1440,
+        "height": 124.6875,
+        "top": 397.890625,
+        "documentTop": 5623.890625,
+        "codeUnchanged": true
+      },
+      {
+        "route": "/beginner-guide/",
+        "width": 390,
+        "height": 314.6875,
+        "top": 308.234375,
+        "documentTop": 6867.234375,
+        "codeUnchanged": true
+      },
+      {
+        "route": "/beginner-guide/",
+        "width": 1440,
+        "height": 314.6875,
+        "top": 309.265625,
+        "documentTop": 4087.265625,
+        "codeUnchanged": true
+      },
+      {
+        "route": "/evolution-priority/",
+        "width": 390,
+        "hidden": true
+      },
+      {
+        "route": "/evolution-priority/",
+        "width": 1440,
+        "height": 664.6875,
+        "top": 134.3125,
+        "documentTop": 48416.3125,
+        "codeUnchanged": true
+      },
+      {
+        "route": "/normal-guide/",
+        "width": 390,
+        "height": 314.6875,
+        "top": 308.734375,
+        "documentTop": 5212.734375,
+        "codeUnchanged": true
+      },
+      {
+        "route": "/normal-guide/",
+        "width": 1440,
+        "height": 314.6875,
+        "top": 309.40625,
+        "documentTop": 2881.40625,
+        "codeUnchanged": true
+      }
+    ],
+    "interceptedRequests": 14,
+    "liveTrackingRequests": 0
+  },
+  "screenshots": 78,
+  "performanceSamples": 126,
+  "tests": 346,
+  "gitHubRun": "https://github.com/mitanodi/monsaba-guide/actions/runs/34900663338",
+  "productionHead": "6111788e392892c19a4452a3fb186cc97fc8bd45",
+  "productionDeployment": "dpl_5y5wX8JXWhydYpLGEs5W23i3Z6W5"
+}
