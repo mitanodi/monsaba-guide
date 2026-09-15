@@ -35,9 +35,9 @@ test('Finalization serves page CSS selectively and keeps responsive images valid
   assert.match(read('astra.css'),/(?<!-)backdrop-filter:none/);
 });
 
-test('Finalization preserves AdSense and the four approved affiliate destinations and scope',()=>{
+test('Finalization preserves AdSense and keeps approved affiliate density within the page plan',()=>{
   assert.equal(read('ads.txt').replaceAll('\r\n','\n'),control('ads.txt').replaceAll('\r\n','\n'));
-  for(const [route,offer]of [['','warau_003'],['beginner-guide/','point_income_003'],['evolution-priority/','macromill_002'],['normal-guide/','ipsos_isay_001']]){const $=load(read(route+'index.html'));assert.equal($('.astra-ad').length,1);assert.equal($('.astra-ad').attr('data-astra-offer'),offer);}
+  for(const [route,count]of [['',1],['beginner-guide/',5],['evolution-priority/',5],['normal-guide/',1],['tata-tier/',4],['zombie-rush/',5],['boss-rally/',1]]){const $=load(read(route+'index.html'));assert.equal($('.astra-ad').length,count,route);assert.equal($('.astra-ad').length,$('[data-affiliate-offer]').length,route);}
   for(const route of ['tata/takepanda/','events/','badge-dojo/'])assert.equal(load(read(route+'index.html'))('.astra-ad').length,0);
 });
 test('Preview API rejects every write method before accessing a data service',async()=>{

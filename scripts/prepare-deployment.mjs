@@ -17,11 +17,10 @@ export function prepareHtml(source, environment) {
     const japanese = /<html[^>]*lang="ja"/.test(source);
     $('.astra-ad').each((_, element) => {
       const area = $(element);
-      const slot = $(`[data-affiliate-offer="${area.attr('data-astra-offer')}"]`);
+      const slot = area.find(`[data-affiliate-offer="${area.attr('data-astra-offer')}"]`).first();
       if (!japanese || !slot.length) { area.remove(); return; }
       area.addClass('is-live');
       area.find('.astra-ad-preview').remove();
-      area.append(slot);
     });
     $('script[src*="monetization.js"]').removeAttr('type');
   }

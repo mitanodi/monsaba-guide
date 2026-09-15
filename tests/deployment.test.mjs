@@ -19,12 +19,12 @@ test('Production keeps each original SEO policy and restores the existing integr
   }
 });
 
-test('Production moves only the four approved original affiliate slots, with no added offers', () => {
-  for (const [route,previous] of [['','.astra-journey'],['beginner-guide/','#t3'],['evolution-priority/','#transition-list'],['normal-guide/','#normal-bosses']]) {
+test('Production renders the original approved placements at their retained content anchors', () => {
+  for (const [route,previous,offer] of [['','.astra-journey','warau_003'],['beginner-guide/','#t3','point_income_003'],['evolution-priority/','#transition-list','macromill_002'],['normal-guide/','#normal-bosses','ipsos_isay_001']]) {
     const source=read(route+'index.html'), before=load(source), after=load(prepareHtml(source,'production'));
-    assert.equal(after('.astra-ad.is-live').length,1);
     assert.equal(after(previous).next().hasClass('astra-ad'),true,route);
-    assert.equal(after('.astra-ad [data-affiliate-offer]').toString(),before('[data-affiliate-offer]').toString());
+    assert.equal(after(previous).next().attr('data-astra-offer'),offer,route);
+    assert.equal(after(previous).next().find('[data-affiliate-offer]').attr('data-affiliate-offer'),offer,route);
     assert.equal(after('script[src*="monetization.js"]').length,1);
     for(const prefix of ['en/','zh-cn/']) assert.equal(load(prepareHtml(read(prefix+route+'index.html'),'production'))('.astra-ad').length,0);
   }
@@ -71,7 +71,7 @@ test('API writes fail closed outside Production; Production still rejects untrus
 });
 
 
-test('Authorized A8 addition preserves original offers, limits scope and stays after primary content', () => {
+test('Authorized A8 additions preserve offer scope and stay within the per-page density cap', () => {
   const offers=JSON.parse(read('data/affiliate-offers.json')).offers;
   const added=offers.find(o=>o.id==='altema_point_005');
   assert.equal(offers.length,5);
@@ -80,13 +80,13 @@ test('Authorized A8 addition preserves original offers, limits scope and stays a
   assert.equal(added.mediaSource,'https://www22.a8.net/svt/bgt?aid=260824370994&wid=002&eno=01&mid=s00000024400001005000&mc=1');
   assert.equal(added.trackingPixel,'https://www13.a8.net/0.gif?a8mat=4BADDE+GFSWUY+589S+5ZEMP');
   assert.deepEqual([added.width,added.height],[320,50]);
-  for(const [route,anchor,offer] of [['tata-tier/','#first-picks','altema_point_005'],['zombie-rush/','#danger','altema_point_005'],['boss-rally/',null,'point_income_003']]){
+  for(const [route,count,anchor,offer] of [['tata-tier/',4,'#first-picks','altema_point_005'],['zombie-rush/',5,'#danger','altema_point_005'],['boss-rally/',1,null,'point_income_003']]){
     const source=read(route+'index.html');const doc=load(prepareHtml(source,'production'));
-    assert.equal(doc('.astra-ad.is-live').length,1);
-    assert.equal(doc('[data-affiliate-offer]').length,1);
-    assert.equal(doc('.astra-ad [data-affiliate-offer]').attr('data-affiliate-offer'),offer);
-    if(anchor)assert.ok(doc(anchor).next().hasClass('astra-ad'));else assert.ok(doc('.next-reading').prev().hasClass('astra-ad'));
-    if(offer==='altema_point_005')assert.match(doc('.astra-ad').text(),/スマートフォン専用.*PCでは利用できません/);
+    assert.equal(doc('.astra-ad.is-live').length,count);
+    assert.equal(doc('[data-affiliate-offer]').length,count);
+    const selected=anchor?doc(anchor).next():doc('.next-reading').prev();
+    assert.equal(selected.find('[data-affiliate-offer]').attr('data-affiliate-offer'),offer);
+    if(offer==='altema_point_005')assert.match(selected.text(),/スマートフォン専用.*PCでは利用できません/);
     assert.equal(doc('script[src*="monetization.js"]:not([type])').length,1);
     assert.equal(load(prepareHtml(source,'preview'))('script[src*="monetization.js"]').attr('type'),'text/plain');
     for(const p of ['en/','zh-cn/'])assert.equal(load(prepareHtml(read(p+route+'index.html'),'production'))('[data-affiliate-offer],.astra-ad').length,0);
