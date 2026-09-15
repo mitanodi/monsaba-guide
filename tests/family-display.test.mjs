@@ -21,11 +21,11 @@ test('all 65 family labels use the stage 1 name while retaining every search ali
   }
 });
 
-test('Bowzuhebi has SS overall and all four mode tiers', () => {
+test('Bowzuhebi retains independent September 2026 mode ratings', () => {
   const rating = ratings.overall.byFamily.nenbutsuhebi;
   assert.deepEqual(
     Object.fromEntries(['tier', 'normal', 'zombie', 'dojo', 'beginner'].map((key) => [key, rating[key]])),
-    { tier: 'SS', normal: 'SS', zombie: 'SS', dojo: 'SS', beginner: 'SS' }
+    { tier: 'SS', normal: 'SSS', zombie: 'A', dojo: 'SSS', beginner: 'SS' }
   );
 });
 

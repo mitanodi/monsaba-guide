@@ -80,7 +80,7 @@ test('Authorized A8 additions preserve offer scope and stay within the per-page 
   assert.equal(added.mediaSource,'https://www22.a8.net/svt/bgt?aid=260824370994&wid=002&eno=01&mid=s00000024400001005000&mc=1');
   assert.equal(added.trackingPixel,'https://www13.a8.net/0.gif?a8mat=4BADDE+GFSWUY+589S+5ZEMP');
   assert.deepEqual([added.width,added.height],[320,50]);
-  for(const [route,count,anchor,offer] of [['tata-tier/',4,'#first-picks','altema_point_005'],['zombie-rush/',5,'#danger','altema_point_005'],['boss-rally/',1,null,'point_income_003']]){
+  for(const [route,count,anchor,offer] of [['tata-tier/',4,'#mode-zombie','altema_point_005'],['zombie-rush/',5,'#danger','altema_point_005'],['boss-rally/',1,null,'point_income_003']]){
     const source=read(route+'index.html');const doc=load(prepareHtml(source,'production'));
     assert.equal(doc('.astra-ad.is-live').length,count);
     assert.equal(doc('[data-affiliate-offer]').length,count);

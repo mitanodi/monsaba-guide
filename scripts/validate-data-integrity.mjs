@@ -81,7 +81,7 @@ for (const [familyId, skillFamily] of Object.entries(skills.byFamily || {})) {
 fail(skillStageCount === evolutionCount, `tata-skills.json: stage count ${skillStageCount}, expected ${evolutionCount}`);
 
 const bowzuhebi = ratings.overall?.byFamily?.nenbutsuhebi;
-for (const [mode, expected] of Object.entries({ tier: 'SS', normal: 'SS', zombie: 'SS', dojo: 'SS', beginner: 'SS' })) {
+for (const [mode, expected] of Object.entries({ tier: 'SS', normal: 'SSS', zombie: 'A', dojo: 'SSS', beginner: 'SS' })) {
   fail(bowzuhebi?.[mode] === expected, `tier-ratings.json: nenbutsuhebi ${mode} must be ${expected}`);
 }
 const pikaru = families.find((family) => family.id === 'hikaru');

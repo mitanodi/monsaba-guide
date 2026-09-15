@@ -1,407 +1,2302 @@
 {
-  "version": 1,
+  "version": 2,
+  "generatedFrom": "data/tata-tier.json",
+  "updated": "2026-09-16",
   "overall": {
     "groups": [
       {
         "rank": "SSS",
-        "label": "最優先クラス",
+        "label": "SSS",
         "ids": [
-          "yanzaru",
-          "denjika",
+          "gaoden",
+          "umimi",
+          "komakiri",
+          "boruzarashi",
+          "erekoon",
+          "himawarin",
+          "rokuju",
+          "kenkani",
           "shizukuchou",
-          "purabi",
-          "himawarin"
+          "yanzaru",
+          "purabi"
         ]
       },
       {
         "rank": "SS",
-        "label": "非常に優秀",
+        "label": "SS",
         "ids": [
-          "fureimuji",
+          "takepanda",
+          "togegyo",
+          "yaminome",
+          "korokon",
+          "denjika",
           "nenbutsuhebi",
-          "nekoori",
-          "birimori",
-          "biripiyo",
-          "marushu",
+          "atatama",
+          "korotama",
           "tafupen",
-          "boruzarashi",
-          "potakage",
-          "fureebi"
+          "matchiba",
+          "gantoru",
+          "hinyao",
+          "fureimuji",
+          "riifuro"
         ]
       },
       {
         "rank": "S",
-        "label": "強力・用途次第で上位級",
+        "label": "S",
         "ids": [
-          "takepanda",
-          "umimi",
-          "hinyao",
-          "komakiri",
-          "matchiba",
+          "birimori",
+          "sukedako",
           "fukurogumo",
-          "gaoden",
-          "riifuro",
-          "denrou",
+          "fureebi",
+          "erekineko",
+          "haamitora",
+          "pakuma",
+          "sabooru",
+          "kunbuu",
           "shiiparusu",
-          "himori",
+          "hikikomoru",
+          "hanarenaishi",
+          "marushu",
+          "kaenjack",
+          "batarisu",
+          "birinamazu",
+          "nekoori",
           "furuggu"
+        ]
+      },
+      {
+        "rank": "A",
+        "label": "A",
+        "ids": [
+          "yotsubird",
+          "rokubuhi",
+          "tsubutsumuri",
+          "denrou",
+          "himori",
+          "mogurin",
+          "potakage",
+          "nusuke",
+          "capibarrie",
+          "hihidog"
+        ]
+      },
+      {
+        "rank": "B",
+        "label": "B",
+        "ids": [
+          "daishell",
+          "biripiyo",
+          "mumukaba",
+          "greenbee",
+          "fugumaru",
+          "guuhog"
+        ]
+      },
+      {
+        "rank": "C",
+        "label": "C",
+        "ids": [
+          "tsubaruka",
+          "nemukurage",
+          "doriruu"
+        ]
+      },
+      {
+        "rank": "D",
+        "label": "D",
+        "ids": [
+          "pupunku",
+          "kowagaru",
+          "hikaru"
         ]
       }
     ],
     "byFamily": {
-      "purabi": {
+      "gaoden": {
         "tier": "SSS",
-        "normal": "SS",
+        "normal": "SSS",
+        "zombie": "SSS",
+        "dojo": "SSS",
+        "beginner": "SSS",
+        "rankings": {
+          "overall": {
+            "tier": "SSS",
+            "status": "confirmed",
+            "order": 1
+          },
+          "normal": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SSS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [
+          "ノックバック",
+          "被ダメ増加"
+        ],
+        "comment": ""
+      },
+      "umimi": {
+        "tier": "SSS",
+        "normal": "SSS",
+        "zombie": "SSS",
+        "dojo": "SSS",
+        "beginner": "SSS",
+        "rankings": {
+          "overall": {
+            "tier": "SSS",
+            "status": "confirmed",
+            "order": 2
+          },
+          "normal": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SSS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [
+          "減速",
+          "被ダメ増加",
+          "範囲支援"
+        ],
+        "comment": ""
+      },
+      "komakiri": {
+        "tier": "SSS",
+        "normal": "SSS",
+        "zombie": "SSS",
+        "dojo": "SSS",
+        "beginner": "SSS",
+        "rankings": {
+          "overall": {
+            "tier": "SSS",
+            "status": "confirmed",
+            "order": 3
+          },
+          "normal": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SSS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [
+          "前衛",
+          "連撃",
+          "被ダメ増加"
+        ],
+        "comment": ""
+      },
+      "boruzarashi": {
+        "tier": "SSS",
+        "normal": "SSS",
+        "zombie": "SSS",
+        "dojo": "SSS",
+        "beginner": "SS",
+        "rankings": {
+          "overall": {
+            "tier": "SSS",
+            "status": "confirmed",
+            "order": 4
+          },
+          "normal": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [
+          "広範囲火力",
+          "妨害"
+        ],
+        "comment": ""
+      },
+      "erekoon": {
+        "tier": "SSS",
+        "normal": "SSS",
         "zombie": "SSS",
         "dojo": "SS",
-        "beginner": "SS",
-        "roles": [
-          "回復",
-          "バフ",
-          "生存補助"
-        ],
-        "comment": "回復・攻防バフ・ピンチ時無敵・高速回復を持つ。ゾンビラッシュを中心に安定性を大きく上げる。"
+        "beginner": "SSS",
+        "rankings": {
+          "overall": {
+            "tier": "SSS",
+            "status": "confirmed",
+            "order": 5
+          },
+          "normal": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SSS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
       },
       "himawarin": {
         "tier": "SSS",
         "normal": "SS",
         "zombie": "SSS",
         "dojo": "SSS",
-        "beginner": "SS",
+        "beginner": "SSS",
+        "rankings": {
+          "overall": {
+            "tier": "SSS",
+            "status": "confirmed",
+            "order": 6
+          },
+          "normal": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SSS",
+            "status": "confirmed"
+          }
+        },
         "roles": [
           "回復",
           "攻防バフ"
         ],
-        "comment": "回復と攻防バフを同時に担当。編成全体を支えるサポートとして汎用性が高い。"
+        "comment": ""
       },
-      "fureimuji": {
-        "tier": "SS",
-        "normal": "SS",
-        "zombie": "SSS",
-        "dojo": "SS",
-        "beginner": "SS",
-        "roles": [
-          "範囲火力",
-          "回復",
-          "攻撃バフ"
-        ],
-        "comment": "範囲攻撃・回復・攻撃力強化を兼ねる強力な系統。複数モードで優秀だが、最新の国内外評価では総合最上位5系統より一段下と判断。"
-      },
-      "yanzaru": {
+      "rokuju": {
         "tier": "SSS",
-        "normal": "SS",
-        "zombie": "SSS",
-        "dojo": "SS",
-        "beginner": "SS",
-        "roles": [
-          "火力",
-          "分身",
-          "前線補助"
-        ],
-        "comment": "進化で分身数が増える火力枠。第3進化以降の戦力上昇が大きい。"
-      },
-      "nekoori": {
-        "tier": "SS",
         "normal": "SSS",
-        "zombie": "A",
+        "zombie": "SS",
         "dojo": "SSS",
         "beginner": "SSS",
-        "roles": [
-          "遠距離火力",
-          "減速",
-          "貫通"
-        ],
-        "comment": "低コストで第3進化を狙いやすい。減速・広範囲攻撃・貫通で序盤から使いやすい。"
+        "rankings": {
+          "overall": {
+            "tier": "SSS",
+            "status": "confirmed",
+            "order": 7
+          },
+          "normal": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SSS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
       },
-      "denjika": {
+      "kenkani": {
         "tier": "SSS",
         "normal": "SS",
         "zombie": "SSS",
-        "dojo": "SS",
-        "beginner": "S",
-        "roles": [
-          "貫通",
-          "麻痺",
-          "CC"
-        ],
-        "comment": "貫通・麻痺・束縛による火力とCCを両立。海外のOverall・Boss・Dojo評価と国内評価が重なり、複数モードで長く使える。"
-      },
-      "nenbutsuhebi": {
-        "tier": "SS",
-        "normal": "SS",
-        "zombie": "SS",
-        "dojo": "SS",
-        "beginner": "SS",
-        "roles": [
-          "遠距離火力",
-          "無限貫通",
-          "スタン"
-        ],
-        "comment": "T3の高速音波は無限貫通し、3%スタンで並ぶ複数敵へ火力を出せる。道場の直線配置、現環境ZRの専用支援・範囲性能、F2P・初心者での扱いやすさを踏まえた、Season 1実装前の全モードSS暫定独自評価。"
-      },
-      "birimori": {
-        "tier": "SS",
-        "normal": "SS",
-        "zombie": "SSS",
-        "dojo": "SS",
-        "beginner": "S",
-        "roles": [
-          "被ダメ増加",
-          "範囲支援"
-        ],
-        "comment": "敵への被ダメージ増加で味方の火力を伸ばせる。範囲支援役としてゾンビラッシュでも扱いやすい。"
-      },
-      "biripiyo": {
-        "tier": "SS",
-        "normal": "SS",
-        "zombie": "SS",
-        "dojo": "SS",
-        "beginner": "S",
-        "roles": [
-          "攻撃バフ",
-          "被ダメ軽減",
-          "サポート"
-        ],
-        "comment": "味方への攻撃力増加と被ダメージ軽減を同時に付与。サポート性能が非常に高い。"
-      },
-      "marushu": {
-        "tier": "SS",
-        "normal": "SS",
-        "zombie": "SS",
-        "dojo": "SS",
-        "beginner": "S",
-        "roles": [
-          "攻撃速度バフ",
-          "被ダメ増加",
-          "防御補助"
-        ],
-        "comment": "攻撃速度強化、被ダメージ増加、被ダメージ軽減を持つ。編成全体への貢献度が高い。"
-      },
-      "tafupen": {
-        "tier": "SS",
-        "normal": "SS",
-        "zombie": "SS",
-        "dojo": "SS",
-        "beginner": "S",
-        "roles": [
-          "タンク",
-          "シールド",
-          "前衛"
-        ],
-        "comment": "シールドを使って前線を維持するタンク。ゾンビラッシュでもLv5・Lv7の役割が大きい。"
-      },
-      "boruzarashi": {
-        "tier": "SS",
-        "normal": "SS",
-        "zombie": "S",
-        "dojo": "SS",
-        "beginner": "S",
-        "roles": [
-          "広範囲火力",
-          "妨害"
-        ],
-        "comment": "進化後はボール数が増え、広い範囲へ火力を出しやすい。通常ステージでも使いやすい。"
-      },
-      "potakage": {
-        "tier": "SS",
-        "normal": "SS",
-        "zombie": "A",
         "dojo": "SSS",
-        "beginner": "S",
-        "roles": [
-          "ステルス",
-          "火力",
-          "生存"
-        ],
-        "comment": "ステルスによる生存力が特徴。特にバッジ道場で強力。"
-      },
-      "fureebi": {
-        "tier": "SS",
-        "normal": "SS",
-        "zombie": "S",
-        "dojo": "SSS",
-        "beginner": "S",
-        "roles": [
-          "近距離火力",
-          "燃焼"
-        ],
-        "comment": "進化で攻撃回数が増え、単体への火力を伸ばしやすい。道場でも高評価。"
-      },
-      "takepanda": {
-        "tier": "S",
-        "normal": "S",
-        "zombie": "SSS",
-        "dojo": "S",
-        "beginner": "S",
-        "roles": [
-          "継続ダメージ",
-          "減速"
-        ],
-        "comment": "タケノコによる継続ダメージと減速。ゾンビラッシュの敵集団を抑えるのに優秀。"
-      },
-      "umimi": {
-        "tier": "S",
-        "normal": "S",
-        "zombie": "SSS",
-        "dojo": "S",
-        "beginner": "S",
-        "roles": [
-          "減速",
-          "被ダメ増加",
-          "範囲支援"
-        ],
-        "comment": "継続範囲ダメージ、減速、被ダメージ増加を担当。敵集団への支援性能が高い。"
+        "beginner": "SSS",
+        "rankings": {
+          "overall": {
+            "tier": "SSS",
+            "status": "confirmed",
+            "order": 8
+          },
+          "normal": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SSS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
       },
       "shizukuchou": {
         "tier": "SSS",
-        "normal": "S",
+        "normal": "SS",
         "zombie": "SSS",
         "dojo": "SSS",
-        "beginner": "S",
+        "beginner": "SS",
+        "rankings": {
+          "overall": {
+            "tier": "SSS",
+            "status": "confirmed",
+            "order": 9
+          },
+          "normal": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SS",
+            "status": "confirmed"
+          }
+        },
         "roles": [
           "睡眠",
           "減速",
           "CC"
         ],
-        "comment": "減速と睡眠を軸に、進化後は隣接する仲間の攻撃にもCCを付与。海外のOverall・Horde評価と国内評価を合わせ、複数モードで価値が高い。"
+        "comment": ""
       },
-      "hinyao": {
-        "tier": "S",
-        "normal": "S",
-        "zombie": "SS",
-        "dojo": "S",
-        "beginner": "S",
+      "yanzaru": {
+        "tier": "SSS",
+        "normal": "SSS",
+        "zombie": "S",
+        "dojo": "SSS",
+        "beginner": "SSS",
+        "rankings": {
+          "overall": {
+            "tier": "SSS",
+            "status": "confirmed",
+            "order": 10
+          },
+          "normal": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SSS",
+            "status": "confirmed"
+          }
+        },
         "roles": [
-          "範囲火力",
-          "ニャンコシナジー"
+          "火力",
+          "分身",
+          "前線補助"
         ],
-        "comment": "範囲攻撃で複数レーンに火力を出しやすい。ニャンコ系との組み合わせも狙える。"
+        "comment": ""
       },
-      "komakiri": {
-        "tier": "S",
+      "purabi": {
+        "tier": "SSS",
         "normal": "S",
-        "zombie": "A",
+        "zombie": "SSS",
+        "dojo": "SSS",
+        "beginner": "SSS",
+        "rankings": {
+          "overall": {
+            "tier": "SSS",
+            "status": "confirmed",
+            "order": 11
+          },
+          "normal": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SSS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [
+          "回復",
+          "バフ",
+          "生存補助"
+        ],
+        "comment": ""
+      },
+      "takepanda": {
+        "tier": "SS",
+        "normal": "SS",
+        "zombie": "SS",
         "dojo": "SSS",
         "beginner": "S",
+        "rankings": {
+          "overall": {
+            "tier": "SS",
+            "status": "confirmed",
+            "order": 12
+          },
+          "normal": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "S",
+            "status": "confirmed"
+          }
+        },
         "roles": [
-          "前衛",
-          "連撃",
-          "被ダメ増加"
+          "継続ダメージ",
+          "減速"
         ],
-        "comment": "連撃と被ダメージ増加を持つ前衛。道場で前線役として使いやすい。"
+        "comment": ""
+      },
+      "togegyo": {
+        "tier": "SS",
+        "normal": "SS",
+        "zombie": "SS",
+        "dojo": "SS",
+        "beginner": "SS",
+        "rankings": {
+          "overall": {
+            "tier": "SS",
+            "status": "confirmed",
+            "order": 13
+          },
+          "normal": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "yaminome": {
+        "tier": "SS",
+        "normal": "S",
+        "zombie": "SSS",
+        "dojo": "SS",
+        "beginner": "SS",
+        "rankings": {
+          "overall": {
+            "tier": "SS",
+            "status": "confirmed",
+            "order": 14
+          },
+          "normal": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "korokon": {
+        "tier": "SS",
+        "normal": "SS",
+        "zombie": "S",
+        "dojo": "SSS",
+        "beginner": "SS",
+        "rankings": {
+          "overall": {
+            "tier": "SS",
+            "status": "confirmed",
+            "order": 15
+          },
+          "normal": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "denjika": {
+        "tier": "SS",
+        "normal": "SSS",
+        "zombie": "A",
+        "dojo": "SSS",
+        "beginner": "SS",
+        "rankings": {
+          "overall": {
+            "tier": "SS",
+            "status": "confirmed",
+            "order": 16
+          },
+          "normal": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [
+          "貫通",
+          "麻痺",
+          "CC"
+        ],
+        "comment": ""
+      },
+      "nenbutsuhebi": {
+        "tier": "SS",
+        "normal": "SSS",
+        "zombie": "A",
+        "dojo": "SSS",
+        "beginner": "SS",
+        "rankings": {
+          "overall": {
+            "tier": "SS",
+            "status": "confirmed",
+            "order": 17
+          },
+          "normal": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [
+          "遠距離火力",
+          "無限貫通",
+          "スタン"
+        ],
+        "comment": ""
+      },
+      "atatama": {
+        "tier": "SS",
+        "normal": "S",
+        "zombie": "SSS",
+        "dojo": "S",
+        "beginner": "SSS",
+        "rankings": {
+          "overall": {
+            "tier": "SS",
+            "status": "confirmed",
+            "order": 18
+          },
+          "normal": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SSS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "korotama": {
+        "tier": "SS",
+        "normal": "S",
+        "zombie": "SSS",
+        "dojo": "S",
+        "beginner": "SSS",
+        "rankings": {
+          "overall": {
+            "tier": "SS",
+            "status": "confirmed",
+            "order": 19
+          },
+          "normal": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SSS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "tafupen": {
+        "tier": "SS",
+        "normal": "SSS",
+        "zombie": "B",
+        "dojo": "SSS",
+        "beginner": "SSS",
+        "rankings": {
+          "overall": {
+            "tier": "SS",
+            "status": "confirmed",
+            "order": 20
+          },
+          "normal": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "B",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SSS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [
+          "タンク",
+          "シールド",
+          "前衛"
+        ],
+        "comment": ""
       },
       "matchiba": {
-        "tier": "S",
-        "normal": "SS",
-        "zombie": "A",
-        "dojo": "S",
-        "beginner": "S",
+        "tier": "SS",
+        "normal": "SSS",
+        "zombie": "B",
+        "dojo": "SSS",
+        "beginner": "SSS",
+        "rankings": {
+          "overall": {
+            "tier": "SS",
+            "status": "confirmed",
+            "order": 21
+          },
+          "normal": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "B",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SSS",
+            "status": "confirmed"
+          }
+        },
         "roles": [
           "広範囲火力",
           "デバフ"
         ],
-        "comment": "火属性の広範囲火力として扱いやすい。敵へのデバフも絡めて通常攻略で採用しやすい。"
+        "comment": ""
       },
-      "fukurogumo": {
-        "tier": "S",
-        "normal": "S",
+      "gantoru": {
+        "tier": "SS",
+        "normal": "SS",
         "zombie": "A",
+        "dojo": "SSS",
+        "beginner": "SSS",
+        "rankings": {
+          "overall": {
+            "tier": "SS",
+            "status": "confirmed",
+            "order": 22
+          },
+          "normal": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SSS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "hinyao": {
+        "tier": "SS",
+        "normal": "S",
+        "zombie": "SSS",
+        "dojo": "S",
+        "beginner": "SS",
+        "rankings": {
+          "overall": {
+            "tier": "SS",
+            "status": "confirmed",
+            "order": 23
+          },
+          "normal": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [
+          "範囲火力",
+          "ニャンコシナジー"
+        ],
+        "comment": ""
+      },
+      "fureimuji": {
+        "tier": "SS",
+        "normal": "SS",
+        "zombie": "SS",
         "dojo": "S",
         "beginner": "S",
+        "rankings": {
+          "overall": {
+            "tier": "SS",
+            "status": "confirmed",
+            "order": 24
+          },
+          "normal": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "S",
+            "status": "confirmed"
+          }
+        },
         "roles": [
-          "シールド",
-          "スタン",
-          "前衛"
+          "範囲火力",
+          "回復",
+          "攻撃バフ"
         ],
-        "comment": "シールドとスタンで前線を支えられる。耐久寄りの編成で役割を持ちやすい。"
-      },
-      "gaoden": {
-        "tier": "S",
-        "normal": "S",
-        "zombie": "A",
-        "dojo": "S",
-        "beginner": "S",
-        "roles": [
-          "ノックバック",
-          "被ダメ増加"
-        ],
-        "comment": "ノックバックと被ダメージ増加で敵の処理を補助する。押し返しが欲しい場面で候補になる。"
+        "comment": ""
       },
       "riifuro": {
-        "tier": "S",
-        "normal": "S",
-        "zombie": "A",
-        "dojo": "S",
-        "beginner": "S",
+        "tier": "SS",
+        "normal": "A",
+        "zombie": "SSS",
+        "dojo": "SS",
+        "beginner": "HOLD",
+        "rankings": {
+          "overall": {
+            "tier": "SS",
+            "status": "confirmed",
+            "order": 25
+          },
+          "normal": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "HOLD",
+            "status": "hold"
+          }
+        },
         "roles": [
           "減速",
           "攻撃速度低下",
           "スタン"
         ],
-        "comment": "減速、攻撃速度低下、スタンで敵の動きを抑える。妨害役を厚くしたい編成で使いやすい。"
+        "comment": ""
       },
-      "denrou": {
+      "birimori": {
         "tier": "S",
-        "normal": "S",
-        "zombie": "S",
-        "dojo": "S",
-        "beginner": "S",
-        "roles": [
-          "麻痺",
-          "無敵",
-          "近距離火力"
-        ],
-        "comment": "麻痺と無敵を持つ近距離火力。前線で止めながら殴る役として使える。"
-      },
-      "shiiparusu": {
-        "tier": "S",
-        "normal": "S",
-        "zombie": "S",
-        "dojo": "S",
-        "beginner": "S",
-        "roles": [
-          "範囲持続火力",
-          "麻痺"
-        ],
-        "comment": "範囲への持続火力と麻痺を持つ。敵集団を削りながら足止めできる。"
-      },
-      "himori": {
-        "tier": "S",
-        "normal": "S",
-        "zombie": "A",
-        "dojo": "S",
+        "normal": "A",
+        "zombie": "SSS",
+        "dojo": "A",
         "beginner": "SSS",
+        "rankings": {
+          "overall": {
+            "tier": "S",
+            "status": "confirmed",
+            "order": 26
+          },
+          "normal": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SSS",
+            "status": "confirmed"
+          }
+        },
         "roles": [
-          "燃焼",
-          "序盤火力"
+          "被ダメ増加",
+          "範囲支援"
         ],
-        "comment": "第3進化を早く狙える序盤向け火力。燃焼を中心にダメージを出す。"
+        "comment": ""
       },
-      "furuggu": {
+      "sukedako": {
+        "tier": "S",
+        "normal": "SS",
+        "zombie": "SS",
+        "dojo": "A",
+        "beginner": "S",
+        "rankings": {
+          "overall": {
+            "tier": "S",
+            "status": "confirmed",
+            "order": 27
+          },
+          "normal": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "S",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "fukurogumo": {
+        "tier": "S",
+        "normal": "SS",
+        "zombie": "C",
+        "dojo": "SSS",
+        "beginner": "SSS",
+        "rankings": {
+          "overall": {
+            "tier": "S",
+            "status": "confirmed",
+            "order": 28
+          },
+          "normal": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "C",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SSS",
+            "status": "provisional"
+          },
+          "beginner": {
+            "tier": "SSS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [
+          "シールド",
+          "スタン",
+          "前衛"
+        ],
+        "comment": ""
+      },
+      "fureebi": {
         "tier": "S",
         "normal": "S",
-        "zombie": "A",
-        "dojo": "S",
-        "beginner": "SSS",
+        "zombie": "B",
+        "dojo": "SSS",
+        "beginner": "S",
+        "rankings": {
+          "overall": {
+            "tier": "S",
+            "status": "confirmed",
+            "order": 29
+          },
+          "normal": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "B",
+            "status": "provisional",
+            "rawEvaluation": "A〜B"
+          },
+          "dojo": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "S",
+            "status": "confirmed"
+          }
+        },
         "roles": [
-          "範囲火力",
-          "減速",
-          "序盤育成"
+          "近距離火力",
+          "燃焼"
         ],
-        "comment": "第3進化を早く狙える序盤向け。進化すると爆発頻度が上がり、減速も獲得する。"
+        "comment": ""
+      },
+      "erekineko": {
+        "tier": "S",
+        "normal": "S",
+        "zombie": "SS",
+        "dojo": "A",
+        "beginner": "S",
+        "rankings": {
+          "overall": {
+            "tier": "S",
+            "status": "confirmed",
+            "order": 30
+          },
+          "normal": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "S",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "haamitora": {
+        "tier": "S",
+        "normal": "SSS",
+        "zombie": "D",
+        "dojo": "SSS",
+        "beginner": "SS",
+        "rankings": {
+          "overall": {
+            "tier": "S",
+            "status": "confirmed",
+            "order": 31
+          },
+          "normal": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "D",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
       },
       "pakuma": {
-        "tier": "保留",
-        "normal": "保留",
-        "zombie": "保留",
-        "dojo": "保留",
-        "beginner": "保留",
+        "tier": "S",
+        "normal": "SS",
+        "zombie": "S",
+        "dojo": "A",
+        "beginner": "S",
+        "rankings": {
+          "overall": {
+            "tier": "S",
+            "status": "confirmed",
+            "order": 32
+          },
+          "normal": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "S",
+            "status": "confirmed"
+          }
+        },
         "roles": [
           "タンク",
           "回復",
           "被ダメージ増加"
         ],
-        "comment": "ゲーム内スキルは確認済み。実戦根拠が不足しているためTierは再評価待ち。"
+        "comment": ""
+      },
+      "sabooru": {
+        "tier": "S",
+        "normal": "S",
+        "zombie": "HOLD",
+        "dojo": "SS",
+        "beginner": "A",
+        "rankings": {
+          "overall": {
+            "tier": "S",
+            "status": "provisional",
+            "order": 33
+          },
+          "normal": {
+            "tier": "S",
+            "status": "provisional"
+          },
+          "zombie": {
+            "tier": "HOLD",
+            "status": "hold"
+          },
+          "dojo": {
+            "tier": "SS",
+            "status": "provisional"
+          },
+          "beginner": {
+            "tier": "A",
+            "status": "provisional"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "kunbuu": {
+        "tier": "S",
+        "normal": "A",
+        "zombie": "SS",
+        "dojo": "S",
+        "beginner": "A",
+        "rankings": {
+          "overall": {
+            "tier": "S",
+            "status": "confirmed",
+            "order": 34
+          },
+          "normal": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "A",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "shiiparusu": {
+        "tier": "S",
+        "normal": "A",
+        "zombie": "B",
+        "dojo": "SSS",
+        "beginner": "S",
+        "rankings": {
+          "overall": {
+            "tier": "S",
+            "status": "confirmed",
+            "order": 35
+          },
+          "normal": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "B",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "S",
+            "status": "confirmed"
+          }
+        },
+        "roles": [
+          "範囲持続火力",
+          "麻痺"
+        ],
+        "comment": ""
+      },
+      "hikikomoru": {
+        "tier": "S",
+        "normal": "S",
+        "zombie": "S",
+        "dojo": "A",
+        "beginner": "A",
+        "rankings": {
+          "overall": {
+            "tier": "S",
+            "status": "confirmed",
+            "order": 36
+          },
+          "normal": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "A",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "hanarenaishi": {
+        "tier": "S",
+        "normal": "S",
+        "zombie": "D",
+        "dojo": "SSS",
+        "beginner": "SSS",
+        "rankings": {
+          "overall": {
+            "tier": "S",
+            "status": "confirmed",
+            "order": 37
+          },
+          "normal": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "D",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SSS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "marushu": {
+        "tier": "S",
+        "normal": "S",
+        "zombie": "S",
+        "dojo": "B",
+        "beginner": "S",
+        "rankings": {
+          "overall": {
+            "tier": "S",
+            "status": "confirmed",
+            "order": 38
+          },
+          "normal": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "B",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "S",
+            "status": "confirmed"
+          }
+        },
+        "roles": [
+          "攻撃速度バフ",
+          "被ダメ増加",
+          "防御補助"
+        ],
+        "comment": ""
+      },
+      "kaenjack": {
+        "tier": "S",
+        "normal": "SS",
+        "zombie": "D",
+        "dojo": "SS",
+        "beginner": "SS",
+        "rankings": {
+          "overall": {
+            "tier": "S",
+            "status": "confirmed",
+            "order": 39
+          },
+          "normal": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "D",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "batarisu": {
+        "tier": "S",
+        "normal": "SS",
+        "zombie": "D",
+        "dojo": "SS",
+        "beginner": "SS",
+        "rankings": {
+          "overall": {
+            "tier": "S",
+            "status": "confirmed",
+            "order": 40
+          },
+          "normal": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "D",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "birinamazu": {
+        "tier": "S",
+        "normal": "SS",
+        "zombie": "D",
+        "dojo": "SS",
+        "beginner": "SS",
+        "rankings": {
+          "overall": {
+            "tier": "S",
+            "status": "confirmed",
+            "order": 41
+          },
+          "normal": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "D",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "nekoori": {
+        "tier": "S",
+        "normal": "S",
+        "zombie": "B",
+        "dojo": "A",
+        "beginner": "SSS",
+        "rankings": {
+          "overall": {
+            "tier": "S",
+            "status": "confirmed",
+            "order": 42
+          },
+          "normal": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "B",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SSS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [
+          "遠距離火力",
+          "減速",
+          "貫通"
+        ],
+        "comment": ""
+      },
+      "furuggu": {
+        "tier": "S",
+        "normal": "S",
+        "zombie": "B",
+        "dojo": "A",
+        "beginner": "SSS",
+        "rankings": {
+          "overall": {
+            "tier": "S",
+            "status": "confirmed",
+            "order": 43
+          },
+          "normal": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "B",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SSS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [
+          "範囲火力",
+          "減速",
+          "序盤育成"
+        ],
+        "comment": ""
+      },
+      "yotsubird": {
+        "tier": "A",
+        "normal": "SS",
+        "zombie": "D",
+        "dojo": "S",
+        "beginner": "SS",
+        "rankings": {
+          "overall": {
+            "tier": "A",
+            "status": "confirmed",
+            "order": 44
+          },
+          "normal": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "D",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "rokubuhi": {
+        "tier": "A",
+        "normal": "SS",
+        "zombie": "D",
+        "dojo": "S",
+        "beginner": "SS",
+        "rankings": {
+          "overall": {
+            "tier": "A",
+            "status": "confirmed",
+            "order": 45
+          },
+          "normal": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "D",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "tsubutsumuri": {
+        "tier": "A",
+        "normal": "SS",
+        "zombie": "D",
+        "dojo": "SS",
+        "beginner": "HOLD",
+        "rankings": {
+          "overall": {
+            "tier": "A",
+            "status": "confirmed",
+            "order": 46
+          },
+          "normal": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "D",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "HOLD",
+            "status": "hold"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "denrou": {
+        "tier": "A",
+        "normal": "A",
+        "zombie": "B",
+        "dojo": "SS",
+        "beginner": "A",
+        "rankings": {
+          "overall": {
+            "tier": "A",
+            "status": "confirmed",
+            "order": 47
+          },
+          "normal": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "B",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "A",
+            "status": "confirmed"
+          }
+        },
+        "roles": [
+          "麻痺",
+          "無敵",
+          "近距離火力"
+        ],
+        "comment": ""
+      },
+      "himori": {
+        "tier": "A",
+        "normal": "A",
+        "zombie": "B",
+        "dojo": "A",
+        "beginner": "SSS",
+        "rankings": {
+          "overall": {
+            "tier": "A",
+            "status": "confirmed",
+            "order": 48
+          },
+          "normal": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "B",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SSS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [
+          "燃焼",
+          "序盤火力"
+        ],
+        "comment": ""
+      },
+      "mogurin": {
+        "tier": "A",
+        "normal": "S",
+        "zombie": "D",
+        "dojo": "SS",
+        "beginner": "S",
+        "rankings": {
+          "overall": {
+            "tier": "A",
+            "status": "confirmed",
+            "order": 49
+          },
+          "normal": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "D",
+            "status": "provisional",
+            "rawEvaluation": "E"
+          },
+          "dojo": {
+            "tier": "SS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "S",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "potakage": {
+        "tier": "A",
+        "normal": "B",
+        "zombie": "C",
+        "dojo": "SSS",
+        "beginner": "S",
+        "rankings": {
+          "overall": {
+            "tier": "A",
+            "status": "confirmed",
+            "order": 50
+          },
+          "normal": {
+            "tier": "B",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "C",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "SSS",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "S",
+            "status": "confirmed"
+          }
+        },
+        "roles": [
+          "ステルス",
+          "火力",
+          "生存"
+        ],
+        "comment": ""
+      },
+      "nusuke": {
+        "tier": "A",
+        "normal": "A",
+        "zombie": "A",
+        "dojo": "A",
+        "beginner": "A",
+        "rankings": {
+          "overall": {
+            "tier": "A",
+            "status": "confirmed",
+            "order": 51
+          },
+          "normal": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "A",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "capibarrie": {
+        "tier": "A",
+        "normal": "S",
+        "zombie": "D",
+        "dojo": "A",
+        "beginner": "SSS",
+        "rankings": {
+          "overall": {
+            "tier": "A",
+            "status": "confirmed",
+            "order": 52
+          },
+          "normal": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "D",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SSS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "hihidog": {
+        "tier": "A",
+        "normal": "S",
+        "zombie": "D",
+        "dojo": "S",
+        "beginner": "S",
+        "rankings": {
+          "overall": {
+            "tier": "A",
+            "status": "confirmed",
+            "order": 53
+          },
+          "normal": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "D",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "S",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "daishell": {
+        "tier": "B",
+        "normal": "S",
+        "zombie": "D",
+        "dojo": "A",
+        "beginner": "SS",
+        "rankings": {
+          "overall": {
+            "tier": "B",
+            "status": "confirmed",
+            "order": 54
+          },
+          "normal": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "D",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "SS",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "biripiyo": {
+        "tier": "B",
+        "normal": "B",
+        "zombie": "S",
+        "dojo": "C",
+        "beginner": "A",
+        "rankings": {
+          "overall": {
+            "tier": "B",
+            "status": "confirmed",
+            "order": 55
+          },
+          "normal": {
+            "tier": "B",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "C",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "A",
+            "status": "confirmed"
+          }
+        },
+        "roles": [
+          "攻撃バフ",
+          "被ダメ軽減",
+          "サポート"
+        ],
+        "comment": ""
+      },
+      "mumukaba": {
+        "tier": "B",
+        "normal": "S",
+        "zombie": "D",
+        "dojo": "S",
+        "beginner": "B",
+        "rankings": {
+          "overall": {
+            "tier": "B",
+            "status": "confirmed",
+            "order": 56
+          },
+          "normal": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "D",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "B",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "greenbee": {
+        "tier": "B",
+        "normal": "A",
+        "zombie": "D",
+        "dojo": "S",
+        "beginner": "A",
+        "rankings": {
+          "overall": {
+            "tier": "B",
+            "status": "confirmed",
+            "order": 57
+          },
+          "normal": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "D",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "S",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "A",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "fugumaru": {
+        "tier": "B",
+        "normal": "A",
+        "zombie": "B",
+        "dojo": "B",
+        "beginner": "B",
+        "rankings": {
+          "overall": {
+            "tier": "B",
+            "status": "confirmed",
+            "order": 58
+          },
+          "normal": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "B",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "B",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "B",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "guuhog": {
+        "tier": "B",
+        "normal": "A",
+        "zombie": "D",
+        "dojo": "A",
+        "beginner": "S",
+        "rankings": {
+          "overall": {
+            "tier": "B",
+            "status": "confirmed",
+            "order": 59
+          },
+          "normal": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "D",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "S",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "tsubaruka": {
+        "tier": "C",
+        "normal": "A",
+        "zombie": "D",
+        "dojo": "A",
+        "beginner": "B",
+        "rankings": {
+          "overall": {
+            "tier": "C",
+            "status": "confirmed",
+            "order": 60
+          },
+          "normal": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "D",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "B",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "nemukurage": {
+        "tier": "C",
+        "normal": "B",
+        "zombie": "D",
+        "dojo": "A",
+        "beginner": "A",
+        "rankings": {
+          "overall": {
+            "tier": "C",
+            "status": "confirmed",
+            "order": 61
+          },
+          "normal": {
+            "tier": "B",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "D",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "A",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "doriruu": {
+        "tier": "C",
+        "normal": "B",
+        "zombie": "D",
+        "dojo": "A",
+        "beginner": "C",
+        "rankings": {
+          "overall": {
+            "tier": "C",
+            "status": "confirmed",
+            "order": 62
+          },
+          "normal": {
+            "tier": "B",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "D",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "A",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "C",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "pupunku": {
+        "tier": "D",
+        "normal": "D",
+        "zombie": "D",
+        "dojo": "D",
+        "beginner": "C",
+        "rankings": {
+          "overall": {
+            "tier": "D",
+            "status": "confirmed",
+            "order": 63
+          },
+          "normal": {
+            "tier": "D",
+            "status": "provisional",
+            "rawEvaluation": "H"
+          },
+          "zombie": {
+            "tier": "D",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "D",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "C",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "kowagaru": {
+        "tier": "D",
+        "normal": "D",
+        "zombie": "D",
+        "dojo": "D",
+        "beginner": "D",
+        "rankings": {
+          "overall": {
+            "tier": "D",
+            "status": "confirmed",
+            "order": 64
+          },
+          "normal": {
+            "tier": "D",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "D",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "D",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "D",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
+      },
+      "hikaru": {
+        "tier": "D",
+        "normal": "D",
+        "zombie": "D",
+        "dojo": "D",
+        "beginner": "D",
+        "rankings": {
+          "overall": {
+            "tier": "D",
+            "status": "confirmed",
+            "order": 65
+          },
+          "normal": {
+            "tier": "D",
+            "status": "confirmed"
+          },
+          "zombie": {
+            "tier": "D",
+            "status": "confirmed"
+          },
+          "dojo": {
+            "tier": "D",
+            "status": "confirmed"
+          },
+          "beginner": {
+            "tier": "D",
+            "status": "confirmed"
+          }
+        },
+        "roles": [],
+        "comment": ""
       }
     }
   },
@@ -409,139 +2304,444 @@
     "groups": [
       {
         "rank": "SSS",
-        "label": "ゾンビラッシュ最優先",
+        "label": "SSS",
         "ids": [
+          "gaoden",
           "umimi",
-          "shizukuchou",
-          "fureimuji",
-          "takepanda",
+          "komakiri",
+          "boruzarashi",
+          "erekoon",
           "himawarin",
-          "yanzaru",
-          "denjika",
+          "kenkani",
+          "shizukuchou",
           "purabi",
+          "yaminome",
+          "atatama",
+          "korotama",
+          "hinyao",
+          "riifuro",
           "birimori"
         ]
       },
       {
         "rank": "SS",
-        "label": "主力級",
+        "label": "SS",
         "ids": [
+          "rokuju",
+          "takepanda",
+          "togegyo",
+          "fureimuji",
+          "sukedako",
+          "erekineko",
+          "kunbuu"
+        ]
+      },
+      {
+        "rank": "S",
+        "label": "S",
+        "ids": [
+          "yanzaru",
           "korokon",
-          "hinyao",
+          "pakuma",
+          "hikikomoru",
           "marushu",
           "biripiyo"
         ]
       },
       {
-        "rank": "S",
-        "label": "優秀",
+        "rank": "A",
+        "label": "A",
         "ids": [
-          "boruzarashi",
-          "erekoon"
+          "denjika",
+          "nenbutsuhebi",
+          "gantoru",
+          "nusuke"
         ]
       },
       {
-        "rank": "A",
-        "label": "編成次第で強い",
+        "rank": "B",
+        "label": "B",
         "ids": [
-          "kunbuu",
-          "komakiri",
-          "gaoden",
-          "riifuro"
+          "tafupen",
+          "matchiba",
+          "fureebi",
+          "shiiparusu",
+          "nekoori",
+          "furuggu",
+          "denrou",
+          "himori",
+          "fugumaru"
+        ]
+      },
+      {
+        "rank": "C",
+        "label": "C",
+        "ids": [
+          "fukurogumo",
+          "potakage"
+        ]
+      },
+      {
+        "rank": "D",
+        "label": "D",
+        "ids": [
+          "haamitora",
+          "hanarenaishi",
+          "kaenjack",
+          "batarisu",
+          "birinamazu",
+          "yotsubird",
+          "rokubuhi",
+          "tsubutsumuri",
+          "mogurin",
+          "capibarrie",
+          "hihidog",
+          "daishell",
+          "mumukaba",
+          "greenbee",
+          "guuhog",
+          "tsubaruka",
+          "nemukurage",
+          "doriruu",
+          "pupunku",
+          "kowagaru",
+          "hikaru"
+        ]
+      },
+      {
+        "rank": "HOLD",
+        "label": "保留",
+        "ids": [
+          "sabooru"
         ]
       }
     ],
     "byFamily": {
+      "gaoden": {
+        "tier": "SSS",
+        "status": "confirmed",
+        "comment": ""
+      },
       "umimi": {
         "tier": "SSS",
-        "adoptionRate": "100%",
-        "comment": "高キル編成で採用率が高い中核候補。"
+        "status": "confirmed",
+        "comment": ""
       },
-      "shizukuchou": {
+      "komakiri": {
         "tier": "SSS",
-        "adoptionRate": "100%"
+        "status": "confirmed",
+        "comment": ""
       },
-      "fureimuji": {
+      "boruzarashi": {
         "tier": "SSS",
-        "adoptionRate": "100%"
+        "status": "confirmed",
+        "comment": ""
       },
-      "takepanda": {
+      "erekoon": {
         "tier": "SSS",
-        "adoptionRate": "100%",
-        "comment": "タケノコによる継続ダメージと減速で敵集団を抑えやすい。高Wave編成での採用実績も高い。"
+        "status": "confirmed",
+        "comment": ""
       },
       "himawarin": {
         "tier": "SSS",
-        "adoptionRate": "100%"
+        "status": "confirmed",
+        "comment": ""
+      },
+      "rokuju": {
+        "tier": "SS",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "kenkani": {
+        "tier": "SSS",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "shizukuchou": {
+        "tier": "SSS",
+        "status": "confirmed",
+        "comment": ""
       },
       "yanzaru": {
-        "tier": "SSS",
-        "adoptionRate": "100%",
-        "comment": "第3進化以降の火力が高く、ゾンビラッシュの主力ディーラー候補。"
-      },
-      "denjika": {
-        "tier": "SSS",
-        "adoptionRate": "100%",
-        "comment": "貫通攻撃＋麻痺が大量処理と足止めの両方で強力。スノーフィスト対策にも使いやすい。"
+        "tier": "S",
+        "status": "confirmed",
+        "comment": ""
       },
       "purabi": {
         "tier": "SSS",
-        "adoptionRate": "100%",
-        "comment": "回復・味方強化・無敵をまとめて担える。高Waveの安定性を大きく上げるサポート枠。"
+        "status": "confirmed",
+        "comment": ""
+      },
+      "takepanda": {
+        "tier": "SS",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "togegyo": {
+        "tier": "SS",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "yaminome": {
+        "tier": "SSS",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "korokon": {
+        "tier": "S",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "denjika": {
+        "tier": "A",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "nenbutsuhebi": {
+        "tier": "A",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "atatama": {
+        "tier": "SSS",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "korotama": {
+        "tier": "SSS",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "tafupen": {
+        "tier": "B",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "matchiba": {
+        "tier": "B",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "gantoru": {
+        "tier": "A",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "hinyao": {
+        "tier": "SSS",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "fureimuji": {
+        "tier": "SS",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "riifuro": {
+        "tier": "SSS",
+        "status": "confirmed",
+        "comment": ""
       },
       "birimori": {
         "tier": "SSS",
-        "adoptionRate": "100%"
+        "status": "confirmed",
+        "comment": ""
       },
-      "korokon": {
+      "sukedako": {
         "tier": "SS",
-        "adoptionRate": "75%",
-        "annotation": "旧：タマキツネ系"
+        "status": "confirmed",
+        "comment": ""
       },
-      "hinyao": {
+      "fukurogumo": {
+        "tier": "C",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "fureebi": {
+        "tier": "B",
+        "status": "provisional",
+        "comment": ""
+      },
+      "erekineko": {
         "tier": "SS",
-        "adoptionRate": "75%"
+        "status": "confirmed",
+        "comment": ""
       },
-      "marushu": {
-        "tier": "SS",
-        "adoptionRate": "75%"
+      "haamitora": {
+        "tier": "D",
+        "status": "confirmed",
+        "comment": ""
       },
-      "biripiyo": {
-        "tier": "SS",
-        "adoptionRate": "75%"
-      },
-      "boruzarashi": {
+      "pakuma": {
         "tier": "S",
-        "adoptionRate": "62.5%"
+        "status": "confirmed",
+        "comment": ""
       },
-      "erekoon": {
-        "tier": "S",
-        "adoptionRate": "62.5%"
+      "sabooru": {
+        "tier": "HOLD",
+        "status": "hold",
+        "comment": ""
       },
       "kunbuu": {
-        "tier": "A",
-        "adoptionRate": "37.5%",
-        "annotation": "公開攻略ではワンブー種表記"
+        "tier": "SS",
+        "status": "confirmed",
+        "comment": ""
       },
-      "komakiri": {
-        "tier": "A",
-        "adoptionRate": "25%"
+      "shiiparusu": {
+        "tier": "B",
+        "status": "confirmed",
+        "comment": ""
       },
-      "gaoden": {
-        "tier": "A",
-        "adoptionRate": "25%",
-        "comment": "ノックバックなどの役割を持てるが、現状の高キル編成ではSSS勢より優先度は下。"
+      "hikikomoru": {
+        "tier": "S",
+        "status": "confirmed",
+        "comment": ""
       },
-      "riifuro": {
+      "hanarenaishi": {
+        "tier": "D",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "marushu": {
+        "tier": "S",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "kaenjack": {
+        "tier": "D",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "batarisu": {
+        "tier": "D",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "birinamazu": {
+        "tier": "D",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "nekoori": {
+        "tier": "B",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "furuggu": {
+        "tier": "B",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "yotsubird": {
+        "tier": "D",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "rokubuhi": {
+        "tier": "D",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "tsubutsumuri": {
+        "tier": "D",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "denrou": {
+        "tier": "B",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "himori": {
+        "tier": "B",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "mogurin": {
+        "tier": "D",
+        "status": "provisional",
+        "comment": ""
+      },
+      "potakage": {
+        "tier": "C",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "nusuke": {
         "tier": "A",
-        "adoptionRate": "25%"
+        "status": "confirmed",
+        "comment": ""
+      },
+      "capibarrie": {
+        "tier": "D",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "hihidog": {
+        "tier": "D",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "daishell": {
+        "tier": "D",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "biripiyo": {
+        "tier": "S",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "mumukaba": {
+        "tier": "D",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "greenbee": {
+        "tier": "D",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "fugumaru": {
+        "tier": "B",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "guuhog": {
+        "tier": "D",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "tsubaruka": {
+        "tier": "D",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "nemukurage": {
+        "tier": "D",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "doriruu": {
+        "tier": "D",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "pupunku": {
+        "tier": "D",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "kowagaru": {
+        "tier": "D",
+        "status": "confirmed",
+        "comment": ""
+      },
+      "hikaru": {
+        "tier": "D",
+        "status": "confirmed",
+        "comment": ""
       }
     }
-  },
-  "audit": {
-    "checkedAt": "2026-08-30",
-    "gameVersion": "0.46.1",
-    "result": "no-tier-change",
-    "notes": "新T4実装と国内外の更新を監査。複数の現行実戦根拠が揃わないため既存Tierは据え置き、パクマ系は保留。"
   }
 }

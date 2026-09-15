@@ -1,0 +1,22 @@
+body[data-astra-page="/tata-tier/"] .tier-mode-nav{display:flex;flex-wrap:nowrap;gap:8px;overflow-x:auto;position:sticky;top:0;z-index:15;padding:10px;background:var(--bg,#f5f7fb);border-bottom:1px solid #dbe2ec}
+.tier-mode-nav a{flex:0 0 auto;padding:10px 16px;border-radius:8px;background:#fff;border:1px solid #c9d2e0;color:#243b62;font-weight:700;text-decoration:none}
+.tier-mode-nav a:focus-visible,.tier-chart-tata:focus-visible{outline:3px solid #276fc5;outline-offset:3px}
+.tier-filter{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding-block:12px}.tier-filter button{min-height:44px;padding:8px 14px}
+.tier-board{scroll-margin-top:90px;margin-block:32px}.tier-board>p{max-width:90ch;line-height:1.8}
+body[data-astra-page="/tata-tier/"] .tier-board .tier-chart-row{display:grid;grid-template-columns:64px minmax(0,1fr)}
+body[data-astra-page="/tata-tier/"] .tier-board .tier-chart-members{display:grid;grid-template-columns:repeat(auto-fill,minmax(106px,1fr));gap:10px;padding:12px;align-items:start}
+body[data-astra-page="/tata-tier/"] .tier-board .tier-chart-tata{display:flex;flex-direction:column;align-items:center;width:100%;min-width:0;max-width:150px;min-height:142px;padding:8px 4px;gap:5px;text-align:center;text-decoration:none;box-sizing:border-box}
+body[data-astra-page="/tata-tier/"] .tier-board .tier-chart-tata img{width:72px;height:72px;object-fit:contain;flex:none}
+body[data-astra-page="/tata-tier/"] .tier-board .tier-chart-tata .tier-family-name{font-size:12px;line-height:1.4;overflow-wrap:anywhere}
+.tier-board .tier-chart-tata small{font-size:10px;color:#45566f}.tier-board .tier-chart-label{padding:10px 3px;min-width:0}.tier-board .tier-chart-label strong{font-size:19px;overflow-wrap:anywhere}.tier-board .tier-chart-label span{font-size:12px}
+.tier-status{background:#fff2cf;border-radius:4px;padding:2px 4px}
+body[data-astra-page="/tata-tier/"] .tier-board .tier-card-modes{display:grid;grid-template-columns:1fr 1fr;gap:3px;width:100%}
+body[data-astra-page="/tata-tier/"] .tier-board .tier-card-modes span{font-size:9px;font-weight:400}
+.tier-board .tier-back{display:inline-block;padding-block:12px;font-size:12px}.tier-board [hidden]{display:none!important}
+.tier-board .tier-chart-label{justify-content:flex-start}.tier-board .tier-chart-label strong{position:sticky;top:156px}.tier-board .tier-chart-label .tier-row-count{position:sticky;top:180px}
+body[data-astra-page="/tata-tier/"] .tier-board .tier-chart{overflow:clip}
+body[data-astra-page="/tata-tier/"] .tier-board{padding-top:0}
+body[data-astra-page="/tata-tier/"] .tier-mode-nav{top:72px}.tier-board{scroll-margin-top:156px}
+@media(max-width:700px){body[data-astra-page="/tata-tier/"] .tier-mode-nav{top:64px}.tier-board{scroll-margin-top:146px}}
+.tier-board .rank-b{background:#edf6e9}.tier-board .rank-b .tier-chart-label{background:#cfe7bd;color:#243b22}.tier-board .rank-c{background:#ebf1f8}.tier-board .rank-c .tier-chart-label{background:#c9dbee;color:#223a52}.tier-board .rank-d{background:#f2eef5}.tier-board .rank-d .tier-chart-label{background:#dcd2e7;color:#43334f}.tier-board .rank-hold{background:#f1f3f5}.tier-board .rank-hold .tier-chart-label{background:#dfe3e8;color:#303b48}
+@media(max-width:600px){body[data-astra-page="/tata-tier/"] .tier-board .tier-chart-row{grid-template-columns:48px minmax(0,1fr)}body[data-astra-page="/tata-tier/"] .tier-board .tier-chart-members{grid-template-columns:repeat(auto-fill,minmax(94px,1fr));padding:7px;gap:6px}.tier-mode-nav a{padding:9px 12px}.tier-board{scroll-margin-top:146px}}

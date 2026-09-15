@@ -1,0 +1,1932 @@
+{
+  "version": 1,
+  "updated": "2026-09-16",
+  "source": "運営者の実戦評価。総合・各モードは独立した編集値。",
+  "families": [
+    {
+      "familyId": "gaoden",
+      "slug": "gaoden",
+      "rankings": {
+        "overall": {
+          "tier": "SSS",
+          "status": "confirmed",
+          "order": 1
+        },
+        "normal": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SSS",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "ノックバック",
+        "被ダメ増加"
+      ]
+    },
+    {
+      "familyId": "umimi",
+      "slug": "umimi",
+      "rankings": {
+        "overall": {
+          "tier": "SSS",
+          "status": "confirmed",
+          "order": 2
+        },
+        "normal": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SSS",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "減速",
+        "被ダメ増加",
+        "範囲支援"
+      ]
+    },
+    {
+      "familyId": "komakiri",
+      "slug": "komakiri",
+      "rankings": {
+        "overall": {
+          "tier": "SSS",
+          "status": "confirmed",
+          "order": 3
+        },
+        "normal": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SSS",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "前衛",
+        "連撃",
+        "被ダメ増加"
+      ]
+    },
+    {
+      "familyId": "boruzarashi",
+      "slug": "boruzarashi",
+      "rankings": {
+        "overall": {
+          "tier": "SSS",
+          "status": "confirmed",
+          "order": 4
+        },
+        "normal": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SS",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "広範囲火力",
+        "妨害"
+      ]
+    },
+    {
+      "familyId": "erekoon",
+      "slug": "erekoon",
+      "rankings": {
+        "overall": {
+          "tier": "SSS",
+          "status": "confirmed",
+          "order": 5
+        },
+        "normal": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SSS",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "himawarin",
+      "slug": "himawarin",
+      "rankings": {
+        "overall": {
+          "tier": "SSS",
+          "status": "confirmed",
+          "order": 6
+        },
+        "normal": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SSS",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "回復",
+        "攻防バフ"
+      ]
+    },
+    {
+      "familyId": "rokuju",
+      "slug": "rokuju",
+      "rankings": {
+        "overall": {
+          "tier": "SSS",
+          "status": "confirmed",
+          "order": 7
+        },
+        "normal": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SSS",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "kenkani",
+      "slug": "kenkani",
+      "rankings": {
+        "overall": {
+          "tier": "SSS",
+          "status": "confirmed",
+          "order": 8
+        },
+        "normal": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SSS",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "shizukuchou",
+      "slug": "shizukuchou",
+      "rankings": {
+        "overall": {
+          "tier": "SSS",
+          "status": "confirmed",
+          "order": 9
+        },
+        "normal": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SS",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "睡眠",
+        "減速",
+        "CC"
+      ]
+    },
+    {
+      "familyId": "yanzaru",
+      "slug": "yanzaru",
+      "rankings": {
+        "overall": {
+          "tier": "SSS",
+          "status": "confirmed",
+          "order": 10
+        },
+        "normal": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SSS",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "火力",
+        "分身",
+        "前線補助"
+      ]
+    },
+    {
+      "familyId": "purabi",
+      "slug": "purabi",
+      "rankings": {
+        "overall": {
+          "tier": "SSS",
+          "status": "confirmed",
+          "order": 11
+        },
+        "normal": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SSS",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "回復",
+        "バフ",
+        "生存補助"
+      ]
+    },
+    {
+      "familyId": "takepanda",
+      "slug": "takepanda",
+      "rankings": {
+        "overall": {
+          "tier": "SS",
+          "status": "confirmed",
+          "order": 12
+        },
+        "normal": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "S",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "継続ダメージ",
+        "減速"
+      ]
+    },
+    {
+      "familyId": "togegyo",
+      "slug": "togegyo",
+      "rankings": {
+        "overall": {
+          "tier": "SS",
+          "status": "confirmed",
+          "order": 13
+        },
+        "normal": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SS",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "yaminome",
+      "slug": "yaminome",
+      "rankings": {
+        "overall": {
+          "tier": "SS",
+          "status": "confirmed",
+          "order": 14
+        },
+        "normal": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SS",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "korokon",
+      "slug": "korokon",
+      "rankings": {
+        "overall": {
+          "tier": "SS",
+          "status": "confirmed",
+          "order": 15
+        },
+        "normal": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SS",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "denjika",
+      "slug": "denjika",
+      "rankings": {
+        "overall": {
+          "tier": "SS",
+          "status": "confirmed",
+          "order": 16
+        },
+        "normal": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SS",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "貫通",
+        "麻痺",
+        "CC"
+      ]
+    },
+    {
+      "familyId": "nenbutsuhebi",
+      "slug": "nenbutsuhebi",
+      "rankings": {
+        "overall": {
+          "tier": "SS",
+          "status": "confirmed",
+          "order": 17
+        },
+        "normal": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SS",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "遠距離火力",
+        "無限貫通",
+        "スタン"
+      ]
+    },
+    {
+      "familyId": "atatama",
+      "slug": "atatama",
+      "rankings": {
+        "overall": {
+          "tier": "SS",
+          "status": "confirmed",
+          "order": 18
+        },
+        "normal": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SSS",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "korotama",
+      "slug": "korotama",
+      "rankings": {
+        "overall": {
+          "tier": "SS",
+          "status": "confirmed",
+          "order": 19
+        },
+        "normal": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SSS",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "tafupen",
+      "slug": "tafupen",
+      "rankings": {
+        "overall": {
+          "tier": "SS",
+          "status": "confirmed",
+          "order": 20
+        },
+        "normal": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "B",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SSS",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "タンク",
+        "シールド",
+        "前衛"
+      ]
+    },
+    {
+      "familyId": "matchiba",
+      "slug": "matchiba",
+      "rankings": {
+        "overall": {
+          "tier": "SS",
+          "status": "confirmed",
+          "order": 21
+        },
+        "normal": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "B",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SSS",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "広範囲火力",
+        "デバフ"
+      ]
+    },
+    {
+      "familyId": "gantoru",
+      "slug": "gantoru",
+      "rankings": {
+        "overall": {
+          "tier": "SS",
+          "status": "confirmed",
+          "order": 22
+        },
+        "normal": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SSS",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "hinyao",
+      "slug": "hinyao",
+      "rankings": {
+        "overall": {
+          "tier": "SS",
+          "status": "confirmed",
+          "order": 23
+        },
+        "normal": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SS",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "範囲火力",
+        "ニャンコシナジー"
+      ]
+    },
+    {
+      "familyId": "fureimuji",
+      "slug": "fureimuji",
+      "rankings": {
+        "overall": {
+          "tier": "SS",
+          "status": "confirmed",
+          "order": 24
+        },
+        "normal": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "S",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "範囲火力",
+        "回復",
+        "攻撃バフ"
+      ]
+    },
+    {
+      "familyId": "riifuro",
+      "slug": "riifuro",
+      "rankings": {
+        "overall": {
+          "tier": "SS",
+          "status": "confirmed",
+          "order": 25
+        },
+        "normal": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "HOLD",
+          "status": "hold"
+        }
+      },
+      "roles": [
+        "減速",
+        "攻撃速度低下",
+        "スタン"
+      ]
+    },
+    {
+      "familyId": "birimori",
+      "slug": "birimori",
+      "rankings": {
+        "overall": {
+          "tier": "S",
+          "status": "confirmed",
+          "order": 26
+        },
+        "normal": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SSS",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "被ダメ増加",
+        "範囲支援"
+      ]
+    },
+    {
+      "familyId": "sukedako",
+      "slug": "sukedako",
+      "rankings": {
+        "overall": {
+          "tier": "S",
+          "status": "confirmed",
+          "order": 27
+        },
+        "normal": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "S",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "fukurogumo",
+      "slug": "fukurogumo",
+      "rankings": {
+        "overall": {
+          "tier": "S",
+          "status": "confirmed",
+          "order": 28
+        },
+        "normal": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "C",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SSS",
+          "status": "provisional"
+        },
+        "beginner": {
+          "tier": "SSS",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "シールド",
+        "スタン",
+        "前衛"
+      ]
+    },
+    {
+      "familyId": "fureebi",
+      "slug": "fureebi",
+      "rankings": {
+        "overall": {
+          "tier": "S",
+          "status": "confirmed",
+          "order": 29
+        },
+        "normal": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "B",
+          "status": "provisional",
+          "rawEvaluation": "A〜B"
+        },
+        "dojo": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "S",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "近距離火力",
+        "燃焼"
+      ]
+    },
+    {
+      "familyId": "erekineko",
+      "slug": "erekineko",
+      "rankings": {
+        "overall": {
+          "tier": "S",
+          "status": "confirmed",
+          "order": 30
+        },
+        "normal": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "S",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "haamitora",
+      "slug": "haamitora",
+      "rankings": {
+        "overall": {
+          "tier": "S",
+          "status": "confirmed",
+          "order": 31
+        },
+        "normal": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "D",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SS",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "pakuma",
+      "slug": "pakuma",
+      "rankings": {
+        "overall": {
+          "tier": "S",
+          "status": "confirmed",
+          "order": 32
+        },
+        "normal": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "S",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "タンク",
+        "回復",
+        "被ダメージ増加"
+      ]
+    },
+    {
+      "familyId": "sabooru",
+      "slug": "sabooru",
+      "rankings": {
+        "overall": {
+          "tier": "S",
+          "status": "provisional",
+          "order": 33
+        },
+        "normal": {
+          "tier": "S",
+          "status": "provisional"
+        },
+        "zombie": {
+          "tier": "HOLD",
+          "status": "hold"
+        },
+        "dojo": {
+          "tier": "SS",
+          "status": "provisional"
+        },
+        "beginner": {
+          "tier": "A",
+          "status": "provisional"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "kunbuu",
+      "slug": "kunbuu",
+      "rankings": {
+        "overall": {
+          "tier": "S",
+          "status": "confirmed",
+          "order": 34
+        },
+        "normal": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "A",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "shiiparusu",
+      "slug": "shiiparusu",
+      "rankings": {
+        "overall": {
+          "tier": "S",
+          "status": "confirmed",
+          "order": 35
+        },
+        "normal": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "B",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "S",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "範囲持続火力",
+        "麻痺"
+      ]
+    },
+    {
+      "familyId": "hikikomoru",
+      "slug": "hikikomoru",
+      "rankings": {
+        "overall": {
+          "tier": "S",
+          "status": "confirmed",
+          "order": 36
+        },
+        "normal": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "A",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "hanarenaishi",
+      "slug": "hanarenaishi",
+      "rankings": {
+        "overall": {
+          "tier": "S",
+          "status": "confirmed",
+          "order": 37
+        },
+        "normal": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "D",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SSS",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "marushu",
+      "slug": "marushu",
+      "rankings": {
+        "overall": {
+          "tier": "S",
+          "status": "confirmed",
+          "order": 38
+        },
+        "normal": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "B",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "S",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "攻撃速度バフ",
+        "被ダメ増加",
+        "防御補助"
+      ]
+    },
+    {
+      "familyId": "kaenjack",
+      "slug": "kaenjack",
+      "rankings": {
+        "overall": {
+          "tier": "S",
+          "status": "confirmed",
+          "order": 39
+        },
+        "normal": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "D",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SS",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "batarisu",
+      "slug": "batarisu",
+      "rankings": {
+        "overall": {
+          "tier": "S",
+          "status": "confirmed",
+          "order": 40
+        },
+        "normal": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "D",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SS",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "birinamazu",
+      "slug": "birinamazu",
+      "rankings": {
+        "overall": {
+          "tier": "S",
+          "status": "confirmed",
+          "order": 41
+        },
+        "normal": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "D",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SS",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "nekoori",
+      "slug": "nekoori",
+      "rankings": {
+        "overall": {
+          "tier": "S",
+          "status": "confirmed",
+          "order": 42
+        },
+        "normal": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "B",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SSS",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "遠距離火力",
+        "減速",
+        "貫通"
+      ]
+    },
+    {
+      "familyId": "furuggu",
+      "slug": "furuggu",
+      "rankings": {
+        "overall": {
+          "tier": "S",
+          "status": "confirmed",
+          "order": 43
+        },
+        "normal": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "B",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SSS",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "範囲火力",
+        "減速",
+        "序盤育成"
+      ]
+    },
+    {
+      "familyId": "yotsubird",
+      "slug": "yotsubird",
+      "rankings": {
+        "overall": {
+          "tier": "A",
+          "status": "confirmed",
+          "order": 44
+        },
+        "normal": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "D",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SS",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "rokubuhi",
+      "slug": "rokubuhi",
+      "rankings": {
+        "overall": {
+          "tier": "A",
+          "status": "confirmed",
+          "order": 45
+        },
+        "normal": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "D",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SS",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "tsubutsumuri",
+      "slug": "tsubutsumuri",
+      "rankings": {
+        "overall": {
+          "tier": "A",
+          "status": "confirmed",
+          "order": 46
+        },
+        "normal": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "D",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "HOLD",
+          "status": "hold"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "denrou",
+      "slug": "denrou",
+      "rankings": {
+        "overall": {
+          "tier": "A",
+          "status": "confirmed",
+          "order": 47
+        },
+        "normal": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "B",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "A",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "麻痺",
+        "無敵",
+        "近距離火力"
+      ]
+    },
+    {
+      "familyId": "himori",
+      "slug": "himori",
+      "rankings": {
+        "overall": {
+          "tier": "A",
+          "status": "confirmed",
+          "order": 48
+        },
+        "normal": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "B",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SSS",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "燃焼",
+        "序盤火力"
+      ]
+    },
+    {
+      "familyId": "mogurin",
+      "slug": "mogurin",
+      "rankings": {
+        "overall": {
+          "tier": "A",
+          "status": "confirmed",
+          "order": 49
+        },
+        "normal": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "D",
+          "status": "provisional",
+          "rawEvaluation": "E"
+        },
+        "dojo": {
+          "tier": "SS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "S",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "potakage",
+      "slug": "potakage",
+      "rankings": {
+        "overall": {
+          "tier": "A",
+          "status": "confirmed",
+          "order": 50
+        },
+        "normal": {
+          "tier": "B",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "C",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "SSS",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "S",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "ステルス",
+        "火力",
+        "生存"
+      ]
+    },
+    {
+      "familyId": "nusuke",
+      "slug": "nusuke",
+      "rankings": {
+        "overall": {
+          "tier": "A",
+          "status": "confirmed",
+          "order": 51
+        },
+        "normal": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "A",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "capibarrie",
+      "slug": "capibarrie",
+      "rankings": {
+        "overall": {
+          "tier": "A",
+          "status": "confirmed",
+          "order": 52
+        },
+        "normal": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "D",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SSS",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "hihidog",
+      "slug": "hihidog",
+      "rankings": {
+        "overall": {
+          "tier": "A",
+          "status": "confirmed",
+          "order": 53
+        },
+        "normal": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "D",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "S",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "daishell",
+      "slug": "daishell",
+      "rankings": {
+        "overall": {
+          "tier": "B",
+          "status": "confirmed",
+          "order": 54
+        },
+        "normal": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "D",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "SS",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "biripiyo",
+      "slug": "biripiyo",
+      "rankings": {
+        "overall": {
+          "tier": "B",
+          "status": "confirmed",
+          "order": 55
+        },
+        "normal": {
+          "tier": "B",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "C",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "A",
+          "status": "confirmed"
+        }
+      },
+      "roles": [
+        "攻撃バフ",
+        "被ダメ軽減",
+        "サポート"
+      ]
+    },
+    {
+      "familyId": "mumukaba",
+      "slug": "mumukaba",
+      "rankings": {
+        "overall": {
+          "tier": "B",
+          "status": "confirmed",
+          "order": 56
+        },
+        "normal": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "D",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "B",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "greenbee",
+      "slug": "greenbee",
+      "rankings": {
+        "overall": {
+          "tier": "B",
+          "status": "confirmed",
+          "order": 57
+        },
+        "normal": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "D",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "S",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "A",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "fugumaru",
+      "slug": "fugumaru",
+      "rankings": {
+        "overall": {
+          "tier": "B",
+          "status": "confirmed",
+          "order": 58
+        },
+        "normal": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "B",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "B",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "B",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "guuhog",
+      "slug": "guuhog",
+      "rankings": {
+        "overall": {
+          "tier": "B",
+          "status": "confirmed",
+          "order": 59
+        },
+        "normal": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "D",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "S",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "tsubaruka",
+      "slug": "tsubaruka",
+      "rankings": {
+        "overall": {
+          "tier": "C",
+          "status": "confirmed",
+          "order": 60
+        },
+        "normal": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "D",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "B",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "nemukurage",
+      "slug": "nemukurage",
+      "rankings": {
+        "overall": {
+          "tier": "C",
+          "status": "confirmed",
+          "order": 61
+        },
+        "normal": {
+          "tier": "B",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "D",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "A",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "doriruu",
+      "slug": "doriruu",
+      "rankings": {
+        "overall": {
+          "tier": "C",
+          "status": "confirmed",
+          "order": 62
+        },
+        "normal": {
+          "tier": "B",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "D",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "A",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "C",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "pupunku",
+      "slug": "pupunku",
+      "rankings": {
+        "overall": {
+          "tier": "D",
+          "status": "confirmed",
+          "order": 63
+        },
+        "normal": {
+          "tier": "D",
+          "status": "provisional",
+          "rawEvaluation": "H"
+        },
+        "zombie": {
+          "tier": "D",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "D",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "C",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "kowagaru",
+      "slug": "kowagaru",
+      "rankings": {
+        "overall": {
+          "tier": "D",
+          "status": "confirmed",
+          "order": 64
+        },
+        "normal": {
+          "tier": "D",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "D",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "D",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "D",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    },
+    {
+      "familyId": "hikaru",
+      "slug": "hikaru",
+      "rankings": {
+        "overall": {
+          "tier": "D",
+          "status": "confirmed",
+          "order": 65
+        },
+        "normal": {
+          "tier": "D",
+          "status": "confirmed"
+        },
+        "zombie": {
+          "tier": "D",
+          "status": "confirmed"
+        },
+        "dojo": {
+          "tier": "D",
+          "status": "confirmed"
+        },
+        "beginner": {
+          "tier": "D",
+          "status": "confirmed"
+        }
+      },
+      "roles": []
+    }
+  ]
+}

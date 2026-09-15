@@ -51,29 +51,6 @@ function topCard(family) {
 const overallGroups = ratings.overall?.groups || [];
 const overallByFamily = ratings.overall?.byFamily || {};
 const rankedIds = new Set(overallGroups.flatMap((group) => group.ids));
-const modeRank = (label, rank) => `<span><b>${label}</b><em class="rank-chip rank-${esc(String(rank || '－').toLowerCase())}">${esc(rank || '－')}</em></span>`;
-function tierCard(id, rank) {
-  const family = familyById.get(id);
-  const assessment = overallByFamily[id];
-  if (!family || !assessment) return '';
-  const first = family.evolutions[0];
-  const image = stage1Image(family);
-  return `<article class="overall-card" data-id="${esc(id)}" data-attribute="${esc(family.attribute)}" data-overall="${esc(rank)}"><a class="overall-image" href="/tata/${encodeURIComponent(id)}/"><img loading="lazy" decoding="async" src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(first.name)}"></a><div class="overall-body"><div class="overall-top"><span class="tier-badge rank-${rank.toLowerCase()}">${rank}</span><span class="attribute">${icon(family.attribute)} ${esc(family.attribute)}属性</span></div><h3><a href="/tata/${encodeURIComponent(id)}/">${esc(getFamilyDisplayLabel(family))}</a></h3>${originalName(family)}<p class="tier-chain">${family.evolutions.map((item) => esc(item.name)).join(' → ')}</p><div class="mode-ranks" aria-label="モード別評価">${modeRank('通常', assessment.normal)}${modeRank('ゾンビ', assessment.zombie)}${modeRank('道場', assessment.dojo)}${modeRank('初心者', assessment.beginner)}</div><div class="role-tags">${(assessment.roles || []).map((role) => `<span>${esc(role)}</span>`).join('')}</div><p class="overall-comment">${esc(assessment.comment)}</p><a class="detail-link" href="/tata/${encodeURIComponent(id)}/">詳しく見る</a></div></article>`;
-}
-const tierRoot = overallGroups.map((group) => `<section class="tier-section rank-${group.rank.toLowerCase()} overall-section" data-tier="${group.rank}"><div class="tier-head"><span>${group.rank}</span><h3>${esc(group.label)}</h3></div><div class="overall-cards">${group.ids.map((id) => tierCard(id, group.rank)).join('')}</div></section>`).join('');
-const hold = families.filter((family) => !rankedIds.has(family.id)).sort((a, b) => getFamilyDisplayName(a).localeCompare(getFamilyDisplayName(b), 'ja')).map((family) => `<a href="/tata/${encodeURIComponent(family.id)}/">${esc(getFamilyDisplayLabel(family))}</a>`).join('');
-const holdFamilies = families.filter((family) => !rankedIds.has(family.id)).sort((a, b) => getFamilyDisplayName(a).localeCompare(getFamilyDisplayName(b), 'ja'));
-const tierChartCard = (family) => {
-  const first = family?.evolutions?.[0];
-  if (!family || !first) return '';
-  const image = stage1Image(family);
-  return `<a class="tier-chart-tata" href="/tata/${encodeURIComponent(family.id)}/"><img loading="lazy" decoding="async" src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(first.name)}"><span>${esc(first.name)}系</span></a>`;
-};
-const tierChartRows = [
-  ...overallGroups.map((group) => ({ rank: group.rank, label: group.rank, families: group.ids.map((id) => familyById.get(id)).filter(Boolean) })),
-  { rank: 'hold', label: '保留', families: holdFamilies }
-];
-const tierChart = tierChartRows.map((row) => `<div class="tier-chart-row rank-${row.rank.toLowerCase()}"><div class="tier-chart-label"><strong>${esc(row.label)}</strong><span>${row.families.length}系統</span></div><div class="tier-chart-members">${row.families.map(tierChartCard).join('')}</div></div>`).join('');
 
 function diffStages(from, to) {
   const before = new Map((from.values || []).map((value) => [value.label, value.value]));
@@ -136,9 +113,6 @@ const transitionList = [...transitions].sort((a, b) => (transitionOrder[a.priori
 const longTerm = priority.longTermRecommended.map((item) => { const family = familyById.get(item.familyId); return `<article class="priority-tata-card"><div class="priority-tata-head"><h3>${esc(getFamilyDisplayLabel(family))}</h3><div>${badge('総合', overallByFamily[item.familyId]?.tier)}</div></div><p class="tier-chain">${family.evolutions.map((evolution) => esc(evolution.name)).join(' → ')}</p><p>${esc(item.reason)}</p><a class="detail-link" href="/tata/${encodeURIComponent(item.familyId)}/">詳しく見る</a></article>`; }).join('');
 
 replaceMarker('index.html', 'TOP_CARDS', families.map(topCard).join(''));
-replaceMarker('tata-tier/index.html', 'TIER_CHART', tierChart);
-replaceMarker('tata-tier/index.html', 'TIER_ROOT', tierRoot);
-replaceMarker('tata-tier/index.html', 'TIER_HOLD', hold);
 replaceMarker('evolution-priority/index.html', 'EVOLUTION_ROADMAP', roadmap);
 replaceMarker('evolution-priority/index.html', 'EVOLUTION_IMPACT', impact);
 replaceMarker('evolution-priority/index.html', 'EVOLUTION_AURA', aura);
@@ -154,3 +128,5 @@ const topWithCurrentCounts = topSource
   .replace(/\d+系統を一覧で見る/g, `${families.length}系統を一覧で見る`);
 if (topWithCurrentCounts !== topSource) writeFile(topFile, topWithCurrentCounts);
 console.log(`主要静的HTMLを生成しました: TOP ${families.length}系統 / Tier ${rankedIds.size}系統 / 進化差分 ${transitions.length}件`);
+
+await import("./generate-tier-pages.mjs");

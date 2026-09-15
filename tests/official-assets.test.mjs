@@ -29,7 +29,7 @@ test('official creator assets retain source traceability', () => {
 });
 
 test('all major consumers use the shared Tata image mapping', () => {
-  for (const file of ['app.js', 'tata-tier/tata-tier.js', 'evolution-priority/evolution-priority.js', 'team-builder/team-builder.js', 'zombie-rush/zombie-rush.js', 'attribute/attribute-guide.js', 'search/search.js', 'compare/compare.js', 'my-monsaba/my-monsaba.js']) {
+  for (const file of ['app.js', 'scripts/generate-tier-pages.mjs', 'evolution-priority/evolution-priority.js', 'team-builder/team-builder.js', 'zombie-rush/zombie-rush.js', 'attribute/attribute-guide.js', 'search/search.js', 'compare/compare.js', 'my-monsaba/my-monsaba.js']) {
     assert.match(read(file), /data\/tata-images\.json/, `${file}: shared mapping missing`);
   }
   assert.match(read('team-builder/team-core.js'), /stage1ImageFor/);

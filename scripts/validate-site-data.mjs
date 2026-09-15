@@ -56,7 +56,7 @@ for (const family of tatari.families || []) {
   expect(aliases.includes(family.familyName), `${family.id}: legacy familyName検索aliasがありません`);
 }
 const bowzuhebi = ratings.overall?.byFamily?.nenbutsuhebi;
-for (const [mode, expected] of Object.entries({ tier: 'SS', normal: 'SS', zombie: 'SS', dojo: 'SS', beginner: 'SS' })) {
+for (const [mode, expected] of Object.entries({ tier: 'SS', normal: 'SSS', zombie: 'A', dojo: 'SSS', beginner: 'SS' })) {
   expect(bowzuhebi?.[mode] === expected, `nenbutsuhebi ${mode}: ${bowzuhebi?.[mode] || '未設定'} / expected ${expected}`);
 }
 const pikaru = (tatari.families || []).find((family) => family.id === 'hikaru');
@@ -69,8 +69,8 @@ const overallIds = overallGroups.flatMap((group) => group.ids || []);
 expect(new Set(overallIds).size === overallIds.length, '総合Tierに重複familyIdがあります');
 expect(overallIds.every((id) => tatari.families.some((family) => family.id === id)), '総合Tierに存在しないfamilyIdがあります');
 expect(
-  JSON.stringify(overallGroups.find((group) => group.rank === 'SSS')?.ids) === JSON.stringify(['yanzaru', 'denjika', 'shizukuchou', 'purabi', 'himawarin']),
-  '総合SSSは再評価済み5系統と一致していません'
+  JSON.stringify(overallGroups.find((group) => group.rank === 'SSS')?.ids) === JSON.stringify(['gaoden','umimi','komakiri','boruzarashi','erekoon','himawarin','rokuju','kenkani','shizukuchou','yanzaru','purabi']),
+  '総合SSSは指定の11系統と一致していません'
 );
 
 const publicFiles = textFiles.filter((file) => !file.startsWith('scripts/'));
@@ -220,9 +220,9 @@ expect(/data-nav-category="tools"><button[^>]+data-current="true"/.test(teamBuil
 const topHtml = read('index.html');
 expect((topHtml.match(/data-family="/g) || []).length === tatari.families.length, 'TOP図鑑の静的HTML系統数が正本と一致しません');
 const tierHtml = read('tata-tier/index.html');
-expect((tierHtml.match(/class="overall-card"/g) || []).length > 0, 'Tierの静的HTMLがありません');
-expect((tierHtml.match(/class="tier-chart-tata"/g) || []).length === tatari.families.length, 'Tierチャートの系統数が正本と一致しません');
-expect((tierHtml.match(/class="tier-chart-row /g) || []).length === 4, 'Tierチャートは4区分ではありません');
+expect((tierHtml.match(/class="wrap static-section tier-board"/g) || []).length > 0, 'Tierの静的HTMLがありません');
+expect((tierHtml.match(/class="tier-chart-tata"/g) || []).length === tatari.families.length * 5, 'Tierチャートの系統数が正本と一致しません');
+expect((tierHtml.match(/class="tier-chart-row /g) || []).length === 37, '5表の7段階＋保留2行が必要です');
 expect(tierHtml.includes('ビリジカ系') && tierHtml.includes('シズクジ系'), 'Tierチャートの日本名表示が不正です');
 expect((read('evolution-priority/index.html').match(/class="evolution-card"/g) || []).length > 0, '進化優先度の静的HTMLがありません');
 const updatePreviewHtml = read('updates/2026-08-26/index.html');
@@ -234,7 +234,7 @@ expect(updatePreviewHtml.includes('160%') && updatePreviewHtml.includes('230%') 
 expect(seasonOne.meta?.status === 'implemented-details-verifying' && seasonOne.meta?.scope === 'zombie-rush-only', 'Season 1データの公開後状態・範囲が不正です');
 expect((seasonOne.tataSkillBalance || []).length === 35, 'Season 1専用スキル対象が35体ではありません');
 expect(read('zombie-rush/index.html').includes('旧環境Tier') && read('zombie-rush/index.html').includes('Season 1実戦Tier'), 'ゾンビラッシュの新旧Tier分離がありません');
-expect(read('tata-tier/index.html').includes('この予定変更だけを理由に総合Tier・通常・道場・ボスラリー評価は変更しません'), '総合Tierに専用調整の注意がありません');
+expect(read('tata-tier/index.html').includes('ゾンビラッシュはシーズン・バランス調整・環境によって評価が変化します。'), '総合Tierに専用調整の注意がありません');
 expect(read('search/search.js').includes("href:'/updates/2026-08-26/'"), 'サイト内検索に8/26アップデート予定がありません');
 expect(topHtml.includes('data-official-x') && topHtml.includes('data-x-feed') && topHtml.includes('https://x.com/monsaba_jp') && topHtml.includes('/official-x.js'), 'TOPの公式Xセクションが不足しています');
 const xScript = read('official-x.js');

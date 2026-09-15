@@ -56,7 +56,7 @@ const read = (file) => retry(() => fs.readFileSync(file, 'utf8'));
 const write = (file, value) => retry(() => fs.writeFileSync(file, value));
 const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'promo', 'en', 'zh-cn', 'assets', 'data', 'scripts']);
 const selfLocalized = new Set([
-  'zombie-rush/chips', 'evolution/trials', 'updates/2026-08-30', 'gift-codes', 'tatari-names',
+  'tata-tier', 'zombie-rush/chips', 'evolution/trials', 'updates/2026-08-30', 'gift-codes', 'tatari-names',
   ...['running-party','running-star','island-treasure','magic-farm','fishing-tournament','summer-party','zombie-siege','surprise-roulette'].map((id) => `events/${id}`)
 ]);
 
@@ -113,6 +113,20 @@ function translator(locale, missing) {
     const raw = String(source);
     const trimmed = raw.replace(/\s+/g, ' ').trim();
     if (!trimmed || !japanese.test(trimmed)) return raw;
+    if(trimmed==='暫定')return raw.replace(trimmed,locale==='en'?'Provisional':'暂定');
+    if(trimmed.startsWith('関連理由：')){
+      const parts=trimmed.slice(5).split(' / ');
+      const attrs=locale==='en'?{草:'Grass',水:'Water',火:'Fire',雷:'Thunder',岩:'Rock'}:{草:'草',水:'水',火:'火',雷:'雷',岩:'岩'};
+      const roleNames=locale==='en'?{前衛:'Frontline',減速:'Slow',スタン:'Stun',シールド:'Shield',範囲火力:'Area damage'}:{前衛:'前排',減速:'减速',スタン:'眩晕',シールド:'护盾',範囲火力:'范围伤害'};
+      const result=parts.map(part=>{
+        const attribute=part.match(/^同じ(.)属性$/),tier=part.match(/^総合(SSS|SS|S|A|B|C|D)評価$/);
+        if(attribute)return locale==='en'?`Same ${attrs[attribute[1]]} element`:`相同${attrs[attribute[1]]}属性`;
+        if(tier)return locale==='en'?`Overall ${tier[1]} rating`:`综合${tier[1]}评价`;
+        if(part.startsWith('共通役割：'))return (locale==='en'?'Shared roles: ':'共同定位：')+part.slice(5).split('・').map(role=>roleNames[role]||overrides[locale]?.[role]||translations[locale][role]||role).join(' / ');
+        return part;
+      });
+      return raw.replace(trimmed,(locale==='en'?'Related: ':'关联原因：')+result.join(' / '));
+    }
     if (trimmed === '系統') return raw.replace(trimmed, locale === 'en' ? ' families' : ' 个系列');
     if (trimmed === '体') return raw.replace(trimmed, locale === 'en' ? ' Tatari' : ' 个 Tatari');
     if (trimmed === '属性') return raw.replace(trimmed, locale === 'en' ? ' attributes' : '种属性');
@@ -120,11 +134,11 @@ function translator(locale, missing) {
     const familyPage = trimmed.match(/^(.+?)系の個別ページを見る$/);
     const familyOnly = trimmed.match(/^(.+?)系$/);
     const familySeoTitle = trimmed.match(/^モンサバ (.+?)系（.+?）は強い？進化・スキル・用途$/);
-    const familySeoDescription = trimmed.match(/^モンサバの(.+?)系（(.+?)）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。\s*主な役割は(.+?)。$/);
+    const familySeoDescription = trimmed.match(/^モンサバの(.+?)系（(.+?)）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。(?:\s*主な役割は(.+?)。)?$/);
     const familyDataSummary = trimmed.match(/^(.+?)系のT1〜T(\d)について、進化先・スキル・確認済み数値をまとめています。$/);
     const familyT1Alt = trimmed.match(/^(.+?系) T1$/);
     const skillIconAlt = trimmed.match(/^(.+?系) .+ スキルアイコン$/);
-    const tierLabel = trimmed.match(/^(総合|通常|ゾンビ|道場|初心者) (SSS|SS|S|A|B|評価保留)$/);
+    const tierLabel = trimmed.match(/^(総合|通常|ゾンビ|道場|初心者) (SSS|SS|S|A|B|C|D|HOLD|保留|評価保留)$/);
     const tataPatterns = [
       [/^(.+?)は強い？$/, (name) => `Is ${name} strong?`],
       [/^(.+?)は進化するべき？$/, (name) => `Should you evolve ${name}?`],
@@ -145,12 +159,12 @@ function translator(locale, missing) {
       ? `Clash of Critters ${familySeoTitle[1]} Family Guide | Evolutions, Skills & Uses`
       : `Clash of Critters ${familySeoTitle[1]} 系列攻略｜进化、技能与用途`);
     if (familySeoDescription) {
-      const roleSource = familySeoDescription[3];
+      const roleSource = familySeoDescription[3] || '';
       const roleValue = overrides[locale]?.[roleSource] || translations[locale][roleSource] || roleSource;
       const roles = normalizeTranslation(roleValue, locale, `主な役割は${roleSource}`);
       return raw.replace(trimmed, locale === 'en'
-        ? `Guide to the ${familySeoDescription[1]} family (${familySeoDescription[2]}), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: ${roles}.`
-        : `${familySeoDescription[1]} 系列（${familySeoDescription[2]}）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：${roles}。`);
+        ? `Guide to the ${familySeoDescription[1]} family (${familySeoDescription[2]}), including evolution paths, skills, verified values, Tier ratings and best uses.${roles ? ` Main roles: ${roles}.` : ''}`
+        : `${familySeoDescription[1]} 系列（${familySeoDescription[2]}）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。${roles ? `主要定位：${roles}。` : ''}`);
     }
     if (familyDataSummary) return raw.replace(trimmed, locale === 'en'
       ? `Verified evolution paths, skills and values for the ${familyDataSummary[1]} family from T1 to T${familyDataSummary[2]}.`
@@ -159,7 +173,7 @@ function translator(locale, missing) {
     if (skillIconAlt) return raw.replace(trimmed, locale === 'en' ? `${skillIconAlt[1]} official skill icon` : `${skillIconAlt[1]}官方技能图标`);
     if (tierLabel) {
       const labels = locale === 'en' ? { 総合: 'Overall', 通常: 'Normal', ゾンビ: 'Zombie', 道場: 'Dojo', 初心者: 'Beginner', 評価保留: 'Pending' } : { 総合: '综合', 通常: '普通', ゾンビ: 'Zombie', 道場: '道场', 初心者: '新手', 評価保留: '待评估' };
-      return raw.replace(trimmed, `${labels[tierLabel[1]]} ${labels[tierLabel[2]] || tierLabel[2]}`);
+      return raw.replace(trimmed, `${labels[tierLabel[1]]} ${['HOLD','保留'].includes(tierLabel[2]) ? (locale === 'en' ? 'Unrated' : '待定') : labels[tierLabel[2]] || tierLabel[2]}`);
     }
     if (locale === 'en') {
       for (const [pattern, render] of tataPatterns) {
@@ -189,7 +203,20 @@ function translator(locale, missing) {
       || translations[locale][trimmed]
       || overrides[locale]?.[legacyZombieRushSource]
       || translations[locale][legacyZombieRushSource];
+    if (!value && /^総合 (?:SSS|SS|S|A|B|C|D|保留)(?: ※)? \/ 通常 /.test(trimmed)) {
+      const labels = locale === 'en' ? {総合:'Overall',通常:'Normal',ゾンビ:'Zombie',道場:'Dojo',初心者:'Beginner',保留:'Unrated'} : {総合:'综合',通常:'普通',ゾンビ:'僵尸',道場:'道场',初心者:'新手',保留:'待定'};
+      return raw.replace(trimmed,trimmed.replace(/総合|通常|ゾンビ|道場|初心者|保留/g,match=>labels[match]));
+    }
     if (!value) {
+      // Existing translated rating sentences remain valid when only the editorial
+      // rank changes. Reuse their wording without hard-coding rating values.
+      const rankPattern=/(?<![A-Za-z])(?:HOLD|SSS|SS|S|A|B|C|D)(?![A-Za-z])/g;
+      const ranks=trimmed.match(rankPattern);
+      if(ranks){
+        const template=trimmed.replace(rankPattern,'{tier}');
+        const candidate=Object.entries({...translations[locale],...overrides[locale]}).find(([key])=>key.replace(rankPattern,'{tier}')===template);
+        if(candidate){let index=0;return raw.replace(trimmed,normalizeTranslation(candidate[1].replace(rankPattern,()=>ranks[index++]||ranks.at(-1)),locale,trimmed));}
+      }
       missing.add(trimmed);
       return raw;
     }

@@ -1,0 +1,26 @@
+{
+  "ja": {
+    "title": "モンサバ最強タタTier｜総合・通常・ゾンビ・道場・初心者",
+    "intro": "実際の使用感をもとにした独自評価で、公式ランキングではありません。総合Tierと各モードのTierは別評価です。ゾンビラッシュの評価はシーズン・バランス調整・環境によって変化します。",
+    "labels": ["総合", "通常", "ゾンビ", "道場", "初心者"],
+    "headings": ["総合タタTier", "通常ステージTier", "ゾンビラッシュTier", "バッジ道場Tier", "初心者おすすめTier"],
+    "descriptions": ["通常ステージ、ゾンビラッシュ、バッジ道場、育成価値などを総合した独自評価です。各項目の平均から自動計算した順位ではありません。", "通常ステージでの採用率、DPS、範囲・レーン処理、妨害、壁性能、編成への入りやすさを反映した評価です。", "2026年9月時点の環境評価です。ゾンビラッシュはシーズン・バランス調整・環境によって評価が変化します。", "高難度・後半まで含めた実戦評価です。", "単純な完成時性能だけでなく、育成難易度・必要星数・序盤の使いやすさ・育成して後悔しにくいかを含めた評価です。ネコオリ・ヒモリ・フルッグは低コストで育てやすく初心者SSS。ガオデンは同ランク内でも最上位クラスです。"],
+    "hold": "保留", "provisional": "暫定", "pending": "評価検証中", "updated": "最終更新", "all": "すべて", "filter": "属性で絞り込む", "count": "系統", "empty": "該当なし", "legend": "暫定は検証中の評価、保留は評価未確定です。星数・進化段階・サーバー差でも使用感は変わります。", "attributes": {"草":"草属性","水":"水属性","火":"火属性","雷":"雷属性","岩":"岩属性"}
+  },
+  "en": {
+    "title": "Clash of Critters Tier List | Overall, Normal, Zombie, Dojo & Beginners",
+    "intro": "Independent ratings based on hands-on play, not an official ranking. Overall and mode ratings are separate editorial assessments. Zombie Rush ratings change with seasons, balance updates and the current environment.",
+    "labels": ["Overall", "Normal", "Zombie", "Dojo", "Beginners"],
+    "headings": ["Overall Tatari Tier List", "Normal Stage Tier List", "Zombie Rush Tier List", "Badge Dojo Tier List", "Beginner Recommendations"],
+    "descriptions": ["An independent overall assessment of normal stages, Zombie Rush, Badge Dojo and investment value. It is not an average of the mode ratings.", "Based on normal-stage use, DPS, area and lane coverage, control, frontline durability and ease of fitting into a team.", "Reflects the September 2026 environment. Zombie Rush ratings change with seasons, balance updates and the current environment.", "Hands-on ratings including difficult stages and late-game Badge Dojo.", "Considers upgrade cost, required stars, early-game usefulness and lasting value as well as fully upgraded performance. The three starters earn SSS for affordable progression; the first-listed recommendation is a leading choice within SSS."],
+    "hold": "Unrated", "provisional": "Provisional", "pending": "Under review", "updated": "Updated", "all": "All", "filter": "Filter by element", "count": "families", "empty": "No matches", "legend": "Provisional ratings are being verified; unrated entries have no confirmed rating. Stars, evolution stages and server differences can affect performance.", "attributes": {"草":"Grass","水":"Water","火":"Fire","雷":"Thunder","岩":"Rock"}
+  },
+  "zh-CN": {
+    "title": "Clash of Critters 强度榜｜综合、普通、僵尸、道场与新手",
+    "intro": "本榜依据实际使用体验独立评定，并非官方排名。综合与各模式分别评价。僵尸突袭评价会随赛季、平衡调整和环境变化。",
+    "labels": ["综合", "普通", "僵尸", "道场", "新手"],
+    "headings": ["综合强度榜", "普通关卡强度榜", "僵尸突袭强度榜", "徽章道场强度榜", "新手推荐榜"],
+    "descriptions": ["综合考虑普通关卡、僵尸突袭、徽章道场与培养价值的独立评价，并非各项评分的平均值。", "考虑普通关卡中的使用率、DPS、范围与路线清理、控制、前排承伤和阵容适配性。", "依据2026年9月的环境。僵尸突袭评价会随赛季、平衡调整和环境变化。", "包含高难度与后期关卡的实战评价。", "不仅考虑完全培养后的战力，还考虑培养难度、所需星数、前期实用性及长期培养价值。初始三只因培养成本低而列为新手SSS。"],
+    "hold": "待定", "provisional": "暂定", "pending": "评估中", "updated": "最后更新", "all": "全部", "filter": "按属性筛选", "count": "个系列", "empty": "暂无匹配", "legend": "暂定表示仍在验证的评价，待定表示尚未确定。星数、进化阶段与服务器差异也会影响表现。", "attributes": {"草":"草属性","水":"水属性","火":"火属性","雷":"雷属性","岩":"岩属性"}
+  }
+}

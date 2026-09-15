@@ -54,7 +54,7 @@ test('detail pages publish verified crops and neutral pending states', () => {
 test('Tier, Compare, Team Builder, My Monsaba, Search and Evolution Priority use crop mappings', () => {
   assert.match(read('tata-tier/index.html'), /assets\/official\/tata\/.+\/t1-512\.webp/);
   assert.match(read('evolution-priority/index.html'), /assets\/official\/tata\/.+\/t1-512\.webp/);
-  for (const file of ['tata-tier/tata-tier.js', 'compare/compare.js', 'team-builder/team-builder.js', 'my-monsaba/my-monsaba.js', 'search/search.js', 'zombie-rush/zombie-rush.js', 'evolution-priority/evolution-priority.js']) {
+  for (const file of ['scripts/generate-tier-pages.mjs', 'compare/compare.js', 'team-builder/team-builder.js', 'my-monsaba/my-monsaba.js', 'search/search.js', 'zombie-rush/zombie-rush.js', 'evolution-priority/evolution-priority.js']) {
     assert.match(read(file), /data\/tata-images\.json/, `${file}: image manifest fetch`);
   }
   assert.match(read('compare/compare.js'), /compare-family-head/);

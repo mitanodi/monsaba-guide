@@ -56,7 +56,7 @@ test('database and every major consumer use the same official-capable SSOT', () 
       if (form.status === 'verified') assert.equal(evolution.image, form.src.slice(1), `${family.id}:T${evolution.stage}`);
     }
   }
-  for (const file of ['app.js', 'tata-tier/tata-tier.js', 'evolution-priority/evolution-priority.js', 'team-builder/team-builder.js', 'zombie-rush/zombie-rush.js', 'attribute/attribute-guide.js', 'search/search.js', 'compare/compare.js', 'my-monsaba/my-monsaba.js']) {
+  for (const file of ['app.js', 'scripts/generate-tier-pages.mjs', 'evolution-priority/evolution-priority.js', 'team-builder/team-builder.js', 'zombie-rush/zombie-rush.js', 'attribute/attribute-guide.js', 'search/search.js', 'compare/compare.js', 'my-monsaba/my-monsaba.js']) {
     assert.match(read(file), /data\/tata-images\.json/, `${file}: shared mapping missing`);
   }
   assert.equal(images.families.filter((family) => family.stage1.sourceType === 'official_creator_asset').length, 63);

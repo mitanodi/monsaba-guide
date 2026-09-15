@@ -88,7 +88,7 @@ for(const file of walk(root)){
     $('.hero .site-stats').html(`<span><b>${count}</b>${locale==='ja'?'系統':locale==='en'?' families':' 个系列'}</span><span><b>${data.families.flatMap(f=>f.evolutions).length}</b>${locale==='ja'?'体':locale==='en'?' Tatari':' 个Tatari'}</span><span><b>5</b>${locale==='ja'?'属性':locale==='en'?' attributes':'种属性'}</span>`);
     $('.hero .hero-media img').attr({src:'/assets/astra/hero-360.webp',srcset:[120,240,360,600].map(w=>`/assets/astra/hero-${w}.webp ${w}w`).join(', '),sizes:'(max-width: 700px) 108px, 252px',loading:'eager'});
   }
-  if(route==='/tata-tier/'){
+  if(route==='/tata-tier/'&&!$('.tier-board').length){
     const byline=$('.article-byline');if(byline.length)byline.after($('#tier-list'));
     const chart=$('.tier-chart');if(chart.length){const section=chart.closest('section');section.addClass('astra-tier-primary');if(!section.find('.astra-tier-explanation').length){const prose=section.find('.section-head p');const details=$(`<details class="astra-tier-explanation"><summary>${c.details}</summary></details>`);prose.remove();details.append(prose);chart.after(details);}}
     $('.tier-page-hero').addClass('astra-compact-hero');
