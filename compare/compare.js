@@ -1,7 +1,7 @@
 const $ = (selector) => document.querySelector(selector);
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 const modeLabels = { overall: '総合', normal: '通常', zombie: 'ゾンビラッシュ', dojo: '道場', beginner: '初心者' };
-const tierScore = { SSS: 0, SS: 1, S: 2, A: 3, '－': 9 };
+const tierScore = { SSS: 0, SS: 1, S: 2, A: 3, B: 4, C: 5, D: 6, '－': 9 };
 const { getFamilyDisplayLabel, getTataDisplayName, getJapaneseSecondaryLabel } = MONSABA_FAMILY;
 const secondaryName = (evolution) => getJapaneseSecondaryLabel(evolution);
 let state = {};

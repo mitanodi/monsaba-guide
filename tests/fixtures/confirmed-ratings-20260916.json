@@ -1,0 +1,9 @@
+{
+  "source": "Operator-confirmed ratings, 2026-09-16; independent acceptance fixture",
+  "families": {
+    "riifuro": {"beginner": "SS"},
+    "sabooru": {"normal": "S", "zombie": "D", "dojo": "SS", "beginner": "A"},
+    "tsubutsumuri": {"beginner": "S"}
+  },
+  "preservedSabooruOverall": {"tier": "S", "status": "provisional", "order": 33}
+}

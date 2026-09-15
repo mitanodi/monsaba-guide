@@ -187,7 +187,8 @@
     "金色の宝箱": "Gold Treasure Chest",
     "ツルハシ": "Pickaxe",
     "Playerと進化段階を選ぶと、空きマスへランダム配置します。ゾンビラッシュではLvとチップも設定できます。": "Choose a player and evolution stage to place the Tatari in a random empty slot. Zombie Rush also lets you set its level and chip.",
-    "盤面をリセット": "Reset Board"
+    "盤面をリセット": "Reset Board",
+    "タタ名・進化・スキルと数値は、ゲーム内スクリーンショットで確認できた内容を掲載しています。読めない内容は推測で補完していません。Tierは当サイト独自の評価です。": "Tata's name, evolution, skills, and numbers are shown in the in-game screenshots. Information that cannot be read is not supplemented by guesswork. Tier is an independent assessment by this site."
   },
   "zh-CN": {
     "公式クリエイター素材": "官方创作者素材",
@@ -365,6 +366,7 @@
     "金色の宝箱": "金色宝箱",
     "ツルハシ": "十字镐",
     "Playerと進化段階を選ぶと、空きマスへランダム配置します。ゾンビラッシュではLvとチップも設定できます。": "选择玩家和进化阶段后，会随机放入一个空位。Zombie Rush 中还可设置等级和芯片。",
-    "盤面をリセット": "重置阵容盘"
+    "盤面をリセット": "重置阵容盘",
+    "タタ名・進化・スキルと数値は、ゲーム内スクリーンショットで確認できた内容を掲載しています。読めない内容は推測で補完していません。Tierは当サイト独自の評価です。": "Tatari 的名字、进化、技能和数字显示在游戏截图中。无法读取的信息不会通过猜测来补充。强度为本站独立评价。"
   }
 }

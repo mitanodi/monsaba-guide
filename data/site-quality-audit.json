@@ -1331,8 +1331,8 @@
     },
     {
       "route": "/en/tata-tier/",
-      "verified": "2026-08-28",
-      "ageDays": 8,
+      "verified": "2026-09-16",
+      "ageDays": -11,
       "category": "tier",
       "priority": "MEDIUM",
       "status": "verified",
@@ -2401,8 +2401,8 @@
     },
     {
       "route": "/tata-tier/",
-      "verified": "2026-08-28",
-      "ageDays": 8,
+      "verified": "2026-09-16",
+      "ageDays": -11,
       "category": "tier",
       "priority": "MEDIUM",
       "status": "verified",
@@ -3591,8 +3591,8 @@
     },
     {
       "route": "/zh-cn/tata-tier/",
-      "verified": "2026-08-28",
-      "ageDays": 8,
+      "verified": "2026-09-16",
+      "ageDays": -11,
       "category": "tier",
       "priority": "MEDIUM",
       "status": "verified",

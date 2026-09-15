@@ -751,8 +751,8 @@
           "status": "confirmed"
         },
         "beginner": {
-          "tier": "HOLD",
-          "status": "hold"
+          "tier": "SS",
+          "status": "confirmed"
         }
       },
       "roles": [
@@ -983,19 +983,19 @@
         },
         "normal": {
           "tier": "S",
-          "status": "provisional"
+          "status": "confirmed"
         },
         "zombie": {
-          "tier": "HOLD",
-          "status": "hold"
+          "tier": "D",
+          "status": "confirmed"
         },
         "dojo": {
           "tier": "SS",
-          "status": "provisional"
+          "status": "confirmed"
         },
         "beginner": {
           "tier": "A",
-          "status": "provisional"
+          "status": "confirmed"
         }
       },
       "roles": []
@@ -1373,8 +1373,8 @@
           "status": "confirmed"
         },
         "beginner": {
-          "tier": "HOLD",
-          "status": "hold"
+          "tier": "S",
+          "status": "confirmed"
         }
       },
       "roles": []
@@ -1928,5 +1928,18 @@
       },
       "roles": []
     }
+  ],
+  "beginnerGuideFamilies": [
+    "furuggu",
+    "himori",
+    "nekoori",
+    "fureimuji",
+    "himawarin",
+    "nenbutsuhebi",
+    "purabi",
+    "yanzaru",
+    "riifuro",
+    "sabooru",
+    "tsubutsumuri"
   ]
 }

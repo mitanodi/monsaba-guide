@@ -940,7 +940,7 @@
         "normal": "A",
         "zombie": "SSS",
         "dojo": "SS",
-        "beginner": "HOLD",
+        "beginner": "SS",
         "rankings": {
           "overall": {
             "tier": "SS",
@@ -960,8 +960,8 @@
             "status": "confirmed"
           },
           "beginner": {
-            "tier": "HOLD",
-            "status": "hold"
+            "tier": "SS",
+            "status": "confirmed"
           }
         },
         "roles": [
@@ -1213,7 +1213,7 @@
       "sabooru": {
         "tier": "S",
         "normal": "S",
-        "zombie": "HOLD",
+        "zombie": "D",
         "dojo": "SS",
         "beginner": "A",
         "rankings": {
@@ -1224,19 +1224,19 @@
           },
           "normal": {
             "tier": "S",
-            "status": "provisional"
+            "status": "confirmed"
           },
           "zombie": {
-            "tier": "HOLD",
-            "status": "hold"
+            "tier": "D",
+            "status": "confirmed"
           },
           "dojo": {
             "tier": "SS",
-            "status": "provisional"
+            "status": "confirmed"
           },
           "beginner": {
             "tier": "A",
-            "status": "provisional"
+            "status": "confirmed"
           }
         },
         "roles": [],
@@ -1646,7 +1646,7 @@
         "normal": "SS",
         "zombie": "D",
         "dojo": "SS",
-        "beginner": "HOLD",
+        "beginner": "S",
         "rankings": {
           "overall": {
             "tier": "A",
@@ -1666,8 +1666,8 @@
             "status": "confirmed"
           },
           "beginner": {
-            "tier": "HOLD",
-            "status": "hold"
+            "tier": "S",
+            "status": "confirmed"
           }
         },
         "roles": [],
@@ -2386,6 +2386,7 @@
         "label": "D",
         "ids": [
           "haamitora",
+          "sabooru",
           "hanarenaishi",
           "kaenjack",
           "batarisu",
@@ -2406,13 +2407,6 @@
           "pupunku",
           "kowagaru",
           "hikaru"
-        ]
-      },
-      {
-        "rank": "HOLD",
-        "label": "保留",
-        "ids": [
-          "sabooru"
         ]
       }
     ],
@@ -2578,8 +2572,8 @@
         "comment": ""
       },
       "sabooru": {
-        "tier": "HOLD",
-        "status": "hold",
+        "tier": "D",
+        "status": "confirmed",
         "comment": ""
       },
       "kunbuu": {

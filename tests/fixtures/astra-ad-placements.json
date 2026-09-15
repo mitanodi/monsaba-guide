@@ -1,0 +1,230 @@
+{
+  "source": "Independent published placement snapshot cbfffc0, 22 slots",
+  "total": 22,
+  "slots": [
+    {
+      "route": "/beginner-guide/",
+      "offer": "warau_003",
+      "slot": "article_1",
+      "desktopOnly": false,
+      "after": "normal",
+      "htmlSha256": "a56b2f4f2e4858eb28fcef8f34e2dfafcf39297d74954da04abe53e535fc94a5"
+    },
+    {
+      "route": "/beginner-guide/",
+      "offer": "ipsos_isay_001",
+      "slot": "article_2",
+      "desktopOnly": false,
+      "after": "training",
+      "htmlSha256": "83028fdde7a5f5ab93244ea7079d431a4c757a029c85e8d0d15759c5df26a659"
+    },
+    {
+      "route": "/beginner-guide/",
+      "offer": "point_income_003",
+      "slot": "article_3",
+      "desktopOnly": false,
+      "after": "t3",
+      "htmlSha256": "05c2da9d9d68e62c50f0fafd38dbbb8ff1b3f0893cee9255e0af3b1dc6cf4725"
+    },
+    {
+      "route": "/beginner-guide/",
+      "offer": "warau_003",
+      "slot": "article_4",
+      "desktopOnly": false,
+      "after": "contents",
+      "htmlSha256": "4c352e8cccd7cccbcc485fa9ac5aa7426fbbbbebeb166ee0818f28a2e7b9bd22"
+    },
+    {
+      "route": "/beginner-guide/",
+      "offer": "ipsos_isay_001",
+      "slot": "article_5",
+      "desktopOnly": false,
+      "after": "wrap static-section prose-page",
+      "htmlSha256": "6d8f10a5bf0bc1308bf7b27ff464f1f9733064bd568a154fa3f68304df5c5dbf"
+    },
+    {
+      "route": "/boss-rally/",
+      "offer": "point_income_003",
+      "slot": "article_1",
+      "desktopOnly": false,
+      "after": "wrap static-section",
+      "htmlSha256": "0d4b08a45c363599d943306f8bfaa97c465edb5c3ce19eb5395d71093c2fe448"
+    },
+    {
+      "route": "/evolution-priority/",
+      "offer": "warau_003",
+      "slot": "article_1",
+      "desktopOnly": false,
+      "after": "t3-roadmap",
+      "htmlSha256": "a56b2f4f2e4858eb28fcef8f34e2dfafcf39297d74954da04abe53e535fc94a5"
+    },
+    {
+      "route": "/evolution-priority/",
+      "offer": "point_income_003",
+      "slot": "article_2",
+      "desktopOnly": false,
+      "after": "diagnosis",
+      "htmlSha256": "062989dfd130773ad8969cddd5156de935ffa53c2d83ad009693c28993703c75"
+    },
+    {
+      "route": "/evolution-priority/",
+      "offer": "ipsos_isay_001",
+      "slot": "article_3",
+      "desktopOnly": false,
+      "after": "wrap static-section",
+      "htmlSha256": "77c883f9b895193f4ff030d992eab662781f1f8edfd6aa227ec2fe0e80d9bff6"
+    },
+    {
+      "route": "/evolution-priority/",
+      "offer": "macromill_002",
+      "slot": "article_4",
+      "desktopOnly": true,
+      "after": "transition-list",
+      "htmlSha256": "5a0d5d40f7ecd5e6f0a3a481d205f8fe2ae3cec329265bd48b65a621024f62e1"
+    },
+    {
+      "route": "/evolution-priority/",
+      "offer": "warau_003",
+      "slot": "article_5",
+      "desktopOnly": false,
+      "after": "wrap attribute-guide-nav",
+      "htmlSha256": "ad02e430fd6fb832a9efa444306854ca98ca416b8252021c102df4e6488f55bc"
+    },
+    {
+      "route": "/",
+      "offer": "warau_003",
+      "slot": "article_1",
+      "desktopOnly": false,
+      "after": "wrap astra-journey",
+      "htmlSha256": "a56b2f4f2e4858eb28fcef8f34e2dfafcf39297d74954da04abe53e535fc94a5"
+    },
+    {
+      "route": "/normal-guide/",
+      "offer": "ipsos_isay_001",
+      "slot": "article_1",
+      "desktopOnly": false,
+      "after": "normal-bosses",
+      "htmlSha256": "f050e1e57fc66b7054483bd23d4c9caf812756e4b6fabe7e3853ee4c80f2a998"
+    },
+    {
+      "route": "/tata-tier/",
+      "offer": "warau_003",
+      "slot": "article_1",
+      "desktopOnly": false,
+      "after": "mode-overall",
+      "htmlSha256": "a56b2f4f2e4858eb28fcef8f34e2dfafcf39297d74954da04abe53e535fc94a5"
+    },
+    {
+      "route": "/tata-tier/",
+      "offer": "point_income_003",
+      "slot": "article_2",
+      "desktopOnly": false,
+      "after": "mode-normal",
+      "htmlSha256": "062989dfd130773ad8969cddd5156de935ffa53c2d83ad009693c28993703c75"
+    },
+    {
+      "route": "/tata-tier/",
+      "offer": "altema_point_005",
+      "slot": "article_3",
+      "desktopOnly": false,
+      "after": "mode-zombie",
+      "htmlSha256": "f871a683b9f8e119963bff855245c56e25e45af36373124e41229446971dc085"
+    },
+    {
+      "route": "/tata-tier/",
+      "offer": "ipsos_isay_001",
+      "slot": "article_4",
+      "desktopOnly": false,
+      "after": "mode-dojo",
+      "htmlSha256": "3b340452d786c0399d61e333f27a6e600d8e54a23fb24914bb3f931858abfc13"
+    },
+    {
+      "route": "/zombie-rush/",
+      "offer": "warau_003",
+      "slot": "article_1",
+      "desktopOnly": false,
+      "after": "basic",
+      "htmlSha256": "a56b2f4f2e4858eb28fcef8f34e2dfafcf39297d74954da04abe53e535fc94a5"
+    },
+    {
+      "route": "/zombie-rush/",
+      "offer": "point_income_003",
+      "slot": "article_2",
+      "desktopOnly": false,
+      "after": "season-tier",
+      "htmlSha256": "062989dfd130773ad8969cddd5156de935ffa53c2d83ad009693c28993703c75"
+    },
+    {
+      "route": "/zombie-rush/",
+      "offer": "ipsos_isay_001",
+      "slot": "article_3",
+      "desktopOnly": false,
+      "after": "prediction",
+      "htmlSha256": "77c883f9b895193f4ff030d992eab662781f1f8edfd6aa227ec2fe0e80d9bff6"
+    },
+    {
+      "route": "/zombie-rush/",
+      "offer": "altema_point_005",
+      "slot": "article_4",
+      "desktopOnly": false,
+      "after": "danger",
+      "htmlSha256": "4fb8b7a74ef6bc4793219f650321916910a39627cfc796848450ad96c32cdd3e"
+    },
+    {
+      "route": "/zombie-rush/",
+      "offer": "warau_003",
+      "slot": "article_5",
+      "desktopOnly": false,
+      "after": "purabi-denjika",
+      "htmlSha256": "ad02e430fd6fb832a9efa444306854ca98ca416b8252021c102df4e6488f55bc"
+    }
+  ],
+  "offers": [
+    {
+      "id": "point_income_003",
+      "destination": "https://px.a8.net/svt/ejp?a8mat=4BADDF+YJ6MY+5JWO+5YZ75",
+      "mediaSource": "https://www28.a8.net/svt/bgt?aid=260824371058&wid=002&eno=01&mid=s00000025908001003000&mc=1",
+      "trackingPixel": "https://www16.a8.net/0.gif?a8mat=4BADDF+YJ6MY+5JWO+5YZ75",
+      "trackingId": "s00000025908001",
+      "width": 300,
+      "height": 250
+    },
+    {
+      "id": "warau_003",
+      "destination": "https://px.a8.net/svt/ejp?a8mat=4BADDF+XCBFE+3ZZC+HXKQP",
+      "mediaSource": "https://www25.a8.net/svt/bgt?aid=260824371056&wid=002&eno=01&mid=s00000018660003012000&mc=1",
+      "trackingPixel": "https://www11.a8.net/0.gif?a8mat=4BADDF+XCBFE+3ZZC+HXKQP",
+      "trackingId": "s00000018660003",
+      "width": 468,
+      "height": 60
+    },
+    {
+      "id": "macromill_002",
+      "destination": "https://px.a8.net/svt/ejp?a8mat=4BADDF+1JU+2WL0+CN8W1",
+      "mediaSource": "https://www21.a8.net/svt/bgt?aid=260824371000&wid=002&eno=01&mid=s00000013554002124000&mc=1",
+      "trackingPixel": "https://www18.a8.net/0.gif?a8mat=4BADDF+1JU+2WL0+CN8W1",
+      "trackingId": "s00000013554002",
+      "width": 120,
+      "height": 600
+    },
+    {
+      "id": "ipsos_isay_001",
+      "destination": "https://px.a8.net/svt/ejp?a8mat=4BADDE+G8NPLM+4286+62U35",
+      "mediaSource": "https://www21.a8.net/svt/bgt?aid=260824370982&wid=002&eno=01&mid=s00000018951001021000&mc=1",
+      "trackingPixel": "https://www11.a8.net/0.gif?a8mat=4BADDE+G8NPLM+4286+62U35",
+      "trackingId": "s00000018951001",
+      "width": 250,
+      "height": 250
+    },
+    {
+      "id": "altema_point_005",
+      "destination": "https://px.a8.net/svt/ejp?a8mat=4BADDE+GFSWUY+589S+5ZEMP",
+      "mediaSource": "https://www22.a8.net/svt/bgt?aid=260824370994&wid=002&eno=01&mid=s00000024400001005000&mc=1",
+      "trackingPixel": "https://www13.a8.net/0.gif?a8mat=4BADDE+GFSWUY+589S+5ZEMP",
+      "trackingId": "s00000024400001",
+      "width": 320,
+      "height": 50
+    }
+  ],
+  "originalSha256": "cb9277af3f4bd0e9dc1773ee902306f297af8f36c7be25de651dfc63591c0f70"
+}

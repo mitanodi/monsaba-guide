@@ -130,7 +130,7 @@ test('responsive guards cover review widths without fixed AdSense UI', () => {
   assert.match(css, /\.role-context-grid.*grid-template-columns:1fr/);
 });
 
-test('full site generation is idempotent', { timeout: 120000 }, () => {
+test('full site generation is idempotent', { timeout: 240000 }, () => {
   const tracked = execFileSync('git', ['ls-files', '--cached', '--others', '--exclude-standard', '-z'], { cwd: root })
     .toString('utf8')
     .split('\0')
@@ -158,6 +158,8 @@ test('full site generation is idempotent', { timeout: 120000 }, () => {
     }
   }
   const after = digest();
+  execFileSync(process.execPath, [npmCli, 'run', 'generate:site'], { cwd: root, stdio: 'pipe', timeout: 110000 });
+  assert.equal(digest(), after, 'Second full generation must produce zero changes (B == C)');
   const changed = after === before ? '' : execFileSync('git', ['diff', '--name-only'], { cwd: root, encoding: 'utf8' }).trim();
   assert.equal(after, before, `generate:site changed tracked output; run generation and commit the result\n${changed}`);
 });

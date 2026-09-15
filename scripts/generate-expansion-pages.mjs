@@ -9,6 +9,8 @@ const root=path.resolve(import.meta.dirname,'..');
 const read=name=>JSON.parse(fs.readFileSync(path.join(root,'data',name),'utf8'));
 const tatari=read('tatari.json');
 const ratings=read('tier-ratings.json');
+const editorial = read('editorial-content.json').families;
+for(const [id,rating] of Object.entries(ratings.overall.byFamily)) rating.comment=editorial[id]?.comment || '';
 const evolution=read('evolution-priority.json');
 const stages=read('stages.json');
 const items=read('items.json');

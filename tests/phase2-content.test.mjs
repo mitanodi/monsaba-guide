@@ -23,9 +23,9 @@ test('58公式スキルアイコンは重複・stage不一致なく意味のあ�
   for (const icon of icons) { const key = `${icon.familyId}:${icon.stage}`; assert.equal(keys.has(key), false); keys.add(key); assert.ok(fs.existsSync(path.join(root, icon.optimizedPath.slice(1)))); const html = read(`tata/${icon.familyId}/index.html`); assert.ok(html.includes(`data-skill-stage="${icon.stage}"`)); const tag = html.match(new RegExp(`<img[^>]+src="${icon.optimizedPath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"[^>]*>`))?.[0] || ''; assert.match(tag, /alt="[^"]+スキルアイコン"/); }
 });
 
-test('初心者候補はSSOT由来8件・画像・診断・My Monsaba導線を持つ', () => {
-  const ratings = json('data/tier-ratings.json').overall.byFamily; const tiers = ['SSS', 'SS', 'S', 'A', 'B']; const expected = Object.values(ratings).filter((item) => tiers.includes(item.beginner)).length;
-  const html = read('beginner-guide/index.html'); assert.equal((html.match(/class="guide-panel beginner-tata-card"/g) || []).length, Math.min(8, expected)); assert.equal((html.match(/class="beginner-tata-image"/g) || []).length, Math.min(8, expected));
+test('初心者候補は既存8系統と確定追加3系統・画像・診断・My Monsaba導線を持つ', () => {
+  const expected = 11;
+  const html = read('beginner-guide/index.html'); assert.equal((html.match(/class="guide-panel beginner-tata-card"/g) || []).length, expected); assert.equal((html.match(/class="beginner-tata-image"/g) || []).length, expected);
   for (const token of ['data-beginner-choice="overall"', 'data-beginner-choice="zombie"', 'data-beginner-choice="normal"', 'data-beginner-choice="evolution"', 'href="/my-monsaba/"']) assert.ok(html.includes(token));
   assert.doesNotMatch(html, /絶対この順|公式おすすめ|入手しやすい/);
 });

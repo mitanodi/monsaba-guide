@@ -11,6 +11,7 @@ const readJson = (file) => JSON.parse(fs.readFileSync(path.join(root, file), 'ut
 const tatari = readJson('data/tatari.json');
 const skills = readJson('data/tata-skills.json');
 const ratings = readJson('data/tier-ratings.json');
+const editorial = readJson('data/editorial-content.json').families;
 const evolutionPriority = readJson('data/evolution-priority.json');
 const acquisition = readJson('data/tata-acquisition.json');
 const freshness = readJson('data/page-freshness.json');
@@ -96,7 +97,7 @@ function renderPage(family, index) {
   const titleNames = [...new Set([evolvedNames[0], evolvedNames.at(-1)].filter(Boolean))];
   const title = `モンサバ ${displayLabel}${titleNames.length ? `（${titleNames.join('・')}）` : ''}は強い？進化・スキル・用途`;
   const roleText = roles.length ? ` 主な役割は${roles.join('・')}。` : '';
-  const description = `モンサバの${displayLabel}（${chain}）の進化先、スキル、確認済み数値${evaluations.length ? '、Tierと用途評価' : ''}を掲載。${roleText}`.trim();
+  const description = editorial[family.id]?.description || `モンサバの${displayLabel}（${chain}）の進化先、スキル、確認済み数値${evaluations.length ? '、Tierと用途評価' : ''}を掲載。${roleText}`.trim();
   const image = `${BASE_URL}${stage1Image(family.id).src}`;
   const previous = families[index - 1];
   const next = families[index + 1];
@@ -141,7 +142,7 @@ function renderPage(family, index) {
     : '<p class="section-note">現在評価情報を収集中です。</p>';
   const quickAnswers = `<section class="wrap static-section tata-quick-answers" aria-labelledby="quick-answer-title"><p class="section-kicker visible-kicker">クイック回答</p><p class="trust-label-row"><span class="trust-label is-independent">独自評価</span><span class="trust-label is-verified">ゲーム内データ確認済み</span></p><h2 id="quick-answer-title" class="page-h2">${esc(displayName)}は強い？</h2><p>${esc(ratingAnswer)}</p><p class="quick-purpose-label">このタタは何向け？</p><h2 class="page-h2">${esc(displayLabel)}のおすすめ用途</h2>${purposeAnswer}${roles.length ? `<h3>主な役割</h3><div class="role-tags tata-role-tags">${roles.map((role) => `<span>${esc(role)}</span>`).join('')}</div>` : '<p class="section-note"><span class="trust-label is-pending">確認中</span> 役割情報は現在収集中です。</p>'}<p class="rating-hold-note">評価保留は弱いという意味ではなく、順位を付ける根拠が不足している状態です。</p><h2 class="page-h2">${esc(displayName)}は進化するべき？</h2>${priorityAnswer}</section>`;
   const evolutionLinks = family.evolutions.slice(0, -1).map((stage) => `<a class="ghost-button" href="/consult/?flow=evolution&amp;family=${encodeURIComponent(family.id)}&amp;stage=${stage.stage}">T${stage.stage} ${esc(stage.name)}から次の進化を相談</a>`).join('');
-  const modeLinks = [
+  const modeLinks = editorial[family.id]?.modeLinks || [
     [`/${`attribute/${attr.slug}`}/`, `${family.attribute}属性のタタを見る`],
     ['/tata-tier/', '総合タタTier'],
     ['/evolution-priority/', '進化優先度'],
@@ -150,7 +151,7 @@ function renderPage(family, index) {
     ...(zombie?.tier || overall?.zombie ? [['/zombie-rush/', 'ゾンビラッシュ攻略']] : []),
     ...(overall?.dojo ? [['/badge-dojo/', 'バッジ道場攻略']] : [])
   ];
-  const relatedFamilies = families.filter((item) => item.id !== family.id).map((item) => {
+  const relatedFamilies = editorial[family.id]?.related.map(({familyId,reasons})=>({item:families.find(f=>f.id===familyId),reasons})) || families.filter((item) => item.id !== family.id).map((item) => {
     const itemRating = ratings.overall?.byFamily?.[item.id];
     const sharedRoles = roles.filter((role) => itemRating?.roles?.includes(role));
     const reasons = [];

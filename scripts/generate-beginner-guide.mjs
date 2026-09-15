@@ -10,6 +10,8 @@ const root = path.resolve(import.meta.dirname, '..');
 const readJson = (file) => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'));
 const tatari = readJson('data/tatari.json');
 const ratings = readJson('data/tier-ratings.json');
+const editorial = readJson('data/editorial-content.json').families;
+for(const [id,rating] of Object.entries(ratings.overall.byFamily)) rating.comment=editorial[id]?.comment || '';
 const evolution = readJson('data/evolution-priority.json');
 const guides = readJson('data/content-guides.json');
 const tataImages = readJson('data/tata-images.json');
@@ -23,16 +25,16 @@ const familyLink = (id) => {
 };
 
 const tierOrder = ['SSS', 'SS', 'S', 'A', 'B'];
+const featuredFamilies = readJson('data/tata-tier.json').beginnerGuideFamilies;
 const beginnerRatings = Object.entries(ratings.overall?.byFamily || {})
-  .filter(([, value]) => tierOrder.includes(value.beginner))
-  .sort((a, b) => tierOrder.indexOf(a[1].beginner) - tierOrder.indexOf(b[1].beginner) || a[0].localeCompare(b[0]))
-  .slice(0, 8);
+  .filter(([id, value]) => featuredFamilies.includes(id) && tierOrder.includes(value.beginner))
+  .sort((a, b) => tierOrder.indexOf(a[1].beginner) - tierOrder.indexOf(b[1].beginner) || a[0].localeCompare(b[0]));
 const firstPriority = evolution.t3Roadmap?.firstPriority || [];
 const longTerm = evolution.longTermRecommended || [];
 const firstPriorityMap = new Map(firstPriority.map((item) => [item.familyId, item]));
 const candidateCard = ([id, value]) => {
   const family = familyMap.get(id); const image = imageMap.get(id); const priority = firstPriorityMap.get(id);
-  const modes = ['overall', value.zombie === 'SSS' || value.zombie === 'SS' ? 'zombie' : '', value.normal === 'SSS' || value.normal === 'SS' ? 'normal' : '', priority ? 'evolution' : ''].filter(Boolean).join(' ');
+  const modes = ['overall', value.zombie === 'SSS' || value.zombie === 'SS' ? 'zombie' : '', value.normal === 'SSS' || value.normal === 'SS' ? 'normal' : '', editorial[id]?.beginnerEvolution ? 'evolution' : ''].filter(Boolean).join(' ');
   return `<article class="guide-panel beginner-tata-card" data-beginner-modes="${modes}" data-beginner-family="${esc(id)}">${image?.status === 'verified' ? `<img class="beginner-tata-image" src="${esc(image.src)}" width="256" height="256" alt="${esc(getFamilyDisplayLabel(family))} T1" loading="lazy" decoding="async">` : ''}<div><p class="beginner-card-meta">${esc(family.attribute)}属性 · 初心者評価 ${esc(value.beginner)}</p><h3>${familyLink(id)}</h3><p>${esc(value.comment)}</p><p><b>育成目標：</b>${priority ? `まずT3（必要${priority.requiredStars}星）` : '個別ページで進化差分を確認'}</p><p class="beginner-owned-status" aria-live="polite">手持ち登録状況を確認中</p><div class="tool-actions"><a class="ghost-button" href="/tata/${esc(id)}/">詳細を見る</a><a class="ghost-button" href="/my-monsaba/">手持ちに登録</a><a class="ghost-button" href="/team-builder/?roster=1" data-beginner-team>編成で使う</a></div></div></article>`;
 };
 const troubleshooting = Object.values(guides.normal?.troubleshooting || {});

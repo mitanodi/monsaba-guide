@@ -24,8 +24,8 @@ const adPlans={
     {offer:'macromill_002',after:'#transition-list'},{offer:'warau_003',before:'.source-note'}
   ],
   '/tata-tier/':[
-    {offer:'warau_003',after:'#tier-list'},{offer:'point_income_003',after:'.attribute-tier-links'},
-    {offer:'altema_point_005',after:'#first-picks'},{offer:'ipsos_isay_001',after:'.static-section:has(h2:contains("モードで評価が変わる例"))'}
+    {offer:'warau_003',after:'#mode-overall'},{offer:'point_income_003',after:'#mode-normal'},
+    {offer:'altema_point_005',after:'#mode-zombie'},{offer:'ipsos_isay_001',after:'#mode-dojo'}
   ],
   '/zombie-rush/':[
     {offer:'warau_003',after:'#basic'},{offer:'point_income_003',after:'#season-tier'},
@@ -127,7 +127,7 @@ for(const file of walk(root)){
     const notice='アフィリエイト広告枠・配置プレビュー';
     const ad=$(`<aside class="wrap astra-ad${o.desktopOnly?' astra-ad-desktop':''}" data-astra-offer="${o.id}" aria-label="${c.ad}" style="--astra-creative-width:${o.width}px;--astra-creative-height:${o.height}px;--astra-creative-ratio:${o.width}/${o.height}"><span>${c.ad}</span><div class="astra-ad-preview"><b translate="no" lang="ja">${esc(o.name)}</b><small>${notice}</small><small>${o.width} × ${o.height}</small></div><div class="monetization-slot affiliate-placement" data-monetization-slot="article_${index+1}" data-affiliate-offer="${o.id}" aria-busy="true"></div></aside>`);
     if(o.id==='altema_point_005')ad.append('<p>スマートフォン専用のポイントサービスです。PCでは利用できません。</p>');
-    const anchor=$(item.after||item.before).first();if(!anchor.length)continue;
+    const anchor=$(item.after||item.before).first();if(!anchor.length)throw new Error(`Missing affiliate placement anchor: ${route} ${item.after||item.before}`);
     if(item.after)anchor.after(ad);else anchor.before(ad);
   }
   if(plan.length){$('.astra-experiment-bar').append(`<a href="?ads=live">既存広告を確認</a>`);if(!$('script[src*="monetization.js"]').length)$('footer').after(`<script src="/monetization.js?v=${version}" type="text/plain" defer></script>`);}

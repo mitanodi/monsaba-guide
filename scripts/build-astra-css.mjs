@@ -3,7 +3,7 @@ import path from 'node:path';
 import postcss from 'postcss';
 import {transform} from 'lightningcss';
 const root=path.resolve(import.meta.dirname,'..');
-const source=fs.readFileSync(path.join(root,'styles/astra.pcss'),'utf8');
+const source=fs.readFileSync(path.join(root,'styles/astra.pcss'),'utf8').replace(/\r\n/g,'\n');
 const ast=postcss.parse(source),original=Buffer.byteLength(source);
 const context=node=>{const parts=[];for(let p=node.parent;p&&p.type!=='root';p=p.parent)parts.unshift(`${p.name} ${p.params}`);return parts.join('|');};
 // Remove only declarations guaranteed to be superseded under exactly the same

@@ -32,7 +32,7 @@ test('top page provides intent navigation without invented popularity', () => {
 test('Tier supports shareable modes and explicit criteria', () => {
   const html = read('tata-tier/index.html');
   const js = read('tata-tier/tata-tier.js');
-  assert.match(html, /tier-criteria-panel/);
+  assert.match(html, /通常ステージ、ゾンビラッシュ、バッジ道場、育成価値などを総合した独自評価です。/);
   assert.match(html, /独自評価/);
   assert.match(html, /href="#mode-/);
   for (const mode of ['overall', 'beginner', 'normal', 'zombie', 'dojo']) assert.match(js, new RegExp(mode));

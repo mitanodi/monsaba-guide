@@ -22,6 +22,7 @@ const readJson = (file) => JSON.parse(readFile(path.join(root, file), 'utf8'));
 const tatari = readJson('data/tatari.json');
 const skills = readJson('data/tata-skills.json');
 const ratings = readJson('data/tier-ratings.json');
+const editorial = readJson('data/editorial-content.json').families;
 const priority = readJson('data/evolution-priority.json');
 const tataImages = readJson('data/tata-images.json');
 const families = tatari.families || [];
@@ -96,7 +97,7 @@ function deltaHtml(delta) {
 }
 function transitionCard(item, includeReason = false) {
   const overall = overallByFamily[item.family.id];
-  const zombie = ratings.zombieRush?.byFamily?.[item.family.id]?.tier;
+  const zombie = editorial[item.family.id]?.showEvolutionZombieBadge && ratings.zombieRush?.byFamily?.[item.family.id]?.tier;
   const image = stage1Image(item.family);
   return `<article class="evolution-card" data-family-id="${esc(item.family.id)}"><div class="evolution-card-head"><img loading="lazy" decoding="async" src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(getFamilyDisplayName(item.family))}"><div><span class="attribute">${icon(item.family.attribute)} ${esc(item.family.attribute)}属性</span><h3>${esc(getFamilyDisplayLabel(item.family))}</h3>${originalName(item.family)}<p>${esc(item.from.tataName)} → ${esc(item.to.tataName)}</p></div></div><div class="tier-inline">${badge('進化', item.priority)}${badge('総合', overall?.tier)}${zombie ? badge('ゾンビ', zombie) : ''}</div><p class="evolution-headline">${esc(item.headline)}</p>${deltaHtml(item.delta)}${includeReason ? `<p>${esc(item.reason)}</p>` : ''}<a class="detail-link" href="/tata/${encodeURIComponent(item.family.id)}/">詳しく見る</a></article>`;
 }

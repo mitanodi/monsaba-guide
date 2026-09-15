@@ -22,6 +22,7 @@ for (const locale of ['en', 'zh-CN']) {
   overrides[locale]['既存広告を確認'] = locale === 'en' ? 'Inspect existing ads' : '查看现有广告';
   for(const name of ['ワラウ','マクロミル'])overrides[locale][name]=name;
 }
+const editorialDescriptions = new Map(Object.values(JSON.parse(fs.readFileSync(path.join(root, 'data/editorial-content.json'), 'utf8')).families).map(entry=>[entry.description,entry.localizedDescription]));
 const glossary = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/glossary.json'), 'utf8'));
 for (const term of glossary.terms) for (const locale of ['en', 'zh-CN']) overrides[locale][term.ja] = term[locale];
 const qualityOverrides = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/quality-overrides.json'), 'utf8'));
@@ -113,8 +114,11 @@ function translator(locale, missing) {
     const raw = String(source);
     const trimmed = raw.replace(/\s+/g, ' ').trim();
     if (!trimmed || !japanese.test(trimmed)) return raw;
+    if(editorialDescriptions.get(trimmed)?.[locale])return raw.replace(trimmed,editorialDescriptions.get(trimmed)[locale]);
     if(trimmed==='暫定')return raw.replace(trimmed,locale==='en'?'Provisional':'暂定');
     if(trimmed.startsWith('関連理由：')){
+      const existing=overrides[locale]?.[trimmed] || translations[locale][trimmed];
+      if(existing)return raw.replace(trimmed,normalizeTranslation(existing,locale,trimmed));
       const parts=trimmed.slice(5).split(' / ');
       const attrs=locale==='en'?{草:'Grass',水:'Water',火:'Fire',雷:'Thunder',岩:'Rock'}:{草:'草',水:'水',火:'火',雷:'雷',岩:'岩'};
       const roleNames=locale==='en'?{前衛:'Frontline',減速:'Slow',スタン:'Stun',シールド:'Shield',範囲火力:'Area damage'}:{前衛:'前排',減速:'减速',スタン:'眩晕',シールド:'护盾',範囲火力:'范围伤害'};

@@ -222,7 +222,7 @@ expect((topHtml.match(/data-family="/g) || []).length === tatari.families.length
 const tierHtml = read('tata-tier/index.html');
 expect((tierHtml.match(/class="wrap static-section tier-board"/g) || []).length > 0, 'Tierの静的HTMLがありません');
 expect((tierHtml.match(/class="tier-chart-tata"/g) || []).length === tatari.families.length * 5, 'Tierチャートの系統数が正本と一致しません');
-expect((tierHtml.match(/class="tier-chart-row /g) || []).length === 37, '5表の7段階＋保留2行が必要です');
+expect((tierHtml.match(/class="tier-chart-row /g) || []).length === 35, '確定更新後は5表の7段階（保留なし）が必要です');
 expect(tierHtml.includes('ビリジカ系') && tierHtml.includes('シズクジ系'), 'Tierチャートの日本名表示が不正です');
 expect((read('evolution-priority/index.html').match(/class="evolution-card"/g) || []).length > 0, '進化優先度の静的HTMLがありません');
 const updatePreviewHtml = read('updates/2026-08-26/index.html');

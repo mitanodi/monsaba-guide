@@ -1,0 +1,4281 @@
+{
+  "version": 1,
+  "source": "Published Astra editorial content, cbfffc0; independent of ranking updates",
+  "families": {
+    "takepanda": {
+      "description": "モンサバのコパンダ系（コパンダ → タケパンダ → パンドウラク → バンブオウ）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割は継続ダメージ・減速。",
+      "comment": "タケノコによる継続ダメージと減速。ゾンビラッシュの敵集団を抑えるのに優秀。",
+      "showEvolutionZombieBadge": true,
+      "modeLinks": [
+        [
+          "/attribute/grass/",
+          "草属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "riifuro",
+          "reasons": [
+            "同じ草属性",
+            "総合SS評価",
+            "共通役割：減速"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute / Overall SS rating / Common role: Slowdown",
+            "zh-CN": "相关原因：同草属性/总体S评级/共同作用：减速"
+          }
+        },
+        {
+          "familyId": "furuggu",
+          "reasons": [
+            "同じ草属性",
+            "総合S評価",
+            "共通役割：減速"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute / Overall S rating / Common role: Slowdown",
+            "zh-CN": "相关原因：同草属性/总体S评级/共同作用：减速"
+          }
+        },
+        {
+          "familyId": "komakiri",
+          "reasons": [
+            "同じ草属性",
+            "総合SSS評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute / overall S rating",
+            "zh-CN": "相关原因：同草属性/总体S评级"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Guide to the Pandaroo Family (Pandaroo → Pandaroot → Pandarrior → Pandagrand), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: Continuous damage/deceleration.",
+        "zh-CN": "熊猫猫系列（熊猫猫 → 熊熊猫 → 熊猫小侠 → 熊猫大侠）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：连续损坏/减速。"
+      }
+    },
+    "tsubaruka": {
+      "description": "モンサバのベロパカ系（ベロパカ → ツバルカ → ビチャルパカ → ジャンガルパカ）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/grass/",
+          "草属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "greenbee",
+          "reasons": [
+            "同じ草属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute",
+            "zh-CN": "相关原因：同草属性"
+          }
+        },
+        {
+          "familyId": "takepanda",
+          "reasons": [
+            "同じ草属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute",
+            "zh-CN": "相关原因：同草属性"
+          }
+        },
+        {
+          "familyId": "komakiri",
+          "reasons": [
+            "同じ草属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute",
+            "zh-CN": "相关原因：同草属性"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Evolution, skill, and verified-value data for the Lollama Family (Lollama → Slobberlama → Ptooielama → Blechlama).",
+        "zh-CN": "收录小舌驼系列（小舌驼 → 口水驼 → 啊呸驼 → 一塌糊驼）的进化、技能与已确认数值。"
+      }
+    },
+    "birimori": {
+      "description": "モンサバのビリモ系（ビリモ → ビリモリ → パルバット → ヴァンパルス）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割は被ダメ増加・範囲支援。",
+      "comment": "敵への被ダメージ増加で味方の火力を伸ばせる。範囲支援役としてゾンビラッシュでも扱いやすい。",
+      "showEvolutionZombieBadge": true,
+      "modeLinks": [
+        [
+          "/attribute/thunder/",
+          "雷属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "gaoden",
+          "reasons": [
+            "同じ雷属性",
+            "共通役割：被ダメ増加"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute / Common role: Increased damage received",
+            "zh-CN": "相关原因：雷电属性相同/共同作用：受到的伤害增加"
+          }
+        },
+        {
+          "familyId": "biripiyo",
+          "reasons": [
+            "同じ雷属性",
+            "総合B評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute / overall SS rating",
+            "zh-CN": "相关原因：相同闪电属性/整体SS等级"
+          }
+        },
+        {
+          "familyId": "umimi",
+          "reasons": [
+            "共通役割：被ダメ増加・範囲支援"
+          ],
+          "localizedText": {
+            "en": "Related reason: Common role: Increase damage/range support",
+            "zh-CN": "相关原因：常见作用：增加伤害/范围支持"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Guide to the Zaplet Family (Zaplet → Synthhog → Sonarbat → Umbraveil), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: Damage increase/range support.",
+        "zh-CN": "电音蝠系列（电音蝠 → 电波蝠 → 大雷音蝠 → 夜翼领主）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：伤害增加/范围支持。"
+      }
+    },
+    "togegyo": {
+      "description": "モンサバのホネギョ系（ホネギョ → トゲギョ → ガイアーマ → アビスカル）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/water/",
+          "水属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "umimi",
+          "reasons": [
+            "同じ水属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute",
+            "zh-CN": "相关原因：同水属性"
+          }
+        },
+        {
+          "familyId": "capibarrie",
+          "reasons": [
+            "同じ水属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute",
+            "zh-CN": "相关原因：同水属性"
+          }
+        },
+        {
+          "familyId": "shizukuchou",
+          "reasons": [
+            "同じ水属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute",
+            "zh-CN": "相关原因：同水属性"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Evolution destinations, skills, and confirmed values of Clash of Critters Maskfry Family (Maskfry → Ospisces → Armorjaw → Dagondeep) are posted.",
+        "zh-CN": "公开了Clash of Critters的小骨鱼系列(小骨鱼→刺骨鱼→铠骨鱼→印斯茅斯之主)的进化目的地、技能和确认值。"
+      }
+    },
+    "yotsubird": {
+      "description": "モンサバのフタバード系（フタバード → ヨツバード）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/grass/",
+          "草属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "greenbee",
+          "reasons": [
+            "同じ草属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute",
+            "zh-CN": "相关原因：同草属性"
+          }
+        },
+        {
+          "familyId": "takepanda",
+          "reasons": [
+            "同じ草属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute",
+            "zh-CN": "相关原因：同草属性"
+          }
+        },
+        {
+          "familyId": "komakiri",
+          "reasons": [
+            "同じ草属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute",
+            "zh-CN": "相关原因：同草属性"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Posted the evolution destination, skills, and confirmed values of Clash of Critters Clucky Family (Clucky → Cluckeroo).",
+        "zh-CN": "公开了Clash of Critters的菜鸡系列的进化目的地、技能以及确认值(菜鸡→幸运鸡)。"
+      }
+    },
+    "kaenjack": {
+      "description": "モンサバのスズメラ系（スズメラ → カエンジャク）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/fire/",
+          "火属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "atatama",
+          "reasons": [
+            "同じ火属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute",
+            "zh-CN": "相关原因：同火属性"
+          }
+        },
+        {
+          "familyId": "kunbuu",
+          "reasons": [
+            "同じ火属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute",
+            "zh-CN": "相关原因：同火属性"
+          }
+        },
+        {
+          "familyId": "korokon",
+          "reasons": [
+            "同じ火属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute",
+            "zh-CN": "相关原因：同火属性"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Posted the evolution destination, skills, and confirmed values of Clash of Critters Sparkrow Family (Sparkrow → Scorchwing).",
+        "zh-CN": "公开了Clash of Critters的小火雀系列的进化目的地、技能以及确认值(小火雀→烈火雀)。"
+      }
+    },
+    "hihidog": {
+      "description": "モンサバのヒパピー系（ヒパピー → ビビドッグ）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/thunder/",
+          "雷属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "erekineko",
+          "reasons": [
+            "同じ雷属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute",
+            "zh-CN": "相关原因：雷电属性相同"
+          }
+        },
+        {
+          "familyId": "gaoden",
+          "reasons": [
+            "同じ雷属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute",
+            "zh-CN": "相关原因：雷电属性相同"
+          }
+        },
+        {
+          "familyId": "hikikomoru",
+          "reasons": [
+            "同じ雷属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute",
+            "zh-CN": "相关原因：雷电属性相同"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Posted the evolution destination, skills, and confirmed values of Clash of Critters Zapup Family (Zapup → Zapooch).",
+        "zh-CN": "公开了Clash of Critters的电嘟狗系列的进化目的地、技能以及确认值(电嘟狗→猛电犬)。"
+      }
+    },
+    "hanarenaishi": {
+      "description": "モンサバのナンモナイシ系（ナンモナイシ → ハナレナイシ）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/grass/",
+          "草属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "greenbee",
+          "reasons": [
+            "同じ草属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute",
+            "zh-CN": "相关原因：同草属性"
+          }
+        },
+        {
+          "familyId": "takepanda",
+          "reasons": [
+            "同じ草属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute",
+            "zh-CN": "相关原因：同草属性"
+          }
+        },
+        {
+          "familyId": "komakiri",
+          "reasons": [
+            "同じ草属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute",
+            "zh-CN": "相关原因：同草属性"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Posted the evolution destination, skills, and confirmed values of Clash of Critters Solpear Family (Solpear → Pearpair).",
+        "zh-CN": "公开了Clash of Critters的鸭梨系列的进化目的地、技能以及确认值(鸭梨→不分梨)。"
+      }
+    },
+    "birinamazu": {
+      "description": "モンサバのノロマズ系（ノロマズ → ビリナマズ）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/thunder/",
+          "雷属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "erekineko",
+          "reasons": [
+            "同じ雷属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute",
+            "zh-CN": "相关原因：雷电属性相同"
+          }
+        },
+        {
+          "familyId": "gaoden",
+          "reasons": [
+            "同じ雷属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute",
+            "zh-CN": "相关原因：雷电属性相同"
+          }
+        },
+        {
+          "familyId": "hikikomoru",
+          "reasons": [
+            "同じ雷属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute",
+            "zh-CN": "相关原因：雷电属性相同"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Posted the evolution destination, skills, and confirmed values of Clash of Critters Wobbler Family (Wobbler → Boltskipper).",
+        "zh-CN": "公开了Clash of Critters的呆呆鱼系列的进化目的地、技能以及确认值(呆呆鱼→电憨鱼)。"
+      }
+    },
+    "daishell": {
+      "description": "モンサバのチーシェル系（チーシェル → ダイシェル）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/water/",
+          "水属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "umimi",
+          "reasons": [
+            "同じ水属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute",
+            "zh-CN": "相关原因：同水属性"
+          }
+        },
+        {
+          "familyId": "capibarrie",
+          "reasons": [
+            "同じ水属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute",
+            "zh-CN": "相关原因：同水属性"
+          }
+        },
+        {
+          "familyId": "shizukuchou",
+          "reasons": [
+            "同じ水属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute",
+            "zh-CN": "相关原因：同水属性"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Posted the evolution destination, skills, and confirmed values of Clash of Critters Shellshy Family (Shellshy → Boldclaw).",
+        "zh-CN": "公开了Clash of Critters的胆小蟹系列的进化目的地、技能以及确认值(胆小蟹→胆大蟹)。"
+      }
+    },
+    "batarisu": {
+      "description": "モンサバのトスリス系（トスリス → バタリス）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/fire/",
+          "火属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "atatama",
+          "reasons": [
+            "同じ火属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute",
+            "zh-CN": "相关原因：同火属性"
+          }
+        },
+        {
+          "familyId": "kunbuu",
+          "reasons": [
+            "同じ火属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute",
+            "zh-CN": "相关原因：同火属性"
+          }
+        },
+        {
+          "familyId": "korokon",
+          "reasons": [
+            "同じ火属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute",
+            "zh-CN": "相关原因：同火属性"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Posted the evolution destination, skills, and confirmed values of Clash of Critters Cindermunk Family (Cindermunk → Embertail).",
+        "zh-CN": "公开了Clash of Critters的火花栗系列的进化目的地、技能以及确认值(火花栗→火焰栗)。"
+      }
+    },
+    "guuhog": {
+      "description": "モンサバのハリネム系（ハリネム → グウホッグ）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/rock/",
+          "岩属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "gantoru",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        },
+        {
+          "familyId": "rokuju",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        },
+        {
+          "familyId": "korotama",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Clash of Critters Dozy Family (Dozy → Snoozebo) evolution destination, skills, and confirmed values are posted.",
+        "zh-CN": "Clash of Critters的打盹刺系列(打盹刺→呼噜刺)的进化目的地、技能、确认值被公开。"
+      }
+    },
+    "capibarrie": {
+      "description": "モンサバのカピラス系（カピラス → カピバルリー）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/water/",
+          "水属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "umimi",
+          "reasons": [
+            "同じ水属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute",
+            "zh-CN": "相关原因：同水属性"
+          }
+        },
+        {
+          "familyId": "shizukuchou",
+          "reasons": [
+            "同じ水属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute",
+            "zh-CN": "相关原因：同水属性"
+          }
+        },
+        {
+          "familyId": "sukedako",
+          "reasons": [
+            "同じ水属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute",
+            "zh-CN": "相关原因：同水属性"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Posted the evolution destination, skills, and confirmed values of Clash of Critters Capywata Family (Capywata → Capypapa).",
+        "zh-CN": "公开了Clash of Critters的卡橘巴拉系列的进化目的地、技能以及确认值(卡橘巴拉→卡骑巴拉)。"
+      }
+    },
+    "rokubuhi": {
+      "description": "モンサバのマドブヒ系（マドブヒ → ロクブヒ）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/rock/",
+          "岩属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "gantoru",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        },
+        {
+          "familyId": "rokuju",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        },
+        {
+          "familyId": "korotama",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Posted the evolution destination, skills, and confirmed values of Clash of Critters Mudrump Family (Mudrump → Rockhog).",
+        "zh-CN": "公开了Clash of Critters的泥巴猪系列的进化目的地、技能以及确认值(泥巴猪→摇滚岩猪)。"
+      }
+    },
+    "marushu": {
+      "description": "モンサバのマルッシュ系（マルッシュ → マボロッシュ → マダムッシュ → イルミラージュ）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割は攻撃速度バフ・被ダメ増加・防御補助。",
+      "comment": "攻撃速度強化、被ダメージ増加、被ダメージ軽減を持つ。編成全体への貢献度が高い。",
+      "showEvolutionZombieBadge": true,
+      "modeLinks": [
+        [
+          "/attribute/grass/",
+          "草属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "komakiri",
+          "reasons": [
+            "同じ草属性",
+            "共通役割：被ダメ増加"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute / Common role: Increased damage taken",
+            "zh-CN": "相关原因：同草属性/共同作用：受到的伤害增加"
+          }
+        },
+        {
+          "familyId": "birimori",
+          "reasons": [
+            "総合S評価",
+            "共通役割：被ダメ増加"
+          ],
+          "localizedText": {
+            "en": "Related reason: Comprehensive SS evaluation / Common role: Increased damage taken",
+            "zh-CN": "相关原因：SS综合评价/共同作用：受到的伤害增加"
+          }
+        },
+        {
+          "familyId": "greenbee",
+          "reasons": [
+            "同じ草属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute",
+            "zh-CN": "相关原因：同草属性"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Guide to the Funglet Family (Funglet → Trippet → Hyphoria → Ecstamira), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: Attack speed buff, damage increase, defense support.",
+        "zh-CN": "嘟嘟菇系列（嘟嘟菇 → 致幻菇 → 靡醉菇 → 极乐魔菇）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：攻击速度增益、伤害增加、防御支持。"
+      }
+    },
+    "fugumaru": {
+      "description": "モンサバのフグマル系（フグマル → ニギリマル → フナモリマル → タイショウマル）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/fire/",
+          "火属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "atatama",
+          "reasons": [
+            "同じ火属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute",
+            "zh-CN": "相关原因：同火属性"
+          }
+        },
+        {
+          "familyId": "kunbuu",
+          "reasons": [
+            "同じ火属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute",
+            "zh-CN": "相关原因：同火属性"
+          }
+        },
+        {
+          "familyId": "korokon",
+          "reasons": [
+            "同じ火属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute",
+            "zh-CN": "相关原因：同火属性"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Posted the evolution destination, skills, and confirmed values of Clash of Critters Blowfin Family (Blowfin → Puffbelly → Chefugu → Pyromaki).",
+        "zh-CN": "公布了Clash of Critters的气球河豚系列的进化目的地、技能以及确认值(气球河豚→寿司河豚→大师河豚→军舰河豚王)。"
+      }
+    },
+    "greenbee": {
+      "description": "モンサバのグリンビィ系（グリンビィ → チョイワルブーン → チョーワルブーン → ブーンマント）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/grass/",
+          "草属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "takepanda",
+          "reasons": [
+            "同じ草属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute",
+            "zh-CN": "相关原因：同草属性"
+          }
+        },
+        {
+          "familyId": "komakiri",
+          "reasons": [
+            "同じ草属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute",
+            "zh-CN": "相关原因：同草属性"
+          }
+        },
+        {
+          "familyId": "sabooru",
+          "reasons": [
+            "同じ草属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute",
+            "zh-CN": "相关原因：同草属性"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Posted the evolution destination, skills, and confirmed values of Clash of Critters Goonbug Family (Goonbug → Capobeetle → Donscarab → Beetleknight).",
+        "zh-CN": "公布了Clash of Critters的绿甲虫系列的进化目的地、技能以及确认值(绿甲虫→酷甲虫→甲虫霸霸→甲虫侠)。"
+      }
+    },
+    "kowagaru": {
+      "description": "モンサバのコワガルー系（コワガルー → ツヨガルー → ガルッキー → ガルチャンプ）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/rock/",
+          "岩属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "gantoru",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        },
+        {
+          "familyId": "rokuju",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        },
+        {
+          "familyId": "korotama",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Evolution destinations, skills, and confirmed values of Clash of Critters Joeyo Family (Joeyo → Puncharoo → Kangachamp → Kaiseroo) are posted.",
+        "zh-CN": "公开了Clash of Critters的怂小袋系列(怂小袋→拳击袋→拳王阿袋→传奇阿袋)的进化目的地、技能和确认值。"
+      }
+    },
+    "kunbuu": {
+      "description": "モンサバのクンブー系（クンブー → ハンバーブー → ブヒナベブー → カロリキング）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": true,
+      "modeLinks": [
+        [
+          "/attribute/fire/",
+          "火属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "atatama",
+          "reasons": [
+            "同じ火属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute",
+            "zh-CN": "相关原因：同火属性"
+          }
+        },
+        {
+          "familyId": "korokon",
+          "reasons": [
+            "同じ火属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute",
+            "zh-CN": "相关原因：同火属性"
+          }
+        },
+        {
+          "familyId": "kaenjack",
+          "reasons": [
+            "同じ火属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute",
+            "zh-CN": "相关原因：同火属性"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Clash of Critters Souphog Family (Souphog → Grillhog → Hothog → Searhog) evolution destination, skills, confirmed values, tier, and usage evaluation are posted.",
+        "zh-CN": "公开Clash of Critters的碗仔猪系列(碗仔猪→汉堡猪→火锅猪→煎扒猪)的进化目的地、技能、确认值、等级以及使用评价。"
+      }
+    },
+    "tsubutsumuri": {
+      "description": "モンサバのツブツムリ系（ツブツムリ → ジェムツムリ → クォーツムリ → アメジスネイル）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/rock/",
+          "岩属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "gantoru",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        },
+        {
+          "familyId": "rokuju",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        },
+        {
+          "familyId": "korotama",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        }
+      ],
+      "beginnerEvolution": false,
+      "localizedDescription": {
+        "en": "Evolution destinations, skills, and confirmed values of Clash of Critters Shardsnail Family (Shardsnail → Gemsnail → Jewelsnail → Crystalsnail) are posted.",
+        "zh-CN": "公开了Clash of Critters的晶粒蜗牛系列(晶粒蜗牛→晶石蜗牛→晶矿蜗牛→晶芯蜗牛)的进化目的地、技能以及确认值。"
+      }
+    },
+    "pupunku": {
+      "description": "モンサバのププンク系（ププンク → クサンク → マグマスク → ボンバスカー）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/fire/",
+          "火属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "atatama",
+          "reasons": [
+            "同じ火属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute",
+            "zh-CN": "相关原因：同火属性"
+          }
+        },
+        {
+          "familyId": "kunbuu",
+          "reasons": [
+            "同じ火属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute",
+            "zh-CN": "相关原因：同火属性"
+          }
+        },
+        {
+          "familyId": "korokon",
+          "reasons": [
+            "同じ火属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute",
+            "zh-CN": "相关原因：同火属性"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Evolution destinations, skills, and confirmed values of Clash of Critters Fumekit Family (Fumekit → Sulfunk → Magmusk → Blastniff) are posted.",
+        "zh-CN": "公开了Clash of Critters的噗噗鼬系列(噗噗鼬→臭屁鼬→爆火鼬→燃尾飞鼬)的进化目的地、技能和确认值。"
+      }
+    },
+    "erekineko": {
+      "description": "モンサバのエレキネコ系（エレキネコ → デンニャン → スピニャット）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/thunder/",
+          "雷属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "gaoden",
+          "reasons": [
+            "同じ雷属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute",
+            "zh-CN": "相关原因：雷电属性相同"
+          }
+        },
+        {
+          "familyId": "hikikomoru",
+          "reasons": [
+            "同じ雷属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute",
+            "zh-CN": "相关原因：雷电属性相同"
+          }
+        },
+        {
+          "familyId": "birinamazu",
+          "reasons": [
+            "同じ雷属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute",
+            "zh-CN": "相关原因：雷电属性相同"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Posted the evolution destination, skills, and confirmed values of Clash of Critters Kittazap Family (Kittazap → Nekowatt → Voltazar).",
+        "zh-CN": "公布了Clash of Critters的电喵宝系列的进化目的地、技能以及确认值(电喵宝→电财喵→雷伏金喵)。"
+      }
+    },
+    "sukedako": {
+      "description": "モンサバのスケダコ系（スケダコ → ウオダコ → オクトーム → ロードパス）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/water/",
+          "水属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "umimi",
+          "reasons": [
+            "同じ水属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute",
+            "zh-CN": "相关原因：同水属性"
+          }
+        },
+        {
+          "familyId": "capibarrie",
+          "reasons": [
+            "同じ水属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute",
+            "zh-CN": "相关原因：同水属性"
+          }
+        },
+        {
+          "familyId": "shizukuchou",
+          "reasons": [
+            "同じ水属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute",
+            "zh-CN": "相关原因：同水属性"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Verified evolutions, skills and values for the Dumbopus Family through Lordopus.",
+        "zh-CN": "收录呆呆章鱼系列至国王章鱼的进化、技能与已确认数值。"
+      }
+    },
+    "hinyao": {
+      "description": "モンサバのヒニャオ系（ヒニャオ → マネヒネコ → ネコマダラ）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割は範囲火力・ニャンコシナジー。",
+      "comment": "範囲攻撃で複数レーンに火力を出しやすい。ニャンコ系との組み合わせも狙える。",
+      "showEvolutionZombieBadge": true,
+      "modeLinks": [
+        [
+          "/attribute/fire/",
+          "火属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "fureimuji",
+          "reasons": [
+            "同じ火属性",
+            "共通役割：範囲火力"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute / Common role: Area firepower",
+            "zh-CN": "相关原因：同火属性/共同作用：区域火力"
+          }
+        },
+        {
+          "familyId": "matchiba",
+          "reasons": [
+            "同じ火属性",
+            "総合SS評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute / overall S rating",
+            "zh-CN": "相关原因：相同火属性/总体S评级"
+          }
+        },
+        {
+          "familyId": "himori",
+          "reasons": [
+            "同じ火属性",
+            "総合A評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute / overall S rating",
+            "zh-CN": "相关原因：相同火属性/总体S评级"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Guide to the Flameow Family (Flameow → Nekoflare → Silversear), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: Area firepower/Nyanko synergy.",
+        "zh-CN": "火喵宝系列（火喵宝 → 火财喵 → 炙炎银喵）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：区域输出/Nyanko协同。"
+      }
+    },
+    "mumukaba": {
+      "description": "モンサバのムムカバ系（ムムカバ → マリリンバ → モンローバ → ヒポディーバ）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/rock/",
+          "岩属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "gantoru",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        },
+        {
+          "familyId": "rokuju",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        },
+        {
+          "familyId": "korotama",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Evolution destinations, skills, and confirmed values of Clash of Critters Momopo Family (Momopo → Lulupo → Lilypo → Gemmapo) are posted.",
+        "zh-CN": "公开了Clash of Critters的梦梦河马系列(梦梦河马→露露河马→丽丽河马→珍珍河马)的进化目的地、技能以及确认值。"
+      }
+    },
+    "hikaru": {
+      "description": "モンサバのピカル系（ピカル → ボルタル → ルシフェル → ルミナリオン）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/thunder/",
+          "雷属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "erekineko",
+          "reasons": [
+            "同じ雷属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute",
+            "zh-CN": "相关原因：雷电属性相同"
+          }
+        },
+        {
+          "familyId": "gaoden",
+          "reasons": [
+            "同じ雷属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute",
+            "zh-CN": "相关原因：雷电属性相同"
+          }
+        },
+        {
+          "familyId": "hikikomoru",
+          "reasons": [
+            "同じ雷属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute",
+            "zh-CN": "相关原因：雷电属性相同"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Evolution destinations, skills, and confirmed values of Clash of Critters Glowfly Family (Glowfly → Phosflare → Glimmerwing → Luminastra) are posted.",
+        "zh-CN": "公开了Clash of Critters的微光萤系列(微光萤→幻彩萤→曜光萤→极光萤)的进化目的地、技能和确认值。"
+      }
+    },
+    "atatama": {
+      "description": "モンサバのアタタマ系（アタタマ → ヒガマ → メラガマ → ダルマグマ）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/fire/",
+          "火属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "kunbuu",
+          "reasons": [
+            "同じ火属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute",
+            "zh-CN": "相关原因：同火属性"
+          }
+        },
+        {
+          "familyId": "korokon",
+          "reasons": [
+            "同じ火属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute",
+            "zh-CN": "相关原因：同火属性"
+          }
+        },
+        {
+          "familyId": "kaenjack",
+          "reasons": [
+            "同じ火属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute",
+            "zh-CN": "相关原因：同火属性"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Posted the evolution destination, skills, and confirmed values of Clash of Critters Poakie Family (Poakie → Sizzribb → Lickflicker → Ignitoad).",
+        "zh-CN": "公布了Clash of Critters的泡泡蝌系列的进化目的地、技能以及确认值(泡泡蝌→火蟾蜍→卷舌蟾蜍→火云神蟾)。"
+      }
+    },
+    "yaminome": {
+      "description": "モンサバのヤミノメ系（ヤミノメ → ヤミハナ → ヤミマンドラ → ダークラウン）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/grass/",
+          "草属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "greenbee",
+          "reasons": [
+            "同じ草属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute",
+            "zh-CN": "相关原因：同草属性"
+          }
+        },
+        {
+          "familyId": "takepanda",
+          "reasons": [
+            "同じ草属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute",
+            "zh-CN": "相关原因：同草属性"
+          }
+        },
+        {
+          "familyId": "komakiri",
+          "reasons": [
+            "同じ草属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute",
+            "zh-CN": "相关原因：同草属性"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Evolution destinations, skills, and confirmed values of Clash of Critters Budboo Family (Budboo → Snapshade → Thornwisp → Chomperwraith) are posted.",
+        "zh-CN": "公开了Clash of Critters的暗影花系列(暗影花→幽影花→幻影花→秘影花灵)的进化目的地、技能以及确认值。"
+      }
+    },
+    "korokon": {
+      "description": "モンサバのコロコン系（コロコン → ニコン → ヨウエンビ → キツネビア）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": true,
+      "modeLinks": [
+        [
+          "/attribute/fire/",
+          "火属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "atatama",
+          "reasons": [
+            "同じ火属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute",
+            "zh-CN": "相关原因：同火属性"
+          }
+        },
+        {
+          "familyId": "kunbuu",
+          "reasons": [
+            "同じ火属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute",
+            "zh-CN": "相关原因：同火属性"
+          }
+        },
+        {
+          "familyId": "kaenjack",
+          "reasons": [
+            "同じ火属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute",
+            "zh-CN": "相关原因：同火属性"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Posted the evolution destination, skills, confirmed values, tier and usage evaluation of Clash of Critters Sparkit Family (Sparkit → Flametail → Flarevix → Phantifox).",
+        "zh-CN": "公开了Clash of Critters的球球狐系列的进化目的地、技能、确认值、等级和使用评价(球球狐→眯眯狐→艳尾狐→幻尾狐)。"
+      }
+    },
+    "mogurin": {
+      "description": "モンサバのモグリン系（モグリン → モグデント → モグトリデ → モグパレス）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/rock/",
+          "岩属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "gantoru",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        },
+        {
+          "familyId": "rokuju",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        },
+        {
+          "familyId": "korotama",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Evolution destinations, skills, and confirmed values of Clash of Critters Gopher Family (Gopher → Watchroo → Bastogard → Cratzar) are posted.",
+        "zh-CN": "公开了Clash of Critters的小地鼠系列(小地鼠→前哨鼠→堡垒鼠→地皇鼠)的进化目的地、技能和确认值。"
+      }
+    },
+    "biripiyo": {
+      "description": "モンサバのビリピヨ系（ビリピヨ → エレクトリ → ビリビバシ → ライオウム）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割は攻撃バフ・被ダメ軽減・サポート。",
+      "comment": "味方への攻撃力増加と被ダメージ軽減を同時に付与。サポート性能が非常に高い。",
+      "showEvolutionZombieBadge": true,
+      "modeLinks": [
+        [
+          "/attribute/thunder/",
+          "雷属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "birimori",
+          "reasons": [
+            "同じ雷属性",
+            "総合S評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute / overall SS rating",
+            "zh-CN": "相关原因：相同闪电属性/整体SS等级"
+          }
+        },
+        {
+          "familyId": "fureimuji",
+          "reasons": [
+            "総合SS評価",
+            "共通役割：攻撃バフ"
+          ],
+          "localizedText": {
+            "en": "Related reason: Overall SS evaluation / Common role: Attack buff",
+            "zh-CN": "相关原因：SS整体评价/常用角色：攻击buff"
+          }
+        },
+        {
+          "familyId": "erekineko",
+          "reasons": [
+            "同じ雷属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute",
+            "zh-CN": "相关原因：雷电属性相同"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Guide to the Sparkeet Family (Sparkeet → Buzzbeak → Toucanzam → Technocan), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: Attack buff/damage reduction/support.",
+        "zh-CN": "电咕咕系列（电咕咕 → 电嘴鸟 → 电歌巨鸟 → 电音歌王）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：攻击增益/伤害减少/支持。"
+      }
+    },
+    "potakage": {
+      "description": "モンサバのポタカゲ系（ポタカゲ → ピチャカゲ → アクアガマ → イガマスター）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割はステルス・火力・生存。",
+      "comment": "ステルスによる生存力が特徴。特にバッジ道場で強力。",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/water/",
+          "水属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "tafupen",
+          "reasons": [
+            "同じ水属性",
+            "総合SS評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute / overall SS rating",
+            "zh-CN": "相关原因：相同的水属性/整体SS等级"
+          }
+        },
+        {
+          "familyId": "boruzarashi",
+          "reasons": [
+            "同じ水属性",
+            "総合SSS評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute / overall SS rating",
+            "zh-CN": "相关原因：相同的水属性/整体SS等级"
+          }
+        },
+        {
+          "familyId": "nekoori",
+          "reasons": [
+            "同じ水属性",
+            "総合S評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute / overall SS rating",
+            "zh-CN": "相关原因：相同的水属性/整体SS等级"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Guide to the Skinklet Family (Skinklet → Skinkoon → Ninjaguana → Hychroma), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: stealth / damage / survival.",
+        "zh-CN": "水滴蜥系列（水滴蜥 → 水隐蜥 → 水影忍者 → 御水宗师）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：隐身／输出／生存。"
+      }
+    },
+    "fukurogumo": {
+      "description": "モンサバのフクロクモ系（フクロクモ → ボトルグモ → チュラリウム → シンラリウム）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割はシールド・スタン・前衛。",
+      "comment": "シールドとスタンで前線を支えられる。耐久寄りの編成で役割を持ちやすい。",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/grass/",
+          "草属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "komakiri",
+          "reasons": [
+            "同じ草属性",
+            "総合SSS評価",
+            "共通役割：前衛"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute / Overall SSS rating / Common role: Vanguard",
+            "zh-CN": "相关原因：同草属性/总体S评级/共同角色：先锋"
+          }
+        },
+        {
+          "familyId": "riifuro",
+          "reasons": [
+            "同じ草属性",
+            "総合SS評価",
+            "共通役割：スタン"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute / Overall SS rating / Common role: Stun",
+            "zh-CN": "相关原因：同草属性/总体S评级/共同角色：眩晕"
+          }
+        },
+        {
+          "familyId": "takepanda",
+          "reasons": [
+            "同じ草属性",
+            "総合SS評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute / overall S rating",
+            "zh-CN": "相关原因：同草属性/总体S评级"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Guide to the Sackling Family (Sackling → Jarachnid → Terracrawler → Weaverfang), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: Shield Stun Vanguard.",
+        "zh-CN": "叶露蛛系列（叶露蛛 → 叶瓶蛛 → 森林瓶蛛 → 森罗瓶蛛）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：护盾／眩晕／前排。"
+      }
+    },
+    "nemukurage": {
+      "description": "モンサバのネムクラゲ系（ネムクラゲ → スヤクラゲ → ルナドール → オロラクイン）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/water/",
+          "水属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "umimi",
+          "reasons": [
+            "同じ水属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute",
+            "zh-CN": "相关原因：同水属性"
+          }
+        },
+        {
+          "familyId": "capibarrie",
+          "reasons": [
+            "同じ水属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute",
+            "zh-CN": "相关原因：同水属性"
+          }
+        },
+        {
+          "familyId": "shizukuchou",
+          "reasons": [
+            "同じ水属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute",
+            "zh-CN": "相关原因：同水属性"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Evolution destinations, skills, and confirmed values of Clash of Critters Lullely Family (Lullely → Yawnelly → Souverelle → Somnrayna) are posted.",
+        "zh-CN": "公开了Clash of Critters的悠眠水母系列(悠眠水母→织梦水母→爱洛公主→星海女王)的进化目的地、技能和确认值。"
+      }
+    },
+    "sabooru": {
+      "description": "モンサバのサボール系（サボール → サボケン → サボディビル）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/grass/",
+          "草属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "greenbee",
+          "reasons": [
+            "同じ草属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute",
+            "zh-CN": "相关原因：同草属性"
+          }
+        },
+        {
+          "familyId": "takepanda",
+          "reasons": [
+            "同じ草属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute",
+            "zh-CN": "相关原因：同草属性"
+          }
+        },
+        {
+          "familyId": "komakiri",
+          "reasons": [
+            "同じ草属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute",
+            "zh-CN": "相关原因：同草属性"
+          }
+        }
+      ],
+      "beginnerEvolution": false,
+      "localizedDescription": {
+        "en": "Posted the evolution destination, skills, and confirmed values of Clash of Critters Cactobud Family (Cactobud → Cactobloom → Cactoczar).",
+        "zh-CN": "公开了Clash of Critters的仙刺球系列的进化目的地、技能以及确认值(仙刺球→仙刺掌→仙刺大王)。"
+      }
+    },
+    "korotama": {
+      "description": "モンサバのコロタマ系（コロタマ → コロロック → スカラーべ → スカリギオ）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/rock/",
+          "岩属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "gantoru",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        },
+        {
+          "familyId": "rokuju",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        },
+        {
+          "familyId": "kowagaru",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Evolution destinations, skills, and confirmed values of Clash of Critters Humbug Family (Humbug → Humbleetle → Zenscarab → Hierotyrus) are posted.",
+        "zh-CN": "公开了Clash of Critters的十克郎系列(十克郎→石颗郎→施课郎→圣光大祭司)的进化目的地、技能和确认值。"
+      }
+    },
+    "yanzaru": {
+      "description": "モンサバのヤンザル系（ヤンザル → ワルキー → イビルザル → サルタイセイ）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割は火力・分身・前線補助。",
+      "comment": "進化で分身数が増える火力枠。第3進化以降の戦力上昇が大きい。",
+      "showEvolutionZombieBadge": true,
+      "modeLinks": [
+        [
+          "/attribute/rock/",
+          "岩属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "gantoru",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        },
+        {
+          "familyId": "rokuju",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        },
+        {
+          "familyId": "korotama",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        }
+      ],
+      "beginnerEvolution": false,
+      "localizedDescription": {
+        "en": "Guide to the Punchimp Family (Punchimp → Rockfu → Rockwu → Rockong), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: damage / clones / front-line support.",
+        "zh-CN": "顽皮吗喽系列（顽皮吗喽 → 棍棒吗喽 → 天命吗喽 → 大圣吗喽）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：输出／分身／前排辅助。"
+      }
+    },
+    "gaoden": {
+      "description": "モンサバのガオデン系（ガオデン → ガルルデン → キングデン → エンペラデン）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割はノックバック・被ダメ増加。",
+      "comment": "ノックバックと被ダメージ増加で敵の処理を補助する。押し返しが欲しい場面で候補になる。",
+      "showEvolutionZombieBadge": true,
+      "modeLinks": [
+        [
+          "/attribute/thunder/",
+          "雷属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "denrou",
+          "reasons": [
+            "同じ雷属性",
+            "総合A評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute / overall S rating",
+            "zh-CN": "相关原因：雷电属性相同/整体S评级"
+          }
+        },
+        {
+          "familyId": "birimori",
+          "reasons": [
+            "同じ雷属性",
+            "共通役割：被ダメ増加"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute / Common role: Increased damage received",
+            "zh-CN": "相关原因：雷电属性相同/共同作用：受到的伤害增加"
+          }
+        },
+        {
+          "familyId": "shiiparusu",
+          "reasons": [
+            "同じ雷属性",
+            "総合S評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute / overall S rating",
+            "zh-CN": "相关原因：雷电属性相同/整体S评级"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Guide to the Zappur Family (Zappur → Electroar → Blitzmane → Stormlion), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: Increased knockback/damage taken.",
+        "zh-CN": "小电狮系列（小电狮 → 闪电狮 → 雷电狮鹫 → 雷翼狮王）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：增加的击退/受到的伤害。"
+      }
+    },
+    "himawarin": {
+      "description": "モンサバのヒマワリン系（ヒマワリン → キラワー → サーフクリン → サンフクリン）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割は回復・攻防バフ。",
+      "comment": "回復と攻防バフを同時に担当。編成全体を支えるサポートとして汎用性が高い。",
+      "showEvolutionZombieBadge": true,
+      "modeLinks": [
+        [
+          "/attribute/grass/",
+          "草属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "purabi",
+          "reasons": [
+            "総合SSS評価",
+            "共通役割：回復"
+          ],
+          "localizedText": {
+            "en": "Related reason: Comprehensive SSS evaluation / Common role: Recovery",
+            "zh-CN": "相关原因：综合SSS评估/共同作用：恢复"
+          }
+        },
+        {
+          "familyId": "greenbee",
+          "reasons": [
+            "同じ草属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute",
+            "zh-CN": "相关原因：同草属性"
+          }
+        },
+        {
+          "familyId": "takepanda",
+          "reasons": [
+            "同じ草属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute",
+            "zh-CN": "相关原因：同草属性"
+          }
+        }
+      ],
+      "beginnerEvolution": false,
+      "localizedDescription": {
+        "en": "Guide to the Buddi Family (Buddi → Sunfleur → Solaflora → Heliabloom), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: Recovery/Offense/Defense Buff.",
+        "zh-CN": "盆盆葵系列（盆盆葵 → 啦啦葵 → 冲浪葵 → 逐日金葵）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：恢复/进攻/防守增益。"
+      }
+    },
+    "nekoori": {
+      "description": "モンサバのネコオリ系（ネコオリ → チルネコ → チルレオ → ブリズレオ）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割は遠距離火力・減速・貫通。",
+      "comment": "低コストで第3進化を狙いやすい。減速・広範囲攻撃・貫通で序盤から使いやすい。",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/water/",
+          "水属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "umimi",
+          "reasons": [
+            "同じ水属性",
+            "共通役割：減速"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute / Common role: Slowdown",
+            "zh-CN": "相关原因：相同水属性/共同作用：减速"
+          }
+        },
+        {
+          "familyId": "shizukuchou",
+          "reasons": [
+            "同じ水属性",
+            "共通役割：減速"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute / Common role: Slowdown",
+            "zh-CN": "相关原因：相同水属性/共同作用：减速"
+          }
+        },
+        {
+          "familyId": "tafupen",
+          "reasons": [
+            "同じ水属性",
+            "総合SS評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute / overall SS rating",
+            "zh-CN": "相关原因：相同的水属性/整体SS等级"
+          }
+        }
+      ],
+      "beginnerEvolution": false,
+      "localizedDescription": {
+        "en": "Guide to the Frostnip Family (Frostnip → Frostpaw → Frostique → Frostluna), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: Long range firepower/deceleration/penetration.",
+        "zh-CN": "猫冰系列（猫冰 → 冰团猫 → 冰雪猫王 → 凛月猫王）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：远程输出/减速/穿透。"
+      }
+    },
+    "furuggu": {
+      "description": "モンサバのフルッグ系（フルッグ → フルルッグ → ドラフルッグ → フルグロウン）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割は範囲火力・減速・序盤育成。",
+      "comment": "第3進化を早く狙える序盤向け。進化すると爆発頻度が上がり、減速も獲得する。",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/grass/",
+          "草属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "takepanda",
+          "reasons": [
+            "同じ草属性",
+            "総合SS評価",
+            "共通役割：減速"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute / Overall SS rating / Common role: Slowdown",
+            "zh-CN": "相关原因：同草属性/总体S评级/共同作用：减速"
+          }
+        },
+        {
+          "familyId": "riifuro",
+          "reasons": [
+            "同じ草属性",
+            "総合SS評価",
+            "共通役割：減速"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute / Overall SS rating / Common role: Slowdown",
+            "zh-CN": "相关原因：同草属性/总体S评级/共同作用：减速"
+          }
+        },
+        {
+          "familyId": "komakiri",
+          "reasons": [
+            "同じ草属性",
+            "総合SSS評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute / overall S rating",
+            "zh-CN": "相关原因：同草属性/总体S评级"
+          }
+        }
+      ],
+      "beginnerEvolution": true,
+      "localizedDescription": {
+        "en": "Guide to the Frugling Family (Frugling → Frugatoad → Frugagon → Frugantuan), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: Area firepower/deceleration/early stage development.",
+        "zh-CN": "火果蛙系列（火果蛙 → 大果蛙 → 巨果蛙 → 极果蛙）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：区域输出/减速/早期发展。"
+      }
+    },
+    "himori": {
+      "description": "モンサバのヒモリ系（ヒモリ → フレイモリ → ボルケザード → インフェルドラ）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割は燃焼・序盤火力。",
+      "comment": "第3進化を早く狙える序盤向け火力。燃焼を中心にダメージを出す。",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/fire/",
+          "火属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "fureebi",
+          "reasons": [
+            "同じ火属性",
+            "共通役割：燃焼"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute / Common role: Combustion",
+            "zh-CN": "相关原因：同火属性/共同作用：燃烧"
+          }
+        },
+        {
+          "familyId": "hinyao",
+          "reasons": [
+            "同じ火属性",
+            "総合SS評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute / overall S rating",
+            "zh-CN": "相关原因：相同火属性/总体S评级"
+          }
+        },
+        {
+          "familyId": "matchiba",
+          "reasons": [
+            "同じ火属性",
+            "総合SS評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute / overall S rating",
+            "zh-CN": "相关原因：相同火属性/总体S评级"
+          }
+        }
+      ],
+      "beginnerEvolution": true,
+      "localizedDescription": {
+        "en": "Guide to the Blueflick Family (Blueflick → Ignisnap → Azurion → Newflamander), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: burn / early-game damage.",
+        "zh-CN": "蓝舌火蜥系列（蓝舌火蜥 → 蓝角蝾螈 → 焰尾龙 → 曜尾龙）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：燃烧／前期伤害。"
+      }
+    },
+    "komakiri": {
+      "description": "モンサバのコマキリ系（コマキリ → ハナキリ → ヴァルキリ → サクランティス）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割は前衛・連撃・被ダメ増加。",
+      "comment": "連撃と被ダメージ増加を持つ前衛。道場で前線役として使いやすい。",
+      "showEvolutionZombieBadge": true,
+      "modeLinks": [
+        [
+          "/attribute/grass/",
+          "草属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "fukurogumo",
+          "reasons": [
+            "同じ草属性",
+            "総合S評価",
+            "共通役割：前衛"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute / Overall S rating / Common role: Vanguard",
+            "zh-CN": "相关原因：同草属性/总体S评级/共同角色：先锋"
+          }
+        },
+        {
+          "familyId": "takepanda",
+          "reasons": [
+            "同じ草属性",
+            "総合SS評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute / overall S rating",
+            "zh-CN": "相关原因：同草属性/总体S评级"
+          }
+        },
+        {
+          "familyId": "riifuro",
+          "reasons": [
+            "同じ草属性",
+            "総合SS評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute / overall S rating",
+            "zh-CN": "相关原因：同草属性/总体S评级"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Guide to the Manteeny Family (Manteeny → Stalkerix → Serrabloom → Orchitoria), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: Vanguard/Continuous attack/Increased damage taken.",
+        "zh-CN": "小粉螳系列（小粉螳 → 兰花螳 → 霓裳兰螳 → 兰花女王）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：先锋/连续攻击/受到的伤害增加。"
+      }
+    },
+    "umimi": {
+      "description": "モンサバのウミミ系（ウミミ → ウミピョン → ウミロップ → アクアリーナ）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割は減速・被ダメ増加・範囲支援。",
+      "comment": "継続範囲ダメージ、減速、被ダメージ増加を担当。敵集団への支援性能が高い。",
+      "showEvolutionZombieBadge": true,
+      "modeLinks": [
+        [
+          "/attribute/water/",
+          "水属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "shizukuchou",
+          "reasons": [
+            "同じ水属性",
+            "共通役割：減速"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute / Common role: Slowdown",
+            "zh-CN": "相关原因：相同水属性/共同作用：减速"
+          }
+        },
+        {
+          "familyId": "nekoori",
+          "reasons": [
+            "同じ水属性",
+            "共通役割：減速"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute / Common role: Slowdown",
+            "zh-CN": "相关原因：相同水属性/共同作用：减速"
+          }
+        },
+        {
+          "familyId": "gaoden",
+          "reasons": [
+            "総合SSS評価",
+            "共通役割：被ダメ増加"
+          ],
+          "localizedText": {
+            "en": "Related reason: Overall SSS rating / Common role: Increased damage taken",
+            "zh-CN": "相关原因：总体S评级/共同角色：受到的伤害增加"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Guide to the Droppit Family (Droppit → Bubbit → Tideon → Haplysia), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: Deceleration/Increase damage/Area support.",
+        "zh-CN": "小海兔系列（小海兔 → 海兔姬 → 海兔公主 → 海兔女王）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：减速/增加伤害/区域支持。"
+      }
+    },
+    "purabi": {
+      "description": "モンサバのプラビ系（プラビ → スタピョン → ステラビット → アストラビット）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割は回復・バフ・生存補助。",
+      "comment": "回復・攻防バフ・ピンチ時無敵・高速回復を持つ。ゾンビラッシュを中心に安定性を大きく上げる。",
+      "showEvolutionZombieBadge": true,
+      "modeLinks": [
+        [
+          "/attribute/thunder/",
+          "雷属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "denjika",
+          "reasons": [
+            "同じ雷属性",
+            "総合SS評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute / overall SSS rating",
+            "zh-CN": "相关原因：相同的闪电属性/总体SSS评级"
+          }
+        },
+        {
+          "familyId": "himawarin",
+          "reasons": [
+            "総合SSS評価",
+            "共通役割：回復"
+          ],
+          "localizedText": {
+            "en": "Related reason: Comprehensive SSS evaluation / Common role: Recovery",
+            "zh-CN": "相关原因：综合SSS评估/共同作用：恢复"
+          }
+        },
+        {
+          "familyId": "erekineko",
+          "reasons": [
+            "同じ雷属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute",
+            "zh-CN": "相关原因：雷电属性相同"
+          }
+        }
+      ],
+      "beginnerEvolution": false,
+      "localizedDescription": {
+        "en": "Guide to the Cheerling Family (Cheerling → Cheerlet → Cheerspring → Cheerstella), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: Recovery/buff/survival aid.",
+        "zh-CN": "星兔蛋系列（星兔蛋 → 星兔兔 → 星兔姬 → 星兔偶像）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：恢复/增益/生存援助。"
+      }
+    },
+    "rokuju": {
+      "description": "モンサバのコロジュー系（コロジュー → ロクジュー → ジオジュラ → ジュラゴン）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/rock/",
+          "岩属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "gantoru",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        },
+        {
+          "familyId": "korotama",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        },
+        {
+          "familyId": "kowagaru",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Posted the evolution destination, skills, and confirmed values of Clash of Critters Rubblet Family (Rubblet → Cobbledon → Rockzilla → Meteorax).",
+        "zh-CN": "公布了Clash of Critters的小岩蜥系列的进化目的地、技能以及确认值(小岩蜥→烈岩蜥→岩暴龙→陨岩龙)。"
+      }
+    },
+    "boruzarashi": {
+      "description": "モンサバのナミアシカ系（ナミアシカ → ボルザラシ → ダブザラシ → ダイドウオウ）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割は広範囲火力・妨害。",
+      "comment": "進化後はボール数が増え、広い範囲へ火力を出しやすい。通常ステージでも使いやすい。",
+      "showEvolutionZombieBadge": true,
+      "modeLinks": [
+        [
+          "/attribute/water/",
+          "水属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "tafupen",
+          "reasons": [
+            "同じ水属性",
+            "総合SS評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute / overall SS rating",
+            "zh-CN": "相关原因：相同的水属性/整体SS等级"
+          }
+        },
+        {
+          "familyId": "nekoori",
+          "reasons": [
+            "同じ水属性",
+            "総合S評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute / overall SS rating",
+            "zh-CN": "相关原因：相同的水属性/整体SS等级"
+          }
+        },
+        {
+          "familyId": "potakage",
+          "reasons": [
+            "同じ水属性",
+            "総合A評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute / overall SS rating",
+            "zh-CN": "相关原因：相同的水属性/整体SS等级"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Guide to the Sealing Family (Sealing → Sealoon → Seaswirl → Sealord), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: Wide range firepower/interference.",
+        "zh-CN": "波波狮系列（波波狮 → 球球海狮 → 浪花海狮 → 幻海狮王）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：宽范围输出/干扰。"
+      }
+    },
+    "gantoru": {
+      "description": "モンサバのコロカメ系（コロカメ → ガントル → ガンタス → ガンバンタス）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/rock/",
+          "岩属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "rokuju",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        },
+        {
+          "familyId": "korotama",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        },
+        {
+          "familyId": "kowagaru",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Posted the evolution destination, skills, and confirmed values of Clash of Critters Gibber Family (Gibber → Turtuff → Rockshell → Terraton).",
+        "zh-CN": "公布了Clash of Critters的小岩龟系列的进化目的地、技能以及确认值(小岩龟→盘岩龟→岩背龟→磐石龟)。"
+      }
+    },
+    "denjika": {
+      "description": "モンサバのビリジカ系（ビリジカ → デンジカ → ジバジカ → マグネクス）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割は貫通・麻痺・CC。",
+      "comment": "貫通・麻痺・束縛による火力とCCを両立。海外のOverall・Boss・Dojo評価と国内評価が重なり、複数モードで長く使える。",
+      "showEvolutionZombieBadge": true,
+      "modeLinks": [
+        [
+          "/attribute/thunder/",
+          "雷属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "denrou",
+          "reasons": [
+            "同じ雷属性",
+            "共通役割：麻痺"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute / Common role: Paralysis",
+            "zh-CN": "相关原因：相同雷电属性/共同作用：麻痹"
+          }
+        },
+        {
+          "familyId": "purabi",
+          "reasons": [
+            "同じ雷属性",
+            "総合SSS評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute / overall SSS rating",
+            "zh-CN": "相关原因：相同的闪电属性/总体SSS评级"
+          }
+        },
+        {
+          "familyId": "shiiparusu",
+          "reasons": [
+            "同じ雷属性",
+            "共通役割：麻痺"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute / Common role: Paralysis",
+            "zh-CN": "相关原因：相同雷电属性/共同作用：麻痹"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Guide to the Voltfawn Family (Voltfawn → Sparkdoe → Zapantler → Magnedart), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: Penetration/Paralysis/CC.",
+        "zh-CN": "小电鹿系列（小电鹿 → 电鹿 → 磁角电鹿 → 电鹿族长）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：穿透/麻痹/CC。"
+      }
+    },
+    "tafupen": {
+      "description": "モンサバのトコペン系（トコペン → タフペン → フブペン → ペンペラー）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割はタンク・シールド・前衛。",
+      "comment": "シールドを使って前線を維持するタンク。ゾンビラッシュでもLv5・Lv7の役割が大きい。",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/water/",
+          "水属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "boruzarashi",
+          "reasons": [
+            "同じ水属性",
+            "総合SSS評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute / overall SS rating",
+            "zh-CN": "相关原因：相同的水属性/整体SS等级"
+          }
+        },
+        {
+          "familyId": "nekoori",
+          "reasons": [
+            "同じ水属性",
+            "総合S評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute / overall SS rating",
+            "zh-CN": "相关原因：相同的水属性/整体SS等级"
+          }
+        },
+        {
+          "familyId": "pakuma",
+          "reasons": [
+            "同じ水属性",
+            "共通役割：タンク"
+          ],
+          "localizedText": {
+            "en": "Related because they share the Water attribute and Tank role",
+            "zh-CN": "关联原因：同为水属性 / 共同定位：坦克"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Guide to the Waddledo Family (Waddledo → Swaystroll → Stoodbeak → Glideflip), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: Tank/Shield/Vanguard.",
+        "zh-CN": "企呼呼系列（企呼呼 → 企鼓鼓 → 企汹汹 → 企霸霸）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：坦克/盾牌/先锋。"
+      }
+    },
+    "fureimuji": {
+      "description": "モンサバのヒノムシ系（ヒノムシ → フレイムシ → バタフレア → バタブレイズ）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割は範囲火力・回復・攻撃バフ。",
+      "comment": "範囲攻撃・回復・攻撃力強化を兼ねる強力な系統。複数モードで優秀だが、最新の国内外評価では総合最上位5系統より一段下と判断。",
+      "showEvolutionZombieBadge": true,
+      "modeLinks": [
+        [
+          "/attribute/fire/",
+          "火属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "fureebi",
+          "reasons": [
+            "同じ火属性",
+            "総合S評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute / overall SS rating",
+            "zh-CN": "相关原因：相同火属性/整体SS等级"
+          }
+        },
+        {
+          "familyId": "hinyao",
+          "reasons": [
+            "同じ火属性",
+            "共通役割：範囲火力"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute / Common role: Area firepower",
+            "zh-CN": "相关原因：同火属性/共同作用：区域火力"
+          }
+        },
+        {
+          "familyId": "biripiyo",
+          "reasons": [
+            "総合B評価",
+            "共通役割：攻撃バフ"
+          ],
+          "localizedText": {
+            "en": "Related reason: Overall B evaluation / Common role: Attack buff",
+            "zh-CN": "相关原因：SS整体评价/常用角色：攻击buff"
+          }
+        }
+      ],
+      "beginnerEvolution": false,
+      "localizedDescription": {
+        "en": "Guide to the Ashlarva Family (Ashlarva → Firecoil → Charflutter → Chrysolaria), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: Area firepower/recovery/attack buff.",
+        "zh-CN": "绒焰虫系列（绒焰虫 → 焦焰蝶 → 炽焰蝶 → 曜焰蝶王）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：区域输出/恢复/攻击增益。"
+      }
+    },
+    "erekoon": {
+      "description": "モンサバのモエミン系（モエミン → エレコーン → エレキリン → ボルキリン）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": true,
+      "modeLinks": [
+        [
+          "/attribute/thunder/",
+          "雷属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "erekineko",
+          "reasons": [
+            "同じ雷属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute",
+            "zh-CN": "相关原因：雷电属性相同"
+          }
+        },
+        {
+          "familyId": "gaoden",
+          "reasons": [
+            "同じ雷属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute",
+            "zh-CN": "相关原因：雷电属性相同"
+          }
+        },
+        {
+          "familyId": "hikikomoru",
+          "reasons": [
+            "同じ雷属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute",
+            "zh-CN": "相关原因：雷电属性相同"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Posted the evolution destination, skills, confirmed values, tier and usage evaluation of Clash of Critters Zapuni Family (Zapuni → Surgehoof → Voltmare → Boltallion).",
+        "zh-CN": "公开了Clash of Critters的萌角兽系列的进化目的地、技能、确认值、等级和使用评价(萌角兽→电角兽→霹雳角兽→雷极角兽)。"
+      }
+    },
+    "nenbutsuhebi": {
+      "description": "モンサバのボウズヘビ系（ボウズヘビ → ネンブツヘビ → ボンノオロチ → ナムアミダイジャ）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割は遠距離火力・無限貫通・スタン。",
+      "comment": "T3の高速音波は無限貫通し、3%スタンで並ぶ複数敵へ火力を出せる。道場の直線配置、現環境ZRの専用支援・範囲性能、F2P・初心者での扱いやすさを踏まえた、Season 1実装前の全モードSS暫定独自評価。",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/rock/",
+          "岩属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "nekoori",
+          "reasons": [
+            "総合S評価",
+            "共通役割：遠距離火力"
+          ],
+          "localizedText": {
+            "en": "Related reason: Comprehensive SS evaluation / Common role: Long range firepower",
+            "zh-CN": "相关原因：SS综合评价/共同作用：远程火力"
+          }
+        },
+        {
+          "familyId": "gantoru",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        },
+        {
+          "familyId": "rokuju",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        }
+      ],
+      "beginnerEvolution": false,
+      "localizedDescription": {
+        "en": "Guide to the Taptail Family (Taptail → Rattlecoil → Clangnaga → Dharmadder), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: Long range firepower/infinite penetration/stun.",
+        "zh-CN": "小功德蛇系列（小功德蛇 → 大功德君 → 德思内克 → 圣音灵蛇）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：远距离输出/无限穿透/眩晕。"
+      }
+    },
+    "matchiba": {
+      "description": "モンサバのヒバイヌ系（ヒバイヌ → マッチバ → フレベロス → ヘルベロス）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割は広範囲火力・デバフ。",
+      "comment": "火属性の広範囲火力として扱いやすい。敵へのデバフも絡めて通常攻略で採用しやすい。",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/fire/",
+          "火属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "hinyao",
+          "reasons": [
+            "同じ火属性",
+            "総合SS評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute / overall S rating",
+            "zh-CN": "相关原因：相同火属性/总体S评级"
+          }
+        },
+        {
+          "familyId": "himori",
+          "reasons": [
+            "同じ火属性",
+            "総合A評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute / overall S rating",
+            "zh-CN": "相关原因：相同火属性/总体S评级"
+          }
+        },
+        {
+          "familyId": "atatama",
+          "reasons": [
+            "同じ火属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute",
+            "zh-CN": "相关原因：同火属性"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Guide to the Pyropup Family (Pyropup → Pyrohound → Hellhound → Pyrodaemon), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: Wide range firepower/debuff.",
+        "zh-CN": "小火柴系列（小火柴 → 火柴柴 → 烈焰三头犬 → 狱火三头犬）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：大范围输出/减益效果。"
+      }
+    },
+    "denrou": {
+      "description": "モンサバのパチルフ系（パチルフ → デンロウ → ライロウ → ジンライロウ）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割は麻痺・無敵・近距離火力。",
+      "comment": "麻痺と無敵を持つ近距離火力。前線で止めながら殴る役として使える。",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/thunder/",
+          "雷属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "shiiparusu",
+          "reasons": [
+            "同じ雷属性",
+            "総合S評価",
+            "共通役割：麻痺"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute / Overall S rating / Common role: Paralysis",
+            "zh-CN": "相关原因：雷电属性相同/总体S等级/共同作用：麻痹"
+          }
+        },
+        {
+          "familyId": "gaoden",
+          "reasons": [
+            "同じ雷属性",
+            "総合SSS評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute / overall S rating",
+            "zh-CN": "相关原因：雷电属性相同/整体S评级"
+          }
+        },
+        {
+          "familyId": "denjika",
+          "reasons": [
+            "同じ雷属性",
+            "共通役割：麻痺"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute / Common role: Paralysis",
+            "zh-CN": "相关原因：相同雷电属性/共同作用：麻痹"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Guide to the Voltkit Family (Voltkit → Voltling → Voltverine → Voltreaver), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: Paralysis/Invincibility/Close-range firepower.",
+        "zh-CN": "小电狼系列（小电狼 → 电狼仔 → 疾风电狼 → 迅雷天狼）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：麻痹/无敌/近距离输出。"
+      }
+    },
+    "kenkani": {
+      "description": "モンサバのツヨカニ系（ツヨカニ → ケンカニ → クラブロー → チョキング）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/water/",
+          "水属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "umimi",
+          "reasons": [
+            "同じ水属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute",
+            "zh-CN": "相关原因：同水属性"
+          }
+        },
+        {
+          "familyId": "capibarrie",
+          "reasons": [
+            "同じ水属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute",
+            "zh-CN": "相关原因：同水属性"
+          }
+        },
+        {
+          "familyId": "shizukuchou",
+          "reasons": [
+            "同じ水属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute",
+            "zh-CN": "相关原因：同水属性"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Posted the evolution destination, skills, and confirmed values of Clash of Critters Cribbler Family (Cribbler → Clawzor → Dreadclaw → Cribking).",
+        "zh-CN": "公布了Clash of Critters的厚礼蟹系列的进化目的地、技能以及确认值(厚礼蟹→厚力蟹→厚力蟹霸→厚厉蟹皇)。"
+      }
+    },
+    "fureebi": {
+      "description": "モンサバのヒエビ系（ヒエビ → フレービ → バーニフィス → ボルケイセ）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割は近距離火力・燃焼。",
+      "comment": "進化で攻撃回数が増え、単体への火力を伸ばしやすい。道場でも高評価。",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/fire/",
+          "火属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "fureimuji",
+          "reasons": [
+            "同じ火属性",
+            "総合SS評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute / overall SS rating",
+            "zh-CN": "相关原因：相同火属性/整体SS等级"
+          }
+        },
+        {
+          "familyId": "himori",
+          "reasons": [
+            "同じ火属性",
+            "共通役割：燃焼"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute / Common role: Combustion",
+            "zh-CN": "相关原因：同火属性/共同作用：燃烧"
+          }
+        },
+        {
+          "familyId": "atatama",
+          "reasons": [
+            "同じ火属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute",
+            "zh-CN": "相关原因：同火属性"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Guide to the Shrimpyro Family (Shrimpyro → Pyroprawn → Pyroclobster → Pyroviathan), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: Short-range firepower/combustion.",
+        "zh-CN": "小火虾系列（小火虾 → 极火虾 → 火拳虾 → 烈焰金刚虾）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：短程输出/燃烧。"
+      }
+    },
+    "haamitora": {
+      "description": "モンサバのトラーニー系（トラーニー → ハーミットラ → ゼンガー → マスタイガー）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/fire/",
+          "火属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "atatama",
+          "reasons": [
+            "同じ火属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute",
+            "zh-CN": "相关原因：同火属性"
+          }
+        },
+        {
+          "familyId": "kunbuu",
+          "reasons": [
+            "同じ火属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute",
+            "zh-CN": "相关原因：同火属性"
+          }
+        },
+        {
+          "familyId": "korokon",
+          "reasons": [
+            "同じ火属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same fire attribute",
+            "zh-CN": "相关原因：同火属性"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Evolution destinations, skills, and confirmed values of Clash of Critters Tindercub Family (Tindercub → Kitjitsu → Taiglow → Saberheart) are posted.",
+        "zh-CN": "公开了Clash of Critters的娇虎学徒系列(娇虎学徒→静虎居士→焰虎大师→炽心虎尊)的进化目的地、技能和确认值。"
+      }
+    },
+    "shiiparusu": {
+      "description": "モンサバのライメー系（ライメー → シーパルス → アラシープ → アマルテラ）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割は範囲持続火力・麻痺。",
+      "comment": "範囲への持続火力と麻痺を持つ。敵集団を削りながら足止めできる。",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/thunder/",
+          "雷属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "denrou",
+          "reasons": [
+            "同じ雷属性",
+            "総合A評価",
+            "共通役割：麻痺"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute / Overall A rating / Common role: Paralysis",
+            "zh-CN": "相关原因：雷电属性相同/总体S等级/共同作用：麻痹"
+          }
+        },
+        {
+          "familyId": "gaoden",
+          "reasons": [
+            "同じ雷属性",
+            "総合SSS評価"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute / overall S rating",
+            "zh-CN": "相关原因：雷电属性相同/整体S评级"
+          }
+        },
+        {
+          "familyId": "denjika",
+          "reasons": [
+            "同じ雷属性",
+            "共通役割：麻痺"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute / Common role: Paralysis",
+            "zh-CN": "相关原因：相同雷电属性/共同作用：麻痹"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Guide to the Fluffle Family (Fluffle → Nimbuzzy → Galewether → Cosmoram), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: Area continuous firepower/paralysis.",
+        "zh-CN": "闪电绵羊系列（闪电绵羊 → 风暴绵羊 → 雷霆绵羊 → 寰宇神羊）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：区域持续输出/麻痹。"
+      }
+    },
+    "shizukuchou": {
+      "description": "モンサバのシズクジ系（シズクジ → シズクチョウ → ミストリア → エーテリファル）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割は睡眠・減速・CC。",
+      "comment": "減速と睡眠を軸に、進化後は隣接する仲間の攻撃にもCCを付与。海外のOverall・Horde評価と国内評価を合わせ、複数モードで価値が高い。",
+      "showEvolutionZombieBadge": true,
+      "modeLinks": [
+        [
+          "/attribute/water/",
+          "水属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "umimi",
+          "reasons": [
+            "同じ水属性",
+            "共通役割：減速"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute / Common role: Slowdown",
+            "zh-CN": "相关原因：相同水属性/共同作用：减速"
+          }
+        },
+        {
+          "familyId": "nekoori",
+          "reasons": [
+            "同じ水属性",
+            "共通役割：減速"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute / Common role: Slowdown",
+            "zh-CN": "相关原因：相同水属性/共同作用：减速"
+          }
+        },
+        {
+          "familyId": "denjika",
+          "reasons": [
+            "総合SS評価",
+            "共通役割：CC"
+          ],
+          "localizedText": {
+            "en": "Related reason: Comprehensive SSS evaluation / Common role: CC",
+            "zh-CN": "相关原因：综合SS评价/共同作用：CC"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Guide to the Dewgrub Family (Dewgrub → Ripplewing → Waveflutter → Morphanessa), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: Sleep/Deceleration/CC.",
+        "zh-CN": "露水虫系列（露水虫 → 露水蝶 → 水舞蝶 → 潋滟水蝶）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：睡眠/减速/CC。"
+      }
+    },
+    "doriruu": {
+      "description": "モンサバのホルリン系（ホルリン → ドリルー → ボーランバ）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/rock/",
+          "岩属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "gantoru",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        },
+        {
+          "familyId": "rokuju",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        },
+        {
+          "familyId": "korotama",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Evolution destinations, skills, and confirmed values of Clash of Critters Drilleroo Family (Drilleroo → Cragolin → Borelord) are posted.",
+        "zh-CN": "公开了Clash of Critters的小穿山系列(小穿山→大钻山→钻山王)的进化目的地、技能以及确认值。"
+      }
+    },
+    "riifuro": {
+      "description": "モンサバのフリコー系（フリコー → リーフロ → ツリーフロ → クロノウル）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割は減速・攻撃速度低下・スタン。",
+      "comment": "減速、攻撃速度低下、スタンで敵の動きを抑える。妨害役を厚くしたい編成で使いやすい。",
+      "showEvolutionZombieBadge": true,
+      "modeLinks": [
+        [
+          "/attribute/grass/",
+          "草属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "takepanda",
+          "reasons": [
+            "同じ草属性",
+            "総合SS評価",
+            "共通役割：減速"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute / Overall SS rating / Common role: Slowdown",
+            "zh-CN": "相关原因：同草属性/总体S评级/共同作用：减速"
+          }
+        },
+        {
+          "familyId": "fukurogumo",
+          "reasons": [
+            "同じ草属性",
+            "総合S評価",
+            "共通役割：スタン"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute / Overall S rating / Common role: Stun",
+            "zh-CN": "相关原因：同草属性/总体S评级/共同角色：眩晕"
+          }
+        },
+        {
+          "familyId": "furuggu",
+          "reasons": [
+            "同じ草属性",
+            "総合S評価",
+            "共通役割：減速"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same grass attribute / Overall S rating / Common role: Slowdown",
+            "zh-CN": "相关原因：同草属性/总体S评级/共同作用：减速"
+          }
+        }
+      ],
+      "beginnerEvolution": false,
+      "localizedDescription": {
+        "en": "Guide to the Hootlet Family (Hootlet → Tikowl → Chronerva → Hypnostrix), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: Slowdown/Attack speed reduction/Stun.",
+        "zh-CN": "钟摆鸮系列（钟摆鸮 → 时羽鸮 → 圣叶鸮 → 晖刻神鸮）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：减速/攻击速度降低/眩晕。"
+      }
+    },
+    "hikikomoru": {
+      "description": "モンサバのトジコモル系（トジコモル → ヒキコモル → モルターボ → モルボット）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/thunder/",
+          "雷属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "erekineko",
+          "reasons": [
+            "同じ雷属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute",
+            "zh-CN": "相关原因：雷电属性相同"
+          }
+        },
+        {
+          "familyId": "gaoden",
+          "reasons": [
+            "同じ雷属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute",
+            "zh-CN": "相关原因：雷电属性相同"
+          }
+        },
+        {
+          "familyId": "birinamazu",
+          "reasons": [
+            "同じ雷属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same lightning attribute",
+            "zh-CN": "相关原因：雷电属性相同"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Posted the evolution destination, skills, and confirmed values of Clash of Critters Cavyzap Family (Cavyzap → Hippiehog → Wheekroller → Gigagnash).",
+        "zh-CN": "公布了Clash of Critters的天笼鼠系列的进化目的地、技能以及确认值(天笼鼠→窝居鼠→追风鼠→暴走机甲鼠)。"
+      }
+    },
+    "pakuma": {
+      "description": "モンサバのパクマ系（パクマ → クマッシュ → マリンベア → ブリズリー）の進化先、スキル、確認済み数値、Tierと用途評価を掲載。 主な役割はタンク・回復・被ダメージ増加。",
+      "comment": "ゲーム内スキルは確認済み。実戦根拠が不足しているためTierは再評価待ち。",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/water/",
+          "水属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ],
+        [
+          "/normal-guide/",
+          "通常攻略"
+        ],
+        [
+          "/zombie-rush/",
+          "ゾンビラッシュ攻略"
+        ],
+        [
+          "/badge-dojo/",
+          "バッジ道場攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "tafupen",
+          "reasons": [
+            "同じ水属性",
+            "共通役割：タンク"
+          ],
+          "localizedText": {
+            "en": "Related because they share the Water attribute and Tank role",
+            "zh-CN": "关联原因：同为水属性 / 共同定位：坦克"
+          }
+        },
+        {
+          "familyId": "umimi",
+          "reasons": [
+            "同じ水属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute",
+            "zh-CN": "相关原因：同水属性"
+          }
+        },
+        {
+          "familyId": "capibarrie",
+          "reasons": [
+            "同じ水属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same water attribute",
+            "zh-CN": "相关原因：同水属性"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Guide to the Snowcub Family (Snowcub → Polarpaw → Blizzgrizz → Anglerbear), including evolution paths, skills, verified values, Tier ratings and best uses. Main roles: Tank · Healing · Damage taken increase.",
+        "zh-CN": "贪吃熊系列（贪吃熊 → 摸鱼熊 → 来势熊熊 → 盖世英熊）攻略，包含进化路线、技能、已确认数值、Tier 与玩法评价。主要定位：坦克／治疗／承伤增加。"
+      }
+    },
+    "nusuke": {
+      "description": "モンサバのヌスケ系（ヌスケ → ラクディット → マスクーン → トリックーン）の進化先、スキル、確認済み数値を掲載。",
+      "comment": "",
+      "showEvolutionZombieBadge": false,
+      "modeLinks": [
+        [
+          "/attribute/rock/",
+          "岩属性のタタを見る"
+        ],
+        [
+          "/tata-tier/",
+          "総合タタTier"
+        ],
+        [
+          "/evolution-priority/",
+          "進化優先度"
+        ],
+        [
+          "/boss-rally/",
+          "ボスラリー攻略"
+        ]
+      ],
+      "related": [
+        {
+          "familyId": "gantoru",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        },
+        {
+          "familyId": "rokuju",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        },
+        {
+          "familyId": "korotama",
+          "reasons": [
+            "同じ岩属性"
+          ],
+          "localizedText": {
+            "en": "Related reason: Same rock attributes",
+            "zh-CN": "相关原因：岩石属性相同"
+          }
+        }
+      ],
+      "localizedDescription": {
+        "en": "Evolution paths, skills, and confirmed data for the Ringtail Family: Ringtail, Rizzler, Zorrock, and Phantothief.",
+        "zh-CN": "收录干脆面系列（干脆面、改头浣面、怪盗千面、偷心假面）的进化路线、技能与已确认数据。"
+      }
+    }
+  }
+}

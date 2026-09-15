@@ -1,4 +1,5 @@
 import test from 'node:test';
+import vm from 'node:vm';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -27,8 +28,8 @@ test('65 canonical families have five independent, valid rankings and real asset
     }
   }
   const all=data.families.flatMap(f=>Object.values(f.rankings));
-  assert.equal(all.filter(r=>r.tier==='HOLD').length,3);
-  assert.equal(all.filter(r=>r.status==='provisional').length,8);
+  assert.equal(all.filter(r=>r.tier==='HOLD').length,0);
+  assert.equal(all.filter(r=>r.status==='provisional').length,5);
   assert.equal(groupRankings(data,'overall')[0].entries.length,11);
 });
 test('editorial spot checks retain large mode differences and raw provisional values',()=>{
@@ -75,4 +76,42 @@ test('explicit mode order overrides overall tie-break without changing any tier'
 });
 test('generated ratings, boards and detail output are reproducible',()=>{
   execFileSync(process.execPath,['scripts/generate-tier-pages.mjs','--check'],{cwd:root});
+});
+
+test('operator-confirmed September 16 ratings appear without pending qualifiers in every locale',()=>{
+  const fixture=json('tests/fixtures/confirmed-ratings-20260916.json');
+  assert.deepEqual(data.families.find(f=>f.familyId==='sabooru').rankings.overall,fixture.preservedSabooruOverall);
+  for(const [id,modes] of Object.entries(fixture.families)) {
+    const entry=data.families.find(f=>f.familyId===id);
+    for(const [mode,tier] of Object.entries(modes)) assert.deepEqual(entry.rankings[mode],{tier,status:'confirmed'});
+    for(const prefix of ['','en/','zh-cn/']) {
+      const board=load(read(`${prefix}tata-tier/index.html`)),detail=load(read(`${prefix}tata/${id}/index.html`)),beginner=load(read(`${prefix}beginner-guide/index.html`));
+      for(const [mode,tier] of Object.entries(modes)) {
+        const card=board(`#mode-${mode} [data-family-id="${id}"]`),cell=detail(`[data-ranking-mode="${mode}"]`);
+        assert.equal(card.closest('[data-tier]').attr('data-tier'),tier);
+        assert.equal(card.attr('data-status'),'confirmed');assert.equal(card.find('.tier-status').length,0);
+        assert.equal(cell.find('b').text(),tier);assert.equal(cell.find('small').length,0);
+      }
+      assert.match(beginner(`[data-beginner-family="${id}"] .beginner-card-meta`).text(),new RegExp(` ${modes.beginner}$`));
+      assert.equal(detail('.rating-hold-note').length,0);
+      assert.doesNotMatch(detail('.source-note').text(),/暫定評価|provisional evaluation|临时评估/);
+    }
+  }
+  for(const prefix of ['','en/','zh-cn/']) {
+    const page=load(read(`${prefix}tata-tier/index.html`));
+    assert.equal(page('.tier-criteria-panel').length,0);
+    assert.doesNotMatch(page('#mode-overall > p').text(),/平均|average/);
+  }
+  const ja=load(read('tata-tier/index.html'));
+  assert.equal(ja('#mode-overall > p').text(),'通常ステージ、ゾンビラッシュ、バッジ道場、育成価値などを総合した独自評価です。');
+});
+
+test('comparison places confirmed D below higher ranks in either card order',()=>{
+  const context=vm.createContext({MONSABA_FAMILY:{getFamilyDisplayLabel:f=>f.id}});
+  vm.runInContext(read('compare/compare.js').replace(/boot\(\)\.catch[\s\S]*$/, ''),context);
+  for(const higher of ['SSS','SS','S','A','B','C']) {
+    vm.runInContext(`state={ratings:{overall:{byFamily:{higher:{zombie:'${higher}'},sabooru:{zombie:'D'}}}}};`,context);
+    for(const order of ["{id:'higher'},{id:'sabooru'}", "{id:'sabooru'},{id:'higher'}"])
+      assert.match(vm.runInContext(`conclusion(${order},'zombie')`,context),/higherが上位/);
+  }
 });

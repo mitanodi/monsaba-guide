@@ -8,6 +8,8 @@ const root=path.resolve(import.meta.dirname,'..');
 const read=file=>fs.readFileSync(path.join(root,file),'utf8');
 const json=file=>JSON.parse(read(file));
 const write=(file,value)=>{if(!fs.existsSync(path.join(root,file))||read(file)!==value){if(process.argv.includes('--check'))throw new Error(`Regenerate stale Tier output: ${file}`);fs.writeFileSync(path.join(root,file),value);}};
+const assetVersion=json('data/asset-build.json').version;
+const editorial=json('data/editorial-content.json').families;
 const data=json('data/tata-tier.json'), families=json('data/tatari.json').families, images=json('data/tata-images.json').families, translations=json('data/i18n/tata-tier.json');
 write('data/tier-ratings.json',JSON.stringify(legacyRatings(data),null,2)+'\n');
 
@@ -31,15 +33,15 @@ for(const [locale,prefix] of [['ja',''],['en','en/'],['zh-CN','zh-cn/']]) {
   const byline=$('.article-byline').first().toString();
   const nav=`<nav id="tier-navigation" class="wrap tier-mode-nav" aria-label="${esc(copy.title)}">${MODES.map((mode,i)=>`<a href="#mode-${mode}">${esc(copy.labels[i])}</a>`).join('')}</nav>`;
   const filters=`<div class="wrap tier-filter" role="group" aria-label="${esc(copy.filter)}"><span>${esc(copy.filter)}</span>${[['all',copy.all],...Object.entries(copy.attributes)].map(([attr,label],i)=>`<button type="button" class="filter${i===0?' is-active':''}" data-tier-attribute="${attr}" aria-pressed="${i===0}">${esc(label)}</button>`).join('')}</div>`;
-  const main=`<main id="main-content"><section class="page-hero tier-page-hero astra-compact-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/${prefix}">${locale==='ja'?'トップ':locale==='en'?'Home':'首页'}</a><span>›</span><span>${esc(copy.labels[0])} Tier</span></nav><span class="attribute">${esc(copy.updated)} ${data.updated}</span><h1>${esc(copy.title)}</h1><p>${esc(copy.intro)}</p></div></section>${nav}${byline}<div id="tier-list">${filters}<p class="wrap tier-criteria-panel">${esc(copy.legend)}</p>${MODES.map((mode,i)=>renderTierBoard({data,families,images,locale,copy,mode})+(ads[i]||'')).join('\n')}</div></main>`;
+  const main=`<main id="main-content"><section class="page-hero tier-page-hero astra-compact-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/${prefix}">${locale==='ja'?'トップ':locale==='en'?'Home':'首页'}</a><span>›</span><span>${esc(copy.labels[0])} Tier</span></nav><span class="attribute">${esc(copy.updated)} ${data.updated}</span><h1>${esc(copy.title)}</h1><p>${esc(copy.intro)}</p></div></section>${nav}${byline}<div id="tier-list">${filters}${copy.legend?`<p class="wrap tier-criteria-panel">${esc(copy.legend)}</p>`:''}${MODES.map((mode,i)=>renderTierBoard({data,families,images,locale,copy,mode})+(ads[i]||'')).join('\n')}</div></main>`;
   html=html.replace(/<main\b[^>]*>[\s\S]*?<\/main>/,main);
   html=patchHtml(html,[['title',()=>`<title>${esc(copy.title)}</title>`],['meta[name="description"]',()=>`<meta name="description" content="${esc(copy.intro)}">`],['script[type="application/ld+json"]',el=>{
     const structured=JSON.parse(el.text());
     for(const node of structured['@graph']||[structured])if(node['@type']==='Article'){node.name=copy.title;node.headline=copy.title;node.description=copy.intro;node.dateModified=data.updated;}
     return `<script type="application/ld+json">${JSON.stringify(structured).replaceAll('<','\\u003c')}</script>`;
   }]]);
-  html=html.replace(/<link[^>]+href="\/tata-tier\/tier-boards\.css[^>]*>/g,'').replace('</head>','<link rel="stylesheet" href="/tata-tier/tier-boards.css?v=20260916"></head>');
-  html=html.replace(/(src="\/tata-tier\/tata-tier\.js)(?:\?[^\"]*)?"/g,'$1?v=20260916"');
+  html=html.replace(/<link[^>]+href="\/tata-tier\/tier-boards\.css[^>]*>/g,'').replace('</head>',`<link rel="stylesheet" href="/tata-tier/tier-boards.css?v=${assetVersion}"></head>`);
+  html=html.replace(/(src="\/tata-tier\/tata-tier\.js)(?:\?[^\"]*)?"/g,`$1?v=${assetVersion}"`);
   write(file,html);
 
   // Existing detail pages retain their content, SEO, images, ads and layout.
@@ -54,14 +56,48 @@ for(const [locale,prefix] of [['ja',''],['en','en/'],['zh-CN','zh-cn/']]) {
       ['.tata-hero-meta > span:first-child > b',()=>`<b>${entry.rankings.overall.tier}</b>`],
       ['.tata-quick-answers > h2:first-of-type + p',()=>`<p data-tier-summary>${esc(summary)}</p>`]
     ]);
+    if (['riifuro','sabooru','tsubutsumuri'].includes(entry.familyId)) {
+      source=patchHtml(source,[['.rating-hold-note',()=> ''],['.source-note > p:first-of-type', (el,$)=>$.html(el)
+        .replace('Tierは当サイト独自の暫定評価です。','Tierは当サイト独自の評価です。')
+        .replace('Tier is a provisional evaluation unique to this site.','Tier is an independent assessment by this site.')
+        .replace('等级是本网站特有的临时评估。','强度为本站独立评价。')]]);
+    }
     // Update any earlier compact evaluation table using its existing labels.
     source=patchHtml(source,[['.related-tata-grid article', (el,$)=>{
       const id=el.find('a[href*="/tata/"]').first().attr('href')?.split('/').filter(Boolean).at(-1);
       const rating=data.families.find(f=>f.familyId===id)?.rankings.overall.tier;
-      return rating?$.html(el).replace(/(総合|Overall\s*|综合)(SSS|SS|S|A|B|C|D)(評価|\s*rating)?/g,`$1${rating}$3`):$.html(el);
+      const translated=editorial[entry.familyId]?.related.find(r=>r.familyId===id)?.localizedText?.[locale];
+      if(translated)el.find('p').text(translated);
+      return rating?$.html(el).replace(/(総合|Overall\s*|综合)(SSS|SS|S|A|B|C|D)(評価|\s*rating)?/gi,`$1${rating}$3`):$.html(el);
     }]]);
     write(detail,source);
   }
+  // Keep the existing beginner card layout and copy, synchronizing its ratings
+  // and adding the operator-selected families through the same source data.
+  const beginnerFile=`${prefix}beginner-guide/index.html`;
+  const beginner=load(read(beginnerFile));
+  const existing=new Map(beginner('[data-beginner-family]').toArray().map(el=>[beginner(el).attr('data-beginner-family'),beginner.html(el)]));
+  const beginnerCopy={
+    ja:['初心者評価','育成目標：','個別ページで進化差分を確認','手持ち登録状況を確認中','詳細を見る','手持ちに登録','編成で使う'],
+    en:['Beginner rating','Upgrade goal:','Check evolution differences on the detail page','Checking your roster','See details','Add to Roster','Use in Team Builder'],
+    'zh-CN':['新手评价','养成目标：','在详情页查看进化差异','正在确认持有状态','查看详情','加入持有阵容','用于阵容编辑器']
+  }[locale];
+  const beginnerEntries=data.families.filter(e=>data.beginnerGuideFamilies.includes(e.familyId))
+    .sort((a,b)=>['SSS','SS','S','A','B','C','D','HOLD'].indexOf(a.rankings.beginner.tier)-['SSS','SS','S','A','B','C','D','HOLD'].indexOf(b.rankings.beginner.tier)||a.familyId.localeCompare(b.familyId));
+  const cards=beginnerEntries.map(entry=>{
+    const f=families.find(f=>f.id===entry.familyId),image=images.find(i=>i.familyId===f.id).stage1;
+    const name=globalThis.MONSABA_FAMILY.getFamilyDisplayLabel(f,locale);
+    const modes=['overall',...['normal','zombie'].filter(m=>['SSS','SS'].includes(entry.rankings[m].tier)),existing.has(f.id)&&load(existing.get(f.id))('article').attr('data-beginner-modes')?.split(' ').includes('evolution')?'evolution':''].filter(Boolean).join(' ');
+    const meta=`${copy.attributes[f.attribute]} · ${beginnerCopy[0]} ${entry.rankings.beginner.tier}`;
+    if(existing.has(f.id)) {
+      const card=load(existing.get(f.id),{},false);
+      card('article').attr('data-beginner-modes',modes);
+      card('.beginner-card-meta').text(meta);
+      return card.html();
+    }
+    return `<article class="guide-panel beginner-tata-card" data-beginner-modes="${modes}" data-beginner-family="${f.id}"><img class="beginner-tata-image" src="${esc(image.src)}" width="256" height="256" alt="${esc(name)} T1" loading="lazy" decoding="async"><div><p class="beginner-card-meta">${esc(meta)}</p><h3><a href="/${prefix}tata/${f.id}/">${esc(name)}</a></h3><p></p><p><b>${beginnerCopy[1]}</b>${beginnerCopy[2]}</p><p class="beginner-owned-status" aria-live="polite">${beginnerCopy[3]}</p><div class="tool-actions"><a class="ghost-button" href="/${prefix}tata/${f.id}/">${beginnerCopy[4]}</a><a class="ghost-button" href="/${prefix}my-monsaba/">${beginnerCopy[5]}</a><a class="ghost-button" href="/${prefix}team-builder/?roster=1" data-beginner-team="">${beginnerCopy[6]}</a></div></div></article>`;
+  }).join('');
+  write(beginnerFile,patchHtml(read(beginnerFile),[['#training .beginner-card-grid',()=>`<div class="beginner-card-grid">${cards}</div>`]]));
   // Compact cards already used by the home page and evolution guide read the
   // same ratings; only their rating badges are changed here.
   for(const route of ['index.html','evolution-priority/index.html']) {
