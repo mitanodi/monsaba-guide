@@ -2,7 +2,7 @@ import test from 'node:test';import assert from 'node:assert/strict';import fs f
 const root=path.resolve(import.meta.dirname,'..');const read=f=>fs.readFileSync(path.join(root,f),'utf8');
 const control=f=>execFileSync('git',['show',`pre-astra-redesign-20260915:${f}`],{cwd:root,encoding:'utf8'});
 test('Astra preserves core data, affiliate code, saved-data keys and share codec byte for byte',()=>{
-  for(const f of ['data/tatari.json','data/tata-skills.json','data/tier-ratings.json','data/evolution-priority.json','data/calendar-config.json','data/monetization.json','data/affiliate-offers.json','monetization.js','team-builder/team-core.js'])assert.equal(read(f).replaceAll('\r\n','\n'),control(f).replaceAll('\r\n','\n'),f);
+  for(const f of ['data/tatari.json','data/tata-skills.json','data/tier-ratings.json','data/evolution-priority.json','data/calendar-config.json','data/monetization.json','monetization.js','team-builder/team-core.js'])assert.equal(read(f).replaceAll('\r\n','\n'),control(f).replaceAll('\r\n','\n'),f);
 });
 test('Astra preserves SEO identity on representative existing pages in all three languages',()=>{
   const routes=['','tata-tier/','beginner-guide/','evolution-priority/','tata/takepanda/','team-builder/','team-builder/community/','events/','search/','compare/','my-monsaba/','board/','friends/'];
@@ -38,9 +38,16 @@ test('Finalization serves page CSS selectively and keeps responsive images valid
 test('Finalization preserves AdSense and the four approved affiliate destinations and scope',()=>{
   assert.equal(read('ads.txt').replaceAll('\r\n','\n'),control('ads.txt').replaceAll('\r\n','\n'));
   for(const [route,offer]of [['','warau_003'],['beginner-guide/','point_income_003'],['evolution-priority/','macromill_002'],['normal-guide/','ipsos_isay_001']]){const $=load(read(route+'index.html'));assert.equal($('.astra-ad').length,1);assert.equal($('.astra-ad').attr('data-astra-offer'),offer);}
-  for(const route of ['tata/takepanda/','tata-tier/','events/','boss-rally/','badge-dojo/'])assert.equal(load(read(route+'index.html'))('.astra-ad').length,0);
+  for(const route of ['tata/takepanda/','events/','badge-dojo/'])assert.equal(load(read(route+'index.html'))('.astra-ad').length,0);
 });
 test('Preview API rejects every write method before accessing a data service',async()=>{
   const previous=process.env.VERCEL_ENV;process.env.VERCEL_ENV='preview';
   try{for(const api of ['community','board','friends']){const {default:handler}=await import(`../api/${api}.js`);for(const method of ['POST','DELETE','PUT','PATCH']){let code,body;const response={setHeader(){},status(v){code=v;return this;},json(v){body=v;return this;}};await handler({method,headers:{}},response);assert.equal(code,405,api+method);assert.equal(body.error.code,'PREVIEW_READ_ONLY');}}}finally{if(previous===undefined)delete process.env.VERCEL_ENV;else process.env.VERCEL_ENV=previous;}
+});
+
+
+test('Previously approved A8 offer objects remain unchanged after the authorized addition',()=>{
+  const before=JSON.parse(control('data/affiliate-offers.json')).offers;
+  const after=JSON.parse(read('data/affiliate-offers.json')).offers;
+  for(const offer of before)assert.deepEqual(after.find(o=>o.id===offer.id),offer);
 });

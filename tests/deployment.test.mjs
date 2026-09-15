@@ -69,3 +69,26 @@ test('API writes fail closed outside Production; Production still rejects untrus
     }
   } finally { if(previous===undefined)delete process.env.VERCEL_ENV;else process.env.VERCEL_ENV=previous; }
 });
+
+
+test('Authorized A8 addition preserves original offers, limits scope and stays after primary content', () => {
+  const offers=JSON.parse(read('data/affiliate-offers.json')).offers;
+  const added=offers.find(o=>o.id==='altema_point_005');
+  assert.equal(offers.length,5);
+  assert.deepEqual(added.targetPages,['/tata-tier/','/zombie-rush/']);
+  assert.equal(added.destination,'https://px.a8.net/svt/ejp?a8mat=4BADDE+GFSWUY+589S+5ZEMP');
+  assert.equal(added.mediaSource,'https://www22.a8.net/svt/bgt?aid=260824370994&wid=002&eno=01&mid=s00000024400001005000&mc=1');
+  assert.equal(added.trackingPixel,'https://www13.a8.net/0.gif?a8mat=4BADDE+GFSWUY+589S+5ZEMP');
+  assert.deepEqual([added.width,added.height],[320,50]);
+  for(const [route,anchor,offer] of [['tata-tier/','#first-picks','altema_point_005'],['zombie-rush/','#danger','altema_point_005'],['boss-rally/',null,'point_income_003']]){
+    const source=read(route+'index.html');const doc=load(prepareHtml(source,'production'));
+    assert.equal(doc('.astra-ad.is-live').length,1);
+    assert.equal(doc('[data-affiliate-offer]').length,1);
+    assert.equal(doc('.astra-ad [data-affiliate-offer]').attr('data-affiliate-offer'),offer);
+    if(anchor)assert.ok(doc(anchor).next().hasClass('astra-ad'));else assert.ok(doc('.next-reading').prev().hasClass('astra-ad'));
+    if(offer==='altema_point_005')assert.match(doc('.astra-ad').text(),/スマートフォン専用.*PCでは利用できません/);
+    assert.equal(doc('script[src*="monetization.js"]:not([type])').length,1);
+    assert.equal(load(prepareHtml(source,'preview'))('script[src*="monetization.js"]').attr('type'),'text/plain');
+    for(const p of ['en/','zh-cn/'])assert.equal(load(prepareHtml(read(p+route+'index.html'),'production'))('[data-affiliate-offer],.astra-ad').length,0);
+  }
+});

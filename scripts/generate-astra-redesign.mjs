@@ -11,6 +11,7 @@ const data=JSON.parse(read('data/tatari.json'));const count=data.families.length
 const imageMap=new Map(JSON.parse(read('data/tata-images.json')).families.map(f=>[f.stage1?.src,f]));
 const offers=new Map(JSON.parse(read('data/affiliate-offers.json')).offers.map(o=>[o.id,o]));
 const currentAds={'/':'warau_003','/beginner-guide/':'point_income_003','/evolution-priority/':'macromill_002','/normal-guide/':'ipsos_isay_001'};
+const addedAds={'/tata-tier/':{offer:'altema_point_005',after:'#first-picks'},'/zombie-rush/':{offer:'altema_point_005',after:'#danger'},'/boss-rally/':{offer:'point_income_003',before:'.next-reading'}};
 const version=JSON.parse(read('data/asset-build.json')).version;
 // Existing canonical SEO remains authoritative. The new calendar is an additional route.
 for(const locale of ['ja','en','zh-CN']){
@@ -43,7 +44,7 @@ for(const file of walk(root)){
   $('script[src*="monetization.js"]').attr('type','text/plain');
   const noAds=/^\/(team-builder|search|compare|my-monsaba|friends|board|events\/calendar)(\/|$)/.test(route);
   const adEligible=route==='/'||/^\/(beginner-guide|tata-tier|evolution-priority|normal-guide|boss-rally|badge-dojo|zombie-rush|events|tata)(\/|$)/.test(route);
-  if(adEligible&&!noAds){const o=offers.get(currentAds[route]);if(o){const notice=locale==='en'?'Existing affiliate placement · layout preview':locale==='zh-CN'?'现有联盟广告位 · 布局预览':'既存アフィリエイト広告枠・配置プレビュー';$('main').append(`<aside class="wrap astra-ad${o.desktopOnly?' astra-ad-desktop':''}" data-astra-offer="${o.id}" aria-label="${c.ad}" style="--astra-creative-width:${o.width}px;--astra-creative-height:${o.height}px;--astra-creative-ratio:${o.width}/${o.height}"><span>${c.ad}</span><div class="astra-ad-preview"><b translate="no" lang="ja">${esc(locale === 'ja' ? o.name : `A8.net / ${o.id}`)}</b><small>${notice}</small><small>${o.width} × ${o.height}</small></div></aside>`);}}
+  if(adEligible&&!noAds){const o=offers.get(currentAds[route]||addedAds[route]?.offer);if(o){const notice=locale==='en'?'Existing affiliate placement · layout preview':locale==='zh-CN'?'现有联盟广告位 · 布局预览':'既存アフィリエイト広告枠・配置プレビュー';$('main').append(`<aside class="wrap astra-ad${o.desktopOnly?' astra-ad-desktop':''}" data-astra-offer="${o.id}" aria-label="${c.ad}" style="--astra-creative-width:${o.width}px;--astra-creative-height:${o.height}px;--astra-creative-ratio:${o.width}/${o.height}"><span>${c.ad}</span><div class="astra-ad-preview"><b translate="no" lang="ja">${esc(locale === 'ja' ? o.name : `A8.net / ${o.id}`)}</b><small>${notice}</small><small>${o.width} × ${o.height}</small></div></aside>`);}}
   const journey=()=>`<section class="wrap astra-journey"><div class="astra-section-heading"><span class="astra-eyebrow">PLAYBOOK</span><h2>${c.journey}</h2></div><div class="astra-steps">${['/beginner-guide/','/tata-tier/','/evolution-priority/','/team-builder/'].map((p,i)=>`<a href="${href(p)}"><span class="astra-step-number">0${i+1}</span><b>${c.steps[i]}</b><small>${c.stepsText[i]} ↗</small></a>`).join('')}</div></section>`;
   const today=()=>`<section class="wrap astra-today" aria-labelledby="astra-today-title"><div class="astra-section-heading"><div><span class="astra-eyebrow">LIVE & NEXT</span><h2 id="astra-today-title">${c.today}</h2></div><a href="${href('/events/calendar/')}">${c.schedule} ↗</a></div><div class="astra-today-grid" data-astra-schedule><a href="${href('/events/calendar/')}">${c.calendar} ↗</a></div><p class="astra-schedule-source">${c.source}</p></section>`;
   if(route==='/'){
@@ -100,11 +101,19 @@ for(const file of walk(root)){
   // The first HTML response must choose the same small image as subsequent client rendering.
   $('.catalog-card img,.tier-chart-tata img,.overall-image img').each((_,el)=>{const img=$(el),f=imageMap.get(img.attr('src'));if(!f||!fs.existsSync(path.join(root,`assets/astra/${f.familyId}-128.webp`)))return;const small=`/assets/astra/${f.familyId}-128.webp`;img.attr({src:small,srcset:`${small} 128w, ${f.stage1.srcset||`${f.stage1.src} ${f.stage1.width}w`}`,sizes:img.closest('.tier-chart-tata').length?'(max-width:700px) 52px,72px':img.closest('.overall-image').length?'92px':'(max-width:700px) 90px,112px'});});
   const ad=$('.astra-ad');
+  const addition=addedAds[route];
+  if(addition&&locale==='ja'){
+    const o=offers.get(addition.offer);
+    ad.append(`<div class="monetization-slot affiliate-placement" data-monetization-slot="article_bottom" data-affiliate-offer="${o.id}" aria-busy="true"></div>`);
+    if(o.id==='altema_point_005')ad.append('<p>スマートフォン専用のポイントサービスです。PCでは利用できません。</p>');
+    if(addition.after)$(addition.after).after(ad);else $(addition.before).first().before(ad);
+    if(!$('script[src*="monetization.js"]').length)$('footer').after(`<script src="/monetization.js?v=${version}" type="text/plain" defer></script>`);
+  }
   if(route==='/')$('.astra-journey').after(ad);
   if(route==='/beginner-guide/')$('#t3').after(ad);
   if(route==='/evolution-priority/')$('#transition-list').after(ad);
   if(route==='/normal-guide/')$('#normal-bosses').after(ad);
-  if(currentAds[route]&&locale==='ja')$('.astra-experiment-bar').append(`<a href="?ads=live">既存広告を確認</a>`);
+  if((currentAds[route]||addedAds[route])&&locale==='ja')$('.astra-experiment-bar').append(`<a href="?ads=live">既存広告を確認</a>`);
   $('script[src*="/astra-ads.js"]').remove();
   if(ad.length)$('footer').after(`<script src="/astra-ads.js?v=${version}" defer></script>`);
   $('.hero-cta,.site-stats,#attributeFilters').attr('role','group');

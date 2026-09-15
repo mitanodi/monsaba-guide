@@ -14,6 +14,7 @@ for (const locale of ['en', 'zh-CN']) {
     const targets = Array.isArray(astraCopy[locale][key]) ? astraCopy[locale][key] : [astraCopy[locale][key]];
     sources.forEach((text, index) => { overrides[locale][text] = targets[index]; overrides[locale][`${text} ↗`] = `${targets[index]} ↗`; });
   }
+  overrides[locale]['スマートフォン専用のポイントサービスです。PCでは利用できません。'] = locale === 'en' ? 'This points service is for smartphones only. It is not available on PC.' : '此积分服务仅支持智能手机，不支持电脑。';
   overrides[locale]['チップを設定'] = locale === 'en' ? 'Configure chips' : '配置芯片';
   overrides[locale]['Player設定・上限解放'] = locale === 'en' ? 'Player settings & limits' : 'Player设置与上限';
   overrides[locale]['既存アフィリエイト広告枠・配置プレビュー'] = locale === 'en' ? 'Existing affiliate placement · layout preview' : '现有联盟广告位 · 布局预览';

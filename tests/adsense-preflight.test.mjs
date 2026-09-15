@@ -72,7 +72,7 @@ test('A8 delivery is low-density and all fixed/floating placements are disabled'
   for (const key of ['stickyAffiliateEnabled', 'slideAffiliateEnabled', 'bottomAffiliateEnabled', 'desktopRailAffiliateEnabled']) assert.equal(config[key], false, key);
   assert.match(read('monetization.js'), /affiliateDensity === 'low'/);
   const staticAds = walk(root).flatMap((file) => [...read(file).matchAll(/data-affiliate-offer="([^"]+)"/g)].map((match) => ({ file, id: match[1] })));
-  assert.equal(staticAds.length, 4);
+  assert.equal(staticAds.length, 7);
   assert.equal(Math.max(...Object.values(Object.groupBy(staticAds, (item) => item.file)).map((items) => items.length)), 1);
 });
 

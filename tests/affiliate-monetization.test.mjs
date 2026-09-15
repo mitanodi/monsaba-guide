@@ -23,7 +23,7 @@ test('keeps all four protected A8 destinations, banners, pixels and sizes unchan
     macromill_002: ['https://px.a8.net/svt/ejp?a8mat=4BADDF+1JU+2WL0+CN8W1', 'https://www21.a8.net/svt/bgt?aid=260824371000&wid=002&eno=01&mid=s00000013554002124000&mc=1', 'https://www18.a8.net/0.gif?a8mat=4BADDF+1JU+2WL0+CN8W1', 120, 600],
     ipsos_isay_001: ['https://px.a8.net/svt/ejp?a8mat=4BADDE+G8NPLM+4286+62U35', 'https://www21.a8.net/svt/bgt?aid=260824370982&wid=002&eno=01&mid=s00000018951001021000&mc=1', 'https://www11.a8.net/0.gif?a8mat=4BADDE+G8NPLM+4286+62U35', 250, 250]
   };
-  for (const offer of offers) assert.deepEqual([offer.destination, offer.mediaSource, offer.trackingPixel, offer.width, offer.height], expected[offer.id]);
+  for (const offer of offers.filter(o => expected[o.id])) assert.deepEqual([offer.destination, offer.mediaSource, offer.trackingPixel, offer.width, offer.height], expected[offer.id]);
   assert.match(read('monetization.js'), /link\.rel = 'sponsored nofollow noopener'/);
   assert.match(read('monetization.js'), /renderPresetPlacements\(config, offers\)/);
   assert.match(read('monetization.js'), /pixel\.width = 1/);

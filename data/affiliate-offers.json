@@ -69,6 +69,26 @@
       "height": 250,
       "mediaSource": "https://www21.a8.net/svt/bgt?aid=260824370982&wid=002&eno=01&mid=s00000018951001021000&mc=1",
       "trackingPixel": "https://www11.a8.net/0.gif?a8mat=4BADDE+G8NPLM+4286+62U35"
+    },
+    {
+      "id": "altema_point_005",
+      "name": "アルテマポイント（スマートフォン専用）",
+      "destination": "https://px.a8.net/svt/ejp?a8mat=4BADDE+GFSWUY+589S+5ZEMP",
+      "targetPages": [
+        "/tata-tier/",
+        "/zombie-rush/"
+      ],
+      "start": "2026-09-15",
+      "end": null,
+      "disclosure": "PR",
+      "enabled": true,
+      "trackingId": "s00000024400001",
+      "fallback": null,
+      "placementId": "altema_point_005",
+      "width": 320,
+      "height": 50,
+      "mediaSource": "https://www22.a8.net/svt/bgt?aid=260824370994&wid=002&eno=01&mid=s00000024400001005000&mc=1",
+      "trackingPixel": "https://www13.a8.net/0.gif?a8mat=4BADDE+GFSWUY+589S+5ZEMP"
     }
   ]
 }
