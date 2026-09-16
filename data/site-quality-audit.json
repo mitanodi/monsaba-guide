@@ -2,8 +2,8 @@
   "version": 1,
   "asOf": "2026-09-05",
   "totals": {
-    "pages": 396,
-    "indexable": 363,
+    "pages": 399,
+    "indexable": 366,
     "brokenLinks": 0,
     "brokenImages": 0,
     "structuralIssues": 0,
@@ -526,6 +526,16 @@
       "category": "evergreen",
       "priority": "LOW",
       "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/guides/ninjii-hunt/",
+      "verified": "2026-09-17",
+      "ageDays": -12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "admin-field-report",
       "reviewRequired": false,
       "reasons": []
     },
@@ -1596,6 +1606,16 @@
       "category": "evergreen",
       "priority": "LOW",
       "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/guides/ninjii-hunt/",
+      "verified": "2026-09-17",
+      "ageDays": -12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "admin-field-report",
       "reviewRequired": false,
       "reasons": []
     },
@@ -2786,6 +2806,16 @@
       "category": "evergreen",
       "priority": "LOW",
       "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/guides/ninjii-hunt/",
+      "verified": "2026-09-17",
+      "ageDays": -12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "admin-field-report",
       "reviewRequired": false,
       "reasons": []
     },

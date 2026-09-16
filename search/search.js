@@ -24,6 +24,7 @@ const fuzzyMatch = (query, value) => {
   return distance(query, candidate.slice(0, Math.max(query.length, candidate.length))) <= Math.max(1, Math.floor(query.length / 6));
 };
 const pages = [
+  { title:'ニンジィ探し攻略', href:'/guides/ninjii-hunt/', description:'長方形マップを狙うフレンド0人・初期サブ活用の2つの方法', keywords:'ニンジィ ニンジイ ニンジィ探し 長方形マップ アカニンジィ フレンド0人 初期マップ サブアカウント 6個' },
   { title:'ヌスケ系 名称情報', href:'/tata/nusuke/', description:'ヌスケ・ラクディット・マスクーン・トリックーンの多言語名称', keywords:'ヌスケ ラクディット マスクーン トリックーン Ringtail Rizzler Zorrock Phantothief 干脆面 改头浣面 怪盗千面 偷心假面' },
   { title:'ラフトレース（ランニングパーティー）', href:'/events/running-party/', description:'ラフティング大会として告知されたランニングパーティーの新テーマ', keywords:'ランニングパーティ ランニングパーティー ラフティング大会 ラフトレース Marathon Party Raft Race' },
   { title:'タタ名称一覧', href:'/tatari-names/', description:'日本語・英語・簡体中国語のタタ名称236件', keywords:'タタ 名前 名称 一覧 Tatari names 中文 English 多言語' },

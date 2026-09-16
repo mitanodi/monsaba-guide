@@ -35,6 +35,8 @@ const phase3Overrides = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/ph
 for (const locale of ['en', 'zh-CN']) Object.assign(overrides[locale], phase3Overrides[locale]);
 const phase4Overrides = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/phase4.json'), 'utf8'));
 for (const locale of ['en', 'zh-CN']) Object.assign(overrides[locale], phase4Overrides[locale]);
+const ninjiiOverrides = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/ninjii-hunt.json'), 'utf8'));
+for (const locale of ['en', 'zh-CN']) Object.assign(overrides[locale], ninjiiOverrides[locale]);
 const notices = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/notices.json'), 'utf8'));
 const tatari = JSON.parse(fs.readFileSync(path.join(root, 'data/tatari.json'), 'utf8'));
 const localizeTataNames = createTataHtmlLocalizer(tatari);
@@ -377,7 +379,7 @@ for (const file of sourceFiles) {
 for (const locale of locales) {
   if (missing[locale].size) {
     console.error(`${locale}: ${missing[locale].size} missing translations`);
-    console.error([...missing[locale]].slice(0, 30).join('\n'));
+    console.error([...missing[locale]].slice(0, 200).join('\n'));
     process.exitCode = 1;
   }
 }

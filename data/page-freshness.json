@@ -18,6 +18,7 @@
     "/tata-tier/": { "updated": "2026-09-16", "verified": "2026-09-16", "pending": ["暫定8件・保留3件は継続検証"] },
     "/evolution-priority/": { "updated": "2026-08-25T17:57:25+09:00" },
     "/guides/": { "published": "2026-08-25", "updated": "2026-08-25T17:57:25+09:00", "verified": "2026-08-25" },
+    "/guides/ninjii-hunt/": { "published": "2026-09-17", "updated": "2026-09-17", "verified": "2026-09-17", "status": "admin-field-report", "pending": ["方法別の試行回数・平均獲得数・成功率", "初期マップ判定とフレンド選出の公式仕様", "全サーバー・全バージョンでの再現性"] },
     "/zombie-rush/": { "updated": "2026-08-28", "verified": "2026-08-28", "status": "implemented-details-verifying", "pending": ["Season 1の十分な実戦データに基づくTier判定", "ゲーム内の報酬しきい値の具体値"] },
     "/zombie-rush/chips/": { "published": "2026-08-30", "updated": "2026-08-30", "verified": "2026-08-30", "gameVersion": "0.46.1", "status": "verified" },
     "/boss-rally/": { "updated": "2026-08-25T17:57:25+09:00" },
