@@ -74,11 +74,11 @@ const updatesGraph = extractJsonLd(updatesHtml).flatMap((value) => value['@graph
 const websiteSchema = homeGraph.find((node) => node['@type'] === 'WebSite');
 const homePageSchema = homeGraph.find((node) => node['@type'] === 'WebPage');
 const updatesPageSchema = updatesGraph.find((node) => node['@type'] === 'WebPage');
-const homeTitle = 'モンサバ攻略DB｜タタ図鑑・Tier・進化・スキル一覧';
+const homeTitle = 'モンサバ攻略DB｜モンサバをもっと楽しく、もっとわかりやすく。';
 expect(homeHtml.includes(`<title>${homeTitle}</title>`), 'トップ: titleのブランド名・ページ役割が不正です');
 expect(homeHtml.includes(`<meta property="og:title" content="${homeTitle}"`), 'トップ: og:titleがtitleと一致しません');
 expect(homeHtml.includes('<link rel="canonical" href="https://monster-survival.com/"'), 'トップ: 自己canonicalが不正です');
-expect(homeHtml.includes(`<h1>${homeTitle}</h1>`), 'トップ: H1からサイト代表ページだと判別できません');
+expect(homeHtml.includes('<h1>モンサバ攻略DB</h1>'), 'トップ: H1からサイト代表ページだと判別できません');
 expect(homeHtml.includes('<meta property="og:site_name" content="モンサバ攻略DB"'), 'トップ: og:site_nameが不正です');
 expect(homeHtml.includes('<a class="brand" href="/" aria-label="モンサバ攻略DB トップ"'), 'トップ: ブランドリンクが不正です');
 expect(websiteSchema?.name === 'モンサバ攻略DB', 'トップ: WebSite nameはサイト名だけにしてください');

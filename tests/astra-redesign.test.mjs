@@ -9,7 +9,12 @@ test('Astra preserves SEO identity on representative existing pages in all three
   const routes=['','tata-tier/','beginner-guide/','evolution-priority/','tata/takepanda/','team-builder/','team-builder/community/','events/','search/','compare/','my-monsaba/','board/','friends/'];
   for(const locale of ['','en/','zh-cn/'])for(const route of routes){
     const file=`${locale}${route}index.html`,before=load(control(file)),after=load(read(file));
-    for(const selector of ['h1','title']){ const copy=JSON.parse(read('data/i18n/tata-tier.json')); const expected=route==='tata-tier/'?copy[locale==='en/'?'en':locale==='zh-cn/'?'zh-CN':'ja'].title:before(selector).text().trim(); assert.equal(after(selector).text().trim(),expected,file+' '+selector); }
+    const homeCopy = {
+      '': {h1:'モンサバ攻略DB',title:'モンサバ攻略DB｜モンサバをもっと楽しく、もっとわかりやすく。'},
+      'en/': {h1:'Clash of Critters Guide DB',title:'Clash of Critters Guide DB | More fun. Easier to understand.'},
+      'zh-cn/': {h1:'Clash of Critters 攻略数据库',title:'Clash of Critters 攻略数据库｜游戏更有趣，攻略更易懂。'}
+    };
+    for(const selector of ['h1','title']){ const copy=JSON.parse(read('data/i18n/tata-tier.json')); const expected=route===''?homeCopy[locale][selector]:route==='tata-tier/'?copy[locale==='en/'?'en':locale==='zh-cn/'?'zh-CN':'ja'].title:before(selector).text().trim(); assert.equal(after(selector).text().trim(),expected,file+' '+selector); }
     for(const selector of ['link[rel=canonical]','meta[name=robots]'])assert.equal(after(selector).attr(selector.startsWith('link')?'href':'content'),before(selector).attr(selector.startsWith('link')?'href':'content'),file+' '+selector);
     assert.deepEqual(after('link[hreflang]').map((_,e)=>[after(e).attr('hreflang')+' '+after(e).attr('href')]).get().sort(),before('link[hreflang]').map((_,e)=>[before(e).attr('hreflang')+' '+before(e).attr('href')]).get().sort(),file+' hreflang');
   }

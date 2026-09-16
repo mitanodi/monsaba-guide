@@ -73,6 +73,23 @@ for(const file of walk(root)){
     $('.hero-copy').prepend(`<p class="astra-home-title">${c.intro}</p>`);
     $('.hero-copy .lead').text(c.lead);
     $('.hero-copy h1').removeAttr('class');
+    if (locale === 'ja') {
+      const tagline = 'モンサバをもっと楽しく、もっとわかりやすく。';
+      const title = `モンサバ攻略DB｜${tagline}`;
+      const description = 'タタ図鑑・Tier・育成・編成・イベント攻略をひとつに。';
+      html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${title}</title>`);
+      html = html.replace(/<meta name="description" content="[^"]*"\s*\/?\s*>/, `<meta name="description" content="${tagline}${description}モンスターサバイバルの非公式攻略サイト。">`);
+      html = html.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g, (_, json) => {
+        const schema = JSON.parse(json);
+        for (const node of schema['@graph'] || [schema]) {
+          if (node['@type'] === 'WebPage') node.name = title;
+        }
+        return `<script type="application/ld+json">${JSON.stringify(schema)}</script>`;
+      });
+      $('.hero-copy h1').text('モンサバ攻略DB');
+      $('.astra-home-title').text(tagline);
+      $('.hero-copy .lead').text(description);
+    }
     $('.hero-copy').append(`<a class="astra-home-search" href="${href('/search/')}"><span aria-hidden="true">⌕</span>${c.search}<span aria-hidden="true">↗</span></a>`);
     const search=$('.hero-search-row');$('#tatari .section-head').after(search);
     $('#tatari').addClass('astra-catalog');
