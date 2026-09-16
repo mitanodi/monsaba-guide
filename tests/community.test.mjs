@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { createCommunityService, CommunityError } from '../lib/community-core.js';
-import { decodeTeam, emptyTeam, encodeTeam } from '../team-builder/team-core.js';
+import { decodeTeam, emptyTeam, encodeTeam, freeSlot, freeSlotCount } from '../team-builder/team-core.js';
 
 const read = (file) => JSON.parse(fs.readFileSync(new URL(`../${file}`, import.meta.url), 'utf8'));
 const families = read('data/tatari.json').families;
@@ -64,6 +64,13 @@ test('P1/P2・配置・Tier・Lv・チップ・解放設定を投稿後も完全
   assert.deepEqual(restored.slots, team.slots);
   assert.deepEqual(restored.playerSettings, team.playerSettings);
   assert.deepEqual(restored.chips, team.chips);
+});
+
+test('Communityは自由枠の複数配置・Player・位置を検証して復元する',async()=>{
+  const {service,body}=fixture(); const team=emptyTeam(); team.slots[2]=freeSlot(1); team.slots[8]=freeSlot(1); team.slots[35]=freeSlot(2);
+  const created=await service.create({...body,formationCode:encodeTeam(team,families,chips)},'192.0.2.44'); const restored=decodeTeam(created.build.formationCode,families,chips);
+  assert.equal(freeSlotCount(restored,1),2); assert.equal(freeSlotCount(restored,2),1); assert.equal(restored.slots[35].playerId,2);
+  const invalid=Buffer.from(JSON.stringify({v:6,m:2,u:0,s:[[0,-1,0,3,0]]})).toString('base64url'); const next=fixture(); await rejectsCode(next.service.create({...next.body,formationCode:invalid},'192.0.2.45'),'INVALID_FORMATION');
 });
 
 test('空編成・非ゾンビ・不正コード・不正メタ情報を拒否する', async () => {

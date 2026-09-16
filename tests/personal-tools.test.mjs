@@ -10,9 +10,22 @@ import {
 import {
   TEAM_KEY, DRAFT_KEY, TEAM_VERSION, SHARE_VERSION, TEAM_ROWS, TEAM_COLUMNS, TEAM_SLOTS, STANDARD_TEAM_ROWS, STANDARD_TEAM_COLUMNS, STANDARD_TEAM_SLOTS, DOJO_TEAM_ROWS, DOJO_TEAM_COLUMNS, DOJO_TEAM_SLOTS, MAX_SAVED_TEAMS, emptyTeam, sanitizeTeam,
   loadTeams, loadDraft, saveDraft, saveTeamList, upsertTeam, placeMember, randomPlacementIndex, copyMemberToPlayer, togglePlayerChip, removeMember, moveMember,
-  placementIssue, setPlayerUnlock, playerCount, playerLimit, levelLimit, MODE_PLAYER_LIMITS, activePlayerIds,
+  placementIssue, setPlayerUnlock, playerCount, playerLimit, levelLimit, MODE_PLAYER_LIMITS, activePlayerIds, FREE_SLOT_KIND, freeSlot, freeSlotCount, tataCount,
   encodeTeam, decodeTeam, analyzeTeam, teamText, stageImageFor, stage1ImageFor, formationExportTitle, formationContextLabel, switchModeDraft, saveModeDrafts, loadModeDrafts, boardRows, boardColumns, boardSlotCount
 } from '../team-builder/team-core.js';
+
+test('自由枠は複数配置・上限計数・保存共有・実タタ置換・移動削除に対応する', () => {
+  let team=emptyTeam(); team.mode='dojo';
+  for(let index=0;index<5;index+=1) team=placeMember(team,index,freeSlot(1),families);
+  assert.equal(freeSlotCount(team,1),5); assert.equal(tataCount(team,1),0); assert.equal(placementIssue(team,5,freeSlot(1),families),'player-full');
+  const replacement={familyId:families[0].id,stage:1,playerId:1,level:1};
+  assert.equal(placementIssue(team,0,replacement,families),null); team=placeMember(team,0,replacement,families);
+  assert.equal(tataCount(team,1),1); assert.equal(freeSlotCount(team,1),4);
+  team=moveMember(team,1,8,families); assert.equal(team.slots[8].kind,FREE_SLOT_KIND); team=removeMember(team,8,families); assert.equal(team.slots[8],null);
+  const restored=decodeTeam(encodeTeam(team,families,chips),families,chips); assert.deepEqual(restored.slots,team.slots);
+  const device=storage(); const saved=saveDraft(device,team,families); assert.deepEqual(loadDraft(device,families).slots,saved.slots);
+  assert.match(teamText(team,families,'ja',chips),/自由枠/); assert.doesNotMatch(teamText(team,families,'ja',chips),/自由枠.*T\d/);
+});
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
