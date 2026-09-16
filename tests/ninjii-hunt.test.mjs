@@ -12,11 +12,21 @@ test('ニンジィ探し記事は2つの方法と重要条件を区別して掲�
   const $ = load(html);
   assert.equal($('h1').text().trim(), 'ニンジィ探し攻略｜長方形マップを狙う2つの方法');
   for (const id of ['difference','method-zero','method-sub','example-six','notes']) assert.equal($(`#${id}`).length, 1, id);
-  for (const text of ['フレンドを0人','所持タタが2～3体程度','初期マップで止めた相手を複数登録','全員解除はこの方法の前提ではありません','アカニンジィ×6','99.5%のプレイヤーを上回りました']) assert.match($.text(), new RegExp(text.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')), text);
+  for (const text of ['フレンドを0人','所持タタが2～3体程度','初期マップで止めた相手を複数登録','全員解除はこの方法の前提ではありません','現在のゲームバージョンで実際に試し','今後のアップデート','実際の結果：ニンジィ6個','上限は6個']) assert.match($.text(), new RegExp(text.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')), text);
+  assert.doesNotMatch($.text(), /実際の結果：アカニンジィ6個|成績表示|99\.5%のプレイヤー/);
+  assert.equal($('.ninjii-evidence img').length, 2);
+  assert.equal($('.article-comments[data-article-comments="ninjii-hunt"]').length, 1);
+  assert.match(html, /article-comments\.js/);
   assert.doesNotMatch($.text(), /必ず4個以上|100%|初期サブの人数÷全フレンド数/);
   assert.equal($('link[rel="canonical"]').attr('href'), 'https://monster-survival.com/guides/ninjii-hunt/');
   assert.equal($('meta[name="robots"]').attr('content'), 'index,follow,max-image-preview:large');
   assert.ok($('script[type="application/ld+json"]').text().includes('Article'));
+});
+
+test('記事コメント欄はPrivacyと専用APIへ接続される', () => {
+  assert.match(read('privacy/index.html'), /記事コメント欄/);
+  assert.match(read('article-comments.js'), /\/api\/article-comments/);
+  assert.match(read('api/article-comments.js'), /PREVIEW_READ_ONLY/);
 });
 
 test('記事への内部リンク・検索語・更新履歴が生成される', () => {

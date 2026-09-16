@@ -85,7 +85,23 @@
     "この記事の目次": "Contents of this article",
     "ニンジィ探しの実戦攻略記事を追加": "Added a field guide for Ninjii Hunt",
     "管理人の実戦報告をもとに、長方形マップを狙う2つの方法と未確認条件を整理しました。": "Based on the admin's field report, this guide explains two ways to target the rectangular map and clearly lists unverified conditions.",
-    "記事を見る": "Read the article"
+    "記事を見る": "Read the article",
+    "本記事の方法は、管理人が現在のゲームバージョンで実際に試し、長方形マップへ入れることを確認した実戦情報です。ただし運営が公開した恒久仕様ではないため、今後のアップデートやマッチング方法の変更によって使えなくなる可能性があります。「固定」はマップ形状を指し、ニンジィの位置が毎回同じという意味ではありません。": "The site admin tested these methods in the current game version and confirmed entry to the rectangular map. They are not a permanent specification published by the developer, so a future update or matching change may stop them from working. ‘Fixed’ refers only to the map shape, not identical Ninjii locations every time.",
+    "管理人が現在のバージョンで確認した長方形マップ": "Rectangular map confirmed by the admin in the current version",
+    "ニンジィ探しで確認した長方形マップの実例": "Example rectangular map confirmed in Ninjii Hunt",
+    "実際の結果：ニンジィ6個": "Field result: six Ninjii",
+    "管理人が実際に試した結果、長方形マップでニンジィを6個発見できました。ニンジィ探しで一度に発見できる上限は6個です。": "In the admin's field test, six Ninjii were found on the rectangular map. Six is the maximum that can be found in one Ninjii Hunt.",
+    "ニンジィを上限の6個発見した実戦結果": "Field result showing the maximum of six Ninjii found",
+    "ニンジィを上限の6個発見した結果画面": "Result screen showing the maximum of six Ninjii found",
+    "現在のゲームバージョンでは管理人が実証済みですが、今後のアップデートで使えなくなる可能性があります。": "The admin has verified this in the current game version, but a future update may stop it from working.",
+    "この記事へのコメント": "Comments on this article",
+    "この方法を試した結果や、アップデート後の変化を共有できます。個人情報は書き込まないでください。": "Share your results or changes noticed after an update. Do not post personal information.",
+    "コメントを読み込んでいます…": "Loading comments…",
+    "名前（任意）": "Name (optional)",
+    "コメントする": "Post comment",
+    "方法①・方法②、現在のバージョンでの再現、ニンジィ6個の上限：2026年9月17日に受け取った管理人おぢの実戦確認と提供画像。将来のアップデート後の継続可否、公式のマッチング条件、試行回数、平均、マッチ率は未確認・未集計です。": "Methods 1 and 2, reproduction in the current version, and the six-Ninjii maximum are based on field verification and images supplied by site admin Oji on September 17, 2026. Continued availability after future updates, official matching rules, trial counts, averages and matching rates are unverified or uncounted.",
+    "記事コメント欄": "Article comments",
+    "実戦攻略記事のコメント欄では、任意の名前・コメント本文・投稿日時を保存し、公開します。個人情報を書き込まないでください。生のIPアドレスは保存せず、不可逆化した識別値を投稿間隔の制御に利用します。自分のコメントを削除するための情報は利用中のブラウザ内に保存します。": "Article comment sections store and publish an optional name, comment text and posting time. Do not post personal information. Raw IP addresses are not stored; an irreversible identifier is used only to rate-limit posts. Information used to delete your own comment is stored in your browser."
   },
   "zh-CN": {
     "イベント攻略：ニンジィ探し": "活动攻略：Ninjii搜寻",
@@ -173,6 +189,22 @@
     "この記事の目次": "本文目录",
     "ニンジィ探しの実戦攻略記事を追加": "新增Ninjii搜寻实战攻略",
     "管理人の実戦報告をもとに、長方形マップを狙う2つの方法と未確認条件を整理しました。": "依据站长实战报告，整理了争取长方形地图的两种方法及未确认条件。",
-    "記事を見る": "查看文章"
+    "記事を見る": "查看文章",
+    "本記事の方法は、管理人が現在のゲームバージョンで実際に試し、長方形マップへ入れることを確認した実戦情報です。ただし運営が公開した恒久仕様ではないため、今後のアップデートやマッチング方法の変更によって使えなくなる可能性があります。「固定」はマップ形状を指し、ニンジィの位置が毎回同じという意味ではありません。": "本文方法已由站长在当前游戏版本中实际测试，并确认能够进入长方形地图。但这不是运营方公开的永久规则，今后的更新或匹配方式变化可能会使其失效。这里的“固定”仅指地图形状，并不表示Ninjii位置每次相同。",
+    "管理人が現在のバージョンで確認した長方形マップ": "站长在当前版本中确认的长方形地图",
+    "ニンジィ探しで確認した長方形マップの実例": "Ninjii搜寻中确认的长方形地图实例",
+    "実際の結果：ニンジィ6個": "实战结果：6个Ninjii",
+    "管理人が実際に試した結果、長方形マップでニンジィを6個発見できました。ニンジィ探しで一度に発見できる上限は6個です。": "站长实际测试后，在长方形地图中找到了6个Ninjii。单次Ninjii搜寻可发现的上限为6个。",
+    "ニンジィを上限の6個発見した実戦結果": "实战中发现上限6个Ninjii的结果",
+    "ニンジィを上限の6個発見した結果画面": "发现上限6个Ninjii的结果画面",
+    "現在のゲームバージョンでは管理人が実証済みですが、今後のアップデートで使えなくなる可能性があります。": "站长已在当前游戏版本中验证，但今后的更新可能会使该方法失效。",
+    "この記事へのコメント": "本文评论",
+    "この方法を試した結果や、アップデート後の変化を共有できます。個人情報は書き込まないでください。": "可分享尝试该方法的结果或更新后的变化。请勿填写个人信息。",
+    "コメントを読み込んでいます…": "正在加载评论…",
+    "名前（任意）": "名字（选填）",
+    "コメントする": "发表评论",
+    "方法①・方法②、現在のバージョンでの再現、ニンジィ6個の上限：2026年9月17日に受け取った管理人おぢの実戦確認と提供画像。将来のアップデート後の継続可否、公式のマッチング条件、試行回数、平均、マッチ率は未確認・未集計です。": "方法①和②、当前版本中的复现以及6个Ninjii上限，依据2026年9月17日收到的站长Oji实战确认与提供图片。未来更新后是否仍可使用、官方匹配条件、试验次数、平均值与匹配率均未确认或未统计。",
+    "記事コメント欄": "文章评论区",
+    "実戦攻略記事のコメント欄では、任意の名前・コメント本文・投稿日時を保存し、公開します。個人情報を書き込まないでください。生のIPアドレスは保存せず、不可逆化した識別値を投稿間隔の制御に利用します。自分のコメントを削除するための情報は利用中のブラウザ内に保存します。": "实战攻略文章的评论区会保存并公开选填名字、评论正文和发布时间。请勿填写个人信息。网站不会保存原始IP地址，仅使用不可逆标识控制发帖频率。用于删除自己评论的信息保存在当前浏览器中。"
   }
 }
