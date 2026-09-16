@@ -107,9 +107,10 @@ for(const file of walk(root)){
     const settings=$('#team-settings-title').closest('section');
     if(!settings.find('.astra-settings-details').length){
       const mode=$('#team-mode').closest('label').remove();
-      const contents=settings.contents().remove();settings.append(`<div class="astra-mode-toolbar tool-toolbar"></div><details class="astra-settings-details"><summary>${c.settings}</summary></details>`);
+      const contents=settings.contents().remove();settings.append(`<div class="astra-mode-toolbar tool-toolbar"></div><details class="astra-settings-details" open><summary>${c.settings}</summary></details>`);
       settings.find('.astra-mode-toolbar').append(mode);settings.find('details').append(contents);
     }
+    settings.find('.astra-settings-details').attr('open','');
     const chips=$('#team-chip-settings');if(chips.length&&!chips.parent().is('details')){const detail=$(`<details class="astra-chip-details"><summary>${locale==='ja'?'チップを設定':locale==='en'?'Configure chips':'配置芯片'}</summary></details>`);chips.remove();detail.append(chips);$('.formation-board-footer').after(detail);}
     $('.page-hero').addClass('astra-compact-hero');
     const intro=$('.page-hero .family-page-head>div>p');$('#team-help-title').after(intro);

@@ -21,6 +21,14 @@ test('Tool, search and community pages have no experimental advertisement',()=>{
   const $=load(read('index.html'));assert.equal($('.astra-ad').length,1);assert.equal($('script[data-monsaba-ga4=loader]').attr('type'),'text/plain');assert.equal($('script[src*="monetization.js"]').attr('type'),'text/plain');
 });
 
+test('Team Builder exposes the optional formation name controls on first render',()=>{
+  for(const locale of ['','en/','zh-cn/']){
+    const $=load(read(`${locale}team-builder/index.html`));
+    assert.equal($('.astra-settings-details').is('[open]'),true);
+    assert.equal($('#team-name').length,1);
+  }
+});
+
 test('Tier chart is in its final reading position before client scripts run',()=>{
   for(const locale of ['','en/','zh-cn/']){const $=load(read(`${locale}tata-tier/index.html`));assert.equal($('.article-byline').next().attr('id'),'tier-list');}
 });

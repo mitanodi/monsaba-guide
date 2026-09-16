@@ -537,6 +537,11 @@ test('盤面端は選択マスを含む位置へ補正し、手動の発見済�
   assert.equal(resolvePlacementAtCell(5, '1x2', 24, true, cells), null);
 });
 
+test('使い方の自動更新案内は他の手順と同じ常体にする', () => {
+  assert.match(html, /<li>入力するたびに確率が自動更新<\/li>/);
+  assert.doesNotMatch(html, /入力するたびに確率が自動更新されます/);
+});
+
 test('盤面直下に1個前へ戻る・全リセット・リセット前の一括復元を置く', () => {
   assert.match(js, /undoBelowBoard/);
   assert.match(js, /resetBelowBoard/);
