@@ -35,7 +35,7 @@ for(const [locale,prefix] of [['ja',''],['en','en/'],['zh-CN','zh-cn/']]) {
   const byline=$('.article-byline').first().toString();
   const nav=`<nav id="tier-navigation" class="wrap tier-mode-nav" aria-label="${esc(copy.title)}">${MODES.map((mode,i)=>`<a href="#mode-${mode}">${esc(copy.labels[i])}</a>`).join('')}</nav>`;
   const filters=`<div class="wrap tier-filter" role="group" aria-label="${esc(copy.filter)}"><span>${esc(copy.filter)}</span>${[['all',copy.all],...Object.entries(copy.attributes)].map(([attr,label],i)=>`<button type="button" class="filter${i===0?' is-active':''}" data-tier-attribute="${attr}" aria-pressed="${i===0}">${esc(label)}</button>`).join('')}</div>`;
-  const boards=MODES.map((mode,i)=>renderTierBoard({data,families,images,locale,copy,mode})+(locale==='ja'&&i===0?ninjaAdMaxTier:'')+(ads[i]||'')).join('\n');
+  const boards=MODES.map((mode,i)=>renderTierBoard({data,families,images,locale,copy,mode})+(ads[i]||'')+(locale==='ja'&&i===MODES.length-1?ninjaAdMaxTier:'')).join('\n');
   const main=`<main id="main-content"><section class="page-hero tier-page-hero astra-compact-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/${prefix}">${locale==='ja'?'トップ':locale==='en'?'Home':'首页'}</a><span>›</span><span>${esc(copy.labels[0])} Tier</span></nav><span class="attribute">${esc(copy.updated)} ${data.updated}</span><h1>${esc(copy.title)}</h1><p>${esc(copy.intro)}</p></div></section>${nav}${byline}<div id="tier-list">${filters}${copy.legend?`<p class="wrap tier-criteria-panel">${esc(copy.legend)}</p>`:''}${boards}</div></main>`;
   html=html.replace(/<main\b[^>]*>[\s\S]*?<\/main>/,main);
   html=patchHtml(html,[['title',()=>`<title>${esc(copy.title)}</title>`],['meta[name="description"]',()=>`<meta name="description" content="${esc(copy.intro)}">`],['script[type="application/ld+json"]',el=>{
@@ -47,6 +47,9 @@ for(const [locale,prefix] of [['ja',''],['en','en/'],['zh-CN','zh-cn/']]) {
     .replace(/(<script async src="https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=[^"]+"[^>]*data-monsaba-ga4="loader")(?: type="[^"]*")?>/g,'$1 type="text/plain">')
     .replace('</head>',`<link rel="stylesheet" href="/astra.css?v=${assetVersion}"><link rel="stylesheet" href="/astra-tier.css?v=${assetVersion}"><link rel="stylesheet" href="/tata-tier/tier-boards.css?v=${assetVersion}"></head>`);
   html=html.replace(/(src="\/tata-tier\/tata-tier\.js)(?:\?[^\"]*)?"/g,`$1?v=${assetVersion}"`);
+  if(locale!=='ja'&&!html.includes(`/i18n/${prefix.slice(0,-1)}-runtime.js?v=${assetVersion}`)){
+    html=html.replace('</body>',`<script src="/i18n/${prefix.slice(0,-1)}-runtime.js?v=${assetVersion}" defer></script><script src="/i18n-runtime.js?v=${assetVersion}" defer></script></body>`);
+  }
   write(file,html);
 
   // Existing detail pages retain their content, SEO, images, ads and layout.

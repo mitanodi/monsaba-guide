@@ -305,7 +305,15 @@ function localizeHtml(source, sourceRoute, locale, missing) {
   const noticeKey = sourceRoute.startsWith('/board/') ? 'board' : sourceRoute === '/friends/' ? 'friends' : sourceRoute === '/privacy/' ? 'privacy' : sourceRoute === '/consult/' ? 'consult' : null;
   if (noticeKey) html = html.replace(/(<main\b[^>]*>)/, `$1<p class="wrap i18n-locale-notice" role="note">${notices[noticeKey][locale]}</p>`);
   const runtime = `<script src="/i18n/${targetDirectory[locale]}-runtime.js?v=${assetVersion}" defer></script><script src="/i18n-runtime.js?v=${assetVersion}" defer></script>`;
-  html = html.replace(/(<script\b(?![^>]*application\/ld\+json)[^>]*src=)/, `${runtime}$1`);
+  const runtimeUrl = `/i18n/${targetDirectory[locale]}-runtime.js?v=${assetVersion}`;
+  if (!html.includes(runtimeUrl)) {
+    let insertedBeforeScript = false;
+    html = html.replace(/(<script\b(?![^>]*application\/ld\+json)[^>]*src=)/, (match) => {
+      insertedBeforeScript = true;
+      return `${runtime}${match}`;
+    });
+    if (!insertedBeforeScript) html = html.replace('</body>', `${runtime}</body>`);
+  }
   return html;
 }
 

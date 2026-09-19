@@ -163,7 +163,10 @@ expect(read('site.js').includes('location.search') && read('site.js').includes('
 expect(read('i18n-runtime.js').includes('.official-x-post-text') && read('i18n-runtime.js').includes('.friend-comment'), 'UGC/X translation exclusion missing');
 expect(read('app.js').includes("fetch('/data/tatari.json'"), 'Shared Tatari data must use a locale-independent root URL');
 expect(read('data/adsense-config.json').includes('"enabled": false') && read('data/adsense-config.json').includes('"autoAds": false'), 'AdSense must remain disabled');
-expect(read('ads.txt').trim() === 'google.com, pub-2710725734378326, DIRECT, f08c47fec0942fa0', 'ads.txt changed');
+expect(read('ads.txt').trim() === [
+  'google.com, pub-2710725734378326, DIRECT, f08c47fec0942fa0',
+  'adm.shinobi.jp,231656,DIRECT'
+].join('\n'), 'ads.txt must retain the approved Google and Ninja AdMax DIRECT rows');
 
 if (errors.length) {
   console.error(`i18n validation failed (${errors.length})`);

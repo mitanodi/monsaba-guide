@@ -160,6 +160,10 @@ for(const file of walk(root)){
   const pageCss=route==='/'?['home']:route==='/events/'?['home']:route==='/events/calendar/'?['calendar']:route==='/team-builder/'?['team']:route.startsWith('/team-builder/community/')?['community','team']:route.startsWith('/tata/')?['detail']:route==='/tata-tier/'?['tier']:['/beginner-guide/','/evolution-priority/'].includes(route)?['home']:[];
   html=html.replace('</head>',['astra',...pageCss.map(x=>'astra-'+x)].map(x=>`<link rel="stylesheet" href="/${x}.css?v=${version}">`).join('')+'</head>').replace('</body>',`<script src="/astra.js?v=${version}" defer></script>${route==='/'||route==='/events/'?`<script type="module" src="/astra-calendar.js?v=${version}"></script>`:''}</body>`);
   html=html.replace(/(<script async src="https:\/\/www.googletagmanager.com[^\"]*")([^>]*>)/g,(_,a,b)=>a+b.replace(/ type="[^"]*"/g,'').replace('>',' type="text/plain">'));
+  if(locale!=='ja'&&route!=='/tatari-names/'&&!html.includes(`/i18n/${locale==='en'?'en':'zh-cn'}-runtime.js?v=${version}`)){
+    const directory=locale==='en'?'en':'zh-cn';
+    html=html.replace('</body>',`<script src="/i18n/${directory}-runtime.js?v=${version}" defer></script><script src="/i18n-runtime.js?v=${version}" defer></script></body>`);
+  }
   // Self-localized generators may copy a header from the preceding build. Normalize all asset URLs last.
   html=html.replace(/((?:href|src)="(?:\.\/|\.\.\/|\/)[^"?]+\.(?:css|js))(?:\?v=[^"#]*)?("(?:\s|>))/g,`$1?v=${version}$2`);
   if(fs.readFileSync(file,'utf8')!==html)fs.writeFileSync(file,html);
