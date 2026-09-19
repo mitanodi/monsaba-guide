@@ -1,121 +1,17 @@
-export const STORAGE_KEY = 'monsaba-feeding-simulator-v1';
-export const STORAGE_VERSION = 1;
-
-export const FOODS = Object.freeze([
-  { id: 'soda', asset: 'soda', points: 5, tier: 'confirmed', source: '公式動画で+5表示を確認' },
-  { id: 'ice-cream', asset: 'ice-cream', points: 5, tier: 'confirmed', source: '公式動画で+5表示を確認' },
-  { id: 'potatoes', asset: 'potatoes', points: 5, tier: 'confirmed', source: '公式動画で+5表示を確認' },
-  { id: 'noodles', asset: 'noodles', points: 10, tier: 'confirmed', source: '公式動画で+10表示を確認' },
-  { id: 'salad', asset: 'salad', points: 10, tier: 'confirmed', source: '公式動画で+10表示を確認' },
-  { id: 'smoothie', asset: 'smoothie', points: 10, tier: 'confirmed', source: '公式動画で+10表示を確認' },
-  { id: 'pizza', asset: 'pizza', points: 30, tier: 'confirmed', source: '公式動画で+30表示を確認' },
-  { id: 'soup', asset: 'soup', points: 30, tier: 'confirmed', source: '公式動画で+30表示を確認' },
-  { id: 'sushi', asset: 'sushi', points: 30, tier: 'confirmed', source: '公式動画で+30表示を確認' }
-]);
-
-export function createDefaultModel() {
-  return { version: STORAGE_VERSION, target: 100, current: 0, history: [] };
-}
-
-const numberOr = (value, fallback) => Number.isFinite(Number(value)) ? Number(value) : fallback;
-export function normalizeModel(value) {
-  const base = createDefaultModel();
-  if (!value || typeof value !== 'object') return base;
-  const history = Array.isArray(value.history) ? value.history
-    .filter((entry) => entry && Number.isFinite(Number(entry.points)) && typeof entry.label === 'string')
-    .slice(-100)
-    .map((entry) => ({ id: String(entry.id || cryptoRandomId()), label: entry.label.slice(0, 80), points: Math.max(0, Math.min(9999, Number(entry.points))) })) : [];
-  return {
-    version: STORAGE_VERSION,
-    target: Math.max(1, Math.min(9999, numberOr(value.target, base.target))),
-    current: Math.max(0, Math.min(9999, numberOr(value.current, base.current))),
-    history
-  };
-}
-
-function cryptoRandomId() {
-  return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
-}
-
-export function addFood(model, entry) {
-  const points = Math.max(1, Math.min(9999, numberOr(entry?.points, 0)));
-  const label = String(entry?.label || '').trim().slice(0, 80);
-  if (!label || !points) return normalizeModel(model);
-  const normalized = normalizeModel(model);
-  return { ...normalized, current: Math.min(9999, normalized.current + points), history: [...normalized.history, { id: cryptoRandomId(), label, points }] };
-}
-
-export function undoLast(model) {
-  const normalized = normalizeModel(model);
-  const last = normalized.history.at(-1);
-  if (!last) return normalized;
-  return { ...normalized, current: Math.max(0, normalized.current - last.points), history: normalized.history.slice(0, -1) };
-}
-
-export function remainingPoints(model) {
-  const normalized = normalizeModel(model);
-  return Math.max(0, normalized.target - normalized.current);
-}
-
-const copy = {
-  ja: {
-    title: '餌付けシミュレーター', lead: '公式動画で確認できた食品画像とポイント表示を使い、必要な餌の組み合わせを端末内で試せます。',
-    target: '目標ポイント', current: '現在ポイント', remaining: '残り', history: '追加履歴', noHistory: 'まだ食品を追加していません。',
-    candidates: '公式画像で確認済みの候補', manual: '手動で加算', manualPlaceholder: 'ポイント', add: '追加', undo: '直前を戻す', reset: 'すべてリセット',
-    confirmed: '動画でポイント表示を確認', caveat: '食品の正式名称・属性効果は確認中です。ファイル名・外部照合に基づく候補名を、ゲーム内の確定名称としては扱っていません。',
-    source: '公式Creator Assetsを使用', facility: '自動餌やり機の公式画像を確認済み', foodNames: ['ソーダ候補', 'アイス候補', 'ポテト候補', 'ヌードル候補', 'サラダ候補', 'スムージー候補', 'ピザ候補', 'スープ候補', '寿司候補']
-  },
-  en: {
-    title: 'Feeding Simulator', lead: 'Try feeding-point combinations locally using food images and point labels visible in official footage.',
-    target: 'Target points', current: 'Current points', remaining: 'Remaining', history: 'Added items', noHistory: 'No food has been added yet.',
-    candidates: 'Candidates with verified official images', manual: 'Add points manually', manualPlaceholder: 'Points', add: 'Add', undo: 'Undo last', reset: 'Reset all',
-    confirmed: 'Point label verified in official footage', caveat: 'Official localized names and attribute effects are still being checked. Candidate names are not presented as confirmed in-game names.',
-    source: 'Uses official Creator Assets', facility: 'Official Auto Feeder image verified', foodNames: ['Soda candidate', 'Ice cream candidate', 'Potato candidate', 'Noodles candidate', 'Salad candidate', 'Smoothie candidate', 'Pizza candidate', 'Soup candidate', 'Sushi candidate']
-  },
-  'zh-CN': {
-    title: '喂食模拟器', lead: '使用官方视频中可确认的食物图片和积分显示，在本设备上试算喂食组合。',
-    target: '目标积分', current: '当前积分', remaining: '还差', history: '添加记录', noHistory: '尚未添加食物。',
-    candidates: '已确认官方图片的候选', manual: '手动添加积分', manualPlaceholder: '积分', add: '添加', undo: '撤销上一步', reset: '全部重置',
-    confirmed: '已在官方视频中确认积分显示', caveat: '食物的正式本地化名称和属性效果仍在核实中。候选名称并非已确认的游戏内名称。',
-    source: '使用官方 Creator Assets', facility: '已确认自动喂食器官方图片', foodNames: ['汽水候选', '冰淇淋候选', '土豆候选', '面条候选', '沙拉候选', '冰沙候选', '披萨候选', '汤候选', '寿司候选']
-  }
-};
-
-function safeRead() {
-  try { return normalizeModel(JSON.parse(localStorage.getItem(STORAGE_KEY))); } catch { return createDefaultModel(); }
-}
-function safeWrite(model) {
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(model)); } catch { /* local-only persistence is optional */ }
-}
-
-function mount() {
-  const root = document.querySelector('[data-feeding-app]');
-  if (!root) return;
-  const locale = copy[document.body.dataset.locale] ? document.body.dataset.locale : 'ja';
-  const text = copy[locale];
-  const images = Object.fromEntries(FOODS.map((food) => [food.asset, `/assets/official/feeding/${food.asset}.webp`]));
-  let model = safeRead();
-  const render = () => {
-    const remaining = remainingPoints(model);
-    const completed = remaining === 0;
-    root.innerHTML = `<section class="feeding-summary" aria-labelledby="feeding-title"><div><p class="feeding-kicker">${text.source}</p><h1 id="feeding-title">${text.title}</h1><p>${text.lead}</p></div><img src="/assets/official/feeding/automatic-feeder.webp" width="300" height="244" alt="${text.facility}" loading="eager"></section>
-      <section class="feeding-score-grid" aria-label="${text.title}"><label>${text.target}<input id="feedingTarget" type="number" min="1" max="9999" value="${model.target}"></label><label>${text.current}<input id="feedingCurrent" type="number" min="0" max="9999" value="${model.current}"></label><div class="feeding-remaining ${completed ? 'is-complete' : ''}"><span>${text.remaining}</span><strong>${remaining}</strong></div></section>
-      <section class="feeding-candidates"><div class="feeding-section-heading"><div><h2>${text.candidates}</h2><p>${text.confirmed}</p></div></div><div class="feeding-food-grid">${FOODS.map((food, index) => `<button class="feeding-food" type="button" data-food-id="${food.id}"><img src="${images[food.asset]}" width="160" height="160" alt="${text.foodNames[index]}" loading="lazy"><span>${text.foodNames[index]}</span><strong>+${food.points}</strong></button>`).join('')}</div></section>
-      <section class="feeding-manual"><h2>${text.manual}</h2><div><input id="manualPoints" type="number" min="1" max="9999" placeholder="${text.manualPlaceholder}"><button id="manualAdd" class="button" type="button">${text.add}</button></div><p>+15 の果実は単独の公式画像を確認できていないため、ここから数値だけを加算できます。</p></section>
-      <section class="feeding-history"><div class="feeding-history-title"><h2>${text.history}</h2><div><button id="feedingUndo" class="ghost-button" type="button" ${model.history.length ? '' : 'disabled'}>${text.undo}</button><button id="feedingReset" class="ghost-button" type="button">${text.reset}</button></div></div>${model.history.length ? `<ol>${model.history.slice().reverse().map((entry) => `<li><span>${entry.label}</span><strong>+${entry.points}</strong></li>`).join('')}</ol>` : `<p>${text.noHistory}</p>`}</section>
-      <p class="feeding-caveat" role="note">${text.caveat}</p>`;
-    root.querySelectorAll('[data-food-id]').forEach((button) => button.addEventListener('click', () => {
-      const food = FOODS.find((entry) => entry.id === button.dataset.foodId);
-      const index = FOODS.indexOf(food);
-      model = addFood(model, { label: text.foodNames[index], points: food.points }); safeWrite(model); render();
-    }));
-    root.querySelector('#feedingTarget').addEventListener('change', (event) => { model = normalizeModel({ ...model, target: event.target.value }); safeWrite(model); render(); });
-    root.querySelector('#feedingCurrent').addEventListener('change', (event) => { model = normalizeModel({ ...model, current: event.target.value }); safeWrite(model); render(); });
-    root.querySelector('#manualAdd').addEventListener('click', () => { const input = root.querySelector('#manualPoints'); const points = Number(input.value); if (points > 0) { model = addFood(model, { label: text.manual, points }); safeWrite(model); render(); } });
-    root.querySelector('#feedingUndo').addEventListener('click', () => { model = undoLast(model); safeWrite(model); render(); });
-    root.querySelector('#feedingReset').addEventListener('click', () => { if (window.confirm(locale === 'ja' ? 'ポイントと履歴をリセットしますか？' : locale === 'en' ? 'Reset points and history?' : '要重置积分和记录吗？')) { model = createDefaultModel(); safeWrite(model); render(); } });
-  };
-  render();
-}
-
-if (typeof document !== 'undefined') mount();
+export const STORAGE_KEY='monsaba-feeding-simulator-v2'; export const LEGACY_STORAGE_KEY='monsaba-feeding-simulator-v1'; export const STORAGE_VERSION=2;
+export const FOODS=Object.freeze([{id:'soda',asset:'soda',points:5},{id:'ice-cream',asset:'ice-cream',points:5},{id:'potatoes',asset:'potatoes',points:5},{id:'noodles',asset:'noodles',points:10},{id:'salad',asset:'salad',points:10},{id:'smoothie',asset:'smoothie',points:10},{id:'pizza',asset:'pizza',points:30},{id:'soup',asset:'soup',points:30},{id:'sushi',asset:'sushi',points:30}].map(x=>({...x,tier:'confirmed',source:`Official footage: +${x.points}`})));
+const MAX=9999, IDs=new Set(FOODS.map(x=>x.id)), n=(v,d=0)=>Number.isFinite(+v)?Math.max(0,Math.min(MAX,Math.floor(+v))):d, esc=v=>String(v).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+export function createDefaultModel(){return{version:2,target:100,current:0,stars:0,selectedFamilyId:'',inventory:{},reserves:{},unlimited:false,persist:true,history:[]}}
+const counts=o=>Object.fromEntries(Object.entries(o||{}).filter(([k])=>IDs.has(k)).map(([k,v])=>[k,n(v)]));
+export function normalizeModel(v){let b=createDefaultModel();if(!v||typeof v!=='object')return b;return{...b,target:Math.max(1,n(v.target,100)),current:n(v.current),stars:Math.min(99,n(v.stars)),selectedFamilyId:typeof v.selectedFamilyId==='string'?v.selectedFamilyId.slice(0,80):'',inventory:counts(v.inventory),reserves:counts(v.reserves),unlimited:v.unlimited===true,persist:v.persist!==false,history:Array.isArray(v.history)?v.history.filter(x=>x&&typeof x.label==='string'&&Number.isFinite(+x.points)).slice(-100).map(x=>({id:String(x.id||Date.now()),label:x.label.slice(0,80),points:n(x.points)})):[]}}
+export const remainingPoints=m=>Math.max(0,normalizeModel(m).target-normalizeModel(m).current);
+export function availableCount(m,id){m=normalizeModel(m);return m.unlimited?MAX:Math.max(0,n(m.inventory[id])-n(m.reserves[id]))}
+export function addFood(m,e){m=normalizeModel(m);let p=Math.max(1,n(e?.points)),label=String(e?.label||'').trim().slice(0,80);return !label?m:{...m,current:Math.min(MAX,m.current+p),history:[...m.history,{id:String(Date.now()),label,points:p}]}}
+export function undoLast(m){m=normalizeModel(m);let x=m.history.at(-1);return x?{...m,current:Math.max(0,m.current-x.points),history:m.history.slice(0,-1)}:m}
+const cmp={minItems:(a,b)=>a.items-b.items||a.over-b.over||a.high-b.high,minWaste:(a,b)=>a.over-b.over||a.items-b.items||a.high-b.high,preserveHigh:(a,b)=>a.high-b.high||a.over-b.over||a.items-b.items};
+export function findFoodPlan(model,priority){let m=normalizeModel(model),need=remainingPoints(m);if(!need)return{status:'complete',needed:0,counts:{}};let max=need+29, chunks=[];for(let f of FOODS){let r=Math.min(availableCount(m,f.id),Math.ceil(max/f.points)),s=1;while(r){let c=Math.min(s,r);chunks.push({f,c,p:c*f.points,i:c,h:f.points===30?c:0});r-=c;s*=2}}let st=Array(max+1).fill(null);st[0]={i:0,h:0,p:-1,c:-1};let compare=cmp[priority]||cmp.minItems;for(let ci=0;ci<chunks.length;ci++)for(let sum=max;sum>=chunks[ci].p;sum--){let old=st[sum-chunks[ci].p];if(!old)continue;let next={i:old.i+chunks[ci].i,h:old.h+chunks[ci].h,p:sum-chunks[ci].p,c:ci};if(!st[sum]||compare({items:next.i,high:next.h,over:sum-need},{items:st[sum].i,high:st[sum].h,over:sum-need})<0)st[sum]=next}let best=-1;for(let sum=need;sum<=max;sum++)if(st[sum]&&(best<0||compare({items:st[sum].i,high:st[sum].h,over:sum-need},{items:st[best].i,high:st[best].h,over:best-need})<0))best=sum;if(best<0)return{status:'unavailable',needed:need};let out={};for(let sum=best;sum>0;){let x=st[sum],c=chunks[x.c];out[c.f.id]=(out[c.f.id]||0)+c.c;sum=x.p}return{status:'ok',needed:need,total:best,over:best-need,items:st[best].i,counts:out}}
+const C={ja:{title:'餌付けシミュレーター',lead:'公式動画で確認できた食品ポイントだけを使い、所持数と取り置きから組み合わせを端末内で試算します。',select:'タタを選ぶ',search:'タタ名で検索',all:'すべての属性',attribute:'属性',note:'餌付け強化の段階・星条件・繰越は確認中のため計算に使いません。',target:'目標ポイント',current:'現在ポイント',stars:'星数（保存のみ）',remaining:'残り',inventory:'所持食品・取り置き',unlimited:'無制限として試算',owned:'所持',reserve:'取り置き',available:'使用可能',plans:'最適な組み合わせ',minItems:'食品数を最小',minWaste:'余りを最小',preserveHigh:'高ポイント食品を温存',unavailable:'使用可能な食品だけでは目標に届きません。',complete:'この目標は達成済みです。',items:'個',over:'余り',total:'合計',save:'この端末に保存',reset:'入力をリセット',names:['ソーダ候補','アイス候補','ポテト候補','ヌードル候補','サラダ候補','スムージー候補','ピザ候補','スープ候補','寿司候補']},en:{title:'Feeding Simulator',lead:'Calculate local combinations from owned and reserved food using only points verified in official footage.',select:'Select Tatari',search:'Search Tatari',all:'All attributes',attribute:'Attribute',note:'Feeding stages, star conditions, and carryover are unverified and excluded from calculations.',target:'Target points',current:'Current points',stars:'Stars (saved only)',remaining:'Remaining',inventory:'Owned food and reserve',unlimited:'Calculate as unlimited',owned:'Owned',reserve:'Reserve',available:'Available',plans:'Recommended combinations',minItems:'Fewest items',minWaste:'Least overage',preserveHigh:'Preserve high-point food',unavailable:'Available food cannot reach this goal.',complete:'This target is already complete.',items:'items',over:'over',total:'total',save:'Save on this device',reset:'Reset inputs',names:['Soda candidate','Ice cream candidate','Potato candidate','Noodles candidate','Salad candidate','Smoothie candidate','Pizza candidate','Soup candidate','Sushi candidate']},'zh-CN':{title:'喂食模拟器',lead:'仅使用官方视频可确认的食物积分，根据持有数与保留数在本设备上试算组合。',select:'选择塔塔',search:'按塔塔名称搜索',all:'全部属性',attribute:'属性',note:'喂食阶段、星级条件与继承规则仍未确认，不参与计算。',target:'目标积分',current:'当前积分',stars:'星数（仅保存）',remaining:'还差',inventory:'持有食物与保留',unlimited:'按无限数量试算',owned:'持有',reserve:'保留',available:'可用',plans:'推荐组合',minItems:'食品数量最少',minWaste:'溢出最少',preserveHigh:'保留高积分食品',unavailable:'可用食物无法达到目标。',complete:'该目标已完成。',items:'个',over:'溢出',total:'合计',save:'保存到此设备',reset:'重置输入',names:['汽水候选','冰淇淋候选','土豆候选','面条候选','沙拉候选','冰沙候选','披萨候选','汤候选','寿司候选']}};
+const name=(t,id)=>t.names[FOODS.findIndex(f=>f.id===id)], famName=(f,l)=>l==='en'?f.familyNameEn||f.familyName:l==='zh-CN'?f.familyNameZhHans||f.familyName:f.familyName;
+function mount(){let root=document.querySelector('[data-feeding-app]');if(!root)return;let locale=C[document.body.dataset.locale]?document.body.dataset.locale:'ja',t=C[locale],m=read(),families=[],q='',attr='';let set=p=>{m=normalizeModel({...m,...p});write(m);render()},card=(k,label)=>{let p=findFoodPlan(m,k);if(p.status==='complete')return`<article class="feeding-plan"><h3>${label}</h3><p>${t.complete}</p></article>`;if(p.status==='unavailable')return`<article class="feeding-plan"><h3>${label}</h3><p class="is-warning">${t.unavailable}</p></article>`;return`<article class="feeding-plan"><h3>${label}</h3><ol>${Object.entries(p.counts).map(([id,c])=>`<li>${esc(name(t,id))}<strong>${c} ${t.items} × +${FOODS.find(f=>f.id===id).points}</strong></li>`).join('')}</ol><p><strong>${t.total}: ${p.total}</strong> · ${t.over}: ${p.over} · ${p.items} ${t.items}</p></article>`};function render(){let selected=families.find(f=>f.id===m.selectedFamilyId),attrs=[...new Set(families.map(f=>f.attribute).filter(Boolean))],list=families.filter(f=>(!attr||f.attribute===attr)&&famName(f,locale).toLowerCase().includes(q.toLowerCase())).slice(0,80);root.innerHTML=`<section class="feeding-summary"><div><p class="feeding-kicker">Official Creator Assets</p><h1>${t.title}</h1><p>${t.lead}</p></div><img src="/assets/official/feeding/automatic-feeder.webp" alt="Auto Feeder"></section><section class="feeding-tatari"><h2>${t.select}</h2><div class="feeding-filter"><input id="search" type="search" placeholder="${t.search}" value="${esc(q)}"><select id="attr"><option value="">${t.all}</option>${attrs.map(x=>`<option ${x===attr?'selected':''}>${esc(x)}</option>`).join('')}</select></div><select id="family"><option value="">${t.select}</option>${list.map(f=>`<option value="${f.id}" ${f.id===m.selectedFamilyId?'selected':''}>${esc(famName(f,locale))}</option>`).join('')}</select><p>${selected?`${t.attribute}: ${esc(selected.attribute||'—')} · `:''}${t.note} <a href="/evolution/trials/">進化条件</a></p></section><section class="feeding-score-grid"><label>${t.target}<input id="target" type="number" min="1" max="9999" value="${m.target}"></label><label>${t.current}<input id="current" type="number" min="0" max="9999" value="${m.current}"></label><label>${t.stars}<input id="stars" type="number" min="0" max="99" value="${m.stars}"></label><div class="feeding-remaining"><span>${t.remaining}</span><strong>${remainingPoints(m)}</strong></div></section><section class="feeding-candidates"><div class="feeding-section-heading"><h2>${t.inventory}</h2><label><input id="unlimited" type="checkbox" ${m.unlimited?'checked':''}>${t.unlimited}</label></div><div class="feeding-food-grid">${FOODS.map(f=>`<article class="feeding-food"><img src="/assets/official/feeding/${f.asset}.webp" alt="${esc(name(t,f.id))}"><span>${esc(name(t,f.id))}</span><strong>+${f.points}</strong><label>${t.owned}<input data-i="${f.id}" type="number" min="0" value="${n(m.inventory[f.id])}"></label><label>${t.reserve}<input data-r="${f.id}" type="number" min="0" value="${n(m.reserves[f.id])}"></label><small>${t.available}: ${availableCount(m,f.id)}</small></article>`).join('')}</div></section><section class="feeding-plans"><h2>${t.plans}</h2><div class="feeding-plan-grid">${card('minItems',t.minItems)}${card('minWaste',t.minWaste)}${card('preserveHigh',t.preserveHigh)}</div></section><section class="feeding-actions"><label><input id="persist" type="checkbox" ${m.persist?'checked':''}>${t.save}</label><button id="reset" class="ghost-button">${t.reset}</button></section><p class="feeding-caveat">${t.note}</p>`;root.querySelector('#search').oninput=e=>{q=e.target.value;render()};root.querySelector('#attr').onchange=e=>{attr=e.target.value;render()};root.querySelector('#family').onchange=e=>set({selectedFamilyId:e.target.value});['target','current','stars'].forEach(id=>root.querySelector('#'+id).onchange=e=>set({[id]:e.target.value}));root.querySelector('#unlimited').onchange=e=>set({unlimited:e.target.checked});root.querySelector('#persist').onchange=e=>set({persist:e.target.checked});root.querySelectorAll('[data-i]').forEach(e=>e.onchange=x=>set({inventory:{...m.inventory,[x.target.dataset.i]:x.target.value}}));root.querySelectorAll('[data-r]').forEach(e=>e.onchange=x=>set({reserves:{...m.reserves,[x.target.dataset.r]:x.target.value}}));root.querySelector('#reset').onclick=()=>{if(confirm('Reset inputs?')){m=createDefaultModel();write(m);render()}}}render();fetch('/data/tatari.json').then(r=>r.json()).then(x=>{families=Array.isArray(x.families)?x.families:[];render()}).catch(()=>{})}
+function read(){try{return normalizeModel(JSON.parse(localStorage.getItem(STORAGE_KEY)||localStorage.getItem(LEGACY_STORAGE_KEY)||'null'))}catch{return createDefaultModel()}} function write(m){try{m.persist?localStorage.setItem(STORAGE_KEY,JSON.stringify(m)):localStorage.removeItem(STORAGE_KEY)}catch{}}
+if(typeof document!=='undefined')mount();

@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
-import { FOODS, STORAGE_KEY, addFood, createDefaultModel, normalizeModel, remainingPoints, undoLast } from '../feeding/feeding.js';
+import { FOODS, STORAGE_KEY, addFood, createDefaultModel, findFoodPlan, normalizeModel, remainingPoints, undoLast } from '../feeding/feeding.js';
 
 const root = path.resolve(import.meta.dirname, '..');
 const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
@@ -28,7 +28,36 @@ test('不正な保存データを安全に正規化し、保存キーを固定�
   assert.equal(model.target, 1);
   assert.equal(model.current, 0);
   assert.equal(model.history[0].points, 0);
-  assert.equal(STORAGE_KEY, 'monsaba-feeding-simulator-v1');
+  assert.equal(STORAGE_KEY, 'monsaba-feeding-simulator-v2');
+});
+
+test('所持数と取り置きを尊重し、三種類の最適化計算は目標を下回らない', () => {
+  const model = normalizeModel({ target: 50, current: 0, inventory: { soda: 9, pizza: 2 }, reserves: { pizza: 1 } });
+  for (const mode of ['minItems', 'minWaste', 'preserveHigh']) {
+    const plan = findFoodPlan(model, mode);
+    assert.equal(plan.status, 'ok');
+    assert.ok(plan.total >= 50);
+    assert.ok((plan.counts.pizza || 0) <= 1);
+  }
+  assert.equal(findFoodPlan(normalizeModel({ target: 100, inventory: { soda: 1 } }), 'minItems').status, 'unavailable');
+});
+
+test('境界値・不正値・同率候補でも組み合わせ計算は決定的に安全に動く', () => {
+  const unlimited = normalizeModel({ target: 1, unlimited: true });
+  assert.equal(findFoodPlan(normalizeModel({ target: 1, current: 1 }), 'minItems').status, 'complete');
+  for (const target of [1, 5, 10, 30, 50, 9999]) {
+    const plan = findFoodPlan(normalizeModel({ target, unlimited: true }), 'minWaste');
+    assert.equal(plan.status, 'ok');
+    assert.ok(plan.total >= target);
+  }
+  const invalid = normalizeModel({ target: 'NaN', current: -1, inventory: { soda: -3, pizza: '1.9' }, reserves: { pizza: 99 } });
+  assert.equal(invalid.current, 0);
+  assert.equal(invalid.inventory.soda, 0);
+  assert.equal(invalid.inventory.pizza, 1);
+  assert.equal(findFoodPlan(invalid, 'minItems').status, 'unavailable');
+  const ties = normalizeModel({ target: 10, inventory: { soda: 2, 'ice-cream': 2 } });
+  assert.deepEqual(findFoodPlan(ties, 'minItems'), findFoodPlan(ties, 'minItems'));
+  assert.equal(findFoodPlan(normalizeModel({ target: 5, inventory: { soda: 5 }, reserves: { soda: 5 } }), 'minWaste').status, 'unavailable');
 });
 
 test('3言語ページは同じローカル機能と公式素材を読み込む', () => {
@@ -38,6 +67,7 @@ test('3言語ページは同じローカル機能と公式素材を読み込む'
     assert.match(html, /\/feeding\/feeding\.js/);
     assert.match(html, /\/feeding\/feeding\.css/);
     assert.match(html, /canonical/);
+    assert.match(html, /noindex,follow/);
   }
 });
 
