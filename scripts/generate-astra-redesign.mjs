@@ -58,7 +58,7 @@ const ninjaAdMaxPlans={
   '/team-builder/':{slot:'TOOL_TEAM_BUILDER',after:'#team-help-title'},
   '/events/treasure-hunt/':{slot:'TOOL_TREASURE_HUNT',after:'#event-guide'},
   '/feeding/':{slot:'TOOL_FEEDING',after:'main'},
-  '/':{slot:'HOME_TOP',after:'.astra-journey'}
+  '/':{slot:'HOME_TOP',after:'.astra-home-reference'}
 };
 const ninjaAdMaxContent=slot=>`<aside class="wrap ninja-admax-slot ninja-admax-expansion" data-admax-slot="${slot}" data-admax-placement="2026-09-expansion" aria-label="広告"><span class="ninja-admax-label">広告</span><script>(function(){var tag=window.matchMedia('(max-width: 820px)').matches?'https://adm.shinobi.jp/s/4622ef9decb0d620290304f7ec64e778':'https://adm.shinobi.jp/s/dc7e80014dc39634f880de618b5b4f3b';document.write('<scr'+'ipt src="'+tag+'"></scr'+'ipt>');}());</script></aside>`;
 const version=JSON.parse(read('data/asset-build.json')).version;
