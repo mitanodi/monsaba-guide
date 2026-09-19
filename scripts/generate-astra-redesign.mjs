@@ -39,10 +39,10 @@ const adPlans={
 // The same standard tags are intentionally reused across equivalent editorial pages;
 // page_path + slot_id remains available in analytics without creating disposable tags.
 const ninjaAdMaxPlans={
-  '/beginner-guide/':{slot:'GUIDE_BEGINNER',after:'#training'},
+  '/beginner-guide/':{slot:'GUIDE_BEGINNER',after:'#t3 + .astra-ad + .monetization-slot'},
   '/normal-guide/':{slot:'GUIDE_NORMAL',before:'#normal-bosses'},
-  '/evolution-priority/':{slot:'GUIDE_EVOLUTION',after:'#diagnosis'},
-  '/zombie-rush/':{slot:'GUIDE_ZOMBIE_RUSH',after:'#basic'},
+  '/evolution-priority/':{slot:'GUIDE_EVOLUTION',after:'.source-note'},
+  '/zombie-rush/':{slot:'GUIDE_ZOMBIE_RUSH',after:'.source-note'},
   '/boss-rally/':{slot:'GUIDE_BOSS_RALLY',after:'main > .static-section'},
   '/badge-dojo/':{slot:'GUIDE_BADGE_DOJO',after:'main > .static-section'},
   '/attribute/grass/':{slot:'ATTRIBUTE_GRASS',after:'#attributeGuideNav'},
