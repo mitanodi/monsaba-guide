@@ -2,7 +2,7 @@
   "version": 1,
   "asOf": "2026-09-05",
   "totals": {
-    "pages": 399,
+    "pages": 402,
     "indexable": 366,
     "brokenLinks": 0,
     "brokenImages": 0,
@@ -3907,7 +3907,7 @@
     "bundles": [
       {
         "file": "styles.css",
-        "bytes": 97249
+        "bytes": 97539
       },
       {
         "file": "site.js",
@@ -3915,7 +3915,7 @@
       },
       {
         "file": "growth.js",
-        "bytes": 9531
+        "bytes": 9580
       },
       {
         "file": "team-builder/team-builder.js",
