@@ -44,7 +44,8 @@ test('all three locales render every family once per board in the specified orde
     assert.equal($('.tier-board').length,5);
     assert.equal($('h1').length,1);
     assert.equal($('.tier-mode-nav a').length,5);
-    assert.equal($('.astra-ad').length,prefix ? 0 : 4,'preserve existing locale-specific ad slots across regeneration');
+    assert.equal($('.astra-ad').length,prefix ? 0 : 0,'TierページではAdMax 1枠だけを表示する');
+    assert.equal($('.ninja-admax-slot').length,prefix ? 0 : 1,'端末別AdMax枠は日本語Tierページだけに置く');
     for(const mode of MODES){
       const board=$(`#mode-${mode}`);
       const ids=board.find('[data-family-id]').map((_,el)=>$(el).attr('data-family-id')).get();
@@ -59,6 +60,7 @@ test('all three locales render every family once per board in the specified orde
     }
     for(const f of data.families){
       const detail=load(read(`${prefix}tata/${f.slug}/index.html`));
+      assert.equal(detail('.ninja-admax-slot').length,prefix ? 0 : 1,`${prefix}${f.familyId}: タタ詳細のAdMax枠`);
       for(const mode of MODES){
         const cell=detail(`[data-ranking-mode="${mode}"]`);
         assert.equal(cell.length,1,`${prefix}${f.familyId}:${mode}`);

@@ -2,7 +2,7 @@
   const allowedEvents = new Set([
     'nav_click', 'internal_link_click', 'related_content_click', 'site_search',
     'search_result_click', 'filter_use', 'tata_compare_start', 'tata_compare_view',
-    'external_link_click', 'affiliate_click', 'affiliate_impression', 'ad_click', 'cta_click',
+    'external_link_click', 'affiliate_click', 'affiliate_impression', 'ad_click', 'ad_impression', 'cta_click',
     'event_tool_use', 'favorite', 'friend_uid_copy', 'board_view', 'board_question_submit',
     'board_answer_submit', 'board_filter_use', 'board_report', 'board_resolved',
     'board_quick_question_open', 'board_question_example_use', 'board_reply_open', 'board_reply_submit',
@@ -23,6 +23,7 @@
     affiliate_click: ['offer_id', 'page', 'placement', 'placement_id', 'device_class'],
     affiliate_impression: ['offer_id', 'page', 'placement', 'placement_id', 'device_class'],
     ad_click: ['slot_id'],
+    ad_impression: ['slot_id'],
     cta_click: ['destination_type', 'source_type', 'cta_id'],
     event_tool_use: ['tool', 'action'],
     favorite: ['action'],

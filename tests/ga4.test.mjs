@@ -149,7 +149,9 @@ test('AdSense・ads.txt・Board除外・A8非表示を維持する', () => {
   assert.equal(adsense.autoAds, false);
   assert.ok(adsense.excludedPages.includes('/board/'));
   assert.ok(adsense.excludedPages.includes('/board/*'));
-  assert.equal(read('ads.txt').trim(), 'google.com, pub-2710725734378326, DIRECT, f08c47fec0942fa0');
+  const adsTxt = read('ads.txt').split(/\r?\n/);
+  assert.ok(adsTxt.includes('google.com, pub-2710725734378326, DIRECT, f08c47fec0942fa0'));
+  assert.ok(adsTxt.includes('adm.shinobi.jp,231656,DIRECT'));
   assert.doesNotMatch(read('board/index.html') + read('board/thread/index.html'), /monetization\.js|data-affiliate-offer|a8mat|adsbygoogle/i);
 });
 

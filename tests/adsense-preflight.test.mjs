@@ -53,8 +53,8 @@ test('AdSense ownership verification uses the official ads.txt while delivery re
   assert.equal(config.autoAds, false);
   assert.deepEqual(config.excludedPages, ['/search/', '/compare/', '/consult/', '/friends/', '/board/', '/board/*', '/my-monsaba/', '/team-builder/']);
   const adsTxt = read('ads.txt');
-  assert.equal(adsTxt.trim(), 'google.com, pub-2710725734378326, DIRECT, f08c47fec0942fa0');
-  assert.equal(adsTxt.trim().split(', ').length, 4);
+  assert.ok(adsTxt.split(/\r?\n/).includes('google.com, pub-2710725734378326, DIRECT, f08c47fec0942fa0'));
+  assert.ok(adsTxt.split(/\r?\n/).includes('adm.shinobi.jp,231656,DIRECT'));
   assert.ok(adsTxt.endsWith('\n'));
   assert.equal(json('vercel.json').headers.some((rule) => rule.source === '/ads.txt' && rule.headers.some((header) => header.key === 'Content-Type' && /^text\/plain(?:; charset=utf-8)?$/i.test(header.value))), true);
   const publicSource = walk(root).map(read).join('\n');

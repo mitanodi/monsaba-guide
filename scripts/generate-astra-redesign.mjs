@@ -23,10 +23,7 @@ const adPlans={
     {offer:'ipsos_isay_001',after:'.static-section:has(h2:contains("T3で大きく化けるタタ"))'},
     {offer:'macromill_002',after:'#transition-list'},{offer:'warau_003',before:'.source-note'}
   ],
-  '/tata-tier/':[
-    {offer:'warau_003',after:'#mode-overall'},{offer:'point_income_003',after:'#mode-normal'},
-    {offer:'altema_point_005',after:'#mode-zombie'},{offer:'ipsos_isay_001',after:'#mode-dojo'}
-  ],
+  '/tata-tier/':[],
   '/zombie-rush/':[
     {offer:'warau_003',after:'#basic'},{offer:'point_income_003',after:'#season-tier'},
     {offer:'ipsos_isay_001',after:'#prediction'},{offer:'altema_point_005',after:'#danger'},
@@ -59,6 +56,7 @@ for(const file of walk(root)){
   const bodyMatch=html.match(/<body([^>]*)>([\s\S]*?)<\/body>/);if(!bodyMatch)continue;
   const $=load(bodyMatch[2],{},false);
   $('.astra-primary-nav,.astra-today,.astra-journey,.astra-ad,.astra-experiment-bar,.astra-community-intro,.astra-search-help,.astra-home-title,.astra-home-search,.astra-compact-toggle,.astra-trust').remove();
+  $('script[src*="/astra-ads.js"],script[src*="/ninja-admax.js"]').remove();
   const navItems=[['⌂','home','/'],['◈','db','/#tatari'],['S','tier','/tata-tier/'],['▦','calendar','/events/calendar/'],['⌘','team','/team-builder/'],['↗','beginner','/beginner-guide/'],['◎','community','/team-builder/community/']];
   $('#global-navigation').prepend(`<div class="astra-primary-nav"><span class="astra-nav-caption">MONSTER SURVIVAL</span>${navItems.map(([i,k,p])=>`<a href="${href(p)}"${route===p?' aria-current="page"':''}><span aria-hidden="true">${i}</span>${c[k]}</a>`).join('')}<span class="astra-nav-caption">${c.explore}</span></div>`);
   const language=$('.language-switcher').first();$('.header-inner').append(language);
@@ -149,7 +147,7 @@ for(const file of walk(root)){
     if(item.after)anchor.after(ad);else anchor.before(ad);
   }
   if(plan.length){$('.astra-experiment-bar').append(`<a href="?ads=live">既存広告を確認</a>`);if(!$('script[src*="monetization.js"]').length)$('footer').after(`<script src="/monetization.js?v=${version}" type="text/plain" defer></script>`);}
-  $('script[src*="/astra-ads.js"]').remove();
+  if(locale==='ja'&&(route==='/tata-tier/'||route.startsWith('/tata/')))$('footer').after(`<script src="/ninja-admax.js?v=${version}" defer></script>`);
   if(plan.length)$('footer').after(`<script src="/astra-ads.js?v=${version}" defer></script>`);
   $('.hero-cta,.site-stats,#attributeFilters').attr('role','group');
   const attributes=bodyMatch[1].replace(/\sdata-astra(?:-page)?="[^"]*"/g,'');

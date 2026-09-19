@@ -9,6 +9,8 @@ const read=file=>fs.readFileSync(path.join(root,file),'utf8');
 const json=file=>JSON.parse(read(file));
 const write=(file,value)=>{if(!fs.existsSync(path.join(root,file))||read(file)!==value){if(process.argv.includes('--check'))throw new Error(`Regenerate stale Tier output: ${file}`);fs.writeFileSync(path.join(root,file),value);}};
 const assetVersion=json('data/asset-build.json').version;
+const ninjaAdMaxTier=`<aside class="wrap ninja-admax-slot" data-admax-slot="MONSABA_TIER" aria-label="広告"><span class="ninja-admax-label">広告</span><script>(function(){var tag=window.matchMedia('(max-width: 820px)').matches?'https://adm.shinobi.jp/s/27d44b57ec346ee2bce4628d6574f79b':'https://adm.shinobi.jp/s/1a63f0edf4570c706857b356204f1a61';document.write('<scr'+'ipt src="'+tag+'"></scr'+'ipt>');}());</script></aside>`;
+const ninjaAdMaxTata=`<aside class="wrap ninja-admax-slot" data-admax-slot="MONSABA_TATA" aria-label="広告"><span class="ninja-admax-label">広告</span><script>(function(){var tag=window.matchMedia('(max-width: 820px)').matches?'https://adm.shinobi.jp/s/dfb46622bdef6255102d47782ae5475a':'https://adm.shinobi.jp/s/ed3e55b49454e200992898abbe7bb903';document.write('<scr'+'ipt src="'+tag+'"></scr'+'ipt>');}());</script></aside>`;
 const editorial=json('data/editorial-content.json').families;
 const data=json('data/tata-tier.json'), families=json('data/tatari.json').families, images=json('data/tata-images.json').families, translations=json('data/i18n/tata-tier.json');
 write('data/tier-ratings.json',JSON.stringify(legacyRatings(data),null,2)+'\n');
@@ -33,7 +35,8 @@ for(const [locale,prefix] of [['ja',''],['en','en/'],['zh-CN','zh-cn/']]) {
   const byline=$('.article-byline').first().toString();
   const nav=`<nav id="tier-navigation" class="wrap tier-mode-nav" aria-label="${esc(copy.title)}">${MODES.map((mode,i)=>`<a href="#mode-${mode}">${esc(copy.labels[i])}</a>`).join('')}</nav>`;
   const filters=`<div class="wrap tier-filter" role="group" aria-label="${esc(copy.filter)}"><span>${esc(copy.filter)}</span>${[['all',copy.all],...Object.entries(copy.attributes)].map(([attr,label],i)=>`<button type="button" class="filter${i===0?' is-active':''}" data-tier-attribute="${attr}" aria-pressed="${i===0}">${esc(label)}</button>`).join('')}</div>`;
-  const main=`<main id="main-content"><section class="page-hero tier-page-hero astra-compact-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/${prefix}">${locale==='ja'?'トップ':locale==='en'?'Home':'首页'}</a><span>›</span><span>${esc(copy.labels[0])} Tier</span></nav><span class="attribute">${esc(copy.updated)} ${data.updated}</span><h1>${esc(copy.title)}</h1><p>${esc(copy.intro)}</p></div></section>${nav}${byline}<div id="tier-list">${filters}${copy.legend?`<p class="wrap tier-criteria-panel">${esc(copy.legend)}</p>`:''}${MODES.map((mode,i)=>renderTierBoard({data,families,images,locale,copy,mode})+(ads[i]||'')).join('\n')}</div></main>`;
+  const boards=MODES.map((mode,i)=>renderTierBoard({data,families,images,locale,copy,mode})+(locale==='ja'&&i===0?ninjaAdMaxTier:'')+(ads[i]||'')).join('\n');
+  const main=`<main id="main-content"><section class="page-hero tier-page-hero astra-compact-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/${prefix}">${locale==='ja'?'トップ':locale==='en'?'Home':'首页'}</a><span>›</span><span>${esc(copy.labels[0])} Tier</span></nav><span class="attribute">${esc(copy.updated)} ${data.updated}</span><h1>${esc(copy.title)}</h1><p>${esc(copy.intro)}</p></div></section>${nav}${byline}<div id="tier-list">${filters}${copy.legend?`<p class="wrap tier-criteria-panel">${esc(copy.legend)}</p>`:''}${boards}</div></main>`;
   html=html.replace(/<main\b[^>]*>[\s\S]*?<\/main>/,main);
   html=patchHtml(html,[['title',()=>`<title>${esc(copy.title)}</title>`],['meta[name="description"]',()=>`<meta name="description" content="${esc(copy.intro)}">`],['script[type="application/ld+json"]',el=>{
     const structured=JSON.parse(el.text());
@@ -70,6 +73,7 @@ for(const [locale,prefix] of [['ja',''],['en','en/'],['zh-CN','zh-cn/']]) {
       if(translated)el.find('p').text(translated);
       return rating?$.html(el).replace(/(総合|Overall\s*|综合)(SSS|SS|S|A|B|C|D)(評価|\s*rating)?/gi,`$1${rating}$3`):$.html(el);
     }]]);
+    if(locale==='ja'&&!source.includes('ninja-admax-slot')) source=patchHtml(source,[['section:has(> h2:contains("スキル一覧"))',(el,$)=>`${$.html(el)}${ninjaAdMaxTata}`]]);
     write(detail,source);
   }
   // Keep the existing beginner card layout and copy, synchronizing its ratings

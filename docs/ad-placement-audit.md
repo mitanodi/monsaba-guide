@@ -1,7 +1,7 @@
 # A8広告配置監査
 
 生成元: `data/monetization.json` / `data/affiliate-offers.json`
-対象: 公開HTML 134ページ（404を含む）
+対象: 公開HTML 135ページ（404を含む）
 監査日: 2026-08-28
 
 ## Before
@@ -49,6 +49,7 @@
 | https://monster-survival.com/evolution/trials/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/faq/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/favorites/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/feeding/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/friends/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/gift-codes/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/guides/ | 0 | — | — | — | 非表示 |
@@ -194,6 +195,7 @@
 | https://monster-survival.com/evolution/trials/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/faq/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/favorites/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/feeding/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/friends/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/gift-codes/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/guides/ | 0 | — | — | — | 非表示 |
