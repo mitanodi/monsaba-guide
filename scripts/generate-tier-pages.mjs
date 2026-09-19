@@ -10,7 +10,8 @@ const json=file=>JSON.parse(read(file));
 const write=(file,value)=>{if(!fs.existsSync(path.join(root,file))||read(file)!==value){if(process.argv.includes('--check'))throw new Error(`Regenerate stale Tier output: ${file}`);fs.writeFileSync(path.join(root,file),value);}};
 const assetVersion=json('data/asset-build.json').version;
 const ninjaAdMaxTier=`<aside class="wrap ninja-admax-slot" data-admax-slot="MONSABA_TIER" aria-label="広告"><span class="ninja-admax-label">広告</span><script>(function(){var tag=window.matchMedia('(max-width: 820px)').matches?'https://adm.shinobi.jp/s/27d44b57ec346ee2bce4628d6574f79b':'https://adm.shinobi.jp/s/1a63f0edf4570c706857b356204f1a61';document.write('<scr'+'ipt src="'+tag+'"></scr'+'ipt>');}());</script></aside>`;
-const ninjaAdMaxTata=`<aside class="wrap ninja-admax-slot" data-admax-slot="MONSABA_TATA" aria-label="広告"><span class="ninja-admax-label">広告</span><script>(function(){var tag=window.matchMedia('(max-width: 820px)').matches?'https://adm.shinobi.jp/s/dfb46622bdef6255102d47782ae5475a':'https://adm.shinobi.jp/s/ed3e55b49454e200992898abbe7bb903';document.write('<scr'+'ipt src="'+tag+'"></scr'+'ipt>');}());</script></aside>`;
+const ninjaAdMaxTata=`<aside class="wrap ninja-admax-slot" data-admax-slot="MONSABA_TATA" data-admax-position="MID" aria-label="広告"><span class="ninja-admax-label">広告</span><script>(function(){var tag=window.matchMedia('(max-width: 820px)').matches?'https://adm.shinobi.jp/s/dfb46622bdef6255102d47782ae5475a':'https://adm.shinobi.jp/s/ed3e55b49454e200992898abbe7bb903';document.write('<scr'+'ipt src="'+tag+'"></scr'+'ipt>');}());</script></aside>`;
+const ninjaAdMaxTataContent=(familyId,position)=>{const tags={TOP:{pc:'35f048413141014f4de639f6587f7d7e',sp:'16ba3b25ba46308a360f7d2e14b3721c'},BOTTOM:{pc:'a29aa98a252af3196ac97a024e430430',sp:'0dfce2d7520a570ab34d238ddf655603'}}[position];return `<aside class="wrap ninja-admax-slot ninja-admax-expansion" data-admax-slot="TATA_${position}_${familyId.toUpperCase()}" data-admax-position="${position}" data-admax-placement="2026-09-all-content" aria-label="広告"><span class="ninja-admax-label">広告</span><script>(function(){var tag=window.matchMedia('(max-width: 820px)').matches?'https://adm.shinobi.jp/s/${tags.sp}':'https://adm.shinobi.jp/s/${tags.pc}';document.write('<scr'+'ipt src="'+tag+'"></scr'+'ipt>');}());</script></aside>`;};
 const editorial=json('data/editorial-content.json').families;
 const data=json('data/tata-tier.json'), families=json('data/tatari.json').families, images=json('data/tata-images.json').families, translations=json('data/i18n/tata-tier.json');
 write('data/tier-ratings.json',JSON.stringify(legacyRatings(data),null,2)+'\n');
@@ -57,7 +58,7 @@ for(const [locale,prefix] of [['ja',''],['en','en/'],['zh-CN','zh-cn/']]) {
     const detail=`${prefix}tata/${entry.slug}/index.html`;
     const label=ranking=>ranking.tier==='HOLD'?copy.hold:ranking.tier;
     const summary=MODES.map((mode,i)=>`${copy.labels[i]} ${label(entry.rankings[mode])}${entry.rankings[mode].status==='provisional'?' ※':''}`).join(' / ');
-    let source=read(detail);
+    let source=patchHtml(read(detail),[['.ninja-admax-slot',()=> '']]);
     if(!load(source)('.mode-rating-grid').length) source=patchHtml(source,[['.quick-purpose-label + h2 + p',()=>'<div class="mode-rating-grid"></div>']]);
     source=patchHtml(source,[
       ['.mode-rating-grid',()=>`<div class="mode-rating-grid">${MODES.map((mode,i)=>`<div data-ranking-mode="${mode}" data-status="${entry.rankings[mode].status}"><span>${esc(copy.labels[i])}</span><b>${esc(label(entry.rankings[mode]))}</b>${entry.rankings[mode].status==='provisional'?`<small>${esc(copy.provisional)}</small>`:''}</div>`).join('')}</div>`],
@@ -78,8 +79,16 @@ for(const [locale,prefix] of [['ja',''],['en','en/'],['zh-CN','zh-cn/']]) {
       if(translated)el.find('p').text(translated);
       return rating?$.html(el).replace(/(総合|Overall\s*|综合)(SSS|SS|S|A|B|C|D)(評価|\s*rating)?/gi,`$1${rating}$3`):$.html(el);
     }]]);
-    source=source.replace(/<aside class="wrap ninja-admax-slot"[\s\S]*?<\/aside>/g,'');
-    if(locale==='ja') source=patchHtml(source,[['section:has(> h2:contains("スキル一覧"))',(el,$)=>`${$.html(el)}${ninjaAdMaxTata}`]]);
+    if(locale==='ja'){
+      // Detail articles around 5,000 visible characters have a natural source
+      // note at the end; shorter pages retain just TOP + existing MID.
+      const longDetail=load(source).text().replace(/\s+/g,' ').length>=5000;
+      source=patchHtml(source,[
+        ['.tata-quick-answers',(el,$)=>`${$.html(el)}${ninjaAdMaxTataContent(entry.familyId,'TOP')}`],
+        ['section:has(> h2:contains("スキル一覧"))',(el,$)=>`${$.html(el)}${ninjaAdMaxTata}`],
+        ...(longDetail?[['.source-note',(el,$)=>`${$.html(el)}${ninjaAdMaxTataContent(entry.familyId,'BOTTOM')}`]]:[])
+      ]);
+    }
     write(detail,source);
   }
   // Keep the existing beginner card layout and copy, synchronizing its ratings

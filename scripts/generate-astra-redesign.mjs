@@ -60,7 +60,42 @@ const ninjaAdMaxPlans={
   '/feeding/':{slot:'TOOL_FEEDING',after:'main'},
   '/':{slot:'HOME_TOP',after:'.astra-home-reference'}
 };
-const ninjaAdMaxContent=slot=>`<aside class="wrap ninja-admax-slot ninja-admax-expansion" data-admax-slot="${slot}" data-admax-placement="2026-09-expansion" aria-label="広告"><span class="ninja-admax-label">広告</span><script>(function(){var tag=window.matchMedia('(max-width: 820px)').matches?'https://adm.shinobi.jp/s/4622ef9decb0d620290304f7ec64e778':'https://adm.shinobi.jp/s/dc7e80014dc39634f880de618b5b4f3b';document.write('<scr'+'ipt src="'+tag+'"></scr'+'ipt>');}());</script></aside>`;
+const ninjaAdMaxTags={
+  GUIDE:{pc:'dc7e80014dc39634f880de618b5b4f3b',sp:'4622ef9decb0d620290304f7ec64e778'},
+  TOP:{pc:'35f048413141014f4de639f6587f7d7e',sp:'16ba3b25ba46308a360f7d2e14b3721c'},
+  MID:{pc:'1be47573fb894fc05b65e54855cd8d50',sp:'1b95e5798b6c1c59a1959f7fa068c676'},
+  BOTTOM:{pc:'a29aa98a252af3196ac97a024e430430',sp:'0dfce2d7520a570ab34d238ddf655603'}
+};
+const ninjaAdMaxContent=(slot,position='GUIDE')=>{const tag=ninjaAdMaxTags[position];return `<aside class="wrap ninja-admax-slot ninja-admax-expansion" data-admax-slot="${slot}" data-admax-position="${position}" data-admax-placement="2026-09-all-content" aria-label="広告"><span class="ninja-admax-label">広告</span><script>(function(){var tag=window.matchMedia('(max-width: 820px)').matches?'https://adm.shinobi.jp/s/${tag.sp}':'https://adm.shinobi.jp/s/${tag.pc}';document.write('<scr'+'ipt src="'+tag+'"></scr'+'ipt>');}());</script></aside>`;};
+const ninjaAdMaxExcluded=new Set(['/about/','/about-data/','/privacy/','/friends/','/board/','/consult/','/events/calendar/']);
+const ninjaAdMaxToolRoutes=new Set(['/team-builder/','/feeding/','/events/treasure-hunt/']);
+function targetNinjaAdMaxSlots(route,html){
+  if(ninjaAdMaxExcluded.has(route)||/<meta name="robots" content="[^\"]*noindex/i.test(html)||route==='/404/')return 0;
+  if(ninjaAdMaxToolRoutes.has(route))return 1;
+  const main=(html.match(/<main\b[\s\S]*?<\/main>/i)||[''])[0].replace(/<[^>]+>/g,'').replace(/\s+/g,' ').length;
+  if(main>=10000)return 3;
+  if(main>=2000)return 2;
+  return 1;
+}
+function insertNinjaAdMaxSlots($,route,needed){
+  if(!needed)return;
+  const existing=$('.ninja-admax-slot').length;
+  // A pre-existing GUIDE placement is the editorial middle position. Keep it
+  // intact and add its complementary TOP/BOTTOM positions only when the page
+  // budget calls for them; otherwise distribute fresh slots across the page.
+  const requested=existing?['TOP','BOTTOM']:needed===1?['MID']:needed===2?['TOP','BOTTOM']:['TOP','MID','BOTTOM'];
+  const positions=requested.filter(position=>!$(`.ninja-admax-slot[data-admax-position="${position}"]`).length);
+  const candidates=$('main').children().filter((_,el)=>{const node=$(el);return !node.is('.ninja-admax-slot,.astra-ad,script,style,nav,form')&&!node.find('form,[data-team-builder],#team-settings,#feeding-app').length&&node.text().trim().length>100&&!node.prev().is('.astra-ad,.ninja-admax-slot')&&!node.next().is('.astra-ad,.ninja-admax-slot');}).toArray();
+  const count=Math.min(needed-existing,3-existing,positions.length);
+  for(let index=0;index<count;index++){
+    const position=positions[index];
+    const anchor=candidates[Math.min(candidates.length-1,Math.floor((index+1)*(candidates.length/(count+1))))];
+    const slot=`CONTENT_${position}_${route==='/'?'HOME':route.replaceAll('/','_').replace(/^_|_$/g,'').toUpperCase()}`;
+    // A fallback is allowed for a single slot only. Never stack several ads
+    // beside the footer when an article lacks enough safe editorial breaks.
+    if(anchor)$(anchor).after(ninjaAdMaxContent(slot,position));else if(count===1)$('footer').before(ninjaAdMaxContent(slot,position));
+  }
+}
 const version=JSON.parse(read('data/asset-build.json')).version;
 // Existing canonical SEO remains authoritative. The new calendar is an additional route.
 for(const locale of ['ja','en','zh-CN']){
@@ -181,9 +216,11 @@ for(const file of walk(root)){
   if(ninjaPlan){
     const anchor=$(ninjaPlan.after||ninjaPlan.before).first();
     if(!anchor.length)throw new Error(`Missing Ninja AdMax placement anchor: ${route} ${ninjaPlan.after||ninjaPlan.before}`);
-    if(ninjaPlan.after)anchor.after(ninjaAdMaxContent(ninjaPlan.slot));else anchor.before(ninjaAdMaxContent(ninjaPlan.slot));
+    if(ninjaPlan.after)anchor.after(ninjaAdMaxContent(ninjaPlan.slot,'GUIDE'));else anchor.before(ninjaAdMaxContent(ninjaPlan.slot,'GUIDE'));
   }
-  if(locale==='ja'&&(route==='/tata-tier/'||route.startsWith('/tata/')||ninjaPlan))$('footer').after(`<script src="/ninja-admax.js?v=${version}" defer></script>`);
+  const targetNinjaSlots=locale==='ja'&&!route.startsWith('/tata/')&&route!=='/tata-tier/'?targetNinjaAdMaxSlots(route,html):0;
+  if(locale==='ja'&&!route.startsWith('/tata/')&&route!=='/tata-tier/')insertNinjaAdMaxSlots($,route,targetNinjaSlots);
+  if(locale==='ja'&&(route==='/tata-tier/'||route.startsWith('/tata/')||targetNinjaSlots))$('footer').after(`<script src="/ninja-admax.js?v=${version}" defer></script>`);
   if(plan.length)$('footer').after(`<script src="/astra-ads.js?v=${version}" defer></script>`);
   $('.hero-cta,.site-stats,#attributeFilters').attr('role','group');
   const attributes=bodyMatch[1].replace(/\sdata-astra(?:-page)?="[^"]*"/g,'');

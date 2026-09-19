@@ -60,7 +60,9 @@ test('all three locales render every family once per board in the specified orde
     }
     for(const f of data.families){
       const detail=load(read(`${prefix}tata/${f.slug}/index.html`));
-      assert.equal(detail('.ninja-admax-slot').length,prefix ? 0 : 1,`${prefix}${f.familyId}: タタ詳細のAdMax枠`);
+      const admaxCount=detail('.ninja-admax-slot').length;
+      if(prefix)assert.equal(admaxCount,0,`${prefix}${f.familyId}: 非日本語タタ詳細にAdMaxがある`);
+      else assert.ok(admaxCount>=2&&admaxCount<=3,`${f.familyId}: 日本語タタ詳細は既存枠を含め最大3枠`);
       for(const mode of MODES){
         const cell=detail(`[data-ranking-mode="${mode}"]`);
         assert.equal(cell.length,1,`${prefix}${f.familyId}:${mode}`);
