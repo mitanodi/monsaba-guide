@@ -9,7 +9,6 @@ const read=file=>fs.readFileSync(path.join(root,file),'utf8');
 const ignored=new Set(['.git','.github','.vercel','node_modules','en','zh-cn','promo','assets','data','scripts','docs']);
 const walk=dir=>fs.readdirSync(path.join(root,dir),{withFileTypes:true}).flatMap(entry=>ignored.has(entry.name)?[]:entry.isDirectory()?walk(path.join(dir,entry.name)):entry.name.endsWith('.html')?[path.posix.join(dir,entry.name)]:[]);
 const route=file=>`/${file.split(path.sep).join('/').replace(/index\.html$/,'')}`;
-const excluded=new Set(['/about/','/about-data/','/privacy/','/friends/','/board/','/consult/','/events/calendar/']);
 const tags=['35f048413141014f4de639f6587f7d7e','16ba3b25ba46308a360f7d2e14b3721c','1be47573fb894fc05b65e54855cd8d50','1b95e5798b6c1c59a1959f7fa068c676','a29aa98a252af3196ac97a024e430430','0dfce2d7520a570ab34d238ddf655603'];
 
 test('Japanese indexable content has a reversible AdMax plan capped at three slots',()=>{
@@ -20,8 +19,7 @@ test('Japanese indexable content has a reversible AdMax plan capped at three slo
     assert.ok(slots.length<=3,`${file}: AdMaxは最大3枠`);
     assert.equal(new Set(ids).size,ids.length,`${file}: slot ID重複`);
     for(const position of ['TOP','MID','BOTTOM'])assert.ok(slots.filter(`[data-admax-position="${position}"]`).length<=1,`${file}: ${position}位置の重複`);
-    if(excluded.has(page))assert.equal(slots.length,0,`${file}: 除外ページ`);
-    else assert.ok(slots.length>=1,`${file}: 日本語公開コンテンツに枠がない`);
+    assert.ok(slots.length>=1,`${file}: 日本語公開コンテンツに枠がない`);
     slots.each((_,el)=>{assert.equal($(el).find('.ninja-admax-label').text(),'広告',file);assert.ok($(el).attr('data-admax-slot'),file);});
   }
 });

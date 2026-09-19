@@ -67,10 +67,9 @@ const ninjaAdMaxTags={
   BOTTOM:{pc:'a29aa98a252af3196ac97a024e430430',sp:'0dfce2d7520a570ab34d238ddf655603'}
 };
 const ninjaAdMaxContent=(slot,position='GUIDE')=>{const tag=ninjaAdMaxTags[position];return `<aside class="wrap ninja-admax-slot ninja-admax-expansion" data-admax-slot="${slot}" data-admax-position="${position}" data-admax-placement="2026-09-all-content" aria-label="広告"><span class="ninja-admax-label">広告</span><script>(function(){var tag=window.matchMedia('(max-width: 820px)').matches?'https://adm.shinobi.jp/s/${tag.sp}':'https://adm.shinobi.jp/s/${tag.pc}';document.write('<scr'+'ipt src="'+tag+'"></scr'+'ipt>');}());</script></aside>`;};
-const ninjaAdMaxExcluded=new Set(['/about/','/about-data/','/privacy/','/friends/','/board/','/consult/','/events/calendar/']);
 const ninjaAdMaxToolRoutes=new Set(['/team-builder/','/feeding/','/events/treasure-hunt/']);
 function targetNinjaAdMaxSlots(route,html){
-  if(ninjaAdMaxExcluded.has(route)||/<meta name="robots" content="[^\"]*noindex/i.test(html)||route==='/404/')return 0;
+  if(/<meta name="robots" content="[^\"]*noindex/i.test(html)||route==='/404/')return 0;
   if(ninjaAdMaxToolRoutes.has(route))return 1;
   const main=(html.match(/<main\b[\s\S]*?<\/main>/i)||[''])[0].replace(/<[^>]+>/g,'').replace(/\s+/g,' ').length;
   if(main>=10000)return 3;
