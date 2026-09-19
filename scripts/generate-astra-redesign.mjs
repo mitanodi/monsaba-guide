@@ -35,6 +35,32 @@ const adPlans={
   '/normal-guide/':[{offer:'ipsos_isay_001',after:'#normal-bosses'}],
   '/boss-rally/':[{offer:'point_income_003',before:'.next-reading'}]
 };
+// Ninja AdMax expansion: one reversible, Japanese-only mid-content slot per route.
+// The same standard tags are intentionally reused across equivalent editorial pages;
+// page_path + slot_id remains available in analytics without creating disposable tags.
+const ninjaAdMaxPlans={
+  '/beginner-guide/':{slot:'GUIDE_BEGINNER',after:'#training'},
+  '/normal-guide/':{slot:'GUIDE_NORMAL',before:'#normal-bosses'},
+  '/evolution-priority/':{slot:'GUIDE_EVOLUTION',after:'#diagnosis'},
+  '/zombie-rush/':{slot:'GUIDE_ZOMBIE_RUSH',after:'#basic'},
+  '/boss-rally/':{slot:'GUIDE_BOSS_RALLY',after:'main > .static-section'},
+  '/badge-dojo/':{slot:'GUIDE_BADGE_DOJO',after:'main > .static-section'},
+  '/attribute/grass/':{slot:'ATTRIBUTE_GRASS',after:'#attributeGuideNav'},
+  '/attribute/water/':{slot:'ATTRIBUTE_WATER',after:'#attributeGuideNav'},
+  '/attribute/fire/':{slot:'ATTRIBUTE_FIRE',after:'#attributeGuideNav'},
+  '/attribute/thunder/':{slot:'ATTRIBUTE_THUNDER',after:'#attributeGuideNav'},
+  '/attribute/rock/':{slot:'ATTRIBUTE_ROCK',after:'#attributeGuideNav'},
+  '/events/island-treasure/':{slot:'EVENT_ISLAND_TREASURE',after:'article.static-section'},
+  '/events/fishing-tournament/':{slot:'EVENT_FISHING_TOURNAMENT',after:'article.static-section'},
+  '/events/carnival-fest/':{slot:'EVENT_CARNIVAL_FEST',after:'article.static-section'},
+  '/events/magic-farm/':{slot:'EVENT_MAGIC_FARM',after:'article.static-section'},
+  '/events/zombie-siege/':{slot:'EVENT_ZOMBIE_SIEGE',after:'article.static-section'},
+  '/team-builder/':{slot:'TOOL_TEAM_BUILDER',after:'#team-help-title'},
+  '/events/treasure-hunt/':{slot:'TOOL_TREASURE_HUNT',after:'#event-guide'},
+  '/feeding/':{slot:'TOOL_FEEDING',after:'main'},
+  '/':{slot:'HOME_TOP',after:'.astra-journey'}
+};
+const ninjaAdMaxContent=slot=>`<aside class="wrap ninja-admax-slot ninja-admax-expansion" data-admax-slot="${slot}" data-admax-placement="2026-09-expansion" aria-label="広告"><span class="ninja-admax-label">広告</span><script>(function(){var tag=window.matchMedia('(max-width: 820px)').matches?'https://adm.shinobi.jp/s/4622ef9decb0d620290304f7ec64e778':'https://adm.shinobi.jp/s/dc7e80014dc39634f880de618b5b4f3b';document.write('<scr'+'ipt src="'+tag+'"></scr'+'ipt>');}());</script></aside>`;
 const version=JSON.parse(read('data/asset-build.json')).version;
 // Existing canonical SEO remains authoritative. The new calendar is an additional route.
 for(const locale of ['ja','en','zh-CN']){
@@ -67,6 +93,7 @@ for(const file of walk(root)){
   // Reserve slots in static HTML; no third-party scripts or trackers run in this branch.
   $('script[src*="monetization.js"]').attr('type','text/plain');
   $('[data-affiliate-offer]').remove();
+  $('.ninja-admax-expansion').remove();
   const journey=()=>`<section class="wrap astra-journey"><div class="astra-section-heading"><span class="astra-eyebrow">PLAYBOOK</span><h2>${c.journey}</h2></div><div class="astra-steps">${['/beginner-guide/','/tata-tier/','/evolution-priority/','/team-builder/'].map((p,i)=>`<a href="${href(p)}"><span class="astra-step-number">0${i+1}</span><b>${c.steps[i]}</b><small>${c.stepsText[i]} ↗</small></a>`).join('')}</div></section>`;
   const today=()=>`<section class="wrap astra-today" aria-labelledby="astra-today-title"><div class="astra-section-heading"><div><span class="astra-eyebrow">LIVE & NEXT</span><h2 id="astra-today-title">${c.today}</h2></div><a href="${href('/events/calendar/')}">${c.schedule} ↗</a></div><div class="astra-today-grid" data-astra-schedule><a href="${href('/events/calendar/')}">${c.calendar} ↗</a></div><p class="astra-schedule-source">${c.source}</p></section>`;
   if(route==='/'){
@@ -150,7 +177,13 @@ for(const file of walk(root)){
     if(item.after)anchor.after(ad);else anchor.before(ad);
   }
   if(plan.length){$('.astra-experiment-bar').append(`<a href="?ads=live">既存広告を確認</a>`);if(!$('script[src*="monetization.js"]').length)$('footer').after(`<script src="/monetization.js?v=${version}" type="text/plain" defer></script>`);}
-  if(locale==='ja'&&(route==='/tata-tier/'||route.startsWith('/tata/')))$('footer').after(`<script src="/ninja-admax.js?v=${version}" defer></script>`);
+  const ninjaPlan=locale==='ja'?ninjaAdMaxPlans[route]:null;
+  if(ninjaPlan){
+    const anchor=$(ninjaPlan.after||ninjaPlan.before).first();
+    if(!anchor.length)throw new Error(`Missing Ninja AdMax placement anchor: ${route} ${ninjaPlan.after||ninjaPlan.before}`);
+    if(ninjaPlan.after)anchor.after(ninjaAdMaxContent(ninjaPlan.slot));else anchor.before(ninjaAdMaxContent(ninjaPlan.slot));
+  }
+  if(locale==='ja'&&(route==='/tata-tier/'||route.startsWith('/tata/')||ninjaPlan))$('footer').after(`<script src="/ninja-admax.js?v=${version}" defer></script>`);
   if(plan.length)$('footer').after(`<script src="/astra-ads.js?v=${version}" defer></script>`);
   $('.hero-cta,.site-stats,#attributeFilters').attr('role','group');
   const attributes=bodyMatch[1].replace(/\sdata-astra(?:-page)?="[^"]*"/g,'');
