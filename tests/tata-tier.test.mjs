@@ -44,7 +44,7 @@ test('all three locales render every family once per board in the specified orde
     assert.equal($('.tier-board').length,5);
     assert.equal($('h1').length,1);
     assert.equal($('.tier-mode-nav a').length,5);
-    assert.equal($('.astra-ad').length,prefix ? 0 : 0,'TierページではAdMax 1枠だけを表示する');
+    assert.equal($('.astra-ad').length,prefix ? 0 : 4,'既存A8枠は日本語Tierページに4枠を維持する');
     assert.equal($('.ninja-admax-slot').length,prefix ? 0 : 1,'端末別AdMax枠は日本語Tierページだけに置く');
     for(const mode of MODES){
       const board=$(`#mode-${mode}`);

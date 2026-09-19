@@ -23,7 +23,10 @@ const adPlans={
     {offer:'ipsos_isay_001',after:'.static-section:has(h2:contains("T3で大きく化けるタタ"))'},
     {offer:'macromill_002',after:'#transition-list'},{offer:'warau_003',before:'.source-note'}
   ],
-  '/tata-tier/':[],
+  '/tata-tier/':[
+    {offer:'warau_003',after:'#mode-overall'},{offer:'point_income_003',after:'#mode-normal'},
+    {offer:'altema_point_005',after:'#mode-zombie'},{offer:'ipsos_isay_001',after:'#mode-dojo'}
+  ],
   '/zombie-rush/':[
     {offer:'warau_003',after:'#basic'},{offer:'point_income_003',after:'#season-tier'},
     {offer:'ipsos_isay_001',after:'#prediction'},{offer:'altema_point_005',after:'#danger'},
@@ -151,7 +154,7 @@ for(const file of walk(root)){
   if(plan.length)$('footer').after(`<script src="/astra-ads.js?v=${version}" defer></script>`);
   $('.hero-cta,.site-stats,#attributeFilters').attr('role','group');
   const attributes=bodyMatch[1].replace(/\sdata-astra(?:-page)?="[^"]*"/g,'');
-  const bodyHtml=$.html().replace(/\s(required|hidden|checked|disabled|selected|multiple|readonly|autofocus)=""/g,' $1');
+  const bodyHtml=$.html().replace(/[ \t]+(?=\r?\n)/g,'').replace(/\s(required|hidden|checked|disabled|selected|multiple|readonly|autofocus)=""/g,' $1');
   html=html.replace(bodyMatch[0],`<body${attributes} data-astra="experiment" data-astra-page="${esc(route)}">${bodyHtml}</body>`);
   html=html.replace(/<link[^>]*href="\/astra(?:-[a-z]+)?\.css[^>]*>/g,'').replace(/<script[^>]*src="\/astra(?:-calendar)?\.js[^>]*><\/script>/g,'');
   const pageCss=route==='/'?['home']:route==='/events/'?['home']:route==='/events/calendar/'?['calendar']:route==='/team-builder/'?['team']:route.startsWith('/team-builder/community/')?['community','team']:route.startsWith('/tata/')?['detail']:route==='/tata-tier/'?['tier']:['/beginner-guide/','/evolution-priority/'].includes(route)?['home']:[];

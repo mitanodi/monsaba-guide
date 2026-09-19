@@ -73,7 +73,8 @@ for(const [locale,prefix] of [['ja',''],['en','en/'],['zh-CN','zh-cn/']]) {
       if(translated)el.find('p').text(translated);
       return rating?$.html(el).replace(/(総合|Overall\s*|综合)(SSS|SS|S|A|B|C|D)(評価|\s*rating)?/gi,`$1${rating}$3`):$.html(el);
     }]]);
-    if(locale==='ja'&&!source.includes('ninja-admax-slot')) source=patchHtml(source,[['section:has(> h2:contains("スキル一覧"))',(el,$)=>`${$.html(el)}${ninjaAdMaxTata}`]]);
+    source=source.replace(/<aside class="wrap ninja-admax-slot"[\s\S]*?<\/aside>/g,'');
+    if(locale==='ja') source=patchHtml(source,[['section:has(> h2:contains("スキル一覧"))',(el,$)=>`${$.html(el)}${ninjaAdMaxTata}`]]);
     write(detail,source);
   }
   // Keep the existing beginner card layout and copy, synchronizing its ratings
