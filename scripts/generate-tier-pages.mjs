@@ -43,7 +43,9 @@ for(const [locale,prefix] of [['ja',''],['en','en/'],['zh-CN','zh-cn/']]) {
     for(const node of structured['@graph']||[structured])if(node['@type']==='Article'){node.name=copy.title;node.headline=copy.title;node.description=copy.intro;node.dateModified=data.updated;}
     return `<script type="application/ld+json">${JSON.stringify(structured).replaceAll('<','\\u003c')}</script>`;
   }]]);
-  html=html.replace(/<link[^>]+href="\/tata-tier\/tier-boards\.css[^>]*>/g,'').replace('</head>',`<link rel="stylesheet" href="/tata-tier/tier-boards.css?v=${assetVersion}"></head>`);
+  html=html.replace(/<link[^>]+href="\/(?:astra(?:-tier)?\.css|tata-tier\/tier-boards\.css)[^>]*>/g,'')
+    .replace(/(<script async src="https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=[^"]+"[^>]*data-monsaba-ga4="loader")(?: type="[^"]*")?>/g,'$1 type="text/plain">')
+    .replace('</head>',`<link rel="stylesheet" href="/astra.css?v=${assetVersion}"><link rel="stylesheet" href="/astra-tier.css?v=${assetVersion}"><link rel="stylesheet" href="/tata-tier/tier-boards.css?v=${assetVersion}"></head>`);
   html=html.replace(/(src="\/tata-tier\/tata-tier\.js)(?:\?[^\"]*)?"/g,`$1?v=${assetVersion}"`);
   write(file,html);
 
