@@ -60,7 +60,8 @@ const write = (file, value) => retry(() => fs.writeFileSync(file, value));
 const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'promo', 'en', 'zh-cn', 'assets', 'data', 'scripts']);
 const selfLocalized = new Set([
   'tata-tier', 'zombie-rush/chips', 'evolution/trials', 'updates/2026-08-30', 'gift-codes', 'tatari-names',
-  ...['running-party','running-star','island-treasure','magic-farm','fishing-tournament','summer-party','zombie-siege','surprise-roulette'].map((id) => `events/${id}`)
+  ...['running-party','running-star','island-treasure','magic-farm','fishing-tournament','summer-party','zombie-siege','surprise-roulette'].map((id) => `events/${id}`),
+  'feeding'
 ]);
 
 function walk(directory) {

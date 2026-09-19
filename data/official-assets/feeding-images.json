@@ -1,0 +1,117 @@
+{
+  "generatedAt": "2026-09-19T01:45:01.323Z",
+  "source": "MonsterSurvival Official Creator Assets",
+  "count": 10,
+  "assets": [
+    {
+      "officialAssetId": "MSOA-05152",
+      "sourceSha256": "54fe2d8ea2660e9184953a266ff2cf482fd348d9d7ff4dda1d62671eee8c95cc",
+      "originalDrivePath": "CC Art Assets/Food/soda.png",
+      "slug": "soda",
+      "optimizedPath": "/assets/official/feeding/soda.webp",
+      "optimizedSha256": "6d70e8a2262ad72306a255eaa89551ffa9f2fe7895780c2d35129408676aef13",
+      "width": 320,
+      "height": 320,
+      "alpha": true
+    },
+    {
+      "officialAssetId": "MSOA-05137",
+      "sourceSha256": "f8a6bbff8fe151b37edc1596e30612bcc8bd05fc5c77e50e527afdbae8b7ff18",
+      "originalDrivePath": "CC Art Assets/Food/ice_cream.png",
+      "slug": "ice-cream",
+      "optimizedPath": "/assets/official/feeding/ice-cream.webp",
+      "optimizedSha256": "491725b65ff5116a4910eb114d69dadba7e0272e86d2967e5563a731f9f716ca",
+      "width": 320,
+      "height": 320,
+      "alpha": true
+    },
+    {
+      "officialAssetId": "MSOA-05145",
+      "sourceSha256": "fbec9ac1425c7e58ed244f8cc6baadc896d7f09a996c258b21c1b633967be6ee",
+      "originalDrivePath": "CC Art Assets/Food/potatoes.png",
+      "slug": "potatoes",
+      "optimizedPath": "/assets/official/feeding/potatoes.webp",
+      "optimizedSha256": "019d225d3a34b46ad5c93566ab2e524addec4bbde070b345ef156826d4594f04",
+      "width": 320,
+      "height": 320,
+      "alpha": true
+    },
+    {
+      "officialAssetId": "MSOA-05142",
+      "sourceSha256": "fe58db07cb05e635ffce1835a531122511ff52b5cbbfba9cfa76e4ec2732b2d7",
+      "originalDrivePath": "CC Art Assets/Food/noodles.png",
+      "slug": "noodles",
+      "optimizedPath": "/assets/official/feeding/noodles.webp",
+      "optimizedSha256": "ecd99f6b4c518046b6cfff08df282fb8db2cdc7c8574ca752e5d68e4b7251fc2",
+      "width": 320,
+      "height": 320,
+      "alpha": true
+    },
+    {
+      "officialAssetId": "MSOA-05148",
+      "sourceSha256": "15012b3e47c08857df69a30d2f35132db748be7ef73da4ade0619d3c91906a43",
+      "originalDrivePath": "CC Art Assets/Food/salad.png",
+      "slug": "salad",
+      "optimizedPath": "/assets/official/feeding/salad.webp",
+      "optimizedSha256": "048d376338c236760540bf16a87e96d2cddbfd047e01665ef6b5237ae632d740",
+      "width": 320,
+      "height": 320,
+      "alpha": true
+    },
+    {
+      "officialAssetId": "MSOA-05151",
+      "sourceSha256": "d90ca185a795478763d905ac78a32841bcce80985b5a1c83c4d4341247771a07",
+      "originalDrivePath": "CC Art Assets/Food/smoothie.png",
+      "slug": "smoothie",
+      "optimizedPath": "/assets/official/feeding/smoothie.webp",
+      "optimizedSha256": "f9eff14da9d61c74935610f52ed3c061114cea9eccd2ef4c31e111b9491220a3",
+      "width": 320,
+      "height": 320,
+      "alpha": true
+    },
+    {
+      "officialAssetId": "MSOA-05144",
+      "sourceSha256": "0dd1a2e56faccb411a665424974a26d96640cf3e8b286ea75275a9a46f9ce8bc",
+      "originalDrivePath": "CC Art Assets/Food/pizza.png",
+      "slug": "pizza",
+      "optimizedPath": "/assets/official/feeding/pizza.webp",
+      "optimizedSha256": "a43d247294c9e8315c8684225335e84839a9320459510de4b429399e5c5c0b98",
+      "width": 320,
+      "height": 320,
+      "alpha": true
+    },
+    {
+      "officialAssetId": "MSOA-05153",
+      "sourceSha256": "327f7002035d75ab429e2a43303d32303eec8c47ff38bfd3640ffccf805b97f5",
+      "originalDrivePath": "CC Art Assets/Food/soup.png",
+      "slug": "soup",
+      "optimizedPath": "/assets/official/feeding/soup.webp",
+      "optimizedSha256": "13c8f5f600da56a6732e9c57c667dbe700c26facb7cb56f522b55e8acaf21b91",
+      "width": 320,
+      "height": 320,
+      "alpha": true
+    },
+    {
+      "officialAssetId": "MSOA-05155",
+      "sourceSha256": "9994095a2d80e19ab8b5e27d4a4861a9b247090093e9b52c76d65727c74c8c9e",
+      "originalDrivePath": "CC Art Assets/Food/sushi.png",
+      "slug": "sushi",
+      "optimizedPath": "/assets/official/feeding/sushi.webp",
+      "optimizedSha256": "9263ec9c4ef423a0b2251cf75ec1e6ed01ccde4ff59281221a6c77c6ef33494f",
+      "width": 320,
+      "height": 320,
+      "alpha": true
+    },
+    {
+      "officialAssetId": "MSOA-06185",
+      "sourceSha256": "f1371f8ebd9c0fb3d80987b657d0c7f5f8ecf4de17be176fc4c3b47491cac913",
+      "originalDrivePath": "CC Art Assets/Homestead/PNG/Automaticfeeder.png",
+      "slug": "automatic-feeder",
+      "optimizedPath": "/assets/official/feeding/automatic-feeder.webp",
+      "optimizedSha256": "f3c5162897856b58474351dfe867a1e3a0b4984dca9c5238a4d3d27b9d5c2954",
+      "width": 300,
+      "height": 244,
+      "alpha": true
+    }
+  ]
+}

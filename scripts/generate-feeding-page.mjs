@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { renderFooter, renderHeader } from './shared-layout.mjs';
+
+const root = path.resolve(import.meta.dirname, '..');
+const html = `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>モンサバ 餌付けシミュレーター | モンサバ攻略DB</title><meta name="description" content="公式Creator Assetsの確認済み素材を使った、端末内で動く餌付けポイント試算ツール。"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://monster-survival.com/feeding/"><link rel="alternate" hreflang="ja" href="https://monster-survival.com/feeding/"><link rel="alternate" hreflang="en" href="https://monster-survival.com/en/feeding/"><link rel="alternate" hreflang="zh-Hans" href="https://monster-survival.com/zh-cn/feeding/"><link rel="alternate" hreflang="x-default" href="https://monster-survival.com/feeding/"><meta property="og:type" content="website"><meta property="og:locale" content="ja_JP"><meta property="og:url" content="https://monster-survival.com/feeding/"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/astra.css"><link rel="stylesheet" href="/feeding/feeding.css"></head><body data-locale="ja" data-page-type="tool"><a class="skip-link" href="#main-content">本文へスキップ</a>${renderHeader('/feeding/')}<main id="main-content" class="wrap feeding-page"><h1 class="visually-hidden">餌付けシミュレーター</h1><noscript>このツールを使うにはJavaScriptを有効にしてください。</noscript><div data-feeding-app></div></main>${renderFooter()}<script src="/family-display.js" defer></script><script src="/site.js" defer></script><script type="module" src="/feeding/feeding.js"></script></body></html>\n`;
+const enhanced = html
+  .replace('<meta name="robots" content="index,follow,max-image-preview:large">', '<meta name="robots" content="noindex,follow">')
+  .replace('</head>', '<meta property="og:title" content="モンサバ 餌付けシミュレーター"><meta property="og:description" content="公式素材で確認できたポイントを端末内で試算するツールです。"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="モンサバ 餌付けシミュレーター"><meta name="twitter:description" content="公式素材で確認できたポイントを端末内で試算するツールです。"></head>')
+  .replace('</body>', '<script src="/growth.js" defer></script></body>');
+fs.mkdirSync(path.join(root, 'feeding'), { recursive: true });
+fs.writeFileSync(path.join(root, 'feeding', 'index.html'), enhanced);
+console.log('餌付けシミュレーターの日本語ページを生成しました。');
