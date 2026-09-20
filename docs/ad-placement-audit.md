@@ -1,7 +1,7 @@
 # A8広告配置監査
 
 生成元: `data/monetization.json` / `data/affiliate-offers.json`
-対象: 公開HTML 135ページ（404を含む）
+対象: 公開HTML 136ページ（404を含む）
 監査日: 2026-08-28
 
 ## Before
@@ -145,6 +145,7 @@
 | https://monster-survival.com/updates/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/updates/2026-08-26/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/updates/2026-08-30/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/updates/2026-09-23-test-preview/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/zombie-rush/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/zombie-rush/chips/ | 0 | — | — | — | 非表示 |
 
@@ -291,6 +292,7 @@
 | https://monster-survival.com/updates/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/updates/2026-08-26/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/updates/2026-08-30/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/updates/2026-09-23-test-preview/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/zombie-rush/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/zombie-rush/chips/ | 0 | — | — | — | 非表示 |
 
