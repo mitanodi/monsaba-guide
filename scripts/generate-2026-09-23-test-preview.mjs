@@ -8,6 +8,7 @@ import { renderGa4Tag } from './update-ga4-tag.mjs';
 const root = path.resolve(import.meta.dirname, '..');
 const route = '/updates/2026-09-23-test-preview/';
 const preview = JSON.parse(fs.readFileSync(path.join(root, 'data/zombie-rush/seasons/season-2-test-preview.json'), 'utf8'));
+const liveChipByJapaneseName = new Map(JSON.parse(fs.readFileSync(path.join(root, 'data/zombie-rush/chips.json'), 'utf8')).chips.map((chip) => [chip.name.ja, chip]));
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]);
 const assetVersion = JSON.parse(fs.readFileSync(path.join(root, 'data/asset-build.json'), 'utf8')).version;
 const directions = { up: ['↑', '強化'], down: ['↓', '弱体化'] };
@@ -30,7 +31,9 @@ const jsonLd = (localRoute, title, description, language) => safeJsonLd({
 });
 const rows = preview.chipBalancePreview.map((item) => {
   const [symbol, label] = directions[item.direction];
-  return `<tr><th>${esc(item.name)}</th><td>${esc(item.metric)}</td><td>${esc(item.before)}</td><td>${esc(item.after)}</td><td><span class="zr-direction is-${item.direction}">${symbol} ${label}</span></td></tr>`;
+  const liveChip = liveChipByJapaneseName.get(item.name);
+  if (!liveChip?.icon) throw new Error(`Current chip icon mapping missing: ${item.name}`);
+  return `<tr><th><span class="preview-chip-name"><img src="${esc(liveChip.icon)}" width="56" height="56" alt="${esc(item.name)}の現行チップアイコン"><span>${esc(item.name)}</span></span></th><td>${esc(item.metric)}</td><td>${esc(item.before)}</td><td>${esc(item.after)}</td><td><span class="zr-direction is-${item.direction}">${symbol} ${label}</span></td></tr>`;
 }).join('');
 const previewImages = `<div class="preview-asset-grid" aria-label="公式提供のゾンビラッシュ素材"><figure><img src="/assets/official/zobos/shaman-zobo.png" width="3158" height="3481" alt="公式提供のゾンビ素材。名称対応は確認待ち。" loading="lazy"><figcaption>公式提供のゾンビラッシュ用素材</figcaption></figure><figure><img src="/assets/official/zobos/shocker-zobo.png" width="2651" height="2604" alt="公式提供のゾンビ素材。名称対応は確認待ち。" loading="lazy"><figcaption>公式提供のゾンビラッシュ用素材</figcaption></figure><figure><img src="/assets/official/zobos/roadhog-zobo.png" width="2379" height="2251" alt="公式提供のゾンビ素材。名称対応は確認待ち。" loading="lazy"><figcaption>公式提供のゾンビラッシュ用素材</figcaption></figure></div>`;
 

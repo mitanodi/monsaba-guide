@@ -6,6 +6,7 @@ import path from 'node:path';
 const root = path.resolve(import.meta.dirname, '..');
 const read = (relative) => fs.readFileSync(path.join(root, relative), 'utf8');
 const preview = JSON.parse(read('data/zombie-rush/seasons/season-2-test-preview.json'));
+const liveChips = JSON.parse(read('data/zombie-rush/chips.json'));
 
 test('Sep 23 data is labelled as an unconfirmed test-server preview', () => {
   assert.equal(preview.meta.status, 'test-server-preview-not-live');
@@ -36,4 +37,15 @@ test('official Zobo assets are present but not falsely mapped to a preview enemy
   const page = read('updates/2026-09-23-test-preview/index.html');
   for (const asset of ['shaman-zobo.png', 'shocker-zobo.png', 'roadhog-zobo.png']) assert.ok(fs.existsSync(path.join(root, 'assets/official/zobos', asset)));
   assert.match(page, /名称対応は確認待ち/);
+});
+
+test('every preview chip change uses its existing live chip icon without changing live values', () => {
+  const page = read('updates/2026-09-23-test-preview/index.html');
+  for (const { name } of preview.chipBalancePreview) {
+    const liveChip = liveChips.chips.find((chip) => chip.name.ja === name);
+    assert.ok(liveChip?.icon, `${name}: current chip icon mapping missing`);
+    assert.ok(fs.existsSync(path.join(root, liveChip.icon.slice(1))), `${name}: current chip icon file missing`);
+    assert.match(page, new RegExp(`src="${liveChip.icon.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"`), `${name}: preview page icon missing`);
+    assert.match(page, new RegExp(`alt="${name}の現行チップアイコン"`), `${name}: preview alt text missing`);
+  }
 });
