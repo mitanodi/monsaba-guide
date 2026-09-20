@@ -33,6 +33,7 @@
     "/updates/": { "updated": "2026-08-28", "verified": "2026-08-28" },
     "/updates/2026-08-26/": { "published": "2026-08-25", "updated": "2026-08-28", "verified": "2026-08-28", "status": "implemented-details-verifying", "pending": ["パクマのT2/T3名称・通常スキル・専用スキル数値のゲーム内確認", "ロードパスとナムアミダイジャの進化画面・スキル詳細確認"] },
     "/updates/2026-08-30/": { "published": "2026-08-30", "updated": "2026-08-30", "verified": "2026-08-30", "gameVersion": "0.46.1", "status": "verified" },
+    "/updates/2026-09-23-test-preview/": { "published": "2026-09-21", "updated": "2026-09-21", "verified": "2026-09-21", "status": "test-server-preview-not-live", "pending": ["本番ゲームへの反映", "ルカロンの進化名・スキル・画像", "新T4のゲーム内画面", "チップ変更値の本番確認"] },
     "/about/": { "updated": "2026-08-28T17:19:45+09:00", "verified": "2026-08-28" },
     "/about-data/": {},
     "/privacy/": { "updated": "2026-08-28T21:27:22+09:00", "verified": "2026-08-28" },

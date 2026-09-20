@@ -1,5 +1,11 @@
 {
   "en": {
+    "2026年9月23日予定": "Planned Sep 23, 2026",
+    "ゾンビラッシュ Season 2・ルカロン・新T4のテストサーバー情報": "Test-server information: Zombie Rush Season 2, Lucaron and new T4s",
+    "本番未確認の先行内容として、チップ調整と追加要素を現行仕様から分離して掲載しました。": "Preview chip changes and new content are clearly separated from the live specification.",
+    "テストサーバー情報を見る": "View the test-server preview",
+    "Season 2のテストサーバー情報": "Season 2 test-server preview",
+    "9/23予定の先行内容を確認しました。本番反映は未確認のため、現行攻略・チップDBとは分けて掲載しています。": "We have summarized the preview planned for Sep 23. It remains separate from the live guide and chip database until release is confirmed.",
     "2026年9月11日 最新情報": "Latest information — September 11, 2026",
     "v0.47.1でヌスケ系、エーテリファル、ジャンガルパカを追加し、65系統・236体へ更新しました。ラフトレースは9月12日予定のユーザー報告として掲載し、詳細ルールは確認中です。": "Updated to 65 families and 236 forms with the Ringtail family, Morphanessa, and Blechlama. The September 12 Raft Race date is labeled as a user report; detailed rules remain pending.",
     "ヌスケ系を見る": "View the Ringtail family",
@@ -349,6 +355,12 @@
     "現行更新はパクマ系専用スキルのエフェクト最適化と、一部特殊チップの繰り返し選択不具合修正です。性能変更とは扱いません。Season 2のスキル・チップ調整、ステータス確認、ランキングリセット、難易度調整、Season 1最高到達難易度の1つ前への引き継ぎは次回アップデート予告であり、現行仕様へ適用していません。": "The current update optimizes Pakuma-family effects and fixes repeated selection of some special chips; it is not treated as a balance change. Season 2 balance, stat inspection, ranking reset, difficulty tuning, and inheritance from one level below the highest Season 1 difficulty reached remain a next-update preview."
   },
   "zh-CN": {
+    "2026年9月23日予定": "计划于2026年9月23日",
+    "ゾンビラッシュ Season 2・ルカロン・新T4のテストサーバー情報": "Zombie Rush Season 2、Lucaron 与新T4的测试服务器信息",
+    "本番未確認の先行内容として、チップ調整と追加要素を現行仕様から分離して掲載しました。": "作为正式服未确认的先行内容，芯片调整与新增内容已与现行规格分开显示。",
+    "テストサーバー情報を見る": "查看测试服务器信息",
+    "Season 2のテストサーバー情報": "Season 2测试服务器信息",
+    "9/23予定の先行内容を確認しました。本番反映は未確認のため、現行攻略・チップDBとは分けて掲載しています。": "已整理计划于9月23日的先行内容。正式服上线尚未确认，因此与现行攻略和芯片图鉴分开显示。",
     "2026年9月11日 最新情報": "2026年9月11日最新信息",
     "v0.47.1でヌスケ系、エーテリファル、ジャンガルパカを追加し、65系統・236体へ更新しました。ラフトレースは9月12日予定のユーザー報告として掲載し、詳細ルールは確認中です。": "新增干脆面系列、潋滟水蝶与一塌糊驼，现为65个系列、236个形态。9月12日Raft Race日期标注为用户报告，详细规则仍待确认。",
     "ヌスケ系を見る": "查看干脆面系列",

@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "seasonId": "season-2-test-preview",
+    "status": "test-server-preview-not-live",
+    "sourceType": "user-shared-official-test-server-preview",
+    "sourceUrl": "https://w.atwiki.jp/monstersurvival/",
+    "listedUpdateDate": "2026-09-23",
+    "checkedAt": "2026-09-21",
+    "scope": "zombie-rush-test-server-preview",
+    "notice": "ユーザー共有の公式テストサーバー情報として整理した先行内容。本番ゲームへの反映は未確認で、現行のチップDB・通常スキル・Tierには適用しない。"
+  },
+  "seasonChanges": [
+    "シーズンランキングをリセット予定",
+    "ゾンビラッシュ専用スキルのステータス確認機能を追加予定",
+    "Season 1の最高到達難易度の1つ前を引き継ぐ難易度継承機能を追加予定"
+  ],
+  "newTatari": {
+    "name": "ルカロン",
+    "attribute": "水",
+    "knownInformation": "ルカロンと進化形態にゾンビラッシュ専用スキルがある予定。",
+    "databaseStatus": "preview-only-awaiting-live-game-confirmation",
+    "unknownFields": ["進化名", "通常スキル", "ゾンビラッシュ専用スキル詳細", "数値", "画像"]
+  },
+  "newEvolutions": [
+    { "attribute": "雷", "from": "エレキネコ", "to": "トコヨニャット", "stage": 4, "databaseStatus": "preview-only-awaiting-live-game-confirmation" },
+    { "attribute": "炎", "from": "ヒニャオ", "to": "ネコノミコト", "stage": 4, "databaseStatus": "preview-only-awaiting-live-game-confirmation" }
+  ],
+  "chipBalancePreview": [
+    { "name": "サボる", "metric": "強制自動戦闘時間", "before": "90秒", "after": "40秒", "direction": "down" },
+    { "name": "ボスキラー", "metric": "ダメージ増加", "before": "25%", "after": "20%", "direction": "down" },
+    { "name": "マーベリック", "metric": "ステータスアップ", "before": "20%", "after": "35%", "direction": "up" },
+    { "name": "後方支援", "metric": "ダメージ増加", "before": "30%", "after": "45%", "direction": "up" },
+    { "name": "芝生のお手入れ", "metric": "最大HPダメージ", "before": "50%", "after": "40%", "direction": "down" },
+    { "name": "アップグレード", "metric": "タタレベルアップ", "before": "+1", "after": "+2", "direction": "up" },
+    { "name": "別れの贈り物", "metric": "獲得するエナジーキャンディ", "before": "200", "after": "40", "direction": "down" },
+    { "name": "戦略的移動", "metric": "持続時間", "before": "20秒", "after": "30秒", "direction": "up" },
+    { "name": "バケツ理論", "metric": "ステータスアップ", "before": "10%", "after": "15%", "direction": "up" }
+  ],
+  "otherPreviewChanges": {
+    "zombieRush": [
+      "タタが倒されると一部のエナジーキャンディを返還予定",
+      "一部タタのゾンビラッシュ専用スキルを調整予定（詳細はテストサーバー画面で確認予定）",
+      "難易度1は低下、難易度3・4は少し上昇予定",
+      "シズクジ系のゾンビラッシュ専用スキル「蘭から蝶へ」のダメージが低くなる場合がある不具合を修正予定"
+    ],
+    "skillPreviewAndSe": ["スキルプレビューの再生を最適化予定", "一部タタのSEを最適化予定"],
+    "otherSystems": [
+      "タタ探知機、タタ探知カプセル、タタ詳細画面の改修予定",
+      "キャンプ場の侵入ゾンビ撃退報酬、街灯6種、ゴールドタウンのアメジスト鉱床を追加予定",
+      "過去カードアルバムの確認・保存と、チャンネルのカード交換申請取消を追加予定",
+      "銀レンガをキャンプショップなどで購入可能にする予定"
+    ]
+  }
+}

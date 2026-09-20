@@ -495,9 +495,11 @@
     }
   ],
   "season2Preview": {
-    "status": "announced-for-next-update-not-implemented",
-    "sourceType": "user-shared-patch-note-transcription",
-    "checkedAt": "2026-09-11",
+    "status": "test-server-preview-not-live",
+    "sourceType": "user-shared-official-test-server-preview",
+    "sourceUrl": "https://w.atwiki.jp/monstersurvival/",
+    "listedUpdateDate": "2026-09-23",
+    "checkedAt": "2026-09-21",
     "items": [
       "ゾンビラッシュ専用スキルとチップ等のバランス調整",
       "専用スキルのステータス確認機能",
@@ -505,7 +507,7 @@
       "ステージ難易度の調整",
       "Season 1最高到達難易度の1つ前を引き継ぐ"
     ],
-    "noNumericChanges": true,
-    "wordingCaveat": "最高到達難易度を最高クリア難易度へ読み替えない"
+    "noNumericChanges": false,
+    "wordingCaveat": "テストサーバーの数値は本番チップDBへ適用しない。最高到達難易度を最高クリア難易度へ読み替えない。詳細はdata/zombie-rush/seasons/season-2-test-preview.jsonを参照する。"
   }
 }
