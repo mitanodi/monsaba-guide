@@ -3,10 +3,10 @@
   "asOf": "2026-09-05",
   "totals": {
     "pages": 405,
-    "indexable": 369,
+    "indexable": 366,
     "brokenLinks": 0,
     "brokenImages": 0,
-    "structuralIssues": 3,
+    "structuralIssues": 0,
     "reviewRequired": 0
   },
   "duplicates": {
@@ -16,20 +16,7 @@
   },
   "brokenLinks": [],
   "brokenImages": [],
-  "structuralIssues": [
-    {
-      "route": "/en/updates/2026-09-23-test-preview/",
-      "issue": "breadcrumb_visible_schema_mismatch"
-    },
-    {
-      "route": "/updates/2026-09-23-test-preview/",
-      "issue": "breadcrumb_visible_schema_mismatch"
-    },
-    {
-      "route": "/zh-cn/updates/2026-09-23-test-preview/",
-      "issue": "breadcrumb_visible_schema_mismatch"
-    }
-  ],
+  "structuralIssues": [],
   "internalLinkGraph": {
     "orphans": [],
     "requiredWithinThreeClicks": [
@@ -1403,16 +1390,6 @@
       "reasons": []
     },
     {
-      "route": "/en/updates/2026-09-23-test-preview/",
-      "verified": "2026-09-21",
-      "ageDays": -16,
-      "category": "update",
-      "priority": "HIGH",
-      "status": "test-server-preview-not-live",
-      "reviewRequired": false,
-      "reasons": []
-    },
-    {
       "route": "/en/updates/",
       "verified": "2026-08-28",
       "ageDays": 8,
@@ -2489,16 +2466,6 @@
       "category": "update",
       "priority": "HIGH",
       "status": "verified",
-      "reviewRequired": false,
-      "reasons": []
-    },
-    {
-      "route": "/updates/2026-09-23-test-preview/",
-      "verified": "2026-09-21",
-      "ageDays": -16,
-      "category": "update",
-      "priority": "HIGH",
-      "status": "test-server-preview-not-live",
       "reviewRequired": false,
       "reasons": []
     },
@@ -3699,16 +3666,6 @@
       "category": "update",
       "priority": "HIGH",
       "status": "verified",
-      "reviewRequired": false,
-      "reasons": []
-    },
-    {
-      "route": "/zh-cn/updates/2026-09-23-test-preview/",
-      "verified": "2026-09-21",
-      "ageDays": -16,
-      "category": "update",
-      "priority": "HIGH",
-      "status": "test-server-preview-not-live",
       "reviewRequired": false,
       "reasons": []
     },
