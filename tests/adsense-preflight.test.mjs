@@ -55,6 +55,7 @@ test('AdSense ownership verification uses the official ads.txt while delivery re
   const adsTxt = read('ads.txt');
   assert.ok(adsTxt.split(/\r?\n/).includes('google.com, pub-2710725734378326, DIRECT, f08c47fec0942fa0'));
   assert.ok(adsTxt.split(/\r?\n/).includes('adm.shinobi.jp,231656,DIRECT'));
+  assert.ok(adsTxt.split(/\r?\n/).includes('i-mobile.co.jp, 85460, DIRECT'));
   assert.ok(adsTxt.endsWith('\n'));
   assert.equal(json('vercel.json').headers.some((rule) => rule.source === '/ads.txt' && rule.headers.some((header) => header.key === 'Content-Type' && /^text\/plain(?:; charset=utf-8)?$/i.test(header.value))), true);
   const publicSource = walk(root).map(read).join('\n');
@@ -90,7 +91,7 @@ test('meaningfully changed pages retain the exact review timestamp after generat
   }
   const privacyExpected = json('data/page-freshness.json').routes['/privacy/'].updated;
   assert.ok(read('privacy/index.html').includes(privacyExpected));
-  assert.match(read('privacy/index.html'), /最終更新：2026\/8\/28 21:27:22 JST/);
+  assert.match(read('privacy/index.html'), /最終更新：2026\/9\/24 21:38:12 JST/);
 });
 
 test('every active role guide has substantive original context, mode guidance and evidence links', () => {

@@ -12,6 +12,7 @@ const assetVersion=json('data/asset-build.json').version;
 const ninjaAdMaxTier=`<aside class="wrap ninja-admax-slot" data-admax-slot="MONSABA_TIER" aria-label="広告"><span class="ninja-admax-label">広告</span><script>(function(){var tag=window.matchMedia('(max-width: 820px)').matches?'https://adm.shinobi.jp/s/27d44b57ec346ee2bce4628d6574f79b':'https://adm.shinobi.jp/s/1a63f0edf4570c706857b356204f1a61';document.write('<scr'+'ipt src="'+tag+'"></scr'+'ipt>');}());</script></aside>`;
 const ninjaAdMaxTata=`<aside class="wrap ninja-admax-slot" data-admax-slot="MONSABA_TATA" data-admax-position="MID" aria-label="広告"><span class="ninja-admax-label">広告</span><script>(function(){var tag=window.matchMedia('(max-width: 820px)').matches?'https://adm.shinobi.jp/s/dfb46622bdef6255102d47782ae5475a':'https://adm.shinobi.jp/s/ed3e55b49454e200992898abbe7bb903';document.write('<scr'+'ipt src="'+tag+'"></scr'+'ipt>');}());</script></aside>`;
 const ninjaAdMaxTataContent=(familyId,position)=>{const tags={TOP:{pc:'35f048413141014f4de639f6587f7d7e',sp:'16ba3b25ba46308a360f7d2e14b3721c'},BOTTOM:{pc:'a29aa98a252af3196ac97a024e430430',sp:'0dfce2d7520a570ab34d238ddf655603'}}[position];return `<aside class="wrap ninja-admax-slot ninja-admax-expansion" data-admax-slot="TATA_${position}_${familyId.toUpperCase()}" data-admax-position="${position}" data-admax-placement="2026-09-all-content" aria-label="広告"><span class="ninja-admax-label">広告</span><script>(function(){var tag=window.matchMedia('(max-width: 820px)').matches?'https://adm.shinobi.jp/s/${tags.sp}':'https://adm.shinobi.jp/s/${tags.pc}';document.write('<scr'+'ipt src="'+tag+'"></scr'+'ipt>');}());</script></aside>`;};
+const imobileSlot=slot=>`<aside class="wrap imobile-ad-slot" aria-label="広告"><span class="imobile-ad-label">広告</span><script src="/imobile-ads.js?v=${assetVersion}" data-imobile-slot="${slot}"></script></aside>`;
 const editorial=json('data/editorial-content.json').families;
 const data=json('data/tata-tier.json'), families=json('data/tatari.json').families, images=json('data/tata-images.json').families, translations=json('data/i18n/tata-tier.json');
 write('data/tier-ratings.json',JSON.stringify(legacyRatings(data),null,2)+'\n');
@@ -36,7 +37,7 @@ for(const [locale,prefix] of [['ja',''],['en','en/'],['zh-CN','zh-cn/']]) {
   const byline=$('.article-byline').first().toString();
   const nav=`<nav id="tier-navigation" class="wrap tier-mode-nav" aria-label="${esc(copy.title)}">${MODES.map((mode,i)=>`<a href="#mode-${mode}">${esc(copy.labels[i])}</a>`).join('')}</nav>`;
   const filters=`<div class="wrap tier-filter" role="group" aria-label="${esc(copy.filter)}"><span>${esc(copy.filter)}</span>${[['all',copy.all],...Object.entries(copy.attributes)].map(([attr,label],i)=>`<button type="button" class="filter${i===0?' is-active':''}" data-tier-attribute="${attr}" aria-pressed="${i===0}">${esc(label)}</button>`).join('')}</div>`;
-  const boards=MODES.map((mode,i)=>renderTierBoard({data,families,images,locale,copy,mode})+(ads[i]||'')+(locale==='ja'&&i===MODES.length-1?ninjaAdMaxTier:'')).join('\n');
+  const boards=MODES.map((mode,i)=>renderTierBoard({data,families,images,locale,copy,mode,afterDescription:locale==='ja'&&mode==='normal'?imobileSlot('tier'):''})+(ads[i]||'')+(locale==='ja'&&i===MODES.length-1?ninjaAdMaxTier:'')).join('\n');
   const main=`<main id="main-content"><section class="page-hero tier-page-hero astra-compact-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/${prefix}">${locale==='ja'?'トップ':locale==='en'?'Home':'首页'}</a><span>›</span><span>${esc(copy.labels[0])} Tier</span></nav><span class="attribute">${esc(copy.updated)} ${data.updated}</span><h1>${esc(copy.title)}</h1><p>${esc(copy.intro)}</p></div></section>${nav}${byline}<div id="tier-list">${filters}${copy.legend?`<p class="wrap tier-criteria-panel">${esc(copy.legend)}</p>`:''}${boards}</div></main>`;
   html=html.replace(/<main\b[^>]*>[\s\S]*?<\/main>/,main);
   html=patchHtml(html,[['title',()=>`<title>${esc(copy.title)}</title>`],['meta[name="description"]',()=>`<meta name="description" content="${esc(copy.intro)}">`],['script[type="application/ld+json"]',el=>{
@@ -44,9 +45,9 @@ for(const [locale,prefix] of [['ja',''],['en','en/'],['zh-CN','zh-cn/']]) {
     for(const node of structured['@graph']||[structured])if(node['@type']==='Article'){node.name=copy.title;node.headline=copy.title;node.description=copy.intro;node.dateModified=data.updated;}
     return `<script type="application/ld+json">${JSON.stringify(structured).replaceAll('<','\\u003c')}</script>`;
   }]]);
-  html=html.replace(/<link[^>]+href="\/(?:astra(?:-tier)?\.css|tata-tier\/tier-boards\.css)[^>]*>/g,'')
+  html=html.replace(/<link[^>]+href="\/(?:astra(?:-tier)?\.css|tata-tier\/tier-boards\.css|imobile-ads\.css)[^>]*>/g,'')
     .replace(/(<script async src="https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=[^"]+"[^>]*data-monsaba-ga4="loader")(?: type="[^"]*")?>/g,'$1 type="text/plain">')
-    .replace('</head>',`<link rel="stylesheet" href="/astra.css?v=${assetVersion}"><link rel="stylesheet" href="/astra-tier.css?v=${assetVersion}"><link rel="stylesheet" href="/tata-tier/tier-boards.css?v=${assetVersion}"></head>`);
+    .replace('</head>',`<link rel="stylesheet" href="/astra.css?v=${assetVersion}"><link rel="stylesheet" href="/astra-tier.css?v=${assetVersion}"><link rel="stylesheet" href="/tata-tier/tier-boards.css?v=${assetVersion}">${locale==='ja'?'<link rel="stylesheet" href="/imobile-ads.css?v='+assetVersion+'">':''}</head>`);
   html=html.replace(/(src="\/tata-tier\/tata-tier\.js)(?:\?[^\"]*)?"/g,`$1?v=${assetVersion}"`);
   if(locale!=='ja'&&!html.includes(`/i18n/${prefix.slice(0,-1)}-runtime.js?v=${assetVersion}`)){
     html=html.replace('</body>',`<script src="/i18n/${prefix.slice(0,-1)}-runtime.js?v=${assetVersion}" defer></script><script src="/i18n-runtime.js?v=${assetVersion}" defer></script></body>`);
@@ -58,7 +59,8 @@ for(const [locale,prefix] of [['ja',''],['en','en/'],['zh-CN','zh-cn/']]) {
     const detail=`${prefix}tata/${entry.slug}/index.html`;
     const label=ranking=>ranking.tier==='HOLD'?copy.hold:ranking.tier;
     const summary=MODES.map((mode,i)=>`${copy.labels[i]} ${label(entry.rankings[mode])}${entry.rankings[mode].status==='provisional'?' ※':''}`).join(' / ');
-    let source=patchHtml(read(detail),[['.ninja-admax-slot',()=> '']]);
+    let source=patchHtml(read(detail),[['.ninja-admax-slot',()=> ''],['.imobile-ad-slot',()=> '']]);
+    source=source.replace(/<link[^>]+href="\/imobile-ads\.css[^>]*>/g,'');
     if(!load(source)('.mode-rating-grid').length) source=patchHtml(source,[['.quick-purpose-label + h2 + p',()=>'<div class="mode-rating-grid"></div>']]);
     source=patchHtml(source,[
       ['.mode-rating-grid',()=>`<div class="mode-rating-grid">${MODES.map((mode,i)=>`<div data-ranking-mode="${mode}" data-status="${entry.rankings[mode].status}"><span>${esc(copy.labels[i])}</span><b>${esc(label(entry.rankings[mode]))}</b>${entry.rankings[mode].status==='provisional'?`<small>${esc(copy.provisional)}</small>`:''}</div>`).join('')}</div>`],
@@ -88,6 +90,10 @@ for(const [locale,prefix] of [['ja',''],['en','en/'],['zh-CN','zh-cn/']]) {
         ['section:has(> h2:contains("スキル一覧"))',(el,$)=>`${$.html(el)}${ninjaAdMaxTata}`],
         ...(longDetail?[['.source-note',(el,$)=>`${$.html(el)}${ninjaAdMaxTataContent(entry.familyId,'BOTTOM')}`]]:[])
       ]);
+      if(entry.familyId==='gaoden'&&locale==='ja'){
+        source=patchHtml(source,[['section:has(> h2:contains("進化すると何が変わる？"))',(el,$)=>`${$.html(el)}${imobileSlot('gaoden')}`]]);
+        source=source.replace('</head>','<link rel="stylesheet" href="/imobile-ads.css?v='+assetVersion+'"></head>');
+      }
     }
     write(detail,source);
   }

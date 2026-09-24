@@ -561,8 +561,8 @@
     },
     {
       "route": "/en/privacy/",
-      "verified": "2026-08-28",
-      "ageDays": 8,
+      "verified": "2026-09-24",
+      "ageDays": -19,
       "category": "evergreen",
       "priority": "LOW",
       "status": "verified",
@@ -1641,8 +1641,8 @@
     },
     {
       "route": "/privacy/",
-      "verified": "2026-08-28",
-      "ageDays": 8,
+      "verified": "2026-09-24",
+      "ageDays": -19,
       "category": "evergreen",
       "priority": "LOW",
       "status": "verified",
@@ -2841,8 +2841,8 @@
     },
     {
       "route": "/zh-cn/privacy/",
-      "verified": "2026-08-28",
-      "ageDays": 8,
+      "verified": "2026-09-24",
+      "ageDays": -19,
       "category": "evergreen",
       "priority": "LOW",
       "status": "verified",

@@ -50,7 +50,10 @@ test('Finalization serves page CSS selectively and keeps responsive images valid
 });
 
 test('Finalization preserves AdSense and keeps approved affiliate density within the page plan',()=>{
-  assert.equal(read('ads.txt').replaceAll('\r\n','\n'),`${control('ads.txt').replaceAll('\r\n','\n').trim()}\nadm.shinobi.jp,231656,DIRECT\n`);
+  const adsTxt=read('ads.txt').replaceAll('\r\n','\n').trim().split('\n');
+  assert.ok(adsTxt.includes('google.com, pub-2710725734378326, DIRECT, f08c47fec0942fa0'));
+  assert.ok(adsTxt.includes('adm.shinobi.jp,231656,DIRECT'));
+  assert.ok(adsTxt.includes('i-mobile.co.jp, 85460, DIRECT'));
   for(const [route,count]of [['',1],['beginner-guide/',5],['evolution-priority/',5],['normal-guide/',1],['tata-tier/',4],['zombie-rush/',5],['boss-rally/',1]]){const $=load(read(route+'index.html'));assert.equal($('.astra-ad').length,count,route);assert.equal($('.astra-ad').length,$('[data-affiliate-offer]').length,route);}
   for(const route of ['tata/takepanda/','events/','badge-dojo/'])assert.equal(load(read(route+'index.html'))('.astra-ad').length,0);
 });

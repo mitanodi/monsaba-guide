@@ -1,0 +1,3 @@
+.imobile-ad-slot{display:grid;justify-items:center;gap:6px;max-width:calc(100vw - 24px);margin:28px auto;overflow:hidden}
+.imobile-ad-label{color:var(--muted,#667085);font-size:11px;line-height:1}
+.imobile-ad-slot>div[id^="im-"]{max-width:100%;overflow:hidden}

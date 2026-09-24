@@ -165,7 +165,8 @@ expect(read('app.js').includes("fetch('/data/tatari.json'"), 'Shared Tatari data
 expect(read('data/adsense-config.json').includes('"enabled": false') && read('data/adsense-config.json').includes('"autoAds": false'), 'AdSense must remain disabled');
 expect(read('ads.txt').trim() === [
   'google.com, pub-2710725734378326, DIRECT, f08c47fec0942fa0',
-  'adm.shinobi.jp,231656,DIRECT'
+  'adm.shinobi.jp,231656,DIRECT',
+  'i-mobile.co.jp, 85460, DIRECT'
 ].join('\n'), 'ads.txt must retain the approved Google and Ninja AdMax DIRECT rows');
 
 if (errors.length) {

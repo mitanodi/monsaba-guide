@@ -3,7 +3,7 @@ import '../../family-display.js';
 const {getFamilyDisplayName,getFamilyDisplayLabel}=globalThis.MONSABA_FAMILY;
 export const esc = value => String(value ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
-export function renderTierBoard({data, families, images, locale, copy, mode}) {
+export function renderTierBoard({data, families, images, locale, copy, mode, afterDescription = ''}) {
   const prefix=locale==='ja'?'':locale==='en'?'/en':'/zh-cn';
   const index=MODES.indexOf(mode);
   const byId=new Map(families.map(f=>[f.id,f]));
@@ -19,5 +19,5 @@ export function renderTierBoard({data, families, images, locale, copy, mode}) {
     }).join('');
     return `<div class="tier-chart-row rank-${group.tier.toLowerCase()}" data-tier="${group.tier}"><div class="tier-chart-label"><strong>${group.tier==='HOLD'?esc(copy.hold):group.tier}</strong><span class="tier-row-count">${group.entries.length}</span></div><div class="tier-chart-members">${cards}<p class="tier-empty"${cards?' hidden':''}>${esc(copy.empty)}</p></div></div>`;
   }).join('\n');
-  return `<section class="wrap static-section tier-board" id="mode-${mode}" data-mode="${mode}" aria-labelledby="heading-${mode}"><h2 id="heading-${mode}">${esc(copy.headings[index])}</h2><p>${esc(copy.descriptions[index])}</p><div class="tier-chart">${rows}</div><a class="tier-back" href="#tier-navigation">↑ ${esc(copy.labels.join(' / '))}</a></section>`;
+  return `<section class="wrap static-section tier-board" id="mode-${mode}" data-mode="${mode}" aria-labelledby="heading-${mode}"><h2 id="heading-${mode}">${esc(copy.headings[index])}</h2><p>${esc(copy.descriptions[index])}</p>${afterDescription}<div class="tier-chart">${rows}</div><a class="tier-back" href="#tier-navigation">↑ ${esc(copy.labels.join(' / '))}</a></section>`;
 }
