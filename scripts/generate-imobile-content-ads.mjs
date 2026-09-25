@@ -127,13 +127,26 @@ for (const file of htmlFiles) {
   const html = fs.readFileSync(file, 'utf8');
   const $ = load(html, { sourceCodeLocationInfo: true });
   const route = routeFor(file);
+  const locale = localeFor(route);
+  if (locale !== 'ja') {
+    if (!$('.imobile-content-ad').length) {
+      skipped++;
+      continue;
+    }
+    let corrected = html.replace(/[ \t]*<aside\b(?=[^>]*\bimobile-content-ad\b)[^>]*>[\s\S]*?<\/aside>[ \t]*(?:\r?\n)?/, '');
+    if (!load(corrected)('.imobile-ad-slot').length) {
+      corrected = corrected.replace(/[ \t]*<link rel="stylesheet" href="\/imobile-ads\.css\?v=[^"]+">[ \t]*(?:\r?\n)?/, '');
+    }
+    fs.writeFileSync(file, corrected, 'utf8');
+    skipped++;
+    continue;
+  }
   if (isNoindex($) || isExcludedRoute(route) || contentLength($) < 200) {
     skipped++;
     continue;
   }
 
-  const locale = localeFor(route);
-  const adLabel = locale === 'en' ? 'Advertisement' : locale === 'zh-cn' ? '广告' : '広告';
+  const adLabel = '広告';
   if ($('.imobile-content-ad').length) {
     const corrected = html.replace(/(<aside\b[^>]*\bclass="[^"]*\bimobile-content-ad\b[^"]*"[^>]*\baria-label=")[^"]*("><span class="imobile-ad-label">)[^<]*(<\/span>)/, `$1${adLabel}$2${adLabel}$3`).replace(/[ \t]+(?=\r?$)/gm, '');
     if (corrected !== html) fs.writeFileSync(file, corrected, 'utf8');

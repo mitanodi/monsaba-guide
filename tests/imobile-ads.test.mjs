@@ -56,7 +56,9 @@ test('the original Japanese placements remain and content ads cover indexable pa
     }
     assert.equal(page('link[href^="/imobile-ads.css"]').length, 1, `${file} must load the ad styles once`);
   }
-  for (const locale of Object.keys(counts)) assert.ok(counts[locale] >= 80, `${locale} should have broad but bounded content coverage: ${counts[locale]}`);
+  assert.ok(counts.ja >= 80, `Japanese pages should have broad but bounded content coverage: ${counts.ja}`);
+  assert.equal(counts.en, 0, 'English pages must not receive i-mobile ads');
+  assert.equal(counts['zh-cn'], 0, 'Chinese pages must not receive i-mobile ads');
 });
 
 test('the official tag values dispatch exactly one matching PC or SP tag', () => {
