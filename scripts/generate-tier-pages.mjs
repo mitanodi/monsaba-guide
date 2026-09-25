@@ -45,9 +45,10 @@ for(const [locale,prefix] of [['ja',''],['en','en/'],['zh-CN','zh-cn/']]) {
     for(const node of structured['@graph']||[structured])if(node['@type']==='Article'){node.name=copy.title;node.headline=copy.title;node.description=copy.intro;node.dateModified=data.updated;}
     return `<script type="application/ld+json">${JSON.stringify(structured).replaceAll('<','\\u003c')}</script>`;
   }]]);
+  const keepImobileStyles=locale==='ja'||load(html)('.imobile-content-ad').length>0;
   html=html.replace(/<link[^>]+href="\/(?:astra(?:-tier)?\.css|tata-tier\/tier-boards\.css|imobile-ads\.css)[^>]*>/g,'')
     .replace(/(<script async src="https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=[^"]+"[^>]*data-monsaba-ga4="loader")(?: type="[^"]*")?>/g,'$1 type="text/plain">')
-    .replace('</head>',`<link rel="stylesheet" href="/astra.css?v=${assetVersion}"><link rel="stylesheet" href="/astra-tier.css?v=${assetVersion}"><link rel="stylesheet" href="/tata-tier/tier-boards.css?v=${assetVersion}">${locale==='ja'?'<link rel="stylesheet" href="/imobile-ads.css?v='+assetVersion+'">':''}</head>`);
+    .replace('</head>',`<link rel="stylesheet" href="/astra.css?v=${assetVersion}"><link rel="stylesheet" href="/astra-tier.css?v=${assetVersion}"><link rel="stylesheet" href="/tata-tier/tier-boards.css?v=${assetVersion}">${keepImobileStyles?'<link rel="stylesheet" href="/imobile-ads.css?v='+assetVersion+'">':''}</head>`);
   html=html.replace(/(src="\/tata-tier\/tata-tier\.js)(?:\?[^\"]*)?"/g,`$1?v=${assetVersion}"`);
   if(locale!=='ja'&&!html.includes(`/i18n/${prefix.slice(0,-1)}-runtime.js?v=${assetVersion}`)){
     html=html.replace('</body>',`<script src="/i18n/${prefix.slice(0,-1)}-runtime.js?v=${assetVersion}" defer></script><script src="/i18n-runtime.js?v=${assetVersion}" defer></script></body>`);
@@ -59,8 +60,8 @@ for(const [locale,prefix] of [['ja',''],['en','en/'],['zh-CN','zh-cn/']]) {
     const detail=`${prefix}tata/${entry.slug}/index.html`;
     const label=ranking=>ranking.tier==='HOLD'?copy.hold:ranking.tier;
     const summary=MODES.map((mode,i)=>`${copy.labels[i]} ${label(entry.rankings[mode])}${entry.rankings[mode].status==='provisional'?' ※':''}`).join(' / ');
-    let source=patchHtml(read(detail),[['.ninja-admax-slot',()=> ''],['.imobile-ad-slot',()=> '']]);
-    source=source.replace(/<link[^>]+href="\/imobile-ads\.css[^>]*>/g,'');
+    let source=patchHtml(read(detail),[['.ninja-admax-slot',()=> ''],['.imobile-ad-slot:not(.imobile-content-ad)',()=> '']]);
+    if(!load(source)('.imobile-content-ad').length) source=source.replace(/<link[^>]+href="\/imobile-ads\.css[^>]*>/g,'');
     if(!load(source)('.mode-rating-grid').length) source=patchHtml(source,[['.quick-purpose-label + h2 + p',()=>'<div class="mode-rating-grid"></div>']]);
     source=patchHtml(source,[
       ['.mode-rating-grid',()=>`<div class="mode-rating-grid">${MODES.map((mode,i)=>`<div data-ranking-mode="${mode}" data-status="${entry.rankings[mode].status}"><span>${esc(copy.labels[i])}</span><b>${esc(label(entry.rankings[mode]))}</b>${entry.rankings[mode].status==='provisional'?`<small>${esc(copy.provisional)}</small>`:''}</div>`).join('')}</div>`],
@@ -91,8 +92,8 @@ for(const [locale,prefix] of [['ja',''],['en','en/'],['zh-CN','zh-cn/']]) {
         ...(longDetail?[['.source-note',(el,$)=>`${$.html(el)}${ninjaAdMaxTataContent(entry.familyId,'BOTTOM')}`]]:[])
       ]);
       if(entry.familyId==='gaoden'&&locale==='ja'){
-        source=patchHtml(source,[['section:has(> h2:contains("進化すると何が変わる？"))',(el,$)=>`${$.html(el)}${imobileSlot('gaoden')}`]]);
-        source=source.replace('</head>','<link rel="stylesheet" href="/imobile-ads.css?v='+assetVersion+'"></head>');
+        source=patchHtml(source,[['.tata-consult-cta',(el,$)=>`${$.html(el)}${imobileSlot('gaoden')}`]]);
+        if(!load(source)('link[href^="/imobile-ads.css"]').length) source=source.replace('</head>','<link rel="stylesheet" href="/imobile-ads.css?v='+assetVersion+'"></head>');
       }
     }
     write(detail,source);
