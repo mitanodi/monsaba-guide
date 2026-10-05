@@ -31,14 +31,14 @@ const validate = (fixture = cloneFixture()) => validateTataNameSources(fixture);
 const includesError = (result, label, fragments = []) => result.errors.some((error) => error.includes(`[${label}]`) && fragments.every((fragment) => error.includes(fragment)));
 const { getFamilyDisplayName, getFamilySearchAliases } = globalThis.MONSABA_FAMILY;
 
-test('A: current repository has complete confirmed source coverage', () => {
+test('A: current repository has confirmed coverage and explicit unresolved supplement names', () => {
   const result = validate();
   assert.deepEqual(result.errors, []);
   assert.equal(result.stats.formsChecked, totalForms);
-  assert.equal(result.stats.enNames, totalForms);
-  assert.equal(result.stats.enSourceCoverage, totalForms);
-  assert.equal(result.stats.zhCnNames, totalForms);
-  assert.equal(result.stats.zhCnSourceCoverage, totalForms);
+  assert.equal(result.stats.enNames, 237);
+  assert.equal(result.stats.enSourceCoverage, 237);
+  assert.equal(result.stats.zhCnNames, 236);
+  assert.equal(result.stats.zhCnSourceCoverage, 236);
 });
 
 test('B: changing only an English official name fails exact source matching', () => {
@@ -102,8 +102,8 @@ test('H: pending evidence cannot back a published official name', () => {
 
 test('I/J: EN and zh-CN coverage are computed dynamically from all canonical forms', () => {
   const result = validate();
-  assert.equal(result.stats.enSourceCoverage, result.stats.formsChecked);
-  assert.equal(result.stats.zhCnSourceCoverage, result.stats.formsChecked);
+  assert.equal(result.stats.enSourceCoverage, 237);
+  assert.equal(result.stats.zhCnSourceCoverage, 236);
   assert.equal(result.stats.formsChecked, totalForms);
 });
 
@@ -143,8 +143,8 @@ test('all generated locale detail cards show both official names without replaci
     for (const localePath of ['tata', 'en/tata', 'zh-cn/tata']) {
       const html = read(`${localePath}/${family.id}/index.html`);
       for (const evolution of family.evolutions) {
-        assert.ok(html.includes(`English:</b> ${evolution.nameEn}`), `${localePath}:${family.id}:T${evolution.stage}:en`);
-        assert.ok(html.includes(`简体中文:</b> ${evolution.nameZhHans}`), `${localePath}:${family.id}:T${evolution.stage}:zh-CN`);
+        assert.ok(html.includes(evolution.nameEn ? `English:</b> ${evolution.nameEn}` : 'English:</b> <span data-name-status="pending">'), `${localePath}:${family.id}:T${evolution.stage}:en`);
+        assert.ok(html.includes(evolution.nameZhHans ? `简体中文:</b> ${evolution.nameZhHans}` : '简体中文:</b> <span data-name-status="pending">'), `${localePath}:${family.id}:T${evolution.stage}:zh-CN`);
       }
     }
   }

@@ -6,6 +6,17 @@ const localeRules = [
 const formKey = (familyId, stage) => `${familyId}:T${stage}`;
 const mappingKey = (familyId, stage, locale) => `${formKey(familyId, stage)}:${locale}`;
 const exactString = (value) => typeof value === 'string' && value.length > 0 && value.trim() === value;
+const isSupplemental = (row) => row?.sourceType === 'supplemental-evidence';
+const hasOfficialStoreEvidence = (evidence) => {
+  try {
+    const url = new URL(evidence?.url);
+    return evidence?.status === 'confirmed' && evidence?.sourceType === 'official-store'
+      && url.protocol === 'https:' && url.hostname === 'play.google.com'
+      && url.pathname === '/store/apps/details'
+      && url.searchParams.get('id') === 'com.farlightgames.pgame.gp'
+      && /^\d{4}-\d{2}-\d{2}$/.test(evidence?.checkedAt || '');
+  } catch { return false; }
+};
 
 function describe(label, values) {
   return `[${label}]\n${Object.entries(values)
@@ -84,6 +95,12 @@ export function validateTataNameSources({ source, tatari, skills, generatedHtml 
     }
     if (!rowByKey.has(key)) rowByKey.set(key, row);
 
+    if (isSupplemental(row) && (row.confidence !== 'pending-official'
+      || !exactString(row.japaneseEvidence?.manifest)
+      || !Number.isInteger(row.japaneseEvidence?.sourcePage) || row.japaneseEvidence.sourcePage < 1)) {
+      fail('invalidDocuments', 'Invalid supplemental Tata evidence', { family: row.familyId, stage: row.stage });
+    }
+
     for (const rule of localeRules) {
       const uniqueKey = mappingKey(row?.familyId, row?.stage, rule.locale);
       if (mappingKeys.has(uniqueKey)) {
@@ -94,6 +111,18 @@ export function validateTataNameSources({ source, tatari, skills, generatedHtml 
         });
       }
       mappingKeys.add(uniqueKey);
+
+      if (isSupplemental(row)) {
+        const evidence = row.localizedEvidence?.[rule.locale];
+        const name = row[rule.nameField];
+        if (evidence?.status === 'pending') {
+          if (name !== null || !exactString(evidence.reason))
+            fail('pendingOfficial', 'Pending Tata name must remain empty', { family: row.familyId, stage: row.stage, locale: rule.locale });
+        } else if (!hasOfficialStoreEvidence(evidence) || !exactString(name)) {
+          fail('invalidDocuments', 'Invalid supplemental localized source', { family: row.familyId, stage: row.stage, locale: rule.locale });
+        }
+        continue;
+      }
 
       const officialName = row?.[rule.nameField];
       if (!exactString(officialName)) {
@@ -167,6 +196,19 @@ export function validateTataNameSources({ source, tatari, skills, generatedHtml 
     for (const rule of localeRules) {
       const dbName = evolution?.[rule.dbField];
       const sourceName = row?.[rule.nameField];
+      if (isSupplemental(row)) {
+        const evidence = row.localizedEvidence?.[rule.locale];
+        if (evolution.nameVerification?.[rule.locale] !== evidence?.status || dbName !== sourceName)
+          fail('nameSourceMismatches', 'Supplemental Tata name source mismatch', { family: family.id, stage: evolution.stage, locale: rule.locale, DB: dbName, source: sourceName });
+        if (evidence?.status === 'pending') {
+          if (dbName !== null)
+            fail('pendingOfficial', 'Pending Tata name published as official', { family: family.id, stage: evolution.stage, locale: rule.locale });
+        } else if (hasOfficialStoreEvidence(evidence) && exactString(dbName) && dbName === sourceName) {
+          officialNames[rule.locale] += 1;
+          coverage[rule.locale] += 1;
+        }
+        continue;
+      }
       if (exactString(dbName)) officialNames[rule.locale] += 1;
       if (!exactString(dbName)) {
         fail('missingSources', 'Missing official Tata name', {
@@ -266,10 +308,10 @@ export function validateTataNameSources({ source, tatari, skills, generatedHtml 
           continue;
         }
         for (const evolution of family.evolutions || []) {
-          if (!html.includes(`English:</b> ${evolution.nameEn}`)) {
+          if (!html.includes(evolution.nameEn ? `English:</b> ${evolution.nameEn}` : 'English:</b> <span data-name-status="pending">')) {
             fail('generatedNameMismatches', 'Generated Tata name missing', { family: family.id, stage: evolution.stage, locale, name_locale: 'en', name: evolution.nameEn });
           }
-          if (!html.includes(`简体中文:</b> ${evolution.nameZhHans}`)) {
+          if (!html.includes(evolution.nameZhHans ? `简体中文:</b> ${evolution.nameZhHans}` : '简体中文:</b> <span data-name-status="pending">')) {
             fail('generatedNameMismatches', 'Generated Tata name missing', { family: family.id, stage: evolution.stage, locale, name_locale: 'zh-CN', name: evolution.nameZhHans });
           }
         }

@@ -15,17 +15,18 @@ test('official pending Tata review remains a subset of all unresolved forms', ()
   const review = images.officialPendingReview.forms
     .map((form) => `${form.familyId}:T${form.stage}`).sort();
   assert.deepEqual(images.counts, {
-    families: 65,
-    forms: 236,
-    verifiedForms: 225,
-    pendingForms: 11,
-    officialCreatorAssetForms: 224
+    families: 66,
+    forms: 240,
+    verifiedForms: 236,
+    pendingForms: 4,
+    officialCreatorAssetForms: 224,
+    userProvidedPdfForms: 12
   });
   assert.equal(images.officialPendingReview.status, 'official_team_checking');
   assert.equal(images.officialPendingReview.asOf, '2026-09-05');
   assert.ok(review.every((item) => pending.includes(item)));
-  assert.equal(pending.length, 11);
-  assert.equal(review.length, 5);
+  assert.equal(pending.length, 4);
+  assert.equal(review.length, 2);
 });
 test('event display names and official inquiry states are explicit', () => {
   const data = json('data/events.json');

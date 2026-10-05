@@ -170,16 +170,19 @@ test('full site generation is idempotent', { timeout: 240000 }, () => {
     .toString('utf8')
     .split('\0')
     .filter((file) => file && !file.startsWith('promo/') && fs.existsSync(path.join(root, file)));
-  const digest = () => {
+  const initialHashes = new Map();
+  const digest = (capture = false) => {
     const hash = createHash('sha256');
     for (const file of tracked) {
       const target = path.join(root, file);
       hash.update(file);
-      hash.update(readWithRetry(target));
+      const content = readWithRetry(target);
+      hash.update(content);
+      if (capture) initialHashes.set(file, createHash('sha256').update(content).digest('hex'));
     }
     return hash.digest('hex');
   };
-  const before = digest();
+  const before = digest(true);
   const npmCli = process.env.npm_execpath;
   assert.ok(npmCli, 'npm executable path is unavailable');
   for (let attempt = 0; attempt < 12; attempt++) {
@@ -196,6 +199,6 @@ test('full site generation is idempotent', { timeout: 240000 }, () => {
   const after = digest();
   execFileSync(process.execPath, [npmCli, 'run', 'generate:site'], { cwd: root, stdio: 'pipe', timeout: 110000 });
   assert.equal(digest(), after, 'Second full generation must produce zero changes (B == C)');
-  const changed = after === before ? '' : execFileSync('git', ['diff', '--name-only'], { cwd: root, encoding: 'utf8' }).trim();
+  const changed = after === before ? '' : tracked.filter((file) => createHash('sha256').update(readWithRetry(path.join(root, file))).digest('hex') !== initialHashes.get(file)).join('\n');
   assert.equal(after, before, `generate:site changed tracked output; run generation and commit the result\n${changed}`);
 });

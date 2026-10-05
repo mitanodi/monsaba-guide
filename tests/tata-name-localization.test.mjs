@@ -18,16 +18,16 @@ const tatari = JSON.parse(readFile(path.join(root, 'data/tatari.json')));
 const { getTataDisplayName, getFamilyDisplayLabel, getEvolutionChain } = globalThis.MONSABA_FAMILY;
 const yanzaru = tatari.families.find((family) => family.id === 'yanzaru');
 
-test('shared resolver returns official names for every canonical form', () => {
+test('shared resolver returns official names or explicit pending fallbacks for every canonical form', () => {
   const forms = tatari.families.flatMap((family) => family.evolutions);
-  assert.equal(tatari.families.length, 65);
-  assert.equal(forms.length, 236);
+  assert.equal(tatari.families.length, 66);
+  assert.equal(forms.length, 240);
   for (const form of forms) {
     assert.equal(getTataDisplayName(form, 'ja'), form.name);
-    assert.equal(getTataDisplayName(form, 'en'), form.nameEn);
-    assert.equal(getTataDisplayName(form, 'zh-CN'), form.nameZhHans);
-    assert.notEqual(getTataDisplayName(form, 'en'), form.name);
-    assert.notEqual(getTataDisplayName(form, 'zh-CN'), form.name);
+    assert.equal(getTataDisplayName(form, 'en'), form.nameEn || form.name);
+    assert.equal(getTataDisplayName(form, 'zh-CN'), form.nameZhHans || form.name);
+    if (form.nameVerification?.en !== 'pending') assert.notEqual(getTataDisplayName(form, 'en'), form.name);
+    if (form.nameVerification?.['zh-CN'] !== 'pending') assert.notEqual(getTataDisplayName(form, 'zh-CN'), form.name);
   }
 });
 

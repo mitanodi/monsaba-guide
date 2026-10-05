@@ -9,53 +9,269 @@
     "pending": []
   },
   "routes": {
-    "/": { "updated": "2026-08-28", "verified": "2026-08-28" },
-    "/tata/*": { "updated": "2026-09-01", "verified": "2026-09-01" },
-    "/tata/pakuma/": { "updated": "2026-08-30", "verified": "2026-08-30", "gameVersion": "0.46.1" },
-    "/tata/sukedako/": { "updated": "2026-08-30", "verified": "2026-08-30", "gameVersion": "0.46.1" },
-    "/tata/nenbutsuhebi/": { "updated": "2026-08-30", "verified": "2026-08-30", "gameVersion": "0.46.1" },
-    "/attribute/*": { "updated": "2026-08-25T17:57:25+09:00" },
-    "/tata-tier/": { "updated": "2026-09-16", "verified": "2026-09-16", "pending": ["暫定8件・保留3件は継続検証"] },
-    "/evolution-priority/": { "updated": "2026-08-25T17:57:25+09:00" },
-    "/guides/": { "published": "2026-08-25", "updated": "2026-08-25T17:57:25+09:00", "verified": "2026-08-25" },
-    "/guides/ninjii-hunt/": { "published": "2026-09-17", "updated": "2026-09-17", "verified": "2026-09-17", "status": "admin-field-report", "pending": ["方法別の試行回数・平均獲得数・成功率", "初期マップ判定とフレンド選出の公式仕様", "全サーバー・全バージョンでの再現性"] },
-    "/zombie-rush/": { "updated": "2026-08-28", "verified": "2026-08-28", "status": "implemented-details-verifying", "pending": ["Season 1の十分な実戦データに基づくTier判定", "ゲーム内の報酬しきい値の具体値"] },
-    "/zombie-rush/chips/": { "published": "2026-08-30", "updated": "2026-08-30", "verified": "2026-08-30", "gameVersion": "0.46.1", "status": "verified" },
-    "/boss-rally/": { "updated": "2026-08-25T17:57:25+09:00" },
-    "/badge-dojo/": { "updated": "2026-08-25T17:57:25+09:00" },
-    "/normal-guide/": { "updated": "2026-08-25T17:57:25+09:00" },
-    "/beginner-guide/": { "updated": "2026-08-25T17:57:25+09:00" },
-    "/gift-codes/": { "published": "2026-08-30", "updated": "2026-08-30", "verified": "2026-08-30", "status": "externally-confirmed", "pending": ["最新3コードの報酬内容", "全8コードの終了日時"] },
-    "/compare/": { "published": "2026-08-25", "updated": "2026-08-28", "verified": "2026-08-28" },
-    "/consult/": { "updated": "2026-08-28", "verified": "2026-08-28" },
-    "/search/": { "updated": "2026-08-28T07:53:10+09:00", "verified": "2026-08-28" },
-    "/faq/": { "published": "2026-08-25", "updated": "2026-08-28", "verified": "2026-08-28" },
-    "/updates/": { "updated": "2026-08-28", "verified": "2026-08-28" },
-    "/updates/2026-08-26/": { "published": "2026-08-25", "updated": "2026-08-28", "verified": "2026-08-28", "status": "implemented-details-verifying", "pending": ["パクマのT2/T3名称・通常スキル・専用スキル数値のゲーム内確認", "ロードパスとナムアミダイジャの進化画面・スキル詳細確認"] },
-    "/updates/2026-08-30/": { "published": "2026-08-30", "updated": "2026-08-30", "verified": "2026-08-30", "gameVersion": "0.46.1", "status": "verified" },
-    "/updates/2026-09-23-test-preview/": { "published": "2026-09-21", "updated": "2026-09-21", "verified": "2026-09-21", "status": "test-server-preview-not-live", "pending": ["本番ゲームへの反映", "ルカロンの進化名・スキル・画像", "新T4のゲーム内画面", "チップ変更値の本番確認"] },
-    "/about/": { "updated": "2026-08-28T17:19:45+09:00", "verified": "2026-08-28" },
+    "/": {
+      "updated": "2026-08-28",
+      "verified": "2026-08-28"
+    },
+    "/tata/*": {
+      "updated": "2026-09-01",
+      "verified": "2026-09-01"
+    },
+    "/tata/pakuma/": {
+      "updated": "2026-10-06",
+      "verified": "2026-08-30",
+      "gameVersion": "0.46.1",
+      "imageVerified": "2026-10-06"
+    },
+    "/tata/sukedako/": {
+      "updated": "2026-08-30",
+      "verified": "2026-08-30",
+      "gameVersion": "0.46.1"
+    },
+    "/tata/nenbutsuhebi/": {
+      "updated": "2026-08-30",
+      "verified": "2026-08-30",
+      "gameVersion": "0.46.1"
+    },
+    "/attribute/*": {
+      "updated": "2026-08-25T17:57:25+09:00"
+    },
+    "/tata-tier/": {
+      "updated": "2026-09-16",
+      "verified": "2026-09-16",
+      "pending": [
+        "暫定8件・保留3件は継続検証"
+      ]
+    },
+    "/evolution-priority/": {
+      "updated": "2026-08-25T17:57:25+09:00"
+    },
+    "/guides/": {
+      "published": "2026-08-25",
+      "updated": "2026-08-25T17:57:25+09:00",
+      "verified": "2026-08-25"
+    },
+    "/guides/ninjii-hunt/": {
+      "published": "2026-09-17",
+      "updated": "2026-09-17",
+      "verified": "2026-09-17",
+      "status": "admin-field-report",
+      "pending": [
+        "方法別の試行回数・平均獲得数・成功率",
+        "初期マップ判定とフレンド選出の公式仕様",
+        "全サーバー・全バージョンでの再現性"
+      ]
+    },
+    "/zombie-rush/": {
+      "updated": "2026-08-28",
+      "verified": "2026-08-28",
+      "status": "implemented-details-verifying",
+      "pending": [
+        "Season 1の十分な実戦データに基づくTier判定",
+        "ゲーム内の報酬しきい値の具体値"
+      ]
+    },
+    "/zombie-rush/chips/": {
+      "published": "2026-08-30",
+      "updated": "2026-08-30",
+      "verified": "2026-08-30",
+      "gameVersion": "0.46.1",
+      "status": "verified"
+    },
+    "/boss-rally/": {
+      "updated": "2026-08-25T17:57:25+09:00"
+    },
+    "/badge-dojo/": {
+      "updated": "2026-08-25T17:57:25+09:00"
+    },
+    "/normal-guide/": {
+      "updated": "2026-08-25T17:57:25+09:00"
+    },
+    "/beginner-guide/": {
+      "updated": "2026-08-25T17:57:25+09:00"
+    },
+    "/gift-codes/": {
+      "published": "2026-08-30",
+      "updated": "2026-08-30",
+      "verified": "2026-08-30",
+      "status": "externally-confirmed",
+      "pending": [
+        "最新3コードの報酬内容",
+        "全8コードの終了日時"
+      ]
+    },
+    "/compare/": {
+      "published": "2026-08-25",
+      "updated": "2026-08-28",
+      "verified": "2026-08-28"
+    },
+    "/consult/": {
+      "updated": "2026-08-28",
+      "verified": "2026-08-28"
+    },
+    "/search/": {
+      "updated": "2026-08-28T07:53:10+09:00",
+      "verified": "2026-08-28"
+    },
+    "/faq/": {
+      "published": "2026-08-25",
+      "updated": "2026-08-28",
+      "verified": "2026-08-28"
+    },
+    "/updates/": {
+      "updated": "2026-08-28",
+      "verified": "2026-08-28"
+    },
+    "/updates/2026-08-26/": {
+      "published": "2026-08-25",
+      "updated": "2026-08-28",
+      "verified": "2026-08-28",
+      "status": "implemented-details-verifying",
+      "pending": [
+        "パクマのT2/T3名称・通常スキル・専用スキル数値のゲーム内確認",
+        "ロードパスとナムアミダイジャの進化画面・スキル詳細確認"
+      ]
+    },
+    "/updates/2026-08-30/": {
+      "published": "2026-08-30",
+      "updated": "2026-08-30",
+      "verified": "2026-08-30",
+      "gameVersion": "0.46.1",
+      "status": "verified"
+    },
+    "/updates/2026-09-23-test-preview/": {
+      "published": "2026-09-21",
+      "updated": "2026-09-21",
+      "verified": "2026-09-21",
+      "status": "test-server-preview-not-live",
+      "pending": [
+        "本番ゲームへの反映",
+        "ルカロンの進化名・スキル・画像",
+        "新T4のゲーム内画面",
+        "チップ変更値の本番確認"
+      ]
+    },
+    "/about/": {
+      "updated": "2026-08-28T17:19:45+09:00",
+      "verified": "2026-08-28"
+    },
     "/about-data/": {},
-    "/privacy/": { "updated": "2026-09-24T21:38:12+09:00", "verified": "2026-09-24" },
-    "/friends/": { "updated": "2026-08-28T07:53:10+09:00", "verified": "2026-08-28" },
-    "/board/": { "published": "2026-08-28", "updated": "2026-08-28", "verified": "2026-08-28" },
-    "/stages/": { "published": "2026-08-28", "updated": "2026-08-28", "verified": "2026-08-28" },
-    "/evolution/*": { "published": "2026-08-28", "updated": "2026-08-28", "verified": "2026-08-28" },
-    "/evolution/trials/": { "published": "2026-08-30", "updated": "2026-08-30", "verified": "2026-08-30", "gameVersion": "0.46.1" },
-    "/roles/*": { "published": "2026-08-28", "updated": "2026-08-28T07:53:10+09:00", "verified": "2026-08-28" },
-    "/events/": { "published": "2026-08-28", "updated": "2026-09-05", "verified": "2026-09-05" },
-    "/events/*": { "published": "2026-08-28", "updated": "2026-08-30", "verified": "2026-08-30" },
-    "/events/running-party/": { "updated": "2026-08-31", "verified": "2026-08-31" },
-    "/events/running-star/": { "updated": "2026-09-05", "verified": "2026-09-05" },
-    "/events/island-treasure/": { "updated": "2026-08-31", "verified": "2026-08-31" },
-    "/events/magic-farm/": { "updated": "2026-08-31", "verified": "2026-08-31" },
-    "/events/fishing-tournament/": { "updated": "2026-08-31", "verified": "2026-08-31" },
-    "/events/treasure-hunt/": { "updated": "2026-09-05", "verified": "2026-09-05" },
-    "/events/zombie-siege/": { "updated": "2026-09-01", "verified": "2026-09-01" },
-    "/events/surprise-roulette/": { "updated": "2026-09-05", "verified": "2026-09-05" },
-    "/compare-guides/*": { "published": "2026-08-28", "updated": "2026-08-28", "verified": "2026-08-28" },
-    "/my-monsaba/": { "published": "2026-08-28", "updated": "2026-08-28", "verified": "2026-08-28" },
-    "/team-builder/": { "published": "2026-08-28", "updated": "2026-09-03", "verified": "2026-09-03" },
-    "/team-builder/community/": { "published": "2026-09-04", "updated": "2026-09-04", "verified": "2026-09-04", "status": "community-user-generated", "pending": [] }
+    "/privacy/": {
+      "updated": "2026-09-24T21:38:12+09:00",
+      "verified": "2026-09-24"
+    },
+    "/friends/": {
+      "updated": "2026-08-28T07:53:10+09:00",
+      "verified": "2026-08-28"
+    },
+    "/board/": {
+      "published": "2026-08-28",
+      "updated": "2026-08-28",
+      "verified": "2026-08-28"
+    },
+    "/stages/": {
+      "published": "2026-08-28",
+      "updated": "2026-08-28",
+      "verified": "2026-08-28"
+    },
+    "/evolution/*": {
+      "published": "2026-08-28",
+      "updated": "2026-08-28",
+      "verified": "2026-08-28"
+    },
+    "/evolution/trials/": {
+      "published": "2026-08-30",
+      "updated": "2026-08-30",
+      "verified": "2026-08-30",
+      "gameVersion": "0.46.1"
+    },
+    "/roles/*": {
+      "published": "2026-08-28",
+      "updated": "2026-08-28T07:53:10+09:00",
+      "verified": "2026-08-28"
+    },
+    "/events/": {
+      "published": "2026-08-28",
+      "updated": "2026-09-05",
+      "verified": "2026-09-05"
+    },
+    "/events/*": {
+      "published": "2026-08-28",
+      "updated": "2026-08-30",
+      "verified": "2026-08-30"
+    },
+    "/events/running-party/": {
+      "updated": "2026-08-31",
+      "verified": "2026-08-31"
+    },
+    "/events/running-star/": {
+      "updated": "2026-09-05",
+      "verified": "2026-09-05"
+    },
+    "/events/island-treasure/": {
+      "updated": "2026-08-31",
+      "verified": "2026-08-31"
+    },
+    "/events/magic-farm/": {
+      "updated": "2026-08-31",
+      "verified": "2026-08-31"
+    },
+    "/events/fishing-tournament/": {
+      "updated": "2026-08-31",
+      "verified": "2026-08-31"
+    },
+    "/events/treasure-hunt/": {
+      "updated": "2026-09-05",
+      "verified": "2026-09-05"
+    },
+    "/events/zombie-siege/": {
+      "updated": "2026-09-01",
+      "verified": "2026-09-01"
+    },
+    "/events/surprise-roulette/": {
+      "updated": "2026-09-05",
+      "verified": "2026-09-05"
+    },
+    "/compare-guides/*": {
+      "published": "2026-08-28",
+      "updated": "2026-08-28",
+      "verified": "2026-08-28"
+    },
+    "/my-monsaba/": {
+      "published": "2026-08-28",
+      "updated": "2026-08-28",
+      "verified": "2026-08-28"
+    },
+    "/team-builder/": {
+      "published": "2026-08-28",
+      "updated": "2026-09-03",
+      "verified": "2026-09-03"
+    },
+    "/team-builder/community/": {
+      "published": "2026-09-04",
+      "updated": "2026-09-04",
+      "verified": "2026-09-04",
+      "status": "community-user-generated",
+      "pending": []
+    },
+    "/tata/rukaron/": {
+      "updated": "2026-10-06",
+      "imageVerified": "2026-10-06",
+      "published": "2026-10-06",
+      "status": "partial-evidence",
+      "pending": [
+        "スキル名・効果・数値",
+        "進化条件",
+        "T2–T4の正式英語名",
+        "正式簡体字中国語名",
+        "総合Tier・用途別評価"
+      ],
+      "verified": "2026-10-06",
+      "gameVersion": "画像・名称のみ確認"
+    },
+    "/tata/nusuke/": {
+      "updated": "2026-10-06",
+      "imageVerified": "2026-10-06"
+    }
   }
 }

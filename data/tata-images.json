@@ -11,11 +11,12 @@
     "googleDriveHotlinking": false
   },
   "counts": {
-    "families": 65,
-    "forms": 236,
-    "verifiedForms": 225,
-    "pendingForms": 11,
-    "officialCreatorAssetForms": 224
+    "families": 66,
+    "forms": 240,
+    "verifiedForms": 236,
+    "pendingForms": 4,
+    "officialCreatorAssetForms": 224,
+    "userProvidedPdfForms": 12
   },
   "officialPendingReview": {
     "status": "official_team_checking",
@@ -27,25 +28,13 @@
         "stage": 4
       },
       {
-        "familyId": "pakuma",
-        "stage": 2
-      },
-      {
-        "familyId": "pakuma",
-        "stage": 3
-      },
-      {
-        "familyId": "pakuma",
-        "stage": 4
-      },
-      {
         "familyId": "sukedako",
         "stage": 4
       }
     ],
-    "nusuke": "Official creator image not obtained as of 2026-09-11",
     "shizukuchouT4": "Official creator image not obtained",
-    "tsubarukaT4": "Official creator image not obtained"
+    "tsubarukaT4": "Official creator image not obtained",
+    "userProvidedImagesObtainedAt": "2026-10-06"
   },
   "families": [
     {
@@ -5760,48 +5749,88 @@
       "stage1": {
         "stage": 1,
         "name": "パクマ",
-        "src": "/assets/tata-crops/forms/pakuma/t1.webp",
-        "width": 256,
-        "height": 256,
+        "src": "/assets/tata-provided/pakuma/t1-512.webp",
+        "srcset": "/assets/tata-provided/pakuma/t1-256.webp 256w, /assets/tata-provided/pakuma/t1-512.webp 512w",
+        "sizes": "(max-width: 600px) 44vw, 256px",
+        "width": 512,
+        "height": 512,
         "status": "verified",
-        "sha256": "d3569d2ef958799e95066fc4415a7b4622ffe2b4ff58eee2ef0bb40d33c8a608"
+        "sha256": "d17568e14ef76d71892a764a3f5ab108c6ed228dbbdcd9684e0489303882ec2d",
+        "sourceType": "user-provided-pdf",
+        "sourceFilename": "1-写真.pdf",
+        "sourceSha256": "b587e5e6c0453e7406c71e867edc8adf1abe545433269ad48eae29598dd103df",
+        "sourcePage": 5,
+        "evidenceManifest": "data/user-tata-evidence-2026-10-06.json",
+        "verifiedAt": "2026-10-06"
       },
       "forms": [
         {
           "stage": 1,
           "name": "パクマ",
-          "src": "/assets/tata-crops/forms/pakuma/t1.webp",
-          "width": 256,
-          "height": 256,
+          "src": "/assets/tata-provided/pakuma/t1-512.webp",
+          "srcset": "/assets/tata-provided/pakuma/t1-256.webp 256w, /assets/tata-provided/pakuma/t1-512.webp 512w",
+          "sizes": "(max-width: 600px) 44vw, 256px",
+          "width": 512,
+          "height": 512,
           "status": "verified",
-          "sha256": "d3569d2ef958799e95066fc4415a7b4622ffe2b4ff58eee2ef0bb40d33c8a608"
+          "sha256": "d17568e14ef76d71892a764a3f5ab108c6ed228dbbdcd9684e0489303882ec2d",
+          "sourceType": "user-provided-pdf",
+          "sourceFilename": "1-写真.pdf",
+          "sourceSha256": "b587e5e6c0453e7406c71e867edc8adf1abe545433269ad48eae29598dd103df",
+          "sourcePage": 5,
+          "evidenceManifest": "data/user-tata-evidence-2026-10-06.json",
+          "verifiedAt": "2026-10-06"
         },
         {
           "stage": 2,
           "name": "クマッシュ",
-          "src": null,
-          "width": null,
-          "height": null,
-          "status": "pending",
-          "reason": "locked_silhouette_only"
+          "src": "/assets/tata-provided/pakuma/t2-512.webp",
+          "srcset": "/assets/tata-provided/pakuma/t2-256.webp 256w, /assets/tata-provided/pakuma/t2-512.webp 512w",
+          "sizes": "(max-width: 600px) 44vw, 256px",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "6b34314d8a05d9e71bd87b92c43c74ee95758d229e2d4da20d573abed2a8d4f9",
+          "sourceType": "user-provided-pdf",
+          "sourceFilename": "1-写真.pdf",
+          "sourceSha256": "b587e5e6c0453e7406c71e867edc8adf1abe545433269ad48eae29598dd103df",
+          "sourcePage": 6,
+          "evidenceManifest": "data/user-tata-evidence-2026-10-06.json",
+          "verifiedAt": "2026-10-06"
         },
         {
           "stage": 3,
           "name": "マリンベア",
-          "src": null,
-          "width": null,
-          "height": null,
-          "status": "pending",
-          "reason": "locked_silhouette_only"
+          "src": "/assets/tata-provided/pakuma/t3-512.webp",
+          "srcset": "/assets/tata-provided/pakuma/t3-256.webp 256w, /assets/tata-provided/pakuma/t3-512.webp 512w",
+          "sizes": "(max-width: 600px) 44vw, 256px",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "2d1f2e130b283f121d5c94ba258dcd469f1a1efeb0a70a18154423dbe42e82ff",
+          "sourceType": "user-provided-pdf",
+          "sourceFilename": "1-写真.pdf",
+          "sourceSha256": "b587e5e6c0453e7406c71e867edc8adf1abe545433269ad48eae29598dd103df",
+          "sourcePage": 7,
+          "evidenceManifest": "data/user-tata-evidence-2026-10-06.json",
+          "verifiedAt": "2026-10-06"
         },
         {
           "stage": 4,
           "name": "ブリズリー",
-          "src": null,
-          "width": null,
-          "height": null,
-          "status": "pending",
-          "reason": "locked_silhouette_only"
+          "src": "/assets/tata-provided/pakuma/t4-512.webp",
+          "srcset": "/assets/tata-provided/pakuma/t4-256.webp 256w, /assets/tata-provided/pakuma/t4-512.webp 512w",
+          "sizes": "(max-width: 600px) 44vw, 256px",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "830d1cec8f468b28437fa02b4994e672c980c21c29b052626df49d27ace3a519",
+          "sourceType": "user-provided-pdf",
+          "sourceFilename": "1-写真.pdf",
+          "sourceSha256": "b587e5e6c0453e7406c71e867edc8adf1abe545433269ad48eae29598dd103df",
+          "sourcePage": 8,
+          "evidenceManifest": "data/user-tata-evidence-2026-10-06.json",
+          "verifiedAt": "2026-10-06"
         }
       ]
     },
@@ -5813,46 +5842,183 @@
       "stage1": {
         "stage": 1,
         "name": "ヌスケ",
-        "src": "/assets/tata-image-pending.svg",
+        "src": "/assets/tata-provided/nusuke/t1-512.webp",
+        "srcset": "/assets/tata-provided/nusuke/t1-256.webp 256w, /assets/tata-provided/nusuke/t1-512.webp 512w",
+        "sizes": "(max-width: 600px) 44vw, 256px",
         "width": 512,
         "height": 512,
-        "status": "pending",
-        "reason": "official_image_not_obtained"
+        "status": "verified",
+        "sha256": "11a3cd7722724103fe877ec837894b9c72696ea6b7146549a88f155374ef044d",
+        "sourceType": "user-provided-pdf",
+        "sourceFilename": "1-写真.pdf",
+        "sourceSha256": "b587e5e6c0453e7406c71e867edc8adf1abe545433269ad48eae29598dd103df",
+        "sourcePage": 10,
+        "evidenceManifest": "data/user-tata-evidence-2026-10-06.json",
+        "verifiedAt": "2026-10-06"
       },
       "forms": [
         {
           "stage": 1,
           "name": "ヌスケ",
-          "src": null,
-          "status": "pending",
-          "reason": "official_image_not_obtained",
-          "verifiedAt": "2026-09-11"
+          "src": "/assets/tata-provided/nusuke/t1-512.webp",
+          "srcset": "/assets/tata-provided/nusuke/t1-256.webp 256w, /assets/tata-provided/nusuke/t1-512.webp 512w",
+          "sizes": "(max-width: 600px) 44vw, 256px",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "11a3cd7722724103fe877ec837894b9c72696ea6b7146549a88f155374ef044d",
+          "sourceType": "user-provided-pdf",
+          "sourceFilename": "1-写真.pdf",
+          "sourceSha256": "b587e5e6c0453e7406c71e867edc8adf1abe545433269ad48eae29598dd103df",
+          "sourcePage": 10,
+          "evidenceManifest": "data/user-tata-evidence-2026-10-06.json",
+          "verifiedAt": "2026-10-06"
         },
         {
           "stage": 2,
           "name": "ラクディット",
-          "src": null,
-          "status": "pending",
-          "reason": "official_image_not_obtained",
-          "verifiedAt": "2026-09-11"
+          "src": "/assets/tata-provided/nusuke/t2-512.webp",
+          "srcset": "/assets/tata-provided/nusuke/t2-256.webp 256w, /assets/tata-provided/nusuke/t2-512.webp 512w",
+          "sizes": "(max-width: 600px) 44vw, 256px",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "76a41c3e4f21906d0a6bdcafeb734523622e5d5b590db3ef7ec7375c51a5b169",
+          "sourceType": "user-provided-pdf",
+          "sourceFilename": "1-写真.pdf",
+          "sourceSha256": "b587e5e6c0453e7406c71e867edc8adf1abe545433269ad48eae29598dd103df",
+          "sourcePage": 11,
+          "evidenceManifest": "data/user-tata-evidence-2026-10-06.json",
+          "verifiedAt": "2026-10-06"
         },
         {
           "stage": 3,
           "name": "マスクーン",
-          "src": null,
-          "status": "pending",
-          "reason": "official_image_not_obtained",
-          "verifiedAt": "2026-09-11"
+          "src": "/assets/tata-provided/nusuke/t3-512.webp",
+          "srcset": "/assets/tata-provided/nusuke/t3-256.webp 256w, /assets/tata-provided/nusuke/t3-512.webp 512w",
+          "sizes": "(max-width: 600px) 44vw, 256px",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "95bc1f26fde51ad2c3fe718b1fbf5c48cc4449c2f6ee870a22d9981c1c5b8ca6",
+          "sourceType": "user-provided-pdf",
+          "sourceFilename": "1-写真.pdf",
+          "sourceSha256": "b587e5e6c0453e7406c71e867edc8adf1abe545433269ad48eae29598dd103df",
+          "sourcePage": 12,
+          "evidenceManifest": "data/user-tata-evidence-2026-10-06.json",
+          "verifiedAt": "2026-10-06"
         },
         {
           "stage": 4,
           "name": "トリックーン",
-          "src": null,
-          "status": "pending",
-          "reason": "official_image_not_obtained",
-          "verifiedAt": "2026-09-11"
+          "src": "/assets/tata-provided/nusuke/t4-512.webp",
+          "srcset": "/assets/tata-provided/nusuke/t4-256.webp 256w, /assets/tata-provided/nusuke/t4-512.webp 512w",
+          "sizes": "(max-width: 600px) 44vw, 256px",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "0664c5899702660ed822b07b91dff4ecfd0b172158e6ca4de59f0a38f3d256ac",
+          "sourceType": "user-provided-pdf",
+          "sourceFilename": "1-写真.pdf",
+          "sourceSha256": "b587e5e6c0453e7406c71e867edc8adf1abe545433269ad48eae29598dd103df",
+          "sourcePage": 13,
+          "evidenceManifest": "data/user-tata-evidence-2026-10-06.json",
+          "verifiedAt": "2026-10-06"
         }
       ]
+    },
+    {
+      "order": 66,
+      "familyId": "rukaron",
+      "familyDisplay": "ルカロン",
+      "attribute": "水",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ルカロン",
+          "src": "/assets/tata-provided/rukaron/t1-512.webp",
+          "srcset": "/assets/tata-provided/rukaron/t1-256.webp 256w, /assets/tata-provided/rukaron/t1-512.webp 512w",
+          "sizes": "(max-width: 600px) 44vw, 256px",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "0114af33f6c5e5ec66ab4156000f7a571871d3908f9243d95c4c3bc248477a7a",
+          "sourceType": "user-provided-pdf",
+          "sourceFilename": "1-写真.pdf",
+          "sourceSha256": "b587e5e6c0453e7406c71e867edc8adf1abe545433269ad48eae29598dd103df",
+          "sourcePage": 1,
+          "evidenceManifest": "data/user-tata-evidence-2026-10-06.json",
+          "verifiedAt": "2026-10-06"
+        },
+        {
+          "stage": 2,
+          "name": "パステルカ",
+          "src": "/assets/tata-provided/rukaron/t2-512.webp",
+          "srcset": "/assets/tata-provided/rukaron/t2-256.webp 256w, /assets/tata-provided/rukaron/t2-512.webp 512w",
+          "sizes": "(max-width: 600px) 44vw, 256px",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "9d2ab5fed580091e93aa1e99256b47ae2d3b8dffa7856893755447279082a7c8",
+          "sourceType": "user-provided-pdf",
+          "sourceFilename": "1-写真.pdf",
+          "sourceSha256": "b587e5e6c0453e7406c71e867edc8adf1abe545433269ad48eae29598dd103df",
+          "sourcePage": 2,
+          "evidenceManifest": "data/user-tata-evidence-2026-10-06.json",
+          "verifiedAt": "2026-10-06"
+        },
+        {
+          "stage": 3,
+          "name": "メルフィン",
+          "src": "/assets/tata-provided/rukaron/t3-512.webp",
+          "srcset": "/assets/tata-provided/rukaron/t3-256.webp 256w, /assets/tata-provided/rukaron/t3-512.webp 512w",
+          "sizes": "(max-width: 600px) 44vw, 256px",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "67451b6317ca88d17330afd0f0dc4e27206f6375ce327532799336217e7c186f",
+          "sourceType": "user-provided-pdf",
+          "sourceFilename": "1-写真.pdf",
+          "sourceSha256": "b587e5e6c0453e7406c71e867edc8adf1abe545433269ad48eae29598dd103df",
+          "sourcePage": 3,
+          "evidenceManifest": "data/user-tata-evidence-2026-10-06.json",
+          "verifiedAt": "2026-10-06"
+        },
+        {
+          "stage": 4,
+          "name": "オパーリア",
+          "src": "/assets/tata-provided/rukaron/t4-512.webp",
+          "srcset": "/assets/tata-provided/rukaron/t4-256.webp 256w, /assets/tata-provided/rukaron/t4-512.webp 512w",
+          "sizes": "(max-width: 600px) 44vw, 256px",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "faf2cb8a7cb783124525754ef965c2861683ea19c8c307cd685b7cc8ef3b03cb",
+          "sourceType": "user-provided-pdf",
+          "sourceFilename": "1-写真.pdf",
+          "sourceSha256": "b587e5e6c0453e7406c71e867edc8adf1abe545433269ad48eae29598dd103df",
+          "sourcePage": 4,
+          "evidenceManifest": "data/user-tata-evidence-2026-10-06.json",
+          "verifiedAt": "2026-10-06"
+        }
+      ],
+      "stage1": {
+        "stage": 1,
+        "name": "ルカロン",
+        "src": "/assets/tata-provided/rukaron/t1-512.webp",
+        "srcset": "/assets/tata-provided/rukaron/t1-256.webp 256w, /assets/tata-provided/rukaron/t1-512.webp 512w",
+        "sizes": "(max-width: 600px) 44vw, 256px",
+        "width": 512,
+        "height": 512,
+        "status": "verified",
+        "sha256": "0114af33f6c5e5ec66ab4156000f7a571871d3908f9243d95c4c3bc248477a7a",
+        "sourceType": "user-provided-pdf",
+        "sourceFilename": "1-写真.pdf",
+        "sourceSha256": "b587e5e6c0453e7406c71e867edc8adf1abe545433269ad48eae29598dd103df",
+        "sourcePage": 1,
+        "evidenceManifest": "data/user-tata-evidence-2026-10-06.json",
+        "verifiedAt": "2026-10-06"
+      }
     }
   ]
 }

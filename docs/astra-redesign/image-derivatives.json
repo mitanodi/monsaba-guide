@@ -471,8 +471,22 @@
   {
     "file": "assets/astra/pakuma-128.webp",
     "width": 128,
-    "bytes": 1904,
-    "source": "assets/tata-crops/forms/pakuma/t1.webp",
-    "sourceSha256": "d3569d2ef958799e95066fc4415a7b4622ffe2b4ff58eee2ef0bb40d33c8a608"
+    "bytes": 4310,
+    "source": "assets/tata-provided/pakuma/t1-512.webp",
+    "sourceSha256": "d17568e14ef76d71892a764a3f5ab108c6ed228dbbdcd9684e0489303882ec2d"
+  },
+  {
+    "file": "assets/astra/nusuke-128.webp",
+    "width": 128,
+    "bytes": 3606,
+    "source": "assets/tata-provided/nusuke/t1-512.webp",
+    "sourceSha256": "11a3cd7722724103fe877ec837894b9c72696ea6b7146549a88f155374ef044d"
+  },
+  {
+    "file": "assets/astra/rukaron-128.webp",
+    "width": 128,
+    "bytes": 4498,
+    "source": "assets/tata-provided/rukaron/t1-512.webp",
+    "sourceSha256": "0114af33f6c5e5ec66ab4156000f7a571871d3908f9243d95c4c3bc248477a7a"
   }
 ]

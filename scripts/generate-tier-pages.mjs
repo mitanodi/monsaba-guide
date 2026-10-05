@@ -96,7 +96,7 @@ for (const [locale, prefix] of [['ja', ''], ['en', 'en/'], ['zh-CN', 'zh-cn/']])
       source = patchHtml(source, [['.quick-purpose-label + h2 + p', () => '<div class="mode-rating-grid"></div>']]);
     source = patchHtml(source, [
       ['.mode-rating-grid', () => `<div class="mode-rating-grid">${MODES.map((mode, i) => `<div data-ranking-mode="${mode}" data-status="${entry.rankings[mode].status}"><span>${esc(copy.labels[i])}</span><b>${esc(label(entry.rankings[mode]))}</b>${entry.rankings[mode].status === 'provisional' ? `<small>${esc(copy.provisional)}</small>` : ''}</div>`).join('')}</div>`],
-      ['.tata-hero-meta > span:first-child > b', () => `<b>${entry.rankings.overall.tier}</b>`],
+      ['.tata-hero-meta > span:first-child > b', () => `<b>${esc(label(entry.rankings.overall))}</b>`],
       ['.tata-quick-answers > h2:first-of-type + p', () => `<p data-tier-summary>${esc(summary)}</p>`]
     ]);
     if (['riifuro', 'sabooru', 'tsubutsumuri'].includes(entry.familyId)) {
@@ -194,4 +194,4 @@ for (const [locale, prefix] of [['ja', ''], ['en', 'en/'], ['zh-CN', 'zh-cn/']])
     write(file, source);
   }
 }
-console.log('Generated independent Tier boards: 65 families × 5 modes × 3 locales; detail ratings synchronized.');
+console.log(`Generated independent Tier boards: ${families.length} families × 5 modes × 3 locales; detail ratings synchronized.`);

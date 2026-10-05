@@ -1,0 +1,286 @@
+{
+  "sourceType": "user-provided-pdf",
+  "sourceFile": "1-写真.pdf",
+  "sourceSha256": "b587e5e6c0453e7406c71e867edc8adf1abe545433269ad48eae29598dd103df",
+  "pageCount": 14,
+  "verifiedAt": "2026-10-06",
+  "processing": "embedded image and alpha extraction; alpha bounds crop; contain resize; transparent padding; lossless WebP",
+  "records": [
+    {
+      "familyId": "rukaron",
+      "stage": 1,
+      "sourcePage": 1,
+      "sourceWidth": 1024,
+      "sourceHeight": 1024,
+      "alphaCropBounds": [
+        93,
+        105,
+        1009,
+        854
+      ],
+      "outputs": {
+        "256": {
+          "path": "/assets/tata-provided/rukaron/t1-256.webp",
+          "sha256": "63be0231cc1065e5bcda7e0fa80ed16d0412adc8541b1cec53b4aa5933218c9a"
+        },
+        "512": {
+          "path": "/assets/tata-provided/rukaron/t1-512.webp",
+          "sha256": "0114af33f6c5e5ec66ab4156000f7a571871d3908f9243d95c4c3bc248477a7a"
+        }
+      }
+    },
+    {
+      "familyId": "rukaron",
+      "stage": 2,
+      "sourcePage": 2,
+      "sourceWidth": 1024,
+      "sourceHeight": 1024,
+      "alphaCropBounds": [
+        84,
+        28,
+        982,
+        912
+      ],
+      "outputs": {
+        "256": {
+          "path": "/assets/tata-provided/rukaron/t2-256.webp",
+          "sha256": "46027a7c3af8a81848c171aab0c2c44ca8438e1494b649456508c25f3b7ded9c"
+        },
+        "512": {
+          "path": "/assets/tata-provided/rukaron/t2-512.webp",
+          "sha256": "9d2ab5fed580091e93aa1e99256b47ae2d3b8dffa7856893755447279082a7c8"
+        }
+      }
+    },
+    {
+      "familyId": "rukaron",
+      "stage": 3,
+      "sourcePage": 3,
+      "sourceWidth": 1024,
+      "sourceHeight": 1024,
+      "alphaCropBounds": [
+        98,
+        43,
+        991,
+        972
+      ],
+      "outputs": {
+        "256": {
+          "path": "/assets/tata-provided/rukaron/t3-256.webp",
+          "sha256": "8b132468dac7a99d43fb2508f43789412318805fcc9344487ae375af18d0f503"
+        },
+        "512": {
+          "path": "/assets/tata-provided/rukaron/t3-512.webp",
+          "sha256": "67451b6317ca88d17330afd0f0dc4e27206f6375ce327532799336217e7c186f"
+        }
+      }
+    },
+    {
+      "familyId": "rukaron",
+      "stage": 4,
+      "sourcePage": 4,
+      "sourceWidth": 1024,
+      "sourceHeight": 1024,
+      "alphaCropBounds": [
+        22,
+        49,
+        1024,
+        958
+      ],
+      "outputs": {
+        "256": {
+          "path": "/assets/tata-provided/rukaron/t4-256.webp",
+          "sha256": "3f46113205ae56be32268557084ecf2bd769108d57ec97e82227b63e3067d87c"
+        },
+        "512": {
+          "path": "/assets/tata-provided/rukaron/t4-512.webp",
+          "sha256": "faf2cb8a7cb783124525754ef965c2861683ea19c8c307cd685b7cc8ef3b03cb"
+        }
+      }
+    },
+    {
+      "familyId": "pakuma",
+      "stage": 1,
+      "sourcePage": 5,
+      "sourceWidth": 331,
+      "sourceHeight": 331,
+      "alphaCropBounds": [
+        9,
+        35,
+        316,
+        290
+      ],
+      "outputs": {
+        "256": {
+          "path": "/assets/tata-provided/pakuma/t1-256.webp",
+          "sha256": "6783cdb43219eb88866df4cfe526971b173cb8e80e346106cb1f18a5146828d1"
+        },
+        "512": {
+          "path": "/assets/tata-provided/pakuma/t1-512.webp",
+          "sha256": "d17568e14ef76d71892a764a3f5ab108c6ed228dbbdcd9684e0489303882ec2d"
+        }
+      }
+    },
+    {
+      "familyId": "pakuma",
+      "stage": 2,
+      "sourcePage": 6,
+      "sourceWidth": 355,
+      "sourceHeight": 355,
+      "alphaCropBounds": [
+        3,
+        23,
+        353,
+        317
+      ],
+      "outputs": {
+        "256": {
+          "path": "/assets/tata-provided/pakuma/t2-256.webp",
+          "sha256": "4d7ad8e0ea6c7078924cd932ddb589cc2031a9282251cda8c7d90f6d3c8431c9"
+        },
+        "512": {
+          "path": "/assets/tata-provided/pakuma/t2-512.webp",
+          "sha256": "6b34314d8a05d9e71bd87b92c43c74ee95758d229e2d4da20d573abed2a8d4f9"
+        }
+      }
+    },
+    {
+      "familyId": "pakuma",
+      "stage": 3,
+      "sourcePage": 7,
+      "sourceWidth": 869,
+      "sourceHeight": 775,
+      "alphaCropBounds": [
+        6,
+        14,
+        857,
+        767
+      ],
+      "outputs": {
+        "256": {
+          "path": "/assets/tata-provided/pakuma/t3-256.webp",
+          "sha256": "e3caa2b0df28f3bdcd7b4ffc926b36ee4de66d8738b0193bcd233825740b709e"
+        },
+        "512": {
+          "path": "/assets/tata-provided/pakuma/t3-512.webp",
+          "sha256": "2d1f2e130b283f121d5c94ba258dcd469f1a1efeb0a70a18154423dbe42e82ff"
+        }
+      }
+    },
+    {
+      "familyId": "pakuma",
+      "stage": 4,
+      "sourcePage": 8,
+      "sourceWidth": 605,
+      "sourceHeight": 605,
+      "alphaCropBounds": [
+        30,
+        43,
+        572,
+        549
+      ],
+      "outputs": {
+        "256": {
+          "path": "/assets/tata-provided/pakuma/t4-256.webp",
+          "sha256": "f92849aa97ded05cc930f248cc77e1ea0d2a0151db3aadb277f0b76107c0d592"
+        },
+        "512": {
+          "path": "/assets/tata-provided/pakuma/t4-512.webp",
+          "sha256": "830d1cec8f468b28437fa02b4994e672c980c21c29b052626df49d27ace3a519"
+        }
+      }
+    },
+    {
+      "familyId": "nusuke",
+      "stage": 1,
+      "sourcePage": 10,
+      "sourceWidth": 717,
+      "sourceHeight": 731,
+      "alphaCropBounds": [
+        11,
+        16,
+        705,
+        721
+      ],
+      "outputs": {
+        "256": {
+          "path": "/assets/tata-provided/nusuke/t1-256.webp",
+          "sha256": "3a1430995a399f925e73c956ee4f18a6bd04872f28acd02f247058f20bec6249"
+        },
+        "512": {
+          "path": "/assets/tata-provided/nusuke/t1-512.webp",
+          "sha256": "11a3cd7722724103fe877ec837894b9c72696ea6b7146549a88f155374ef044d"
+        }
+      }
+    },
+    {
+      "familyId": "nusuke",
+      "stage": 2,
+      "sourcePage": 11,
+      "sourceWidth": 792,
+      "sourceHeight": 628,
+      "alphaCropBounds": [
+        12,
+        16,
+        780,
+        619
+      ],
+      "outputs": {
+        "256": {
+          "path": "/assets/tata-provided/nusuke/t2-256.webp",
+          "sha256": "3799a443edadea92a4843e2be96e71202c2300f2485701691503b72ca965efcc"
+        },
+        "512": {
+          "path": "/assets/tata-provided/nusuke/t2-512.webp",
+          "sha256": "76a41c3e4f21906d0a6bdcafeb734523622e5d5b590db3ef7ec7375c51a5b169"
+        }
+      }
+    },
+    {
+      "familyId": "nusuke",
+      "stage": 3,
+      "sourcePage": 12,
+      "sourceWidth": 773,
+      "sourceHeight": 875,
+      "alphaCropBounds": [
+        14,
+        9,
+        759,
+        864
+      ],
+      "outputs": {
+        "256": {
+          "path": "/assets/tata-provided/nusuke/t3-256.webp",
+          "sha256": "70d865c8d998dc1e971689e2f123ea18e14d3c89f95b311b8d5245b5a8f4a797"
+        },
+        "512": {
+          "path": "/assets/tata-provided/nusuke/t3-512.webp",
+          "sha256": "95bc1f26fde51ad2c3fe718b1fbf5c48cc4449c2f6ee870a22d9981c1c5b8ca6"
+        }
+      }
+    },
+    {
+      "familyId": "nusuke",
+      "stage": 4,
+      "sourcePage": 13,
+      "sourceWidth": 1336,
+      "sourceHeight": 1177,
+      "alphaCropBounds": [
+        43,
+        0,
+        1296,
+        1146
+      ],
+      "outputs": {
+        "256": {
+          "path": "/assets/tata-provided/nusuke/t4-256.webp",
+          "sha256": "315bafef7185649484b1f0cf7c8d83fd396bcdd6abbb985eb1b34b369d4fd6ed"
+        },
+        "512": {
+          "path": "/assets/tata-provided/nusuke/t4-512.webp",
+          "sha256": "0664c5899702660ed822b07b91dff4ecfd0b172158e6ca4de59f0a38f3d256ac"
+        }
+      }
+    }
+  ]
+}

@@ -9,8 +9,6 @@ const read = f => fs.readFileSync(path.join(root, f), 'utf8');
 const control = f => execFileSync('git', ['show', `pre-astra-redesign-20260915:${f}`], { cwd: root, encoding: 'utf8' });
 test('Astra preserves core data, affiliate code, saved-data keys and share codec byte for byte', () => {
   for (const f of [
-    'data/tatari.json',
-    'data/tata-skills.json',
     'data/evolution-priority.json',
     'data/calendar-config.json',
     'data/monetization.json',
@@ -21,6 +19,25 @@ test('Astra preserves core data, affiliate code, saved-data keys and share codec
 
   for (const key of ['monsabaTeamBuilds:v1', 'monsabaFormationDraft:v2', 'monsabaFormationModeDrafts:v1', 'monsabaBoardTeamHandoff:v1'])
     assert.match(core, new RegExp(key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+});
+test('the supplied character update preserves all existing families and skill values', () => {
+  const before = JSON.parse(control('data/tatari.json'));
+  const after = JSON.parse(read('data/tatari.json'));
+  assert.deepEqual(after.families.map(f => f.id), [...before.families.map(f => f.id), 'rukaron']);
+  for (const original of before.families) {
+    const current = structuredClone(after.families.find(f => f.id === original.id));
+    if (['pakuma', 'nusuke'].includes(original.id)) {
+      for (const stage of current.evolutions) {
+        assert.equal(stage.image, `assets/tata-provided/${original.id}/t${stage.stage}-512.webp`);
+        stage.image = original.evolutions.find(e => e.stage === stage.stage).image;
+      }
+    }
+    assert.deepEqual(current, original, original.id);
+  }
+  const oldSkills = JSON.parse(control('data/tata-skills.json'));
+  const newSkills = JSON.parse(read('data/tata-skills.json'));
+  for (const [id, stages] of Object.entries(oldSkills.byFamily)) assert.deepEqual(newSkills.byFamily[id], stages, id);
+  assert.equal(Object.keys(newSkills.byFamily).length, Object.keys(oldSkills.byFamily).length + 1);
 });
 test('Astra preserves SEO identity on representative existing pages in all three languages', () => {
   const routes = [
@@ -71,7 +88,7 @@ test('Calendar is real and localized; essential data remains available without J
     assert.ok($('script[src*="calendar/calendar.js"]').length);
     assert.match($.html(), /BreadcrumbList/);
     const home = load(read(`${locale}index.html`));
-    assert.equal(home('#cards .catalog-card').length, 65);
+    assert.equal(home('#cards .catalog-card').length, 66);
     assert.equal(home('.astra-primary-nav').length, 1);
   }
 });

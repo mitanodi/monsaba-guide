@@ -3,8 +3,8 @@
     "screenshotTotal": 668,
     "processedRange": "IMG_6242〜IMG_6910",
     "processedScreenshotCount": 668,
-    "familyCount": 65,
-    "monsterCount": 236,
+    "familyCount": 66,
+    "monsterCount": 240,
     "status": "all_user_screenshots_processed",
     "nonIndexScreenshots": [
       "IMG_6272.png",
@@ -71,6 +71,18 @@
       "excludedFrontMatterPages": 1,
       "checkedAt": "2026-09-11",
       "sourceUrl": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp"
+    },
+    "latestUserSupplement": {
+      "fileName": "1-写真.pdf",
+      "sha256": "b587e5e6c0453e7406c71e867edc8adf1abe545433269ad48eae29598dd103df",
+      "physicalPages": 14,
+      "checkedAt": "2026-10-06",
+      "scope": [
+        "rukaron-family",
+        "pakuma-images",
+        "nusuke-images"
+      ],
+      "evidence": "data/user-tata-evidence-2026-10-06.json"
     }
   },
   "families": [
@@ -12137,7 +12149,7 @@
           "stage": 1,
           "name": "パクマ",
           "source": "写真.pdf p.6-7",
-          "image": "assets/tata-crops/forms/pakuma/t1.webp",
+          "image": "assets/tata-provided/pakuma/t1-512.webp",
           "sourceMetadata": {
             "sourceType": "in_game",
             "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
@@ -12158,7 +12170,7 @@
           "stage": 2,
           "name": "クマッシュ",
           "source": "写真.pdf p.8",
-          "image": "assets/monsters/kumash.webp",
+          "image": "assets/tata-provided/pakuma/t2-512.webp",
           "sourceMetadata": {
             "sourceType": "in_game",
             "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
@@ -12178,7 +12190,7 @@
           "stage": 3,
           "name": "マリンベア",
           "source": "写真.pdf p.9",
-          "image": "assets/monsters/marine-bear.webp",
+          "image": "assets/tata-provided/pakuma/t3-512.webp",
           "sourceMetadata": {
             "sourceType": "in_game",
             "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
@@ -12198,7 +12210,7 @@
           "stage": 4,
           "name": "ブリズリー",
           "source": "写真.pdf p.10",
-          "image": "assets/monsters/blizzly.webp",
+          "image": "assets/tata-provided/pakuma/t4-512.webp",
           "sourceMetadata": {
             "sourceType": "in_game",
             "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
@@ -12520,7 +12532,7 @@
           "stage": 1,
           "name": "ヌスケ",
           "source": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
-          "image": null,
+          "image": "assets/tata-provided/nusuke/t1-512.webp",
           "nameEn": "Ringtail",
           "nameZhHans": "干脆面",
           "verification": {
@@ -12533,7 +12545,7 @@
           "stage": 2,
           "name": "ラクディット",
           "source": "https://w.atwiki.jp/monstersurvival/pages/129.html",
-          "image": null,
+          "image": "assets/tata-provided/nusuke/t2-512.webp",
           "nameEn": "Rizzler",
           "nameZhHans": "改头浣面",
           "verification": {
@@ -12546,7 +12558,7 @@
           "stage": 3,
           "name": "マスクーン",
           "source": "https://w.atwiki.jp/monstersurvival/pages/129.html",
-          "image": null,
+          "image": "assets/tata-provided/nusuke/t3-512.webp",
           "nameEn": "Zorrock",
           "nameZhHans": "怪盗千面",
           "verification": {
@@ -12559,7 +12571,7 @@
           "stage": 4,
           "name": "トリックーン",
           "source": "https://w.atwiki.jp/monstersurvival/pages/129.html",
-          "image": null,
+          "image": "assets/tata-provided/nusuke/t4-512.webp",
           "nameEn": "Phantothief",
           "nameZhHans": "偷心假面",
           "verification": {
@@ -12640,6 +12652,123 @@
           }
         ]
       }
+    },
+    {
+      "id": "rukaron",
+      "familyName": "ルカロン",
+      "attribute": "水",
+      "type": "サポート",
+      "evolutions": [
+        {
+          "stage": 1,
+          "name": "ルカロン",
+          "source": "1-写真.pdf#page=9",
+          "image": "assets/tata-provided/rukaron/t1-512.webp",
+          "nameEn": "Dolphie",
+          "nameZhHans": null,
+          "nameVerification": {
+            "en": "confirmed",
+            "zh-CN": "pending"
+          },
+          "verification": {
+            "implementation": "official-store-confirmed",
+            "japaneseName": "user-provided-wiki-screenshot",
+            "checkedAt": "2026-10-06"
+          }
+        },
+        {
+          "stage": 2,
+          "name": "パステルカ",
+          "source": "1-写真.pdf#page=9",
+          "image": "assets/tata-provided/rukaron/t2-512.webp",
+          "nameEn": null,
+          "nameZhHans": null,
+          "nameVerification": {
+            "en": "pending",
+            "zh-CN": "pending"
+          },
+          "verification": {
+            "implementation": "official-store-confirmed",
+            "japaneseName": "user-provided-wiki-screenshot",
+            "checkedAt": "2026-10-06"
+          }
+        },
+        {
+          "stage": 3,
+          "name": "メルフィン",
+          "source": "1-写真.pdf#page=9",
+          "image": "assets/tata-provided/rukaron/t3-512.webp",
+          "nameEn": null,
+          "nameZhHans": null,
+          "nameVerification": {
+            "en": "pending",
+            "zh-CN": "pending"
+          },
+          "verification": {
+            "implementation": "official-store-confirmed",
+            "japaneseName": "user-provided-wiki-screenshot",
+            "checkedAt": "2026-10-06"
+          }
+        },
+        {
+          "stage": 4,
+          "name": "オパーリア",
+          "source": "1-写真.pdf#page=9",
+          "image": "assets/tata-provided/rukaron/t4-512.webp",
+          "nameEn": null,
+          "nameZhHans": null,
+          "nameVerification": {
+            "en": "pending",
+            "zh-CN": "pending"
+          },
+          "verification": {
+            "implementation": "official-store-confirmed",
+            "japaneseName": "user-provided-wiki-screenshot",
+            "checkedAt": "2026-10-06"
+          }
+        }
+      ],
+      "skills": [
+        {
+          "stage": 1,
+          "name": "確認待ち",
+          "summary": "スキル名・効果・数値はゲーム内資料の確認待ちです。",
+          "stats": [],
+          "sources": [],
+          "verificationStatus": "pending-user-skill-evidence"
+        },
+        {
+          "stage": 2,
+          "name": "確認待ち",
+          "summary": "スキル名・効果・数値はゲーム内資料の確認待ちです。",
+          "stats": [],
+          "sources": [],
+          "verificationStatus": "pending-user-skill-evidence"
+        },
+        {
+          "stage": 3,
+          "name": "確認待ち",
+          "summary": "スキル名・効果・数値はゲーム内資料の確認待ちです。",
+          "stats": [],
+          "sources": [],
+          "verificationStatus": "pending-user-skill-evidence"
+        },
+        {
+          "stage": 4,
+          "name": "確認待ち",
+          "summary": "スキル名・効果・数値はゲーム内資料の確認待ちです。",
+          "stats": [],
+          "sources": [],
+          "verificationStatus": "pending-user-skill-evidence"
+        }
+      ],
+      "searchAliases": [
+        "ルカロン",
+        "パステルカ",
+        "メルフィン",
+        "オパーリア",
+        "Dolphie"
+      ]
     }
   ]
 }

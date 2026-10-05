@@ -110,6 +110,13 @@
           "kowagaru",
           "hikaru"
         ]
+      },
+      {
+        "rank": "HOLD",
+        "label": "保留",
+        "ids": [
+          "rukaron"
+        ]
       }
     ],
     "byFamily": {
@@ -2297,6 +2304,40 @@
         },
         "roles": [],
         "comment": ""
+      },
+      "rukaron": {
+        "tier": null,
+        "normal": null,
+        "zombie": null,
+        "dojo": null,
+        "beginner": null,
+        "rankings": {
+          "overall": {
+            "tier": "HOLD",
+            "status": "hold",
+            "order": 66
+          },
+          "normal": {
+            "tier": "HOLD",
+            "status": "hold"
+          },
+          "zombie": {
+            "tier": "HOLD",
+            "status": "hold"
+          },
+          "dojo": {
+            "tier": "HOLD",
+            "status": "hold"
+          },
+          "beginner": {
+            "tier": "HOLD",
+            "status": "hold"
+          }
+        },
+        "roles": [
+          "サポート"
+        ],
+        "comment": ""
       }
     }
   },
@@ -2407,6 +2448,13 @@
           "pupunku",
           "kowagaru",
           "hikaru"
+        ]
+      },
+      {
+        "rank": "HOLD",
+        "label": "保留",
+        "ids": [
+          "rukaron"
         ]
       }
     ],
@@ -2734,6 +2782,11 @@
       "hikaru": {
         "tier": "D",
         "status": "confirmed",
+        "comment": ""
+      },
+      "rukaron": {
+        "tier": null,
+        "status": "hold",
         "comment": ""
       }
     }

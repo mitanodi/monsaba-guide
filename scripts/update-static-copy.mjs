@@ -27,6 +27,11 @@ const replacements = {
   ]
 };
 
+const familyCount = JSON.parse(fs.readFileSync(path.join(root, 'data/tatari.json'), 'utf8')).families.length;
+const teamFile = path.join(root, 'team-builder/index.html');
+const teamSource = fs.readFileSync(teamFile, 'utf8');
+fs.writeFileSync(teamFile, teamSource.replace(/全\d+系統/g, `全${familyCount}系統`));
+
 let changed = 0;
 for (const [relative, pairs] of Object.entries(replacements)) {
   const file = path.join(root, relative);

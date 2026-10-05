@@ -64,6 +64,7 @@ test('target pages keep their current evidence dateModified in all three languag
   ];
   const expectedDates = new Map([
     ...aug30Routes.map((route) => [route, '2026-08-30']),
+    ['/tata/pakuma/', '2026-10-06'],
     ['/events/', '2026-09-05']
   ]);
   for (const [sourceRoute, expectedDate] of expectedDates) {

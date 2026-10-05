@@ -22,9 +22,9 @@ const aliases = globalThis.MONSABA_FAMILY;
 for (const family of tatari.families || []) {
   const familyAliases = aliases.getFamilySearchAliases(family);
   for (const evolution of family.evolutions || []) {
-    if (!familyAliases.includes(evolution.nameEn))
+    if (evolution.nameEn && !familyAliases.includes(evolution.nameEn))
       errors.push(`[Missing Tata search alias]\nfamily=${family.id}\nstage=${evolution.stage}\nlocale=en\nname=${JSON.stringify(evolution.nameEn)}`);
-    if (!familyAliases.includes(evolution.nameZhHans))
+    if (evolution.nameZhHans && !familyAliases.includes(evolution.nameZhHans))
       errors.push(`[Missing Tata search alias]\nfamily=${family.id}\nstage=${evolution.stage}\nlocale=zh-CN\nname=${JSON.stringify(evolution.nameZhHans)}`);
   }
 }
@@ -47,4 +47,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Tata name source validation passed: ${stats.formsChecked} forms / EN ${stats.enSourceCoverage}/${stats.formsChecked} / zh-CN ${stats.zhCnSourceCoverage}/${stats.formsChecked} / needs-review 0`);
+console.log(`Tata name source validation passed: ${stats.formsChecked} forms / EN ${stats.enSourceCoverage}/${stats.formsChecked} / zh-CN ${stats.zhCnSourceCoverage}/${stats.formsChecked} / needs-review ${source.summary.needsReview}`);

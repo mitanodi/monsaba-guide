@@ -1,7 +1,7 @@
 {
   "version": 1,
   "updated": "2026-09-11",
-  "familyCount": 65,
+  "familyCount": 66,
   "source": {
     "sourceType": "community",
     "sourceName": "国内攻略Wiki 進化条件一覧",
@@ -2340,6 +2340,43 @@
           "sourceType": "community",
           "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/129.html",
           "verifiedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "familyId": "rukaron",
+      "familyName": "ルカロン",
+      "attribute": "水",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "パステルカ",
+          "condition": "進化条件の詳細を確認中",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "user-provided-pdf",
+          "sourceUrl": "1-写真.pdf#page=9",
+          "verifiedAt": "2026-10-06"
+        },
+        {
+          "stage": 3,
+          "tataName": "メルフィン",
+          "condition": "進化条件の詳細を確認中",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "user-provided-pdf",
+          "sourceUrl": "1-写真.pdf#page=9",
+          "verifiedAt": "2026-10-06"
+        },
+        {
+          "stage": 4,
+          "tataName": "オパーリア",
+          "condition": "進化条件の詳細を確認中",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "user-provided-pdf",
+          "sourceUrl": "1-写真.pdf#page=9",
+          "verifiedAt": "2026-10-06"
         }
       ]
     }

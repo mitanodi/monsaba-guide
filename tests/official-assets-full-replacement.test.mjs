@@ -14,13 +14,6 @@ const tatari = json('data/tatari.json');
 const sourceMap = json('data/official-assets/tata-source-map.json');
 const expectedPending = [
   'nenbutsuhebi:T4',
-  'nusuke:T1',
-  'nusuke:T2',
-  'nusuke:T3',
-  'nusuke:T4',
-  'pakuma:T2',
-  'pakuma:T3',
-  'pakuma:T4',
   'shizukuchou:T4',
   'sukedako:T4',
   'tsubaruka:T4'
@@ -30,13 +23,13 @@ const forms = images.families.flatMap((family) => family.forms.map((form) => ({ 
 const official = forms.filter((form) => form.sourceType === 'official_creator_asset');
 const pending = forms.filter((form) => form.status === 'pending');
 
-test('all 236 Tata forms have one stage-correct mapping with eleven expected pending', () => {
-  assert.equal(forms.length, 236);
-  assert.equal(new Set(forms.map((form) => `${form.familyId}:T${form.stage}`)).size, 236);
+test('all 240 Tata forms have one stage-correct mapping with four expected pending', () => {
+  assert.equal(forms.length, 240);
+  assert.equal(new Set(forms.map((form) => `${form.familyId}:T${form.stage}`)).size, 240);
   assert.equal(official.length, 224);
   assert.deepEqual(pending.map((form) => `${form.familyId}:T${form.stage}`).sort(), expectedPending);
-  assert.equal(forms.filter((form) => form.status === 'verified' && form.sourceType !== 'official_creator_asset').length, 1);
-  assert.equal(forms.find((form) => form.familyId === 'pakuma' && form.stage === 1).src, '/assets/tata-crops/forms/pakuma/t1.webp');
+  assert.equal(forms.filter((form) => form.status === 'verified' && form.sourceType !== 'official_creator_asset').length, 12);
+  assert.equal(forms.find((form) => form.familyId === 'pakuma' && form.stage === 1).src, '/assets/tata-provided/pakuma/t1-512.webp');
 });
 test('official source mapping has no duplicate, stage mismatch, fallback, or missing optimized file', async () => {
   assert.equal(sourceMap.assets.length, 224);

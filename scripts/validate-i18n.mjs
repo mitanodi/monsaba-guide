@@ -203,15 +203,15 @@ const tatari = JSON.parse(read('data/tatari.json'));
 const skills = JSON.parse(read('data/tata-skills.json'));
 const currentFamilyCount = tatari.families.length;
 const currentFormCount = tatari.families.flatMap((family) => family.evolutions).length;
-expect(currentFamilyCount === 65, `Tatari family count must be 65, got ${currentFamilyCount}`);
-expect(currentFormCount === 236, `Monster count must be 236, got ${currentFormCount}`);
+expect(currentFamilyCount === 66, `Tatari family count must be 66, got ${currentFamilyCount}`);
+expect(currentFormCount === 240, `Monster count must be 240, got ${currentFormCount}`);
 expect(skills.totals?.stages === currentFormCount && skills.totals?.skills === currentFormCount, `Skill stage count changed: ${skills.totals?.stages}`);
 expect(read('site.js').includes("localStorage.setItem('monsabaLanguage:v1'"), 'Language preference is not stored');
 expect(read('site.js').includes('location.search') && read('site.js').includes('location.hash'), 'Language switching does not preserve query/hash');
 expect(read('i18n-runtime.js').includes('.official-x-post-text') && read('i18n-runtime.js').includes('.friend-comment'), 'UGC/X translation exclusion missing');
 expect(read('app.js').includes("fetch('/data/tatari.json'"), 'Shared Tatari data must use a locale-independent root URL');
 expect(read('data/adsense-config.json').includes('"enabled": false') && read('data/adsense-config.json').includes('"autoAds": false'), 'AdSense must remain disabled');
-expect(read('ads.txt').trim() === [
+expect(read('ads.txt').replaceAll('\r\n', '\n').trim() === [
   'google.com, pub-2710725734378326, DIRECT, f08c47fec0942fa0',
   'adm.shinobi.jp,231656,DIRECT',
   'i-mobile.co.jp, 85460, DIRECT'

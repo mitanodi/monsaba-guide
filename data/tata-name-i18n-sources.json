@@ -24,11 +24,11 @@
     }
   },
   "summary": {
-    "canonicalForms": 236,
-    "englishConfirmed": 236,
+    "canonicalForms": 240,
+    "englishConfirmed": 237,
     "simplifiedChineseConfirmed": 236,
     "bothConfirmed": 236,
-    "needsReview": 0
+    "needsReview": 4
   },
   "forms": [
     {
@@ -3594,6 +3594,112 @@
         "en": "https://play.google.com/store/apps/details?hl=en&id=com.farlightgames.pgame.gp"
       },
       "checkedAt": "2026-09-11"
+    },
+    {
+      "familyId": "rukaron",
+      "stage": 1,
+      "japaneseName": "ルカロン",
+      "englishName": "Dolphie",
+      "simplifiedChineseName": null,
+      "confidence": "pending-official",
+      "sourceType": "supplemental-evidence",
+      "japaneseEvidence": {
+        "manifest": "data/user-tata-evidence-2026-10-06.json",
+        "sourcePage": 9
+      },
+      "localizedEvidence": {
+        "en": {
+          "status": "confirmed",
+          "sourceType": "official-store",
+          "url": "https://play.google.com/store/apps/details?hl=en&id=com.farlightgames.pgame.gp",
+          "checkedAt": "2026-10-06"
+        },
+        "zh-CN": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        }
+      },
+      "observedExternalEnglishName": "Snowcub",
+      "externalNameAdopted": false,
+      "checkedAt": "2026-10-06"
+    },
+    {
+      "familyId": "rukaron",
+      "stage": 2,
+      "japaneseName": "パステルカ",
+      "englishName": null,
+      "simplifiedChineseName": null,
+      "confidence": "pending-official",
+      "sourceType": "supplemental-evidence",
+      "japaneseEvidence": {
+        "manifest": "data/user-tata-evidence-2026-10-06.json",
+        "sourcePage": 9
+      },
+      "localizedEvidence": {
+        "en": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        },
+        "zh-CN": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        }
+      },
+      "observedExternalEnglishName": "Blubbles",
+      "externalNameAdopted": false,
+      "checkedAt": "2026-10-06"
+    },
+    {
+      "familyId": "rukaron",
+      "stage": 3,
+      "japaneseName": "メルフィン",
+      "englishName": null,
+      "simplifiedChineseName": null,
+      "confidence": "pending-official",
+      "sourceType": "supplemental-evidence",
+      "japaneseEvidence": {
+        "manifest": "data/user-tata-evidence-2026-10-06.json",
+        "sourcePage": 9
+      },
+      "localizedEvidence": {
+        "en": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        },
+        "zh-CN": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        }
+      },
+      "observedExternalEnglishName": "Aquariel",
+      "externalNameAdopted": false,
+      "checkedAt": "2026-10-06"
+    },
+    {
+      "familyId": "rukaron",
+      "stage": 4,
+      "japaneseName": "オパーリア",
+      "englishName": null,
+      "simplifiedChineseName": null,
+      "confidence": "pending-official",
+      "sourceType": "supplemental-evidence",
+      "japaneseEvidence": {
+        "manifest": "data/user-tata-evidence-2026-10-06.json",
+        "sourcePage": 9
+      },
+      "localizedEvidence": {
+        "en": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        },
+        "zh-CN": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        }
+      },
+      "observedExternalEnglishName": "Irisia",
+      "externalNameAdopted": false,
+      "checkedAt": "2026-10-06"
     }
   ]
 }

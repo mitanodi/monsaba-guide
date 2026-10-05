@@ -29,13 +29,6 @@ expect(tataSources.counts.pending_to_official === 114, 'pending to official coun
 expect(tataSources.counts.verified_to_official === 110, 'verified-to-official replacement count must be 110');
 expect(JSON.stringify(pending) === JSON.stringify([
   'nenbutsuhebi:T4',
-  'nusuke:T1',
-  'nusuke:T2',
-  'nusuke:T3',
-  'nusuke:T4',
-  'pakuma:T2',
-  'pakuma:T3',
-  'pakuma:T4',
   'shizukuchou:T4',
   'sukedako:T4',
   'tsubaruka:T4'
@@ -110,4 +103,4 @@ if (errors.length) {
   console.error(errors.map((error) => `- ${error}`).join('\n'));
   process.exit(1);
 }
-console.log('公式素材検証成功: asset 287 / Tata 224 / skill 58 / event 4 / site icon 1 / pending 11');
+console.log(`公式素材検証成功: asset 287 / Tata 224 / skill 58 / event 4 / site icon 1 / pending ${pending.length}`);

@@ -3,9 +3,9 @@
   "source": "data/tatari.json",
   "description": "Tata skill data copied from the existing structured tatari.json source. Values are preserved as published strings and are not inferred.",
   "totals": {
-    "families": 65,
-    "stages": 236,
-    "skills": 236,
+    "families": 66,
+    "stages": 240,
+    "skills": 240,
     "unreadable": 0
   },
   "issues": [],
@@ -10902,6 +10902,61 @@
           "verificationStatus": "external-guide-confirmed-values-pending"
         }
       ]
+    },
+    "rukaron": {
+      "familyId": "rukaron",
+      "familyName": "ルカロン",
+      "attribute": "水",
+      "stages": [
+        {
+          "stage": 1,
+          "tataName": "ルカロン",
+          "skillName": "確認待ち",
+          "description": "スキル名・効果・数値はゲーム内資料の確認待ちです。",
+          "values": [],
+          "sources": [],
+          "evolutionSource": "1-写真.pdf#page=9",
+          "nameEn": "Dolphie",
+          "nameZhHans": null,
+          "verificationStatus": "pending-user-skill-evidence"
+        },
+        {
+          "stage": 2,
+          "tataName": "パステルカ",
+          "skillName": "確認待ち",
+          "description": "スキル名・効果・数値はゲーム内資料の確認待ちです。",
+          "values": [],
+          "sources": [],
+          "evolutionSource": "1-写真.pdf#page=9",
+          "nameEn": null,
+          "nameZhHans": null,
+          "verificationStatus": "pending-user-skill-evidence"
+        },
+        {
+          "stage": 3,
+          "tataName": "メルフィン",
+          "skillName": "確認待ち",
+          "description": "スキル名・効果・数値はゲーム内資料の確認待ちです。",
+          "values": [],
+          "sources": [],
+          "evolutionSource": "1-写真.pdf#page=9",
+          "nameEn": null,
+          "nameZhHans": null,
+          "verificationStatus": "pending-user-skill-evidence"
+        },
+        {
+          "stage": 4,
+          "tataName": "オパーリア",
+          "skillName": "確認待ち",
+          "description": "スキル名・効果・数値はゲーム内資料の確認待ちです。",
+          "values": [],
+          "sources": [],
+          "evolutionSource": "1-写真.pdf#page=9",
+          "nameEn": null,
+          "nameZhHans": null,
+          "verificationStatus": "pending-user-skill-evidence"
+        }
+      ]
     }
   },
   "sourceEvidence": {
@@ -10932,6 +10987,15 @@
         "skill-names",
         "zombie-rush-skill-names"
       ]
+    },
+    {
+      "sourceType": "user-provided-pdf",
+      "fileName": "1-写真.pdf",
+      "checkedAt": "2026-10-06",
+      "scope": [
+        "rukaron-japanese-evolutions-only"
+      ],
+      "skillEvidenceProvided": false
     }
   ]
 }

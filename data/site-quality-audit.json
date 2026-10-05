@@ -2,8 +2,8 @@
   "version": 1,
   "asOf": "2026-09-05",
   "totals": {
-    "pages": 405,
-    "indexable": 366,
+    "pages": 408,
+    "indexable": 369,
     "brokenLinks": 0,
     "brokenImages": 0,
     "structuralIssues": 0,
@@ -1131,8 +1131,8 @@
     },
     {
       "route": "/en/tata/nusuke/",
-      "verified": "2026-09-01",
-      "ageDays": 4,
+      "verified": "2026-08-24",
+      "ageDays": 12,
       "category": "evergreen",
       "priority": "LOW",
       "status": "verified",
@@ -1206,6 +1206,16 @@
       "category": "evergreen",
       "priority": "LOW",
       "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/tata/rukaron/",
+      "verified": "2026-10-06",
+      "ageDays": -31,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "partial-evidence",
       "reviewRequired": false,
       "reasons": []
     },
@@ -2211,8 +2221,8 @@
     },
     {
       "route": "/tata/nusuke/",
-      "verified": "2026-09-01",
-      "ageDays": 4,
+      "verified": "2026-08-24",
+      "ageDays": 12,
       "category": "evergreen",
       "priority": "LOW",
       "status": "verified",
@@ -2286,6 +2296,16 @@
       "category": "evergreen",
       "priority": "LOW",
       "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/rukaron/",
+      "verified": "2026-10-06",
+      "ageDays": -31,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "partial-evidence",
       "reviewRequired": false,
       "reasons": []
     },
@@ -3411,8 +3431,8 @@
     },
     {
       "route": "/zh-cn/tata/nusuke/",
-      "verified": "2026-09-01",
-      "ageDays": 4,
+      "verified": "2026-08-24",
+      "ageDays": 12,
       "category": "evergreen",
       "priority": "LOW",
       "status": "verified",
@@ -3486,6 +3506,16 @@
       "category": "evergreen",
       "priority": "LOW",
       "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/rukaron/",
+      "verified": "2026-10-06",
+      "ageDays": -31,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "partial-evidence",
       "reviewRequired": false,
       "reasons": []
     },

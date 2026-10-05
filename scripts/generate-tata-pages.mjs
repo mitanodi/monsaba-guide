@@ -85,6 +85,7 @@ function renderPage(family, index) {
   const displayName = getFamilyDisplayName(family);
   const displayLabel = getFamilyDisplayLabel(family);
   const stageData = skills.byFamily?.[family.id]?.stages || [];
+  const pendingSkillEvidence = stageData.some((stage) => stage.verificationStatus === 'pending-user-skill-evidence');
   const overall = ratings.overall?.byFamily?.[family.id];
   const zombie = ratings.zombieRush?.byFamily?.[family.id];
   const evaluations = evaluationRows(family.id);
@@ -102,7 +103,7 @@ function renderPage(family, index) {
   const titleNames = [...new Set([evolvedNames[0], evolvedNames.at(-1)].filter(Boolean))];
   const title = `モンサバ ${displayLabel}${titleNames.length ? `（${titleNames.join('・')}）` : ''}は強い？進化・スキル・用途`;
   const roleText = roles.length ? ` 主な役割は${roles.join('・')}。` : '';
-  const description = editorial[family.id]?.description || `モンサバの${displayLabel}（${chain}）の進化先、スキル、確認済み数値${evaluations.length ? '、Tierと用途評価' : ''}を掲載。${roleText}`.trim();
+  const description = pendingSkillEvidence ? `${displayLabel}の進化先と提供画像を掲載。スキル名・効果・数値・進化条件はゲーム内資料の確認待ちです。` : editorial[family.id]?.description || `モンサバの${displayLabel}（${chain}）の進化先、スキル、確認済み数値${evaluations.length ? '、Tierと用途評価' : ''}を掲載。${roleText}`.trim();
   const image = `${BASE_URL}${stage1Image(family.id).src}`;
   const previous = families[index - 1];
   const next = families[index + 1];
@@ -141,10 +142,11 @@ function renderPage(family, index) {
     const visual = form
       ? `<img class="tata-form-image" src="${esc(form.src)}"${responsiveAttrs(form)} width="${form.width}" height="${form.height}" alt="${esc(evolution.name)}" loading="lazy" decoding="async">`
       : `<div class="tata-image-pending" role="img" aria-label="${esc(evolution.name)}"><span>画像確認中</span></div>`;
-    const localizedNames = `<div class="tata-i18n-names" translate="no"><span lang="en"><b>English:</b> ${esc(evolution.nameEn)}</span><span lang="zh-Hans"><b>简体中文:</b> ${esc(evolution.nameZhHans)}</span></div>`;
+    const localizedNames = `<div class="tata-i18n-names" translate="no"><span lang="en"><b>English:</b> ${evolution.nameEn ? esc(evolution.nameEn) : '<span data-name-status="pending">Awaiting confirmation</span>'}</span><span lang="zh-Hans"><b>简体中文:</b> ${evolution.nameZhHans ? esc(evolution.nameZhHans) : '<span data-name-status="pending">待确认</span>'}</span></div>`;
     return `<article class="evo-card static-evo">${visual}<div><small>T${evolution.stage}</small><strong>${esc(evolution.name)}</strong>${originalName(evolution, 'small')}${localizedNames}</div></article>`;
   }).join('');
-  const evolutionIndex = `<section class="wrap tata-stage-index" aria-labelledby="stage-index-title"><h2 id="stage-index-title">このページで扱う進化</h2><ol>${family.evolutions.map((evolution) => `<li><a href="#stage-${evolution.stage}"><b>T${evolution.stage}</b> ${esc(evolution.name)}</a></li>`).join('')}</ol><p>${esc(displayLabel)}のT1〜T${family.evolutions.length}について、進化先・スキル・確認済み数値をまとめています。</p></section>`;
+  const nameNotice = family.evolutions.some((evolution) => Object.values(evolution.nameVerification || {}).includes('pending')) ? '<section class="wrap static-section"><p>一部の外国語名は確認待ちのため、日本語名を表示しています。</p></section>' : '';
+  const evolutionIndex = nameNotice + `<section class="wrap tata-stage-index" aria-labelledby="stage-index-title"><h2 id="stage-index-title">このページで扱う進化</h2><ol>${family.evolutions.map((evolution) => `<li><a href="#stage-${evolution.stage}"><b>T${evolution.stage}</b> ${esc(evolution.name)}</a></li>`).join('')}</ol><p>${esc(displayLabel)}のT1〜T${family.evolutions.length}について、進化先・スキル・確認済み数値をまとめています。</p></section>`;
   const skillBlocks = stageData.map((stage) => {
 
     const skillIcon = skillIconByFamilyStage.get(`${family.id}:${stage.stage}`);
@@ -162,7 +164,7 @@ function renderPage(family, index) {
   const changeAnswer = changes.length
     ? `<div class="evolution-change-list">${changes.map(({ before, after, items }) => `<article><h3>T${before.stage} ${esc(before.tataName)} → T${after.stage} ${esc(after.tataName)}</h3>${items.length ? `<ul class="plain-list">${items.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>` : '<p>確認済み数値・スキル名の差分はありません。説明全文はスキル一覧で確認できます。</p>'}</article>`).join('')}</div>`
     : '<p class="section-note">現在評価情報を収集中です。</p>';
-  const quickAnswers = `<section class="wrap static-section tata-quick-answers" aria-labelledby="quick-answer-title"><p class="section-kicker visible-kicker">クイック回答</p><p class="trust-label-row"><span class="trust-label is-independent">独自評価</span><span class="trust-label is-verified">ゲーム内データ確認済み</span></p><h2 id="quick-answer-title" class="page-h2">${esc(displayName)}は強い？</h2><p>${esc(ratingAnswer)}</p><p class="quick-purpose-label">このタタは何向け？</p><h2 class="page-h2">${esc(displayLabel)}のおすすめ用途</h2>${purposeAnswer}${roles.length ? `<h3>主な役割</h3><div class="role-tags tata-role-tags">${roles.map((role) => `<span>${esc(role)}</span>`).join('')}</div>` : '<p class="section-note"><span class="trust-label is-pending">確認中</span> 役割情報は現在収集中です。</p>'}<p class="rating-hold-note">評価保留は弱いという意味ではなく、順位を付ける根拠が不足している状態です。</p><h2 class="page-h2">${esc(displayName)}は進化するべき？</h2>${priorityAnswer}</section>`;
+  const quickAnswers = `<section class="wrap static-section tata-quick-answers" aria-labelledby="quick-answer-title"><p class="section-kicker visible-kicker">クイック回答</p><p class="trust-label-row"><span class="trust-label is-independent">独自評価</span>${pendingSkillEvidence ? '<span class="trust-label is-pending">画像・名称確認／スキル確認待ち</span>' : '<span class="trust-label is-verified">ゲーム内データ確認済み</span>'}</p><h2 id="quick-answer-title" class="page-h2">${esc(displayName)}は強い？</h2><p>${esc(ratingAnswer)}</p><p class="quick-purpose-label">このタタは何向け？</p><h2 class="page-h2">${esc(displayLabel)}のおすすめ用途</h2>${purposeAnswer}${roles.length ? `<h3>主な役割</h3><div class="role-tags tata-role-tags">${roles.map((role) => `<span>${esc(role)}</span>`).join('')}</div>` : '<p class="section-note"><span class="trust-label is-pending">確認中</span> 役割情報は現在収集中です。</p>'}<p class="rating-hold-note">評価保留は弱いという意味ではなく、順位を付ける根拠が不足している状態です。</p><h2 class="page-h2">${esc(displayName)}は進化するべき？</h2>${priorityAnswer}</section>`;
   const evolutionLinks = family.evolutions.slice(0, -1).map((stage) => `<a class="ghost-button" href="/consult/?flow=evolution&amp;family=${encodeURIComponent(family.id)}&amp;stage=${stage.stage}">T${stage.stage} ${esc(stage.name)}から次の進化を相談</a>`).join('');
   const modeLinks = editorial[family.id]?.modeLinks || [
     [`/${`attribute/${attr.slug}`}/`, `${family.attribute}属性のタタを見る`],
@@ -246,7 +248,7 @@ ${evolutionLinks ? `<section class="wrap static-section tata-consult-cta"><h2 cl
     <section class="wrap static-section"><h2 class="page-h2">次にできること</h2><p class="section-note">確認済みDBから、このタタを比較・育成・編成へ引き継げます。</p><div class="attribute-guide-nav tata-related-links"><a href="/evolution-priority/">育成優先度を見る</a><a href="/compare/?a=${encodeURIComponent(family.id)}">他のタタと比較</a><a href="/team-builder/?family=${encodeURIComponent(family.id)}">編成で使う</a><a href="/#family-${encodeURIComponent(family.id)}">図鑑で進化・スキルを比較</a><a href="/consult/?flow=detail&amp;family=${encodeURIComponent(family.id)}">攻略相談所で相談</a>${modeLinks.map(([href, label]) => `<a href="${href}">${esc(label)}</a>`).join('')}</div></section>
     <nav class="tata-sticky-actions" aria-label="タタの操作"><a href="/compare/?a=${encodeURIComponent(family.id)}">比較</a><button class="tata-roster-button" type="button">My Monsaba</button><a href="/team-builder/?family=${encodeURIComponent(family.id)}">編成で使う</a></nav>
     <nav class="wrap tata-family-nav" aria-label="前後のタタ系統">${previous ? `<a href="/tata/${previous.id}/"><span>← 前の系統</span><b>${esc(getFamilyDisplayLabel(previous))}</b></a>` : '<span></span>'}${next ? `<a href="/tata/${next.id}/"><span>次の系統 →</span><b>${esc(getFamilyDisplayLabel(next))}</b></a>` : '<span></span>'}</nav>
-    <section class="wrap source-note"><strong>掲載データについて</strong><p>タタ名・進化・スキルと数値は、ゲーム内スクリーンショットで確認できた内容を掲載しています。読めない内容は推測で補完していません。Tierは当サイト独自の暫定評価です。</p>${freshness.routes?.[route] ? `<p>最終更新 <time datetime="${dateModified}">${dateModified}</time></p>` : ''}<p class="article-byline">運営・データ確認：<a href="/about/">おぢ</a></p><a href="/about-data/">データ更新方針を見る</a></section>
+    <section class="wrap source-note"><strong>掲載データについて</strong><p>${pendingSkillEvidence ? '日本語名と進化画像は提供資料、T1英語名は公式ストアで確認しました。スキル・進化条件・評価・一部の外国語名は確認待ちです。' : 'タタ名・進化・スキルと数値は、ゲーム内スクリーンショットで確認できた内容を掲載しています。読めない内容は推測で補完していません。Tierは当サイト独自の暫定評価です。'}</p>${freshness.routes?.[route] ? `<p>最終更新 <time datetime="${dateModified}">${dateModified}</time></p>` : ''}<p class="article-byline">運営・データ確認：<a href="/about/">おぢ</a></p><a href="/about-data/">データ更新方針を見る</a></section>
   </main>
   ${renderFooter(`${families.length}系統 / ${families.flatMap((family) => family.evolutions).length}体`)}
   <dialog id="tata-roster-dialog" class="tata-roster-dialog" aria-labelledby="tata-roster-title"><form method="dialog"><h2 id="tata-roster-title">マイモンサバへ登録</h2><p>この端末だけに所持状況を保存します。</p><div id="tata-roster-stages" class="stage-picker"></div><p id="tata-roster-message" class="tool-status" role="status" aria-live="polite"></p><button class="ghost-button" value="close">閉じる</button></form></dialog>

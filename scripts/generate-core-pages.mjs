@@ -177,9 +177,25 @@ const topWithCurrentCounts = topSource
   .replace(/モンサバの\d+系統・\d+体/g, `モンサバの${families.length}系統・${formCount}体`)
   .replace(/<span><b>\d+<\/b>系統<\/span>/, `<span><b>${families.length}</b>系統</span>`)
   .replace(/<span><b>\d+<\/b>体<\/span>/, `<span><b>${formCount}</b>体</span>`)
-  .replace(/\d+系統を一覧で見る/g, `${families.length}系統を一覧で見る`);
+  .replace(/\d+系統を一覧で見る/g, `${families.length}系統を一覧で見る`)
+  .replace(/(<a[^>]*href="\/attribute\/(grass|water|fire|thunder|rock)\/"[^>]*>[^<]*<small>)\d+系統/g, (_, opening, slug) => {
+    const attribute = Object.keys(ATTRIBUTE_META).find((key) => ATTRIBUTE_META[key].slug === slug);
+    return `${opening}${families.filter((family) => family.attribute === attribute).length}系統`;
+  });
 if (topWithCurrentCounts !== topSource)
   writeFile(topFile, topWithCurrentCounts);
 console.log(`主要静的HTMLを生成しました: TOP ${families.length}系統 / Tier ${rankedIds.size}系統 / 進化差分 ${transitions.length}件`);
 
 await import("./generate-tier-pages.mjs");
+
+// A dated release card is generated from the same reviewed source as the new family.
+const userUpdateFile = path.join(root, 'updates/index.html');
+const userUpdateStart = '<!-- USER_TATA_20261006:START -->';
+const userUpdateEnd = '<!-- USER_TATA_20261006:END -->';
+const userUpdateCard = `${userUpdateStart}<section class="wrap static-section update-card"><time datetime="2026-10-06">2026年10月6日</time><h2>ルカロン系4形態とタタ画像を追加</h2><p>ルカロン系を追加し、パクマ系・ヌスケ系の進化画像を更新しました。66系統・240形態を掲載。未確認のスキル数値・進化条件・外国語名・評価は確認待ちです。</p><p><a href="/tata/rukaron/">ルカロン系</a> · <a href="/tata/pakuma/">パクマ系</a> · <a href="/tata/nusuke/">ヌスケ系</a></p></section>${userUpdateEnd}`;
+let userUpdateHtml = readFile(userUpdateFile, 'utf8');
+const userUpdatePattern = /<!-- USER_TATA_20261006:START -->[\s\S]*?<!-- USER_TATA_20261006:END -->/;
+userUpdateHtml = userUpdatePattern.test(userUpdateHtml)
+  ? userUpdateHtml.replace(userUpdatePattern, userUpdateCard)
+  : userUpdateHtml.replace(/(<main[^>]*>)/, `$1${userUpdateCard}`);
+writeFile(userUpdateFile, userUpdateHtml);

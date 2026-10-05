@@ -8,7 +8,9 @@ const { getFamilyDisplayLabel, getTataDisplayName, getEvolutionChain } = globalT
 const errors = [];
 const normalizeChain = (value) => String(value).replace(/\s*→\s*/g, '→');
 const forms = tatari.families.flatMap((family) => family.evolutions.map((evolution) => ({ family, evolution })));
-const japaneseNames = [...new Set(forms.map(({ evolution }) => evolution.name))].sort((a, b) => b.length - a.length);
+const japaneseNamesFor = (locale) => [...new Set(forms
+  .filter(({ evolution }) => evolution.nameVerification?.[locale] !== 'pending')
+  .map(({ evolution }) => evolution.name))].sort((a, b) => b.length - a.length);
 
 const stripAllowedJapanese = (html) => html
   .replace(/<([a-z][\w:-]*)\b[^>]*class="[^"]*(?:localized-original-name|tata-i18n-names)[^"]*"[^>]*>[\s\S]*?<\/\1>/gi, '')
@@ -18,7 +20,7 @@ const stripAllowedJapanese = (html) => html
 for (const { family, evolution } of forms) {
   for (const locale of ['en', 'zh-CN']) {
     const name = getTataDisplayName(evolution, locale);
-    if (!name || name === evolution.name) errors.push(`${family.id}:T${evolution.stage}:${locale}: official primary name fallback`);
+    if ((!name || name === evolution.name) && evolution.nameVerification?.[locale] !== 'pending') errors.push(`${family.id}:T${evolution.stage}:${locale}: official primary name fallback`);
   }
 }
 
@@ -50,7 +52,7 @@ for (const [locale, directory] of [['en', 'en'], ['zh-CN', 'zh-cn']]) {
   walk(path.join(root, directory));
   for (const file of files) {
     const primary = stripAllowedJapanese(fs.readFileSync(file, 'utf8'));
-    const remaining = japaneseNames.filter((name) => primary.includes(name));
+    const remaining = japaneseNamesFor(locale).filter((name) => primary.includes(name));
     if (remaining.length) errors.push(`${path.relative(root, file)}: unintended Japanese Tata primary names: ${remaining.slice(0, 5).join(', ')}`);
   }
 }
@@ -65,4 +67,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Tata primary-name localization passed: ${tatari.families.length} families / ${forms.length} forms / EN fallback 0 / zh-CN fallback 0`);
+console.log(`Tata primary-name localization passed: ${tatari.families.length} families / ${forms.length} forms / unintended fallback 0 / explicit pending names ${forms.reduce((sum, { evolution }) => sum + Object.values(evolution.nameVerification || {}).filter(status => status === "pending").length, 0)}`);
