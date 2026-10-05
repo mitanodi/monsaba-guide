@@ -9,9 +9,14 @@ const root = path.resolve(import.meta.dirname, '..');
 const retrySignal = new Int32Array(new SharedArrayBuffer(4));
 function withFileRetry(operation) {
   for (let attempt = 0; attempt < 12; attempt++) {
-    try { return operation(); }
+    try {
+
+      return operation();
+
+    }
     catch (error) {
-      if (!['EBUSY', 'EPERM'].includes(error.code) || attempt === 11) throw error;
+      if (!['EBUSY', 'EPERM'].includes(error.code) || attempt === 11)
+        throw error;
       Atomics.wait(retrySignal, 0, 0, 40 * (attempt + 1));
     }
   }
@@ -38,7 +43,8 @@ function replaceMarker(file, name, html) {
   const absolute = path.join(root, file);
   const source = readFile(absolute, 'utf8');
   const pattern = new RegExp(`(<!-- STATIC:${name}:START -->)[\\s\\S]*?(<!-- STATIC:${name}:END -->)`);
-  if (!pattern.test(source)) throw new Error(`${file}: ${name} markerがありません`);
+  if (!pattern.test(source))
+    throw new Error(`${file}: ${name} markerがありません`);
   writeFile(absolute, source.replace(pattern, `$1${html}$2`));
 }
 
@@ -58,11 +64,22 @@ function diffStages(from, to) {
   const after = new Map((to.values || []).map((value) => [value.label, value.value]));
   const added = [], changed = [], missing = [];
   for (const [label, value] of after) {
-    if (!before.has(label)) added.push({ label, value });
-    else if (before.get(label) !== value) changed.push({ label, from: before.get(label), to: value });
+    if (!before.has(label))
+      added.push({ label, value });
+    else if (before.get(label) !== value)
+      changed.push({ label, from: before.get(label), to: value });
   }
-  if (after.size) for (const [label, value] of before) if (!after.has(label)) missing.push({ label, value });
-  return { skillNameChanged: from.skillName !== to.skillName, descriptionChanged: from.description !== to.description, added, changed, missing };
+  if (after.size)
+    for (const [label, value] of before)
+      if (!after.has(label))
+        missing.push({ label, value });
+  return {
+    skillNameChanged: from.skillName !== to.skillName,
+    descriptionChanged: from.description !== to.description,
+    added,
+    changed,
+    missing
+  };
 }
 function transitionMeta(family, from, to, delta) {
   const key = `${family.id}:${from.stage}-${to.stage}`;
@@ -72,8 +89,20 @@ function transitionMeta(family, from, to, delta) {
   const second = priority.t3Roadmap?.secondPriority?.find((item) => item.familyId === family.id);
   let level = explicit?.priority || impact?.priority || '評価保留';
   let reason = explicit?.reason || impact?.reason || '現在の公開情報では進化優先度を付ける根拠が不足しています。スキル差分と手持ち編成を見て判断してください。';
-  if (from.stage === 2 && to.stage === 3 && first) { level = first.priority; reason = first.reason; }
-  if (from.stage === 2 && to.stage === 3 && second) { level = second.priority; reason = second.reason; }
+  if (from.stage === 2 && to.stage === 3 && first) {
+
+    level = first.priority;
+
+    reason = first.reason;
+
+  }
+  if (from.stage === 2 && to.stage === 3 && second) {
+
+    level = second.priority;
+
+    reason = second.reason;
+
+  }
   const headline = impact?.headline || (delta.added[0] ? `${delta.added[0].label}が追加` : delta.changed[0] ? `${delta.changed[0].label}が変化` : delta.skillNameChanged ? 'スキル名が変化' : '記載上の数値差分は少なめ');
   return { priority: level, reason, headline };
 }
@@ -88,11 +117,13 @@ const transitions = families.flatMap((family) => {
 const badge = (label, value) => `<span class="tier-badge">${esc(label)} ${esc(value || '評価保留')}</span>`;
 function deltaHtml(delta) {
   const rows = [];
-  if (delta.skillNameChanged) rows.push('<li>スキル名が変化</li>');
+  if (delta.skillNameChanged)
+    rows.push('<li>スキル名が変化</li>');
   rows.push(...delta.added.map((value) => `<li>追加：${esc(value.label)} ${esc(value.value)}</li>`));
   rows.push(...delta.changed.map((value) => `<li>${esc(value.label)}：${esc(value.from)} → ${esc(value.to)}</li>`));
   rows.push(...delta.missing.map((value) => `<li>次進化データでは項目記載なし：${esc(value.label)} ${esc(value.value)}</li>`));
-  if (!rows.length && delta.descriptionChanged) rows.push('<li>説明文が変化</li>');
+  if (!rows.length && delta.descriptionChanged)
+    rows.push('<li>説明文が変化</li>');
   return `<ul class="delta-list">${rows.join('') || '<li>記載上の数値差分は少なめ</li>'}</ul>`;
 }
 function transitionCard(item, includeReason = false) {
@@ -107,11 +138,31 @@ const roadmapGroups = [
 ];
 const roadmap = roadmapGroups.map(([title, items, lead]) => `<article class="priority-tata-card roadmap-card"><h3>${title}</h3><p>${lead}</p>${items.map((item) => { const family = familyById.get(item.familyId); const stageData = skills.byFamily[item.familyId]?.stages || []; const first = stageData[0]; const t3 = stageData.find((stage) => stage.stage === 3); const image = stage1Image(family); return `<a class="mini-family-row" href="/tata/${encodeURIComponent(item.familyId)}/"><img loading="lazy" decoding="async" src="${esc(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(first?.tataName || getFamilyDisplayName(family))}"><span><b>${esc(getFamilyDisplayLabel(family))}</b><em>T3：${esc(t3?.tataName)} / ${item.requiredStars}星</em></span></a>`; }).join('')}</article>`).join('');
 const impact = priority.highImpactTransitions.map((item) => transitionCard(transitions.find((transition) => transition.family.id === item.familyId && transition.from.stage === item.fromStage && transition.to.stage === item.toStage), true)).join('');
-const auraLabels = { 火: 'オーラ・炎：仲間の攻撃力増加', 雷: 'オーラ・雷：仲間の攻撃速度増加', 草: 'オーラ・草：仲間のHP増加', 水: 'オーラ・水：仲間を継続回復', 岩: 'オーラ・岩：仲間の被ダメージ減少' };
-const aura = Object.entries(auraLabels).map(([attribute, text]) => { const sample = transitions.find((item) => item.family.attribute === attribute && item.from.stage === 3 && item.to.stage === 4 && item.delta.added.some((value) => value.label.includes('オーラ'))); const values = sample?.delta.added.filter((value) => value.label.includes('オーラ')).map((value) => `${value.label} ${value.value}`).join(' / '); return `<li>${esc(text)}${values ? `<br><small>例：${esc(values)}</small>` : ''}</li>`; }).join('');
+const auraLabels = {
+  火: 'オーラ・炎：仲間の攻撃力増加',
+  雷: 'オーラ・雷：仲間の攻撃速度増加',
+  草: 'オーラ・草：仲間のHP増加',
+  水: 'オーラ・水：仲間を継続回復',
+  岩: 'オーラ・岩：仲間の被ダメージ減少'
+};
+const aura = Object.entries(auraLabels).map(([attribute, text]) => {
+
+  const sample = transitions.find((item) => item.family.attribute === attribute && item.from.stage === 3 && item.to.stage === 4 && item.delta.added.some((value) => value.label.includes('オーラ')));
+
+  const values = sample?.delta.added.filter((value) => value.label.includes('オーラ')).map((value) => `${value.label} ${value.value}`).join(' / ');
+
+  return `<li>${esc(text)}${values ? `<br><small>例：${esc(values)}</small>` : ''}</li>`;
+
+}).join('');
 const transitionOrder = { '最優先候補': 0, '優先候補': 1, '用途次第': 2, '評価保留': 3 };
 const transitionList = [...transitions].sort((a, b) => (transitionOrder[a.priority] - transitionOrder[b.priority]) || getFamilyDisplayName(a.family).localeCompare(getFamilyDisplayName(b.family), 'ja')).map((item) => transitionCard(item)).join('');
-const longTerm = priority.longTermRecommended.map((item) => { const family = familyById.get(item.familyId); return `<article class="priority-tata-card"><div class="priority-tata-head"><h3>${esc(getFamilyDisplayLabel(family))}</h3><div>${badge('総合', overallByFamily[item.familyId]?.tier)}</div></div><p class="tier-chain">${family.evolutions.map((evolution) => esc(evolution.name)).join(' → ')}</p><p>${esc(item.reason)}</p><a class="detail-link" href="/tata/${encodeURIComponent(item.familyId)}/">詳しく見る</a></article>`; }).join('');
+const longTerm = priority.longTermRecommended.map((item) => {
+
+  const family = familyById.get(item.familyId);
+
+  return `<article class="priority-tata-card"><div class="priority-tata-head"><h3>${esc(getFamilyDisplayLabel(family))}</h3><div>${badge('総合', overallByFamily[item.familyId]?.tier)}</div></div><p class="tier-chain">${family.evolutions.map((evolution) => esc(evolution.name)).join(' → ')}</p><p>${esc(item.reason)}</p><a class="detail-link" href="/tata/${encodeURIComponent(item.familyId)}/">詳しく見る</a></article>`;
+
+}).join('');
 
 replaceMarker('index.html', 'TOP_CARDS', families.map(topCard).join(''));
 replaceMarker('evolution-priority/index.html', 'EVOLUTION_ROADMAP', roadmap);
@@ -127,7 +178,8 @@ const topWithCurrentCounts = topSource
   .replace(/<span><b>\d+<\/b>系統<\/span>/, `<span><b>${families.length}</b>系統</span>`)
   .replace(/<span><b>\d+<\/b>体<\/span>/, `<span><b>${formCount}</b>体</span>`)
   .replace(/\d+系統を一覧で見る/g, `${families.length}系統を一覧で見る`);
-if (topWithCurrentCounts !== topSource) writeFile(topFile, topWithCurrentCounts);
+if (topWithCurrentCounts !== topSource)
+  writeFile(topFile, topWithCurrentCounts);
 console.log(`主要静的HTMLを生成しました: TOP ${families.length}系統 / Tier ${rankedIds.size}系統 / 進化差分 ${transitions.length}件`);
 
 await import("./generate-tier-pages.mjs");

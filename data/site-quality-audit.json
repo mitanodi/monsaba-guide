@@ -3907,11 +3907,11 @@
     "bundles": [
       {
         "file": "styles.css",
-        "bytes": 98305
+        "bytes": 119110
       },
       {
         "file": "site.js",
-        "bytes": 29845
+        "bytes": 30558
       },
       {
         "file": "growth.js",
@@ -3919,11 +3919,11 @@
       },
       {
         "file": "team-builder/team-builder.js",
-        "bytes": 77898
+        "bytes": 83520
       },
       {
         "file": "team-builder/community/community.js",
-        "bytes": 20231
+        "bytes": 23323
       }
     ],
     "localStorageNamespaces": [

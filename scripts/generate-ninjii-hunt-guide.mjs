@@ -8,13 +8,19 @@ const route = '/guides/ninjii-hunt/';
 const title = '【モンサバ】ニンジィ探し攻略｜長方形マップを狙う2つの方法';
 const description = 'モンサバのニンジィ探しで長方形マップを狙う2つの方法を紹介。フレンド0人と、初期マップで止めたサブアカウントを活用する手順・注意点・6個獲得の実例を整理します。';
 const updated = '2026-09-17';
-const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[char]));
-const crumbs = [{ label:'トップ', href:'/' }, { label:'攻略ハブ', href:'/guides/' }, { label:'ニンジィ探し攻略' }];
+const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
+const crumbs = [{ label: 'トップ', href: '/' }, { label: '攻略ハブ', href: '/guides/' }, { label: 'ニンジィ探し攻略' }];
 const articleSchema = {
-  '@type':'Article', '@id':`${absoluteUrl(route)}#article`, headline:title, description,
-  datePublished:updated, dateModified:updated, inLanguage:'ja',
-  author:{ '@type':'Person', name:'おぢ', url:absoluteUrl('/about/') },
-  publisher:{ '@id':'https://monster-survival.com/#website' }, mainEntityOfPage:absoluteUrl(route)
+  '@type': 'Article',
+  '@id': `${absoluteUrl(route)}#article`,
+  headline: title,
+  description,
+  datePublished: updated,
+  dateModified: updated,
+  inLanguage: 'ja',
+  author: { '@type': 'Person', name: 'おぢ', url: absoluteUrl('/about/') },
+  publisher: { '@id': 'https://monster-survival.com/#website' },
+  mainEntityOfPage: absoluteUrl(route)
 };
 
 const body = `<section class="wrap static-section prose-page ninjii-guide">
@@ -60,10 +66,10 @@ const body = `<section class="wrap static-section prose-page ninjii-guide">
 <section class="wrap source-note"><strong>根拠と確認状態</strong><p>方法①・方法②、現在のバージョンでの再現、ニンジィ6個の上限：2026年9月17日に受け取った管理人おぢの実戦確認と提供画像。将来のアップデート後の継続可否、公式のマッチング条件、試行回数、平均、マッチ率は未確認・未集計です。</p><a href="/about-data/">データ方針を見る</a></section>`;
 
 const graph = [articleSchema, breadcrumbSchema(crumbs)];
-const html = `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${renderSeoHead({ title, description, route, robots:'index,follow,max-image-preview:large' })}<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="stylesheet" href="/styles.css"><script type="application/ld+json">${safeJsonLd({ '@context':'https://schema.org', '@graph':graph })}</script></head><body data-page-type="article"><a class="skip-link" href="#main-content">本文へスキップ</a>${renderHeader(route)}<main id="main-content"><section class="page-hero"><div class="wrap">${renderBreadcrumb(crumbs)}<div class="family-page-head"><div><span class="visible-kicker">管理人の実戦情報・非公式攻略</span><h1>${esc(title.replace(/^【モンサバ】/,''))}</h1><p>${esc(description)}</p></div></div></div></section>${body}</main>${renderFooter('ニンジィ探し攻略')}<script src="/family-display.js"></script><script src="/site.js"></script><script src="/growth.js" defer></script><script src="/article-comments.js" defer></script></body></html>`;
+const html = `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${renderSeoHead({ title, description, route, robots: 'index,follow,max-image-preview:large' })}<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="stylesheet" href="/styles.css"><script type="application/ld+json">${safeJsonLd({ '@context': 'https://schema.org', '@graph': graph })}</script></head><body data-page-type="article"><a class="skip-link" href="#main-content">本文へスキップ</a>${renderHeader(route)}<main id="main-content"><section class="page-hero"><div class="wrap">${renderBreadcrumb(crumbs)}<div class="family-page-head"><div><span class="visible-kicker">管理人の実戦情報・非公式攻略</span><h1>${esc(title.replace(/^【モンサバ】/, ''))}</h1><p>${esc(description)}</p></div></div></div></section>${body}</main>${renderFooter('ニンジィ探し攻略')}<script src="/family-display.js"></script><script src="/site.js"></script><script src="/growth.js" defer></script><script src="/article-comments.js" defer></script></body></html>`;
 
 const output = path.join(root, route.slice(1), 'index.html');
-fs.mkdirSync(path.dirname(output), { recursive:true });
+fs.mkdirSync(path.dirname(output), { recursive: true });
 fs.writeFileSync(output, html);
 
 function replaceBlock(relative, marker, content, before) {
@@ -72,15 +78,17 @@ function replaceBlock(relative, marker, content, before) {
   const start = `<!-- NINJII:${marker}:START -->`, end = `<!-- NINJII:${marker}:END -->`;
   const block = `${start}${content}${end}`;
   const pattern = new RegExp(`${start}[\\s\\S]*?${end}`);
-  if (pattern.test(source)) source = source.replace(pattern, block);
-  else if (source.includes(before)) source = source.replace(before, `${block}${before}`);
+  if (pattern.test(source))
+    source = source.replace(pattern, block);
+  else if (source.includes(before))
+    source = source.replace(before, `${block}${before}`);
   else throw new Error(`${relative}: insertion target not found`);
   fs.writeFileSync(file, source);
 }
 
-replaceBlock('guides/index.html','GUIDES','<section class="wrap static-section"><div class="summary-box"><strong>ニンジィ探し攻略を追加</strong><p>長方形マップを狙う「フレンド0人」と「初期マップのサブアカウント活用」の2つを、未確認条件と分けて解説します。</p><a class="ghost-button" href="/guides/ninjii-hunt/">ニンジィ探し攻略を見る</a></div></section>','</main>');
-replaceBlock('beginner-guide/index.html','BEGINNER','<section class="wrap static-section"><div class="summary-box"><strong>イベント攻略：ニンジィ探し</strong><p>フレンドを全員解除したくない場合の代替方法も含め、長方形マップを狙う手順を確認できます。</p><a class="ghost-button" href="/guides/ninjii-hunt/">ニンジィ探し攻略を見る</a></div></section>','<section class="wrap source-note">');
-replaceBlock('updates/index.html','UPDATES',`<article class="update-entry"><time datetime="${updated}">2026年9月17日</time><h2>ニンジィ探しの実戦攻略記事を追加</h2><p>管理人の実戦報告をもとに、長方形マップを狙う2つの方法と未確認条件を整理しました。</p><p><a class="ghost-button" href="/guides/ninjii-hunt/">記事を見る</a></p></article>`,'</section>');
-replaceBlock('privacy/index.html','ARTICLE-COMMENTS','<h2 class="page-h2">記事コメント欄</h2><p>実戦攻略記事のコメント欄では、任意の名前・コメント本文・投稿日時を保存し、公開します。個人情報を書き込まないでください。生のIPアドレスは保存せず、不可逆化した識別値を投稿間隔の制御に利用します。自分のコメントを削除するための情報は利用中のブラウザ内に保存します。</p>','<h2 class="page-h2">Google Analyticsについて</h2>');
+replaceBlock('guides/index.html', 'GUIDES', '<section class="wrap static-section"><div class="summary-box"><strong>ニンジィ探し攻略を追加</strong><p>長方形マップを狙う「フレンド0人」と「初期マップのサブアカウント活用」の2つを、未確認条件と分けて解説します。</p><a class="ghost-button" href="/guides/ninjii-hunt/">ニンジィ探し攻略を見る</a></div></section>', '</main>');
+replaceBlock('beginner-guide/index.html', 'BEGINNER', '<section class="wrap static-section"><div class="summary-box"><strong>イベント攻略：ニンジィ探し</strong><p>フレンドを全員解除したくない場合の代替方法も含め、長方形マップを狙う手順を確認できます。</p><a class="ghost-button" href="/guides/ninjii-hunt/">ニンジィ探し攻略を見る</a></div></section>', '<section class="wrap source-note">');
+replaceBlock('updates/index.html', 'UPDATES', `<article class="update-entry"><time datetime="${updated}">2026年9月17日</time><h2>ニンジィ探しの実戦攻略記事を追加</h2><p>管理人の実戦報告をもとに、長方形マップを狙う2つの方法と未確認条件を整理しました。</p><p><a class="ghost-button" href="/guides/ninjii-hunt/">記事を見る</a></p></article>`, '</section>');
+replaceBlock('privacy/index.html', 'ARTICLE-COMMENTS', '<h2 class="page-h2">記事コメント欄</h2><p>実戦攻略記事のコメント欄では、任意の名前・コメント本文・投稿日時を保存し、公開します。個人情報を書き込まないでください。生のIPアドレスは保存せず、不可逆化した識別値を投稿間隔の制御に利用します。自分のコメントを削除するための情報は利用中のブラウザ内に保存します。</p>', '<h2 class="page-h2">Google Analyticsについて</h2>');
 
 console.log(`ニンジィ探し攻略を生成しました: ${route}`);

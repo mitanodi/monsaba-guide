@@ -10,9 +10,14 @@ const root = path.resolve(import.meta.dirname, '..');
 const retrySignal = new Int32Array(new SharedArrayBuffer(4));
 function readWithRetry(file, encoding) {
   for (let attempt = 0; attempt < 12; attempt++) {
-    try { return fs.readFileSync(file, encoding); }
+    try {
+
+      return fs.readFileSync(file, encoding);
+
+    }
     catch (error) {
-      if (!['EBUSY', 'EPERM'].includes(error.code) || attempt === 11) throw error;
+      if (!['EBUSY', 'EPERM'].includes(error.code) || attempt === 11)
+        throw error;
       Atomics.wait(retrySignal, 0, 0, 40 * (attempt + 1));
     }
   }
@@ -25,9 +30,11 @@ const ignored = new Set(['.git', '.vercel', 'node_modules', 'assets', 'data', 's
 
 function walk(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
-    if (ignored.has(entry.name)) return [];
+    if (ignored.has(entry.name))
+      return [];
     const full = path.join(directory, entry.name);
-    if (entry.isDirectory()) return walk(full);
+    if (entry.isDirectory())
+      return walk(full);
     return entry.name === 'index.html' ? [path.relative(root, full).replaceAll('\\', '/')] : [];
   });
 }
@@ -70,7 +77,8 @@ test('A8 delivery is low-density and all fixed/floating placements are disabled'
   assert.equal(config.adsEnabled, false);
   assert.equal(config.affiliateEnabled, true);
   assert.equal(config.affiliateDensity, 'low');
-  for (const key of ['stickyAffiliateEnabled', 'slideAffiliateEnabled', 'bottomAffiliateEnabled', 'desktopRailAffiliateEnabled']) assert.equal(config[key], false, key);
+  for (const key of ['stickyAffiliateEnabled', 'slideAffiliateEnabled', 'bottomAffiliateEnabled', 'desktopRailAffiliateEnabled'])
+    assert.equal(config[key], false, key);
   assert.match(read('monetization.js'), /affiliateDensity === 'low'/);
   const staticAds = walk(root).flatMap((file) => [...read(file).matchAll(/data-affiliate-offer="([^"]+)"/g)].map((match) => ({ file, id: match[1] })));
   assert.equal(staticAds.length, 22);
@@ -79,7 +87,17 @@ test('A8 delivery is low-density and all fixed/floating placements are disabled'
 
 test('Privacy describes future AdSense use without claiming it is active', () => {
   const privacy = read('privacy/index.html');
-  for (const phrase of ['今後Google AdSenseを導入する可能性', '現時点ではGoogle AdSenseの広告配信コードを設置しておらず', '第三者配信事業者', 'Cookie', '広告の配信・効果測定', 'パーソナライズ広告', 'Googleの広告設定', 'このページを再更新']) assert.ok(privacy.includes(phrase), phrase);
+  for (const phrase of [
+    '今後Google AdSenseを導入する可能性',
+    '現時点ではGoogle AdSenseの広告配信コードを設置しておらず',
+    '第三者配信事業者',
+    'Cookie',
+    '広告の配信・効果測定',
+    'パーソナライズ広告',
+    'Googleの広告設定',
+    'このページを再更新'
+  ])
+    assert.ok(privacy.includes(phrase), phrase);
   assert.doesNotMatch(privacy, /現在Google AdSenseを利用しています/);
 });
 
@@ -101,7 +119,22 @@ test('every active role guide has substantive original context, mode guidance an
     const html = read(`roles/${name}/index.html`);
     assert.doesNotMatch(html, /noindex/i, name);
     assert.ok(plainText(html).length >= 1400, `${name}: 本文が短すぎます (${plainText(html).length})`);
-    for (const phrase of ['役とは', '候補に入れやすい場面', '優先度を下げる判断', '候補', '用途別の使い分け', '通常ステージ', 'ゾンビラッシュ', 'バッジ道場', 'ボスラリー', '初心者・育成優先の考え方', '関連する役割と確認先', '確認済みDB', '当サイト独自整理']) assert.ok(html.includes(phrase), `${name}: ${phrase}`);
+    for (const phrase of [
+      '役とは',
+      '候補に入れやすい場面',
+      '優先度を下げる判断',
+      '候補',
+      '用途別の使い分け',
+      '通常ステージ',
+      'ゾンビラッシュ',
+      'バッジ道場',
+      'ボスラリー',
+      '初心者・育成優先の考え方',
+      '関連する役割と確認先',
+      '確認済みDB',
+      '当サイト独自整理'
+    ])
+      assert.ok(html.includes(phrase), `${name}: ${phrase}`);
     assert.match(html, /href="\/tata\/[^/]+\/"/);
     assert.match(html, /href="\/about-data\/"/);
   }
@@ -114,7 +147,8 @@ test('sitemap has no noindex mismatch, indexable pages are present and custom 40
     const route = routeFor(file);
     const noindex = /<meta name="robots" content="[^"]*noindex/i.test(html);
     const included = sitemap.includes(`<loc>https://monster-survival.com${route}</loc>`);
-    if (noindex) assert.equal(included, false, `${route} is noindex but in sitemap`);
+    if (noindex)
+      assert.equal(included, false, `${route} is noindex but in sitemap`);
     else assert.equal(included, true, `${route} is indexable but absent from sitemap`);
   }
   const notFound = read('404.html');
@@ -154,7 +188,8 @@ test('full site generation is idempotent', { timeout: 240000 }, () => {
       break;
     } catch (error) {
       const output = `${error.stderr || ''}\n${error.stdout || ''}`;
-      if (!/EBUSY|EPERM/.test(output) || attempt === 11) throw error;
+      if (!/EBUSY|EPERM/.test(output) || attempt === 11)
+        throw error;
       Atomics.wait(retrySignal, 0, 0, 200 * (attempt + 1));
     }
   }

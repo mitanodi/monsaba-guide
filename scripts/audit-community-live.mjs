@@ -27,19 +27,31 @@ async function collectBuilds() {
   let firstResponse;
   for (let page = 0; page < 100; page += 1) {
     const url = new URL('/api/community', baseUrl);
-    if (cursor) url.searchParams.set('cursor', cursor);
+    if (cursor)
+      url.searchParams.set('cursor', cursor);
     const { response, text } = await get(url);
     firstResponse ||= response;
     let payload;
-    try { payload = JSON.parse(text); } catch { throw new Error(`Community API returned non-JSON (${response.status}).`); }
-    if (!response.ok || !payload.ok || !Array.isArray(payload.builds)) throw new Error(`Community API failed (${response.status}).`);
+    try {
+
+      payload = JSON.parse(text);
+
+    } catch {
+
+      throw new Error(`Community API returned non-JSON (${response.status}).`);
+
+    }
+    if (!response.ok || !payload.ok || !Array.isArray(payload.builds))
+      throw new Error(`Community API failed (${response.status}).`);
     for (const build of payload.builds) {
-      if (!build?.id || ids.has(build.id)) throw new Error('Community list contains a missing or duplicate build ID.');
+      if (!build?.id || ids.has(build.id))
+        throw new Error('Community list contains a missing or duplicate build ID.');
       ids.add(build.id);
       builds.push(build);
     }
     cursor = payload.nextCursor || '';
-    if (!cursor) return { builds, firstResponse, nextCursor: null };
+    if (!cursor)
+      return { builds, firstResponse, nextCursor: null };
   }
   throw new Error('Community pagination exceeded the 100-page safety limit.');
 }
@@ -52,7 +64,16 @@ function inspectFormation(build) {
   const validLevels = occupied.every((slot) => Number.isInteger(slot.level) && slot.level >= 1);
   const validChips = [1, 2].every((playerId) => Array.isArray(team.chips[playerId]) && team.chips[playerId].length <= 3);
   const countsMatch = [1, 2].every((playerId) => Number(build.playerCounts?.[playerId]) === playerCount(team, playerId));
-  return { team, checks: { preview6x6: team.slots.length === TEAM_SLOTS ? 'pass' : 'fail', playerLabels: validPlayers && countsMatch ? 'pass' : 'fail', tier: validStages ? 'pass' : 'fail', level: validLevels ? 'pass' : 'fail', chips: validChips ? 'pass' : 'fail' } };
+  return {
+    team,
+    checks: {
+      preview6x6: team.slots.length === TEAM_SLOTS ? 'pass' : 'fail',
+      playerLabels: validPlayers && countsMatch ? 'pass' : 'fail',
+      tier: validStages ? 'pass' : 'fail',
+      level: validLevels ? 'pass' : 'fail',
+      chips: validChips ? 'pass' : 'fail'
+    }
+  };
 }
 
 async function run() {
@@ -61,8 +82,22 @@ async function run() {
     listApi: firstResponse.status === 200 ? 'pass' : 'fail',
     apiNoindex: /noindex/i.test(firstResponse.headers.get('x-robots-tag') || '') ? 'pass' : 'fail',
     fakeSeedAbsent: builds.length === 0 ? 'pass' : 'not_applicable',
-    detail: 'not_testable', preview6x6: 'not_testable', playerLabels: 'not_testable', tier: 'not_testable', level: 'not_testable', chips: 'not_testable',
-    publicOwnerTokenAbsent: 'not_testable', shareUrl: 'not_testable', teamBuilderLoad: 'manual_required', helpful: 'manual_required', trialReport: 'manual_required', comment: 'manual_required', reply: 'manual_required', edit: 'manual_required', delete: 'manual_required', report: 'manual_required'
+    detail: 'not_testable',
+    preview6x6: 'not_testable',
+    playerLabels: 'not_testable',
+    tier: 'not_testable',
+    level: 'not_testable',
+    chips: 'not_testable',
+    publicOwnerTokenAbsent: 'not_testable',
+    shareUrl: 'not_testable',
+    teamBuilderLoad: 'manual_required',
+    helpful: 'manual_required',
+    trialReport: 'manual_required',
+    comment: 'manual_required',
+    reply: 'manual_required',
+    edit: 'manual_required',
+    delete: 'manual_required',
+    report: 'manual_required'
   };
   let sample = null;
   if (builds.length) {
@@ -99,9 +134,17 @@ async function run() {
     sample,
     note: builds.length ? 'Read-only API checks passed. Complete the two-device manual checklist without creating fake actions.' : 'No fake post was created. Run this audit after the first real post, then complete the two-device checklist.'
   };
-  if (Object.values(checks).includes('fail')) process.exitCode = 1;
-  if (output) fs.writeFileSync(path.resolve(root, String(output)), `${JSON.stringify(report, null, 2)}\n`);
+  if (Object.values(checks).includes('fail'))
+    process.exitCode = 1;
+  if (output)
+    fs.writeFileSync(path.resolve(root, String(output)), `${JSON.stringify(report, null, 2)}\n`);
   console.log(JSON.stringify(report, null, 2));
 }
 
-run().catch((error) => { console.error(error.message); process.exitCode = 1; });
+run().catch((error) => {
+
+  console.error(error.message);
+
+  process.exitCode = 1;
+
+});

@@ -15,13 +15,31 @@ function simulate(sourcePath, destination, hash = '') {
   const document = {
     body: { dataset: { pageType: 'audit' } },
     querySelectorAll: () => [],
-    addEventListener: (name, listener) => { listeners[name] = listener; },
+    addEventListener: (name, listener) => {
+
+      listeners[name] = listener;
+
+    },
     dispatchEvent: () => true
   };
   const window = { innerWidth: 1280, gtag: (...args) => calls.push(args) };
   const context = {
-    window, document, location: { origin: 'https://monster-survival.com', hostname: 'monster-survival.com', pathname: sourcePath },
-    fetch: async () => ({ ok: false }), URL, Element: class {}, CustomEvent: class { constructor(type, init) { this.type = type; this.detail = init.detail; } }, console
+    window,
+    document,
+    location: { origin: 'https://monster-survival.com', hostname: 'monster-survival.com', pathname: sourcePath },
+    fetch: async () => ({ ok: false }),
+    URL,
+    Element: class { },
+    CustomEvent: class {
+      constructor(type, init) {
+
+        this.type = type;
+
+        this.detail = init.detail;
+
+      }
+    },
+    console
   };
   vm.runInNewContext(read('growth.js'), context);
   const link = {
@@ -43,7 +61,8 @@ test('all six funnel routes emit their exact event names', () => {
     ['/team-builder/community/', '/team-builder/', '', 'community_to_team'],
     ['/beginner-guide/', '/tata/takepanda/', '', 'beginner_to_tata']
   ];
-  for (const [source, destination, hash, expected] of cases) assert.equal(simulate(source, destination, hash)?.[1], expected);
+  for (const [source, destination, hash, expected] of cases)
+    assert.equal(simulate(source, destination, hash)?.[1], expected);
 });
 
 test('funnel GA4 payload contains only privacy-safe dimensions', () => {
@@ -51,7 +70,8 @@ test('funnel GA4 payload contains only privacy-safe dimensions', () => {
   assert.deepEqual(Object.keys(payload).sort(), ['destination_type', 'page_location', 'source_type']);
   assert.equal(payload.page_location, 'https://monster-survival.com/tata/:family/');
   const serialized = JSON.stringify(payload);
-  for (const forbidden of ['takepanda', 'formation', 'chip', 'username', 'uid', 'free text']) assert.ok(!serialized.toLowerCase().includes(forbidden));
+  for (const forbidden of ['takepanda', 'formation', 'chip', 'username', 'uid', 'free text'])
+    assert.ok(!serialized.toLowerCase().includes(forbidden));
 });
 
 test('custom GA4 events are disabled outside the Production hostname', () => {
@@ -66,7 +86,8 @@ test('Search Console opportunities use real required fields and preserve strong 
   assert.equal(report.decision.seoChangesApplied, 0);
   assert.equal(report.decision.newPagesCreated, 0);
   for (const row of report.opportunities) {
-    for (const field of ['query', 'page', 'clicks', 'impressions', 'ctr', 'position', 'opportunityType', 'recommendedAction', 'confidence']) assert.notEqual(row[field], undefined, field);
+    for (const field of ['query', 'page', 'clicks', 'impressions', 'ctr', 'position', 'opportunityType', 'recommendedAction', 'confidence'])
+      assert.notEqual(row[field], undefined, field);
     assert.ok(row.position >= 4 && row.position <= 15);
     assert.ok(row.ctr < report.period.siteAverageCtr);
   }
@@ -74,7 +95,8 @@ test('Search Console opportunities use real required fields and preserve strong 
 
 test('activation copy includes Japanese and English without automatic posting', () => {
   const copy = read('docs/community-activation-copy.md');
-  for (const marker of ['X（日本語', 'X（English', 'Discord（日本語', 'Discord（English', 'ゲーム内チャット短文', 'Game chat short copy']) assert.ok(copy.includes(marker), marker);
+  for (const marker of ['X（日本語', 'X（English', 'Discord（日本語', 'Discord（English', 'ゲーム内チャット短文', 'Game chat short copy'])
+    assert.ok(copy.includes(marker), marker);
   assert.match(copy, /自動投稿はしない/);
 });
 

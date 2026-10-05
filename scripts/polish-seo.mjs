@@ -22,17 +22,20 @@ const pageConfig = {
 const escapeJsonForHtml = (value) => JSON.stringify(value).replaceAll('<', '\\u003c');
 const capture = (html, pattern, label, file) => {
   const match = html.match(pattern);
-  if (!match) throw new Error(`${file}: ${label} が見つかりません`);
+  if (!match)
+    throw new Error(`${file}: ${label} が見つかりません`);
   return match[1];
 };
 const upsertMeta = (html, keyType, key, content) => {
   const re = new RegExp(`<meta ${keyType}="${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}" content="[^"]*" \\/>`);
   const tag = `<meta ${keyType}="${key}" content="${content}" />`;
-  if (re.test(html)) return html.replace(re, tag);
+  if (re.test(html))
+    return html.replace(re, tag);
   return html.replace('</head>', `  ${tag}\n</head>`);
 };
 const addSharedStaticMarkup = (html) => {
-  if (!html.includes('class="skip-link"')) html = html.replace(/(<body(?:\s[^>]*)?>)/, '$1<a class="skip-link" href="#main-content">本文へスキップ</a>');
+  if (!html.includes('class="skip-link"'))
+    html = html.replace(/(<body(?:\s[^>]*)?>)/, '$1<a class="skip-link" href="#main-content">本文へスキップ</a>');
   html = html.replace(/<main(?![^>]*\bid=)/, '<main id="main-content"');
   if (!html.includes('class="footer-links"')) {
     html = html.replace(/<div class="footer-meta">([^<]*)<\/div>/, '<div class="footer-side"><nav class="footer-links" aria-label="サイト情報"><a href="/privacy/">プライバシー</a><a href="/updates/">更新履歴</a><a href="/about-data/">データ方針</a></nav><div class="footer-meta">$1</div></div>');
@@ -73,7 +76,12 @@ for (const [file, config] of Object.entries(pageConfig)) {
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'モンサバ攻略DB', item: `${BASE_URL}/` },
-        ...config.crumbs.map((name, index) => ({ '@type': 'ListItem', position: index + 2, name, ...(index === config.crumbs.length - 1 ? {} : { item: url }) }))
+        ...config.crumbs.map((name, index) => ({
+          '@type': 'ListItem',
+          position: index + 2,
+          name,
+          ...(index === config.crumbs.length - 1 ? {} : { item: url })
+        }))
       ]
     });
   }
@@ -87,7 +95,8 @@ for (const [file, config] of Object.entries(pageConfig)) {
 
 for (const directory of ['tata']) {
   for (const entry of fs.readdirSync(path.join(root, directory), { withFileTypes: true })) {
-    if (!entry.isDirectory()) continue;
+    if (!entry.isDirectory())
+      continue;
     const file = path.join(root, directory, entry.name, 'index.html');
     let html = fs.readFileSync(file, 'utf8');
     html = addSharedStaticMarkup(html);

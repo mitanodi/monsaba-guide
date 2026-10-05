@@ -33,7 +33,8 @@ export function canonicalShapeKey(width, height) {
 
 export function orientationsForShape(shape) {
   const orientations = [{ w: shape.w, h: shape.h }];
-  if (shape.w !== shape.h) orientations.push({ w: shape.h, h: shape.w });
+  if (shape.w !== shape.h)
+    orientations.push({ w: shape.h, h: shape.w });
   return orientations;
 }
 
@@ -42,7 +43,8 @@ export function normalizeShapeCounts(value) {
   for (const [rawKey, rawCount] of Object.entries(value || {})) {
     const match = rawKey.match(/^([1-4])x([1-4])$/i);
     const count = Number(rawCount);
-    if (!match || !Number.isInteger(count)) continue;
+    if (!match || !Number.isInteger(count))
+      continue;
     const key = canonicalShapeKey(match[1], match[2]);
     counts[key] = Math.min(MAX_SHAPE_COUNT, Math.max(0, counts[key] + count));
   }
@@ -57,15 +59,19 @@ export function shapeCountsToSpec(value) {
 export function parseShapeCountsSpec(text) {
   const counts = normalizeShapeCounts();
   const source = String(text ?? '').trim();
-  if (!source) return counts;
+  if (!source)
+    return counts;
   for (const part of source.split(',')) {
     const match = part.trim().match(/^([1-4])x([1-4]):(\d+)$/i);
-    if (!match) return null;
+    if (!match)
+      return null;
     const key = canonicalShapeKey(match[1], match[2]);
     const count = Number(match[3]);
-    if (count > MAX_SHAPE_COUNT) return null;
+    if (count > MAX_SHAPE_COUNT)
+      return null;
     counts[key] += count;
-    if (counts[key] > MAX_SHAPE_COUNT) return null;
+    if (counts[key] > MAX_SHAPE_COUNT)
+      return null;
   }
   return counts;
 }
@@ -73,7 +79,8 @@ export function parseShapeCountsSpec(text) {
 export function adjustShapeCount(value, key, delta) {
   const match = String(key).match(/^([1-4])x([1-4])$/i);
   const canonicalKey = match ? canonicalShapeKey(match[1], match[2]) : '';
-  if (!SHAPE_KEYS.includes(canonicalKey)) throw new Error(`未対応の宝形状です: ${key}`);
+  if (!SHAPE_KEYS.includes(canonicalKey))
+    throw new Error(`未対応の宝形状です: ${key}`);
   const counts = normalizeShapeCounts(value);
   counts[canonicalKey] = Math.min(MAX_SHAPE_COUNT, Math.max(0, counts[canonicalKey] + Number(delta || 0)));
   return counts;
@@ -81,17 +88,20 @@ export function adjustShapeCount(value, key, delta) {
 
 export function placementCells(size, key, startIndex, rotated = false) {
   const match = String(key).match(/^([1-4])x([1-4])$/i);
-  if (!match || !SHAPE_KEYS.includes(canonicalShapeKey(match[1], match[2]))) return null;
+  if (!match || !SHAPE_KEYS.includes(canonicalShapeKey(match[1], match[2])))
+    return null;
   const baseWidth = Number(match[1]);
   const baseHeight = Number(match[2]);
   const width = rotated ? baseHeight : baseWidth;
   const height = rotated ? baseWidth : baseHeight;
   const row = Math.floor(Number(startIndex) / size);
   const column = Number(startIndex) % size;
-  if (!Number.isInteger(startIndex) || row < 0 || column < 0 || row + height > size || column + width > size) return null;
+  if (!Number.isInteger(startIndex) || row < 0 || column < 0 || row + height > size || column + width > size)
+    return null;
   const cells = [];
   for (let dy = 0; dy < height; dy += 1) {
-    for (let dx = 0; dx < width; dx += 1) cells.push((row + dy) * size + column + dx);
+    for (let dx = 0; dx < width; dx += 1)
+      cells.push((row + dy) * size + column + dx);
   }
   return { width, height, cells };
 }
@@ -101,7 +111,8 @@ export function resolvePlacementAtCell(size, key, targetIndex, rotated, cells, o
   const isUsable = (footprint) => footprint
     && !footprint.cells.some((cell) => (!allowMiss && cells[cell] === 'miss') || occupied.has(cell));
   const exact = placementCells(size, key, targetIndex, rotated);
-  if (isUsable(exact)) return { startIndex: targetIndex, ...exact };
+  if (isUsable(exact))
+    return { startIndex: targetIndex, ...exact };
 
   const candidates = [];
   for (let startIndex = 0; startIndex < size * size; startIndex += 1) {
@@ -120,13 +131,16 @@ export function normalizePlacedTreasures(value, size, shapeCounts, cells = []) {
   const usedCounts = Object.fromEntries(SHAPE_KEYS.map((key) => [key, 0]));
   for (const [index, raw] of (Array.isArray(value) ? value : []).entries()) {
     const match = String(raw?.key || '').match(/^([1-4])x([1-4])$/i);
-    if (!match) continue;
+    if (!match)
+      continue;
     const key = canonicalShapeKey(match[1], match[2]);
-    if (!SHAPE_KEYS.includes(key) || usedCounts[key] >= (shapeCounts[key] || 0)) continue;
+    if (!SHAPE_KEYS.includes(key) || usedCounts[key] >= (shapeCounts[key] || 0))
+      continue;
     const startIndex = Number(raw.startIndex);
     const rotated = Boolean(raw.rotated) && match[1] !== match[2];
     const footprint = placementCells(size, key, startIndex, rotated);
-    if (!footprint || footprint.cells.some((cell) => used.has(cell) || cells[cell] === 'miss')) continue;
+    if (!footprint || footprint.cells.some((cell) => used.has(cell) || cells[cell] === 'miss'))
+      continue;
     footprint.cells.forEach((cell) => used.add(cell));
     usedCounts[key] += 1;
     placed.push({ id: String(raw.id || `${key}-${index}`), key, startIndex, rotated, ...footprint });
@@ -161,16 +175,22 @@ export function normalizeModel(value) {
       : createDefaultShapeCounts()
   );
   let normalizedSpec = rawSpec;
-  if (parsedCounts) normalizedSpec = shapeCountsToSpec(parsedCounts);
+  if (parsedCounts)
+    normalizedSpec = shapeCountsToSpec(parsedCounts);
   else {
     try {
       const grouped = new Map();
-      for (const shape of parseSpec(rawSpec, size)) grouped.set(shape.key, (grouped.get(shape.key) || 0) + 1);
+      for (const shape of parseSpec(rawSpec, size))
+        grouped.set(shape.key, (grouped.get(shape.key) || 0) + 1);
       normalizedSpec = [...grouped].map(([key, count]) => `${key}:${count}`).join(', ');
     } catch { /* 入力エラーは計算時に案内するため、元のspecを保持 */ }
   }
   const placedTreasures = normalizePlacedTreasures(value?.placedTreasures, size, shapeCounts, cells);
-  placedTreasures.forEach((placement) => placement.cells.forEach((cell) => { cells[cell] = 'found'; }));
+  placedTreasures.forEach((placement) => placement.cells.forEach((cell) => {
+
+    cells[cell] = 'found';
+
+  }));
   return {
     version: STORAGE_VERSION,
     size,
@@ -196,11 +216,13 @@ export function parseSpec(text, size) {
   const shapes = [];
   const counts = new Map();
   const specText = String(text || '').trim();
-  if (!specText) throw new Error('宝を1個以上入力してください。');
+  if (!specText)
+    throw new Error('宝を1個以上入力してください。');
   for (const part of specText.split(',')) {
     const source = part.trim();
     const match = source.match(/^(\d+)x(\d+):(\d+)$/i);
-    if (!match) throw new Error(`形式を確認してください: ${source}`);
+    if (!match)
+      throw new Error(`形式を確認してください: ${source}`);
     const width = Number(match[1]);
     const height = Number(match[2]);
     const count = Number(match[3]);
@@ -209,7 +231,8 @@ export function parseSpec(text, size) {
     }
     const key = canonicalShapeKey(width, height);
     counts.set(key, (counts.get(key) || 0) + count);
-    if (counts.get(key) > 8) throw new Error(`同じ形状の個数が対応範囲外です: ${key}`);
+    if (counts.get(key) > 8)
+      throw new Error(`同じ形状の個数が対応範囲外です: ${key}`);
   }
   for (const [key, count] of counts) {
     const [width, height] = key.split('x').map(Number);
@@ -218,7 +241,8 @@ export function parseSpec(text, size) {
       shapes.push({ ...shape, orientations: orientationsForShape(shape) });
     }
   }
-  if (!shapes.length) throw new Error('宝を1個以上入力してください。');
+  if (!shapes.length)
+    throw new Error('宝を1個以上入力してください。');
   return shapes.sort((a, b) => (b.w * b.h) - (a.w * a.h) || a.key.localeCompare(b.key));
 }
 
@@ -230,7 +254,8 @@ function placementsForShape(shape, model) {
       for (let x = 0; x <= model.size - orientation.w; x += 1) {
         const cells = [];
         for (let dy = 0; dy < orientation.h; dy += 1) {
-          for (let dx = 0; dx < orientation.w; dx += 1) cells.push((y + dy) * model.size + x + dx);
+          for (let dx = 0; dx < orientation.w; dx += 1)
+            cells.push((y + dy) * model.size + x + dx);
         }
         const placementKey = cells.join('.');
         if (!seen.has(placementKey) && !cells.some((cell) => model.cells[cell] === 'miss')) {
@@ -291,7 +316,8 @@ function symmetryMaps(model) {
 
 function enforceInputSymmetry(probabilities, model) {
   const maps = symmetryMaps(model);
-  if (maps.length <= 1) return probabilities;
+  if (maps.length <= 1)
+    return probabilities;
   return probabilities.map((_, index) => (
     maps.reduce((sum, map) => sum + probabilities[map[index]], 0) / maps.length
   ));
@@ -311,14 +337,16 @@ function collectExactCounts({ shapes, candidates, requiredMask, remainingCoverag
       return;
     }
     if (depth === shapes.length) {
-      if ((requiredMask & ~usedMask) !== 0n) return;
+      if ((requiredMask & ~usedMask) !== 0n)
+        return;
       configurations += 1;
       if (configurations > configurationLimit) {
         limited = true;
         return;
       }
       for (let cell = 0; cell < cellCount; cell += 1) {
-        if ((usedMask & (1n << BigInt(cell))) !== 0n) tally[cell] += 1;
+        if ((usedMask & (1n << BigInt(cell))) !== 0n)
+          tally[cell] += 1;
       }
       return;
     }
@@ -326,12 +354,15 @@ function collectExactCounts({ shapes, candidates, requiredMask, remainingCoverag
     const startIndex = sameAsPrevious ? chosenPlacementIndices[depth - 1] + 1 : 0;
     for (let placementIndex = startIndex; placementIndex < candidates[depth].length; placementIndex += 1) {
       const placement = candidates[depth][placementIndex];
-      if ((usedMask & placement.mask) !== 0n) continue;
+      if ((usedMask & placement.mask) !== 0n)
+        continue;
       const nextMask = usedMask | placement.mask;
-      if ((requiredMask & ~nextMask & ~remainingCoverage[depth + 1]) !== 0n) continue;
+      if ((requiredMask & ~nextMask & ~remainingCoverage[depth + 1]) !== 0n)
+        continue;
       chosenPlacementIndices[depth] = placementIndex;
       visit(depth + 1, nextMask);
-      if (limited) return;
+      if (limited)
+        return;
     }
   }
 
@@ -357,9 +388,11 @@ function collectWeightedSample({ model, shapes, candidates, requiredMask, remain
       const viable = [];
       for (let placementIndex = startIndex; placementIndex < candidates[depth].length; placementIndex += 1) {
         const placement = candidates[depth][placementIndex];
-        if ((usedMask & placement.mask) !== 0n) continue;
+        if ((usedMask & placement.mask) !== 0n)
+          continue;
         const nextMask = usedMask | placement.mask;
-        if ((requiredMask & ~nextMask & ~remainingCoverage[depth + 1]) !== 0n) continue;
+        if ((requiredMask & ~nextMask & ~remainingCoverage[depth + 1]) !== 0n)
+          continue;
         viable.push(placementIndex);
       }
       if (!viable.length) {
@@ -371,11 +404,13 @@ function collectWeightedSample({ model, shapes, candidates, requiredMask, remain
       usedMask |= candidates[depth][choice].mask;
       weight *= viable.length;
     }
-    if (!valid || (requiredMask & ~usedMask) !== 0n || !Number.isFinite(weight)) continue;
+    if (!valid || (requiredMask & ~usedMask) !== 0n || !Number.isFinite(weight))
+      continue;
     acceptedSamples += 1;
     totalWeight += weight;
     for (let cell = 0; cell < cellCount; cell += 1) {
-      if ((usedMask & (1n << BigInt(cell))) !== 0n) tally[cell] += weight;
+      if ((usedMask & (1n << BigInt(cell))) !== 0n)
+        tally[cell] += weight;
     }
   }
 
@@ -429,20 +464,41 @@ export function solveTreasureModel(rawModel, rawOptions = {}) {
   model.placedTreasures.forEach((placement) => remainingByKey.set(placement.key, (remainingByKey.get(placement.key) || 0) + 1));
   const shapes = allShapes.filter((shape) => {
     const count = remainingByKey.get(shape.key) || 0;
-    if (!count) return true;
+    if (!count)
+      return true;
     remainingByKey.set(shape.key, count - 1);
     return false;
   });
   const fixedMask = cellsToMask(model.placedTreasures.flatMap((placement) => placement.cells));
   const availableArea = model.cells.filter((state) => state !== 'miss').length;
   if (treasureArea > availableArea) {
-    return { configurations: 0, capped: false, approximate: false, probabilities: [], topCandidates: [], bestIndices: [], shapes, treasureArea, probabilityMass: 0 };
+    return {
+      configurations: 0,
+      capped: false,
+      approximate: false,
+      probabilities: [],
+      topCandidates: [],
+      bestIndices: [],
+      shapes,
+      treasureArea,
+      probabilityMass: 0
+    };
   }
   const candidates = shapes.map((shape) => placementsForShape(shape, model)
     .map((cells) => ({ cells, mask: cellsToMask(cells) }))
     .filter((placement) => (placement.mask & fixedMask) === 0n));
   if (candidates.some((list) => list.length === 0)) {
-    return { configurations: 0, capped: false, approximate: false, probabilities: [], topCandidates: [], bestIndices: [], shapes, treasureArea, probabilityMass: 0 };
+    return {
+      configurations: 0,
+      capped: false,
+      approximate: false,
+      probabilities: [],
+      topCandidates: [],
+      bestIndices: [],
+      shapes,
+      treasureArea,
+      probabilityMass: 0
+    };
   }
   const requiredMask = model.cells.reduce((mask, state, index) => (
     state === 'found' ? mask | (1n << BigInt(index)) : mask
@@ -467,7 +523,18 @@ export function solveTreasureModel(rawModel, rawOptions = {}) {
   });
   if (!exact.limited) {
     if (!exact.configurations) {
-      return { configurations: 0, capped: false, approximate: false, probabilities: [], topCandidates: [], bestIndices: [], shapes, treasureArea, probabilityMass: 0, visitedNodes: exact.visitedNodes };
+      return {
+        configurations: 0,
+        capped: false,
+        approximate: false,
+        probabilities: [],
+        topCandidates: [],
+        bestIndices: [],
+        shapes,
+        treasureArea,
+        probabilityMass: 0,
+        visitedNodes: exact.visitedNodes
+      };
     }
     return finalizeResult({
       model,
@@ -491,7 +558,20 @@ export function solveTreasureModel(rawModel, rawOptions = {}) {
     sampleBudget
   });
   if (!sampled.totalWeight) {
-    return { configurations: 0, capped: true, approximate: true, probabilities: [], topCandidates: [], bestIndices: [], shapes, treasureArea, probabilityMass: 0, sampleSize: sampleBudget, acceptedSamples: 0, visitedNodes: exact.visitedNodes };
+    return {
+      configurations: 0,
+      capped: true,
+      approximate: true,
+      probabilities: [],
+      topCandidates: [],
+      bestIndices: [],
+      shapes,
+      treasureArea,
+      probabilityMass: 0,
+      sampleSize: sampleBudget,
+      acceptedSamples: 0,
+      visitedNodes: exact.visitedNodes
+    };
   }
   const probabilities = enforceInputSymmetry(
     sampled.tally.map((weight) => weight / sampled.totalWeight),
@@ -514,26 +594,107 @@ export function solveTreasureModel(rawModel, rawOptions = {}) {
 function boot() {
   const $ = (selector) => document.querySelector(selector);
   const board = $('#board');
-  if (!board) return;
+  if (!board)
+    return;
   const locale = document.documentElement.lang === 'en' ? 'en' : document.documentElement.lang === 'zh-CN' ? 'zh-CN' : 'ja';
   const pickerText = {
-    ja: { rotatable: '回転可', empty: '宝が選ばれていません', total: (count) => `合計：${count}個`, add: (shape, count) => `${shape}の宝を1個追加。現在${count}個`, remove: (shape) => `${shape}の宝を1個減らす`, maxReached: `この形状は最大${MAX_SHAPE_COUNT}個まで設定できます` },
-    en: { rotatable: 'Rotatable', empty: 'No treasures selected', total: (count) => `Total: ${count}`, add: (shape, count) => `Add one ${shape} treasure. Currently ${count}`, remove: (shape) => `Remove one ${shape} treasure`, maxReached: `You can set up to ${MAX_SHAPE_COUNT} treasures of this shape` },
-    'zh-CN': { rotatable: '可旋转', empty: '尚未选择宝物', total: (count) => `合计：${count}个`, add: (shape, count) => `添加1个${shape}宝物。当前${count}个`, remove: (shape) => `减少1个${shape}宝物`, maxReached: `每种形状最多可设置${MAX_SHAPE_COUNT}个宝物` }
+    ja: {
+      rotatable: '回転可',
+      empty: '宝が選ばれていません',
+      total: (count) => `合計：${count}個`,
+      add: (shape, count) => `${shape}の宝を1個追加。現在${count}個`,
+      remove: (shape) => `${shape}の宝を1個減らす`,
+      maxReached: `この形状は最大${MAX_SHAPE_COUNT}個まで設定できます`
+    },
+    en: {
+      rotatable: 'Rotatable',
+      empty: 'No treasures selected',
+      total: (count) => `Total: ${count}`,
+      add: (shape, count) => `Add one ${shape} treasure. Currently ${count}`,
+      remove: (shape) => `Remove one ${shape} treasure`,
+      maxReached: `You can set up to ${MAX_SHAPE_COUNT} treasures of this shape`
+    },
+    'zh-CN': {
+      rotatable: '可旋转',
+      empty: '尚未选择宝物',
+      total: (count) => `合计：${count}个`,
+      add: (shape, count) => `添加1个${shape}宝物。当前${count}个`,
+      remove: (shape) => `减少1个${shape}宝物`,
+      maxReached: `每种形状最多可设置${MAX_SHAPE_COUNT}个宝物`
+    }
   }[locale];
   const placementText = {
-    ja: { found: '発見済み', place: '配置', vertical: '縦 ↕️', horizontal: '横 ↔️', remove: '配置を取り消す', placedTitle: '盤面に配置した宝', empty: 'まだ配置していません', selected: (shape) => `${shape}を選択中。盤面の左上マスをタップするか、ドラッグしてください。`, placed: (shape) => `${shape}を盤面へ配置しました`, invalid: 'その位置には配置できません。盤面外・空白・他の宝との重なりを確認してください。' },
-    en: { found: 'Found', place: 'Place', vertical: 'Vertical ↕️', horizontal: 'Horizontal ↔️', remove: 'Remove placement', placedTitle: 'Treasures placed on the board', empty: 'No treasures placed yet', selected: (shape) => `${shape} selected. Tap the top-left board tile or drag it onto the board.`, placed: (shape) => `${shape} placed on the board`, invalid: 'Cannot place it there. Check the board edge, empty tiles, and overlaps.' },
-    'zh-CN': { found: '已找到', place: '放置', vertical: '纵向 ↕️', horizontal: '横向 ↔️', remove: '取消放置', placedTitle: '已放置到棋盘的宝物', empty: '尚未放置宝物', selected: (shape) => `已选择${shape}。点击棋盘左上格，或将其拖到棋盘上。`, placed: (shape) => `已将${shape}放置到棋盘`, invalid: '无法放置在该位置。请检查棋盘边界、空白格与宝物重叠。' }
+    ja: {
+      found: '発見済み',
+      place: '配置',
+      vertical: '縦 ↕️',
+      horizontal: '横 ↔️',
+      remove: '配置を取り消す',
+      placedTitle: '盤面に配置した宝',
+      empty: 'まだ配置していません',
+      selected: (shape) => `${shape}を選択中。盤面の左上マスをタップするか、ドラッグしてください。`,
+      placed: (shape) => `${shape}を盤面へ配置しました`,
+      invalid: 'その位置には配置できません。盤面外・空白・他の宝との重なりを確認してください。'
+    },
+    en: {
+      found: 'Found',
+      place: 'Place',
+      vertical: 'Vertical ↕️',
+      horizontal: 'Horizontal ↔️',
+      remove: 'Remove placement',
+      placedTitle: 'Treasures placed on the board',
+      empty: 'No treasures placed yet',
+      selected: (shape) => `${shape} selected. Tap the top-left board tile or drag it onto the board.`,
+      placed: (shape) => `${shape} placed on the board`,
+      invalid: 'Cannot place it there. Check the board edge, empty tiles, and overlaps.'
+    },
+    'zh-CN': {
+      found: '已找到',
+      place: '放置',
+      vertical: '纵向 ↕️',
+      horizontal: '横向 ↔️',
+      remove: '取消放置',
+      placedTitle: '已放置到棋盘的宝物',
+      empty: '尚未放置宝物',
+      selected: (shape) => `已选择${shape}。点击棋盘左上格，或将其拖到棋盘上。`,
+      placed: (shape) => `已将${shape}放置到棋盘`,
+      invalid: '无法放置在该位置。请检查棋盘边界、空白格与宝物重叠。'
+    }
   }[locale];
   const foundShapeText = {
-    ja: { title: '発見した宝の形', manual: '1マスだけ', help: '形を選び、宝のマスを1つずつタップしてください。', placed: '登録済み', remove: 'この発見済みの宝を取り消す', progress: (shape, count, total) => `${shape}：${count}/${total}マス選択中`, invalid: 'そのマスを含む形になりません。隣り合うマスを選んでください。' },
-    en: { title: 'Found treasure shape', manual: 'Single tile', help: 'Choose a shape, then tap each treasure tile one by one.', placed: 'Registered', remove: 'Remove this found treasure', progress: (shape, count, total) => `${shape}: ${count}/${total} tiles selected`, invalid: 'That tile does not fit the shape. Choose adjacent tiles.' },
-    'zh-CN': { title: '已找到的宝物形状', manual: '仅单格', help: '选择形状后，逐格点击宝物所在方格。', placed: '已登记', remove: '取消这个已找到的宝物', progress: (shape, count, total) => `${shape}：已选择${count}/${total}格`, invalid: '该方格无法组成所选形状，请选择相邻方格。' }
+    ja: {
+      title: '発見した宝の形',
+      manual: '1マスだけ',
+      help: '形を選び、宝のマスを1つずつタップしてください。',
+      placed: '登録済み',
+      remove: 'この発見済みの宝を取り消す',
+      progress: (shape, count, total) => `${shape}：${count}/${total}マス選択中`,
+      invalid: 'そのマスを含む形になりません。隣り合うマスを選んでください。'
+    },
+    en: {
+      title: 'Found treasure shape',
+      manual: 'Single tile',
+      help: 'Choose a shape, then tap each treasure tile one by one.',
+      placed: 'Registered',
+      remove: 'Remove this found treasure',
+      progress: (shape, count, total) => `${shape}: ${count}/${total} tiles selected`,
+      invalid: 'That tile does not fit the shape. Choose adjacent tiles.'
+    },
+    'zh-CN': {
+      title: '已找到的宝物形状',
+      manual: '仅单格',
+      help: '选择形状后，逐格点击宝物所在方格。',
+      placed: '已登记',
+      remove: '取消这个已找到的宝物',
+      progress: (shape, count, total) => `${shape}：已选择${count}/${total}格`,
+      invalid: '该方格无法组成所选形状，请选择相邻方格。'
+    }
   }[locale];
   const resultText = {
     ja: {
-      calculate: '確率を計算', calculating: '計算中…', exactTitle: '正確に計算しました',
+      calculate: '確率を計算',
+      calculating: '計算中…',
+      exactTitle: '正確に計算しました',
       exactValue: (count) => `${count.toLocaleString('ja-JP')}通り`,
       exactDetail: (count) => `${count.toLocaleString('ja-JP')}件の有効配置をすべて数えました。`,
       approximateTitle: '偏りを抑えた概算です',
@@ -543,7 +704,9 @@ function boot() {
       calculatingDetail: '入力条件に合う宝配置を確認しています。'
     },
     en: {
-      calculate: 'Calculate Probability', calculating: 'Calculating…', exactTitle: 'Calculated exactly',
+      calculate: 'Calculate Probability',
+      calculating: 'Calculating…',
+      exactTitle: 'Calculated exactly',
       exactValue: (count) => `${count.toLocaleString('en-US')} layouts`,
       exactDetail: (count) => `Counted all ${count.toLocaleString('en-US')} valid layouts.`,
       approximateTitle: 'Bias-reduced estimate',
@@ -553,7 +716,9 @@ function boot() {
       calculatingDetail: 'Checking treasure layouts that match the board.'
     },
     'zh-CN': {
-      calculate: '计算概率', calculating: '计算中…', exactTitle: '已精确计算',
+      calculate: '计算概率',
+      calculating: '计算中…',
+      exactTitle: '已精确计算',
       exactValue: (count) => `${count.toLocaleString('zh-CN')}种布局`,
       exactDetail: (count) => `已统计全部${count.toLocaleString('zh-CN')}种有效布局。`,
       approximateTitle: '已使用降低偏差的估算',
@@ -587,17 +752,33 @@ function boot() {
   const placementRotation = Object.fromEntries(SHAPE_KEYS.map((key) => [key, false]));
 
   function save() {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(model)); } catch { /* 計算は継続 */ }
+    try {
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(model));
+
+    } catch { /* 計算は継続 */ }
   }
   function restore() {
     try {
       const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
-      if (saved) model = normalizeModel(saved);
-    } catch { model = createDefaultModel(); }
+      if (saved)
+        model = normalizeModel(saved);
+    } catch {
+
+      model = createDefaultModel();
+
+    }
   }
   function boardSnapshot() {
-    history.push({ size: model.size, spec: model.spec, shapeCounts: { ...model.shapeCounts }, placedTreasures: model.placedTreasures.map((placement) => ({ ...placement, cells: [...placement.cells] })), cells: [...model.cells] });
-    if (history.length > 40) history.shift();
+    history.push({
+      size: model.size,
+      spec: model.spec,
+      shapeCounts: { ...model.shapeCounts },
+      placedTreasures: model.placedTreasures.map((placement) => ({ ...placement, cells: [...placement.cells] })),
+      cells: [...model.cells]
+    });
+    if (history.length > 40)
+      history.shift();
     updateUndoState();
   }
   function restoreSnapshot(snapshot) {
@@ -627,7 +808,8 @@ function boot() {
     $('#showProbability').checked = model.preferences.showProbability;
     $('#showRecommendations').checked = model.preferences.showRecommendations;
     const autoCalculateControl = $('#autoCalculate');
-    if (autoCalculateControl) autoCalculateControl.checked = true;
+    if (autoCalculateControl)
+      autoCalculateControl.checked = true;
     document.querySelectorAll('[data-input-mode]').forEach((button) => {
       const selected = button.dataset.inputMode === model.preferences.inputMode;
       button.setAttribute('aria-pressed', String(selected));
@@ -640,7 +822,8 @@ function boot() {
   }
   function renderFoundShapeChooser() {
     const palette = $('.input-palette');
-    if (!palette) return;
+    if (!palette)
+      return;
     let chooser = $('#foundShapeChooser');
     if (!chooser) {
       chooser = document.createElement('section');
@@ -716,13 +899,15 @@ function boot() {
     preview.setAttribute('aria-hidden', 'true');
     preview.style.setProperty('--shape-width', width);
     preview.style.setProperty('--shape-height', height);
-    for (let index = 0; index < width * height; index += 1) preview.append(document.createElement('i'));
+    for (let index = 0; index < width * height; index += 1)
+      preview.append(document.createElement('i'));
     return preview;
   }
   function renderShapePicker() {
     const grid = $('#shapeGrid');
     const list = $('#currentTreasures');
-    if (!grid || !list) return;
+    if (!grid || !list)
+      return;
     grid.innerHTML = '';
     for (const key of SHAPE_KEYS) {
       const [width, height] = key.split('x').map(Number);
@@ -749,8 +934,10 @@ function boot() {
       const countLabel = document.createElement('span');
       countLabel.className = 'shape-count';
       countLabel.textContent = `${count}個`;
-      if (locale === 'en') countLabel.textContent = `${count}`;
-      if (locale === 'zh-CN') countLabel.textContent = `${count}个`;
+      if (locale === 'en')
+        countLabel.textContent = `${count}`;
+      if (locale === 'zh-CN')
+        countLabel.textContent = `${count}个`;
       add.append(createShapePreview(width, height), label, countLabel);
       const shapeLabel = `${width}×${height}${width !== height ? ` (${pickerText.rotatable})` : ''}`;
       add.setAttribute('aria-label', pickerText.add(shapeLabel, count));
@@ -797,7 +984,8 @@ function boot() {
         place.addEventListener('dragstart', (event) => {
           selectedPlacement = { key, rotated: placementRotation[key], mode: 'quick' };
           event.dataTransfer?.setData('text/plain', key);
-          if (event.dataTransfer) event.dataTransfer.effectAllowed = 'move';
+          if (event.dataTransfer)
+            event.dataTransfer.effectAllowed = 'move';
           showPickerStatus(placementText.selected(`${width}×${height}`));
         });
         controls.append(place);
@@ -809,7 +997,8 @@ function boot() {
           rotate.textContent = placementRotation[key] ? placementText.horizontal : placementText.vertical;
           rotate.addEventListener('click', () => {
             placementRotation[key] = !placementRotation[key];
-            if (selectedPlacement?.key === key) selectedPlacement.rotated = placementRotation[key];
+            if (selectedPlacement?.key === key)
+              selectedPlacement.rotated = placementRotation[key];
             renderShapePicker();
             renderFoundShapeChooser();
           });
@@ -864,10 +1053,12 @@ function boot() {
     showPickerStatus(selectedPlacement ? placementText.selected(`${width}×${height}`) : '');
   }
   function placeSelectedTreasure(startIndex) {
-    if (!selectedPlacement) return false;
+    if (!selectedPlacement)
+      return false;
     const { key, rotated } = selectedPlacement;
     const placedCount = model.placedTreasures.filter((placement) => placement.key === key).length;
-    if (placedCount >= model.shapeCounts[key]) return false;
+    if (placedCount >= model.shapeCounts[key])
+      return false;
     const occupied = new Set(model.placedTreasures.flatMap((placement) => placement.cells));
     const footprint = resolvePlacementAtCell(model.size, key, startIndex, rotated, model.cells, occupied, true);
     if (!footprint) {
@@ -875,9 +1066,19 @@ function boot() {
       return false;
     }
     boardSnapshot();
-    const placement = { id: `${key}-${Date.now()}-${model.placedTreasures.length}`, key, startIndex: footprint.startIndex, rotated, ...footprint };
+    const placement = {
+      id: `${key}-${Date.now()}-${model.placedTreasures.length}`,
+      key,
+      startIndex: footprint.startIndex,
+      rotated,
+      ...footprint
+    };
     model.placedTreasures.push(placement);
-    footprint.cells.forEach((cell) => { model.cells[cell] = 'found'; });
+    footprint.cells.forEach((cell) => {
+
+      model.cells[cell] = 'found';
+
+    });
     selectedPlacement = null;
     pendingPlacementCells = [];
     save();
@@ -890,7 +1091,8 @@ function boot() {
     return true;
   }
   function selectTreasureCell(index) {
-    if (!selectedPlacement || selectedPlacement.mode !== 'cells') return false;
+    if (!selectedPlacement || selectedPlacement.mode !== 'cells')
+      return false;
     const { key, rotated } = selectedPlacement;
     const occupied = new Set(model.placedTreasures.flatMap((placement) => placement.cells));
     if (occupied.has(index)) {
@@ -923,8 +1125,17 @@ function boot() {
       const footprint = validFootprints.find((candidate) => candidate.cells.every((cell) => pendingPlacementCells.includes(cell)));
       if (footprint) {
         boardSnapshot();
-        model.placedTreasures.push({ id: `${key}-${Date.now()}-${model.placedTreasures.length}`, key, rotated: footprint.rotated, ...footprint });
-        footprint.cells.forEach((cell) => { model.cells[cell] = 'found'; });
+        model.placedTreasures.push({
+          id: `${key}-${Date.now()}-${model.placedTreasures.length}`,
+          key,
+          rotated: footprint.rotated,
+          ...footprint
+        });
+        footprint.cells.forEach((cell) => {
+
+          model.cells[cell] = 'found';
+
+        });
         selectedPlacement = null;
         pendingPlacementCells = [];
         save();
@@ -944,10 +1155,15 @@ function boot() {
   }
   function removePlacedTreasure(id) {
     const index = model.placedTreasures.findIndex((placement) => placement.id === id);
-    if (index < 0) return;
+    if (index < 0)
+      return;
     boardSnapshot();
     const [removed] = model.placedTreasures.splice(index, 1);
-    removed.cells.forEach((cell) => { model.cells[cell] = 'unknown'; });
+    removed.cells.forEach((cell) => {
+
+      model.cells[cell] = 'unknown';
+
+    });
     save();
     clearResult();
     buildBoard();
@@ -961,7 +1177,8 @@ function boot() {
       removePlacedTreasure(placedTreasure.id);
       return;
     }
-    if (model.cells[index] === 'found') setCell(index, 'unknown');
+    if (model.cells[index] === 'found')
+      setCell(index, 'unknown');
   }
   function commitTreasureChange(message) {
     model.shapeMode = 'picker';
@@ -1015,15 +1232,18 @@ function boot() {
       button.className = 'treasure-cell';
       button.dataset.state = state;
       button.dataset.index = String(index);
-      if (placedTreasure) button.dataset.placedTreasure = placedTreasure.id;
+      if (placedTreasure)
+        button.dataset.placedTreasure = placedTreasure.id;
       button.setAttribute('aria-label', `${coordinate(index)}：${placedTreasure ? `${placedShapeLabel}の宝・発見済み` : STATE_LABELS[state]}`);
       const rankCandidate = lastResult?.topCandidates.find((candidate) => candidate.index === index)
         || (lastResult?.bestIndices.includes(index) ? { index, rank: 1 } : null);
       if (model.preferences.showRecommendations && rankCandidate) {
         button.classList.add('is-recommended', `recommendation-tier-${rankCandidate.rank === 1 ? 1 : rankCandidate.rank <= 3 ? 2 : 3}`);
       }
-      if (selectedCandidateIndex === index) button.classList.add('is-selected-candidate');
-      if (pendingPlacementCells.includes(index)) button.classList.add('is-pending-treasure');
+      if (selectedCandidateIndex === index)
+        button.classList.add('is-selected-candidate');
+      if (pendingPlacementCells.includes(index))
+        button.classList.add('is-pending-treasure');
       const probability = lastResult?.probabilities[index];
       const probabilityText = model.preferences.showProbability && state === 'unknown' && Number.isFinite(probability)
         ? `${Math.round(probability * 100)}%`
@@ -1042,15 +1262,18 @@ function boot() {
           return;
         }
         if (selectedPlacement) {
-          if (!selectTreasureCell(index)) placeSelectedTreasure(index);
+          if (!selectTreasureCell(index))
+            placeSelectedTreasure(index);
           return;
         }
         setCell(index, model.preferences.inputMode);
       });
       button.addEventListener('dragover', (event) => {
-        if (!selectedPlacement) return;
+        if (!selectedPlacement)
+          return;
         event.preventDefault();
-        if (event.dataTransfer) event.dataTransfer.dropEffect = 'move';
+        if (event.dataTransfer)
+          event.dataTransfer.dropEffect = 'move';
       });
       button.addEventListener('drop', (event) => {
         event.preventDefault();
@@ -1064,7 +1287,8 @@ function boot() {
       showPickerStatus('配置済みの宝は「配置を取り消す」で外してください。', true);
       return;
     }
-    if (model.cells[index] === state) return;
+    if (model.cells[index] === state)
+      return;
     boardSnapshot();
     model.cells[index] = state;
     selectedCandidateIndex = null;
@@ -1164,7 +1388,10 @@ function boot() {
       button.setAttribute('aria-pressed', String(selected));
     });
     const cell = board.querySelector(`[data-index="${index}"]`);
-    cell?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
+    cell?.scrollIntoView({
+      behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      block: 'center'
+    });
     sourceButton.focus({ preventScroll: true });
     showStatus('次に開ける候補として選択しました', `${coordinate(index)}を盤面で強調しています。マスの状態はまだ変更していません。`);
   }
@@ -1173,15 +1400,18 @@ function boot() {
     board.setAttribute('aria-busy', String(value));
   }
   function calculate() {
-    if (calculating) return;
+    if (calculating)
+      return;
     syncSpecFromTextarea();
     setCalculating(true);
     showStatus(resultText.calculating, resultText.calculatingDetail);
     window.setTimeout(() => {
       try {
         const result = solveTreasureModel(model);
-        if (!result.configurations && result.capped) showSearchLimit();
-        else if (!result.configurations) showContradiction();
+        if (!result.configurations && result.capped)
+          showSearchLimit();
+        else if (!result.configurations)
+          showContradiction();
         else renderResult(result);
         window.monsabaTrack?.('event_tool_use', { tool: 'treasure_hunt', action: 'calculate' });
       } catch (error) {
@@ -1209,7 +1439,8 @@ function boot() {
   }
   function undoLastInput() {
     const snapshot = history.pop();
-    if (!snapshot) return;
+    if (!snapshot)
+      return;
     restoreSnapshot(snapshot);
     showStatus('直前の入力を戻しました', '必要なら続けて復元できます。');
     $('#undo').classList.remove('is-attention');
@@ -1217,7 +1448,8 @@ function boot() {
     scheduleCalculate();
   }
   function resetBoard() {
-    if (!window.confirm('本当に盤面をすべてリセットしますか？')) return;
+    if (!window.confirm('本当に盤面をすべてリセットしますか？'))
+      return;
     lastResetSnapshot = {
       size: model.size,
       spec: model.spec,
@@ -1241,7 +1473,8 @@ function boot() {
     scheduleCalculate();
   }
   function restoreResetBoard() {
-    if (!lastResetSnapshot) return;
+    if (!lastResetSnapshot)
+      return;
     const snapshot = lastResetSnapshot;
     lastResetSnapshot = null;
     restoreSnapshot(snapshot);
@@ -1276,7 +1509,11 @@ function boot() {
     scheduleCalculate();
   });
   $('#clearTreasureSettings').addEventListener('click', () => {
-    model.placedTreasures.flatMap((placement) => placement.cells).forEach((cell) => { model.cells[cell] = 'unknown'; });
+    model.placedTreasures.flatMap((placement) => placement.cells).forEach((cell) => {
+
+      model.cells[cell] = 'unknown';
+
+    });
     model.shapeCounts = normalizeShapeCounts();
     model.placedTreasures = [];
     commitTreasureChange('宝形状と個数だけをクリアしました');
@@ -1298,4 +1535,5 @@ function boot() {
   scheduleCalculate();
 }
 
-if (typeof document !== 'undefined') boot();
+if (typeof document !== 'undefined')
+  boot();

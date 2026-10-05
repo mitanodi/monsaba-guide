@@ -39,7 +39,8 @@ for (const [relative, pairs] of Object.entries(replacements)) {
         source = source.replaceAll(`${from}${suffix}${suffix}`, `${from}${suffix}`);
       }
     }
-    if (!source.includes(to)) source = source.replaceAll(from, to);
+    if (!source.includes(to))
+      source = source.replaceAll(from, to);
   }
   if (source !== before) {
     fs.writeFileSync(file, source);

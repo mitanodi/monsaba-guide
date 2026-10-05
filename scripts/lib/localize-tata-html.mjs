@@ -45,7 +45,8 @@ export function createTataHtmlLocalizer(tatari) {
 
   const localize = (source, locale) => {
     const normalized = normalizeLocale(locale);
-    if (normalized === 'ja') return source;
+    if (normalized === 'ja')
+      return source;
 
     let html = replaceOutsideAllowedJapanese(source, (value) => {
       let result = value.replace(/MONSABA_TATA_NAME_\d{3}/g, (token) => getTataDisplayName(formByToken.get(token), normalized));

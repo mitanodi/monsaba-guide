@@ -8,15 +8,40 @@ const root = path.resolve(import.meta.dirname, '..');
 const files = ['tatari.json', 'tata-skills.json', 'tier-ratings.json', 'evolution-priority.json', 'content-guides.json'];
 const errors = [];
 const warnings = [];
-const fail = (condition, message) => { if (!condition) errors.push(message); };
+const fail = (condition, message) => {
+
+  if (!condition)
+    errors.push(message);
+
+};
 const readJson = (name) => {
-  try { return JSON.parse(fs.readFileSync(path.join(root, 'data', name), 'utf8')); }
-  catch (error) { errors.push(`${name}: JSON parse error: ${error.message}`); return {}; }
+  try {
+
+    return JSON.parse(fs.readFileSync(path.join(root, 'data', name), 'utf8'));
+
+  }
+  catch (error) {
+
+    errors.push(`${name}: JSON parse error: ${error.message}`);
+
+    return {};
+
+  }
 };
 const [tatari, skills, ratings, evolution, guides] = files.map(readJson);
 const seasonOne = (() => {
-  try { return JSON.parse(fs.readFileSync(path.join(root, 'data', 'zombie-rush', 'seasons', 'season-1.json'), 'utf8')); }
-  catch (error) { errors.push(`zombie-rush/seasons/season-1.json: JSON parse error: ${error.message}`); return {}; }
+  try {
+
+    return JSON.parse(fs.readFileSync(path.join(root, 'data', 'zombie-rush', 'seasons', 'season-1.json'), 'utf8'));
+
+  }
+  catch (error) {
+
+    errors.push(`zombie-rush/seasons/season-1.json: JSON parse error: ${error.message}`);
+
+    return {};
+
+  }
 })();
 
 fail(Array.isArray(tatari.families), 'tatari.json: families must be an array');
@@ -44,7 +69,8 @@ for (const family of families) {
   const stages = family.evolutions || [];
   fail(getFamilyDisplayName(family) === stages[0]?.name, `${family.id}: display family name must equal evolutions[0].name`);
   const searchAliases = getFamilySearchAliases(family);
-  for (const evolution of stages) fail(searchAliases.includes(evolution.name), `${family.id}: search alias missing ${evolution.name}`);
+  for (const evolution of stages)
+    fail(searchAliases.includes(evolution.name), `${family.id}: search alias missing ${evolution.name}`);
   fail(searchAliases.includes(family.familyName), `${family.id}: legacy familyName search alias is missing`);
   evolutionCount += stages.length;
   fail(new Set(stages.map((stage) => stage.stage)).size === stages.length, `${family.id}: duplicate evolution stage`);
@@ -74,7 +100,8 @@ for (const [familyId, skillFamily] of Object.entries(skills.byFamily || {})) {
     fail(Boolean(sourceStage), `${familyId} T${stage.stage}: stage missing from tatari.json`);
     fail(stage.tataName === sourceStage?.name, `${familyId} T${stage.stage}: tataName mismatch (${stage.tataName} / ${sourceStage?.name})`);
     fail(typeof stage.skillName === 'string' && stage.skillName.trim().length > 0, `${familyId} T${stage.stage}: skillName is empty`);
-    if (typeof stage.description !== 'string' || !stage.description.trim()) warnings.push(`${familyId} T${stage.stage}: description is empty`);
+    if (typeof stage.description !== 'string' || !stage.description.trim())
+      warnings.push(`${familyId} T${stage.stage}: description is empty`);
   }
   fail(stages.length === (sourceFamily?.evolutions?.length || 0), `${familyId}: stage count differs between JSON files`);
 }
@@ -92,17 +119,23 @@ fail(JSON.stringify(skills.byFamily?.hikaru?.stages?.map((stage) => stage.tataNa
 function validateReferences(value, file, trail = file) {
   if (Array.isArray(value)) {
     const directIds = value.filter((item) => item && typeof item === 'object' && typeof item.familyId === 'string').map((item) => item.familyId);
-    if (new Set(directIds).size !== directIds.length) errors.push(`${trail}: duplicate familyId in the same list`);
+    if (new Set(directIds).size !== directIds.length)
+      errors.push(`${trail}: duplicate familyId in the same list`);
     value.forEach((item, index) => validateReferences(item, file, `${trail}[${index}]`));
     return;
   }
-  if (!value || typeof value !== 'object') return;
+  if (!value || typeof value !== 'object')
+    return;
   for (const [key, child] of Object.entries(value)) {
-    if (key === 'familyId' && typeof child === 'string' && !validIds.has(child)) errors.push(`${trail}.${key}: unknown familyId ${child}`);
+    if (key === 'familyId' && typeof child === 'string' && !validIds.has(child))
+      errors.push(`${trail}.${key}: unknown familyId ${child}`);
     if ((key === 'familyIds' || key === 'ids') && Array.isArray(child)) {
       const ids = child.filter((id) => typeof id === 'string');
-      if (new Set(ids).size !== ids.length) errors.push(`${trail}.${key}: duplicate familyId`);
-      for (const id of ids) if (!validIds.has(id)) errors.push(`${trail}.${key}: unknown familyId ${id}`);
+      if (new Set(ids).size !== ids.length)
+        errors.push(`${trail}.${key}: duplicate familyId`);
+      for (const id of ids)
+        if (!validIds.has(id))
+          errors.push(`${trail}.${key}: unknown familyId ${id}`);
     }
     validateReferences(child, file, `${trail}.${key}`);
   }
@@ -125,17 +158,21 @@ for (const item of seasonTargets) {
   fail(Array.isArray(item.skills) && item.skills.length > 0, `season-1.json: ${item.officialTataName} skills are required`);
   for (const skill of item.skills || []) {
     fail(typeof skill.name === 'string' && skill.name.length > 0, `season-1.json: ${item.officialTataName} skill name is required`);
-    for (const change of skill.changes || []) fail(Boolean(change.metric && change.before && change.after), `season-1.json: ${item.officialTataName}/${skill.name} change is incomplete`);
+    for (const change of skill.changes || [])
+      fail(Boolean(change.metric && change.before && change.after), `season-1.json: ${item.officialTataName}/${skill.name} change is incomplete`);
   }
 }
 const toraani = seasonTargets.find((item) => item.officialTataName === 'トラーニー');
 const fireBurst = toraani?.skills?.find((skill) => skill.name === '火焔爆裂')?.changes?.find((change) => change.metric === 'ダメージ倍率');
 fail(fireBurst?.before === '160%' && fireBurst?.after === '230%', 'season-1.json: トラーニー火焔爆裂は160% → 230%である必要があります');
 for (const section of [ratings.overall, ratings.zombieRush]) {
-  for (const id of Object.keys(section?.byFamily || {})) if (!validIds.has(id)) errors.push(`tier-ratings.json.byFamily: unknown familyId ${id}`);
+  for (const id of Object.keys(section?.byFamily || {}))
+    if (!validIds.has(id))
+      errors.push(`tier-ratings.json.byFamily: unknown familyId ${id}`);
 }
 
-for (const warning of warnings) console.warn(`WARNING: ${warning}`);
+for (const warning of warnings)
+  console.warn(`WARNING: ${warning}`);
 if (errors.length) {
   console.error(`データ整合性検証失敗 (${errors.length})\n- ${errors.join('\n- ')}`);
   process.exit(1);

@@ -13,14 +13,19 @@ const tatari = JSON.parse(fs.readFileSync(path.join(root, 'data', 'tatari.json')
 const familyById = new Map(tatari.families.map((family) => [family.id, family]));
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 
-if (data.meta.status !== 'implemented-details-verifying' || data.meta.scope !== 'zombie-rush-only') throw new Error('Season 1公開後データの状態または適用範囲が不正です');
-if (data.tataSkillBalance.length !== 35) throw new Error(`ゾンビラッシュ専用スキル調整は35対象である必要があります: ${data.tataSkillBalance.length}`);
+if (data.meta.status !== 'implemented-details-verifying' || data.meta.scope !== 'zombie-rush-only')
+  throw new Error('Season 1公開後データの状態または適用範囲が不正です');
+if (data.tataSkillBalance.length !== 35)
+  throw new Error(`ゾンビラッシュ専用スキル調整は35対象である必要があります: ${data.tataSkillBalance.length}`);
 for (const item of data.tataSkillBalance) {
   const family = familyById.get(item.familyId);
   const stage = family?.evolutions?.find((entry) => entry.stage === item.stage);
-  if (!family || !stage) throw new Error(`${item.officialTataName}: family/stageを確認できません`);
-  if (stage.name !== item.databaseTataName) throw new Error(`${item.officialTataName}: DB名 ${stage.name} と照合名 ${item.databaseTataName} が一致しません`);
-  if (item.mappingStatus === 'exact' && item.officialTataName !== stage.name) throw new Error(`${item.officialTataName}: exact mappingがDB名と一致しません`);
+  if (!family || !stage)
+    throw new Error(`${item.officialTataName}: family/stageを確認できません`);
+  if (stage.name !== item.databaseTataName)
+    throw new Error(`${item.officialTataName}: DB名 ${stage.name} と照合名 ${item.databaseTataName} が一致しません`);
+  if (item.mappingStatus === 'exact' && item.officialTataName !== stage.name)
+    throw new Error(`${item.officialTataName}: exact mappingがDB名と一致しません`);
 }
 
 const directionMeta = {
@@ -47,12 +52,27 @@ const canonical = `${BASE_URL}/updates/2026-08-26/`;
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
-    { '@type': 'Article', '@id': canonical, url: canonical, name: title, headline: title, description, image: `${BASE_URL}/assets/heroes/IMG_6941.webp`, mainEntityOfPage: { '@type': 'WebPage', '@id': canonical }, datePublished: '2026-08-25', dateModified: '2026-08-28', inLanguage: 'ja' },
-    { '@type': 'BreadcrumbList', itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'モンサバ攻略DB', item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: '更新履歴', item: `${BASE_URL}/updates/` },
-      { '@type': 'ListItem', position: 3, name: '8/26アップデート実装内容' }
-    ] }
+    {
+      '@type': 'Article',
+      '@id': canonical,
+      url: canonical,
+      name: title,
+      headline: title,
+      description,
+      image: `${BASE_URL}/assets/heroes/IMG_6941.webp`,
+      mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+      datePublished: '2026-08-25',
+      dateModified: '2026-08-28',
+      inLanguage: 'ja'
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'モンサバ攻略DB', item: `${BASE_URL}/` },
+        { '@type': 'ListItem', position: 2, name: '更新履歴', item: `${BASE_URL}/updates/` },
+        { '@type': 'ListItem', position: 3, name: '8/26アップデート実装内容' }
+      ]
+    }
   ]
 };
 

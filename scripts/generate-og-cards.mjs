@@ -37,9 +37,12 @@ function cardHash(page, locale, localeConfig, content) {
 
 function titleSize(title) {
   const weightedLength = [...title].reduce((sum, character) => sum + (character.codePointAt(0) > 0xff ? 1.65 : 1), 0);
-  if (weightedLength > 42) return 40;
-  if (weightedLength > 34) return 44;
-  if (weightedLength > 28) return 50;
+  if (weightedLength > 42)
+    return 40;
+  if (weightedLength > 34)
+    return 44;
+  if (weightedLength > 28)
+    return 50;
   return 58;
 }
 
@@ -111,11 +114,13 @@ function setMeta(html, attribute, key, value) {
   const pattern = new RegExp(`<meta\\b(?=[^>]*\\b${attribute}=["']${escapeRegExp(key)}["'])[^>]*>`, 'gi');
   let replaced = false;
   html = html.replace(pattern, () => {
-    if (replaced) return '';
+    if (replaced)
+      return '';
     replaced = true;
     return tag;
   });
-  if (!replaced) html = html.replace(/<\/head>/i, `${tag}</head>`);
+  if (!replaced)
+    html = html.replace(/<\/head>/i, `${tag}</head>`);
   return html;
 }
 
@@ -178,12 +183,15 @@ async function generate() {
   const knownKeys = new Set(config.pages.map((page) => page.key));
   for (const localeConfig of Object.values(config.locales)) {
     const localeDirectory = path.join(outputRoot, localeConfig.directory);
-    if (!fs.existsSync(localeDirectory)) continue;
+    if (!fs.existsSync(localeDirectory))
+      continue;
     for (const entry of fs.readdirSync(localeDirectory, { withFileTypes: true })) {
-      if (!entry.isFile()) continue;
+      if (!entry.isFile())
+        continue;
       const match = entry.name.match(/^(.+)-[a-f0-9]{12}\.png$/);
       const candidate = path.resolve(localeDirectory, entry.name);
-      if (match && knownKeys.has(match[1]) && !expectedImages.has(candidate.toLowerCase())) fs.unlinkSync(candidate);
+      if (match && knownKeys.has(match[1]) && !expectedImages.has(candidate.toLowerCase()))
+        fs.unlinkSync(candidate);
     }
   }
 

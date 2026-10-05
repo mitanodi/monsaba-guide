@@ -72,9 +72,23 @@ test('shared footer exposes attribution and update disclaimer in every locale', 
 
 test('official response evidence and inquiry procedures are recorded', () => {
   const response = read('docs/evidence/official-response-2026-09-05.md');
-  for (const term of ['5形態', 'ゲーム本体のアップデート', '正式英語名・中国語名一覧は準備中', 'ランニングパーティー', 'Running Star', 'Zombie Rush', '公式認定']) assert.ok(response.includes(term), term);
+  for (const term of ['5形態', 'ゲーム本体のアップデート', '正式英語名・中国語名一覧は準備中', 'ランニングパーティー', 'Running Star', 'Zombie Rush', '公式認定'])
+    assert.ok(response.includes(term), term);
   const queue = read('docs/evidence/zombie-rush-official-question-queue-2026-09-05.md');
-  for (const heading of ['A. Season仕様', 'B. Difficulty仕様', 'C. 報酬仕様', 'D. Chip効果', 'E. Tata配置上限', 'F. Playerごとの配置上限', 'G. 上限解放条件', 'H. Tata Lv上限', 'I. Round関連', 'J. Team Builder採用仕様']) assert.ok(queue.includes(heading), heading);
+  for (const heading of [
+    'A. Season仕様',
+    'B. Difficulty仕様',
+    'C. 報酬仕様',
+    'D. Chip効果',
+    'E. Tata配置上限',
+    'F. Playerごとの配置上限',
+    'G. 上限解放条件',
+    'H. Tata Lv上限',
+    'I. Round関連',
+    'J. Team Builder採用仕様'
+  ])
+    assert.ok(queue.includes(heading), heading);
   const guide = read('docs/evidence/official-inquiry-guidelines-2026-09-05.md');
-  for (const term of ['screenshot', '使用端末', 'iOS / Android', 'UID', '現在サイト上に掲載している内容']) assert.ok(guide.includes(term), term);
+  for (const term of ['screenshot', '使用端末', 'iOS / Android', 'UID', '現在サイト上に掲載している内容'])
+    assert.ok(guide.includes(term), term);
 });

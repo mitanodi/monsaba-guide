@@ -55,4 +55,5 @@ const loader = document.currentScript;
 const slot = loader?.dataset.imobileSlot;
 const device = window.matchMedia('(max-width: 820px)').matches ? 'sp' : 'pc';
 const officialTag = imobileTags[slot]?.[device];
-if (officialTag) document.write(officialTag);
+if (officialTag)
+  document.write(officialTag);

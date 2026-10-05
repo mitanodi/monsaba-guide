@@ -36,7 +36,8 @@ function modifiedFor(route) {
 function evaluationRows(id) {
   const overall = ratings.overall?.byFamily?.[id];
   const zombie = ratings.zombieRush?.byFamily?.[id];
-  if (!overall && !zombie) return [];
+  if (!overall && !zombie)
+    return [];
   return [
     ['総合', overall?.tier],
     ['通常', overall?.normal],
@@ -61,7 +62,8 @@ function verifiedChanges(stages) {
     const before = stages[index - 1];
     const after = stages[index];
     const items = [];
-    if (before.skillName !== after.skillName) items.push(`スキル名：${before.skillName} → ${after.skillName}`);
+    if (before.skillName !== after.skillName)
+      items.push(`スキル名：${before.skillName} → ${after.skillName}`);
     if (!(after.values || []).length) {
       changes.push({ before, after, items });
       continue;
@@ -69,8 +71,10 @@ function verifiedChanges(stages) {
     const beforeValues = new Map((before.values || []).map((value) => [value.label, value.value]));
     for (const value of after.values || []) {
       const oldValue = beforeValues.get(value.label);
-      if (oldValue === undefined) items.push(`${value.label}：${value.value}（追加）`);
-      else if (oldValue !== value.value) items.push(`${value.label}：${oldValue} → ${value.value}`);
+      if (oldValue === undefined)
+        items.push(`${value.label}：${value.value}（追加）`);
+      else if (oldValue !== value.value)
+        items.push(`${value.label}：${oldValue} → ${value.value}`);
     }
     changes.push({ before, after, items });
   }
@@ -86,7 +90,8 @@ function renderPage(family, index) {
   const evaluations = evaluationRows(family.id);
   const roles = overall?.roles || [];
   const attr = ATTRIBUTE_META[family.attribute];
-  if (!attr) throw new Error(`${family.id}: 属性設定がありません`);
+  if (!attr)
+    throw new Error(`${family.id}: 属性設定がありません`);
   const route = `/tata/${family.id}/`;
   const dateModified = modifiedFor(route);
   const url = `${BASE_URL}${route}`;
@@ -105,10 +110,21 @@ function renderPage(family, index) {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'WebPage', '@id': url, url, name: title, description, image,
+        '@type': 'WebPage',
+        '@id': url,
+        url,
+        name: title,
+        description,
+        image,
         mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-        dateModified, inLanguage: 'ja',
-        about: { '@type': 'Thing', name: displayLabel, alternateName: [...new Set([family.familyName, ...family.evolutions.flatMap((item) => [item.name, item.nameEn, item.nameZhHans])].filter(Boolean))], description }
+        dateModified,
+        inLanguage: 'ja',
+        about: {
+          '@type': 'Thing',
+          name: displayLabel,
+          alternateName: [...new Set([family.familyName, ...family.evolutions.flatMap((item) => [item.name, item.nameEn, item.nameZhHans])].filter(Boolean))],
+          description
+        }
       },
       {
         '@type': 'BreadcrumbList',
@@ -129,7 +145,13 @@ function renderPage(family, index) {
     return `<article class="evo-card static-evo">${visual}<div><small>T${evolution.stage}</small><strong>${esc(evolution.name)}</strong>${originalName(evolution, 'small')}${localizedNames}</div></article>`;
   }).join('');
   const evolutionIndex = `<section class="wrap tata-stage-index" aria-labelledby="stage-index-title"><h2 id="stage-index-title">このページで扱う進化</h2><ol>${family.evolutions.map((evolution) => `<li><a href="#stage-${evolution.stage}"><b>T${evolution.stage}</b> ${esc(evolution.name)}</a></li>`).join('')}</ol><p>${esc(displayLabel)}のT1〜T${family.evolutions.length}について、進化先・スキル・確認済み数値をまとめています。</p></section>`;
-  const skillBlocks = stageData.map((stage) => { const skillIcon = skillIconByFamilyStage.get(`${family.id}:${stage.stage}`); return `<section class="skill-block" id="stage-${stage.stage}" data-skill-stage="${stage.stage}"><div class="skill-head"><div class="skill-title-with-icon">${skillIcon ? `<img src="${esc(skillIcon.optimizedPath)}" width="64" height="64" alt="${esc(`${displayLabel} ${stage.skillName} スキルアイコン`)}" loading="lazy" decoding="async">` : ''}<div><small>第${stage.stage}進化：${esc(stage.tataName)}</small><h2>${esc(stage.skillName)}</h2></div></div><p class="skill-summary">${esc(stage.description || '説明データは収録されていません。')}</p></div>${stage.values?.length ? `<div class="stats-grid">${stage.values.map((value) => `<div class="stat-cell"><span>${esc(value.label)}</span><b>${esc(value.value)}</b></div>`).join('')}</div>` : '<p class="section-note">確認済み数値は収録されていません。</p>'}${stage.sources?.length ? `<details class="source-details"><summary>参照スクショ</summary><div class="sources">${stage.sources.map(esc).join(' / ')}</div></details>` : ''}</section>`; }).join('');
+  const skillBlocks = stageData.map((stage) => {
+
+    const skillIcon = skillIconByFamilyStage.get(`${family.id}:${stage.stage}`);
+
+    return `<section class="skill-block" id="stage-${stage.stage}" data-skill-stage="${stage.stage}"><div class="skill-head"><div class="skill-title-with-icon">${skillIcon ? `<img src="${esc(skillIcon.optimizedPath)}" width="64" height="64" alt="${esc(`${displayLabel} ${stage.skillName} スキルアイコン`)}" loading="lazy" decoding="async">` : ''}<div><small>第${stage.stage}進化：${esc(stage.tataName)}</small><h2>${esc(stage.skillName)}</h2></div></div><p class="skill-summary">${esc(stage.description || '説明データは収録されていません。')}</p></div>${stage.values?.length ? `<div class="stats-grid">${stage.values.map((value) => `<div class="stat-cell"><span>${esc(value.label)}</span><b>${esc(value.value)}</b></div>`).join('')}</div>` : '<p class="section-note">確認済み数値は収録されていません。</p>'}${stage.sources?.length ? `<details class="source-details"><summary>参照スクショ</summary><div class="sources">${stage.sources.map(esc).join(' / ')}</div></details>` : ''}</section>`;
+
+  }).join('');
   const ratingAnswer = overall?.comment || zombie?.comment || (evaluations.length ? `${evaluations.map(([label, value]) => `${label} ${value}`).join('、')}として評価しています。` : '現在評価情報を収集中です。');
   const purposeAnswer = evaluations.length
     ? `<div class="mode-rating-grid">${evaluations.map(([label, value]) => `<div><span>${esc(label)}</span><b>${esc(value)}</b></div>`).join('')}</div>`
@@ -151,14 +173,32 @@ function renderPage(family, index) {
     ...(zombie?.tier || overall?.zombie ? [['/zombie-rush/', 'ゾンビラッシュ攻略']] : []),
     ...(overall?.dojo ? [['/badge-dojo/', 'バッジ道場攻略']] : [])
   ];
-  const relatedFamilies = editorial[family.id]?.related.map(({familyId,reasons})=>({item:families.find(f=>f.id===familyId),reasons})) || families.filter((item) => item.id !== family.id).map((item) => {
+  const relatedFamilies = editorial[family.id]?.related.map(({ familyId, reasons }) => ({ item: families.find(f => f.id === familyId), reasons })) || families.filter((item) => item.id !== family.id).map((item) => {
     const itemRating = ratings.overall?.byFamily?.[item.id];
     const sharedRoles = roles.filter((role) => itemRating?.roles?.includes(role));
     const reasons = [];
     let score = 0;
-    if (item.attribute === family.attribute) { score += 3; reasons.push(`同じ${family.attribute}属性`); }
-    if (overall?.tier && itemRating?.tier === overall.tier) { score += 2; reasons.push(`総合${overall.tier}評価`); }
-    if (sharedRoles.length) { score += sharedRoles.length * 2; reasons.push(`共通役割：${sharedRoles.join('・')}`); }
+    if (item.attribute === family.attribute) {
+
+      score += 3;
+
+      reasons.push(`同じ${family.attribute}属性`);
+
+    }
+    if (overall?.tier && itemRating?.tier === overall.tier) {
+
+      score += 2;
+
+      reasons.push(`総合${overall.tier}評価`);
+
+    }
+    if (sharedRoles.length) {
+
+      score += sharedRoles.length * 2;
+
+      reasons.push(`共通役割：${sharedRoles.join('・')}`);
+
+    }
     return { item, score, reasons };
   }).filter((entry) => entry.score > 0).sort((a, b) => b.score - a.score || getFamilyDisplayName(a.item).localeCompare(getFamilyDisplayName(b.item), 'ja')).slice(0, 3);
   const relatedHtml = relatedFamilies.length ? `<div class="related-content related-tata-grid">${relatedFamilies.map(({ item, reasons }) => `<article><h3><a href="/tata/${encodeURIComponent(item.id)}/">${esc(getFamilyDisplayLabel(item))}</a></h3><p>関連理由：${esc(reasons.join(' / '))}</p><a class="ghost-button" href="/compare/?a=${encodeURIComponent(family.id)}&amp;b=${encodeURIComponent(item.id)}">この2体を比較</a></article>`).join('')}</div>` : '<p>関連度を確認できるタタは現在ありません。</p>';

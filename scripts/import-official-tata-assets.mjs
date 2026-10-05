@@ -28,7 +28,8 @@ for (const line of coverageLines.slice(1)) {
   const values = line.split(',');
   const record = Object.fromEntries(coverageHeaders.map((header, index) => [header, values[index]]));
   for (let stage = 1; stage <= 4; stage += 1) {
-    if (record[`T${stage}_site_status`] && record[`T${stage}_site_status`] !== 'unknown') baselineStatus.set(`${record.family}:${stage}`, record[`T${stage}_site_status`]);
+    if (record[`T${stage}_site_status`] && record[`T${stage}_site_status`] !== 'unknown')
+      baselineStatus.set(`${record.family}:${stage}`, record[`T${stage}_site_status`]);
   }
 }
 const originalRoot = path.resolve(manifest.root);
@@ -41,15 +42,24 @@ function candidateScore(asset, evolution) {
   const normalizedFilename = clean(filename);
   const normalizedName = clean(evolution.nameEn);
   let score = 0;
-  if (asset.file_type !== 'image' || asset.extension !== '.png') return -Infinity;
-  if (!['tata-character', 'creator-tata-image', 'korean-tata-art'].includes(asset.subcategory)) return -Infinity;
-  if (/glitch|reference[_ -]?sheet|card|meme|attack|death|disable|drag|eat|idle|move|rest|work/i.test(filename)) return -Infinity;
-  if (asset.alpha) score += 1_000_000;
-  if (normalizedName && normalizedFilename.includes(normalizedName)) score += 500_000;
-  if (/\/캐릭터 일러스트\/critters\//.test(pathValue)) score += 80_000;
-  if (/\/FOR KOL_KOC\/critters image\//i.test(pathValue)) score += 60_000;
-  if (/\/Critters-NEW\//.test(pathValue)) score += 40_000;
-  if (asset.quality_rating === 'excellent') score += 20_000;
+  if (asset.file_type !== 'image' || asset.extension !== '.png')
+    return -Infinity;
+  if (!['tata-character', 'creator-tata-image', 'korean-tata-art'].includes(asset.subcategory))
+    return -Infinity;
+  if (/glitch|reference[_ -]?sheet|card|meme|attack|death|disable|drag|eat|idle|move|rest|work/i.test(filename))
+    return -Infinity;
+  if (asset.alpha)
+    score += 1_000_000;
+  if (normalizedName && normalizedFilename.includes(normalizedName))
+    score += 500_000;
+  if (/\/캐릭터 일러스트\/critters\//.test(pathValue))
+    score += 80_000;
+  if (/\/FOR KOL_KOC\/critters image\//i.test(pathValue))
+    score += 60_000;
+  if (/\/Critters-NEW\//.test(pathValue))
+    score += 40_000;
+  if (asset.quality_rating === 'excellent')
+    score += 20_000;
   score += Math.min(Number(asset.width || 0) * Number(asset.height || 0), 10_000_000) / 100;
   score -= Number(asset.size_bytes || asset.bytes || 0) / 10_000_000;
   return score;
@@ -102,7 +112,8 @@ const previewSelected = selected.filter((entry) => entry.currentSourceType !== '
 const totals = Object.fromEntries(['pending_to_official', 'verified_to_official', 'official_missing'].map((action) => [action, audit.filter((entry) => entry.action === action).length]));
 
 function resolveSkillTarget(asset) {
-  if (asset.tata_family && asset.tata_stage) return { familyId: asset.tata_family, stage: Number(asset.tata_stage) };
+  if (asset.tata_family && asset.tata_stage)
+    return { familyId: asset.tata_family, stage: Number(asset.tata_stage) };
   const prefix = clean(asset.original_filename.split('-')[0]);
   const matches = tata.families.flatMap((family) => family.evolutions.map((evolution) => ({ familyId: family.id, stage: evolution.stage, name: clean(evolution.nameEn) }))).filter((entry) => entry.name === prefix);
   return matches.length === 1 ? matches[0] : null;
@@ -115,9 +126,11 @@ const skillIcons = manifest.assets
   .sort((a, b) => a.target.familyId.localeCompare(b.target.familyId) || a.target.stage - b.target.stage);
 const eventAssetIds = ['MSOA-06324', 'MSOA-06328', 'MSOA-06332', 'MSOA-06335'];
 const eventAssets = eventAssetIds.map((assetId) => manifest.assets.find((asset) => asset.asset_id === assetId));
-if (eventAssets.some((asset) => !asset)) throw new Error('Treasure Hunt event asset is missing from the manifest');
+if (eventAssets.some((asset) => !asset))
+  throw new Error('Treasure Hunt event asset is missing from the manifest');
 const siteIconAsset = manifest.assets.find((asset) => asset.asset_id === 'MSOA-08948');
-if (!siteIconAsset) throw new Error('Official game icon MSOA-08948 is missing from the manifest');
+if (!siteIconAsset)
+  throw new Error('Official game icon MSOA-08948 is missing from the manifest');
 
 function pngAsIco(png, size) {
   const header = Buffer.alloc(22);
@@ -139,7 +152,12 @@ async function optimizedBuffers(sourcePath) {
   const make = (size, inset) => sharp(sourcePath, { failOn: 'error' })
     .rotate()
     .trim({ background: { r: 0, g: 0, b: 0, alpha: 0 } })
-    .resize(size - inset * 2, size - inset * 2, { fit: 'contain', withoutEnlargement: false, kernel: sharp.kernel.lanczos3, background: { r: 0, g: 0, b: 0, alpha: 0 } })
+    .resize(size - inset * 2, size - inset * 2, {
+      fit: 'contain',
+      withoutEnlargement: false,
+      kernel: sharp.kernel.lanczos3,
+      background: { r: 0, g: 0, b: 0, alpha: 0 }
+    })
     .extend({
       top: inset,
       bottom: inset,
@@ -153,7 +171,8 @@ async function optimizedBuffers(sourcePath) {
 }
 
 async function buildPreview() {
-  if (!previewDir) return;
+  if (!previewDir)
+    return;
   fs.mkdirSync(previewDir, { recursive: true });
   const tiles = [];
   for (const entry of previewSelected) {
@@ -183,7 +202,8 @@ async function applySelection() {
   const nextFamilyMap = new Map(next.families.map((family) => [family.familyId, family]));
   for (const entry of selected) {
     const source = fs.readFileSync(entry.sourcePath);
-    if (sha256(source) !== entry.sourceSha256) throw new Error(`${entry.officialAssetId}: source SHA-256 mismatch`);
+    if (sha256(source) !== entry.sourceSha256)
+      throw new Error(`${entry.officialAssetId}: source SHA-256 mismatch`);
     const outputDirectory = path.join(root, 'assets', 'official', 'tata', entry.familyId);
     fs.mkdirSync(outputDirectory, { recursive: true });
     const buffers = await optimizedBuffers(entry.sourcePath);
@@ -213,11 +233,13 @@ async function applySelection() {
     const family = nextFamilyMap.get(entry.familyId);
     const index = family.forms.findIndex((form) => form.stage === entry.stage);
     family.forms[index] = metadata;
-    if (entry.stage === 1) family.stage1 = { ...metadata };
+    if (entry.stage === 1)
+      family.stage1 = { ...metadata };
   }
   for (const family of next.families) {
     const stageOne = family.forms.find((form) => form.stage === 1);
-    if (stageOne) family.stage1 = { ...stageOne };
+    if (stageOne)
+      family.stage1 = { ...stageOne };
   }
   const forms = next.families.flatMap((family) => family.forms);
   next.counts = {
@@ -232,7 +254,8 @@ async function applySelection() {
     const mapped = nextFamilyMap.get(family.id);
     for (const evolution of family.evolutions) {
       const form = mapped.forms.find((item) => item.stage === evolution.stage);
-      if (form?.status === 'verified' && form.src) evolution.image = form.src.replace(/^\//, '');
+      if (form?.status === 'verified' && form.src)
+        evolution.image = form.src.replace(/^\//, '');
     }
   }
   fs.writeFileSync(path.join(root, 'data', 'tatari.json'), `${JSON.stringify(tata, null, 2)}\n`);
@@ -250,7 +273,8 @@ async function applySelection() {
   const skillRecords = [];
   for (const { asset, target } of skillIcons) {
     const source = fs.readFileSync(asset.local_original_path);
-    if (sha256(source) !== asset.sha256) throw new Error(`${asset.asset_id}: skill source SHA-256 mismatch`);
+    if (sha256(source) !== asset.sha256)
+      throw new Error(`${asset.asset_id}: skill source SHA-256 mismatch`);
     const relative = `assets/official/skills/${target.familyId}-t${target.stage}.webp`;
     fs.mkdirSync(path.dirname(path.join(root, relative)), { recursive: true });
     const output = await sharp(source, { failOn: 'error' })
@@ -283,7 +307,8 @@ async function applySelection() {
   const eventRecords = [];
   for (const asset of eventAssets) {
     const source = fs.readFileSync(asset.local_original_path);
-    if (sha256(source) !== asset.sha256) throw new Error(`${asset.asset_id}: event source SHA-256 mismatch`);
+    if (sha256(source) !== asset.sha256)
+      throw new Error(`${asset.asset_id}: event source SHA-256 mismatch`);
     const relative = `assets/official/events/treasure-hunt/${asset.asset_id.toLowerCase()}.webp`;
     fs.mkdirSync(path.dirname(path.join(root, relative)), { recursive: true });
     const output = await sharp(source, { failOn: 'error' })
@@ -312,7 +337,8 @@ async function applySelection() {
     events: eventRecords,
   }, null, 2)}\n`);
   const iconSource = fs.readFileSync(siteIconAsset.local_original_path);
-  if (sha256(iconSource) !== siteIconAsset.sha256) throw new Error(`${siteIconAsset.asset_id}: icon source SHA-256 mismatch`);
+  if (sha256(iconSource) !== siteIconAsset.sha256)
+    throw new Error(`${siteIconAsset.asset_id}: icon source SHA-256 mismatch`);
   const iconOutputs = [];
   for (const [relative, size] of [
     ['assets/icons/icon-512.png', 512],
@@ -362,20 +388,46 @@ async function applySelection() {
 
   const table = (headers, rows) => [`| ${headers.join(' | ')} |`, `|${headers.map(() => '---').join('|')}|`, ...rows.map((row) => `| ${row.map((value) => String(value ?? '').replaceAll('|', '\\|')).join(' | ')} |`)].join('\n');
   const tataPendingTable = table(['対象', 'Current', 'Official candidate', 'Asset ID', '原本解像度', '理由'], audit.filter((entry) => entry.action === 'pending_to_official').map((entry) => [
-    `${entry.familyId} T${entry.stage} ${entry.name}`, '画像確認中', entry.sourceFilename, entry.officialAssetId, `${entry.sourceWidth}×${entry.sourceHeight}`, 'family/stage一致・透過clean artを目視確認',
+    `${entry.familyId} T${entry.stage} ${entry.name}`,
+    '画像確認中',
+    entry.sourceFilename,
+    entry.officialAssetId,
+    `${entry.sourceWidth}×${entry.sourceHeight}`,
+    'family/stage一致・透過clean artを目視確認',
   ]));
   const tataUpgradeTable = table(['対象', 'Current', 'Official candidate', 'Asset ID', '原本解像度', '判断'], highQualityAudit.map((entry) => [
-    `${entry.familyId} T${entry.stage}`, '既存verified画像', entry.candidate.original_filename, entry.candidate.asset_id, `${entry.candidate.width}×${entry.candidate.height}`, entry.decision,
+    `${entry.familyId} T${entry.stage}`,
+    '既存verified画像',
+    entry.candidate.original_filename,
+    entry.candidate.asset_id,
+    `${entry.candidate.width}×${entry.candidate.height}`,
+    entry.decision,
   ]));
   const eventTable = table(['対象', 'Current', 'Official candidate', 'Asset ID', '原本解像度', '判断'], manifest.assets.filter((asset) => asset.classification === 'EVENTS').map((asset) => [
-    'Treasure Hunt', asset.asset_id === 'MSOA-05880' ? '既存攻略ページ（動画未使用）' : 'イベント画像なし', asset.original_filename, asset.asset_id, `${asset.width || '-'}×${asset.height || '-'}`, eventAssetIds.includes(asset.asset_id) ? '採用：イベントフォルダ明示・汎用公式アート' : '不採用：重複variant、低解像度、用途不明確、または動画',
+    'Treasure Hunt',
+    asset.asset_id === 'MSOA-05880' ? '既存攻略ページ（動画未使用）' : 'イベント画像なし',
+    asset.original_filename,
+    asset.asset_id,
+    `${asset.width || '-'}×${asset.height || '-'}`,
+    eventAssetIds.includes(asset.asset_id) ? '採用：イベントフォルダ明示・汎用公式アート' : '不採用：重複variant、低解像度、用途不明確、または動画',
   ]));
   const logoTable = table(['Current', 'Official candidate', 'Asset ID', '原本解像度', '判断'], manifest.assets.filter((asset) => asset.classification === 'LOGO').map((asset) => [
-    '独自サイトロゴ＋非公式表記', asset.original_filename, asset.asset_id, `${asset.width || '-'}×${asset.height || '-'}`, /krlogo/i.test(asset.original_filename) ? '不採用：韓国語地域向け' : '不採用：ゲーム公式ロゴと攻略DBブランドの混同を回避',
+    '独自サイトロゴ＋非公式表記',
+    asset.original_filename,
+    asset.asset_id,
+    `${asset.width || '-'}×${asset.height || '-'}`,
+    /krlogo/i.test(asset.original_filename) ? '不採用：韓国語地域向け' : '不採用：ゲーム公式ロゴと攻略DBブランドの混同を回避',
   ]));
   const skillTable = table(['対象', 'Current', 'Official candidate', 'Asset ID', '原本解像度', '判断'], manifest.assets.filter((asset) => asset.subcategory === 'skill-icon').map((asset) => {
     const target = resolveSkillTarget(asset);
-    return [target ? `${target.familyId} T${target.stage}` : '対応未確定', 'スキル説明のみ', asset.original_filename, asset.asset_id, `${asset.width || '-'}×${asset.height || '-'}`, target ? '採用：family/stageをmanifestまたはconfirmed名で特定' : '不採用：現DBとの確定対応なし'];
+    return [
+      target ? `${target.familyId} T${target.stage}` : '対応未確定',
+      'スキル説明のみ',
+      asset.original_filename,
+      asset.asset_id,
+      `${asset.width || '-'}×${asset.height || '-'}`,
+      target ? '採用：family/stageをmanifestまたはconfirmed名で特定' : '不採用：現DBとの確定対応なし'
+    ];
   }));
   const evidence = `# 公式クリエイター素材 導入監査台帳（2026-09-04）
 
@@ -440,5 +492,14 @@ ${skillTable}
 }
 
 await buildPreview();
-if (apply) await applySelection();
-console.log(JSON.stringify({ mode: apply ? 'apply' : 'audit', totals, selected: selected.length, skillIcons: skillIcons.length, eventAssets: eventAssets.length, siteIcons: 1, previewDir: previewDir || null }, null, 2));
+if (apply)
+  await applySelection();
+console.log(JSON.stringify({
+  mode: apply ? 'apply' : 'audit',
+  totals,
+  selected: selected.length,
+  skillIcons: skillIcons.length,
+  eventAssets: eventAssets.length,
+  siteIcons: 1,
+  previewDir: previewDir || null
+}, null, 2));

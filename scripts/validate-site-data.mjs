@@ -9,23 +9,42 @@ const root = path.resolve(import.meta.dirname, '..');
 const read = (file) => {
   const target = path.join(root, file);
   for (let attempt = 0; attempt < 12; attempt += 1) {
-    try { return fs.readFileSync(target, 'utf8'); }
-    catch (error) { if (error.code !== 'EBUSY' || attempt === 11) throw error; Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 40); }
+    try {
+
+      return fs.readFileSync(target, 'utf8');
+
+    }
+    catch (error) {
+
+      if (error.code !== 'EBUSY' || attempt === 11)
+        throw error;
+
+      Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 40);
+
+    }
   }
 };
 const json = (file) => JSON.parse(read(file));
 const errors = [];
 const LEGACY_BASE_URL = 'https://monsaba-guide.vercel.app';
-const expect = (condition, message) => { if (!condition) errors.push(message); };
+const expect = (condition, message) => {
+
+  if (!condition)
+    errors.push(message);
+
+};
 const ignored = new Set(['.git', '.github', '.vercel', '.agents', 'node_modules', 'assets', 'promo', 'en', 'zh-cn', 'i18n']);
 const textExtensions = new Set(['.html', '.js', '.json', '.xml', '.txt', '.webmanifest']);
 const textFiles = [];
 function walk(directory) {
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
-    if (ignored.has(entry.name)) continue;
+    if (ignored.has(entry.name))
+      continue;
     const absolute = path.join(directory, entry.name);
-    if (entry.isDirectory()) walk(absolute);
-    else if (textExtensions.has(path.extname(entry.name))) textFiles.push(path.relative(root, absolute).replaceAll('\\', '/'));
+    if (entry.isDirectory())
+      walk(absolute);
+    else if (textExtensions.has(path.extname(entry.name)))
+      textFiles.push(path.relative(root, absolute).replaceAll('\\', '/'));
   }
 }
 walk(root);
@@ -45,14 +64,16 @@ for (const [label, values] of [
   expect(invalid.length === 0, `${label}: 未許可の公開属性 ${invalid.join(', ')}`);
 }
 const counts = Object.fromEntries(['草', '水', '火', '雷', '岩'].map((attribute) => [attribute, 0]));
-for (const family of tatari.families || []) counts[family.attribute] = (counts[family.attribute] || 0) + 1;
+for (const family of tatari.families || [])
+  counts[family.attribute] = (counts[family.attribute] || 0) + 1;
 expect(Object.values(counts).reduce((sum, value) => sum + value, 0) === tatari.meta.familyCount, `属性系統数: ${JSON.stringify(counts)}`);
 expect((tatari.families || []).length === tatari.meta.familyCount, `総系統数: ${(tatari.families || []).length}`);
 const renamedFamilies = (tatari.families || []).filter((family) => family.familyName !== getFamilyDisplayName(family));
 for (const family of tatari.families || []) {
   expect(getFamilyDisplayName(family) === family.evolutions[0]?.name, `${family.id}: 表示名が初期形態名と不一致`);
   const aliases = getFamilySearchAliases(family);
-  for (const evolution of family.evolutions || []) expect(aliases.includes(evolution.name), `${family.id}: 検索aliasに ${evolution.name} がありません`);
+  for (const evolution of family.evolutions || [])
+    expect(aliases.includes(evolution.name), `${family.id}: 検索aliasに ${evolution.name} がありません`);
   expect(aliases.includes(family.familyName), `${family.id}: legacy familyName検索aliasがありません`);
 }
 const bowzuhebi = ratings.overall?.byFamily?.nenbutsuhebi;
@@ -69,17 +90,19 @@ const overallIds = overallGroups.flatMap((group) => group.ids || []);
 expect(new Set(overallIds).size === overallIds.length, '総合Tierに重複familyIdがあります');
 expect(overallIds.every((id) => tatari.families.some((family) => family.id === id)), '総合Tierに存在しないfamilyIdがあります');
 expect(
-  JSON.stringify(overallGroups.find((group) => group.rank === 'SSS')?.ids) === JSON.stringify(['gaoden','umimi','komakiri','boruzarashi','erekoon','himawarin','rokuju','kenkani','shizukuchou','yanzaru','purabi']),
+  JSON.stringify(overallGroups.find((group) => group.rank === 'SSS')?.ids) === JSON.stringify(['gaoden', 'umimi', 'komakiri', 'boruzarashi', 'erekoon', 'himawarin', 'rokuju', 'kenkani', 'shizukuchou', 'yanzaru', 'purabi']),
   '総合SSSは指定の11系統と一致していません'
 );
 
 const publicFiles = textFiles.filter((file) => !file.startsWith('scripts/'));
 for (const file of publicFiles) {
   const content = read(file);
-  if (file !== 'vercel.json') expect(!content.includes('/attribute/earth/'), `${file}: 旧 earth URL`);
+  if (file !== 'vercel.json')
+    expect(!content.includes('/attribute/earth/'), `${file}: 旧 earth URL`);
   expect(!content.includes('ヒヒドッグ'), `${file}: ヒヒドッグ`);
   expect(!content.includes('当サイトdojo評価'), `${file}: 当サイトdojo評価`);
-  if (!['consult/consult.js', 'search/search.js'].includes(file)) expect(!content.includes('土属性'), `${file}: 土属性`);
+  if (!['consult/consult.js', 'search/search.js'].includes(file))
+    expect(!content.includes('土属性'), `${file}: 土属性`);
   expect(!content.includes(LEGACY_BASE_URL), `${file}: 旧Production URLが混入`);
   expect(!/\beval\s*\(|new\s+Function\s*\(/.test(content), `${file}: eval / Function を使用`);
 }
@@ -110,8 +133,10 @@ for (const file of htmlFiles) {
       canonicalOwners.set(canonical, file);
     }
   }
-  if (html.includes('class="site-header"')) expect(/<script\s+src="(?:\/|\.\/)site\.js(?:\?[^"#]*)?"/.test(html), `${file}: 共通サイトスクリプトがありません`);
-  if (html.includes('class="site-header"')) expect(/src="\/family-display\.js(?:\?[^"#]*)?"/.test(html), `${file}: 系統表示名の共通スクリプトがありません`);
+  if (html.includes('class="site-header"'))
+    expect(/<script\s+src="(?:\/|\.\/)site\.js(?:\?[^"#]*)?"/.test(html), `${file}: 共通サイトスクリプトがありません`);
+  if (html.includes('class="site-header"'))
+    expect(/src="\/family-display\.js(?:\?[^"#]*)?"/.test(html), `${file}: 系統表示名の共通スクリプトがありません`);
   if (html.includes('<footer')) {
     expect(html.includes('href="/friends/"'), `${file}: footerにフレンド掲示板リンクがありません`);
     const xContactLinks = html.match(/href="https:\/\/x\.com\/odi_monsaba" target="_blank" rel="noopener noreferrer"/g) || [];
@@ -124,7 +149,16 @@ for (const file of htmlFiles) {
   }
 }
 
-const majorRoutes = ['/', '/zombie-rush/', '/boss-rally/', '/badge-dojo/', '/tata-tier/', '/consult/', '/normal-guide/', '/evolution-priority/'];
+const majorRoutes = [
+  '/',
+  '/zombie-rush/',
+  '/boss-rally/',
+  '/badge-dojo/',
+  '/tata-tier/',
+  '/consult/',
+  '/normal-guide/',
+  '/evolution-priority/'
+];
 const dedicatedOgCard = Object.freeze({
   '/': 'top',
   '/zombie-rush/': 'zombie-rush',
@@ -152,7 +186,8 @@ for (const route of majorRoutes) {
 for (const family of tatari.families || []) {
   const file = `tata/${family.id}/index.html`;
   expect(fs.existsSync(path.join(root, file)), `${file}: 個別ページがありません`);
-  if (!fs.existsSync(path.join(root, file))) continue;
+  if (!fs.existsSync(path.join(root, file)))
+    continue;
   const html = read(file);
   const displayName = getFamilyDisplayName(family);
   const displayLabel = getFamilyDisplayLabel(family);
@@ -163,7 +198,8 @@ for (const family of tatari.families || []) {
   expect(html.includes(`${displayName}の進化先`), `${file}: 進化先がありません`);
   expect(html.includes(`${displayLabel}のスキル一覧`), `${file}: スキル一覧がありません`);
   expect(html.includes('このページで扱う進化'), `${file}: 進化名称の静的索引がありません`);
-  for (const evolution of family.evolutions) expect(html.includes(`T${evolution.stage}</b> ${evolution.name}`), `${file}: T${evolution.stage} ${evolution.name} が進化索引にありません`);
+  for (const evolution of family.evolutions)
+    expect(html.includes(`T${evolution.stage}</b> ${evolution.name}`), `${file}: T${evolution.stage} ${evolution.name} が進化索引にありません`);
   expect(html.includes('data-monetization-slot="tata_mid" hidden'), `${file}: 非表示の将来広告枠がありません`);
   const imageMatch = html.match(/<meta property="og:image" content="([^"]+)"/);
   expect(Boolean(imageMatch), `${file}: og:image がありません`);
@@ -175,19 +211,23 @@ for (const family of tatari.families || []) {
 
 for (const family of renamedFamilies) {
   const legacyLabel = `${family.familyName}系`;
-  for (const file of htmlFiles) expect(!read(file).includes(legacyLabel), `${file}: legacy系統表示 ${legacyLabel} が残っています`);
+  for (const file of htmlFiles)
+    expect(!read(file).includes(legacyLabel), `${file}: legacy系統表示 ${legacyLabel} が残っています`);
 }
 for (const file of htmlFiles) {
   const html = read(file);
-  for (const wrongName of ['ヒカル系', 'ホルタル']) expect(!html.includes(wrongName), `${file}: 旧ピカル系表示 ${wrongName} が残っています`);
+  for (const wrongName of ['ヒカル系', 'ホルタル'])
+    expect(!html.includes(wrongName), `${file}: 旧ピカル系表示 ${wrongName} が残っています`);
 }
 
 const sharedLayout = read('scripts/shared-layout.mjs');
-for (const label of ['タタ図鑑', 'タタTier', '進化優先度', '攻略ハブ', '通常ステージ', 'ゾンビラッシュ', 'ボスラリー', 'バッジ道場', '比較', '攻略相談', '検索', '初心者ガイド', 'フレンド掲示板']) expect(sharedLayout.includes(label), `共通ヘッダーに ${label} がありません`);
+for (const label of ['タタ図鑑', 'タタTier', '進化優先度', '攻略ハブ', '通常ステージ', 'ゾンビラッシュ', 'ボスラリー', 'バッジ道場', '比較', '攻略相談', '検索', '初心者ガイド', 'フレンド掲示板'])
+  expect(sharedLayout.includes(label), `共通ヘッダーに ${label} がありません`);
 const siteJs = read('site.js');
 const stylesCss = read('styles.css');
 expect(sharedLayout.includes("href: '/friends/', label: 'フレンド掲示板'"), 'フレンド掲示板が共通ナビにありません');
-for (const group of ['tata', 'strategy', 'growth', 'tools', 'community']) expect(sharedLayout.includes(`id: '${group}'`), `共通ナビに${group}カテゴリがありません`);
+for (const group of ['tata', 'strategy', 'growth', 'tools', 'community'])
+  expect(sharedLayout.includes(`id: '${group}'`), `共通ナビに${group}カテゴリがありません`);
 expect(sharedLayout.indexOf("id: 'strategy'") < sharedLayout.indexOf("id: 'tools'") && sharedLayout.indexOf("id: 'tools'") < sharedLayout.indexOf("id: 'community'"), '共通ナビのカテゴリ順が不正です');
 expect(sharedLayout.includes("href: '/guides/', label: '攻略ハブ'") && sharedLayout.includes("href: '/normal-guide/', label: '通常ステージ'") && sharedLayout.includes("href: '/zombie-rush/', label: 'ゾンビラッシュ'"), '攻略カテゴリの導線が不足しています');
 expect(sharedLayout.includes("href: '/team-builder/', label: '編成メーカー'") && sharedLayout.includes("href: '/compare/', label: '比較'") && sharedLayout.includes("href: '/consult/', label: '攻略相談'") && sharedLayout.includes("href: '/search/', label: '検索'"), 'ツールカテゴリの導線が不足しています');
@@ -279,9 +319,11 @@ for (const file of htmlFiles) {
   const html = read(file);
   for (const match of html.matchAll(/(?:href|src)="([^"#?]+)(?:[?#][^"]*)?"/g)) {
     const url = match[1];
-    if (!url.startsWith('/') || url.startsWith('//') || url === '/attribute/earth/') continue;
+    if (!url.startsWith('/') || url.startsWith('//') || url === '/attribute/earth/')
+      continue;
     const target = url === '/' ? 'index.html' : url.endsWith('/') ? `${url.slice(1)}index.html` : url.slice(1);
-    if (!fs.existsSync(path.join(root, target))) brokenLinks.push(`${file} -> ${url}`);
+    if (!fs.existsSync(path.join(root, target)))
+      brokenLinks.push(`${file} -> ${url}`);
   }
 }
 expect(brokenLinks.length === 0, `存在しない内部リンク:\n${brokenLinks.join('\n')}`);
@@ -289,14 +331,35 @@ expect(brokenLinks.length === 0, `存在しない内部リンク:\n${brokenLinks
 const sitemap = read('sitemap.xml');
 expect(!sitemap.includes('/attribute/earth/'), 'sitemap.xml に旧 earth URL が残っています');
 expect(sitemap.includes(`${BASE_URL}/attribute/rock/`), 'sitemap.xml に rock URL がありません');
-for (const route of ['/beginner-guide/', '/friends/', '/about/', '/guides/', '/faq/', '/updates/', '/updates/2026-08-26/', '/privacy/', '/about-data/']) expect(sitemap.includes(`${BASE_URL}${route}`), `sitemap.xml に ${route} がありません`);
+for (const route of [
+  '/beginner-guide/',
+  '/friends/',
+  '/about/',
+  '/guides/',
+  '/faq/',
+  '/updates/',
+  '/updates/2026-08-26/',
+  '/privacy/',
+  '/about-data/'
+])
+  expect(sitemap.includes(`${BASE_URL}${route}`), `sitemap.xml に ${route} がありません`);
 expect(!sitemap.includes(`${BASE_URL}/search/`), 'noindexの検索ページをsitemapへ含めないでください');
 expect(!sitemap.includes(`${BASE_URL}/compare/`), 'noindexの比較ページをsitemapへ含めないでください');
 expect(!sitemap.includes('/404'), 'sitemap.xml に404が含まれています');
 expect((sitemap.match(/<loc>/g) || []).length === (sitemap.match(/<lastmod>\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}\+09:00)?<\/lastmod>/g) || []).length, 'sitemap.xmlの全URLに有効なlastmodが必要です');
 expect(read('robots.txt').includes(`Sitemap: ${BASE_URL}/sitemap.xml`), 'robots.txt のSitemap URLが不正');
 
-const expectedSlots = ['article_after_summary', 'article_mid', 'article_bottom', 'tata_mid', 'beginner_mid', 'affiliate_top', 'affiliate_mid', 'affiliate_bottom', 'affiliate_floating'];
+const expectedSlots = [
+  'article_after_summary',
+  'article_mid',
+  'article_bottom',
+  'tata_mid',
+  'beginner_mid',
+  'affiliate_top',
+  'affiliate_mid',
+  'affiliate_bottom',
+  'affiliate_floating'
+];
 expect(monetization.adsEnabled === false, 'monetization: adsEnabled は false を維持してください');
 expect(monetization.affiliateEnabled === true, 'monetization: affiliateEnabled は true を維持してください');
 expect(expectedSlots.every((slot) => monetization.slots?.includes(slot)), 'monetization: 固定slot IDが不足しています');
@@ -311,7 +374,8 @@ const routeForHtmlFile = (file) => file === 'index.html' ? '/' : file.endsWith('
 const affiliateEligibleFiles = htmlFiles.filter((file) => monetization.pageProfiles?.some((rule) => matchesAffiliatePath(rule.match, routeForHtmlFile(file))));
 const imageEligibleFamilies = tataImages.families.filter((family) => family.stage1?.status === 'verified').length;
 expect(affiliateEligibleFiles.length === imageEligibleFamilies + 17, `affiliate対象ページ数: ${affiliateEligibleFiles.length}`);
-for (const file of affiliateEligibleFiles) expect(read(file).includes('/monetization.js'), `${file}: monetization.jsがありません`);
+for (const file of affiliateEligibleFiles)
+  expect(read(file).includes('/monetization.js'), `${file}: monetization.jsがありません`);
 for (const route of ['/privacy/', '/about/', '/about-data/', '/updates/', '/search/', '/consult/', '/faq/']) {
   expect(!monetization.pageProfiles?.some((rule) => matchesAffiliatePath(rule.match, route)), `affiliate非対象ページ ${route} が有効です`);
 }
@@ -324,10 +388,38 @@ expect(read('growth.js').includes("'affiliate_impression'") && read('growth.js')
 expect(fs.existsSync(path.join(root, 'docs/ad-placement-audit.md')) && read('docs/ad-placement-audit.md').includes('A8表示ページ数: 4'), '審査前の広告配置監査が未生成です');
 expect(fs.existsSync(path.join(root, 'docs/a8-ad-url-submission.csv')), 'A8追加URL提出CSVがありません');
 const a8Offers = [
-  ['s00000025908001', 'https://px.a8.net/svt/ejp?a8mat=4BADDF+YJ6MY+5JWO+5YZ75', 'https://www28.a8.net/svt/bgt?aid=260824371058&wid=002&eno=01&mid=s00000025908001003000&mc=1', 'https://www16.a8.net/0.gif?a8mat=4BADDF+YJ6MY+5JWO+5YZ75', 300, 250],
-  ['s00000018660003', 'https://px.a8.net/svt/ejp?a8mat=4BADDF+XCBFE+3ZZC+HXKQP', 'https://www25.a8.net/svt/bgt?aid=260824371056&wid=002&eno=01&mid=s00000018660003012000&mc=1', 'https://www11.a8.net/0.gif?a8mat=4BADDF+XCBFE+3ZZC+HXKQP', 468, 60],
-  ['s00000013554002', 'https://px.a8.net/svt/ejp?a8mat=4BADDF+1JU+2WL0+CN8W1', 'https://www21.a8.net/svt/bgt?aid=260824371000&wid=002&eno=01&mid=s00000013554002124000&mc=1', 'https://www18.a8.net/0.gif?a8mat=4BADDF+1JU+2WL0+CN8W1', 120, 600],
-  ['s00000018951001', 'https://px.a8.net/svt/ejp?a8mat=4BADDE+G8NPLM+4286+62U35', 'https://www21.a8.net/svt/bgt?aid=260824370982&wid=002&eno=01&mid=s00000018951001021000&mc=1', 'https://www11.a8.net/0.gif?a8mat=4BADDE+G8NPLM+4286+62U35', 250, 250]
+  [
+    's00000025908001',
+    'https://px.a8.net/svt/ejp?a8mat=4BADDF+YJ6MY+5JWO+5YZ75',
+    'https://www28.a8.net/svt/bgt?aid=260824371058&wid=002&eno=01&mid=s00000025908001003000&mc=1',
+    'https://www16.a8.net/0.gif?a8mat=4BADDF+YJ6MY+5JWO+5YZ75',
+    300,
+    250
+  ],
+  [
+    's00000018660003',
+    'https://px.a8.net/svt/ejp?a8mat=4BADDF+XCBFE+3ZZC+HXKQP',
+    'https://www25.a8.net/svt/bgt?aid=260824371056&wid=002&eno=01&mid=s00000018660003012000&mc=1',
+    'https://www11.a8.net/0.gif?a8mat=4BADDF+XCBFE+3ZZC+HXKQP',
+    468,
+    60
+  ],
+  [
+    's00000013554002',
+    'https://px.a8.net/svt/ejp?a8mat=4BADDF+1JU+2WL0+CN8W1',
+    'https://www21.a8.net/svt/bgt?aid=260824371000&wid=002&eno=01&mid=s00000013554002124000&mc=1',
+    'https://www18.a8.net/0.gif?a8mat=4BADDF+1JU+2WL0+CN8W1',
+    120,
+    600
+  ],
+  [
+    's00000018951001',
+    'https://px.a8.net/svt/ejp?a8mat=4BADDE+G8NPLM+4286+62U35',
+    'https://www21.a8.net/svt/bgt?aid=260824370982&wid=002&eno=01&mid=s00000018951001021000&mc=1',
+    'https://www11.a8.net/0.gif?a8mat=4BADDE+G8NPLM+4286+62U35',
+    250,
+    250
+  ]
 ];
 for (const [programId, href, banner, tracking, width, height] of a8Offers) {
   const offer = affiliateOffers.offers?.find((item) => item.trackingId === programId);
@@ -352,7 +444,15 @@ for (const file of htmlFiles) {
   const html = read(file);
   expect(html.includes('/favicon.ico') && html.includes('/favicon-32x32.png') && html.includes('/apple-touch-icon.png'), `${file}: favicon設定が不足しています`);
 }
-for (const asset of ['favicon.ico', 'favicon-32x32.png', 'apple-touch-icon.png', 'assets/icons/icon-192.png', 'assets/icons/icon-512.png', 'assets/heroes/top-main.webp', 'assets/heroes/evolution-main.webp']) {
+for (const asset of [
+  'favicon.ico',
+  'favicon-32x32.png',
+  'apple-touch-icon.png',
+  'assets/icons/icon-192.png',
+  'assets/icons/icon-512.png',
+  'assets/heroes/top-main.webp',
+  'assets/heroes/evolution-main.webp'
+]) {
   expect(fs.existsSync(path.join(root, asset)), `${asset}: 画像ファイルがありません`);
 }
 expect(read('index.html').includes('/assets/heroes/top-main.webp'), 'トップHeroが新画像ではありません');

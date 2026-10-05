@@ -4,7 +4,12 @@ import { PDF_EVIDENCE, assertPdfPage, assertPdfRange, pagesInRange } from './pdf
 
 const root = path.resolve(import.meta.dirname, '..');
 const readJson = (name) => JSON.parse(fs.readFileSync(path.join(root, 'data', name), 'utf8'));
-const expect = (condition, message) => { if (!condition) throw new Error(message); };
+const expect = (condition, message) => {
+
+  if (!condition)
+    throw new Error(message);
+
+};
 const tatari = readJson('tatari.json');
 const skills = readJson('tata-skills.json');
 const chips = readJson('zombie-rush/chips.json');
@@ -19,9 +24,11 @@ function validatePdfMetadata(value, label = 'root') {
     value.forEach((item, index) => validatePdfMetadata(item, `${label}[${index}]`));
     return;
   }
-  if (!value || typeof value !== 'object') return;
+  if (!value || typeof value !== 'object')
+    return;
   if (value.sourceName?.includes(PDF_EVIDENCE.fileName) || value.fileName === PDF_EVIDENCE.fileName) {
-    if ('pdfPage' in value) assertPdfPage(value.pdfPage, `${label}.pdfPage`);
+    if ('pdfPage' in value)
+      assertPdfPage(value.pdfPage, `${label}.pdfPage`);
     if ('pdfPages' in value) {
       expect(Array.isArray(value.pdfPages) && value.pdfPages.length > 0, `${label}.pdfPages must be a non-empty array`);
       value.pdfPages.forEach((page, index) => assertPdfPage(page, `${label}.pdfPages[${index}]`));
@@ -29,7 +36,8 @@ function validatePdfMetadata(value, label = 'root') {
       expect(value.pdfPages.every((page, index) => index === 0 || page > value.pdfPages[index - 1]), `${label}.pdfPages must be strictly ascending`);
     }
   }
-  for (const [key, child] of Object.entries(value)) validatePdfMetadata(child, `${label}.${key}`);
+  for (const [key, child] of Object.entries(value))
+    validatePdfMetadata(child, `${label}.${key}`);
 }
 
 function validateReferenceText(relative) {
@@ -40,7 +48,8 @@ function validateReferenceText(relative) {
     /PDF第(\d+)(?:[–-](\d+))?页/g
   ];
   for (const pattern of patterns) {
-    for (const match of text.matchAll(pattern)) assertPdfRange(Number(match[1]), Number(match[2] || match[1]), `${relative}: ${match[0]}`);
+    for (const match of text.matchAll(pattern))
+      assertPdfRange(Number(match[1]), Number(match[2] || match[1]), `${relative}: ${match[0]}`);
   }
   expect(!/写真\.pdf p\.92\b/.test(text), `${relative}: p.92 is forbidden`);
 }
@@ -91,18 +100,37 @@ expectPages(chips.source.pdfPages, [40, 91], 'Chip source coverage');
 expect(equalPages(chips.chips.map((chip) => chip.source.pdfPage), pagesInRange(PDF_EVIDENCE.knownRanges.chipDetails)), 'Chip detail pages must be 43-91 in display order');
 
 const referenceFiles = [
-  'data/tatari.json', 'data/tata-skills.json', 'data/zombie-rush/chips.json',
-  'docs/evidence/2026-08-30-gigafile-manifest.md', 'scripts/generate-2026-08-30-mega-update.mjs',
+  'data/tatari.json',
+  'data/tata-skills.json',
+  'data/zombie-rush/chips.json',
+  'docs/evidence/2026-08-30-gigafile-manifest.md',
+  'scripts/generate-2026-08-30-mega-update.mjs',
   ...['', 'en/', 'zh-cn/'].flatMap((prefix) => [
-    `${prefix}tata/pakuma/index.html`, `${prefix}tata/sukedako/index.html`, `${prefix}tata/nenbutsuhebi/index.html`, `${prefix}zombie-rush/chips/index.html`
+    `${prefix}tata/pakuma/index.html`,
+    `${prefix}tata/sukedako/index.html`,
+    `${prefix}tata/nenbutsuhebi/index.html`,
+    `${prefix}zombie-rush/chips/index.html`
   ])
 ];
 referenceFiles.forEach(validateReferenceText);
 expect(trials.families.length === currentFamilyCount && new Set(trials.families.map((family) => family.familyId)).size === currentFamilyCount, 'evolution trials must map every current family exactly once');
 expect(trials.families.every((family) => byId.has(family.familyId)), 'evolution trial family ID mismatch');
 expect(events.events.length >= 9, 'event guides must preserve the nine August event guides');
-for (const route of ['/zombie-rush/chips/', '/evolution/trials/', '/updates/2026-08-30/', ...events.events.map((event) => `/events/${event.id}/`)]) expect(fs.existsSync(path.join(root, route.slice(1), 'index.html')), `${route}: page missing`);
-const modifiedRoutes = ['/tata/pakuma/', '/tata/sukedako/', '/tata/nenbutsuhebi/', '/zombie-rush/chips/', '/evolution/trials/', '/updates/2026-08-30/'];
+for (const route of [
+  '/zombie-rush/chips/',
+  '/evolution/trials/',
+  '/updates/2026-08-30/',
+  ...events.events.map((event) => `/events/${event.id}/`)
+])
+  expect(fs.existsSync(path.join(root, route.slice(1), 'index.html')), `${route}: page missing`);
+const modifiedRoutes = [
+  '/tata/pakuma/',
+  '/tata/sukedako/',
+  '/tata/nenbutsuhebi/',
+  '/zombie-rush/chips/',
+  '/evolution/trials/',
+  '/updates/2026-08-30/'
+];
 const officialResponseRoutes = ['/events/', '/events/running-star/', '/events/treasure-hunt/', '/events/surprise-roulette/'];
 const indexedOfficialResponseRoutes = ['/events/', '/events/treasure-hunt/'];
 for (const route of modifiedRoutes) {

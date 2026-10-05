@@ -50,20 +50,30 @@ const write = (route, html) => {
 function shell({ route, title, description, body, type = 'CollectionPage', image = '/assets/heroes/top-main.webp', updated = DEFAULT_CONTENT_DATE }) {
   const label = title.split('｜')[0];
   const crumbs = [{ label: 'トップ', href: '/' }, { label }];
-  const graph = [{ '@type': type, '@id': absoluteUrl(route), url: absoluteUrl(route), name: title, description, dateModified: updated, inLanguage: 'ja' }, breadcrumbSchema(crumbs)];
+  const graph = [{
+    '@type': type,
+    '@id': absoluteUrl(route),
+    url: absoluteUrl(route),
+    name: title,
+    description,
+    dateModified: updated,
+    inLanguage: 'ja'
+  }, breadcrumbSchema(crumbs)];
   const alternates = [['ja', route], ['en', `/en${route}`], ['zh-Hans', `/zh-cn${route}`], ['x-default', route]].map(([lang, href]) => `<link rel="alternate" hreflang="${lang}" href="${absoluteUrl(href)}" data-i18n-alternate>`).join('');
   return `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${renderSeoHead({ title, description, route, image, type: type === 'Article' ? 'article' : 'website' })}${alternates}<link rel="icon" href="/favicon.ico" sizes="any"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/assets/aug30-update.css"><script type="application/ld+json">${safeJsonLd({ '@context': 'https://schema.org', '@graph': graph })}</script></head><body data-locale="ja" data-page-type="mega-update"><a class="skip-link" href="#main-content">本文へスキップ</a>${renderHeader(route)}<main id="main-content"><section class="page-hero"><div class="wrap">${renderBreadcrumb(crumbs)}<div class="family-page-head"><div><span class="visible-kicker">v0.46.1・${japaneseDate(updated)}確認</span><h1>${esc(label)}</h1><p>${esc(description)}</p></div></div></div></section>${body}<section class="wrap source-note page-freshness"><strong>情報の状態</strong><p><span class="trust-label is-verified">ゲーム内確認</span> <span class="trust-label is-external">外部確認</span> <span class="trust-label is-pending">確認待ち</span></p><p>当サイトで一次証拠と外部情報を区別して独自に整理した内容です。最終確認日：${japaneseDate(updated)}</p><a href="/about-data/">データ方針を見る</a></section></main>${renderFooter(`${familyCount}系統 / ${formCount}体`)}<script src="/family-display.js"></script><script src="/site.js"></script></body></html>`;
 }
 
 write('/zombie-rush/chips/', shell({
-  route: '/zombie-rush/chips/', title: 'ゾンビラッシュ チップ図鑑｜49種の効果・検索・フィルタ',
+  route: '/zombie-rush/chips/',
+  title: 'ゾンビラッシュ チップ図鑑｜49種の効果・検索・フィルタ',
   description: 'ゾンビラッシュのチップ49種をゲーム内画面から確認。名称、Rank、効果、数値を検索し、攻撃・防御・回復・配置・ランダム・レベル操作で絞り込めます。',
   image: '/assets/chips/sugar-iii.webp',
   body: `<section class="wrap static-section"><div class="summary-box"><strong>ゲーム内確認済み：${chips.count}種</strong><p>通常スキルとは別のゾンビラッシュ専用データです。おすすめTierは実戦根拠が不足するため作成していません。</p></div><div data-chip-browser><div class="data-browser-controls"><label>名称・効果を検索<input type="search" data-chip-search data-filter-type="search" placeholder="例：水、回復、スロット"></label><label>Rank<select data-chip-rarity data-filter-type="rarity"><option value="">すべて</option><option>III</option><option>II</option><option>I</option></select></label><label>効果分類<select data-chip-tag data-filter-type="category"><option value="">すべて</option><option value="attack">攻撃</option><option value="defense">防御</option><option value="heal">回復</option><option value="cc">CC</option><option value="placement">配置</option><option value="random">ランダム</option><option value="level">レベル操作</option><option value="drawback">デメリット</option><option value="special">特殊効果</option></select></label></div><p class="result-count" data-chip-count aria-live="polite">${chips.count}件</p><div class="chip-grid" data-chip-results><p>データを読み込んでいます。</p></div></div><h2 class="page-h2">出典</h2><ul class="source-list"><li>ゲーム内チップ一覧：写真.pdf p.40〜42</li><li>個別効果ポップアップ：写真.pdf p.43〜91</li></ul><p class="evidence-image-note">アイコンはユーザー提供ゲーム内資料の匿名部分だけを切り出しています。プレイヤー名・UID・戦績は含みません。</p><nav class="attribute-guide-nav"><a href="/zombie-rush/">ゾンビラッシュ攻略</a><a href="/updates/2026-08-30/">今回の更新内容</a></nav></section><script src="/zombie-rush/chips/chips.js" defer></script>`
 }));
 
 write('/evolution/trials/', shell({
-  route: '/evolution/trials/', title: `モンサバ 進化試練DB｜全${familyCount}系統のT2・T3・T4条件`,
+  route: '/evolution/trials/',
+  title: `モンサバ 進化試練DB｜全${familyCount}系統のT2・T3・T4条件`,
   description: `モンサバ全${familyCount}系統の進化試練を検索。T2・T3・T4の星数、餌付け、共有進行、指定素材を外部確認情報として整理し、不自然な数値は確認待ちで表示します。`,
   body: `<section class="wrap static-section"><div class="alert-box"><strong>進化条件は外部確認情報です</strong><p>今回のゲーム内PDFにある「進化まであと星」は個人進行の残数なので使用していません。国内攻略情報で照合した条件を掲載し、曖昧な表記や不自然な数値は確認待ちにしています。</p></div><div data-trial-browser><div class="data-browser-controls"><label>系統・進化名・条件を検索<input type="search" data-trial-search data-filter-type="search" placeholder="例：パクマ、ボスラリー、36星"></label><label>属性<select data-trial-attribute data-filter-type="attribute"><option value="">すべて</option><option>草</option><option>水</option><option>火</option><option>雷</option><option>岩</option></select></label><label>確認状態<select data-trial-status data-filter-type="status"><option value="">すべて</option><option value="externally_confirmed">外部確認</option><option value="pending">確認待ち</option></select></label></div><p class="result-count" data-trial-count aria-live="polite">${familyCount}系統</p><div class="trial-grid" data-trial-results><p>データを読み込んでいます。</p></div></div><h2 class="page-h2">出典</h2><p><a href="https://monster-survival.games-wiki.com/evolution-list" target="_blank" rel="noopener noreferrer">国内攻略Wiki 進化条件一覧</a>（2026年8月28日更新を2026年8月30日に照合）。本文・画像・表は転載せず、条件データを当サイトのfamily IDへ対応付けています。</p><nav class="attribute-guide-nav"><a href="/evolution/">進化攻略ハブ</a><a href="/evolution-priority/">進化優先度</a></nav></section><script src="/evolution/trials/trials.js" defer></script>`
 }));
@@ -144,36 +154,80 @@ for (const [locale, replacements] of Object.entries(zombieSiegeCopyReplacements)
 }
 
 const eventDetails = {
-  'running-party': ['4人協力の現行仕様', 'ピンボールでスノーボードを集め、ルーレットで進んだ各自の距離を4人の合計へ加算します。チームメイトの距離報酬に含まれるイベントアイテムも共有されます。', '安定重視なら5倍・10倍が扱いやすく、高倍率ほど1回の振れ幅が大きくなります。最初に距離報酬と残り時間を見て倍率を決めます。', 'ヘルプ全文、全倍率、現行の距離・ランキング報酬は日本語ゲーム画面で再確認待ちです。'],
+  'running-party': [
+    '4人協力の現行仕様',
+    'ピンボールでスノーボードを集め、ルーレットで進んだ各自の距離を4人の合計へ加算します。チームメイトの距離報酬に含まれるイベントアイテムも共有されます。',
+    '安定重視なら5倍・10倍が扱いやすく、高倍率ほど1回の振れ幅が大きくなります。最初に距離報酬と残り時間を見て倍率を決めます。',
+    'ヘルプ全文、全倍率、現行の距離・ランキング報酬は日本語ゲーム画面で再確認待ちです。'
+  ],
   'running-star': ['1人用ランニング', '協力版とは分けて扱う1人用イベントです。走行距離を伸ばして進行します。', 'チーム共有のないソロ版として、手持ちアイテムと残り報酬ラインを基準に進めます。', '現行報酬と倍率の詳細は確認待ちです。'],
-  'island-treasure': ['4人で領地を進める', '4人チームがユニオンへ入り、エナジードリンクで領地を攻撃します。占領地から時間ポイントを得るため、疲労・濃縮ドリンク・総攻撃をチームで管理します。', '近い低HP領地から接続を作り、時間ポイントと消費ドリンクの釣り合いを見ます。深海の秘宝・貝殻・3ラウンド制の詳細は日本版確認前なので断定しません。', '領地値と攻略目安は外部確認です。現行報酬、疲労、濃縮ドリンク、深海の秘宝は日本語ゲーム画面で再確認待ちです。'],
-  'magic-farm': ['8月26日リメイク後', '現在は肥料で作物の総重量を伸ばすイベントです。最大5倍の肥料クリティカルがあり、自分またはフレンドのタタの星・進化・餌付け・ピカピカが重量ボーナスに反映されます。', '先に表示中の招待タタボーナスと次の重量マイルストーンを確認し、肥料は到達ライン単位で使います。', '収穫・作物餌付け中心の旧方式はlegacyです。現行UI、重量ボーナス、マイルストーン報酬は日本語画面で再確認待ちです。'],
-  'fishing-tournament': ['海域・コイン・QTE', '4人チームで、ピンボールから釣り竿を集めて海域で釣ります。ゴールドサカナコインはランキング、シルバーサカナコインは累計報酬と上位釣り竿解放に使い、大型魚ではQTEが発生します。', '個人報酬・竿解放は高倍率、ランキングの試行回数確保は1倍中心というコミュニティ攻略です。まき餌はチームが同時に釣れる時間へ合わせます。', '現行海域魚一覧、ランキング報酬、釣り竿解放値は日本語ゲーム画面で再確認待ちです。'],
-  'treasure-hunt': ['4本の鍵と盤面拡張', '開始後に4人を選び、1人の盤面でオタカラを3回見つけると鍵を1個獲得します。鍵4個で中央宝箱を開き、同じメンバーから複数の鍵も取得できます。', '鍵ごとに必要アイテム数が5増え、盤面は最大3回拡張します。1〜3マスを追加で掘る爆弾を考慮し、独自ソルバーで候補手順を比較します。', '日本版のチーム選択・鍵・盤面拡張・爆弾画面はユーザー提供スクリーンショットで再確認待ちです。'],
+  'island-treasure': [
+    '4人で領地を進める',
+    '4人チームがユニオンへ入り、エナジードリンクで領地を攻撃します。占領地から時間ポイントを得るため、疲労・濃縮ドリンク・総攻撃をチームで管理します。',
+    '近い低HP領地から接続を作り、時間ポイントと消費ドリンクの釣り合いを見ます。深海の秘宝・貝殻・3ラウンド制の詳細は日本版確認前なので断定しません。',
+    '領地値と攻略目安は外部確認です。現行報酬、疲労、濃縮ドリンク、深海の秘宝は日本語ゲーム画面で再確認待ちです。'
+  ],
+  'magic-farm': [
+    '8月26日リメイク後',
+    '現在は肥料で作物の総重量を伸ばすイベントです。最大5倍の肥料クリティカルがあり、自分またはフレンドのタタの星・進化・餌付け・ピカピカが重量ボーナスに反映されます。',
+    '先に表示中の招待タタボーナスと次の重量マイルストーンを確認し、肥料は到達ライン単位で使います。',
+    '収穫・作物餌付け中心の旧方式はlegacyです。現行UI、重量ボーナス、マイルストーン報酬は日本語画面で再確認待ちです。'
+  ],
+  'fishing-tournament': [
+    '海域・コイン・QTE',
+    '4人チームで、ピンボールから釣り竿を集めて海域で釣ります。ゴールドサカナコインはランキング、シルバーサカナコインは累計報酬と上位釣り竿解放に使い、大型魚ではQTEが発生します。',
+    '個人報酬・竿解放は高倍率、ランキングの試行回数確保は1倍中心というコミュニティ攻略です。まき餌はチームが同時に釣れる時間へ合わせます。',
+    '現行海域魚一覧、ランキング報酬、釣り竿解放値は日本語ゲーム画面で再確認待ちです。'
+  ],
+  'treasure-hunt': [
+    '4本の鍵と盤面拡張',
+    '開始後に4人を選び、1人の盤面でオタカラを3回見つけると鍵を1個獲得します。鍵4個で中央宝箱を開き、同じメンバーから複数の鍵も取得できます。',
+    '鍵ごとに必要アイテム数が5増え、盤面は最大3回拡張します。1〜3マスを追加で掘る爆弾を考慮し、独自ソルバーで候補手順を比較します。',
+    '日本版のチーム選択・鍵・盤面拡張・爆弾画面はユーザー提供スクリーンショットで再確認待ちです。'
+  ],
   'surprise-roulette': ['公式告知確認', '8月26日の公式更新で段階追加と手動レベルアップが案内されました。', 'ゲーム内の段階と報酬を見て、必要分だけ進める設計です。', '現行ヘルプ、各段階の詳細数値と報酬はゲーム内確認待ちです。']
-  ,'carnival-fest': ['v0.47.1で追加', 'クエストでラッキーコインを獲得し、ラッキーマシンで特定アイコンをそろえて報酬を得るイベントです。', 'まずゲーム内のクエストと開催期間を確認し、未確認の確率や必要コイン数を前提にしないで進めます。', '開催中サーバー、全報酬、確率、日別解放条件は確認待ちです。']
+  ,
+  'carnival-fest': [
+    'v0.47.1で追加',
+    'クエストでラッキーコインを獲得し、ラッキーマシンで特定アイコンをそろえて報酬を得るイベントです。',
+    'まずゲーム内のクエストと開催期間を確認し、未確認の確率や必要コイン数を前提にしないで進めます。',
+    '開催中サーバー、全報酬、確率、日別解放条件は確認待ちです。'
+  ]
 };
 const officialInquiryNoticeJa = (event) => event.officialInquiry?.status === 'awaiting_official_response'
   ? '<div class="notice-box official-inquiry-notice"><h3>公式運営へ確認中</h3><p>詳細仕様・開催期間・報酬内容・その他最新仕様は、2026年9月5日時点で運営担当者の回答待ちです。未確認の期間・報酬・仕様は推測していません。</p></div>'
   : '';
 for (const event of events.events) {
-  if (event.id === 'treasure-hunt' || event.id === 'summer-party') continue;
+  if (event.id === 'treasure-hunt' || event.id === 'summer-party')
+    continue;
   if (event.id === 'zombie-siege') {
     const page = zombieSiegePages.ja;
-    write('/events/zombie-siege/', shell({ route: '/events/zombie-siege/', title: page.title, description: page.description, type: 'Article', updated: ZOMBIE_SIEGE_UPDATE_DATE, body: page.body }));
+    write('/events/zombie-siege/', shell({
+      route: '/events/zombie-siege/',
+      title: page.title,
+      description: page.description,
+      type: 'Article',
+      updated: ZOMBIE_SIEGE_UPDATE_DATE,
+      body: page.body
+    }));
     continue;
   }
   const [heading, current, strategy, pending] = eventDetails[event.id];
   write(`/events/${event.id}/`, shell({
-    route: `/events/${event.id}/`, title: `${event.name} 攻略｜モンサバ イベント`, description: event.summary,
-    type: 'Article', updated: event.id === 'carnival-fest' ? events.updated : event.officialInquiry ? OFFICIAL_RESPONSE_DATE : EVENT_RESEARCH_DATE,
+    route: `/events/${event.id}/`,
+    title: `${event.name} 攻略｜モンサバ イベント`,
+    description: event.summary,
+    type: 'Article',
+    updated: event.id === 'carnival-fest' ? events.updated : event.officialInquiry ? OFFICIAL_RESPONSE_DATE : EVENT_RESEARCH_DATE,
     body: `<article class="wrap static-section"><div class="trust-label-row"><span class="trust-label is-external">コミュニティ確認</span><span class="trust-label is-pending">現行詳細は確認待ち</span></div>${officialInquiryNoticeJa(event)}<h2 class="page-h2">${esc(heading)}</h2><div class="event-status-grid"><article><h3>イベント概要・基本ルール</h3><p>${esc(current)}</p></article><article><h3>攻略の流れ・優先事項</h3><p>${esc(strategy)}</p></article></div><section><h2 class="page-h2">初心者が最初にやること</h2><p>${esc(strategy)}</p><p class="section-note">現行の倍率・必要数・報酬値を確認できていない項目は数値を掲載していません。</p></section><section><h2 class="page-h2">重要アイテムと報酬</h2><p>現在の日本版で名称・必要数・報酬内容を確認できる資料が不足しています。過去情報を現行報酬として表示せず、確認後に追加します。</p></section><section><h2 class="page-h2">よくある失敗</h2><p>開催期間や過去の倍率・報酬を現行仕様だと決めつけないでください。ゲーム内の開催表示とヘルプを優先してください。</p></section><div class="summary-box"><strong>Human Verification</strong><p>${esc(pending)}</p></div><h2 class="page-h2">情報源</h2><p><a href="${esc(event.sourceUrl)}" target="_blank" rel="noopener noreferrer">国内攻略情報</a>を2026年8月31日に照合し、当サイトで独自に要約しました。画像・表・記事本文は転載せず、詳細仕様を公式確認済みとは表示していません。</p><nav class="attribute-guide-nav"><a href="/events/">イベント攻略へ戻る</a><a href="/beginner-guide/">初心者ガイド</a><a href="/team-builder/">編成メーカー</a><a href="/items/">アイテムDB</a><a href="/evolution/trials/">関連する進化試練を見る</a></nav></article>`
   }));
 }
 
 write('/updates/2026-08-30/', shell({
-  route: '/updates/2026-08-30/', title: '2026年8月30日 大型更新｜パクマ・新T4・チップ・イベント・進化試練',
-  description: 'ゲーム内v0.46.1資料を根拠にパクマ系、ロードパス、ナムアミダイジャ、ゾンビラッシュチップ49種を追加。イベント・進化試練・Tier差分も監査しました。', type: 'Article',
+  route: '/updates/2026-08-30/',
+  title: '2026年8月30日 大型更新｜パクマ・新T4・チップ・イベント・進化試練',
+  description: 'ゲーム内v0.46.1資料を根拠にパクマ系、ロードパス、ナムアミダイジャ、ゾンビラッシュチップ49種を追加。イベント・進化試練・Tier差分も監査しました。',
+  type: 'Article',
   body: `<article class="wrap static-section"><h2 class="page-h2">追加・更新した内容</h2><ul class="check-list"><li>新タタ「パクマ → クマッシュ → マリンベア → ブリズリー」と通常スキル・T4オーラ</li><li>スケダコ系T4「ロードパス」とボウズヘビ系T4「ナムアミダイジャ」</li><li>ゲーム内確認済みゾンビラッシュチップ49種の検索・フィルタDB</li><li>全${familyCount}系統の進化試練検索（外部確認と確認待ちを分離）</li><li>9つのイベント攻略と現行・旧仕様・確認待ちの分離</li><li>国内外Tier差分監査。根拠不足のため既存Tierは据え置き、パクマ系は保留</li></ul><h2 class="page-h2">データ集計</h2><p><strong>${familyCount}系統・${formCount}体・${formCount}スキル段階</strong>。比較、マイモンサバ、編成メーカーは共通DBを読むため、新family IDを壊さずそのまま利用できます。</p><h2 class="page-h2">情報源の区別</h2><p>ゲーム内PDFを一次証拠、公式更新履歴を一次情報、国内外攻略サイトを二次情報として扱いました。個人戦績・ランキングページは公開に使っていません。</p><nav class="attribute-guide-nav"><a href="/tata/pakuma/">パクマ系</a><a href="/zombie-rush/chips/">チップ図鑑</a><a href="/evolution/trials/">進化試練DB</a><a href="/events/">イベント攻略</a></nav></article>`
 }));
 
@@ -203,8 +257,34 @@ inject('index.html', 'LATEST', `<section class="wrap static-section"><h2 class="
 inject('updates/index.html', 'AUG30', `<section class="update-card"><time datetime="2026-08-30">2026年8月30日</time><h2>パクマ・新T4・チップ・イベント・進化試練の大型更新</h2><p>v0.46.1ゲーム内資料と公式・国内外情報を統合しました。</p><a href="/updates/2026-08-30/">詳しく見る</a></section>`);
 
 const localeConfig = {
-  en: { prefix: '/en', lang: 'en', locale: 'en_US', siteName: 'Clash of Critters Guide DB', top: 'Home', verified: 'Verified in game', external: 'Externally confirmed', pending: 'Pending', state: 'Information status', policy: 'Data policy', checked: 'Last checked: Aug 30, 2026', footer: `${familyCount} families / ${formCount} Tatari` },
-  'zh-CN': { prefix: '/zh-cn', lang: 'zh-CN', locale: 'zh_CN', siteName: 'Clash of Critters 攻略DB', top: '首页', verified: '游戏内确认', external: '外部确认', pending: '待确认', state: '信息状态', policy: '数据方针', checked: '最后确认：2026年8月30日', footer: `${familyCount} 个系列 / ${formCount} 个 Tatari` }
+  en: {
+    prefix: '/en',
+    lang: 'en',
+    locale: 'en_US',
+    siteName: 'Clash of Critters Guide DB',
+    top: 'Home',
+    verified: 'Verified in game',
+    external: 'Externally confirmed',
+    pending: 'Pending',
+    state: 'Information status',
+    policy: 'Data policy',
+    checked: 'Last checked: Aug 30, 2026',
+    footer: `${familyCount} families / ${formCount} Tatari`
+  },
+  'zh-CN': {
+    prefix: '/zh-cn',
+    lang: 'zh-CN',
+    locale: 'zh_CN',
+    siteName: 'Clash of Critters 攻略DB',
+    top: '首页',
+    verified: '游戏内确认',
+    external: '外部确认',
+    pending: '待确认',
+    state: '信息状态',
+    policy: '数据方针',
+    checked: '最后确认：2026年8月30日',
+    footer: `${familyCount} 个系列 / ${formCount} 个 Tatari`
+  }
 };
 const layout = (locale, tag) => {
   const sample = fs.readFileSync(path.join(root, localeConfig[locale].prefix.slice(1), 'index.html'), 'utf8');
@@ -215,7 +295,15 @@ function localizedShell(locale, { route, title, description, body, type = 'Colle
   const localRoute = `${config.prefix}${route}`;
   const alternates = [['ja', route], ['en', `/en${route}`], ['zh-Hans', `/zh-cn${route}`], ['x-default', route]].map(([lang, href]) => `<link rel="alternate" hreflang="${lang}" href="${absoluteUrl(href)}" data-i18n-alternate>`).join('');
   const ogAlternates = Object.values({ ja: 'ja_JP', en: 'en_US', 'zh-CN': 'zh_CN' }).filter((value) => value !== config.locale).map((value) => `<meta property="og:locale:alternate" content="${value}" data-i18n-alternate>`).join('');
-  const graph = [{ '@type': type, '@id': absoluteUrl(localRoute), url: absoluteUrl(localRoute), name: title, description, dateModified: updated, inLanguage: config.lang }, breadcrumbSchema([{ label: config.top, href: config.prefix + '/' }, { label: title.split('｜')[0] }])];
+  const graph = [{
+    '@type': type,
+    '@id': absoluteUrl(localRoute),
+    url: absoluteUrl(localRoute),
+    name: title,
+    description,
+    dateModified: updated,
+    inLanguage: config.lang
+  }, breadcrumbSchema([{ label: config.top, href: config.prefix + '/' }, { label: title.split('｜')[0] }])];
   const head = renderSeoHead({ title, description, route: localRoute, image, type: type === 'Article' ? 'article' : 'website' }).replace('ja_JP', config.locale).replaceAll('content="モンサバ攻略DB"', `content="${config.siteName}"`).replace(/(<link rel="canonical"[^>]*?)\s*\/>/, '$1>');
   const runtime = `<script src="/i18n/${config.prefix.slice(1)}-runtime.js?v=${assetVersion}" defer></script><script src="/i18n-runtime.js?v=${assetVersion}" defer></script>`;
   const skipLink = locale === 'zh-CN' ? '跳到正文' : 'Skip to content';
@@ -229,59 +317,264 @@ function localizedShell(locale, { route, title, description, body, type = 'Colle
   return `<!doctype html><html lang="${config.lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${head}${alternates}${ogAlternates}<link rel="icon" href="/favicon.ico" sizes="any"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/assets/aug30-update.css"><script type="application/ld+json">${safeJsonLd({ '@context': 'https://schema.org', '@graph': graph })}</script></head><body data-locale="${locale}" data-page-type="mega-update"><a class="skip-link" href="#main-content">${skipLink}</a>${layout(locale, 'header')}<main id="main-content"><section class="page-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="${config.prefix}/">${config.top}</a><span aria-hidden="true">›</span><span>${esc(title.split('｜')[0])}</span></nav><div class="family-page-head"><div><span class="visible-kicker">${kicker}</span><h1>${esc(title.split('｜')[0])}</h1><p>${esc(description)}</p></div></div></div></section>${body}<section class="wrap source-note page-freshness"><strong>${config.state}</strong><p><span class="trust-label is-verified">${config.verified}</span> <span class="trust-label is-external">${config.external}</span> <span class="trust-label is-pending">${config.pending}</span></p><p>${checked}</p><a href="${config.prefix}/about-data/">${config.policy}</a></section></main>${layout(locale, 'footer')}${runtime}<script src="/family-display.js"></script><script src="/site.js"></script></body></html>`;
 }
 const localizedChip = {
-  en: { title: 'Zombie Rush Chip Database | 49 effects and filters', description: 'Search all 49 chips verified from in-game screens by name, rank, attack, defense, healing, placement, randomness and level effects.', summary: '49 chips verified in game', note: 'This database is separate from normal Tatari skills. We are not publishing a chip tier list without sufficient battle evidence.', search: 'Search names and effects', placeholder: 'Water, healing, slot…', rank: 'Rank', category: 'Effect type', all: 'All', load: 'Loading data…', source: 'Sources', sourceText: 'In-game chip index: PDF pp.40–42. Individual effect popups: PDF pp.43–91.', back: 'Zombie Rush guide' },
-  'zh-CN': { title: 'Zombie Rush 芯片图鉴｜49种效果与筛选', description: '依据游戏内画面整理49种芯片，可按名称、Rank、攻击、防御、治疗、位置、随机与等级效果搜索。', summary: '游戏内确认：49种', note: '本数据库与塔塔普通技能分开保存。实战证据不足，因此不制作芯片Tier。', search: '搜索名称与效果', placeholder: '水、治疗、插槽……', rank: 'Rank', category: '效果分类', all: '全部', load: '正在加载数据……', source: '信息来源', sourceText: '游戏内芯片一览：PDF第40–42页；各芯片效果：PDF第43–91页。', back: 'Zombie Rush 攻略' }
+  en: {
+    title: 'Zombie Rush Chip Database | 49 effects and filters',
+    description: 'Search all 49 chips verified from in-game screens by name, rank, attack, defense, healing, placement, randomness and level effects.',
+    summary: '49 chips verified in game',
+    note: 'This database is separate from normal Tatari skills. We are not publishing a chip tier list without sufficient battle evidence.',
+    search: 'Search names and effects',
+    placeholder: 'Water, healing, slot…',
+    rank: 'Rank',
+    category: 'Effect type',
+    all: 'All',
+    load: 'Loading data…',
+    source: 'Sources',
+    sourceText: 'In-game chip index: PDF pp.40–42. Individual effect popups: PDF pp.43–91.',
+    back: 'Zombie Rush guide'
+  },
+  'zh-CN': {
+    title: 'Zombie Rush 芯片图鉴｜49种效果与筛选',
+    description: '依据游戏内画面整理49种芯片，可按名称、Rank、攻击、防御、治疗、位置、随机与等级效果搜索。',
+    summary: '游戏内确认：49种',
+    note: '本数据库与塔塔普通技能分开保存。实战证据不足，因此不制作芯片Tier。',
+    search: '搜索名称与效果',
+    placeholder: '水、治疗、插槽……',
+    rank: 'Rank',
+    category: '效果分类',
+    all: '全部',
+    load: '正在加载数据……',
+    source: '信息来源',
+    sourceText: '游戏内芯片一览：PDF第40–42页；各芯片效果：PDF第43–91页。',
+    back: 'Zombie Rush 攻略'
+  }
 };
 for (const locale of Object.keys(localeConfig)) {
   const t = localizedChip[locale];
-  write(`${localeConfig[locale].prefix}/zombie-rush/chips/`, localizedShell(locale, { route: '/zombie-rush/chips/', title: t.title, description: t.description, image: '/assets/chips/sugar-iii.webp', body: `<section class="wrap static-section"><div class="summary-box"><strong>${t.summary}</strong><p>${t.note}</p></div><div data-chip-browser><div class="data-browser-controls"><label>${t.search}<input type="search" data-chip-search data-filter-type="search" placeholder="${t.placeholder}"></label><label>${t.rank}<select data-chip-rarity data-filter-type="rarity"><option value="">${t.all}</option><option>III</option><option>II</option><option>I</option></select></label><label>${t.category}<select data-chip-tag data-filter-type="category"><option value="">${t.all}</option><option value="attack">Attack</option><option value="defense">Defense</option><option value="heal">Healing</option><option value="cc">CC</option><option value="placement">Placement</option><option value="random">Random</option><option value="level">Level</option><option value="drawback">Drawback</option><option value="special">Special</option></select></label></div><p class="result-count" data-chip-count aria-live="polite">49</p><div class="chip-grid" data-chip-results><p>${t.load}</p></div></div><h2 class="page-h2">${t.source}</h2><p>${t.sourceText}</p><nav class="attribute-guide-nav"><a href="${localeConfig[locale].prefix}/zombie-rush/">${t.back}</a></nav></section><script src="/zombie-rush/chips/chips.js" defer></script>` }));
+  write(`${localeConfig[locale].prefix}/zombie-rush/chips/`, localizedShell(locale, {
+    route: '/zombie-rush/chips/',
+    title: t.title,
+    description: t.description,
+    image: '/assets/chips/sugar-iii.webp',
+    body: `<section class="wrap static-section"><div class="summary-box"><strong>${t.summary}</strong><p>${t.note}</p></div><div data-chip-browser><div class="data-browser-controls"><label>${t.search}<input type="search" data-chip-search data-filter-type="search" placeholder="${t.placeholder}"></label><label>${t.rank}<select data-chip-rarity data-filter-type="rarity"><option value="">${t.all}</option><option>III</option><option>II</option><option>I</option></select></label><label>${t.category}<select data-chip-tag data-filter-type="category"><option value="">${t.all}</option><option value="attack">Attack</option><option value="defense">Defense</option><option value="heal">Healing</option><option value="cc">CC</option><option value="placement">Placement</option><option value="random">Random</option><option value="level">Level</option><option value="drawback">Drawback</option><option value="special">Special</option></select></label></div><p class="result-count" data-chip-count aria-live="polite">49</p><div class="chip-grid" data-chip-results><p>${t.load}</p></div></div><h2 class="page-h2">${t.source}</h2><p>${t.sourceText}</p><nav class="attribute-guide-nav"><a href="${localeConfig[locale].prefix}/zombie-rush/">${t.back}</a></nav></section><script src="/zombie-rush/chips/chips.js" defer></script>`
+  }));
 }
 const localizedTrial = {
-  en: { title: `Evolution Trial Database | All ${familyCount} families`, description: `Search T2, T3 and T4 trial conditions for all ${familyCount} families. Community-confirmed conditions and suspicious values are clearly separated.`, warning: 'These are externally confirmed conditions', note: 'The stars remaining on the supplied in-game screens are account-specific and were not treated as total requirements. Ambiguous wording and unusual values remain pending.', search: 'Search families, forms and conditions', placeholder: 'Pakuma, Boss Rally, 36 stars…', attribute: 'Attribute', status: 'Status', all: 'All', external: 'Externally confirmed', pending: 'Pending', load: 'Loading data…', source: 'Source', sourceText: 'Domestic strategy wiki evolution list, checked Aug 30, 2026. Conditions were mapped to this site’s stable family IDs; the source table and images were not copied.' },
-  'zh-CN': { title: `进化试炼数据库｜全部${familyCount}个系列`, description: `可搜索全部${familyCount}个系列的T2、T3与T4试炼条件，并区分外部确认与可疑数值。`, warning: '进化条件属于外部确认信息', note: '资料画面中的“距离进化还差多少星”属于账号当前进度，没有作为总条件使用。含糊表述与异常数值保留为待确认。', search: '搜索系列、进化名与条件', placeholder: 'パクマ、首领集结、36星……', attribute: '属性', status: '确认状态', all: '全部', external: '外部确认', pending: '待确认', load: '正在加载数据……', source: '信息来源', sourceText: '国内攻略Wiki进化条件一览（2026年8月30日核对）。本站仅将条件对应到稳定的family ID，未复制原表与图片。' }
+  en: {
+    title: `Evolution Trial Database | All ${familyCount} families`,
+    description: `Search T2, T3 and T4 trial conditions for all ${familyCount} families. Community-confirmed conditions and suspicious values are clearly separated.`,
+    warning: 'These are externally confirmed conditions',
+    note: 'The stars remaining on the supplied in-game screens are account-specific and were not treated as total requirements. Ambiguous wording and unusual values remain pending.',
+    search: 'Search families, forms and conditions',
+    placeholder: 'Pakuma, Boss Rally, 36 stars…',
+    attribute: 'Attribute',
+    status: 'Status',
+    all: 'All',
+    external: 'Externally confirmed',
+    pending: 'Pending',
+    load: 'Loading data…',
+    source: 'Source',
+    sourceText: 'Domestic strategy wiki evolution list, checked Aug 30, 2026. Conditions were mapped to this site’s stable family IDs; the source table and images were not copied.'
+  },
+  'zh-CN': {
+    title: `进化试炼数据库｜全部${familyCount}个系列`,
+    description: `可搜索全部${familyCount}个系列的T2、T3与T4试炼条件，并区分外部确认与可疑数值。`,
+    warning: '进化条件属于外部确认信息',
+    note: '资料画面中的“距离进化还差多少星”属于账号当前进度，没有作为总条件使用。含糊表述与异常数值保留为待确认。',
+    search: '搜索系列、进化名与条件',
+    placeholder: 'パクマ、首领集结、36星……',
+    attribute: '属性',
+    status: '确认状态',
+    all: '全部',
+    external: '外部确认',
+    pending: '待确认',
+    load: '正在加载数据……',
+    source: '信息来源',
+    sourceText: '国内攻略Wiki进化条件一览（2026年8月30日核对）。本站仅将条件对应到稳定的family ID，未复制原表与图片。'
+  }
 };
 for (const locale of Object.keys(localeConfig)) {
   const t = localizedTrial[locale];
-  write(`${localeConfig[locale].prefix}/evolution/trials/`, localizedShell(locale, { route: '/evolution/trials/', title: t.title, description: t.description, body: `<section class="wrap static-section"><div class="alert-box"><strong>${t.warning}</strong><p>${t.note}</p></div><div data-trial-browser><div class="data-browser-controls"><label>${t.search}<input type="search" data-trial-search data-filter-type="search" placeholder="${t.placeholder}"></label><label>${t.attribute}<select data-trial-attribute data-filter-type="attribute"><option value="">${t.all}</option><option value="草">Grass</option><option value="水">Water</option><option value="火">Fire</option><option value="雷">Lightning</option><option value="岩">Rock</option></select></label><label>${t.status}<select data-trial-status data-filter-type="status"><option value="">${t.all}</option><option value="externally_confirmed">${t.external}</option><option value="pending">${t.pending}</option></select></label></div><p class="result-count" data-trial-count aria-live="polite">${familyCount}</p><div class="trial-grid" data-trial-results><p>${t.load}</p></div></div><h2 class="page-h2">${t.source}</h2><p>${t.sourceText}</p></section><script src="/evolution/trials/trials.js" defer></script>` }));
+  write(`${localeConfig[locale].prefix}/evolution/trials/`, localizedShell(locale, {
+    route: '/evolution/trials/',
+    title: t.title,
+    description: t.description,
+    body: `<section class="wrap static-section"><div class="alert-box"><strong>${t.warning}</strong><p>${t.note}</p></div><div data-trial-browser><div class="data-browser-controls"><label>${t.search}<input type="search" data-trial-search data-filter-type="search" placeholder="${t.placeholder}"></label><label>${t.attribute}<select data-trial-attribute data-filter-type="attribute"><option value="">${t.all}</option><option value="草">Grass</option><option value="水">Water</option><option value="火">Fire</option><option value="雷">Lightning</option><option value="岩">Rock</option></select></label><label>${t.status}<select data-trial-status data-filter-type="status"><option value="">${t.all}</option><option value="externally_confirmed">${t.external}</option><option value="pending">${t.pending}</option></select></label></div><p class="result-count" data-trial-count aria-live="polite">${familyCount}</p><div class="trial-grid" data-trial-results><p>${t.load}</p></div></div><h2 class="page-h2">${t.source}</h2><p>${t.sourceText}</p></section><script src="/evolution/trials/trials.js" defer></script>`
+  }));
 }
 
 const localizedEvents = {
   en: {
-    'running-party':['Running Party Guide','A four-player snowboarding event where the team shares distance progress.','How it works','Collect snowboards from Pinball, spin for distance, and add each player’s distance to the four-player total. Event items from teammate distance rewards are shared.','Priority','Community guidance favors 5× or 10× for steadier progress; higher multipliers have wider single-spin variance.','Full help, multipliers and current rewards need Japanese in-game screenshots.'],
-    'running-star':['Running Star Guide','A solo running event tracked separately from the co-op version.','How it works','Increase distance without four-player team sharing.','Priority','Compare remaining items, time and the next reward line before choosing a multiplier.','Current rewards and multiplier details need confirmation.'],
-    'island-treasure':['Island Treasure Guide','A four-player event built around territory progress, hourly points, drinks and fatigue.','How it works','Join a union, spend Energy Drinks to attack territory, and earn points over time from occupied tiles. Fatigue, concentrated drinks and team attacks require coordination.','Priority','Build an efficient connected area before contesting expensive central objectives. Deepsea Dive details remain Japan implementation pending.','Current rewards, fatigue, concentrated drinks and three-round rules need Japanese in-game screenshots.'],
-    'magic-farm':['Magic Farm Guide','The post-August 26 version scores total crop weight, with fertilizer criticals and invited Tatari bonuses.','How it works','Use fertilizer to raise total crop weight. Criticals can reach 5×, while an invited personal or friend Tatari adds a bonus based on Stars, evolution, feeding and shiny status.','Priority','Confirm the best displayed support bonus and next weight milestone before spending fertilizer. Harvest-and-feed instructions are legacy.','The current UI, weight bonuses and milestone rewards need Japanese in-game screenshots.'],
-    'fishing-tournament':['Fishing Tournament Guide','A four-player sea event using rods, gold and silver fish coins, bait and large-fish QTEs.','How it works','Collect rods from Pinball. Gold Fish Coins are used for ranking; Silver Fish Coins advance personal rewards and unlock better rods.','Priority','Community guidance uses higher multipliers for Silver progress and rod unlocks, then 1× for more ranking attempts. Coordinate shared bait timing.','The current sea fish list, ranking rewards and rod unlock values need Japanese in-game screenshots.'],
-    'treasure-hunt':['Treasure Hunt Guide','Use four keys, expanding boards, increasing costs and bombs to plan the opening order.','How it works','Choose four members after the event starts. Finding treasure three times on one member’s board awards a key; four keys open the central chest.','Priority','Each key raises the item cost by 5, boards expand up to three times, and bombs dig 1–3 extra cells. Use the independent solver without importing third-party logic.','Japanese team, key, expansion and bomb screens still need confirmation.'],
-    'surprise-roulette':['Surprise Roulette Guide','The August 26 official update announced added stages and manual level-up.','Official notice','The official update announced additional stages and manual level-up.','Priority','Check the current stage and reward before spending event resources.','Current help, stage values and rewards need an in-game check.'],
-    'carnival-fest':['Carnival Rush Guide','An event added in v0.47.1; detailed rewards and rates still need in-game confirmation.','How it works','Complete quests for Lucky Coins and match specific icons on the Lucky Machine to receive rewards.','Priority','Check the live event period and quests before spending coins.','Current servers, all rewards, rates and daily unlocks need confirmation.']
+    'running-party': [
+      'Running Party Guide',
+      'A four-player snowboarding event where the team shares distance progress.',
+      'How it works',
+      'Collect snowboards from Pinball, spin for distance, and add each player’s distance to the four-player total. Event items from teammate distance rewards are shared.',
+      'Priority',
+      'Community guidance favors 5× or 10× for steadier progress; higher multipliers have wider single-spin variance.',
+      'Full help, multipliers and current rewards need Japanese in-game screenshots.'
+    ],
+    'running-star': [
+      'Running Star Guide',
+      'A solo running event tracked separately from the co-op version.',
+      'How it works',
+      'Increase distance without four-player team sharing.',
+      'Priority',
+      'Compare remaining items, time and the next reward line before choosing a multiplier.',
+      'Current rewards and multiplier details need confirmation.'
+    ],
+    'island-treasure': [
+      'Island Treasure Guide',
+      'A four-player event built around territory progress, hourly points, drinks and fatigue.',
+      'How it works',
+      'Join a union, spend Energy Drinks to attack territory, and earn points over time from occupied tiles. Fatigue, concentrated drinks and team attacks require coordination.',
+      'Priority',
+      'Build an efficient connected area before contesting expensive central objectives. Deepsea Dive details remain Japan implementation pending.',
+      'Current rewards, fatigue, concentrated drinks and three-round rules need Japanese in-game screenshots.'
+    ],
+    'magic-farm': [
+      'Magic Farm Guide',
+      'The post-August 26 version scores total crop weight, with fertilizer criticals and invited Tatari bonuses.',
+      'How it works',
+      'Use fertilizer to raise total crop weight. Criticals can reach 5×, while an invited personal or friend Tatari adds a bonus based on Stars, evolution, feeding and shiny status.',
+      'Priority',
+      'Confirm the best displayed support bonus and next weight milestone before spending fertilizer. Harvest-and-feed instructions are legacy.',
+      'The current UI, weight bonuses and milestone rewards need Japanese in-game screenshots.'
+    ],
+    'fishing-tournament': [
+      'Fishing Tournament Guide',
+      'A four-player sea event using rods, gold and silver fish coins, bait and large-fish QTEs.',
+      'How it works',
+      'Collect rods from Pinball. Gold Fish Coins are used for ranking; Silver Fish Coins advance personal rewards and unlock better rods.',
+      'Priority',
+      'Community guidance uses higher multipliers for Silver progress and rod unlocks, then 1× for more ranking attempts. Coordinate shared bait timing.',
+      'The current sea fish list, ranking rewards and rod unlock values need Japanese in-game screenshots.'
+    ],
+    'treasure-hunt': [
+      'Treasure Hunt Guide',
+      'Use four keys, expanding boards, increasing costs and bombs to plan the opening order.',
+      'How it works',
+      'Choose four members after the event starts. Finding treasure three times on one member’s board awards a key; four keys open the central chest.',
+      'Priority',
+      'Each key raises the item cost by 5, boards expand up to three times, and bombs dig 1–3 extra cells. Use the independent solver without importing third-party logic.',
+      'Japanese team, key, expansion and bomb screens still need confirmation.'
+    ],
+    'surprise-roulette': [
+      'Surprise Roulette Guide',
+      'The August 26 official update announced added stages and manual level-up.',
+      'Official notice',
+      'The official update announced additional stages and manual level-up.',
+      'Priority',
+      'Check the current stage and reward before spending event resources.',
+      'Current help, stage values and rewards need an in-game check.'
+    ],
+    'carnival-fest': [
+      'Carnival Rush Guide',
+      'An event added in v0.47.1; detailed rewards and rates still need in-game confirmation.',
+      'How it works',
+      'Complete quests for Lucky Coins and match specific icons on the Lucky Machine to receive rewards.',
+      'Priority',
+      'Check the live event period and quests before spending coins.',
+      'Current servers, all rewards, rates and daily unlocks need confirmation.'
+    ]
   },
   'zh-CN': {
-    'running-party':['跑步派对攻略','4人共享滑雪距离与团队进度的周期活动。','活动玩法','从弹珠机获得滑雪板，通过转盘前进；每人的距离计入4人总距离，队友距离奖励中的活动道具也会共享。','优先建议','社区攻略建议以5倍、10倍稳定推进；更高倍率的单次波动更大。','完整帮助、全部倍率与当前奖励仍需日文游戏截图确认。'],
-    'running-star':['Running Star 攻略','与协作版分开处理的单人跑步活动。正式中文名尚待官方提供。','活动玩法','在没有4人共享的单人模式中提升距离。','优先建议','根据剩余道具、时间与下一个奖励档位选择倍率。','当前奖励与倍率细节仍待确认。'],
-    'island-treasure':['岛屿宝藏攻略','围绕领地推进、每小时积分、饮料与疲劳管理的4人活动。','活动玩法','加入联盟，消耗能量饮料攻击领地，并从占领地持续获得积分；疲劳、浓缩饮料与总攻击需要团队协调。','优先建议','先建立消耗较低的连续领地，再判断是否争夺高成本中央目标。深海宝藏仍等待日本版确认。','当前奖励、疲劳、浓缩饮料与三回合规则仍需日文游戏截图。'],
-    'magic-farm':['魔法农场攻略','8月26日改版后以作物总重量计分，并含肥料暴击与邀请Tatari加成。','活动玩法','使用肥料提高作物总重量，暴击最高5倍；自己或好友Tatari的星级、进化、喂食与闪亮状态会转化为重量加成。','优先建议','先确认画面上最高的支援加成与下一个重量里程碑，再使用肥料；旧收获与喂食流程属于旧规则。','当前界面、重量加成与里程碑奖励仍需日文游戏截图。'],
-    'fishing-tournament':['钓鱼大赛攻略','使用海域、金银鱼币、鱼竿、鱼饵与大型鱼QTE推进的4人活动。','活动玩法','从弹珠机收集鱼竿；金鱼币用于排名，银鱼币用于个人累计奖励与解锁更高级鱼竿。','优先建议','社区攻略以高倍率推进银币与鱼竿解锁，再用1倍增加排名尝试次数；鱼饵应与队友同时钓鱼的时间协调。','当前海域鱼类、排名奖励与鱼竿解锁数值仍需日文游戏截图。'],
-    'treasure-hunt':['寻宝攻略','结合4把钥匙、盘面扩张、费用递增与炸弹规划开启顺序。','活动玩法','活动开始后选择4名成员；在一名成员的盘面找到3次宝物可得1把钥匙，4把钥匙开启中央宝箱。','优先建议','每把钥匙使道具成本增加5，盘面最多扩张3次，炸弹额外挖掘1–3格；使用本站独立求解器，不导入第三方逻辑。','日本版队伍、钥匙、扩张与炸弹画面仍待确认。'],
-    'surprise-roulette':['惊喜轮盘攻略','8月26日官方更新已公告新增阶段与手动升级。','官方公告','官方更新已公告新增阶段与手动升级。','优先建议','使用活动资源前先确认当前阶段与奖励。','当前帮助、阶段数值与奖励仍需游戏内确认。'],
-    'carnival-fest':['Carnival Rush 攻略','v0.47.1新增活动；详细奖励与概率仍待游戏内确认。','活动玩法','完成任务取得幸运币，在幸运机中配出指定图标即可获得奖励。','优先建议','消耗幸运币前先确认实际举办时间与任务。','当前服务器、全部奖励、概率和每日解锁条件仍待确认。']
+    'running-party': [
+      '跑步派对攻略',
+      '4人共享滑雪距离与团队进度的周期活动。',
+      '活动玩法',
+      '从弹珠机获得滑雪板，通过转盘前进；每人的距离计入4人总距离，队友距离奖励中的活动道具也会共享。',
+      '优先建议',
+      '社区攻略建议以5倍、10倍稳定推进；更高倍率的单次波动更大。',
+      '完整帮助、全部倍率与当前奖励仍需日文游戏截图确认。'
+    ],
+    'running-star': [
+      'Running Star 攻略',
+      '与协作版分开处理的单人跑步活动。正式中文名尚待官方提供。',
+      '活动玩法',
+      '在没有4人共享的单人模式中提升距离。',
+      '优先建议',
+      '根据剩余道具、时间与下一个奖励档位选择倍率。',
+      '当前奖励与倍率细节仍待确认。'
+    ],
+    'island-treasure': [
+      '岛屿宝藏攻略',
+      '围绕领地推进、每小时积分、饮料与疲劳管理的4人活动。',
+      '活动玩法',
+      '加入联盟，消耗能量饮料攻击领地，并从占领地持续获得积分；疲劳、浓缩饮料与总攻击需要团队协调。',
+      '优先建议',
+      '先建立消耗较低的连续领地，再判断是否争夺高成本中央目标。深海宝藏仍等待日本版确认。',
+      '当前奖励、疲劳、浓缩饮料与三回合规则仍需日文游戏截图。'
+    ],
+    'magic-farm': [
+      '魔法农场攻略',
+      '8月26日改版后以作物总重量计分，并含肥料暴击与邀请Tatari加成。',
+      '活动玩法',
+      '使用肥料提高作物总重量，暴击最高5倍；自己或好友Tatari的星级、进化、喂食与闪亮状态会转化为重量加成。',
+      '优先建议',
+      '先确认画面上最高的支援加成与下一个重量里程碑，再使用肥料；旧收获与喂食流程属于旧规则。',
+      '当前界面、重量加成与里程碑奖励仍需日文游戏截图。'
+    ],
+    'fishing-tournament': [
+      '钓鱼大赛攻略',
+      '使用海域、金银鱼币、鱼竿、鱼饵与大型鱼QTE推进的4人活动。',
+      '活动玩法',
+      '从弹珠机收集鱼竿；金鱼币用于排名，银鱼币用于个人累计奖励与解锁更高级鱼竿。',
+      '优先建议',
+      '社区攻略以高倍率推进银币与鱼竿解锁，再用1倍增加排名尝试次数；鱼饵应与队友同时钓鱼的时间协调。',
+      '当前海域鱼类、排名奖励与鱼竿解锁数值仍需日文游戏截图。'
+    ],
+    'treasure-hunt': [
+      '寻宝攻略',
+      '结合4把钥匙、盘面扩张、费用递增与炸弹规划开启顺序。',
+      '活动玩法',
+      '活动开始后选择4名成员；在一名成员的盘面找到3次宝物可得1把钥匙，4把钥匙开启中央宝箱。',
+      '优先建议',
+      '每把钥匙使道具成本增加5，盘面最多扩张3次，炸弹额外挖掘1–3格；使用本站独立求解器，不导入第三方逻辑。',
+      '日本版队伍、钥匙、扩张与炸弹画面仍待确认。'
+    ],
+    'surprise-roulette': ['惊喜轮盘攻略', '8月26日官方更新已公告新增阶段与手动升级。', '官方公告', '官方更新已公告新增阶段与手动升级。', '优先建议', '使用活动资源前先确认当前阶段与奖励。', '当前帮助、阶段数值与奖励仍需游戏内确认。'],
+    'carnival-fest': [
+      'Carnival Rush 攻略',
+      'v0.47.1新增活动；详细奖励与概率仍待游戏内确认。',
+      '活动玩法',
+      '完成任务取得幸运币，在幸运机中配出指定图标即可获得奖励。',
+      '优先建议',
+      '消耗幸运币前先确认实际举办时间与任务。',
+      '当前服务器、全部奖励、概率和每日解锁条件仍待确认。'
+    ]
   }
 };
-for (const locale of Object.keys(localeConfig)) for (const event of events.events) {
-  if (event.id === 'treasure-hunt' || event.id === 'summer-party') continue;
-  if (event.id === 'zombie-siege') {
-    const page = zombieSiegePages[locale];
-    write(`${localeConfig[locale].prefix}/events/zombie-siege/`, localizedShell(locale, { route: '/events/zombie-siege/', title: page.title, description: page.description, type: 'Article', updated: ZOMBIE_SIEGE_UPDATE_DATE, body: page.body }));
-    continue;
+for (const locale of Object.keys(localeConfig))
+  for (const event of events.events) {
+    if (event.id === 'treasure-hunt' || event.id === 'summer-party')
+      continue;
+    if (event.id === 'zombie-siege') {
+      const page = zombieSiegePages[locale];
+      write(`${localeConfig[locale].prefix}/events/zombie-siege/`, localizedShell(locale, {
+        route: '/events/zombie-siege/',
+        title: page.title,
+        description: page.description,
+        type: 'Article',
+        updated: ZOMBIE_SIEGE_UPDATE_DATE,
+        body: page.body
+      }));
+      continue;
+    }
+    const [title, description, currentLabel, current, priorityLabel, priority, pending] = localizedEvents[locale][event.id];
+    const officialNotice = event.officialInquiry?.status === 'awaiting_official_response'
+      ? (locale === 'en'
+        ? '<div class="notice-box official-inquiry-notice"><h3>Awaiting an official response</h3><p>Details, dates, rewards and the latest specification are awaiting confirmation from the operations team as of Sep 5, 2026. No unconfirmed dates, rewards or rules have been inferred.</p></div>'
+        : '<div class="notice-box official-inquiry-notice"><h3>等待官方运营团队回复</h3><p>截至2026年9月5日，详细机制、举办时间、奖励内容及其他最新规格仍待运营负责人确认。本站未推测尚未确认的日期、奖励或机制。</p></div>')
+      : '';
+    write(`${localeConfig[locale].prefix}/events/${event.id}/`, localizedShell(locale, {
+      route: `/events/${event.id}/`,
+      title,
+      description,
+      type: 'Article',
+      updated: event.officialInquiry ? OFFICIAL_RESPONSE_DATE : EVENT_RESEARCH_DATE,
+      body: `<article class="wrap static-section"><div class="trust-label-row"><span class="trust-label is-external">${locale === 'en' ? 'Community-confirmed' : '社区信息确认'}</span></div>${officialNotice}<div class="event-status-grid"><article><h2>${currentLabel}</h2><p>${current}</p></article><article><h2>${priorityLabel}</h2><p>${priority}</p></article></div><div class="summary-box"><strong>Human Verification</strong><p>${pending}</p></div><h2 class="page-h2">${locale === 'en' ? 'Source' : '信息来源'}</h2><p><a href="${esc(event.sourceUrl)}" target="_blank" rel="noopener noreferrer">${locale === 'en' ? 'Community strategy source' : '社区攻略来源'}</a>, ${locale === 'en' ? 'checked Aug 31, 2026. Independently summarized; no source images, tables or article copy are reused.' : '于2026年8月31日核对。本站独立摘要，不转载来源图片、表格或文章内容。'}</p><nav class="attribute-guide-nav"><a href="${localeConfig[locale].prefix}/events/">${locale === 'en' ? 'Back to events' : '返回活动攻略'}</a><a href="${localeConfig[locale].prefix}/evolution/trials/">${locale === 'en' ? 'Related evolution trials' : '相关进化试炼'}</a></nav></article>`
+    }));
   }
-  const [title, description, currentLabel, current, priorityLabel, priority, pending] = localizedEvents[locale][event.id];
-  const officialNotice = event.officialInquiry?.status === 'awaiting_official_response'
-    ? (locale === 'en'
-      ? '<div class="notice-box official-inquiry-notice"><h3>Awaiting an official response</h3><p>Details, dates, rewards and the latest specification are awaiting confirmation from the operations team as of Sep 5, 2026. No unconfirmed dates, rewards or rules have been inferred.</p></div>'
-      : '<div class="notice-box official-inquiry-notice"><h3>等待官方运营团队回复</h3><p>截至2026年9月5日，详细机制、举办时间、奖励内容及其他最新规格仍待运营负责人确认。本站未推测尚未确认的日期、奖励或机制。</p></div>')
-    : '';
-  write(`${localeConfig[locale].prefix}/events/${event.id}/`, localizedShell(locale, { route: `/events/${event.id}/`, title, description, type: 'Article', updated: event.officialInquiry ? OFFICIAL_RESPONSE_DATE : EVENT_RESEARCH_DATE, body: `<article class="wrap static-section"><div class="trust-label-row"><span class="trust-label is-external">${locale === 'en' ? 'Community-confirmed' : '社区信息确认'}</span></div>${officialNotice}<div class="event-status-grid"><article><h2>${currentLabel}</h2><p>${current}</p></article><article><h2>${priorityLabel}</h2><p>${priority}</p></article></div><div class="summary-box"><strong>Human Verification</strong><p>${pending}</p></div><h2 class="page-h2">${locale === 'en' ? 'Source' : '信息来源'}</h2><p><a href="${esc(event.sourceUrl)}" target="_blank" rel="noopener noreferrer">${locale === 'en' ? 'Community strategy source' : '社区攻略来源'}</a>, ${locale === 'en' ? 'checked Aug 31, 2026. Independently summarized; no source images, tables or article copy are reused.' : '于2026年8月31日核对。本站独立摘要，不转载来源图片、表格或文章内容。'}</p><nav class="attribute-guide-nav"><a href="${localeConfig[locale].prefix}/events/">${locale === 'en' ? 'Back to events' : '返回活动攻略'}</a><a href="${localeConfig[locale].prefix}/evolution/trials/">${locale === 'en' ? 'Related evolution trials' : '相关进化试炼'}</a></nav></article>` }));
-}
 
 // These two pages intentionally stay discoverable through the event hub while
 // their current Japanese in-game detail is too thin for search indexing.
@@ -297,8 +590,28 @@ for (const locale of Object.keys(localeConfig)) {
   const en = locale === 'en';
   const title = en ? 'August 30, 2026 Major Database Update' : '2026年8月30日大型数据库更新';
   const description = en ? 'Added the Pakuma family, Roadpass, Namuamidaija, 49 Zombie Rush chips, event guides and evolution trials from v0.46.1 evidence.' : '依据v0.46.1游戏内资料，新增パクマ系列、ロードパス、ナムアミダイジャ、49种Zombie Rush芯片、活动攻略与进化试炼。';
-  const bullets = en ? ['Pakuma → Kumash → Marine Bear → Blizzly, with verified skills and the T4 aura.','Roadpass and Namuamidaija added to their existing stable family IDs.','A searchable database of 49 chips verified from in-game screens.','Evolution trials for all 64 families, separating external confirmation from pending values.','Nine event guides with current, legacy and pending information separated.','No existing tier changes; Pakuma remains pending battle evidence.'] : ['新增パクマ → クマッシュ → マリンベア → ブリズリー，并录入已确认技能与T4光环。','在既有稳定family ID下新增ロードパス与ナムアミダイジャ。','新增游戏内确认的49种芯片搜索数据库。','新增全部64个系列的进化试炼，并区分外部确认与待确认。','更新9个活动攻略，分离当前、旧规则与待确认内容。','现有Tier不变；パクマ系列等待实战证据。'];
-  write(`${localeConfig[locale].prefix}/updates/2026-08-30/`, localizedShell(locale, { route: '/updates/2026-08-30/', title, description, type: 'Article', body: `<article class="wrap static-section"><h2>${en ? 'What changed' : '更新内容'}</h2><ul class="check-list">${bullets.map((item) => `<li>${item}</li>`).join('')}</ul><p><strong>${localeConfig[locale].footer}</strong></p><nav class="attribute-guide-nav"><a href="${localeConfig[locale].prefix}/zombie-rush/chips/">${en ? 'Chip database' : '芯片图鉴'}</a><a href="${localeConfig[locale].prefix}/evolution/trials/">${en ? 'Evolution trials' : '进化试炼'}</a><a href="${localeConfig[locale].prefix}/events/">${en ? 'Events' : '活动攻略'}</a></nav></article>` }));
+  const bullets = en ? [
+    'Pakuma → Kumash → Marine Bear → Blizzly, with verified skills and the T4 aura.',
+    'Roadpass and Namuamidaija added to their existing stable family IDs.',
+    'A searchable database of 49 chips verified from in-game screens.',
+    'Evolution trials for all 64 families, separating external confirmation from pending values.',
+    'Nine event guides with current, legacy and pending information separated.',
+    'No existing tier changes; Pakuma remains pending battle evidence.'
+  ] : [
+    '新增パクマ → クマッシュ → マリンベア → ブリズリー，并录入已确认技能与T4光环。',
+    '在既有稳定family ID下新增ロードパス与ナムアミダイジャ。',
+    '新增游戏内确认的49种芯片搜索数据库。',
+    '新增全部64个系列的进化试炼，并区分外部确认与待确认。',
+    '更新9个活动攻略，分离当前、旧规则与待确认内容。',
+    '现有Tier不变；パクマ系列等待实战证据。'
+  ];
+  write(`${localeConfig[locale].prefix}/updates/2026-08-30/`, localizedShell(locale, {
+    route: '/updates/2026-08-30/',
+    title,
+    description,
+    type: 'Article',
+    body: `<article class="wrap static-section"><h2>${en ? 'What changed' : '更新内容'}</h2><ul class="check-list">${bullets.map((item) => `<li>${item}</li>`).join('')}</ul><p><strong>${localeConfig[locale].footer}</strong></p><nav class="attribute-guide-nav"><a href="${localeConfig[locale].prefix}/zombie-rush/chips/">${en ? 'Chip database' : '芯片图鉴'}</a><a href="${localeConfig[locale].prefix}/evolution/trials/">${en ? 'Evolution trials' : '进化试炼'}</a><a href="${localeConfig[locale].prefix}/events/">${en ? 'Events' : '活动攻略'}</a></nav></article>`
+  }));
 }
 
 inject('en/zombie-rush/index.html', 'CHIPS_EN', '<section class="wrap static-section"><h2>Zombie Rush chips</h2><p>Search all 49 chips verified from in-game screens.</p><a class="button" href="/en/zombie-rush/chips/">Open the chip database</a></section>');

@@ -25,6 +25,47 @@
 
 主要ゲームJSONは `data/tatari.json`, `data/tata-skills.json`, `data/tier-ratings.json`, `data/evolution-priority.json`, `data/content-guides.json` です。Seasonごとに変わるゾンビラッシュ専用スキルは `data/zombie-rush/seasons/` に分離し、通常スキルDBへ混在させません。収益化設定は `data/monetization.json`、実在する承認済み案件は `data/affiliate-offers.json`、計測・A/B flagは `data/growth-config.json`、ページ確認日は `data/page-freshness.json` で中央管理します。通常広告は無効、承認済みのA8.netアフィリエイト枠だけを限定表示しています。タタ名・進化・スキルは確認済みスクリーンショット、攻略は収録済み公開情報、Tierは当サイト独自の暫定評価を基準とし、不明内容は推測で補いません。
 
+## 編集する場所と生成物
+
+静的 HTML / CSS / Vanilla JavaScript の構成です。編集前に `git status --short` と `git branch --show-current` で作業中の変更とブランチを確認し、既存の変更を残して対象だけを編集します。
+
+| 変更したい内容 | 編集元 | 生成・確認 |
+| --- | --- | --- |
+| Astra デザインの色・余白・部品・レスポンシブ対応 | `styles/astra.pcss` | `node scripts/build-astra-css.mjs` |
+| 共通・機能別の追加スタイル | `styles.css`、`my-tools.css`、各機能ディレクトリの CSS | CSS を直接編集し、対象画面を確認 |
+| 画面の操作 | `app.js`、`site.js`、`astra.js`、各機能ディレクトリの JS | `npm.cmd run check:syntax` と対象機能のテスト |
+| 生成ページの本文・構造 | `scripts/generate-*.mjs`、`scripts/astra-copy.mjs` などのテンプレート・文言 | 対応する `generate:*` コマンド。全体は `npm.cmd run generate:site` |
+| ゲーム情報・翻訳 | `data/` の対象 JSON | 根拠を確認し、対応ページを生成して `npm.cmd run validate` |
+| API・保存処理 | `api/`、`lib/` | 対応する `test:*` コマンド |
+
+`astra.css` と `astra-{home,team,calendar,community,detail,tier}.css` は `styles/astra.pcss` から分割・圧縮される配信用の生成物です。これらの一行 CSS は直接編集せず、編集元を直して再生成します。`docs/astra-redesign/css-finalization.json` も CSS ビルドの出力です。
+
+生成された各ページの `index.html`、`en/`・`zh-cn/` の HTML、`i18n/en-runtime.js`・`i18n/zh-cn-runtime.js`、`sitemap.xml` は、生成スクリプトや JSON を編集して再生成します。生成 HTML やテンプレート文字列への機械的な改行追加は、本文の空白や再生成結果を変えるため避けます。素材・vendor・`package-lock.json`・`promo/` には一括整形をかけません。
+
+### CSS・JavaScript を変更した後
+
+依存関係が未導入なら、Repository 直下で `npm.cmd ci` を実行します。スタイル・スクリプトを編集した後は、既存の生成コマンドで CSS と配信 URL のバージョンを更新します。
+
+```powershell
+node scripts/build-astra-css.mjs
+node scripts/update-asset-version.mjs
+node scripts/generate-phase4-audit.mjs
+npm.cmd run validate
+npm.cmd test
+```
+
+`generate-phase4-audit.mjs` は監査レポートのファイルサイズ情報も更新します。ページ本文やデータも変更した場合は `npm.cmd run generate:site` を使います。このコマンドは多数の HTML・監査ファイルを再生成します。実行前後の `git diff --stat` / `git diff` を確認し、意図した生成物の更新だけが含まれること、二度目の生成で追加差分が出ないことを確かめます。`npm.cmd test` にもサイトを再生成するテストが含まれます。
+
+ローカル表示は上記の静的サーバーで、トップ・対象機能を PC 幅とモバイル幅で確認します。サーバーを 8000 番で起動した場合の HTTP 検査は次のコマンドです。
+
+```powershell
+npm.cmd run smoke:local -- --base=http://127.0.0.1:8000
+```
+
+静的サーバーは Vercel Functions を実行しないため、掲示板などの API は単体テストで別途確認します。
+
+編集元ではインデントを 2 スペースに揃え、CSS は宣言ごと、JavaScript は処理のまとまりごとに改行します。文字列・HTML テンプレート・セレクターの意味や CSS の宣言順は維持します。現時点で Repository 専用 formatter は未設定です。整形と、ファイル分割・改名・機能変更は別の差分として扱います。
+
 ## ローカル確認
 
 Repository直下で静的サーバーを起動します。

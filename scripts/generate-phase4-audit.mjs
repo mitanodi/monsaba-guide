@@ -15,10 +15,13 @@ const posix = (value) => value.replaceAll('\\', '/');
 
 function walk(directory, result = []) {
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
-    if (ignored.has(entry.name)) continue;
+    if (ignored.has(entry.name))
+      continue;
     const absolute = path.join(directory, entry.name);
-    if (entry.isDirectory()) walk(absolute, result);
-    else if (entry.name === 'index.html') result.push(absolute);
+    if (entry.isDirectory())
+      walk(absolute, result);
+    else if (entry.name === 'index.html')
+      result.push(absolute);
   }
   return result;
 }
@@ -33,12 +36,19 @@ const attrs = (html, re) => [...html.matchAll(re)].map((match) => match[1]);
 const normalizeRoute = (href, route) => {
   try {
     const url = new URL(href, `https://monster-survival.com${route}`);
-    if (url.origin !== 'https://monster-survival.com') return null;
+    if (url.origin !== 'https://monster-survival.com')
+      return null;
     let pathname = decodeURI(url.pathname);
-    if (pathname.endsWith('.html')) pathname = pathname.replace(/index\.html$/, '');
-    if (!path.extname(pathname) && !pathname.endsWith('/')) pathname += '/';
+    if (pathname.endsWith('.html'))
+      pathname = pathname.replace(/index\.html$/, '');
+    if (!path.extname(pathname) && !pathname.endsWith('/'))
+      pathname += '/';
     return pathname;
-  } catch { return null; }
+  } catch {
+
+    return null;
+
+  }
 };
 
 const pages = walk(root).map((file) => {
@@ -49,7 +59,9 @@ const pages = walk(root).map((file) => {
   const images = attrs(html, /<img\b[^>]*src=["']([^"']+)["']/gi).map((src) => normalizeRoute(src, route)).filter(Boolean);
   const alternates = [...html.matchAll(/<link\b[^>]*rel=["']alternate["'][^>]*hreflang=["']([^"']+)["'][^>]*href=["']([^"']+)["']/gi)].map((match) => ({ locale: match[1], href: match[2] }));
   return {
-    route, file: posix(path.relative(root, file)), indexable: !/noindex/i.test(robots),
+    route,
+    file: posix(path.relative(root, file)),
+    indexable: !/noindex/i.test(robots),
     title: text(html, /<title>([\s\S]*?)<\/title>/i),
     description: text(html, /<meta\s+name=["']description["'][^>]+content=["']([^"']*)/i),
     canonical: text(html, /<link\s+rel=["']canonical["'][^>]+href=["']([^"']*)/i),
@@ -57,13 +69,16 @@ const pages = walk(root).map((file) => {
     hasSchema: /application\/ld\+json/i.test(html),
     hasVisibleBreadcrumb: /class=["'][^"']*breadcrumbs/i.test(html),
     hasBreadcrumbSchema: /BreadcrumbList/.test(html),
-    alternates, links: [...new Set(links)], images: [...new Set(images)]
+    alternates,
+    links: [...new Set(links)],
+    images: [...new Set(images)]
   };
 });
 
 const pageRoutes = new Set(pages.map((page) => page.route));
 const assetExists = (route) => {
-  if (pageRoutes.has(route)) return true;
+  if (pageRoutes.has(route))
+    return true;
   const relative = route.replace(/^\//, '');
   return fs.existsSync(path.join(root, relative)) || fs.existsSync(path.join(root, relative, 'index.html'));
 };
@@ -71,13 +86,18 @@ const indexable = pages.filter((page) => page.indexable);
 const brokenLinks = [];
 const brokenImages = [];
 for (const page of indexable) {
-  for (const link of page.links) if (!assetExists(link)) brokenLinks.push({ from: page.route, to: link });
-  for (const image of page.images) if (!assetExists(image)) brokenImages.push({ from: page.route, to: image });
+  for (const link of page.links)
+    if (!assetExists(link))
+      brokenLinks.push({ from: page.route, to: link });
+  for (const image of page.images)
+    if (!assetExists(image))
+      brokenImages.push({ from: page.route, to: image });
 }
 
 const duplicate = (field) => Object.entries(indexable.reduce((map, page) => {
   const value = page[field];
-  if (value) (map[value] ||= []).push(page.route);
+  if (value)
+    (map[value] ||= []).push(page.route);
   return map;
 }, {})).filter(([, routes]) => routes.length > 1).map(([value, routes]) => ({ value, routes }));
 
@@ -86,10 +106,17 @@ const queue = [...distances.keys()];
 while (queue.length) {
   const current = queue.shift();
   const from = pages.find((page) => page.route === current);
-  if (!from) continue;
+  if (!from)
+    continue;
   for (const next of from.links.filter((route) => pageRoutes.has(route))) {
     const distance = distances.get(current) + 1;
-    if (!distances.has(next) || distance < distances.get(next)) { distances.set(next, distance); queue.push(next); }
+    if (!distances.has(next) || distance < distances.get(next)) {
+
+      distances.set(next, distance);
+
+      queue.push(next);
+
+    }
   }
 }
 
@@ -113,7 +140,16 @@ const freshnessAudit = indexable.map((page) => {
   const verified = String(record.verified || record.updated || '').slice(0, 10);
   const age = verified ? ageDays(verified) : null;
   const sourceChanged = sources.sources.some((source) => source.lastKnownUpdateDate && verified && source.lastKnownUpdateDate > verified && (rule.category === 'tier' ? source.category === 'tier' : source.category === 'official'));
-  return { route: page.route, verified, ageDays: age, category: rule.category, priority: rule.priority, status: record.status || 'latest_verified', reviewRequired: !verified || age > rule.maxAgeDays || sourceChanged, reasons: [...(!verified ? ['missing_verified_date'] : []), ...(age > rule.maxAgeDays ? [`age_over_${rule.maxAgeDays}_days`] : []), ...(sourceChanged ? ['external_source_change_candidate'] : [])] };
+  return {
+    route: page.route,
+    verified,
+    ageDays: age,
+    category: rule.category,
+    priority: rule.priority,
+    status: record.status || 'latest_verified',
+    reviewRequired: !verified || age > rule.maxAgeDays || sourceChanged,
+    reasons: [...(!verified ? ['missing_verified_date'] : []), ...(age > rule.maxAgeDays ? [`age_over_${rule.maxAgeDays}_days`] : []), ...(sourceChanged ? ['external_source_change_candidate'] : [])]
+  };
 });
 
 const requiredThreeClicks = ['/', '/tata-tier/', '/beginner-guide/', '/team-builder/', '/team-builder/community/', '/zombie-rush/', '/events/'];
@@ -126,12 +162,25 @@ const structuralIssues = indexable.flatMap((page) => [
   ...(page.hasVisibleBreadcrumb !== page.hasBreadcrumbSchema ? [{ route: page.route, issue: 'breadcrumb_visible_schema_mismatch' }] : []),
   ...(!page.alternates.length ? [{ route: page.route, issue: 'missing_hreflang' }] : [])
 ]);
-const bundles = ['styles.css', 'site.js', 'growth.js', 'team-builder/team-builder.js', 'team-builder/community/community.js'].map((file) => ({ file, bytes: Buffer.byteLength(fs.readFileSync(path.join(root, file), 'utf8').replace(/\r\n/g, '\n')) }));
+const bundles = ['styles.css', 'site.js', 'growth.js', 'team-builder/team-builder.js', 'team-builder/community/community.js'].map((file) => ({
+  file,
+  bytes: Buffer.byteLength(fs.readFileSync(path.join(root, file), 'utf8').replace(/\r\n/g, '\n'))
+}));
 const report = {
-  version: 1, asOf: policy.asOf,
-  totals: { pages: pages.length, indexable: indexable.length, brokenLinks: brokenLinks.length, brokenImages: brokenImages.length, structuralIssues: structuralIssues.length, reviewRequired: freshnessAudit.filter((item) => item.reviewRequired).length },
+  version: 1,
+  asOf: policy.asOf,
+  totals: {
+    pages: pages.length,
+    indexable: indexable.length,
+    brokenLinks: brokenLinks.length,
+    brokenImages: brokenImages.length,
+    structuralIssues: structuralIssues.length,
+    reviewRequired: freshnessAudit.filter((item) => item.reviewRequired).length
+  },
   duplicates: { titles: duplicate('title'), descriptions: duplicate('description'), h1: duplicate('h1') },
-  brokenLinks, brokenImages, structuralIssues,
+  brokenLinks,
+  brokenImages,
+  structuralIssues,
   internalLinkGraph: {
     orphans: indexable.filter((page) => !distances.has(page.route)).map((page) => page.route),
     requiredWithinThreeClicks: requiredThreeClicks.map((route) => ({ route, depth: distances.get(route) ?? null, pass: (distances.get(route) ?? 99) <= 3 })),
@@ -140,11 +189,34 @@ const report = {
   freshness: freshnessAudit,
   officialQuestions: questions.items.map((item) => ({ id: item.id, category: item.category, status: item.status, affectedRoutes: item.affectedRoutes })),
   liveOperations: {
-    community: { observedAt: communityLive.observedAt, postCount: communityLive.postCount, sampleStatus: communityLive.sampleStatus },
-    searchConsole: { observedAt: searchConsole.observedAt, periods: searchConsole.periods, indexInspection: searchConsole.indexInspection },
-    analyticsFunnel: { observedAt: analyticsFunnel.observedAt, sampleStatus: analyticsFunnel.sampleStatus, funnels: analyticsFunnel.funnels }
+    community: {
+      observedAt: communityLive.observedAt,
+      postCount: communityLive.postCount,
+      sampleStatus: communityLive.sampleStatus
+    },
+    searchConsole: {
+      observedAt: searchConsole.observedAt,
+      periods: searchConsole.periods,
+      indexInspection: searchConsole.indexInspection
+    },
+    analyticsFunnel: {
+      observedAt: analyticsFunnel.observedAt,
+      sampleStatus: analyticsFunnel.sampleStatus,
+      funnels: analyticsFunnel.funnels
+    }
   },
-  performance: { bundles, localStorageNamespaces: ['monsabaFormationDraft:v2', 'monsabaSavedFormations:v2', 'monsabaMyRoster:v1', 'monsabaFavorites:v1', 'monsabaCommunityDraft:v1'], communityPagination: true, previewImagesLazy: true }
+  performance: {
+    bundles,
+    localStorageNamespaces: [
+      'monsabaFormationDraft:v2',
+      'monsabaSavedFormations:v2',
+      'monsabaMyRoster:v1',
+      'monsabaFavorites:v1',
+      'monsabaCommunityDraft:v1'
+    ],
+    communityPagination: true,
+    previewImagesLazy: true
+  }
 };
 fs.writeFileSync(path.join(root, 'data/site-quality-audit.json'), `${JSON.stringify(report, null, 2)}\n`);
 

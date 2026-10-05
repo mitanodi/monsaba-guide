@@ -35,7 +35,8 @@ const excludedSelectors = [
 function collectHtml(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
     const target = path.join(directory, entry.name);
-    if (entry.isDirectory()) return collectHtml(target);
+    if (entry.isDirectory())
+      return collectHtml(target);
     return entry.isFile() && entry.name.endsWith('.html') ? [target] : [];
   });
 }
@@ -46,8 +47,10 @@ function routeFor(file) {
 }
 
 function localeFor(route) {
-  if (route === 'en' || route.startsWith('en/')) return 'en';
-  if (route === 'zh-cn' || route.startsWith('zh-cn/')) return 'zh-cn';
+  if (route === 'en' || route.startsWith('en/'))
+    return 'en';
+  if (route === 'zh-cn' || route.startsWith('zh-cn/'))
+    return 'zh-cn';
   return 'ja';
 }
 
@@ -66,7 +69,8 @@ function contentLength($) {
 
 function hasNearbyAd($, node) {
   const element = $(node);
-  if (element.closest(excludedSelectors).length || element.find(excludedSelectors).length) return true;
+  if (element.closest(excludedSelectors).length || element.find(excludedSelectors).length)
+    return true;
   const siblings = element.parent().children();
   const index = siblings.index(element);
   return [siblings.eq(index - 1), siblings.eq(index + 1)].some(sibling =>
@@ -80,7 +84,8 @@ function candidatesFor($) {
     const element = $(node);
     const length = element.text().replace(/\s+/g, ' ').trim().length;
     const location = node.sourceCodeLocation;
-    if (length < 80 || !location?.endTag || hasNearbyAd($, node)) return;
+    if (length < 80 || !location?.endTag || hasNearbyAd($, node))
+      return;
     candidates.push({ node, length, offset: location.endTag.startOffset });
   });
   return candidates;
@@ -111,15 +116,18 @@ function placementFor(route, candidates, mainLength) {
     }
     consumed += candidate.length;
   }
-  if (targetRatio < 0.42) return { ...selected, slot: 'top' };
-  if (targetRatio > 0.68) return { ...selected, slot: 'bottom' };
+  if (targetRatio < 0.42)
+    return { ...selected, slot: 'top' };
+  if (targetRatio > 0.68)
+    return { ...selected, slot: 'bottom' };
   return { ...selected, slot: 'mid' };
 }
 
 const htmlFiles = collectHtml(root);
 const versionSource = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const assetVersion = versionSource.match(/href="\/astra\.css\?v=([a-f\d]+)"/i)?.[1];
-if (!assetVersion) throw new Error('Could not read the current shared asset version from index.html');
+if (!assetVersion)
+  throw new Error('Could not read the current shared asset version from index.html');
 
 let added = 0;
 let skipped = 0;
@@ -149,7 +157,8 @@ for (const file of htmlFiles) {
   const adLabel = '広告';
   if ($('.imobile-content-ad').length) {
     const corrected = html.replace(/(<aside\b[^>]*\bclass="[^"]*\bimobile-content-ad\b[^"]*"[^>]*\baria-label=")[^"]*("><span class="imobile-ad-label">)[^<]*(<\/span>)/, `$1${adLabel}$2${adLabel}$3`).replace(/[ \t]+(?=\r?$)/gm, '');
-    if (corrected !== html) fs.writeFileSync(file, corrected, 'utf8');
+    if (corrected !== html)
+      fs.writeFileSync(file, corrected, 'utf8');
     skipped++;
     continue;
   }
@@ -170,7 +179,8 @@ for (const file of htmlFiles) {
   const updatedDoc = load(updated);
   if (!updatedDoc('link[href^="/imobile-ads.css"]').length) {
     const headClose = updated.toLowerCase().lastIndexOf('</head>');
-    if (headClose < 0) throw new Error(`Could not find </head> in ${route || '/'}`);
+    if (headClose < 0)
+      throw new Error(`Could not find </head> in ${route || '/'}`);
     const css = `<link rel="stylesheet" href="/imobile-ads.css?v=${assetVersion}">`;
     updated = `${updated.slice(0, headClose)}${css}${updated.slice(headClose)}`;
   }

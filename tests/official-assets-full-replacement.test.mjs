@@ -12,7 +12,19 @@ const sha256 = (file) => crypto.createHash('sha256').update(fs.readFileSync(file
 const images = json('data/tata-images.json');
 const tatari = json('data/tatari.json');
 const sourceMap = json('data/official-assets/tata-source-map.json');
-const expectedPending = ['nenbutsuhebi:T4', 'nusuke:T1', 'nusuke:T2', 'nusuke:T3', 'nusuke:T4', 'pakuma:T2', 'pakuma:T3', 'pakuma:T4', 'shizukuchou:T4', 'sukedako:T4', 'tsubaruka:T4'];
+const expectedPending = [
+  'nenbutsuhebi:T4',
+  'nusuke:T1',
+  'nusuke:T2',
+  'nusuke:T3',
+  'nusuke:T4',
+  'pakuma:T2',
+  'pakuma:T3',
+  'pakuma:T4',
+  'shizukuchou:T4',
+  'sukedako:T4',
+  'tsubaruka:T4'
+];
 
 const forms = images.families.flatMap((family) => family.forms.map((form) => ({ familyId: family.familyId, ...form })));
 const official = forms.filter((form) => form.sourceType === 'official_creator_asset');
@@ -53,10 +65,21 @@ test('database and every major consumer use the same official-capable SSOT', () 
   for (const family of tatari.families) {
     for (const evolution of family.evolutions) {
       const form = forms.find((candidate) => candidate.familyId === family.id && candidate.stage === evolution.stage);
-      if (form.status === 'verified') assert.equal(evolution.image, form.src.slice(1), `${family.id}:T${evolution.stage}`);
+      if (form.status === 'verified')
+        assert.equal(evolution.image, form.src.slice(1), `${family.id}:T${evolution.stage}`);
     }
   }
-  for (const file of ['app.js', 'scripts/generate-tier-pages.mjs', 'evolution-priority/evolution-priority.js', 'team-builder/team-builder.js', 'zombie-rush/zombie-rush.js', 'attribute/attribute-guide.js', 'search/search.js', 'compare/compare.js', 'my-monsaba/my-monsaba.js']) {
+  for (const file of [
+    'app.js',
+    'scripts/generate-tier-pages.mjs',
+    'evolution-priority/evolution-priority.js',
+    'team-builder/team-builder.js',
+    'zombie-rush/zombie-rush.js',
+    'attribute/attribute-guide.js',
+    'search/search.js',
+    'compare/compare.js',
+    'my-monsaba/my-monsaba.js'
+  ]) {
     assert.match(read(file), /data\/tata-images\.json/, `${file}: shared mapping missing`);
   }
   assert.equal(images.families.filter((family) => family.stage1.sourceType === 'official_creator_asset').length, 63);
@@ -72,7 +95,9 @@ test('legacy cleanup retains only evidence-backed exceptions', () => {
   const walk = (directory) => {
     for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
       const absolute = path.join(directory, entry.name);
-      if (entry.isDirectory()) walk(absolute); else cropFiles.push(path.relative(root, absolute).replaceAll('\\', '/'));
+      if (entry.isDirectory())
+        walk(absolute);
+      else cropFiles.push(path.relative(root, absolute).replaceAll('\\', '/'));
     }
   };
   walk(path.join(root, 'assets', 'tata-crops'));

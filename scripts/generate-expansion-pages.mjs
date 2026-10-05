@@ -5,94 +5,266 @@ import { renderHeader, renderFooter, renderBreadcrumb } from './shared-layout.mj
 import { renderSeoHead, safeJsonLd, breadcrumbSchema, absoluteUrl } from './seo-helpers.mjs';
 import { formatJapanDateTime, LAST_MODIFIED } from './site-config.mjs';
 
-const root=path.resolve(import.meta.dirname,'..');
-const read=name=>JSON.parse(fs.readFileSync(path.join(root,'data',name),'utf8'));
-const tatari=read('tatari.json');
-const ratings=read('tier-ratings.json');
+const root = path.resolve(import.meta.dirname, '..');
+const read = name => JSON.parse(fs.readFileSync(path.join(root, 'data', name), 'utf8'));
+const tatari = read('tatari.json');
+const ratings = read('tier-ratings.json');
 const editorial = read('editorial-content.json').families;
-for(const [id,rating] of Object.entries(ratings.overall.byFamily)) rating.comment=editorial[id]?.comment || '';
-const evolution=read('evolution-priority.json');
-const stages=read('stages.json');
-const items=read('items.json');
-const systems=read('systems.json');
-const events=read('events.json');
-const officialEventImages=read('official-assets/event-images.json');
-const freshness=read('page-freshness.json');
-const byId=new Map(tatari.families.map(f=>[f.id,f]));
-const {getFamilyDisplayLabel}=globalThis.MONSABA_FAMILY;
-const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const matches=(pattern,route)=>pattern.endsWith('*')?route.startsWith(pattern.slice(0,-1)):route===pattern;
-const updatedFor=route=>{
-  const exact=freshness.routes?.[route];
-  const wildcard=Object.entries(freshness.routes||{}).find(([pattern])=>pattern.endsWith('*')&&matches(pattern,route))?.[1];
-  return exact?.updated||wildcard?.updated||LAST_MODIFIED.slice(0,10);
+for (const [id, rating] of Object.entries(ratings.overall.byFamily))
+  rating.comment = editorial[id]?.comment || '';
+const evolution = read('evolution-priority.json');
+const stages = read('stages.json');
+const items = read('items.json');
+const systems = read('systems.json');
+const events = read('events.json');
+const officialEventImages = read('official-assets/event-images.json');
+const freshness = read('page-freshness.json');
+const byId = new Map(tatari.families.map(f => [f.id, f]));
+const { getFamilyDisplayLabel } = globalThis.MONSABA_FAMILY;
+const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const matches = (pattern, route) => pattern.endsWith('*') ? route.startsWith(pattern.slice(0, -1)) : route === pattern;
+const updatedFor = route => {
+  const exact = freshness.routes?.[route];
+  const wildcard = Object.entries(freshness.routes || {}).find(([pattern]) => pattern.endsWith('*') && matches(pattern, route))?.[1];
+  return exact?.updated || wildcard?.updated || LAST_MODIFIED.slice(0, 10);
 };
-const write=(route,html)=>{const dir=path.join(root,route.slice(1));fs.mkdirSync(dir,{recursive:true});const output=html.replace('<link rel="icon" href="/favicon.ico">','<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png">');fs.writeFileSync(path.join(dir,'index.html'),output)};
-const shell=({route,title,description,body,robots='index,follow,max-image-preview:large',type='CollectionPage',extraHead='',extraScripts=''})=>{
-  const crumbs=[{label:'トップ',href:'/'},{label:title.split('｜')[0]}];
-  const updated=updatedFor(route);
-  const graph=[{'@type':type,'@id':absoluteUrl(route),url:absoluteUrl(route),name:title,description,dateModified:updated,inLanguage:'ja'},breadcrumbSchema(crumbs)];
-  return `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${renderSeoHead({title,description,route,robots})}<link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/styles.css">${extraHead}<script type="application/ld+json">${safeJsonLd({'@context':'https://schema.org','@graph':graph})}</script></head><body data-page-type="expansion"><a class="skip-link" href="#main-content">本文へスキップ</a>${renderHeader(route)}<main id="main-content"><section class="page-hero"><div class="wrap">${renderBreadcrumb(crumbs)}<div class="family-page-head"><div><span class="visible-kicker">確認済みデータを優先</span><h1>${esc(title.split('｜')[0])}</h1><p>${esc(description)}</p></div></div></div></section>${body}<section class="wrap source-note page-freshness"><strong>情報の状態</strong><p><span class="trust-label is-verified">更新済み</span> 最終更新 <time datetime="${updated}">${formatJapanDateTime(updated)}</time></p><a href="/about-data/">データ方針を見る</a></section></main>${renderFooter(`${tatari.families.length}系統 / ${tatari.families.flatMap(f=>f.evolutions).length}体`)}<script src="/family-display.js"></script><script src="/site.js"></script><script src="/growth.js" defer></script>${extraScripts}</body></html>`;
+const write = (route, html) => {
+  const dir = path.join(root, route.slice(1));
+  fs.mkdirSync(dir, { recursive: true });
+  const output = html.replace('<link rel="icon" href="/favicon.ico">', '<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png">');
+  fs.writeFileSync(path.join(dir, 'index.html'), output)
 };
-const card=(title,text,href,label='詳しく見る')=>`<article class="guide-hub-card"><h3>${esc(title)}</h3><p>${esc(text)}</p>${href?`<a class="ghost-button" href="${href}">${esc(label)}</a>`:''}</article>`;
+const shell = ({ route, title, description, body, robots = 'index,follow,max-image-preview:large', type = 'CollectionPage', extraHead = '', extraScripts = '' }) => {
+  const crumbs = [{ label: 'トップ', href: '/' }, { label: title.split('｜')[0] }];
+  const updated = updatedFor(route);
+  const graph = [{
+    '@type': type,
+    '@id': absoluteUrl(route),
+    url: absoluteUrl(route),
+    name: title,
+    description,
+    dateModified: updated,
+    inLanguage: 'ja'
+  }, breadcrumbSchema(crumbs)];
+  return `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${renderSeoHead({ title, description, route, robots })}<link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/styles.css">${extraHead}<script type="application/ld+json">${safeJsonLd({ '@context': 'https://schema.org', '@graph': graph })}</script></head><body data-page-type="expansion"><a class="skip-link" href="#main-content">本文へスキップ</a>${renderHeader(route)}<main id="main-content"><section class="page-hero"><div class="wrap">${renderBreadcrumb(crumbs)}<div class="family-page-head"><div><span class="visible-kicker">確認済みデータを優先</span><h1>${esc(title.split('｜')[0])}</h1><p>${esc(description)}</p></div></div></div></section>${body}<section class="wrap source-note page-freshness"><strong>情報の状態</strong><p><span class="trust-label is-verified">更新済み</span> 最終更新 <time datetime="${updated}">${formatJapanDateTime(updated)}</time></p><a href="/about-data/">データ方針を見る</a></section></main>${renderFooter(`${tatari.families.length}系統 / ${tatari.families.flatMap(f => f.evolutions).length}体`)}<script src="/family-display.js"></script><script src="/site.js"></script><script src="/growth.js" defer></script>${extraScripts}</body></html>`;
+};
+const card = (title, text, href, label = '詳しく見る') => `<article class="guide-hub-card"><h3>${esc(title)}</h3><p>${esc(text)}</p>${href ? `<a class="ghost-button" href="${href}">${esc(label)}</a>` : ''}</article>`;
 
-write('/stages/',shell({route:'/stages/',title:'モンサバ ステージ別攻略｜Chapter・Stage番号から探す',description:'Chapter・Stage番号から攻略を探すための基盤です。確実な攻略情報があるステージだけを公開し、架空の個別攻略は生成しません。',body:`<section class="wrap static-section"><h2 class="page-h2">ステージ番号から探す</h2><form class="compare-controls" action="/search/"><label>Chapter / Stage<input name="q" inputmode="numeric" placeholder="例：2-50、7-70"></label><button class="button">サイト内検索</button></form><div class="summary-box"><strong>公開中の確認済み個別攻略：${stages.guides.length}件</strong><p>個別ページは、失敗原因・時間切れ対策・全滅対策・配置・推奨役割・関連タタ・参考情報・確認状況が揃った場合だけ公開します。</p></div><div class="attribute-guide-nav"><a href="/normal-guide/">通常ステージ共通攻略</a><a href="/consult/?flow=content&mode=normal">症状から攻略相談</a><a href="/roles/">役割からタタを探す</a></div></section>`}));
+write('/stages/', shell({
+  route: '/stages/',
+  title: 'モンサバ ステージ別攻略｜Chapter・Stage番号から探す',
+  description: 'Chapter・Stage番号から攻略を探すための基盤です。確実な攻略情報があるステージだけを公開し、架空の個別攻略は生成しません。',
+  body: `<section class="wrap static-section"><h2 class="page-h2">ステージ番号から探す</h2><form class="compare-controls" action="/search/"><label>Chapter / Stage<input name="q" inputmode="numeric" placeholder="例：2-50、7-70"></label><button class="button">サイト内検索</button></form><div class="summary-box"><strong>公開中の確認済み個別攻略：${stages.guides.length}件</strong><p>個別ページは、失敗原因・時間切れ対策・全滅対策・配置・推奨役割・関連タタ・参考情報・確認状況が揃った場合だけ公開します。</p></div><div class="attribute-guide-nav"><a href="/normal-guide/">通常ステージ共通攻略</a><a href="/consult/?flow=content&mode=normal">症状から攻略相談</a><a href="/roles/">役割からタタを探す</a></div></section>`
+}));
 
-const roadmap=[...evolution.t3Roadmap.firstPriority,...evolution.t3Roadmap.secondPriority];
-const evoCards=roadmap.map(item=>{const f=byId.get(item.familyId);return f?card(getFamilyDisplayLabel(f),`${item.priority}・T3まで${item.requiredStars}星。${item.reason}`,`/tata/${f.id}/#stage-3`,'T3差分を見る'):''}).join('');
-const t4Transitions=(evolution.highImpactTransitions||[]).filter(x=>x.toStage===4);
-write('/evolution/',shell({route:'/evolution/',title:'モンサバ 進化条件・進化試練DB',description:'T1→T2、T2→T3、T3→T4の進化差分・必要星数・進化優先度を確認済みデータから探します。未確認の試練条件は推測しません。',body:`<section class="wrap static-section"><div class="guide-hub-grid">${card('T3おすすめ','必要星数と戦力化の早さから、既存の進化優先度を整理。','/evolution/t3/','T3おすすめを見る')}${card('T4おすすめ','確認済みの高インパクト進化だけを一覧化。','/evolution/t4/','T4おすすめを見る')}${card('進化優先度','全体の育成順と判断基準。','/evolution-priority/','既存ページを見る')}</div><h2 class="page-h2">進化条件の扱い</h2><p>必要星数・進化条件・進化試練は確認済みの項目だけ表示します。空欄を推測で埋めません。</p></section>`}));
-write('/evolution/t3/',shell({route:'/evolution/t3/',title:'モンサバ T3おすすめ｜最初の第3進化と必要星数',description:'モンサバで最初にT3へ進化させる候補を、確認済み必要星数・進化差分・既存進化優先度から比較します。',body:`<section class="wrap static-section"><h2 class="page-h2">T3最優先・優先候補</h2><div class="guide-hub-grid">${evoCards}</div><p class="section-note">全員共通の正解ではありません。手持ちと攻略目的は<a href="/consult/?flow=evolution">攻略相談所</a>で確認できます。</p></section>`}));
-write('/evolution/t4/',shell({route:'/evolution/t4/',title:'モンサバ T4おすすめ｜第4進化の大きな変化',description:'確認済みの進化差分と既存進化優先度から、T4で変化が大きい系統を整理します。未確認の新T4詳細は掲載しません。',body:`<section class="wrap static-section"><h2 class="page-h2">確認済みの高インパクトT4</h2><div class="guide-hub-grid">${t4Transitions.map(item=>{const f=byId.get(item.familyId);return f?card(getFamilyDisplayLabel(f),`${item.headline}。${item.reason}`,`/tata/${f.id}/#stage-4`,'T4差分を見る'):''}).join('')||card('確認中','既存DBで根拠が揃った候補から追加します。')}</div><div class="alert-box"><strong>新T4の詳細は確認待ち</strong><p>ロードパスとナムアミダイジャは公式告知で名称を確認済みですが、スキル・必要星数はゲーム内スクリーンショット確認まで追加しません。</p></div></section>`}));
+const roadmap = [...evolution.t3Roadmap.firstPriority, ...evolution.t3Roadmap.secondPriority];
+const evoCards = roadmap.map(item => {
+  const f = byId.get(item.familyId);
+  return f ? card(getFamilyDisplayLabel(f), `${item.priority}・T3まで${item.requiredStars}星。${item.reason}`, `/tata/${f.id}/#stage-3`, 'T3差分を見る') : ''
+}).join('');
+const t4Transitions = (evolution.highImpactTransitions || []).filter(x => x.toStage === 4);
+write('/evolution/', shell({
+  route: '/evolution/',
+  title: 'モンサバ 進化条件・進化試練DB',
+  description: 'T1→T2、T2→T3、T3→T4の進化差分・必要星数・進化優先度を確認済みデータから探します。未確認の試練条件は推測しません。',
+  body: `<section class="wrap static-section"><div class="guide-hub-grid">${card('T3おすすめ', '必要星数と戦力化の早さから、既存の進化優先度を整理。', '/evolution/t3/', 'T3おすすめを見る')}${card('T4おすすめ', '確認済みの高インパクト進化だけを一覧化。', '/evolution/t4/', 'T4おすすめを見る')}${card('進化優先度', '全体の育成順と判断基準。', '/evolution-priority/', '既存ページを見る')}</div><h2 class="page-h2">進化条件の扱い</h2><p>必要星数・進化条件・進化試練は確認済みの項目だけ表示します。空欄を推測で埋めません。</p></section>`
+}));
+write('/evolution/t3/', shell({
+  route: '/evolution/t3/',
+  title: 'モンサバ T3おすすめ｜最初の第3進化と必要星数',
+  description: 'モンサバで最初にT3へ進化させる候補を、確認済み必要星数・進化差分・既存進化優先度から比較します。',
+  body: `<section class="wrap static-section"><h2 class="page-h2">T3最優先・優先候補</h2><div class="guide-hub-grid">${evoCards}</div><p class="section-note">全員共通の正解ではありません。手持ちと攻略目的は<a href="/consult/?flow=evolution">攻略相談所</a>で確認できます。</p></section>`
+}));
+write('/evolution/t4/', shell({
+  route: '/evolution/t4/',
+  title: 'モンサバ T4おすすめ｜第4進化の大きな変化',
+  description: '確認済みの進化差分と既存進化優先度から、T4で変化が大きい系統を整理します。未確認の新T4詳細は掲載しません。',
+  body: `<section class="wrap static-section"><h2 class="page-h2">確認済みの高インパクトT4</h2><div class="guide-hub-grid">${t4Transitions.map(item => { const f = byId.get(item.familyId); return f ? card(getFamilyDisplayLabel(f), `${item.headline}。${item.reason}`, `/tata/${f.id}/#stage-4`, 'T4差分を見る') : '' }).join('') || card('確認中', '既存DBで根拠が揃った候補から追加します。')}</div><div class="alert-box"><strong>新T4の詳細は確認待ち</strong><p>ロードパスとナムアミダイジャは公式告知で名称を確認済みですが、スキル・必要星数はゲーム内スクリーンショット確認まで追加しません。</p></div></section>`
+}));
 
-write('/items/',shell({route:'/items/',title:'モンサバ アイテム・素材DB',description:'モンサバのアイテム名・用途・入手方法・関連コンテンツを確認済み情報だけで整理する基盤です。',robots:'noindex,follow',body:`<section class="wrap static-section"><div class="summary-box"><strong>確認済みアイテム：${items.items.length}件</strong><p>現在はデータ構造のみ準備済みです。名称・用途・入手方法をゲーム内で確認できた項目から公開し、架空情報で埋めません。</p></div></section>`}));
-write('/systems/',shell({route:'/systems/',title:'モンサバ キャンプ・施設攻略',description:'施設・強化・解放・食材加工など、ゲーム内システムを公式確認済み情報から整理するハブです。',robots:'noindex,follow',body:`<section class="wrap static-section"><div class="guide-hub-grid">${systems.systems.map(x=>card(x.name,x.summary)).join('')}</div><p class="section-note">強化条件・解放条件はゲーム内確認ができるまで公開しません。</p></section>`}));
+write('/items/', shell({
+  route: '/items/',
+  title: 'モンサバ アイテム・素材DB',
+  description: 'モンサバのアイテム名・用途・入手方法・関連コンテンツを確認済み情報だけで整理する基盤です。',
+  robots: 'noindex,follow',
+  body: `<section class="wrap static-section"><div class="summary-box"><strong>確認済みアイテム：${items.items.length}件</strong><p>現在はデータ構造のみ準備済みです。名称・用途・入手方法をゲーム内で確認できた項目から公開し、架空情報で埋めません。</p></div></section>`
+}));
+write('/systems/', shell({
+  route: '/systems/',
+  title: 'モンサバ キャンプ・施設攻略',
+  description: '施設・強化・解放・食材加工など、ゲーム内システムを公式確認済み情報から整理するハブです。',
+  robots: 'noindex,follow',
+  body: `<section class="wrap static-section"><div class="guide-hub-grid">${systems.systems.map(x => card(x.name, x.summary)).join('')}</div><p class="section-note">強化条件・解放条件はゲーム内確認ができるまで公開しません。</p></section>`
+}));
 
-const eventImage=new Map(officialEventImages.events.map(item=>[item.eventId,item]));
-const eventCards=events.events.map(x=>{const image=eventImage.get(x.id);const status=x.sourceStatus==='verified'?'確認済み':'外部確認';const officialPending=x.officialInquiry?.status==='awaiting_official_response';return `<article class="guide-hub-card event-hub-card" data-event-status="${esc(x.sourceStatus)}">${image?`<img src="${esc(image.optimizedPath)}" width="${image.width}" height="${image.height}" alt="${esc(`${x.name} 公式クリエイター素材`)}" loading="lazy" decoding="async">`:''}<p class="trust-label-row"><span class="trust-label ${x.sourceStatus==='verified'?'is-verified':'is-external'}">${status}</span><span class="trust-label is-pending">周期イベント</span>${officialPending?'<span class="trust-label is-pending">公式運営へ確認中</span>':''}</p><h3>${esc(x.name)}</h3><p>${esc(x.summary||'独自ツールを利用できます。')}</p><p class="section-note">確認日：${esc(officialPending?x.officialInquiry.requestedAt:(x.verifiedAt||events.updated))}</p>${x.href?`<a class="ghost-button" href="${esc(x.href)}">攻略を見る</a>`:'<span>詳細確認中</span>'}</article>`;}).join('');
-write('/events/',shell({route:'/events/',title:'モンサバ イベント攻略｜開催中・周期イベント',description:'オタカラ探し、魔法の農場、サプライズルーレットなど、確認済みイベント情報と独自攻略ツールをまとめます。',extraHead:'<link rel="stylesheet" href="/calendar/calendar.css">',extraScripts:'<script type="module" src="/calendar/calendar.js"></script>',body:`<section class="wrap static-section"><h2 class="page-h2">常設・周期イベント</h2><div class="event-filter" role="group" aria-label="確認状態"><button class="ghost-button is-active" type="button" data-event-filter="all">すべて</button><button class="ghost-button" type="button" data-event-filter="verified">確認済み</button><button class="ghost-button" type="button" data-event-filter="externally_confirmed">外部確認</button></div><p class="result-count" data-event-count aria-live="polite">${events.events.length}件</p><div class="guide-hub-grid">${eventCards}</div><p class="section-note">開催中・開催予定の断定には公式の期間表示が必要です。期間未確認のイベントは「周期イベント」として整理しています。</p><div class="attribute-guide-nav"><a href="/beginner-guide/">初心者ガイド</a><a href="/team-builder/">編成メーカー</a><a href="/items/">アイテムDB</a></div></section><script src="/events/events.js" defer></script>`}));
+const eventImage = new Map(officialEventImages.events.map(item => [item.eventId, item]));
+const eventCards = events.events.map(x => {
+  const image = eventImage.get(x.id);
+  const status = x.sourceStatus === 'verified' ? '確認済み' : '外部確認';
+  const officialPending = x.officialInquiry?.status === 'awaiting_official_response';
+  return `<article class="guide-hub-card event-hub-card" data-event-status="${esc(x.sourceStatus)}">${image ? `<img src="${esc(image.optimizedPath)}" width="${image.width}" height="${image.height}" alt="${esc(`${x.name} 公式クリエイター素材`)}" loading="lazy" decoding="async">` : ''}<p class="trust-label-row"><span class="trust-label ${x.sourceStatus === 'verified' ? 'is-verified' : 'is-external'}">${status}</span><span class="trust-label is-pending">周期イベント</span>${officialPending ? '<span class="trust-label is-pending">公式運営へ確認中</span>' : ''}</p><h3>${esc(x.name)}</h3><p>${esc(x.summary || '独自ツールを利用できます。')}</p><p class="section-note">確認日：${esc(officialPending ? x.officialInquiry.requestedAt : (x.verifiedAt || events.updated))}</p>${x.href ? `<a class="ghost-button" href="${esc(x.href)}">攻略を見る</a>` : '<span>詳細確認中</span>'}</article>`;
+}).join('');
+write('/events/', shell({
+  route: '/events/',
+  title: 'モンサバ イベント攻略｜開催中・周期イベント',
+  description: 'オタカラ探し、魔法の農場、サプライズルーレットなど、確認済みイベント情報と独自攻略ツールをまとめます。',
+  extraHead: '<link rel="stylesheet" href="/calendar/calendar.css">',
+  extraScripts: '<script type="module" src="/calendar/calendar.js"></script>',
+  body: `<section class="wrap static-section"><h2 class="page-h2">常設・周期イベント</h2><div class="event-filter" role="group" aria-label="確認状態"><button class="ghost-button is-active" type="button" data-event-filter="all">すべて</button><button class="ghost-button" type="button" data-event-filter="verified">確認済み</button><button class="ghost-button" type="button" data-event-filter="externally_confirmed">外部確認</button></div><p class="result-count" data-event-count aria-live="polite">${events.events.length}件</p><div class="guide-hub-grid">${eventCards}</div><p class="section-note">開催中・開催予定の断定には公式の期間表示が必要です。期間未確認のイベントは「周期イベント」として整理しています。</p><div class="attribute-guide-nav"><a href="/beginner-guide/">初心者ガイド</a><a href="/team-builder/">編成メーカー</a><a href="/items/">アイテムDB</a></div></section><script src="/events/events.js" defer></script>`
+}));
 
-const roleDefs=[
-  ['paralysis','麻痺',['麻痺']],['stun','スタン',['スタン']],['bind','束縛',['束縛']],['sleep','睡眠',['睡眠']],['slow','減速',['減速']],['pierce','貫通',['貫通']],['heal','回復',['回復']],['tank','タンク',['タンク','前衛']],['shield','シールド',['シールド']],['buff','バフ',['バフ','支援']],['debuff','デバフ',['デバフ','被ダメ増加','攻撃速度低下']],['area-damage','範囲火力',['範囲','広範囲','持続火力']]
+const roleDefs = [
+  ['paralysis', '麻痺', ['麻痺']],
+  ['stun', 'スタン', ['スタン']],
+  ['bind', '束縛', ['束縛']],
+  ['sleep', '睡眠', ['睡眠']],
+  ['slow', '減速', ['減速']],
+  ['pierce', '貫通', ['貫通']],
+  ['heal', '回復', ['回復']],
+  ['tank', 'タンク', ['タンク', '前衛']],
+  ['shield', 'シールド', ['シールド']],
+  ['buff', 'バフ', ['バフ', '支援']],
+  ['debuff', 'デバフ', ['デバフ', '被ダメ増加', '攻撃速度低下']],
+  ['area-damage', '範囲火力', ['範囲', '広範囲', '持続火力']]
 ];
-const roleGuides={
-  paralysis:{definition:'当サイトのTier DBで「麻痺」を役割に含む系統をまとめたページです。麻痺の発動条件・継続時間・耐性はタタごとに異なる可能性があるため、役割名だけで同じ性能とは扱いません。',strong:'敵の行動を止める役割も含めて編成候補を比較したい場面で、最初の絞り込みに使えます。火力・貫通など別の役割を同時に持つ候補は、個別ページの確認済みスキルと用途別Tierも合わせて判断します。',weak:'麻痺の有効性や敵側の耐性を確認できていない場面では、麻痺だけを理由に優先しません。発動条件や進化段階が未確認の候補は、確認済み情報の範囲で保留します。',beginner:'初心者は麻痺の有無だけでなく、通常評価と初心者評価、手持ちで到達できる進化段階を並べてください。序盤で役割が不足している場合の候補として見ます。',related:['stun','slow','debuff']},
-  stun:{definition:'当サイトのTier DBで「スタン」を役割に含む系統を抽出しています。スタンの具体的な発動条件や効果時間は、確認済みの個別スキル記載を優先します。',strong:'攻撃だけでなく行動阻害も担える候補を探すときに有用です。同じスタン役でも、ほかに持つ役割と用途別Tierが異なるため、候補ごとの差を比較します。',weak:'スタンが通るか確認できない相手や、役割ラベル以外の発動情報が不足する候補では断定を避けます。単一の状態異常だけで総合的な優先順位は決めません。',beginner:'初心者は通常評価・初心者評価と、個別ページの進化差分を先に確認してください。手持ちに不足する役割を補えるかを基準にします。',related:['paralysis','slow','tank']},
-  bind:{definition:'当サイトのTier DBで「束縛」を役割に含む系統をまとめます。具体的な挙動は個別スキルの確認済み記述を優先します。',strong:'行動阻害を含む候補を横断して探す入口として利用できます。',weak:'有効対象や発動条件を確認できない場面では断定しません。',beginner:'初心者評価と進化段階を一緒に確認します。',related:['paralysis','stun','slow']},
-  sleep:{definition:'当サイトのTier DBで「睡眠」を役割に含む系統をまとめます。具体的な挙動は個別スキルの確認済み記述を優先します。',strong:'行動阻害を含む候補を横断して探す入口として利用できます。',weak:'有効対象や発動条件を確認できない場面では断定しません。',beginner:'初心者評価と進化段階を一緒に確認します。',related:['paralysis','stun','slow']},
-  slow:{definition:'当サイトのTier DBで「減速」を役割に含む系統をまとめたページです。速度低下の対象・数値・継続時間は、確認できた個別スキル情報だけを参照します。',strong:'敵の進行や攻撃頻度に関わる補助役を比較したいときの候補抽出に使えます。ほかの状態異常や範囲役を兼ねるかも比較材料です。',weak:'減速量や有効対象が未確認の場合は効果を推測しません。減速役という共通点だけで、異なるモードの優劣を固定しません。',beginner:'初心者は通常評価と初心者評価を見て、育成済みの火力役や耐久役を補えるかを確認してください。',related:['paralysis','stun','debuff']},
-  pierce:{definition:'当サイトのTier DBで「貫通」を役割に含む系統をまとめています。貫通数や対象などの詳細は、個別ページにある確認済みスキル記載を優先します。',strong:'複数の敵への対応も検討したい編成で、貫通役の候補を比較する入口になります。火力だけでなく、同時に持つ状態異常や支援役割も確認します。',weak:'敵数・配置・貫通条件が不明な場面では、貫通役という理由だけで最適と断定しません。単体相手の評価は専用のBoss列がないため別途確認が必要です。',beginner:'初心者は初心者評価と通常評価を優先し、進化前から必要な役割を満たせるかを個別ページで確認してください。',related:['area-damage','paralysis','debuff']},
-  heal:{definition:'当サイトのTier DBで「回復」を役割に含む系統をまとめています。回復対象・回復量・発動条件は、個別ページで確認できるスキル記載を基準にします。',strong:'編成の生存補助を探したいときに、回復以外のバフや無敵などの役割ラベルも含めて比較できます。用途別Tierにより、同じ回復役でも得意な場面を分けて見ます。',weak:'回復だけでは時間切れ対策にならない場合があるため、火力不足の解決策とは分けて考えます。確認できない回復量や対象範囲は推測しません。',beginner:'初心者は安定性だけでなく、初心者評価・通常評価と育成コストを並べ、現在不足している生存補助を補えるかで判断します。',related:['shield','buff','tank']},
-  tank:{definition:'当サイトのTier DBで「タンク」または「前衛」を役割に含む系統をまとめています。耐久数値や攻撃の受け方は、個別ページの確認済み情報を優先します。',strong:'前衛や耐久役を置きたい編成で候補を絞り、シールド・回復・妨害など併用できる役割を比較するために使えます。',weak:'配置や敵の攻撃仕様を確認できない場面では、役割ラベルだけで被ダメージ軽減を断定しません。火力不足が主因の場合は別役割も検討します。',beginner:'初心者は通常評価・初心者評価と進化段階を確認し、すでに育成した火力役を支えられるかという順で比較してください。',related:['shield','heal','stun']},
-  shield:{definition:'当サイトのTier DBで「シールド」を役割に含む系統をまとめています。付与対象・量・条件などは、確認済みの個別スキル記載だけを根拠にします。',strong:'回復とは別の生存補助を含む候補を探し、タンク・バフなど併用役割との違いを比較したいときに使えます。',weak:'シールドの数値や重複ルールを確認できていない場面では効果を断定しません。時間切れが課題なら、耐久だけでなく火力役も比較します。',beginner:'初心者は初心者評価と通常評価を見て、手持ちの前衛・回復役との重複を避けながら不足役割を補ってください。',related:['tank','heal','buff']},
-  buff:{definition:'当サイトのTier DBで「バフ」または「支援」を役割に含む系統をまとめています。強化対象・数値・発動条件は個別ページの確認済みスキルを優先します。',strong:'編成全体を補助する候補を探し、回復・攻防支援など一緒に持つ役割と用途別Tierを比較するときに役立ちます。',weak:'対象や上昇量が未確認のバフは推測しません。支援役を増やすことで直接火力や前衛が不足する場合もあるため、役割の重なりを確認します。',beginner:'初心者は単体の総合Tierだけでなく、初心者評価と手持ちの不足役割を見て、育成済み主力を支えられるかで選びます。',related:['heal','shield','debuff']},
-  debuff:{definition:'当サイトのTier DBで「デバフ」「被ダメ増加」「攻撃速度低下」を役割に含む系統をまとめています。具体的な数値・対象・継続時間は個別ページの確認済み記載を優先します。',strong:'敵側へ働く補助役を探し、状態異常や範囲火力などの兼任役割を含めて比較するときの入口になります。',weak:'有効対象や重複ルールが未確認の場面では効果を断定しません。役割ラベルだけでボス適性や最終火力を決めないでください。',beginner:'初心者は通常評価・初心者評価と個別ページの進化差分を確認し、主力と組み合わせやすい候補から検討します。',related:['buff','slow','paralysis']},
-  'area-damage':{definition:'当サイトのTier DBで「範囲」「広範囲」「持続火力」を役割に含む系統をまとめています。対象数・範囲・持続条件は、個別ページの確認済みスキル記載を基準にします。',strong:'複数の敵への対応を意識した候補を比較するときに使えます。貫通・状態異常など別の役割を兼ねるか、用途別Tierに差があるかも確認します。',weak:'敵数や配置が分からない場面で範囲役の優位を断定しません。単体相手についてはBoss専用評価列がないため、この一覧だけでは順位を付けません。',beginner:'初心者は通常評価と初心者評価を優先し、現在の編成で複数敵への対応が不足しているかを確認してから育成候補にします。',related:['pierce','debuff','slow']}
+const roleGuides = {
+  paralysis: {
+    definition: '当サイトのTier DBで「麻痺」を役割に含む系統をまとめたページです。麻痺の発動条件・継続時間・耐性はタタごとに異なる可能性があるため、役割名だけで同じ性能とは扱いません。',
+    strong: '敵の行動を止める役割も含めて編成候補を比較したい場面で、最初の絞り込みに使えます。火力・貫通など別の役割を同時に持つ候補は、個別ページの確認済みスキルと用途別Tierも合わせて判断します。',
+    weak: '麻痺の有効性や敵側の耐性を確認できていない場面では、麻痺だけを理由に優先しません。発動条件や進化段階が未確認の候補は、確認済み情報の範囲で保留します。',
+    beginner: '初心者は麻痺の有無だけでなく、通常評価と初心者評価、手持ちで到達できる進化段階を並べてください。序盤で役割が不足している場合の候補として見ます。',
+    related: ['stun', 'slow', 'debuff']
+  },
+  stun: {
+    definition: '当サイトのTier DBで「スタン」を役割に含む系統を抽出しています。スタンの具体的な発動条件や効果時間は、確認済みの個別スキル記載を優先します。',
+    strong: '攻撃だけでなく行動阻害も担える候補を探すときに有用です。同じスタン役でも、ほかに持つ役割と用途別Tierが異なるため、候補ごとの差を比較します。',
+    weak: 'スタンが通るか確認できない相手や、役割ラベル以外の発動情報が不足する候補では断定を避けます。単一の状態異常だけで総合的な優先順位は決めません。',
+    beginner: '初心者は通常評価・初心者評価と、個別ページの進化差分を先に確認してください。手持ちに不足する役割を補えるかを基準にします。',
+    related: ['paralysis', 'slow', 'tank']
+  },
+  bind: {
+    definition: '当サイトのTier DBで「束縛」を役割に含む系統をまとめます。具体的な挙動は個別スキルの確認済み記述を優先します。',
+    strong: '行動阻害を含む候補を横断して探す入口として利用できます。',
+    weak: '有効対象や発動条件を確認できない場面では断定しません。',
+    beginner: '初心者評価と進化段階を一緒に確認します。',
+    related: ['paralysis', 'stun', 'slow']
+  },
+  sleep: {
+    definition: '当サイトのTier DBで「睡眠」を役割に含む系統をまとめます。具体的な挙動は個別スキルの確認済み記述を優先します。',
+    strong: '行動阻害を含む候補を横断して探す入口として利用できます。',
+    weak: '有効対象や発動条件を確認できない場面では断定しません。',
+    beginner: '初心者評価と進化段階を一緒に確認します。',
+    related: ['paralysis', 'stun', 'slow']
+  },
+  slow: {
+    definition: '当サイトのTier DBで「減速」を役割に含む系統をまとめたページです。速度低下の対象・数値・継続時間は、確認できた個別スキル情報だけを参照します。',
+    strong: '敵の進行や攻撃頻度に関わる補助役を比較したいときの候補抽出に使えます。ほかの状態異常や範囲役を兼ねるかも比較材料です。',
+    weak: '減速量や有効対象が未確認の場合は効果を推測しません。減速役という共通点だけで、異なるモードの優劣を固定しません。',
+    beginner: '初心者は通常評価と初心者評価を見て、育成済みの火力役や耐久役を補えるかを確認してください。',
+    related: ['paralysis', 'stun', 'debuff']
+  },
+  pierce: {
+    definition: '当サイトのTier DBで「貫通」を役割に含む系統をまとめています。貫通数や対象などの詳細は、個別ページにある確認済みスキル記載を優先します。',
+    strong: '複数の敵への対応も検討したい編成で、貫通役の候補を比較する入口になります。火力だけでなく、同時に持つ状態異常や支援役割も確認します。',
+    weak: '敵数・配置・貫通条件が不明な場面では、貫通役という理由だけで最適と断定しません。単体相手の評価は専用のBoss列がないため別途確認が必要です。',
+    beginner: '初心者は初心者評価と通常評価を優先し、進化前から必要な役割を満たせるかを個別ページで確認してください。',
+    related: ['area-damage', 'paralysis', 'debuff']
+  },
+  heal: {
+    definition: '当サイトのTier DBで「回復」を役割に含む系統をまとめています。回復対象・回復量・発動条件は、個別ページで確認できるスキル記載を基準にします。',
+    strong: '編成の生存補助を探したいときに、回復以外のバフや無敵などの役割ラベルも含めて比較できます。用途別Tierにより、同じ回復役でも得意な場面を分けて見ます。',
+    weak: '回復だけでは時間切れ対策にならない場合があるため、火力不足の解決策とは分けて考えます。確認できない回復量や対象範囲は推測しません。',
+    beginner: '初心者は安定性だけでなく、初心者評価・通常評価と育成コストを並べ、現在不足している生存補助を補えるかで判断します。',
+    related: ['shield', 'buff', 'tank']
+  },
+  tank: {
+    definition: '当サイトのTier DBで「タンク」または「前衛」を役割に含む系統をまとめています。耐久数値や攻撃の受け方は、個別ページの確認済み情報を優先します。',
+    strong: '前衛や耐久役を置きたい編成で候補を絞り、シールド・回復・妨害など併用できる役割を比較するために使えます。',
+    weak: '配置や敵の攻撃仕様を確認できない場面では、役割ラベルだけで被ダメージ軽減を断定しません。火力不足が主因の場合は別役割も検討します。',
+    beginner: '初心者は通常評価・初心者評価と進化段階を確認し、すでに育成した火力役を支えられるかという順で比較してください。',
+    related: ['shield', 'heal', 'stun']
+  },
+  shield: {
+    definition: '当サイトのTier DBで「シールド」を役割に含む系統をまとめています。付与対象・量・条件などは、確認済みの個別スキル記載だけを根拠にします。',
+    strong: '回復とは別の生存補助を含む候補を探し、タンク・バフなど併用役割との違いを比較したいときに使えます。',
+    weak: 'シールドの数値や重複ルールを確認できていない場面では効果を断定しません。時間切れが課題なら、耐久だけでなく火力役も比較します。',
+    beginner: '初心者は初心者評価と通常評価を見て、手持ちの前衛・回復役との重複を避けながら不足役割を補ってください。',
+    related: ['tank', 'heal', 'buff']
+  },
+  buff: {
+    definition: '当サイトのTier DBで「バフ」または「支援」を役割に含む系統をまとめています。強化対象・数値・発動条件は個別ページの確認済みスキルを優先します。',
+    strong: '編成全体を補助する候補を探し、回復・攻防支援など一緒に持つ役割と用途別Tierを比較するときに役立ちます。',
+    weak: '対象や上昇量が未確認のバフは推測しません。支援役を増やすことで直接火力や前衛が不足する場合もあるため、役割の重なりを確認します。',
+    beginner: '初心者は単体の総合Tierだけでなく、初心者評価と手持ちの不足役割を見て、育成済み主力を支えられるかで選びます。',
+    related: ['heal', 'shield', 'debuff']
+  },
+  debuff: {
+    definition: '当サイトのTier DBで「デバフ」「被ダメ増加」「攻撃速度低下」を役割に含む系統をまとめています。具体的な数値・対象・継続時間は個別ページの確認済み記載を優先します。',
+    strong: '敵側へ働く補助役を探し、状態異常や範囲火力などの兼任役割を含めて比較するときの入口になります。',
+    weak: '有効対象や重複ルールが未確認の場面では効果を断定しません。役割ラベルだけでボス適性や最終火力を決めないでください。',
+    beginner: '初心者は通常評価・初心者評価と個別ページの進化差分を確認し、主力と組み合わせやすい候補から検討します。',
+    related: ['buff', 'slow', 'paralysis']
+  },
+  'area-damage': {
+    definition: '当サイトのTier DBで「範囲」「広範囲」「持続火力」を役割に含む系統をまとめています。対象数・範囲・持続条件は、個別ページの確認済みスキル記載を基準にします。',
+    strong: '複数の敵への対応を意識した候補を比較するときに使えます。貫通・状態異常など別の役割を兼ねるか、用途別Tierに差があるかも確認します。',
+    weak: '敵数や配置が分からない場面で範囲役の優位を断定しません。単体相手についてはBoss専用評価列がないため、この一覧だけでは順位を付けません。',
+    beginner: '初心者は通常評価と初心者評価を優先し、現在の編成で複数敵への対応が不足しているかを確認してから育成候補にします。',
+    related: ['pierce', 'debuff', 'slow']
+  }
 };
-const roleFamilies=(terms)=>tatari.families.filter(f=>{const roles=ratings.overall.byFamily?.[f.id]?.roles||[];return roles.some(role=>terms.some(term=>role.includes(term)))});
-const activeRoles=roleDefs.map(([slug,label,terms])=>({slug,label,families:roleFamilies(terms)})).filter(x=>x.families.length>=2);
-const rankOrder=new Map(['SSS','SS','S','A','B','C','D','保留','未評価'].map((rank,index)=>[rank,index]));
-const sortedBy=(families,key)=>[...families].sort((a,b)=>(rankOrder.get(ratings.overall.byFamily[a.id]?.[key])??99)-(rankOrder.get(ratings.overall.byFamily[b.id]?.[key])??99)||getFamilyDisplayLabel(a).localeCompare(getFamilyDisplayLabel(b),'ja'));
-const topFor=(families,key)=>sortedBy(families,key).slice(0,3).map(f=>`<a href="/tata/${f.id}/">${esc(getFamilyDisplayLabel(f))}</a>（${esc(ratings.overall.byFamily[f.id]?.[key]||'未評価')}）`).join('、');
-write('/roles/',shell({route:'/roles/',title:'モンサバ 状態異常・役割別タタ',description:'麻痺・スタン・束縛・睡眠・減速・貫通・回復・タンク・シールド・バフなど、既存DBの役割からタタを探せます。',body:`<section class="wrap static-section"><div class="summary-box role-hub-intro"><strong>役割から育成候補を絞り込む</strong><p>確認済みのTier DBにある役割ラベルを入口にし、用途別評価と個別スキルへ進める一覧です。役割名だけで性能を断定せず、各ページで確認済みデータと当サイトの独自整理を分けています。</p></div><div class="guide-hub-grid role-hub-grid">${activeRoles.map(x=>card(`${x.label}（${x.families.length}系統）`,roleGuides[x.slug].definition,`/roles/${x.slug}/`,'使い分けを見る')).join('')}</div></section>`}));
-for(const role of activeRoles){
-  const guide=roleGuides[role.slug];
-  const related=guide.related.map(slug=>activeRoles.find(item=>item.slug===slug)).filter(Boolean);
-  const candidateRows=sortedBy(role.families,'tier').map(f=>{const rating=ratings.overall.byFamily[f.id];return `<tr><th scope="row"><a href="/tata/${f.id}/">${esc(getFamilyDisplayLabel(f))}</a></th><td>${esc(rating.roles.join('・'))}</td><td>${esc(rating.tier||'未評価')}</td><td>${esc(rating.normal||'未評価')}</td><td>${esc(rating.zombie||'未評価')}</td><td>${esc(rating.dojo||'未評価')}</td><td>${esc(rating.beginner||'未評価')}</td></tr>`}).join('');
-  const candidateCards=sortedBy(role.families,'tier').map(f=>{const rating=ratings.overall.byFamily[f.id];return `<article class="role-candidate-card"><h3><a href="/tata/${f.id}/">${esc(getFamilyDisplayLabel(f))}</a></h3><p class="role-tags-text">${esc(rating.roles.join('・'))}</p><p>${esc(rating.comment)}</p><a class="ghost-button" href="/tata/${f.id}/">進化・スキルを確認</a></article>`}).join('');
-  const body=`<section class="wrap static-section role-guide">
+const roleFamilies = (terms) => tatari.families.filter(f => {
+  const roles = ratings.overall.byFamily?.[f.id]?.roles || [];
+  return roles.some(role => terms.some(term => role.includes(term)))
+});
+const activeRoles = roleDefs.map(([slug, label, terms]) => ({ slug, label, families: roleFamilies(terms) })).filter(x => x.families.length >= 2);
+const rankOrder = new Map(['SSS', 'SS', 'S', 'A', 'B', 'C', 'D', '保留', '未評価'].map((rank, index) => [rank, index]));
+const sortedBy = (families, key) => [...families].sort((a, b) => (rankOrder.get(ratings.overall.byFamily[a.id]?.[key]) ?? 99) - (rankOrder.get(ratings.overall.byFamily[b.id]?.[key]) ?? 99) || getFamilyDisplayLabel(a).localeCompare(getFamilyDisplayLabel(b), 'ja'));
+const topFor = (families, key) => sortedBy(families, key).slice(0, 3).map(f => `<a href="/tata/${f.id}/">${esc(getFamilyDisplayLabel(f))}</a>（${esc(ratings.overall.byFamily[f.id]?.[key] || '未評価')}）`).join('、');
+write('/roles/', shell({
+  route: '/roles/',
+  title: 'モンサバ 状態異常・役割別タタ',
+  description: '麻痺・スタン・束縛・睡眠・減速・貫通・回復・タンク・シールド・バフなど、既存DBの役割からタタを探せます。',
+  body: `<section class="wrap static-section"><div class="summary-box role-hub-intro"><strong>役割から育成候補を絞り込む</strong><p>確認済みのTier DBにある役割ラベルを入口にし、用途別評価と個別スキルへ進める一覧です。役割名だけで性能を断定せず、各ページで確認済みデータと当サイトの独自整理を分けています。</p></div><div class="guide-hub-grid role-hub-grid">${activeRoles.map(x => card(`${x.label}（${x.families.length}系統）`, roleGuides[x.slug].definition, `/roles/${x.slug}/`, '使い分けを見る')).join('')}</div></section>`
+}));
+for (const role of activeRoles) {
+  const guide = roleGuides[role.slug];
+  const related = guide.related.map(slug => activeRoles.find(item => item.slug === slug)).filter(Boolean);
+  const candidateRows = sortedBy(role.families, 'tier').map(f => {
+    const rating = ratings.overall.byFamily[f.id];
+    return `<tr><th scope="row"><a href="/tata/${f.id}/">${esc(getFamilyDisplayLabel(f))}</a></th><td>${esc(rating.roles.join('・'))}</td><td>${esc(rating.tier || '未評価')}</td><td>${esc(rating.normal || '未評価')}</td><td>${esc(rating.zombie || '未評価')}</td><td>${esc(rating.dojo || '未評価')}</td><td>${esc(rating.beginner || '未評価')}</td></tr>`
+  }).join('');
+  const candidateCards = sortedBy(role.families, 'tier').map(f => {
+    const rating = ratings.overall.byFamily[f.id];
+    return `<article class="role-candidate-card"><h3><a href="/tata/${f.id}/">${esc(getFamilyDisplayLabel(f))}</a></h3><p class="role-tags-text">${esc(rating.roles.join('・'))}</p><p>${esc(rating.comment)}</p><a class="ghost-button" href="/tata/${f.id}/">進化・スキルを確認</a></article>`
+  }).join('');
+  const body = `<section class="wrap static-section role-guide">
     <div class="trust-label-row"><span class="trust-label is-verified">確認済みDB</span><span class="trust-label is-independent">当サイト独自整理</span></div>
     <section aria-labelledby="role-definition"><h2 id="role-definition" class="page-h2">${esc(role.label)}役とは</h2><p>${esc(guide.definition)}</p><div class="role-context-grid"><article><h3>候補に入れやすい場面</h3><p>${esc(guide.strong)}</p></article><article><h3>優先度を下げる判断</h3><p>${esc(guide.weak)}</p></article></div></section>
     <section aria-labelledby="role-candidates"><h2 id="role-candidates" class="page-h2">候補${role.families.length}系統の違い</h2><p>下表は同じ${esc(role.label)}役の候補を、既存の総合・通常・ゾンビラッシュ・道場・初心者Tierで横断比較したものです。Tierは役割単独の強さではなく、各用途の既存評価です。</p><div class="table-wrap"><table class="zombie-table role-comparison-table"><thead><tr><th scope="col">系統</th><th scope="col">登録役割</th><th scope="col">総合</th><th scope="col">通常</th><th scope="col">ZR</th><th scope="col">道場</th><th scope="col">初心者</th></tr></thead><tbody>${candidateRows}</tbody></table></div><div class="role-candidate-grid">${candidateCards}</div></section>
-    <section aria-labelledby="role-modes"><h2 id="role-modes" class="page-h2">用途別の使い分け</h2><div class="role-mode-grid"><article><h3>通常ステージ</h3><p>通常Tierで上位の候補：${topFor(role.families,'normal')||'未評価'}。時間切れ・全滅など失敗理由に合わせ、<a href="/normal-guide/">通常ステージ攻略</a>と個別スキルを確認します。</p></article><article><h3>ゾンビラッシュ</h3><p>既存のゾンビラッシュTierで上位の候補：${topFor(role.families,'zombie')||'未評価'}。この列はSeason 1専用35系統データと混ぜず、最新状況は<a href="/zombie-rush/">ゾンビラッシュ攻略</a>で確認します。</p></article><article><h3>バッジ道場</h3><p>道場Tierで上位の候補：${topFor(role.families,'dojo')||'未評価'}。属性・配置などを含む実戦判断は<a href="/badge-dojo/">バッジ道場攻略</a>を優先します。</p></article><article><h3>ボスラリー</h3><p>現行Tier DBにはBoss Rally専用の評価列がないため、このページでは順位を作りません。ボス別の確認済み対策と手持ち条件は<a href="/boss-rally/">ボスラリー攻略</a>で確認してください。</p></article></div></section>
+    <section aria-labelledby="role-modes"><h2 id="role-modes" class="page-h2">用途別の使い分け</h2><div class="role-mode-grid"><article><h3>通常ステージ</h3><p>通常Tierで上位の候補：${topFor(role.families, 'normal') || '未評価'}。時間切れ・全滅など失敗理由に合わせ、<a href="/normal-guide/">通常ステージ攻略</a>と個別スキルを確認します。</p></article><article><h3>ゾンビラッシュ</h3><p>既存のゾンビラッシュTierで上位の候補：${topFor(role.families, 'zombie') || '未評価'}。この列はSeason 1専用35系統データと混ぜず、最新状況は<a href="/zombie-rush/">ゾンビラッシュ攻略</a>で確認します。</p></article><article><h3>バッジ道場</h3><p>道場Tierで上位の候補：${topFor(role.families, 'dojo') || '未評価'}。属性・配置などを含む実戦判断は<a href="/badge-dojo/">バッジ道場攻略</a>を優先します。</p></article><article><h3>ボスラリー</h3><p>現行Tier DBにはBoss Rally専用の評価列がないため、このページでは順位を作りません。ボス別の確認済み対策と手持ち条件は<a href="/boss-rally/">ボスラリー攻略</a>で確認してください。</p></article></div></section>
     <section aria-labelledby="role-beginner"><h2 id="role-beginner" class="page-h2">初心者・育成優先の考え方</h2><div class="summary-box"><strong>初心者向けの見方</strong><p>${esc(guide.beginner)}</p></div><ol class="number-list role-priority-list"><li>初心者Tierと通常Tierを見て、今使うモードに合う候補を絞る。</li><li>個別ページで現在の進化段階と確認済みスキルを比べる。</li><li>同じ役割の重複より、不足している火力・妨害・生存補助を優先する。</li><li><a href="/evolution-priority/">進化優先度</a>で必要星数と進化差分を確認してから素材を使う。</li></ol></section>
-    <section aria-labelledby="role-related"><h2 id="role-related" class="page-h2">関連する役割と確認先</h2><nav class="attribute-guide-nav" aria-label="関連する役割">${related.map(item=>`<a href="/roles/${item.slug}/">${esc(item.label)}役を見る</a>`).join('')}<a href="/roles/">役割一覧へ戻る</a><a href="/about-data/">データ更新・検証方針</a></nav><div class="alert-box role-evidence-note"><strong>確認済み情報と独自評価の区別</strong><p>系統名・役割ラベル・各用途Tier・個別ページのスキル値は既存DBから表示しています。場面別の読み方と育成手順は当サイトの独自整理です。ゲーム内で確認できない仕様やBoss専用順位は作成していません。</p></div></section>
+    <section aria-labelledby="role-related"><h2 id="role-related" class="page-h2">関連する役割と確認先</h2><nav class="attribute-guide-nav" aria-label="関連する役割">${related.map(item => `<a href="/roles/${item.slug}/">${esc(item.label)}役を見る</a>`).join('')}<a href="/roles/">役割一覧へ戻る</a><a href="/about-data/">データ更新・検証方針</a></nav><div class="alert-box role-evidence-note"><strong>確認済み情報と独自評価の区別</strong><p>系統名・役割ラベル・各用途Tier・個別ページのスキル値は既存DBから表示しています。場面別の読み方と育成手順は当サイトの独自整理です。ゲーム内で確認できない仕様やBoss専用順位は作成していません。</p></div></section>
   </section>`;
-  write(`/roles/${role.slug}/`,shell({route:`/roles/${role.slug}/`,title:`モンサバ ${role.label}持ち・役割別タタ一覧`,description:`モンサバの${role.label}役${role.families.length}系統を、確認済み役割・用途別Tier・進化情報から比較します。通常、ゾンビラッシュ、道場、初心者の使い分けも掲載。`,body}));
+  write(`/roles/${role.slug}/`, shell({
+    route: `/roles/${role.slug}/`,
+    title: `モンサバ ${role.label}持ち・役割別タタ一覧`,
+    description: `モンサバの${role.label}役${role.families.length}系統を、確認済み役割・用途別Tier・進化情報から比較します。通常、ゾンビラッシュ、道場、初心者の使い分けも掲載。`,
+    body
+  }));
 }
 
-const purabi=byId.get('purabi'),denjika=byId.get('denjika');
-const compareBody=[purabi,denjika].map(f=>{const r=ratings.overall.byFamily[f.id];return `<article class="guide-hub-card"><h2>${esc(getFamilyDisplayLabel(f))}</h2><dl><div><dt>総合</dt><dd>${esc(r.tier)}</dd></div><div><dt>通常</dt><dd>${esc(r.normal)}</dd></div><div><dt>ZR</dt><dd>${esc(r.zombie)}</dd></div><div><dt>道場</dt><dd>${esc(r.dojo)}</dd></div><div><dt>初心者</dt><dd>${esc(r.beginner)}</dd></div><div><dt>役割</dt><dd>${esc(r.roles.join('・'))}</dd></div></dl><p>${esc(r.comment)}</p><a href="/tata/${f.id}/">個別データを見る</a></article>`}).join('');
-write('/compare-guides/purabi-vs-denjika/',shell({route:'/compare-guides/purabi-vs-denjika/',title:'プラビ系とビリジカ系はどっち？｜モンサバ比較',description:'プラビ系とビリジカ系を総合・通常・ゾンビラッシュ・道場・初心者・役割・進化で比較します。',type:'Article',body:`<section class="wrap static-section"><div class="guide-hub-grid">${compareBody}</div><div class="summary-box"><strong>結論</strong><p>安定性・回復・バフを優先するならプラビ系、貫通・麻痺・CCを優先するならビリジカ系が候補です。どちらが上かは不足役割と攻略モードで変わります。</p></div><div class="attribute-guide-nav"><a href="/compare/?a=purabi&b=denjika">比較ツールで見る</a><a href="/evolution-priority/">進化優先度を見る</a></div></section>`}));
+const purabi = byId.get('purabi'), denjika = byId.get('denjika');
+const compareBody = [purabi, denjika].map(f => {
+  const r = ratings.overall.byFamily[f.id];
+  return `<article class="guide-hub-card"><h2>${esc(getFamilyDisplayLabel(f))}</h2><dl><div><dt>総合</dt><dd>${esc(r.tier)}</dd></div><div><dt>通常</dt><dd>${esc(r.normal)}</dd></div><div><dt>ZR</dt><dd>${esc(r.zombie)}</dd></div><div><dt>道場</dt><dd>${esc(r.dojo)}</dd></div><div><dt>初心者</dt><dd>${esc(r.beginner)}</dd></div><div><dt>役割</dt><dd>${esc(r.roles.join('・'))}</dd></div></dl><p>${esc(r.comment)}</p><a href="/tata/${f.id}/">個別データを見る</a></article>`
+}).join('');
+write('/compare-guides/purabi-vs-denjika/', shell({
+  route: '/compare-guides/purabi-vs-denjika/',
+  title: 'プラビ系とビリジカ系はどっち？｜モンサバ比較',
+  description: 'プラビ系とビリジカ系を総合・通常・ゾンビラッシュ・道場・初心者・役割・進化で比較します。',
+  type: 'Article',
+  body: `<section class="wrap static-section"><div class="guide-hub-grid">${compareBody}</div><div class="summary-box"><strong>結論</strong><p>安定性・回復・バフを優先するならプラビ系、貫通・麻痺・CCを優先するならビリジカ系が候補です。どちらが上かは不足役割と攻略モードで変わります。</p></div><div class="attribute-guide-nav"><a href="/compare/?a=purabi&b=denjika">比較ツールで見る</a><a href="/evolution-priority/">進化優先度を見る</a></div></section>`
+}));
 
 console.log(`Expansion pages generated: stages ${stages.guides.length}, roles ${activeRoles.length}, events ${events.events.length}`);

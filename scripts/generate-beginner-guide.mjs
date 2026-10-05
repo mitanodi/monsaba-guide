@@ -11,7 +11,8 @@ const readJson = (file) => JSON.parse(fs.readFileSync(path.join(root, file), 'ut
 const tatari = readJson('data/tatari.json');
 const ratings = readJson('data/tier-ratings.json');
 const editorial = readJson('data/editorial-content.json').families;
-for(const [id,rating] of Object.entries(ratings.overall.byFamily)) rating.comment=editorial[id]?.comment || '';
+for (const [id, rating] of Object.entries(ratings.overall.byFamily))
+  rating.comment = editorial[id]?.comment || '';
 const evolution = readJson('data/evolution-priority.json');
 const guides = readJson('data/content-guides.json');
 const tataImages = readJson('data/tata-images.json');
@@ -20,7 +21,8 @@ const familyMap = new Map((tatari.families || []).map((family) => [family.id, fa
 const imageMap = new Map((tataImages.families || []).map((item) => [item.familyId, item.stage1]));
 const familyLink = (id) => {
   const family = familyMap.get(id);
-  if (!family) throw new Error(`unknown familyId: ${id}`);
+  if (!family)
+    throw new Error(`unknown familyId: ${id}`);
   return `<a href="/tata/${esc(id)}/">${esc(getFamilyDisplayLabel(family))}</a>`;
 };
 
@@ -33,8 +35,17 @@ const firstPriority = evolution.t3Roadmap?.firstPriority || [];
 const longTerm = evolution.longTermRecommended || [];
 const firstPriorityMap = new Map(firstPriority.map((item) => [item.familyId, item]));
 const candidateCard = ([id, value]) => {
-  const family = familyMap.get(id); const image = imageMap.get(id); const priority = firstPriorityMap.get(id);
-  const modes = ['overall', value.zombie === 'SSS' || value.zombie === 'SS' ? 'zombie' : '', value.normal === 'SSS' || value.normal === 'SS' ? 'normal' : '', editorial[id]?.beginnerEvolution ? 'evolution' : ''].filter(Boolean).join(' ');
+  const family = familyMap.get(id);
+
+  const image = imageMap.get(id);
+
+  const priority = firstPriorityMap.get(id);
+  const modes = [
+    'overall',
+    value.zombie === 'SSS' || value.zombie === 'SS' ? 'zombie' : '',
+    value.normal === 'SSS' || value.normal === 'SS' ? 'normal' : '',
+    editorial[id]?.beginnerEvolution ? 'evolution' : ''
+  ].filter(Boolean).join(' ');
   return `<article class="guide-panel beginner-tata-card" data-beginner-modes="${modes}" data-beginner-family="${esc(id)}">${image?.status === 'verified' ? `<img class="beginner-tata-image" src="${esc(image.src)}" width="256" height="256" alt="${esc(getFamilyDisplayLabel(family))} T1" loading="lazy" decoding="async">` : ''}<div><p class="beginner-card-meta">${esc(family.attribute)}属性 · 初心者評価 ${esc(value.beginner)}</p><h3>${familyLink(id)}</h3><p>${esc(value.comment)}</p><p><b>育成目標：</b>${priority ? `まずT3（必要${priority.requiredStars}星）` : '個別ページで進化差分を確認'}</p><p class="beginner-owned-status" aria-live="polite">手持ち登録状況を確認中</p><div class="tool-actions"><a class="ghost-button" href="/tata/${esc(id)}/">詳細を見る</a><a class="ghost-button" href="/my-monsaba/">手持ちに登録</a><a class="ghost-button" href="/team-builder/?roster=1" data-beginner-team>編成で使う</a></div></div></article>`;
 };
 const troubleshooting = Object.values(guides.normal?.troubleshooting || {});
@@ -50,8 +61,16 @@ const structured = {
   '@context': 'https://schema.org',
   '@graph': [
     {
-      '@type': 'Article', '@id': url, url, headline: title, name: title, description, image,
-      mainEntityOfPage: { '@type': 'WebPage', '@id': url }, dateModified: LAST_MODIFIED, inLanguage: 'ja',
+      '@type': 'Article',
+      '@id': url,
+      url,
+      headline: title,
+      name: title,
+      description,
+      image,
+      mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+      dateModified: LAST_MODIFIED,
+      inLanguage: 'ja',
       author: { '@type': 'Person', name: 'おぢ', url: `${BASE_URL}/about/` }
     },
     {

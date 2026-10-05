@@ -1,15 +1,17 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import {pathToFileURL} from 'node:url';
-import {load} from 'cheerio';
+import { pathToFileURL } from 'node:url';
+import { load } from 'cheerio';
 
 // Generated source stays safe for comparisons. Only an explicit Production
 // build restores the original production integrations; unknown environments fail closed.
 export function prepareHtml(source, environment) {
-  if (!source.includes('data-astra="experiment"')) return source;
+  if (!source.includes('data-astra="experiment"'))
+    return source;
   const production = environment === 'production';
   const body = source.match(/<body([^>]*)>([\s\S]*?)<\/body>/);
-  if (!body) return source;
+  if (!body)
+    return source;
   const $ = load(body[2], {}, false);
   if (production) {
     $('.astra-experiment-bar,.astra-read-only').remove();
@@ -18,7 +20,13 @@ export function prepareHtml(source, environment) {
     $('.astra-ad').each((_, element) => {
       const area = $(element);
       const slot = area.find(`[data-affiliate-offer="${area.attr('data-astra-offer')}"]`).first();
-      if (!japanese || !slot.length) { area.remove(); return; }
+      if (!japanese || !slot.length) {
+
+        area.remove();
+
+        return;
+
+      }
       area.addClass('is-live');
       area.find('.astra-ad-preview').remove();
     });
@@ -30,22 +38,31 @@ export function prepareHtml(source, environment) {
     const clean = tag.replace(/\s+type="text\/plain"/g, '');
     return production ? clean : clean.replace(/>$/, ' type="text/plain">');
   });
-  if (!production && !result.includes('data-deployment-robots="preview"')) result = result.replace('</head>', '<meta name="robots" content="noindex,nofollow" data-deployment-robots="preview"></head>');
+  if (!production && !result.includes('data-deployment-robots="preview"'))
+    result = result.replace('</head>', '<meta name="robots" content="noindex,nofollow" data-deployment-robots="preview"></head>');
   return result;
 }
 
 export function prepareDeployment(root, environment) {
-  const ignored = new Set(['.git','.github','.vercel','node_modules','promo','chigonoki','assets','data','scripts','docs']);
+  const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'promo', 'chigonoki', 'assets', 'data', 'scripts', 'docs']);
   let count = 0;
   function walk(directory) {
-    for (const entry of fs.readdirSync(directory, {withFileTypes:true})) {
-      if (ignored.has(entry.name)) continue;
+    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+      if (ignored.has(entry.name))
+        continue;
       const file = path.join(directory, entry.name);
-      if (entry.isDirectory()) walk(file);
+      if (entry.isDirectory())
+        walk(file);
       else if (entry.name.endsWith('.html')) {
         const source = fs.readFileSync(file, 'utf8');
         const result = prepareHtml(source, environment);
-        if (result !== source) { fs.writeFileSync(file, result); count++; }
+        if (result !== source) {
+
+          fs.writeFileSync(file, result);
+
+          count++;
+
+        }
       }
     }
   }

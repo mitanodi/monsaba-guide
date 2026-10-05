@@ -2,7 +2,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const root = path.resolve(import.meta.dirname, '..');
-const expect = (condition, message) => { if (!condition) throw new Error(message); };
+const expect = (condition, message) => {
+
+  if (!condition)
+    throw new Error(message);
+
+};
 const read = (relative) => fs.readFileSync(path.join(root, relative), 'utf8');
 const preview = JSON.parse(read('data/zombie-rush/seasons/season-2-test-preview.json'));
 const liveChips = JSON.parse(read('data/zombie-rush/chips.json'));
@@ -39,7 +44,16 @@ for (const [locale, file] of [['ja', 'updates/2026-09-23-test-preview/index.html
   expect(html.includes('トコヨニャット') || html.includes('Tokoyonyatto'), `${locale}: Tokoyonyatto missing`);
   expect(html.includes('ネコノミコト') || html.includes('Nekonomikoto'), `${locale}: Nekonomikoto missing`);
 }
-for (const file of ['assets/official/zobos/shaman-zobo.png', 'assets/official/zobos/shocker-zobo.png', 'assets/official/zobos/roadhog-zobo.png']) expect(fs.existsSync(path.join(root, file)), `${file}: official asset missing`);
-for (const file of ['updates/index.html', 'en/updates/index.html', 'zh-cn/updates/index.html', 'zombie-rush/index.html', 'en/zombie-rush/index.html', 'zh-cn/zombie-rush/index.html']) expect(read(file).includes('SEP23:'), `${file}: preview entry missing`);
+for (const file of ['assets/official/zobos/shaman-zobo.png', 'assets/official/zobos/shocker-zobo.png', 'assets/official/zobos/roadhog-zobo.png'])
+  expect(fs.existsSync(path.join(root, file)), `${file}: official asset missing`);
+for (const file of [
+  'updates/index.html',
+  'en/updates/index.html',
+  'zh-cn/updates/index.html',
+  'zombie-rush/index.html',
+  'en/zombie-rush/index.html',
+  'zh-cn/zombie-rush/index.html'
+])
+  expect(read(file).includes('SEP23:'), `${file}: preview entry missing`);
 
 console.log('Sep 23 test-server preview validation passed: preview stays separate from live Tata/chip data.');

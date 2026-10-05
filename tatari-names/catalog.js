@@ -1,8 +1,58 @@
-const locale=document.documentElement.lang==='zh-CN'?'zh-CN':document.documentElement.lang==='en'?'en':'ja';
-const copy={ja:{count:n=>`${n}件`,all:'すべて',existing:'既存DB対応',newOnly:'名称資料のみ',link:'詳細',pending:'名称資料のみ',empty:'該当する名称がありません。'},en:{count:n=>`${n} names`,all:'All',existing:'Matched in database',newOnly:'Names only',link:'Details',pending:'Names only',empty:'No matching names.'},'zh-CN':{count:n=>`${n}个名称`,all:'全部',existing:'已匹配数据库',newOnly:'仅名称资料',link:'详情',pending:'仅名称资料',empty:'没有匹配的名称。'}}[locale];
-const esc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[char]);
-const normalize=value=>String(value??'').toLowerCase().normalize('NFKC').replace(/[\s　・ーｰ]/g,'');
-let names=[];
-function render(){const query=normalize(document.querySelector('#name-query').value);const filter=document.querySelector('#name-filter').value;const rows=names.filter(item=>(!query||normalize(`${item.japaneseName} ${item.englishName} ${item.simplifiedChineseName} ${item.previousJapaneseName||''}`).includes(query))&&(filter==='all'||(filter==='existing')===Boolean(item.existingFamilyId)));document.querySelector('#name-count').textContent=copy.count(rows.length);document.querySelector('#name-rows').innerHTML=rows.length?rows.map(item=>{const prefix=locale==='ja'?'':`${locale==='zh-CN'?'zh-cn':'en'}/`;const href=item.sitePath?`/${prefix}${item.sitePath.replace(/^\//,'')}`:'';const linked=href?`<a href="${esc(href)}">${item.existingFamilyId?copy.link:copy.pending} · T${item.mappedStage}</a>`:`<span class="name-only">${copy.pending}</span>`;return `<tr><td>${esc(item.japaneseName)}${item.previousJapaneseName?`<br><small>${esc(item.previousJapaneseName)}</small>`:''}</td><td>${esc(item.englishName)}</td><td>${esc(item.simplifiedChineseName)}</td><td>${linked}</td></tr>`;}).join(''):`<tr><td colspan="4">${copy.empty}</td></tr>`;}
-async function init(){const response=await fetch('/data/tatari-name-catalog.json',{cache:'no-store'});if(!response.ok)throw Error('LOAD_FAILED');const data=await response.json();names=data.names;document.querySelector('#name-query').addEventListener('input',render);document.querySelector('#name-filter').addEventListener('change',render);render();}
-init().catch(()=>{document.querySelector('#name-count').textContent=copy.empty;});
+const locale = document.documentElement.lang === 'zh-CN' ? 'zh-CN' : document.documentElement.lang === 'en' ? 'en' : 'ja';
+const copy = {
+  ja: {
+    count: n => `${n}件`,
+    all: 'すべて',
+    existing: '既存DB対応',
+    newOnly: '名称資料のみ',
+    link: '詳細',
+    pending: '名称資料のみ',
+    empty: '該当する名称がありません。'
+  },
+  en: {
+    count: n => `${n} names`,
+    all: 'All',
+    existing: 'Matched in database',
+    newOnly: 'Names only',
+    link: 'Details',
+    pending: 'Names only',
+    empty: 'No matching names.'
+  },
+  'zh-CN': {
+    count: n => `${n}个名称`,
+    all: '全部',
+    existing: '已匹配数据库',
+    newOnly: '仅名称资料',
+    link: '详情',
+    pending: '仅名称资料',
+    empty: '没有匹配的名称。'
+  }
+}[locale];
+const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
+const normalize = value => String(value ?? '').toLowerCase().normalize('NFKC').replace(/[\s　・ーｰ]/g, '');
+let names = [];
+function render() {
+  const query = normalize(document.querySelector('#name-query').value);
+  const filter = document.querySelector('#name-filter').value;
+  const rows = names.filter(item => (!query || normalize(`${item.japaneseName} ${item.englishName} ${item.simplifiedChineseName} ${item.previousJapaneseName || ''}`).includes(query)) && (filter === 'all' || (filter === 'existing') === Boolean(item.existingFamilyId)));
+  document.querySelector('#name-count').textContent = copy.count(rows.length);
+  document.querySelector('#name-rows').innerHTML = rows.length ? rows.map(item => {
+    const prefix = locale === 'ja' ? '' : `${locale === 'zh-CN' ? 'zh-cn' : 'en'}/`;
+    const href = item.sitePath ? `/${prefix}${item.sitePath.replace(/^\//, '')}` : '';
+    const linked = href ? `<a href="${esc(href)}">${item.existingFamilyId ? copy.link : copy.pending} · T${item.mappedStage}</a>` : `<span class="name-only">${copy.pending}</span>`;
+    return `<tr><td>${esc(item.japaneseName)}${item.previousJapaneseName ? `<br><small>${esc(item.previousJapaneseName)}</small>` : ''}</td><td>${esc(item.englishName)}</td><td>${esc(item.simplifiedChineseName)}</td><td>${linked}</td></tr>`;
+  }).join('') : `<tr><td colspan="4">${copy.empty}</td></tr>`;
+}
+async function init() {
+  const response = await fetch('/data/tatari-name-catalog.json', { cache: 'no-store' });
+  if (!response.ok)
+    throw Error('LOAD_FAILED');
+  const data = await response.json();
+  names = data.names;
+  document.querySelector('#name-query').addEventListener('input', render);
+  document.querySelector('#name-filter').addEventListener('change', render);
+  render();
+}
+init().catch(() => {
+  document.querySelector('#name-count').textContent = copy.empty;
+});

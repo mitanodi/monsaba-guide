@@ -16,8 +16,10 @@ function walk(directory, files = []) {
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
     const absolute = path.join(directory, entry.name);
     const relative = slash(path.relative(root, absolute));
-    if (excluded.test(relative)) continue;
-    if (entry.isDirectory()) walk(absolute, files);
+    if (excluded.test(relative))
+      continue;
+    if (entry.isDirectory())
+      walk(absolute, files);
     else files.push(relative);
   }
   return files;
@@ -41,19 +43,28 @@ const baselineTatari = JSON.parse(execFileSync('git', ['show', `${baseline}:data
 const finalForms = new Map(tataImages.families.flatMap((family) => family.forms.map((form) => [`${family.familyId}:T${form.stage}`, form])));
 const oldPathToForm = new Map();
 for (const family of baselineTataImages.families) {
-  for (const form of family.forms) if (form.src) oldPathToForm.set(slash(form.src.replace(/^\//, '')), `${family.familyId}:T${form.stage}`);
-  if (family.stage1?.src) oldPathToForm.set(slash(family.stage1.src.replace(/^\//, '')), `${family.familyId}:T1`);
+  for (const form of family.forms)
+    if (form.src)
+      oldPathToForm.set(slash(form.src.replace(/^\//, '')), `${family.familyId}:T${form.stage}`);
+  if (family.stage1?.src)
+    oldPathToForm.set(slash(family.stage1.src.replace(/^\//, '')), `${family.familyId}:T1`);
 }
-for (const family of baselineTatari.families) for (const form of family.evolutions) if (form.image) oldPathToForm.set(slash(form.image), `${family.id}:T${form.stage}`);
+for (const family of baselineTatari.families)
+  for (const form of family.evolutions)
+    if (form.image)
+      oldPathToForm.set(slash(form.image), `${family.id}:T${form.stage}`);
 
 const officialByPath = new Map();
 for (const record of sourceMap.assets) {
   officialByPath.set(slash(record.optimizedPath.replace(/^\//, '')), record);
   officialByPath.set(slash(record.optimizedPath.replace(/-512\.webp$/, '-256.webp').replace(/^\//, '')), record);
 }
-for (const record of skillIcons.icons) officialByPath.set(slash(record.optimizedPath.replace(/^\//, '')), record);
-for (const record of eventImages.events) officialByPath.set(slash(record.optimizedPath.replace(/^\//, '')), record);
-for (const output of siteIcons.outputs) officialByPath.set(slash(output.path.replace(/^\//, '')), siteIcons);
+for (const record of skillIcons.icons)
+  officialByPath.set(slash(record.optimizedPath.replace(/^\//, '')), record);
+for (const record of eventImages.events)
+  officialByPath.set(slash(record.optimizedPath.replace(/^\//, '')), record);
+for (const output of siteIcons.outputs)
+  officialByPath.set(slash(output.path.replace(/^\//, '')), siteIcons);
 
 const textFiles = allCurrentFiles.filter((file) => /\.(?:css|html|js|json|mjs|md|txt|webmanifest|xml)$/i.test(file) && !file.startsWith('docs/evidence/'));
 const textSources = textFiles.map((file) => [file, fs.readFileSync(path.join(root, file), 'utf8')]);
@@ -61,23 +72,42 @@ const usageFor = (file) => textSources.filter(([, content]) => content.includes(
 
 async function metadataFor(file) {
   let buffer;
-  if (currentSet.has(file)) buffer = fs.readFileSync(path.join(root, file));
+  if (currentSet.has(file))
+    buffer = fs.readFileSync(path.join(root, file));
   else buffer = execFileSync('git', ['show', `${baseline}:${file}`], { cwd: root, encoding: 'buffer', maxBuffer: 30 * 1024 * 1024 });
   let metadata = {};
-  try { metadata = await sharp(buffer, { failOn: 'none' }).metadata(); } catch { /* ICO or unsupported source */ }
-  return { bytes: buffer.length, width: metadata.width || null, height: metadata.height || null, sha256: hash(buffer) };
+  try {
+
+    metadata = await sharp(buffer, { failOn: 'none' }).metadata();
+
+  } catch { /* ICO or unsupported source */ }
+  return {
+    bytes: buffer.length,
+    width: metadata.width || null,
+    height: metadata.height || null,
+    sha256: hash(buffer)
+  };
 }
 
 function category(file) {
-  if (file.startsWith('assets/official/tata/')) return 'Tata official';
-  if (file.startsWith('assets/official/skills/')) return 'Skill official';
-  if (file.startsWith('assets/official/events/')) return 'Event official';
-  if (file.startsWith('assets/chips/')) return 'Zombie Rush chip';
-  if (file.startsWith('assets/heroes/')) return '攻略スクリーンショット / Hero';
-  if (file.startsWith('assets/og/')) return 'OG';
-  if (file.startsWith('assets/monsters/') || file.startsWith('assets/tata-crops/')) return 'Tata legacy';
-  if (file.startsWith('assets/thumbs/')) return 'Tata legacy thumbnail';
-  if (/^(?:favicon|apple-touch-icon)|^assets\/icons\//.test(file)) return 'UI icon';
+  if (file.startsWith('assets/official/tata/'))
+    return 'Tata official';
+  if (file.startsWith('assets/official/skills/'))
+    return 'Skill official';
+  if (file.startsWith('assets/official/events/'))
+    return 'Event official';
+  if (file.startsWith('assets/chips/'))
+    return 'Zombie Rush chip';
+  if (file.startsWith('assets/heroes/'))
+    return '攻略スクリーンショット / Hero';
+  if (file.startsWith('assets/og/'))
+    return 'OG';
+  if (file.startsWith('assets/monsters/') || file.startsWith('assets/tata-crops/'))
+    return 'Tata legacy';
+  if (file.startsWith('assets/thumbs/'))
+    return 'Tata legacy thumbnail';
+  if (/^(?:favicon|apple-touch-icon)|^assets\/icons\//.test(file))
+    return 'UI icon';
   return 'Other';
 }
 
@@ -88,17 +118,52 @@ function decision(file) {
   const finalForm = formKey && finalForms.get(formKey);
   if (!exists) {
     const replacement = finalForm?.sourceType === 'official_creator_asset' ? finalForm.officialAssetId : null;
-    return { source: '旧Repository Web asset', candidate: replacement || 'なし / 重複旧派生', action: 'remove-unused', reason: replacement ? `${formKey}を公式SSOTへ置換後、参照0` : '参照0の重複・旧派生画像' };
+    return {
+      source: '旧Repository Web asset',
+      candidate: replacement || 'なし / 重複旧派生',
+      action: 'remove-unused',
+      reason: replacement ? `${formKey}を公式SSOTへ置換後、参照0` : '参照0の重複・旧派生画像'
+    };
   }
   if (official) {
     const newlyOfficial = !baselineSet.has(file) || category(file) === 'UI icon';
-    return { source: 'official_creator_asset', candidate: official.officialAssetId, action: newlyOfficial ? 'replace' : 'keep', reason: newlyOfficial ? '公式原本SHA検証後にWeb最適化' : '既導入の公式素材を再検証・維持' };
+    return {
+      source: 'official_creator_asset',
+      candidate: official.officialAssetId,
+      action: newlyOfficial ? 'replace' : 'keep',
+      reason: newlyOfficial ? '公式原本SHA検証後にWeb最適化' : '既導入の公式素材を再検証・維持'
+    };
   }
-  if (file.startsWith('assets/og/')) return { source: 'サイト生成画像', candidate: siteIcons.officialAssetId, action: 'replace', reason: '公式ゲームアイコンを入力にOGを再生成' };
-  if (file.startsWith('assets/chips/')) return { source: 'current_verified', candidate: '確実一致0', action: 'keep', reason: '公式Creator Assetsとの確実一致なし' };
-  if (file.startsWith('assets/heroes/')) return { source: 'ゲーム画面 / 既存key art', candidate: '同一意味の確実な代替なし', action: 'keep', reason: '攻略UI・証拠スクリーンショット、または同義公式素材なし' };
-  if (file === 'assets/tata-crops/forms/pakuma/t1.webp') return { source: 'current_verified', candidate: '確実一致なし', action: 'keep', reason: 'パクマT1の公式対応静止画なし' };
-  if (file.startsWith('assets/monsters/')) return { source: 'pending evidence', candidate: '確実一致なし', action: 'pending', reason: `画像確認中を維持（${formKey || '未確定形態'}）` };
+  if (file.startsWith('assets/og/'))
+    return {
+      source: 'サイト生成画像',
+      candidate: siteIcons.officialAssetId,
+      action: 'replace',
+      reason: '公式ゲームアイコンを入力にOGを再生成'
+    };
+  if (file.startsWith('assets/chips/'))
+    return {
+      source: 'current_verified',
+      candidate: '確実一致0',
+      action: 'keep',
+      reason: '公式Creator Assetsとの確実一致なし'
+    };
+  if (file.startsWith('assets/heroes/'))
+    return {
+      source: 'ゲーム画面 / 既存key art',
+      candidate: '同一意味の確実な代替なし',
+      action: 'keep',
+      reason: '攻略UI・証拠スクリーンショット、または同義公式素材なし'
+    };
+  if (file === 'assets/tata-crops/forms/pakuma/t1.webp')
+    return { source: 'current_verified', candidate: '確実一致なし', action: 'keep', reason: 'パクマT1の公式対応静止画なし' };
+  if (file.startsWith('assets/monsters/'))
+    return {
+      source: 'pending evidence',
+      candidate: '確実一致なし',
+      action: 'pending',
+      reason: `画像確認中を維持（${formKey || '未確定形態'}）`
+    };
   return { source: 'site asset', candidate: 'なし', action: 'keep', reason: '独自ブランドまたは機能用asset' };
 }
 

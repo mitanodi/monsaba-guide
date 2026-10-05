@@ -2,7 +2,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const root = path.resolve(import.meta.dirname, '..');
-const targets = ['tata-tier/index.html', 'evolution-priority/index.html', 'zombie-rush/index.html', 'boss-rally/index.html', 'badge-dojo/index.html', 'normal-guide/index.html'];
+const targets = [
+  'tata-tier/index.html',
+  'evolution-priority/index.html',
+  'zombie-rush/index.html',
+  'boss-rally/index.html',
+  'badge-dojo/index.html',
+  'normal-guide/index.html'
+];
 for (const relative of targets) {
   const file = path.join(root, relative);
   let html = fs.readFileSync(file, 'utf8');

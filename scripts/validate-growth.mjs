@@ -3,21 +3,39 @@ import path from 'node:path';
 
 const root = path.resolve(import.meta.dirname, '..');
 const errors = [];
-const expect = (condition, message) => { if (!condition) errors.push(message); };
+const expect = (condition, message) => {
+
+  if (!condition)
+    errors.push(message);
+
+};
 const read = (file) => {
   const target = path.join(root, file);
   for (let attempt = 0; attempt < 12; attempt += 1) {
-    try { return fs.readFileSync(target, 'utf8'); }
-    catch (error) { if (error.code !== 'EBUSY' || attempt === 11) throw error; Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 40); }
+    try {
+
+      return fs.readFileSync(target, 'utf8');
+
+    }
+    catch (error) {
+
+      if (error.code !== 'EBUSY' || attempt === 11)
+        throw error;
+
+      Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 40);
+
+    }
   }
 };
 const json = (file) => JSON.parse(read(file));
 const ignored = new Set(['.git', '.github', '.vercel', '.agents', 'node_modules', 'assets', 'data', 'scripts', 'promo', 'en', 'zh-cn']);
 function walk(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
-    if (ignored.has(entry.name)) return [];
+    if (ignored.has(entry.name))
+      return [];
     const full = path.join(directory, entry.name);
-    if (entry.isDirectory()) return walk(full);
+    if (entry.isDirectory())
+      return walk(full);
     return entry.name.endsWith('.html') ? [path.relative(root, full).replaceAll('\\', '/')] : [];
   });
 }
@@ -33,7 +51,8 @@ for (const file of htmlFiles) {
   const route = routeFor(file);
   expect(html.includes('/growth.js'), `${file}: growth.jsがありません`);
   const noindex = /<meta name="robots" content="[^"]*noindex/i.test(html);
-  if (!noindex && route !== '/404/') indexable.add(route);
+  if (!noindex && route !== '/404/')
+    indexable.add(route);
   const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
   if (route !== '/404/') {
     expect(Boolean(canonical), `${file}: canonicalがありません`);
@@ -44,20 +63,32 @@ for (const file of htmlFiles) {
   expect((html.match(/<title>/g) || []).length === 1, `${file}: titleが一意ではありません`);
   expect((html.match(/<meta name="description"/g) || []).length === 1, `${file}: descriptionが一意ではありません`);
   if (route !== '/404/') {
-    for (const field of ['og:title', 'og:description', 'og:url']) expect(html.includes(`property="${field}"`), `${file}: ${field}がありません`);
+    for (const field of ['og:title', 'og:description', 'og:url'])
+      expect(html.includes(`property="${field}"`), `${file}: ${field}がありません`);
     expect(html.includes('name="twitter:card"'), `${file}: Twitter/X metadataがありません`);
   }
   for (const match of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
-    try { JSON.parse(match[1]); } catch (error) { errors.push(`${file}: JSON-LD parse error ${error.message}`); }
+    try {
+
+      JSON.parse(match[1]);
+
+    } catch (error) {
+
+      errors.push(`${file}: JSON-LD parse error ${error.message}`);
+
+    }
   }
   for (const match of html.matchAll(/href="(\/[^"#?]*)(?:[?#][^"]*)?"/g)) {
     const href = match[1];
     const target = href === '/' ? '/' : href.endsWith('/') ? href : null;
-    if (target && inbound.has(target) && target !== route) inbound.set(target, inbound.get(target) + 1);
+    if (target && inbound.has(target) && target !== route)
+      inbound.set(target, inbound.get(target) + 1);
   }
 }
 
-for (const route of indexable) if (route !== '/') expect(inbound.get(route) > 0, `孤立ページ: ${route}`);
+for (const route of indexable)
+  if (route !== '/')
+    expect(inbound.get(route) > 0, `孤立ページ: ${route}`);
 expect(read('compare/index.html').includes('content="noindex,follow"'), 'compare: noindex,followがありません');
 expect(!read('sitemap.xml').includes('https://monster-survival.com/compare/'), 'compare: sitemapへ含まれています');
 expect(read('search/index.html').includes('content="noindex,follow"'), 'search: noindex,followがありません');
@@ -112,20 +143,38 @@ expect(!homeHtml.includes('X_API_BEARER_TOKEN') && !officialXScript.includes('X_
 expect(officialXScript.includes('IntersectionObserver'), '公式X: 遅延読み込みを維持してください');
 
 const growthConfig = json('data/growth-config.json');
-const requiredEvents = ['page_view', 'nav_click', 'internal_link_click', 'related_content_click', 'site_search', 'search_result_click', 'filter_use', 'tata_compare_start', 'tata_compare_view', 'external_link_click', 'affiliate_click', 'affiliate_impression', 'ad_click', 'cta_click'];
+const requiredEvents = [
+  'page_view',
+  'nav_click',
+  'internal_link_click',
+  'related_content_click',
+  'site_search',
+  'search_result_click',
+  'filter_use',
+  'tata_compare_start',
+  'tata_compare_view',
+  'external_link_click',
+  'affiliate_click',
+  'affiliate_impression',
+  'ad_click',
+  'cta_click'
+];
 expect(growthConfig.analytics?.automaticPageView === true, 'Analyticsの自動page_view設定がありません');
 expect(requiredEvents.every((event) => growthConfig.analytics?.events?.includes(event)), 'Analyticsイベント定義が不足しています');
 const growthScript = read('growth.js');
-for (const event of requiredEvents.filter((event) => event !== 'page_view')) expect(growthScript.includes(`'${event}'`), `growth.js: ${event}がありません`);
+for (const event of requiredEvents.filter((event) => event !== 'page_view'))
+  expect(growthScript.includes(`'${event}'`), `growth.js: ${event}がありません`);
 expect(!growthScript.includes('query_text') && !growthScript.includes('search_term'), '検索入力文字列を送信するプロパティは禁止です');
 
 const freshness = json('data/page-freshness.json');
 const freshnessKeys = Object.keys(freshness.routes || {});
 const isCovered = (route) => freshnessKeys.some((key) => key === route || (key.endsWith('*') && route.startsWith(key.slice(0, -1))));
-for (const route of indexable) expect(isCovered(route), `${route}: freshness管理がありません`);
+for (const route of indexable)
+  expect(isCovered(route), `${route}: freshness管理がありません`);
 for (const [route, override] of Object.entries(freshness.routes || {})) {
   const value = { ...freshness.default, ...override };
-  for (const field of ['published', 'verified']) expect(/^\d{4}-\d{2}-\d{2}$/.test(value[field] || ''), `${route}: ${field}が不正です`);
+  for (const field of ['published', 'verified'])
+    expect(/^\d{4}-\d{2}-\d{2}$/.test(value[field] || ''), `${route}: ${field}が不正です`);
   expect(/^\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}\+09:00)?$/.test(value.updated || ''), `${route}: updatedが不正です`);
 }
 
@@ -137,13 +186,28 @@ expect(monetization.stickyAffiliateEnabled === false && monetization.slideAffili
 expect(new Set(offers.map((offer) => offer.id)).size === offers.length, 'affiliate offer idが重複しています');
 const matchesTarget = (pattern, route) => pattern.endsWith('*') ? route.startsWith(pattern.slice(0, -1)) : route === pattern;
 for (const offer of offers) {
-  for (const field of ['id', 'name', 'destination', 'targetPages', 'start', 'disclosure', 'enabled', 'trackingId', 'placementId', 'mediaSource', 'trackingPixel']) expect(offer[field] !== undefined && offer[field] !== '', `${offer.id || 'offer'}: ${field}がありません`);
+  for (const field of [
+    'id',
+    'name',
+    'destination',
+    'targetPages',
+    'start',
+    'disclosure',
+    'enabled',
+    'trackingId',
+    'placementId',
+    'mediaSource',
+    'trackingPixel'
+  ])
+    expect(offer[field] !== undefined && offer[field] !== '', `${offer.id || 'offer'}: ${field}がありません`);
   expect(/^https:\/\//.test(offer.destination) && /^https:\/\//.test(offer.mediaSource) && /^https:\/\//.test(offer.trackingPixel), `${offer.id}: URLがHTTPSではありません`);
-  if (offer.end) expect(offer.start <= offer.end, `${offer.id}: 掲載期間が逆転しています`);
+  if (offer.end)
+    expect(offer.start <= offer.end, `${offer.id}: 掲載期間が逆転しています`);
   for (const pattern of offer.targetPages || []) {
     const matchedRoutes = [...routeFiles.keys()].filter((route) => matchesTarget(pattern, route));
     expect(matchedRoutes.length > 0, `${offer.id}: target page ${pattern}がありません`);
-    for (const route of matchedRoutes) expect(read(routeFiles.get(route)).includes('/monetization.js'), `${offer.id}: ${route}にmonetization.jsがありません`);
+    for (const route of matchedRoutes)
+      expect(read(routeFiles.get(route)).includes('/monetization.js'), `${offer.id}: ${route}にmonetization.jsがありません`);
   }
 }
 expect(read('monetization.js').includes("rel = 'sponsored nofollow noopener'"), 'affiliateリンクのrelが不足しています');

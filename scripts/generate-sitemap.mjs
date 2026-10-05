@@ -10,7 +10,8 @@ function readUtf8(file) {
     try {
       return fs.readFileSync(file, 'utf8');
     } catch (error) {
-      if (!['EBUSY', 'EPERM'].includes(error.code) || attempt === 4) throw error;
+      if (!['EBUSY', 'EPERM'].includes(error.code) || attempt === 4)
+        throw error;
       Atomics.wait(retrySignal, 0, 0, 50 * (attempt + 1));
     }
   }
@@ -18,9 +19,11 @@ function readUtf8(file) {
 const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'assets', 'data', 'scripts', 'promo']);
 function walk(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
-    if (ignored.has(entry.name)) return [];
+    if (ignored.has(entry.name))
+      return [];
     const full = path.join(directory, entry.name);
-    if (entry.isDirectory()) return walk(full);
+    if (entry.isDirectory())
+      return walk(full);
     return entry.name === 'index.html' ? [full] : [];
   });
 }
@@ -30,11 +33,13 @@ const routeFor = (file) => {
 };
 const gitDateCache = new Map();
 function gitDate(relativeFile) {
-  if (gitDateCache.has(relativeFile)) return gitDateCache.get(relativeFile);
+  if (gitDateCache.has(relativeFile))
+    return gitDateCache.get(relativeFile);
   let date = LAST_MODIFIED;
   try {
     const result = execFileSync('git', ['log', '-1', '--format=%cs', '--', relativeFile], { cwd: root, encoding: 'utf8' }).trim();
-    if (/^\d{4}-\d{2}-\d{2}$/.test(result)) date = result;
+    if (/^\d{4}-\d{2}-\d{2}$/.test(result))
+      date = result;
   } catch {
     // Git情報を利用できない生成環境では、明示した最終更新日を安定したfallbackにする。
   }
@@ -43,17 +48,28 @@ function gitDate(relativeFile) {
 }
 function dependenciesFor(route, htmlFile) {
   const dependencies = [path.relative(root, htmlFile).replaceAll('\\', '/')];
-  if (route === '/') dependencies.push('data/tatari.json', 'data/tata-skills.json', 'scripts/generate-core-pages.mjs');
-  if (route === '/tata-tier/') dependencies.push('data/tatari.json', 'data/tier-ratings.json', 'scripts/generate-core-pages.mjs');
-  if (route === '/evolution-priority/') dependencies.push('data/tatari.json', 'data/tata-skills.json', 'data/tier-ratings.json', 'data/evolution-priority.json', 'scripts/generate-core-pages.mjs');
-  if (route.startsWith('/tata/')) dependencies.push('data/tatari.json', 'data/tata-skills.json', 'data/tier-ratings.json', 'data/evolution-priority.json', 'scripts/generate-tata-pages.mjs');
-  if (route.startsWith('/attribute/')) dependencies.push('data/tatari.json', 'data/tata-skills.json');
-  if (route === '/beginner-guide/') dependencies.push('data/tatari.json', 'data/tier-ratings.json', 'data/evolution-priority.json', 'data/content-guides.json', 'scripts/generate-beginner-guide.mjs');
-  if (route === '/gift-codes/') dependencies.push('data/gift-codes.json', 'scripts/generate-gift-code-pages.mjs');
-  if (['/normal-guide/', '/zombie-rush/', '/boss-rally/', '/badge-dojo/'].includes(route)) dependencies.push('data/content-guides.json');
-  if (['/updates/', '/zombie-rush/', '/tata-tier/', '/updates/2026-08-26/'].includes(route)) dependencies.push('data/zombie-rush/seasons/season-1.json');
-  if (route === '/updates/2026-08-26/') dependencies.push('scripts/generate-update-2026-08-26.mjs');
-  if (route === '/team-builder/') dependencies.push('data/tatari.json', 'data/tier-ratings.json', 'data/tata-images.json', 'team-builder/team-core.js', 'team-builder/team-builder.js', 'my-tools.css');
+  if (route === '/')
+    dependencies.push('data/tatari.json', 'data/tata-skills.json', 'scripts/generate-core-pages.mjs');
+  if (route === '/tata-tier/')
+    dependencies.push('data/tatari.json', 'data/tier-ratings.json', 'scripts/generate-core-pages.mjs');
+  if (route === '/evolution-priority/')
+    dependencies.push('data/tatari.json', 'data/tata-skills.json', 'data/tier-ratings.json', 'data/evolution-priority.json', 'scripts/generate-core-pages.mjs');
+  if (route.startsWith('/tata/'))
+    dependencies.push('data/tatari.json', 'data/tata-skills.json', 'data/tier-ratings.json', 'data/evolution-priority.json', 'scripts/generate-tata-pages.mjs');
+  if (route.startsWith('/attribute/'))
+    dependencies.push('data/tatari.json', 'data/tata-skills.json');
+  if (route === '/beginner-guide/')
+    dependencies.push('data/tatari.json', 'data/tier-ratings.json', 'data/evolution-priority.json', 'data/content-guides.json', 'scripts/generate-beginner-guide.mjs');
+  if (route === '/gift-codes/')
+    dependencies.push('data/gift-codes.json', 'scripts/generate-gift-code-pages.mjs');
+  if (['/normal-guide/', '/zombie-rush/', '/boss-rally/', '/badge-dojo/'].includes(route))
+    dependencies.push('data/content-guides.json');
+  if (['/updates/', '/zombie-rush/', '/tata-tier/', '/updates/2026-08-26/'].includes(route))
+    dependencies.push('data/zombie-rush/seasons/season-1.json');
+  if (route === '/updates/2026-08-26/')
+    dependencies.push('scripts/generate-update-2026-08-26.mjs');
+  if (route === '/team-builder/')
+    dependencies.push('data/tatari.json', 'data/tier-ratings.json', 'data/tata-images.json', 'team-builder/team-core.js', 'team-builder/team-builder.js', 'my-tools.css');
   return [...new Set(dependencies)];
 }
 const seasonOne = JSON.parse(readUtf8(path.join(root, 'data', 'zombie-rush', 'seasons', 'season-1.json')));
@@ -64,17 +80,42 @@ function freshnessDate(route) {
   const sourceRoute = sourceRouteFor(route);
   const exact = freshness.routes?.[sourceRoute];
   const wildcard = Object.entries(freshness.routes || {}).find(([pattern]) => pattern.endsWith('*') && sourceRoute.startsWith(pattern.slice(0, -1)))?.[1];
-  if (!exact && !wildcard) return null;
+  if (!exact && !wildcard)
+    return null;
   return { ...freshness.default, ...(wildcard || {}), ...(exact || {}) }.updated;
 }
 const explicitContentDate = (route) => {
   const sourceRoute = sourceRouteFor(route);
-  if (route !== sourceRoute) return i18n.updated;
+  if (route !== sourceRoute)
+    return i18n.updated;
   return ['/updates/', '/zombie-rush/', '/tata-tier/', '/updates/2026-08-26/'].includes(sourceRoute) ? seasonOne.meta.noticeConfirmedDate : null;
 };
 const tatari = JSON.parse(readUtf8(path.join(root, 'data', 'tatari.json')));
 const tataRoutes = (tatari.families || []).map((family) => `/tata/${family.id}/`);
-const preferred = ['/', '/beginner-guide/', '/friends/', '/search/', '/tata-tier/', '/evolution-priority/', '/consult/', '/zombie-rush/', '/boss-rally/', '/badge-dojo/', '/normal-guide/', '/updates/', '/updates/2026-08-26/', '/about/', '/about-data/', '/privacy/', '/attribute/grass/', '/attribute/water/', '/attribute/fire/', '/attribute/thunder/', '/attribute/rock/', ...tataRoutes];
+const preferred = [
+  '/',
+  '/beginner-guide/',
+  '/friends/',
+  '/search/',
+  '/tata-tier/',
+  '/evolution-priority/',
+  '/consult/',
+  '/zombie-rush/',
+  '/boss-rally/',
+  '/badge-dojo/',
+  '/normal-guide/',
+  '/updates/',
+  '/updates/2026-08-26/',
+  '/about/',
+  '/about-data/',
+  '/privacy/',
+  '/attribute/grass/',
+  '/attribute/water/',
+  '/attribute/fire/',
+  '/attribute/thunder/',
+  '/attribute/rock/',
+  ...tataRoutes
+];
 const rank = new Map(preferred.map((route, index) => [route, index]));
 const pages = walk(root)
   .filter((file) => !/<meta name="robots" content="[^\"]*noindex/i.test(readUtf8(file)))

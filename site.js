@@ -12,7 +12,8 @@
   const header = document.querySelector('.site-header');
   const inner = header?.querySelector('.header-inner');
   const nav = inner?.querySelector('nav');
-  if (!header || !inner || !nav) return;
+  if (!header || !inner || !nav)
+    return;
 
   const locale = document.documentElement.lang === 'zh-CN' ? 'zh-CN' : document.documentElement.lang === 'en' ? 'en' : 'ja';
   const ui = (source) => window.monsabaI18n?.translate(source) || source;
@@ -27,7 +28,8 @@
       const sourcePath = location.pathname.replace(/^\/(?:en|zh-cn)(?=\/)/, '') || '/';
       const prefix = toLocale === 'en' ? '/en' : toLocale === 'zh-CN' ? '/zh-cn' : '';
       const nextPath = sourcePath === '/' ? `${prefix}/` || '/' : `${prefix}${sourcePath}`;
-      if (typeof window.gtag === 'function') window.gtag('event', 'language_switch', { from_locale: locale, to_locale: toLocale });
+      if (typeof window.gtag === 'function')
+        window.gtag('event', 'language_switch', { from_locale: locale, to_locale: toLocale });
       location.assign(`${nextPath}${location.search}${location.hash}`);
     });
   }
@@ -38,18 +40,19 @@
   const path = location.pathname;
   const currentHref = path.startsWith('/tata/') ? '/#tatari'
     : ['/guides/', '/zombie-rush/', '/boss-rally/', '/badge-dojo/', '/normal-guide/'].some((route) => path.startsWith(route)) ? '/guides/'
-    : path.startsWith('/attribute/') ? '/#tatari'
-    : path.startsWith('/tata-tier/') ? '/tata-tier/'
-    : path.startsWith('/evolution-priority/') ? '/evolution-priority/'
-    : path.startsWith('/consult/') ? '/consult/'
-    : path.startsWith('/search/') ? '/search/'
-    : path.startsWith('/compare/') ? '/compare/'
-    : path.startsWith('/team-builder/') ? '/team-builder/'
-    : path.startsWith('/beginner-guide/') ? '/beginner-guide/'
-    : path.startsWith('/friends/') ? '/friends/'
-    : path.startsWith('/board/') ? '/board/'
-    : null;
-  if (currentHref) nav.querySelector(`a[href="${currentHref}"]`)?.setAttribute('aria-current', 'page');
+      : path.startsWith('/attribute/') ? '/#tatari'
+        : path.startsWith('/tata-tier/') ? '/tata-tier/'
+          : path.startsWith('/evolution-priority/') ? '/evolution-priority/'
+            : path.startsWith('/consult/') ? '/consult/'
+              : path.startsWith('/search/') ? '/search/'
+                : path.startsWith('/compare/') ? '/compare/'
+                  : path.startsWith('/team-builder/') ? '/team-builder/'
+                    : path.startsWith('/beginner-guide/') ? '/beginner-guide/'
+                      : path.startsWith('/friends/') ? '/friends/'
+                        : path.startsWith('/board/') ? '/board/'
+                          : null;
+  if (currentHref)
+    nav.querySelector(`a[href="${currentHref}"]`)?.setAttribute('aria-current', 'page');
 
   const button = document.createElement('button');
   button.className = 'mobile-nav-toggle';
@@ -64,11 +67,13 @@
   const navCategories = [...nav.querySelectorAll('.nav-category')];
   const closeNavCategories = ({ except = null, restoreFocus = false } = {}) => {
     navCategories.forEach((category) => {
-      if (category === except) return;
+      if (category === except)
+        return;
       category.classList.remove('is-open');
       const trigger = category.querySelector('.nav-category-trigger');
       trigger?.setAttribute('aria-expanded', 'false');
-      if (restoreFocus && category.dataset.wasOpen === 'true') trigger?.focus();
+      if (restoreFocus && category.dataset.wasOpen === 'true')
+        trigger?.focus();
       category.dataset.wasOpen = 'false';
     });
   };
@@ -81,33 +86,39 @@
       category.classList.toggle('is-open', willOpen);
       trigger.setAttribute('aria-expanded', String(willOpen));
       category.dataset.wasOpen = String(willOpen);
-      if (willOpen) window.MONSABA_TRACK?.event('nav_category_open', { category: category.dataset.navCategory });
+      if (willOpen)
+        window.MONSABA_TRACK?.event('nav_category_open', { category: category.dataset.navCategory });
     });
     trigger?.addEventListener('keydown', (event) => {
-      if (!['ArrowDown', 'Enter', ' '].includes(event.key)) return;
+      if (!['ArrowDown', 'Enter', ' '].includes(event.key))
+        return;
       event.preventDefault();
       category.classList.add('is-open');
       trigger.setAttribute('aria-expanded', 'true');
       panel?.querySelector('a')?.focus();
     });
     panel?.addEventListener('keydown', (event) => {
-      if (!['ArrowDown', 'ArrowUp'].includes(event.key)) return;
+      if (!['ArrowDown', 'ArrowUp'].includes(event.key))
+        return;
       const links = [...panel.querySelectorAll('a')];
       const index = links.indexOf(document.activeElement);
-      if (index < 0) return;
+      if (index < 0)
+        return;
       event.preventDefault();
       links[(index + (event.key === 'ArrowDown' ? 1 : -1) + links.length) % links.length]?.focus();
     });
   });
   document.addEventListener('click', (event) => {
-    if (!event.target.closest('.nav-category')) closeNavCategories();
+    if (!event.target.closest('.nav-category'))
+      closeNavCategories();
   });
 
   const closeMenu = ({ restoreFocus = false } = {}) => {
     header.classList.remove('nav-open');
     button.setAttribute('aria-expanded', 'false');
     button.setAttribute('aria-label', ui('メニューを開く'));
-    if (restoreFocus) button.focus();
+    if (restoreFocus)
+      button.focus();
   };
 
   button.addEventListener('click', () => {
@@ -115,18 +126,23 @@
     header.classList.toggle('nav-open', willOpen);
     button.setAttribute('aria-expanded', String(willOpen));
     button.setAttribute('aria-label', ui(willOpen ? 'メニューを閉じる' : 'メニューを開く'));
-    if (willOpen) nav.querySelector('a')?.focus();
+    if (willOpen)
+      nav.querySelector('a')?.focus();
   });
   nav.addEventListener('click', (event) => {
-    if (event.target.closest('a')) closeMenu();
+    if (event.target.closest('a'))
+      closeMenu();
   });
   document.addEventListener('keydown', (event) => {
-    if (event.key !== 'Escape') return;
-    if (header.classList.contains('nav-open')) closeMenu({ restoreFocus: true });
+    if (event.key !== 'Escape')
+      return;
+    if (header.classList.contains('nav-open'))
+      closeMenu({ restoreFocus: true });
     closeNavCategories({ restoreFocus: true });
   });
   window.matchMedia('(min-width: 821px)').addEventListener('change', (event) => {
-    if (event.matches) closeMenu();
+    if (event.matches)
+      closeMenu();
   });
 
   const syncCompactHeader = () => header.classList.toggle('is-compact', window.scrollY > 80);
@@ -134,9 +150,30 @@
   syncCompactHeader();
 
   const searchCopy = {
-    ja: { title: 'サイト内検索', placeholder: 'タタ・進化・Skill・攻略を検索', recent: '最近の検索', submit: '検索', close: '閉じる', hint: 'Ctrl / ⌘ + K' },
-    en: { title: 'Search this site', placeholder: 'Search Tata, skills, events and guides', recent: 'Recent searches', submit: 'Search', close: 'Close', hint: 'Ctrl / ⌘ + K' },
-    'zh-CN': { title: '站内搜索', placeholder: '搜索 Tata、技能、活动和攻略', recent: '最近搜索', submit: '搜索', close: '关闭', hint: 'Ctrl / ⌘ + K' }
+    ja: {
+      title: 'サイト内検索',
+      placeholder: 'タタ・進化・Skill・攻略を検索',
+      recent: '最近の検索',
+      submit: '検索',
+      close: '閉じる',
+      hint: 'Ctrl / ⌘ + K'
+    },
+    en: {
+      title: 'Search this site',
+      placeholder: 'Search Tata, skills, events and guides',
+      recent: 'Recent searches',
+      submit: 'Search',
+      close: 'Close',
+      hint: 'Ctrl / ⌘ + K'
+    },
+    'zh-CN': {
+      title: '站内搜索',
+      placeholder: '搜索 Tata、技能、活动和攻略',
+      recent: '最近搜索',
+      submit: '搜索',
+      close: '关闭',
+      hint: 'Ctrl / ⌘ + K'
+    }
   }[locale];
   const searchDialog = document.createElement('dialog');
   searchDialog.className = 'global-search-dialog';
@@ -148,8 +185,16 @@
   const recentRoot = recentSection.querySelector('div');
   const searchHistoryKey = 'monsaba-search-history-v1';
   const readSearchHistory = () => {
-    try { return JSON.parse(localStorage.getItem(searchHistoryKey) || '[]').filter((item) => typeof item === 'string').slice(0, 5); }
-    catch { return []; }
+    try {
+
+      return JSON.parse(localStorage.getItem(searchHistoryKey) || '[]').filter((item) => typeof item === 'string').slice(0, 5);
+
+    }
+    catch {
+
+      return [];
+
+    }
   };
   const escapeSearchValue = (value) => value.replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
   const renderSearchHistory = () => {
@@ -167,20 +212,28 @@
   document.addEventListener('keydown', (event) => {
     if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
       event.preventDefault();
-      if (!searchDialog.open) openGlobalSearch();
+      if (!searchDialog.open)
+        openGlobalSearch();
     }
   });
   searchDialog.querySelector('.global-search-close').addEventListener('click', () => searchDialog.close());
-  searchDialog.addEventListener('click', (event) => { if (event.target === searchDialog) searchDialog.close(); });
+  searchDialog.addEventListener('click', (event) => {
+
+    if (event.target === searchDialog)
+      searchDialog.close();
+
+  });
   recentRoot.addEventListener('click', (event) => {
     const historyButton = event.target.closest('button');
-    if (!historyButton) return;
+    if (!historyButton)
+      return;
     searchInput.value = historyButton.textContent;
     searchInput.focus();
   });
   searchDialog.querySelector('form').addEventListener('submit', () => {
     const value = searchInput.value.trim();
-    if (!value) return;
+    if (!value)
+      return;
     const next = [value, ...readSearchHistory().filter((item) => item !== value)].slice(0, 5);
     localStorage.setItem(searchHistoryKey, JSON.stringify(next));
     // Search terms intentionally never enter analytics.
@@ -236,7 +289,8 @@
   const ensurePullIndicator = () => {
     const supported = supportsPullToRefresh();
     document.documentElement.classList.toggle('pull-to-refresh-enabled', supported);
-    if (!supported || pullIndicator) return;
+    if (!supported || pullIndicator)
+      return;
     pullIndicator = document.createElement('div');
     pullIndicator.className = 'pull-to-refresh';
     pullIndicator.setAttribute('role', 'status');
@@ -251,11 +305,13 @@
     pullTracking = false;
     pullDirection = null;
     pullReady = false;
-    if (!pullIndicator || pullReloading) return;
+    if (!pullIndicator || pullReloading)
+      return;
     pullIndicator.classList.remove('is-visible', 'is-ready');
     pullIndicator.style.removeProperty('--pull-distance');
     pullIndicator.setAttribute('aria-hidden', 'true');
-    if (pullLabel) pullLabel.textContent = '引っ張って更新';
+    if (pullLabel)
+      pullLabel.textContent = '引っ張って更新';
   };
 
   const cancelPullToRefresh = () => {
@@ -279,7 +335,8 @@
   }, { passive: true });
 
   window.addEventListener('touchmove', (event) => {
-    if (!pullTracking || event.touches.length !== 1) return;
+    if (!pullTracking || event.touches.length !== 1)
+      return;
     if (!supportsPullToRefresh() || !isAtPageTop() || pullToRefreshIsBlocked(event.target)) {
       cancelPullToRefresh();
       return;
@@ -296,7 +353,8 @@
       cancelPullToRefresh();
       return;
     }
-    if (pullDirection !== 'vertical') return;
+    if (pullDirection !== 'vertical')
+      return;
 
     // Custom操作が確定した後だけ標準overscrollを止め、通常スクロールや横スワイプを妨げない。
     event.preventDefault();
@@ -306,11 +364,13 @@
     pullIndicator?.classList.add('is-visible');
     pullIndicator?.classList.toggle('is-ready', pullReady);
     pullIndicator?.setAttribute('aria-hidden', 'false');
-    if (pullLabel) pullLabel.textContent = pullReady ? '離して更新' : '引っ張って更新';
+    if (pullLabel)
+      pullLabel.textContent = pullReady ? '離して更新' : '引っ張って更新';
   }, { passive: false });
 
   window.addEventListener('touchend', (event) => {
-    if (!pullTracking) return;
+    if (!pullTracking)
+      return;
     const shouldReload = pullReady && supportsPullToRefresh() && isAtPageTop()
       && !pullToRefreshIsBlocked(event.target);
     if (!shouldReload) {
@@ -321,7 +381,8 @@
     pullReloading = true;
     pullIndicator?.classList.add('is-visible', 'is-loading');
     pullIndicator?.classList.remove('is-ready');
-    if (pullLabel) pullLabel.textContent = '更新中…';
+    if (pullLabel)
+      pullLabel.textContent = '更新中…';
     window.requestAnimationFrame(() => location.reload());
   }, { passive: true });
   window.addEventListener('touchcancel', resetPullToRefresh, { passive: true });
@@ -339,7 +400,8 @@
     side.className = 'footer-side';
     side.innerHTML = '<nav class="footer-links" aria-label="サイト情報"><a href="/guides/">攻略ハブ</a><a href="/compare/">タタ比較</a><a href="/faq/">FAQ</a><a href="/about/">サイトについて</a><a href="/about-data/">データ方針</a><a href="/updates/">更新履歴</a><a href="/privacy/">プライバシー</a><a href="/friends/">フレンド掲示板</a></nav><p class="footer-contact">お問い合わせ・ご連絡は <a href="https://x.com/odi_monsaba" target="_blank" rel="noopener noreferrer">おぢ（@odi_monsaba）X</a> まで。フォローもよろしくお願いします。</p>';
     const meta = footer.querySelector('.footer-meta');
-    if (meta) side.appendChild(meta);
+    if (meta)
+      side.appendChild(meta);
     footer.appendChild(side);
   }
   const footerSide = footer?.querySelector('.footer-side');
@@ -352,8 +414,18 @@
   }
 
   const readPersonal = (key) => {
-    try { const value = JSON.parse(localStorage.getItem(key)); return Array.isArray(value) ? value : []; }
-    catch { return []; }
+    try {
+
+      const value = JSON.parse(localStorage.getItem(key));
+
+      return Array.isArray(value) ? value : [];
+
+    }
+    catch {
+
+      return [];
+
+    }
   };
   const writePersonal = (key, value) => localStorage.setItem(key, JSON.stringify(value.slice(0, 10)));
   const familyId = document.body.dataset.familyId;
@@ -366,7 +438,8 @@
     const favoriteButton = document.querySelector('.tata-favorite-button');
     const syncFavorite = () => {
       const active = readPersonal(favoriteKey).some((item) => item.id === familyId);
-      if (!favoriteButton) return;
+      if (!favoriteButton)
+        return;
       favoriteButton.setAttribute('aria-pressed', String(active));
       favoriteButton.textContent = `${active ? '★' : '☆'} お気に入り`;
     };
@@ -402,7 +475,12 @@
       continueBox.className = 'continue-card';
       const continueCopy = {
         ja: { title: '続きから', team: '前回の編成を開く', roster: 'My Monsabaを見る', recent: '最近見たTata' },
-        en: { title: 'Continue', team: 'Open previous team', roster: 'Open My Monsaba', recent: 'Recently viewed Tatari' },
+        en: {
+          title: 'Continue',
+          team: 'Open previous team',
+          roster: 'Open My Monsaba',
+          recent: 'Recently viewed Tatari'
+        },
         'zh-CN': { title: '继续', team: '打开上次阵容', roster: '打开 My Monsaba', recent: '最近查看的 Tatari' }
       }[locale];
       continueBox.innerHTML = '<strong>' + continueCopy.title + '</strong><div>' + (hasTeam ? `<a href="${localizedRoute('/team-builder/')}">${continueCopy.team}</a>` : '') + (hasRoster ? `<a href="${localizedRoute('/my-monsaba/')}">${continueCopy.roster}</a>` : '') + (recent[0] ? '<a href="' + recent[0].href + '">' + continueCopy.recent + '</a>' : '') + '</div>';
@@ -419,7 +497,8 @@
     : [];
   if (tocHeadings.length >= 4 && !main.querySelector('.page-toc')) {
     tocHeadings.forEach((heading, index) => {
-      if (!heading.id) heading.id = 'section-' + (index + 1);
+      if (!heading.id)
+        heading.id = 'section-' + (index + 1);
     });
     const toc = document.createElement('details');
     toc.className = 'page-toc wrap';
@@ -438,7 +517,13 @@
 
   const focusCopy = {
     ja: { focus: '集中モード', close: '集中モードを終了', picker: 'タタを選ぶ', pickerClose: '選択を閉じる', build: '編成を組む' },
-    en: { focus: 'Focus mode', close: 'Exit focus mode', picker: 'Choose Tata', pickerClose: 'Close picker', build: 'Build formation' },
+    en: {
+      focus: 'Focus mode',
+      close: 'Exit focus mode',
+      picker: 'Choose Tata',
+      pickerClose: 'Close picker',
+      build: 'Build formation'
+    },
     'zh-CN': { focus: '专注模式', close: '退出专注模式', picker: '选择 Tata', pickerClose: '关闭选择器', build: '开始编队' }
   }[locale];
   const formationShell = document.querySelector('.formation-shell');
@@ -454,11 +539,13 @@
       document.body.classList.toggle('team-focus-mode', active);
       focusButton.setAttribute('aria-pressed', String(active));
       focusButton.textContent = active ? focusCopy.close : focusCopy.focus;
-      if (active) window.MONSABA_TRACK?.event('team_focus_mode', { state: 'on' });
+      if (active)
+        window.MONSABA_TRACK?.event('team_focus_mode', { state: 'on' });
     };
     focusButton.addEventListener('click', () => setFocusMode(focusButton.getAttribute('aria-pressed') !== 'true'));
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && document.body.classList.contains('team-focus-mode')) setFocusMode(false);
+      if (event.key === 'Escape' && document.body.classList.contains('team-focus-mode'))
+        setFocusMode(false);
     });
     const pickerToggle = document.createElement('button');
     pickerToggle.type = 'button';
@@ -471,17 +558,29 @@
       pickerToggle.setAttribute('aria-expanded', String(open));
       pickerToggle.setAttribute('aria-label', open ? focusCopy.pickerClose : focusCopy.picker);
       pickerToggle.innerHTML = open ? `<span aria-hidden="true">×</span><span>${focusCopy.pickerClose}</span>` : `<span aria-hidden="true">◀</span><span>${focusCopy.picker}</span>`;
-      if (revealBoard) requestAnimationFrame(() => document.querySelector('#team-board')?.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }));
+      if (revealBoard)
+        requestAnimationFrame(() => document.querySelector('#team-board')?.scrollIntoView({
+          block: 'center',
+          behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+        }));
     };
     setPickerOpen(false);
     pickerToggle.addEventListener('click', () => setPickerOpen(!formationPicker.classList.contains('is-sheet-open')));
     document.addEventListener('monsaba:formation-picker', (event) => setPickerOpen(Boolean(event.detail?.open), Boolean(event.detail?.revealBoard)));
-    document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && formationPicker.classList.contains('is-sheet-open')) setPickerOpen(false); });
+    document.addEventListener('keydown', (event) => {
+
+      if (event.key === 'Escape' && formationPicker.classList.contains('is-sheet-open'))
+        setPickerOpen(false);
+
+    });
     document.querySelectorAll('[data-team-picker-open]').forEach((button) => {
       button.textContent = focusCopy.picker;
       button.addEventListener('click', () => {
         setPickerOpen(true);
-        requestAnimationFrame(() => formationPicker.scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }));
+        requestAnimationFrame(() => formationPicker.scrollIntoView({
+          block: 'start',
+          behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+        }));
       });
     });
     document.querySelectorAll('[data-team-board-focus]').forEach((button) => {
@@ -509,7 +608,8 @@
     communityPublish.hidden = true;
     communityTabs.addEventListener('click', (event) => {
       const tab = event.target.closest('[data-community-view]');
-      if (!tab) return;
+      if (!tab)
+        return;
       const publish = tab.dataset.communityView === 'publish';
       communityPublish.hidden = !publish;
       communityList.hidden = publish;
@@ -519,7 +619,8 @@
   }
 
   const loadVercelScript = (queueName, queueKey, src) => {
-    if (document.querySelector(`script[src="${src}"]`)) return;
+    if (document.querySelector(`script[src="${src}"]`))
+      return;
     window[queueName] = window[queueName] || function (...args) {
       (window[queueKey] = window[queueKey] || []).push(args);
     };

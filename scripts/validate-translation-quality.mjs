@@ -18,8 +18,13 @@ const retrySignal = new Int32Array(new SharedArrayBuffer(4));
 
 function readFile(file) {
   for (let attempt = 0; attempt < 12; attempt += 1) {
-    try { return fs.readFileSync(file, 'utf8'); } catch (error) {
-      if (!['EBUSY', 'EPERM'].includes(error.code) || attempt === 11) throw error;
+    try {
+
+      return fs.readFileSync(file, 'utf8');
+
+    } catch (error) {
+      if (!['EBUSY', 'EPERM'].includes(error.code) || attempt === 11)
+        throw error;
       Atomics.wait(retrySignal, 0, 0, 40 * (attempt + 1));
     }
   }
@@ -28,7 +33,8 @@ function readFile(file) {
 function walk(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     const full = path.join(directory, entry.name);
-    if (entry.isDirectory()) return walk(full);
+    if (entry.isDirectory())
+      return walk(full);
     return entry.name.endsWith('.html') ? [full] : [];
   });
 }
@@ -36,9 +42,11 @@ function walk(directory) {
 const japaneseIgnored = new Set(['.git', '.github', '.vercel', 'node_modules', 'promo', 'en', 'zh-cn', 'assets', 'data', 'scripts']);
 function walkJapanese(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
-    if (japaneseIgnored.has(entry.name)) return [];
+    if (japaneseIgnored.has(entry.name))
+      return [];
     const full = path.join(directory, entry.name);
-    if (entry.isDirectory()) return walkJapanese(full);
+    if (entry.isDirectory())
+      return walkJapanese(full);
     return entry.name === 'index.html' || (directory === root && entry.name === '404.html') ? [full] : [];
   });
 }
@@ -56,7 +64,8 @@ function plainText(html) {
 }
 
 function report(condition, message) {
-  if (!condition) errors.push(message);
+  if (!condition)
+    errors.push(message);
 }
 
 function validateMeta(html, route, locale) {
@@ -69,9 +78,11 @@ function validateMeta(html, route, locale) {
     ['twitter:description', html.match(/<meta\s+name="twitter:description"\s+content="([^"]*)"/i)?.[1]]
   ];
   for (const [name, value] of fields) {
-    if (value === undefined && name.startsWith('twitter:')) continue;
+    if (value === undefined && name.startsWith('twitter:'))
+      continue;
     report(typeof value === 'string' && value.trim(), `${locale} ${route}: ${name} is missing or empty`);
-    if (!value) continue;
+    if (!value)
+      continue;
     report(!placeholder.test(value), `${locale} ${route}: ${name} contains a placeholder`);
     report(!missingValue.test(value), `${locale} ${route}: ${name} contains a missing value`);
     report(!duplicateGameName.test(value), `${locale} ${route}: ${name} repeats the game name`);
@@ -98,7 +109,8 @@ for (const locale of locales) {
       pattern.lastIndex = 0;
     }
     for (const token of visible.match(/\b[A-Z][A-Z0-9_]{7,}\b/g) || []) {
-      if (allowedUpperTokens.test(token) || /^G-[A-Z0-9]+$/.test(token)) continue;
+      if (allowedUpperTokens.test(token) || /^G-[A-Z0-9]+$/.test(token))
+        continue;
       report(!/^MNSB|PLACEHOLDER|BRANDX/.test(token), `${locale.key} ${route}: suspicious internal token ${token}`);
     }
   }

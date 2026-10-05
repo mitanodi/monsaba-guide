@@ -3,14 +3,24 @@ import path from 'node:path';
 
 const root = path.resolve(import.meta.dirname, '..');
 const data = JSON.parse(fs.readFileSync(path.join(root, 'data/summer-party.json'), 'utf8'));
-const fail = (message) => { throw new Error(message); };
-const expect = (condition, message) => { if (!condition) fail(message); };
+const fail = (message) => {
+
+  throw new Error(message);
+
+};
+const expect = (condition, message) => {
+
+  if (!condition)
+    fail(message);
+
+};
 const routes = ['/events/summer-party/', '/en/events/summer-party/', '/zh-cn/events/summer-party/'];
 const cards = data.album.sets.flatMap((set) => set.cards);
 
 expect(data.officialDisplayName === 'サマーパーティ', 'official event display must be サマーパーティ');
 expect(data.album.setCount === 15 && data.album.sets.length === 15, '15 sets required');
-for (const set of data.album.sets) expect(set.cards.length === 9, `${set.name}: nine cards required`);
+for (const set of data.album.sets)
+  expect(set.cards.length === 9, `${set.name}: nine cards required`);
 expect(data.album.totalSlots === 135 && cards.length === 135, '135 card slots required');
 expect(cards.map((card) => card.cardNo).every((value, index) => value === index + 1), 'card numbers must be contiguous 1-135');
 expect(cards.filter((card) => card.name === null).every((card) => card.status === 'pending'), 'hidden names must remain pending');
@@ -29,7 +39,8 @@ expect(data.collection.loaderPriceMarbles === 100 && data.collection.unusedLoade
 for (const route of routes) {
   const html = fs.readFileSync(path.join(root, route.slice(1), 'index.html'), 'utf8');
   expect(html.includes(`rel="canonical" href="https://monster-survival.com${route}"`), `${route}: self canonical missing`);
-  for (const lang of ['ja', 'en', 'zh-Hans', 'x-default']) expect(html.includes(`hreflang="${lang}"`), `${route}: ${lang} hreflang missing`);
+  for (const lang of ['ja', 'en', 'zh-Hans', 'x-default'])
+    expect(html.includes(`hreflang="${lang}"`), `${route}: ${lang} hreflang missing`);
   expect(html.includes('dateModified":"2026-08-31"'), `${route}: dateModified missing`);
   expect(html.includes('Card Loader') && html.includes('Memory Gallery'), `${route}: Card Collection terms missing`);
   expect(!html.includes('114/135'), `${route}: personal progress leaked`);

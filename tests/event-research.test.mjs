@@ -70,21 +70,68 @@ test('Zombie Siege guide exposes the complete tested route in every locale', () 
       file: 'events/zombie-siege/index.html',
       title: 'モンサバ ゾンビ包囲戦攻略',
       current: '<div class="summary-box zombie-siege-current"><strong>実戦確認</strong></div>',
-      terms: ['×1でレイジを確保', 'まずロックオンを取る', '×200のシャーマン', '混雑時は電撃', '人が少ない部屋を探す', '約500,000 / 回', '1,000万pt超 / 回', '約20pt / coin以上', '実戦確認', '2回実戦', '1回は1,100万pt超', 'コミュニティ攻略との照合', '旧仕様：宝箱ドロップ方式'],
+      terms: [
+        '×1でレイジを確保',
+        'まずロックオンを取る',
+        '×200のシャーマン',
+        '混雑時は電撃',
+        '人が少ない部屋を探す',
+        '約500,000 / 回',
+        '1,000万pt超 / 回',
+        '約20pt / coin以上',
+        '実戦確認',
+        '2回実戦',
+        '1回は1,100万pt超',
+        'コミュニティ攻略との照合',
+        '旧仕様：宝箱ドロップ方式'
+      ],
       forbidden: ['ユーザー本人', 'ユーザー実戦', '1例です', '古い「一時閉鎖」情報は現行状態として扱いません']
     },
     {
       file: 'en/events/zombie-siege/index.html',
       title: 'Zombie Siege Guide',
       current: '<div class="summary-box zombie-siege-current"><strong>Field verification</strong></div>',
-      terms: ['Collect Rage at 1x', 'Get Lock-On before moving up', 'Shaman at 200x', 'Switch to Shocker if crowded', 'Look for a quieter room', 'about 500,000 / run', 'over 10,000,000 / run', 'about 20+ points / coin', 'Field verification', 'tested twice', 'one exceeded 11,000,000 points', 'Community cross-check', 'Legacy: chest-drop version'],
-      forbidden: ['The user personally', 'Japanese user benchmark', 'one observed run', 'The previous “temporarily closed” notice is no longer treated as current']
+      terms: [
+        'Collect Rage at 1x',
+        'Get Lock-On before moving up',
+        'Shaman at 200x',
+        'Switch to Shocker if crowded',
+        'Look for a quieter room',
+        'about 500,000 / run',
+        'over 10,000,000 / run',
+        'about 20+ points / coin',
+        'Field verification',
+        'tested twice',
+        'one exceeded 11,000,000 points',
+        'Community cross-check',
+        'Legacy: chest-drop version'
+      ],
+      forbidden: [
+        'The user personally',
+        'Japanese user benchmark',
+        'one observed run',
+        'The previous “temporarily closed” notice is no longer treated as current'
+      ]
     },
     {
       file: 'zh-cn/events/zombie-siege/index.html',
       title: '僵尸围城攻略',
       current: '<div class="summary-box zombie-siege-current"><strong>实战确认</strong></div>',
-      terms: ['在1倍区取得Rage', '提高倍率前先取得Lock-On', '200倍区的Shaman', '拥挤时改打Shocker', '寻找人数较少的房间', '约500,000 / 次', '每次超过1,000万pt', '约20pt / coin以上', '实战确认', '实战2次', '其中1次超过1,100万pt', '社区信息交叉核对', '旧机制：宝箱掉落版本'],
+      terms: [
+        '在1倍区取得Rage',
+        '提高倍率前先取得Lock-On',
+        '200倍区的Shaman',
+        '拥挤时改打Shocker',
+        '寻找人数较少的房间',
+        '约500,000 / 次',
+        '每次超过1,000万pt',
+        '约20pt / coin以上',
+        '实战确认',
+        '实战2次',
+        '其中1次超过1,100万pt',
+        '社区信息交叉核对',
+        '旧机制：宝箱掉落版本'
+      ],
       forbidden: ['用户于', '日本版用户实战参考', '一次实战记录', '旧有“暂时关闭”信息不再作为当前状态']
     }
   ];
@@ -92,8 +139,10 @@ test('Zombie Siege guide exposes the complete tested route in every locale', () 
     const html = read(page.file);
     assert.match(html, new RegExp(`<title>[^<]*${page.title}`), page.file);
     assert.ok(html.includes(page.current), page.file);
-    for (const term of page.terms) assert.ok(html.includes(term), `${page.file}: ${term}`);
-    for (const term of page.forbidden) assert.ok(!html.includes(term), `${page.file}: forbidden ${term}`);
+    for (const term of page.terms)
+      assert.ok(html.includes(term), `${page.file}: ${term}`);
+    for (const term of page.forbidden)
+      assert.ok(!html.includes(term), `${page.file}: forbidden ${term}`);
     assert.equal((html.match(/class="zombie-siege-steps"/g) || []).length, 1, page.file);
     assert.equal((html.match(/class="zombie-siege-benchmark"/g) || []).length, 1, page.file);
     assert.match(html, /"dateModified"\s*:\s*"2026-09-01"/, page.file);
@@ -101,7 +150,15 @@ test('Zombie Siege guide exposes the complete tested route in every locale', () 
 });
 
 test('unverified event details are marked for human verification', () => {
-  for (const id of ['running-party', 'island-treasure', 'magic-farm', 'fishing-tournament', 'treasure-hunt', 'zombie-siege', 'surprise-roulette']) {
+  for (const id of [
+    'running-party',
+    'island-treasure',
+    'magic-farm',
+    'fishing-tournament',
+    'treasure-hunt',
+    'zombie-siege',
+    'surprise-roulette'
+  ]) {
     assert.equal(byId[id].needsHumanVerification, true, id);
   }
   assert.equal(byId['island-treasure'].territoryValues.length, 6);
@@ -140,12 +197,12 @@ test('event research dates agree in every locale and sitemap', () => {
         ? (locale.prefix === 'en/' ? 'Sep 1, 2026' : '2026年9月1日')
         : officialPending
           ? (locale.prefix === 'en/' ? 'Sep 5, 2026' : '2026年9月5日')
-        : locale.kickerDate;
+          : locale.kickerDate;
       const checked = id === 'zombie-siege'
         ? (locale.prefix === 'en/' ? 'Last checked: Sep 1, 2026' : locale.prefix === 'zh-cn/' ? '最后确认：2026年9月1日' : '最終確認日：2026年9月1日')
         : officialPending
           ? (locale.prefix === 'en/' ? 'Last checked: Sep 5, 2026' : locale.prefix === 'zh-cn/' ? '最后确认：2026年9月5日' : '最終確認日：2026年9月5日')
-        : locale.checked;
+          : locale.checked;
       assert.match(html, new RegExp(`"dateModified"\\s*:\\s*"${updated}"`), relative);
       assert.match(html, new RegExp(`<span class="visible-kicker">[^<]*${kickerDate.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[^<]*<\\/span>`), relative);
       assert.ok(html.includes(checked), relative);

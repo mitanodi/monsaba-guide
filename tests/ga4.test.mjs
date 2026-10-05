@@ -9,9 +9,14 @@ const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'promo'])
 const retrySignal = new Int32Array(new SharedArrayBuffer(4));
 const read = (file) => {
   for (let attempt = 0; attempt < 12; attempt += 1) {
-    try { return fs.readFileSync(path.join(root, file), 'utf8'); }
+    try {
+
+      return fs.readFileSync(path.join(root, file), 'utf8');
+
+    }
     catch (error) {
-      if (!['EBUSY', 'EPERM'].includes(error.code) || attempt === 11) throw error;
+      if (!['EBUSY', 'EPERM'].includes(error.code) || attempt === 11)
+        throw error;
       Atomics.wait(retrySignal, 0, 0, 40 * (attempt + 1));
     }
   }
@@ -20,9 +25,11 @@ const json = (file) => JSON.parse(read(file));
 
 function walkHtml(directory = root) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
-    if (ignored.has(entry.name)) return [];
+    if (ignored.has(entry.name))
+      return [];
     const full = path.join(directory, entry.name);
-    if (entry.isDirectory()) return walkHtml(full);
+    if (entry.isDirectory())
+      return walkHtml(full);
     return entry.name.endsWith('.html') ? [path.relative(root, full).replaceAll('\\', '/')] : [];
   });
 }
@@ -61,7 +68,15 @@ test('生成済みGA4インラインスクリプトがJavaScriptとして構文�
 });
 
 test('主要ページでもGA4 tagを1個だけ読み込む', () => {
-  for (const file of ['index.html', 'board/index.html', 'board/thread/index.html', 'friends/index.html', 'search/index.html', 'tata-tier/index.html', 'privacy/index.html']) {
+  for (const file of [
+    'index.html',
+    'board/index.html',
+    'board/thread/index.html',
+    'friends/index.html',
+    'search/index.html',
+    'tata-tier/index.html',
+    'privacy/index.html'
+  ]) {
     const html = read(file);
     assert.equal(count(html, /data-monsaba-ga4="loader"/g), 1, file);
     assert.equal(count(html, /data-monsaba-ga4="config"/g), 1, file);
@@ -69,7 +84,8 @@ test('主要ページでもGA4 tagを1個だけ読み込む', () => {
 });
 
 test('Google tagはasyncで描画をブロックしない', () => {
-  for (const file of walkHtml()) assert.match(read(file), /<script async src="https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=G-PTV8TYNYMR"/);
+  for (const file of walkHtml())
+    assert.match(read(file), /<script async src="https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=G-PTV8TYNYMR"/);
 });
 
 test('page_viewはconfigによる自動送信だけでhistory listenerを追加しない', () => {
@@ -95,7 +111,19 @@ test('GA4のpage locationとreferrerからquery・fragmentを除外する', () =
 test('GA4 custom eventsはイベント別allowlist以外のpropertyを送らない', () => {
   const growth = read('growth.js');
   const block = growth.slice(growth.indexOf('const ga4AllowedProperties'), growth.indexOf('const safeValue'));
-  for (const forbidden of ['title', 'content', 'name', 'uid', 'tata_name', 'query', 'search_term', 'thread_id', 'post_id', 'parent_answer_id', 'ip']) {
+  for (const forbidden of [
+    'title',
+    'content',
+    'name',
+    'uid',
+    'tata_name',
+    'query',
+    'search_term',
+    'thread_id',
+    'post_id',
+    'parent_answer_id',
+    'ip'
+  ]) {
     assert.doesNotMatch(block, new RegExp(`['"]${forbidden}['"]`, 'i'), forbidden);
   }
   assert.match(growth, /allowed\.filter\(\(key\) => Object\.hasOwn\(safe, key\)\)/);
@@ -139,7 +167,18 @@ test('既存Vercel Web AnalyticsとSpeed Insightsを維持する', () => {
 
 test('PrivacyはGA4利用と非送信情報を正確に説明する', () => {
   const privacy = read('privacy/index.html');
-  for (const phrase of ['Google Analytics 4（GA4）を利用しています', 'Google tag', 'ページ閲覧、流入元', 'サイト内検索語・掲示板検索語', 'フレンドUID', 'タタ名', 'クエリ文字列を除外', 'Googleプライバシーポリシー', 'Googleの広告設定']) assert.ok(privacy.includes(phrase), phrase);
+  for (const phrase of [
+    'Google Analytics 4（GA4）を利用しています',
+    'Google tag',
+    'ページ閲覧、流入元',
+    'サイト内検索語・掲示板検索語',
+    'フレンドUID',
+    'タタ名',
+    'クエリ文字列を除外',
+    'Googleプライバシーポリシー',
+    'Googleの広告設定'
+  ])
+    assert.ok(privacy.includes(phrase), phrase);
   assert.doesNotMatch(privacy, /Google Analyticsは現時点では導入していません/);
 });
 

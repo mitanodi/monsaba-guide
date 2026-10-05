@@ -5,12 +5,22 @@ import { BASE_URL } from './site-config.mjs';
 const root = path.resolve(import.meta.dirname, '..');
 const errors = [];
 const invalidMarker = /[\[【［]\d{4}[\]】］]|MNSB(?:PN|DB|GAME)/;
-const expect = (condition, message) => { if (!condition) errors.push(message); };
+const expect = (condition, message) => {
+
+  if (!condition)
+    errors.push(message);
+
+};
 const retrySignal = new Int32Array(new SharedArrayBuffer(4));
 function readAbsolute(file) {
   for (let attempt = 0; attempt < 12; attempt += 1) {
-    try { return fs.readFileSync(file, 'utf8'); } catch (error) {
-      if (!['EBUSY', 'EPERM'].includes(error.code) || attempt === 11) throw error;
+    try {
+
+      return fs.readFileSync(file, 'utf8');
+
+    } catch (error) {
+      if (!['EBUSY', 'EPERM'].includes(error.code) || attempt === 11)
+        throw error;
       Atomics.wait(retrySignal, 0, 0, 40 * (attempt + 1));
     }
   }
@@ -25,9 +35,11 @@ const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'promo', 
 
 function walk(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
-    if (ignored.has(entry.name)) return [];
+    if (ignored.has(entry.name))
+      return [];
     const full = path.join(directory, entry.name);
-    if (entry.isDirectory()) return walk(full);
+    if (entry.isDirectory())
+      return walk(full);
     return entry.name === 'index.html' || (directory === root && entry.name === '404.html') ? [full] : [];
   });
 }
@@ -39,16 +51,33 @@ const sitemap = read('sitemap.xml');
 const sitemapLocs = new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]));
 const protectedTerms = new Set(['日本語', '简体中文', 'おぢ']);
 function collectProtected(value, key = '') {
-  if (Array.isArray(value)) return value.forEach((item) => collectProtected(item, key));
-  if (value && typeof value === 'object') return Object.entries(value).forEach(([childKey, child]) => collectProtected(child, childKey));
-  if (typeof value === 'string' && /(?:name|familyName|skillName|tataName|officialTataName|databaseTataName|nameEn|nameZhHans|englishName|simplifiedChineseName)$/i.test(key) && /[\u3040-\u30ff\u3400-\u9fff]/.test(value)) protectedTerms.add(value);
+  if (Array.isArray(value))
+    return value.forEach((item) => collectProtected(item, key));
+  if (value && typeof value === 'object')
+    return Object.entries(value).forEach(([childKey, child]) => collectProtected(child, childKey));
+  if (typeof value === 'string' && /(?:name|familyName|skillName|tataName|officialTataName|databaseTataName|nameEn|nameZhHans|englishName|simplifiedChineseName)$/i.test(key) && /[\u3040-\u30ff\u3400-\u9fff]/.test(value))
+    protectedTerms.add(value);
 }
-for (const relative of ['data/tatari.json', 'data/tata-skills.json', 'data/content-guides.json', 'data/events.json', 'data/summer-party.json', 'data/items.json', 'data/systems.json', 'data/stages.json', 'data/zombie-rush/seasons/season-1.json']) collectProtected(JSON.parse(read(relative)));
+for (const relative of [
+  'data/tatari.json',
+  'data/tata-skills.json',
+  'data/content-guides.json',
+  'data/events.json',
+  'data/summer-party.json',
+  'data/items.json',
+  'data/systems.json',
+  'data/stages.json',
+  'data/zombie-rush/seasons/season-1.json'
+])
+  collectProtected(JSON.parse(read(relative)));
 collectProtected(JSON.parse(read('data/i18n/localized-names.json')));
 for (const item of JSON.parse(read('data/tatari-name-catalog.json')).names || []) {
-  for (const name of [item.japaneseName, item.englishName, item.simplifiedChineseName, item.previousJapaneseName]) if (name) protectedTerms.add(name);
+  for (const name of [item.japaneseName, item.englishName, item.simplifiedChineseName, item.previousJapaneseName])
+    if (name)
+      protectedTerms.add(name);
 }
-for (const term of ['系', 'パクマ', '魔法の農場リメイク', 'サンドワームゾンビ', 'スノーフィストゾンビ', 'ドアゾンビ', 'ナムアミダイジャ', '子ダコ']) protectedTerms.add(term);
+for (const term of ['系', 'パクマ', '魔法の農場リメイク', 'サンドワームゾンビ', 'スノーフィストゾンビ', 'ドアゾンビ', 'ナムアミダイジャ', '子ダコ'])
+  protectedTerms.add(term);
 const sortedProtectedTerms = [...protectedTerms].sort((a, b) => b.length - a.length);
 const untranslated = { en: new Set(), 'zh-CN': new Set() };
 function collectUntranslated(html, locale) {
@@ -63,10 +92,12 @@ function collectUntranslated(html, locale) {
   ];
   for (const value of values) {
     let remainder = value;
-    for (const term of sortedProtectedTerms) remainder = remainder.replaceAll(term, '');
+    for (const term of sortedProtectedTerms)
+      remainder = remainder.replaceAll(term, '');
     remainder = remainder.replace(/[・「」『』（）]/g, '');
     const pattern = locale === 'en' ? /[\u3040-\u30ff\u3400-\u9fff]/ : /[\u3040-\u30ff]/;
-    if (pattern.test(remainder)) untranslated[locale].add(value.trim());
+    if (pattern.test(remainder))
+      untranslated[locale].add(value.trim());
   }
 }
 
@@ -92,12 +123,15 @@ for (const sourceFile of sourceFiles) {
     'x-default': route
   };
   expect(source.includes('<html lang="ja"'), `${route}: Japanese html lang missing`);
-  if (route !== '/404/') for (const [hreflang, alternate] of Object.entries(alternateRoutes)) expect(source.includes(`hreflang="${hreflang}" href="${BASE_URL}${alternate}"`), `${route}: Japanese ${hreflang} alternate missing`);
+  if (route !== '/404/')
+    for (const [hreflang, alternate] of Object.entries(alternateRoutes))
+      expect(source.includes(`hreflang="${hreflang}" href="${BASE_URL}${alternate}"`), `${route}: Japanese ${hreflang} alternate missing`);
 
   for (const locale of locales) {
     const localizedFile = outputFile(sourceFile, locale.directory);
     expect(fs.existsSync(localizedFile), `${route}: ${locale.key} page missing`);
-    if (!fs.existsSync(localizedFile)) continue;
+    if (!fs.existsSync(localizedFile))
+      continue;
     const html = readAbsolute(localizedFile);
     collectUntranslated(html, locale.key);
     const localRoute = localizedRoute(route, locale.directory);
@@ -112,10 +146,12 @@ for (const sourceFile of sourceFiles) {
     expect(html.includes(`property="og:locale" content="${locale.og}"`), `${localRoute}: og:locale mismatch`);
     if (route !== '/404/') {
       expect((html.match(/data-i18n-alternate/g) || []).length === 6, `${localRoute}: alternate tag count mismatch`);
-      for (const [hreflang, alternate] of Object.entries(alternateRoutes)) expect(html.includes(`hreflang="${hreflang}" href="${BASE_URL}${alternate}"`), `${localRoute}: ${hreflang} alternate missing`);
+      for (const [hreflang, alternate] of Object.entries(alternateRoutes))
+        expect(html.includes(`hreflang="${hreflang}" href="${BASE_URL}${alternate}"`), `${localRoute}: ${hreflang} alternate missing`);
     }
     expect(html.includes(`<option value="${locale.key}" selected>`), `${localRoute}: language selector state missing`);
-    if (route !== '/tatari-names/') expect(html.includes(`/i18n/${locale.directory}-runtime.js?v=${JSON.parse(read('data/asset-build.json')).version}`), `${localRoute}: versioned locale runtime missing`);
+    if (route !== '/tatari-names/')
+      expect(html.includes(`/i18n/${locale.directory}-runtime.js?v=${JSON.parse(read('data/asset-build.json')).version}`), `${localRoute}: versioned locale runtime missing`);
     expect(!/\b(?:undefined|null|\[i18n\.[^\]]+\])\b/.test(html), `${localRoute}: missing translation marker rendered`);
     expect(!invalidMarker.test(html), `${localRoute}: bootstrap marker rendered`);
     expect(!html.includes(`${BASE_URL}/${locale.directory}/assets/`), `${localRoute}: structured-data asset URL was localized`);
@@ -123,24 +159,35 @@ for (const sourceFile of sourceFiles) {
     expect(!new RegExp(`(?:href|src)="\/${locale.directory}\/[^"?]+\\.(?:css|js|json|xml|txt|webmanifest|ico|png|jpe?g|webp|svg)`, 'i').test(html), `${localRoute}: shared resource was incorrectly locale-prefixed`);
     const internalLinks = [...html.matchAll(/href="(\/[^"]*)"/g)].map((match) => match[1]);
     for (const href of internalLinks) {
-      if (href.startsWith(`/${locale.directory}/`) || href.startsWith('/assets/') || href.startsWith('/api/') || href.startsWith('/data/') || /\.(?:css|js|json|xml|txt|webmanifest|ico|png|jpe?g|webp|svg)(?:[?#]|$)/i.test(href)) continue;
+      if (href.startsWith(`/${locale.directory}/`) || href.startsWith('/assets/') || href.startsWith('/api/') || href.startsWith('/data/') || /\.(?:css|js|json|xml|txt|webmanifest|ico|png|jpe?g|webp|svg)(?:[?#]|$)/i.test(href))
+        continue;
       expect(false, `${localRoute}: internal link escapes locale: ${href}`);
     }
     for (const block of html.matchAll(/<script\b[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)) {
       try {
         const data = JSON.parse(block[1]);
         const visit = (value, key = '') => {
-          if (Array.isArray(value)) return value.forEach((item) => visit(item, key));
-          if (value && typeof value === 'object') return Object.entries(value).forEach(([childKey, child]) => visit(child, childKey));
-          if (key === 'inLanguage') expect(value === locale.lang, `${localRoute}: JSON-LD inLanguage ${value}`);
+          if (Array.isArray(value))
+            return value.forEach((item) => visit(item, key));
+          if (value && typeof value === 'object')
+            return Object.entries(value).forEach(([childKey, child]) => visit(child, childKey));
+          if (key === 'inLanguage')
+            expect(value === locale.lang, `${localRoute}: JSON-LD inLanguage ${value}`);
         };
         visit(data);
-      } catch { expect(false, `${localRoute}: invalid JSON-LD`); }
+      } catch {
+
+        expect(false, `${localRoute}: invalid JSON-LD`);
+
+      }
     }
-    if (!sourceNoindex && route !== '/404/') expect(sitemapLocs.has(`${BASE_URL}${localRoute}`), `${localRoute}: missing from sitemap`);
-    if (sourceNoindex || route === '/404/') expect(!sitemapLocs.has(`${BASE_URL}${localRoute}`), `${localRoute}: noindex/404 included in sitemap`);
+    if (!sourceNoindex && route !== '/404/')
+      expect(sitemapLocs.has(`${BASE_URL}${localRoute}`), `${localRoute}: missing from sitemap`);
+    if (sourceNoindex || route === '/404/')
+      expect(!sitemapLocs.has(`${BASE_URL}${localRoute}`), `${localRoute}: noindex/404 included in sitemap`);
   }
-  if (!sourceNoindex && route !== '/404/') expect(sitemapLocs.has(`${BASE_URL}${route}`), `${route}: Japanese page missing from sitemap`);
+  if (!sourceNoindex && route !== '/404/')
+    expect(sitemapLocs.has(`${BASE_URL}${route}`), `${route}: Japanese page missing from sitemap`);
 }
 
 for (const locale of locales) {
@@ -149,7 +196,8 @@ for (const locale of locales) {
   expect(Object.values(dictionary).every((value) => typeof value === 'string' && value.trim()), `${locale.key}: empty translation value`);
   expect(Object.values(dictionary).every((value) => !invalidMarker.test(value)), `${locale.key}: bootstrap marker remains in translation dictionary`);
 }
-for (const locale of locales) expect(untranslated[locale.key].size === 0, `${locale.key}: untranslated UI/content: ${[...untranslated[locale.key]].slice(0, 100).join(' | ')}`);
+for (const locale of locales)
+  expect(untranslated[locale.key].size === 0, `${locale.key}: untranslated UI/content: ${[...untranslated[locale.key]].slice(0, 100).join(' | ')}`);
 
 const tatari = JSON.parse(read('data/tatari.json'));
 const skills = JSON.parse(read('data/tata-skills.json'));

@@ -1,43 +1,70 @@
 export const GLOBAL_NAV_GROUPS = Object.freeze([
-  Object.freeze({ id: 'tata', label: 'タタ', icon: '◈', items: Object.freeze([
-    Object.freeze({ href: '/#tatari', label: 'タタ図鑑', description: '64系統を画像と条件で探す' }),
-    Object.freeze({ href: '/tata-tier/', label: 'タタTier', description: '用途別の独自評価を見る' }),
-    Object.freeze({ href: '/attribute/', label: '属性別', description: '草・水・火・雷・岩で探す' }),
-    Object.freeze({ href: '/compare/', label: 'タタ比較', description: '2体の評価と進化を比較' })
-  ]) }),
-  Object.freeze({ id: 'strategy', label: '攻略', icon: '◆', items: Object.freeze([
-    Object.freeze({ href: '/guides/', label: '攻略ハブ', description: 'モード別攻略の入口' }),
-    Object.freeze({ href: '/normal-guide/', label: '通常ステージ', description: '詰まり方から対策を探す' }),
-    Object.freeze({ href: '/zombie-rush/', label: 'ゾンビラッシュ', description: '編成・チップ・予測' }),
-    Object.freeze({ href: '/boss-rally/', label: 'ボスラリー', description: 'ボス戦の役割と編成' }),
-    Object.freeze({ href: '/badge-dojo/', label: 'バッジ道場', description: '道場向け評価と攻略' }),
-    Object.freeze({ href: '/events/', label: 'イベント', description: '確認状態別のイベント攻略' })
-  ]) }),
-  Object.freeze({ id: 'growth', label: '育成', icon: '▲', items: Object.freeze([
-    Object.freeze({ href: '/beginner-guide/', label: '初心者ガイド', description: '最初にやることを順番に' }),
-    Object.freeze({ href: '/evolution-priority/', label: '進化優先度', description: '進化差分と育成順を確認' }),
-    Object.freeze({ href: '/evolution/', label: '進化DB', description: '進化条件・試練を探す' }),
-    Object.freeze({ href: '/my-monsaba/', label: 'マイモンサバ', description: '手持ちを端末内で管理' })
-  ]) }),
-  Object.freeze({ id: 'tools', label: 'ツール', icon: '▦', items: Object.freeze([
-    Object.freeze({ href: '/team-builder/', label: '編成メーカー', description: '6×6盤面を作成・共有' }),
-    Object.freeze({ href: '/compare/', label: '比較', description: '2体を横並びで比較' }),
-    Object.freeze({ href: '/consult/', label: '攻略相談', description: '条件から次の行動を整理' }),
-    Object.freeze({ href: '/events/treasure-hunt/', label: 'お宝ソルバー', description: '確認済みイベント用ツール' }),
-    Object.freeze({ href: '/search/', label: '検索', description: 'タタ・Skill・攻略を横断' })
-  ]) }),
-  Object.freeze({ id: 'community', label: 'コミュニティ', icon: '●', items: Object.freeze([
-    Object.freeze({ href: '/team-builder/community/', label: 'みんなの編成', description: '投稿編成を探して読み込む' }),
-    Object.freeze({ href: '/friends/', label: 'フレンド掲示板', description: '一緒に遊ぶ人を探す' }),
-    Object.freeze({ href: '/board/', label: '質問掲示板', description: '攻略の質問と情報交換' })
-  ]) })
+  Object.freeze({
+    id: 'tata',
+    label: 'タタ',
+    icon: '◈',
+    items: Object.freeze([
+      Object.freeze({ href: '/#tatari', label: 'タタ図鑑', description: '64系統を画像と条件で探す' }),
+      Object.freeze({ href: '/tata-tier/', label: 'タタTier', description: '用途別の独自評価を見る' }),
+      Object.freeze({ href: '/attribute/', label: '属性別', description: '草・水・火・雷・岩で探す' }),
+      Object.freeze({ href: '/compare/', label: 'タタ比較', description: '2体の評価と進化を比較' })
+    ])
+  }),
+  Object.freeze({
+    id: 'strategy',
+    label: '攻略',
+    icon: '◆',
+    items: Object.freeze([
+      Object.freeze({ href: '/guides/', label: '攻略ハブ', description: 'モード別攻略の入口' }),
+      Object.freeze({ href: '/normal-guide/', label: '通常ステージ', description: '詰まり方から対策を探す' }),
+      Object.freeze({ href: '/zombie-rush/', label: 'ゾンビラッシュ', description: '編成・チップ・予測' }),
+      Object.freeze({ href: '/boss-rally/', label: 'ボスラリー', description: 'ボス戦の役割と編成' }),
+      Object.freeze({ href: '/badge-dojo/', label: 'バッジ道場', description: '道場向け評価と攻略' }),
+      Object.freeze({ href: '/events/', label: 'イベント', description: '確認状態別のイベント攻略' })
+    ])
+  }),
+  Object.freeze({
+    id: 'growth',
+    label: '育成',
+    icon: '▲',
+    items: Object.freeze([
+      Object.freeze({ href: '/beginner-guide/', label: '初心者ガイド', description: '最初にやることを順番に' }),
+      Object.freeze({ href: '/evolution-priority/', label: '進化優先度', description: '進化差分と育成順を確認' }),
+      Object.freeze({ href: '/evolution/', label: '進化DB', description: '進化条件・試練を探す' }),
+      Object.freeze({ href: '/my-monsaba/', label: 'マイモンサバ', description: '手持ちを端末内で管理' })
+    ])
+  }),
+  Object.freeze({
+    id: 'tools',
+    label: 'ツール',
+    icon: '▦',
+    items: Object.freeze([
+      Object.freeze({ href: '/team-builder/', label: '編成メーカー', description: '6×6盤面を作成・共有' }),
+      Object.freeze({ href: '/compare/', label: '比較', description: '2体を横並びで比較' }),
+      Object.freeze({ href: '/consult/', label: '攻略相談', description: '条件から次の行動を整理' }),
+      Object.freeze({ href: '/events/treasure-hunt/', label: 'お宝ソルバー', description: '確認済みイベント用ツール' }),
+      Object.freeze({ href: '/search/', label: '検索', description: 'タタ・Skill・攻略を横断' })
+    ])
+  }),
+  Object.freeze({
+    id: 'community',
+    label: 'コミュニティ',
+    icon: '●',
+    items: Object.freeze([
+      Object.freeze({ href: '/team-builder/community/', label: 'みんなの編成', description: '投稿編成を探して読み込む' }),
+      Object.freeze({ href: '/friends/', label: 'フレンド掲示板', description: '一緒に遊ぶ人を探す' }),
+      Object.freeze({ href: '/board/', label: '質問掲示板', description: '攻略の質問と情報交換' })
+    ])
+  })
 ]);
 
 export const GLOBAL_NAV_ITEMS = Object.freeze(GLOBAL_NAV_GROUPS.flatMap((group) => group.items));
 
 const currentNavHrefs = (route) => {
-  if (route.startsWith('/team-builder/community/')) return new Set(['/team-builder/community/']);
-  if (route.startsWith('/tata/') || route.startsWith('/attribute/')) return new Set(['/#tatari']);
+  if (route.startsWith('/team-builder/community/'))
+    return new Set(['/team-builder/community/']);
+  if (route.startsWith('/tata/') || route.startsWith('/attribute/'))
+    return new Set(['/#tatari']);
   const current = GLOBAL_NAV_ITEMS.find((item) => !item.href.includes('#') && route.startsWith(item.href))?.href;
   return new Set(current ? [current] : []);
 };

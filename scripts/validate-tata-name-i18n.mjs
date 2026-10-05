@@ -22,8 +22,10 @@ const aliases = globalThis.MONSABA_FAMILY;
 for (const family of tatari.families || []) {
   const familyAliases = aliases.getFamilySearchAliases(family);
   for (const evolution of family.evolutions || []) {
-    if (!familyAliases.includes(evolution.nameEn)) errors.push(`[Missing Tata search alias]\nfamily=${family.id}\nstage=${evolution.stage}\nlocale=en\nname=${JSON.stringify(evolution.nameEn)}`);
-    if (!familyAliases.includes(evolution.nameZhHans)) errors.push(`[Missing Tata search alias]\nfamily=${family.id}\nstage=${evolution.stage}\nlocale=zh-CN\nname=${JSON.stringify(evolution.nameZhHans)}`);
+    if (!familyAliases.includes(evolution.nameEn))
+      errors.push(`[Missing Tata search alias]\nfamily=${family.id}\nstage=${evolution.stage}\nlocale=en\nname=${JSON.stringify(evolution.nameEn)}`);
+    if (!familyAliases.includes(evolution.nameZhHans))
+      errors.push(`[Missing Tata search alias]\nfamily=${family.id}\nstage=${evolution.stage}\nlocale=zh-CN\nname=${JSON.stringify(evolution.nameZhHans)}`);
   }
 }
 
@@ -36,7 +38,8 @@ const requiredImplementations = [
   ['consult/consult.js', 'stage.nameZhHans', 'Consult does not resolve Simplified Chinese official names']
 ];
 for (const [file, needle, message] of requiredImplementations) {
-  if (!read(file).includes(needle)) errors.push(`[Missing Tata name integration]\nfile=${file}\nrequirement=${JSON.stringify(message)}`);
+  if (!read(file).includes(needle))
+    errors.push(`[Missing Tata name integration]\nfile=${file}\nrequirement=${JSON.stringify(message)}`);
 }
 
 if (errors.length) {

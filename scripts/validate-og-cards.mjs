@@ -28,9 +28,24 @@ const alternateValue = (html, hreflang) => {
   return tag?.match(/\bhref=["']([^"']+)["']/i)?.[1] || '';
 };
 
-const requiredKeys = ['top', 'tata-tier', 'zombie-rush', 'team-builder', 'treasure-hunt', 'pakuma', 'zombie-rush-chips', 'evolution-trials', 'update-2026-08-30', 'gift-codes', 'summer-party'];
-if (config.pages.length !== requiredKeys.length || Object.keys(config.locales).length !== 3) errors.push(`OG card config must define ${requiredKeys.length} pages and 3 locales.`);
-for (const key of requiredKeys) if (!config.pages.some((page) => page.key === key)) errors.push(`OG card config is missing ${key}.`);
+const requiredKeys = [
+  'top',
+  'tata-tier',
+  'zombie-rush',
+  'team-builder',
+  'treasure-hunt',
+  'pakuma',
+  'zombie-rush-chips',
+  'evolution-trials',
+  'update-2026-08-30',
+  'gift-codes',
+  'summer-party'
+];
+if (config.pages.length !== requiredKeys.length || Object.keys(config.locales).length !== 3)
+  errors.push(`OG card config must define ${requiredKeys.length} pages and 3 locales.`);
+for (const key of requiredKeys)
+  if (!config.pages.some((page) => page.key === key))
+    errors.push(`OG card config is missing ${key}.`);
 
 for (const page of config.pages) {
   for (const [locale, localeConfig] of Object.entries(config.locales)) {
@@ -65,7 +80,9 @@ for (const page of config.pages) {
       [Boolean(alternateValue(html, 'zh-Hans')), 'hreflang=zh-Hans'],
       [Boolean(alternateValue(html, 'x-default')), 'hreflang=x-default']
     ];
-    for (const [passed, label] of checks) if (!passed) errors.push(`${route}: invalid ${label}.`);
+    for (const [passed, label] of checks)
+      if (!passed)
+        errors.push(`${route}: invalid ${label}.`);
 
     if (!imageUrl.startsWith(expectedPrefix) || !/-[a-f0-9]{12}\.png$/.test(imageUrl)) {
       errors.push(`${route}: og:image is not the locale/page-specific absolute hashed URL.`);
@@ -86,7 +103,8 @@ for (const page of config.pages) {
 }
 
 const expectedImageCount = config.pages.length * Object.keys(config.locales).length;
-if (seenImages.size !== expectedImageCount) errors.push(`Expected ${expectedImageCount} unique OG images, found ${seenImages.size}.`);
+if (seenImages.size !== expectedImageCount)
+  errors.push(`Expected ${expectedImageCount} unique OG images, found ${seenImages.size}.`);
 
 if (errors.length) {
   console.error(errors.map((error) => `- ${error}`).join('\n'));

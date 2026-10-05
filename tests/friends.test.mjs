@@ -7,18 +7,67 @@ import { createFriendsService, FRIENDS_CONFIG, FriendsError, validatePostBody } 
 import { copyUid, relativeTime } from '../friends/friends.js';
 
 class MemoryStore {
-  constructor(now = () => Date.now()) { this.now = now; this.posts = new Map(); this.rates = new Map(); this.uids = new Map(); }
-  async incrementRateLimit(key) { const value = (this.rates.get(key) || 0) + 1; this.rates.set(key, value); return value; }
-  async reserveUid(key, ttl) { if ((this.uids.get(key) || 0) > this.now()) return false; this.uids.set(key, this.now() + ttl * 1000); return true; }
-  async releaseUid(key) { this.uids.delete(key); }
-  async create(post, ttl) { this.posts.set(post.id, { ...post, expiresAt: this.now() + ttl * 1000 }); }
-  async list({ offset, limit, expiresBefore }) {
-    for (const [id, post] of this.posts) if (Date.parse(post.createdAt) <= expiresBefore || post.expiresAt <= this.now()) this.posts.delete(id);
-    const posts = [...this.posts.values()].sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt)).slice(offset, offset + limit + 1);
-    return { posts: posts.slice(0, limit), hasMore: posts.length > limit, consumed: Math.min(posts.length, limit) };
+  constructor(now = () => Date.now()) {
+
+    this.now = now;
+
+    this.posts = new Map();
+
+    this.rates = new Map();
+
+    this.uids = new Map();
+
   }
-  async get(id) { return this.posts.get(id); }
-  async remove(id) { this.posts.delete(id); }
+  async incrementRateLimit(key) {
+
+    const value = (this.rates.get(key) || 0) + 1;
+
+    this.rates.set(key, value);
+
+    return value;
+
+  }
+  async reserveUid(key, ttl) {
+
+    if ((this.uids.get(key) || 0) > this.now())
+      return false;
+
+    this.uids.set(key, this.now() + ttl * 1000);
+
+    return true;
+
+  }
+  async releaseUid(key) {
+
+    this.uids.delete(key);
+
+  }
+  async create(post, ttl) {
+
+    this.posts.set(post.id, { ...post, expiresAt: this.now() + ttl * 1000 });
+
+  }
+  async list({ offset, limit, expiresBefore }) {
+    for (const [id, post] of this.posts)
+      if (Date.parse(post.createdAt) <= expiresBefore || post.expiresAt <= this.now())
+        this.posts.delete(id);
+    const posts = [...this.posts.values()].sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt)).slice(offset, offset + limit + 1);
+    return {
+      posts: posts.slice(0, limit),
+      hasMore: posts.length > limit,
+      consumed: Math.min(posts.length, limit)
+    };
+  }
+  async get(id) {
+
+    return this.posts.get(id);
+
+  }
+  async remove(id) {
+
+    this.posts.delete(id);
+
+  }
 }
 
 function fixture(start = Date.parse('2026-08-24T00:00:00.000Z')) {
@@ -26,10 +75,20 @@ function fixture(start = Date.parse('2026-08-24T00:00:00.000Z')) {
   let serial = 0;
   const store = new MemoryStore(() => current);
   const service = createFriendsService({
-    store, ipHashSecret: 'i'.repeat(48), adminToken: 'a'.repeat(48), now: () => current,
-    uuid: () => `post-${++serial}`, deleteToken: () => `delete-token-${serial}`
+    store,
+    ipHashSecret: 'i'.repeat(48),
+    adminToken: 'a'.repeat(48),
+    now: () => current,
+    uuid: () => `post-${++serial}`,
+    deleteToken: () => `delete-token-${serial}`
   });
-  return { store, service, advance: (ms) => { current += ms; }, now: () => current };
+  return {
+    store, service, advance: (ms) => {
+
+      current += ms;
+
+    }, now: () => current
+  };
 }
 
 async function rejectsCode(promise, code) {
@@ -65,7 +124,8 @@ test('入力長をサーバー側で制限する', () => {
 });
 
 test('タタレベルは正の整数だけ受け付ける', () => {
-  for (const tataLevel of ['abc', '0', '-1', '1.5']) assert.throws(() => validatePostBody({ uid: 'u', tataLevel }), (error) => error.code === 'INVALID_TATA_LEVEL');
+  for (const tataLevel of ['abc', '0', '-1', '1.5'])
+    assert.throws(() => validatePostBody({ uid: 'u', tataLevel }), (error) => error.code === 'INVALID_TATA_LEVEL');
   assert.equal(validatePostBody({ uid: 'u', tataLevel: '999999' }).tataLevel, 999999);
 });
 
@@ -102,7 +162,8 @@ test('管理tokenで投稿を削除できる', async () => {
 
 test('同一IPは10分で3投稿までに制限する', async () => {
   const { service } = fixture();
-  for (const uid of ['RATE-1', 'RATE-2', 'RATE-3']) await service.create({ uid }, '192.0.2.5');
+  for (const uid of ['RATE-1', 'RATE-2', 'RATE-3'])
+    await service.create({ uid }, '192.0.2.5');
   await rejectsCode(service.create({ uid: 'RATE-4' }, '192.0.2.5'), 'RATE_LIMITED');
 });
 
@@ -140,15 +201,48 @@ test('相対日時を表示する', () => {
 
 test('Clipboard API成功と手動選択fallback', async () => {
   let copied = '';
-  assert.equal(await copyUid('UID-COPY', { writeText: async (value) => { copied = value; } }), true);
+  assert.equal(await copyUid('UID-COPY', {
+    writeText: async (value) => {
+
+      copied = value;
+
+    }
+  }), true);
   assert.equal(copied, 'UID-COPY');
   let selected = false;
-  assert.equal(await copyUid('UID-COPY', null, () => { selected = true; }), false);
+  assert.equal(await copyUid('UID-COPY', null, () => {
+
+    selected = true;
+
+  }), false);
   assert.equal(selected, true);
 });
 
 function responseRecorder() {
-  return { statusCode: 0, headers: {}, payload: null, setHeader(k, v) { this.headers[k] = v; }, status(code) { this.statusCode = code; return this; }, json(payload) { this.payload = payload; return this; } };
+  return {
+    statusCode: 0,
+    headers: {},
+    payload: null,
+    setHeader(k, v) {
+
+      this.headers[k] = v;
+
+    },
+    status(code) {
+
+      this.statusCode = code;
+
+      return this;
+
+    },
+    json(payload) {
+
+      this.payload = payload;
+
+      return this;
+
+    }
+  };
 }
 
 test('Originは本番same-origin・localhostだけを許可する', () => {
@@ -159,9 +253,28 @@ test('Originは本番same-origin・localhostだけを許可する', () => {
 
 test('invalid JSON、oversized body、不正OriginをAPIで拒否する', async () => {
   for (const [request, status, code] of [
-    [{ method: 'POST', url: '/api/friends', headers: { origin: 'http://localhost', host: 'localhost', 'content-type': 'application/json' }, body: '{' }, 400, 'INVALID_JSON'],
-    [{ method: 'POST', url: '/api/friends', headers: { origin: 'http://localhost', host: 'localhost', 'content-length': String(FRIENDS_CONFIG.maxBodyBytes + 1) }, body: '{}' }, 413, 'BODY_TOO_LARGE'],
-    [{ method: 'POST', url: '/api/friends', headers: { origin: 'https://evil.example', host: 'monster-survival.com' }, body: '{}' }, 403, 'ORIGIN_NOT_ALLOWED']
+    [{
+      method: 'POST',
+      url: '/api/friends',
+      headers: { origin: 'http://localhost', host: 'localhost', 'content-type': 'application/json' },
+      body: '{'
+    }, 400, 'INVALID_JSON'],
+    [{
+      method: 'POST',
+      url: '/api/friends',
+      headers: {
+        origin: 'http://localhost',
+        host: 'localhost',
+        'content-length': String(FRIENDS_CONFIG.maxBodyBytes + 1)
+      },
+      body: '{}'
+    }, 413, 'BODY_TOO_LARGE'],
+    [{
+      method: 'POST',
+      url: '/api/friends',
+      headers: { origin: 'https://evil.example', host: 'monster-survival.com' },
+      body: '{}'
+    }, 403, 'ORIGIN_NOT_ALLOWED']
   ]) {
     const response = responseRecorder();
     await handler(request, response);
@@ -172,12 +285,16 @@ test('invalid JSON、oversized body、不正OriginをAPIで拒否する', async 
 
 test('Redis設定不足でもstackを返さず統一503にする', async () => {
   const previous = { url: process.env.KV_REST_API_URL, token: process.env.KV_REST_API_TOKEN };
-  delete process.env.KV_REST_API_URL; delete process.env.KV_REST_API_TOKEN;
+  delete process.env.KV_REST_API_URL;
+
+  delete process.env.KV_REST_API_TOKEN;
   const response = responseRecorder();
   await handler({ method: 'GET', url: '/api/friends', headers: { host: 'localhost' } }, response);
   assert.equal(response.statusCode, 503);
   assert.equal(response.payload.error.code, 'SERVICE_UNAVAILABLE');
   assert.equal('stack' in response.payload.error, false);
-  if (previous.url) process.env.KV_REST_API_URL = previous.url;
-  if (previous.token) process.env.KV_REST_API_TOKEN = previous.token;
+  if (previous.url)
+    process.env.KV_REST_API_URL = previous.url;
+  if (previous.token)
+    process.env.KV_REST_API_TOKEN = previous.token;
 });
