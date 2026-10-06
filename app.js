@@ -193,7 +193,8 @@ function renderCards() {
   $('#resultCount').textContent = `${rows.length}系統 / ${rows.reduce((a, f) => a + f.evolutions.length, 0)}体`;
   $('#cards').innerHTML = rows.length ? rows.map(f => {
     const image = stage1Image(f.id);
-    return `<article class="card catalog-card" data-family="${esc(f.id)}"><a class="catalog-card-link" href="/tata/${encodeURIComponent(f.id)}/" aria-label="${esc(getFamilyDisplayLabel(f))}の個別ページを見る">
+    const prefix = document.documentElement.lang === 'en' ? '/en' : document.documentElement.lang === 'zh-CN' ? '/zh-cn' : '';
+    return `<article class="card catalog-card" data-family="${esc(f.id)}"><a class="catalog-card-link" href="${prefix}/tata/${encodeURIComponent(f.id)}/" aria-label="${esc(getFamilyDisplayLabel(f))}の個別ページを見る">
     <span class="card-image"><img loading="lazy" decoding="async" src="${esc(image.src)}"${responsiveAttrs(image, true)} width="${image.width}" height="${image.height}" alt="${esc(f.evolutions[0].name)}" /></span>
     <div class="card-body"><div class="card-top"><span class="attribute">${attrIcon[f.attribute] || ''} ${esc(f.attribute)}属性</span><span class="source-state">${f.evolutions.length}段階</span></div>
     <h3>${esc(getFamilyDisplayLabel(f))}</h3><div class="card-bottom"><span class="source-state">T1–T${f.evolutions.length}</span><span class="detail-link">詳細</span></div></div></a></article>`

@@ -75,7 +75,7 @@
         "zh-CN": "糖分補給III"
       },
       "rarity": "III",
-      "icon": "/assets/chips/sugar-iii.webp",
+      "icon": "/assets/chips/sugar-iii-wiki-cccd244dc723.webp",
       "effect": {
         "ja": "5秒ごとにエナジーキャンディを4個獲得する。あなたのタタはLv.8までレベルアップできるようになる。",
         "en": "Every 5 seconds, gain 4 Energy Candies. Your Tatari can level up to Lv.8.",
@@ -110,7 +110,8 @@
         ],
         "notes": "",
         "pdfPage": 43
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "bounty-iii",
@@ -120,7 +121,7 @@
         "zh-CN": "賞金稼ぎIII"
       },
       "rarity": "III",
-      "icon": "/assets/chips/bounty-iii.webp",
+      "icon": "/assets/chips/bounty-iii-wiki-d92d159c6645.webp",
       "effect": {
         "ja": "120秒以内に、あなたのタタがゾンビを倒して獲得するエナジーキャンディが4個増加する。あなたのタタはLv.8までレベルアップできるようになる。",
         "en": "For 120 seconds, zombies defeated by your Tatari yield 4 more Energy Candies. Your Tatari can level up to Lv.8.",
@@ -155,7 +156,8 @@
         ],
         "notes": "",
         "pdfPage": 44
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "slot-iv",
@@ -165,7 +167,7 @@
         "zh-CN": "スロット・肆"
       },
       "rarity": "III",
-      "icon": "/assets/chips/slot-iv.webp",
+      "icon": "/assets/chips/slot-iv-wiki-595b89e80845.webp",
       "effect": {
         "ja": "編成中のタタをランダムで4匹獲得する。出陣数が上限に達した場合、未獲得の数に応じて、あなたのタタをランダムでレベルアップさせる。",
         "en": "Gain 4 random deployed Tatari. At the deployment limit, randomly level up your Tatari for each one not gained.",
@@ -200,7 +202,8 @@
         ],
         "notes": "",
         "pdfPage": 45
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "water-iii",
@@ -210,7 +213,7 @@
         "zh-CN": "水の息吹III"
       },
       "rarity": "III",
-      "icon": "/assets/chips/water-iii.webp",
+      "icon": "/assets/chips/water-iii-wiki-4a52980feec7.webp",
       "effect": {
         "ja": "あなたの水属性タタが40%のダメージ増加を獲得する。",
         "en": "Water Tatari gain 40% damage.",
@@ -245,7 +248,8 @@
         ],
         "notes": "",
         "pdfPage": 46
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "fire-iii",
@@ -255,7 +259,7 @@
         "zh-CN": "炎の息吹III"
       },
       "rarity": "III",
-      "icon": "/assets/chips/fire-iii.webp",
+      "icon": "/assets/chips/fire-iii-wiki-81d17e96262f.webp",
       "effect": {
         "ja": "あなたの炎属性タタが40%のダメージ増加を獲得する。",
         "en": "Fire Tatari gain 40% damage.",
@@ -290,7 +294,8 @@
         ],
         "notes": "",
         "pdfPage": 47
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "grass-iii",
@@ -300,7 +305,7 @@
         "zh-CN": "草の息吹III"
       },
       "rarity": "III",
-      "icon": "/assets/chips/grass-iii.webp",
+      "icon": "/assets/chips/grass-iii-wiki-36001dbb8e43.webp",
       "effect": {
         "ja": "あなたの草属性タタが40%のダメージ増加を獲得する。",
         "en": "Grass Tatari gain 40% damage.",
@@ -335,7 +340,8 @@
         ],
         "notes": "",
         "pdfPage": 48
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "rock-iii",
@@ -345,7 +351,7 @@
         "zh-CN": "岩の息吹III"
       },
       "rarity": "III",
-      "icon": "/assets/chips/rock-iii.webp",
+      "icon": "/assets/chips/rock-iii-wiki-80acd44b8a29.webp",
       "effect": {
         "ja": "あなたの岩属性タタが40%のダメージ増加を獲得する。",
         "en": "Rock Tatari gain 40% damage.",
@@ -380,7 +386,8 @@
         ],
         "notes": "",
         "pdfPage": 49
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "lightning-iii",
@@ -390,7 +397,7 @@
         "zh-CN": "雷の息吹III"
       },
       "rarity": "III",
-      "icon": "/assets/chips/lightning-iii.webp",
+      "icon": "/assets/chips/lightning-iii-wiki-510928e6a034.webp",
       "effect": {
         "ja": "あなたの雷属性タタが40%のダメージ増加を獲得する。",
         "en": "Lightning Tatari gain 40% damage.",
@@ -425,7 +432,8 @@
         ],
         "notes": "",
         "pdfPage": 50
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "lawn-care",
@@ -435,7 +443,7 @@
         "zh-CN": "芝生のお手入れ"
       },
       "rarity": "III",
-      "icon": "/assets/chips/lawn-care.webp",
+      "icon": "/assets/chips/lawn-care-wiki-86c543bc19f1.webp",
       "effect": {
         "ja": "マップ下部に芝刈り機が6台出現する。発動後、最初のゾンビ5体（ボスを除く）を倒し、それ以降のゾンビには最大HPの50%のダメージを与える。",
         "en": "Six lawnmowers appear at the bottom. Each defeats the first 5 non-boss zombies it hits, then deals 50% of max HP to later zombies.",
@@ -470,7 +478,8 @@
         ],
         "notes": "",
         "pdfPage": 51
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "horizontal",
@@ -480,7 +489,7 @@
         "zh-CN": "横並び"
       },
       "rarity": "III",
-      "icon": "/assets/chips/horizontal.webp",
+      "icon": "/assets/chips/horizontal-wiki-33243f50488f.webp",
       "effect": {
         "ja": "出陣中のタタのレベルを4にリセットする。",
         "en": "Reset the level of deployed Tatari to Lv.4.",
@@ -514,7 +523,8 @@
         ],
         "notes": "",
         "pdfPage": 52
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "center-debut",
@@ -524,7 +534,7 @@
         "zh-CN": "センターデビュー"
       },
       "rarity": "III",
-      "icon": "/assets/chips/center-debut.webp",
+      "icon": "/assets/chips/center-debut-wiki-3e3f9a46b278.webp",
       "effect": {
         "ja": "ボスゾンビは中央2列にのみ出現する。",
         "en": "Boss zombies appear only in the two center columns.",
@@ -559,7 +569,8 @@
         ],
         "notes": "",
         "pdfPage": 53
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "fate-iii",
@@ -569,7 +580,7 @@
         "zh-CN": "運命に委ねるIII"
       },
       "rarity": "III",
-      "icon": "/assets/chips/fate-iii.webp",
+      "icon": "/assets/chips/fate-iii-wiki-7ad9f32f96e8.webp",
       "effect": {
         "ja": "ランダムで同ランクのチップを1つ獲得し、エナジーキャンディを200個獲得する。",
         "en": "Gain one random chip of the same rank and 200 Energy Candies.",
@@ -604,7 +615,8 @@
         ],
         "notes": "",
         "pdfPage": 54
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "strategic-move",
@@ -614,7 +626,7 @@
         "zh-CN": "戦略的移動"
       },
       "rarity": "III",
-      "icon": "/assets/chips/strategic-move.webp",
+      "icon": "/assets/chips/strategic-move-wiki-778111cf5535.webp",
       "effect": {
         "ja": "タタを移動した後、そのタタの攻撃力と攻撃速度が20秒間20%増加する。",
         "en": "After moving a Tatari, its attack and attack speed rise 20% for 20 seconds.",
@@ -649,7 +661,8 @@
         ],
         "notes": "",
         "pdfPage": 55
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "three-four-five",
@@ -659,7 +672,7 @@
         "zh-CN": "三四五"
       },
       "rarity": "III",
-      "icon": "/assets/chips/three-four-five.webp",
+      "icon": "/assets/chips/three-four-five-wiki-46d2be40076f.webp",
       "effect": {
         "ja": "初めてLv.4のタタが3体同時に場にいるとき、全員をLv.5にする。",
         "en": "The first time three Lv.4 Tatari are present together, level all three to Lv.5.",
@@ -693,7 +706,8 @@
         ],
         "notes": "",
         "pdfPage": 56
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "sugar-ii",
@@ -703,7 +717,7 @@
         "zh-CN": "糖分補給II"
       },
       "rarity": "II",
-      "icon": "/assets/chips/sugar-ii.webp",
+      "icon": "/assets/chips/sugar-ii-wiki-0ea11d962428.webp",
       "effect": {
         "ja": "5秒ごとにエナジーキャンディを3個獲得する。あなたのタタはLv.8までレベルアップできるようになる。",
         "en": "Every 5 seconds, gain 3 Energy Candies. Your Tatari can level up to Lv.8.",
@@ -738,7 +752,8 @@
         ],
         "notes": "",
         "pdfPage": 57
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "bounty-ii",
@@ -748,7 +763,7 @@
         "zh-CN": "賞金稼ぎII"
       },
       "rarity": "II",
-      "icon": "/assets/chips/bounty-ii.webp",
+      "icon": "/assets/chips/bounty-ii-wiki-59976c724502.webp",
       "effect": {
         "ja": "120秒以内に、あなたのタタがゾンビを倒して獲得するエナジーキャンディが3個増加する。あなたのタタはLv.8までレベルアップできるようになる。",
         "en": "For 120 seconds, zombies defeated by your Tatari yield 3 more Energy Candies. Your Tatari can level up to Lv.8.",
@@ -783,7 +798,8 @@
         ],
         "notes": "",
         "pdfPage": 58
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "slot-iii",
@@ -793,7 +809,7 @@
         "zh-CN": "スロット・参"
       },
       "rarity": "II",
-      "icon": "/assets/chips/slot-iii.webp",
+      "icon": "/assets/chips/slot-iii-wiki-749df7dc26a9.webp",
       "effect": {
         "ja": "編成中のタタをランダムで3匹獲得する。出陣数が上限に達した場合、未獲得の数に応じて、あなたのタタをランダムでレベルアップさせる。",
         "en": "Gain 3 random deployed Tatari. At the deployment limit, randomly level up your Tatari for each one not gained.",
@@ -828,7 +844,8 @@
         ],
         "notes": "",
         "pdfPage": 59
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "water-ii",
@@ -838,7 +855,7 @@
         "zh-CN": "水の息吹II"
       },
       "rarity": "II",
-      "icon": "/assets/chips/water-ii.webp",
+      "icon": "/assets/chips/water-ii-wiki-4b883970fd01.webp",
       "effect": {
         "ja": "あなたの水属性タタが30%のダメージ増加を獲得する。",
         "en": "Water Tatari gain 30% damage.",
@@ -873,7 +890,8 @@
         ],
         "notes": "",
         "pdfPage": 60
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "fire-ii",
@@ -883,7 +901,7 @@
         "zh-CN": "炎の息吹II"
       },
       "rarity": "II",
-      "icon": "/assets/chips/fire-ii.webp",
+      "icon": "/assets/chips/fire-ii-wiki-6574c87b82df.webp",
       "effect": {
         "ja": "あなたの炎属性タタが30%のダメージ増加を獲得する。",
         "en": "Fire Tatari gain 30% damage.",
@@ -918,7 +936,8 @@
         ],
         "notes": "",
         "pdfPage": 61
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "grass-ii",
@@ -928,7 +947,7 @@
         "zh-CN": "草の息吹II"
       },
       "rarity": "II",
-      "icon": "/assets/chips/grass-ii.webp",
+      "icon": "/assets/chips/grass-ii-wiki-a79e4de4220a.webp",
       "effect": {
         "ja": "あなたの草属性タタが30%のダメージ増加を獲得する。",
         "en": "Grass Tatari gain 30% damage.",
@@ -963,7 +982,8 @@
         ],
         "notes": "",
         "pdfPage": 62
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "rock-ii",
@@ -973,7 +993,7 @@
         "zh-CN": "岩の息吹II"
       },
       "rarity": "II",
-      "icon": "/assets/chips/rock-ii-d27266e7e6f3.webp",
+      "icon": "/assets/chips/rock-ii-wiki-229078656f23.webp",
       "effect": {
         "ja": "あなたの岩属性タタが30%のダメージ増加を獲得する。",
         "en": "Rock Tatari gain 30% damage.",
@@ -1008,7 +1028,8 @@
         ],
         "notes": "",
         "pdfPage": 63
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "lightning-ii",
@@ -1018,7 +1039,7 @@
         "zh-CN": "雷の息吹II"
       },
       "rarity": "II",
-      "icon": "/assets/chips/lightning-ii-adb75288a7f7.webp",
+      "icon": "/assets/chips/lightning-ii-wiki-ab54f6ba0116.webp",
       "effect": {
         "ja": "あなたの雷属性タタが30%のダメージ増加を獲得する。",
         "en": "Lightning Tatari gain 30% damage.",
@@ -1053,7 +1074,8 @@
         ],
         "notes": "",
         "pdfPage": 64
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "glass-cannon",
@@ -1063,7 +1085,7 @@
         "zh-CN": "ガラス大砲"
       },
       "rarity": "II",
-      "icon": "/assets/chips/glass-cannon-6964d4975725.webp",
+      "icon": "/assets/chips/glass-cannon-wiki-d4218dc599f9.webp",
       "effect": {
         "ja": "あなたのタタ全員の攻撃力が25%増加し、最大HPが10%減少する。",
         "en": "All Tatari gain 25% attack but lose 10% max HP.",
@@ -1098,7 +1120,8 @@
         ],
         "notes": "",
         "pdfPage": 65
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "boss-killer",
@@ -1108,7 +1131,7 @@
         "zh-CN": "ボスキラー"
       },
       "rarity": "II",
-      "icon": "/assets/chips/boss-killer-1eea45bf2c0c.webp",
+      "icon": "/assets/chips/boss-killer-wiki-64a4579f0ac8.webp",
       "effect": {
         "ja": "ボスゾンビに与えるダメージが25%増加する。",
         "en": "Damage dealt to boss zombies rises 25%.",
@@ -1142,7 +1165,8 @@
         ],
         "notes": "",
         "pdfPage": 66
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "maverick",
@@ -1152,7 +1176,7 @@
         "zh-CN": "マーベリック"
       },
       "rarity": "II",
-      "icon": "/assets/chips/maverick.webp",
+      "icon": "/assets/chips/maverick-wiki-3e5126fec946.webp",
       "effect": {
         "ja": "あなたのタタの隣接マスに味方がいない場合、そのタタの攻撃力、最大HP、防御力が20%増加する。",
         "en": "If a Tatari has no allied Tatari in adjacent squares, it gains 20% attack, max HP and defense.",
@@ -1188,7 +1212,8 @@
         ],
         "notes": "",
         "pdfPage": 67
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "back-shooter",
@@ -1198,7 +1223,7 @@
         "zh-CN": "バックシューター"
       },
       "rarity": "II",
-      "icon": "/assets/chips/back-shooter.webp",
+      "icon": "/assets/chips/back-shooter-wiki-2a65d4f88d22.webp",
       "effect": {
         "ja": "あなたの後ろ2列のタタの攻撃速度が30%増加する。",
         "en": "Tatari in the back two rows gain 30% attack speed.",
@@ -1233,7 +1258,8 @@
         ],
         "notes": "",
         "pdfPage": 68
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "rear-support",
@@ -1243,7 +1269,7 @@
         "zh-CN": "後方支援"
       },
       "rarity": "II",
-      "icon": "/assets/chips/rear-support.webp",
+      "icon": "/assets/chips/rear-support-wiki-61e3b689dff1.webp",
       "effect": {
         "ja": "前方にタタが1匹しかいない場合、ダメージが30%増加する。",
         "en": "If only one Tatari is ahead, its damage rises 30%.",
@@ -1278,7 +1304,8 @@
         ],
         "notes": "",
         "pdfPage": 69
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "upgrade",
@@ -1288,7 +1315,7 @@
         "zh-CN": "アップグレード"
       },
       "rarity": "II",
-      "icon": "/assets/chips/upgrade.webp",
+      "icon": "/assets/chips/upgrade-wiki-5fcc0d335818.webp",
       "effect": {
         "ja": "あなたの場にいるLv.3以下のタタ全員をランダムで編成内のタタへ入れ替え、Lv.を1アップさせる。",
         "en": "Randomly reroll all deployed Tatari at Lv.3 or below, then raise their level by 1.",
@@ -1323,7 +1350,8 @@
         ],
         "notes": "",
         "pdfPage": 70
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "shuffle",
@@ -1333,7 +1361,7 @@
         "zh-CN": "シャッフル"
       },
       "rarity": "II",
-      "icon": "/assets/chips/shuffle.webp",
+      "icon": "/assets/chips/shuffle-wiki-ae2f3abb35f4.webp",
       "effect": {
         "ja": "あなたの場にいるタタ全員をランダムで編成内のタタと入れ替え、エナジーキャンディを600個獲得する。",
         "en": "Randomly reroll every deployed Tatari, then gain 600 Energy Candies.",
@@ -1368,7 +1396,8 @@
         ],
         "notes": "",
         "pdfPage": 71
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "adverse-attribute",
@@ -1378,7 +1407,7 @@
         "zh-CN": "下剋上"
       },
       "rarity": "II",
-      "icon": "/assets/chips/adverse-attribute.webp",
+      "icon": "/assets/chips/adverse-attribute-wiki-68ca68080aa9.webp",
       "effect": {
         "ja": "自分の属性が敵に不利な場合でも、有利として扱う。",
         "en": "Treat your attribute as advantageous even when it is disadvantaged against the enemy.",
@@ -1413,7 +1442,8 @@
         ],
         "notes": "",
         "pdfPage": 72
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "and-one",
@@ -1423,7 +1453,7 @@
         "zh-CN": "アンドワン"
       },
       "rarity": "II",
-      "icon": "/assets/chips/and-one.webp",
+      "icon": "/assets/chips/and-one-wiki-635d6a77f388.webp",
       "effect": {
         "ja": "あなたの編成上限が1増加し、エナジーキャンディを250個獲得する。",
         "en": "Increase the deployment limit by 1 and gain 250 Energy Candies.",
@@ -1458,7 +1488,8 @@
         ],
         "notes": "",
         "pdfPage": 73
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "undeployed-tatari",
@@ -1468,7 +1499,7 @@
         "zh-CN": "未編成タタ"
       },
       "rarity": "II",
-      "icon": "/assets/chips/undeployed-tatari.webp",
+      "icon": "/assets/chips/undeployed-tatari-wiki-b4fc2f3e853d.webp",
       "effect": {
         "ja": "あなたの編成中のタタをランダムで1匹召喚する。そのタタはLv.3固定で、レベルアップ不可・復活不可・出陣上限を消費しない。",
         "en": "Summon one random Tatari not in your lineup at fixed Lv.3. It cannot level up, revive or consume the deployment limit.",
@@ -1504,7 +1535,8 @@
         ],
         "notes": "",
         "pdfPage": 74
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "fate-ii",
@@ -1514,7 +1546,7 @@
         "zh-CN": "運命に委ねるII"
       },
       "rarity": "II",
-      "icon": "/assets/chips/fate-ii.webp",
+      "icon": "/assets/chips/fate-ii-wiki-31fb04fe2052.webp",
       "effect": {
         "ja": "ランダムで同ランクのチップを1つ獲得し、エナジーキャンディを150個獲得する。",
         "en": "Gain one random chip of the same rank and 150 Energy Candies.",
@@ -1549,7 +1581,8 @@
         ],
         "notes": "",
         "pdfPage": 75
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "river-boundary",
@@ -1559,7 +1592,7 @@
         "zh-CN": "川の境界線"
       },
       "rarity": "II",
-      "icon": "/assets/chips/river-boundary.webp",
+      "icon": "/assets/chips/river-boundary-wiki-17085c15a685.webp",
       "effect": {
         "ja": "川の上にいるゾンビの移動速度が40%減少する。",
         "en": "Zombies on the river move 40% slower.",
@@ -1594,7 +1627,8 @@
         ],
         "notes": "",
         "pdfPage": 76
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "bucket-theory",
@@ -1604,7 +1638,7 @@
         "zh-CN": "バケツ理論"
       },
       "rarity": "II",
-      "icon": "/assets/chips/bucket-theory.webp",
+      "icon": "/assets/chips/bucket-theory-wiki-092e55aeb808.webp",
       "effect": {
         "ja": "あなたの出陣しているタタの中で、最も少ない属性のタタの攻撃力、防御力、攻撃速度が10%増加する。最も少ない属性が複数存在する場合は、そのすべてに適用される。",
         "en": "The least represented attribute among deployed Tatari gains 10% attack, defense and attack speed. Ties apply to every tied attribute.",
@@ -1640,7 +1674,8 @@
         ],
         "notes": "",
         "pdfPage": 77
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "sugar-i",
@@ -1650,7 +1685,7 @@
         "zh-CN": "糖分補給I"
       },
       "rarity": "I",
-      "icon": "/assets/chips/sugar-i.webp",
+      "icon": "/assets/chips/sugar-i-wiki-4b44e6ffe373.webp",
       "effect": {
         "ja": "5秒ごとにエナジーキャンディを2個獲得する。あなたのタタはLv.8までレベルアップできるようになる。",
         "en": "Every 5 seconds, gain 2 Energy Candies. Your Tatari can level up to Lv.8.",
@@ -1685,7 +1720,8 @@
         ],
         "notes": "",
         "pdfPage": 78
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "bounty-i",
@@ -1695,7 +1731,7 @@
         "zh-CN": "賞金稼ぎI"
       },
       "rarity": "I",
-      "icon": "/assets/chips/bounty-i.webp",
+      "icon": "/assets/chips/bounty-i-wiki-198b031024f7.webp",
       "effect": {
         "ja": "120秒以内に、あなたのタタがゾンビを倒して獲得するエナジーキャンディが2個増加する。あなたのタタはLv.8までレベルアップできるようになる。",
         "en": "For 120 seconds, zombies defeated by your Tatari yield 2 more Energy Candies. Your Tatari can level up to Lv.8.",
@@ -1730,7 +1766,8 @@
         ],
         "notes": "",
         "pdfPage": 79
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "slot-ii",
@@ -1740,7 +1777,7 @@
         "zh-CN": "スロット・弐"
       },
       "rarity": "I",
-      "icon": "/assets/chips/slot-ii.webp",
+      "icon": "/assets/chips/slot-ii-wiki-4866b9e0e055.webp",
       "effect": {
         "ja": "編成中のタタをランダムで2匹獲得する。出陣数が上限に達した場合、未獲得の数に応じて、あなたのタタをランダムでレベルアップさせる。",
         "en": "Gain 2 random deployed Tatari. At the deployment limit, randomly level up your Tatari for each one not gained.",
@@ -1775,7 +1812,8 @@
         ],
         "notes": "",
         "pdfPage": 80
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "slack-off",
@@ -1785,7 +1823,7 @@
         "zh-CN": "サボる"
       },
       "rarity": "I",
-      "icon": "/assets/chips/slack-off.webp",
+      "icon": "/assets/chips/slack-off-wiki-3f4ede08a686.webp",
       "effect": {
         "ja": "強制オート戦闘モード（90秒間）になり、エナジーキャンディを300個獲得する。",
         "en": "Enter forced auto-battle for 90 seconds and gain 300 Energy Candies.",
@@ -1820,7 +1858,8 @@
         ],
         "notes": "",
         "pdfPage": 81
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "water-i",
@@ -1830,7 +1869,7 @@
         "zh-CN": "水の息吹I"
       },
       "rarity": "I",
-      "icon": "/assets/chips/water-i.webp",
+      "icon": "/assets/chips/water-i-wiki-d562cb83ac7f.webp",
       "effect": {
         "ja": "あなたの水属性タタが20%のダメージ増加を獲得する。",
         "en": "Water Tatari gain 20% damage.",
@@ -1865,7 +1904,8 @@
         ],
         "notes": "",
         "pdfPage": 82
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "fire-i",
@@ -1875,7 +1915,7 @@
         "zh-CN": "炎の息吹I"
       },
       "rarity": "I",
-      "icon": "/assets/chips/fire-i.webp",
+      "icon": "/assets/chips/fire-i-wiki-45e237055633.webp",
       "effect": {
         "ja": "あなたの炎属性タタが20%のダメージ増加を獲得する。",
         "en": "Fire Tatari gain 20% damage.",
@@ -1910,7 +1950,8 @@
         ],
         "notes": "",
         "pdfPage": 83
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "grass-i",
@@ -1920,7 +1961,7 @@
         "zh-CN": "草の息吹I"
       },
       "rarity": "I",
-      "icon": "/assets/chips/grass-i.webp",
+      "icon": "/assets/chips/grass-i-wiki-7a60c8717078.webp",
       "effect": {
         "ja": "あなたの草属性タタが20%のダメージ増加を獲得する。",
         "en": "Grass Tatari gain 20% damage.",
@@ -1955,7 +1996,8 @@
         ],
         "notes": "",
         "pdfPage": 84
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "rock-i",
@@ -1965,7 +2007,7 @@
         "zh-CN": "岩の息吹I"
       },
       "rarity": "I",
-      "icon": "/assets/chips/rock-i.webp",
+      "icon": "/assets/chips/rock-i-wiki-6c57f09466cf.webp",
       "effect": {
         "ja": "あなたの岩属性タタが20%のダメージ増加を獲得する。",
         "en": "Rock Tatari gain 20% damage.",
@@ -2000,7 +2042,8 @@
         ],
         "notes": "",
         "pdfPage": 85
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "lightning-i",
@@ -2010,7 +2053,7 @@
         "zh-CN": "雷の息吹I"
       },
       "rarity": "I",
-      "icon": "/assets/chips/lightning-i.webp",
+      "icon": "/assets/chips/lightning-i-wiki-2023c4f5bf0a.webp",
       "effect": {
         "ja": "あなたの雷属性タタが20%のダメージ増加を獲得する。",
         "en": "Lightning Tatari gain 20% damage.",
@@ -2045,7 +2088,8 @@
         ],
         "notes": "",
         "pdfPage": 86
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "wall",
@@ -2055,7 +2099,7 @@
         "zh-CN": "城壁"
       },
       "rarity": "I",
-      "icon": "/assets/chips/wall.webp",
+      "icon": "/assets/chips/wall-wiki-8e35a1a2bf64.webp",
       "effect": {
         "ja": "あなたの前2列のタタの最大HPと防御力が40%増加し、与えるダメージが10%減少する。",
         "en": "Tatari in the front two rows gain 40% max HP and defense, but deal 10% less damage.",
@@ -2091,7 +2135,8 @@
         ],
         "notes": "",
         "pdfPage": 87
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "bandage",
@@ -2101,7 +2146,7 @@
         "zh-CN": "バンテージ"
       },
       "rarity": "I",
-      "icon": "/assets/chips/bandage.webp",
+      "icon": "/assets/chips/bandage-wiki-06222fb60ea7.webp",
       "effect": {
         "ja": "あなたの前2列のタタが4秒ごとに失ったHPの15%を回復する。",
         "en": "Tatari in the front two rows recover 15% of lost HP every 4 seconds.",
@@ -2136,7 +2181,8 @@
         ],
         "notes": "",
         "pdfPage": 88
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "parting-gift",
@@ -2146,7 +2192,7 @@
         "zh-CN": "別れの贈り物"
       },
       "rarity": "I",
-      "icon": "/assets/chips/parting-gift.webp",
+      "icon": "/assets/chips/parting-gift-wiki-5fe1551225e2.webp",
       "effect": {
         "ja": "あなたのタタが1体倒れるたびにエナジーキャンディを200個獲得する。",
         "en": "Gain 200 Energy Candies whenever one of your Tatari is defeated.",
@@ -2181,7 +2227,8 @@
         ],
         "notes": "",
         "pdfPage": 89
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "fate-i",
@@ -2191,7 +2238,7 @@
         "zh-CN": "運命に委ねるI"
       },
       "rarity": "I",
-      "icon": "/assets/chips/fate-i.webp",
+      "icon": "/assets/chips/fate-i-wiki-9477cac46f16.webp",
       "effect": {
         "ja": "ランダムで同ランクのチップを1つ獲得し、エナジーキャンディを100個獲得する。",
         "en": "Gain one random chip of the same rank and 100 Energy Candies.",
@@ -2226,7 +2273,8 @@
         ],
         "notes": "",
         "pdfPage": 90
-      }
+      },
+      "iconStatus": "verified"
     },
     {
       "id": "reset",
@@ -2236,7 +2284,7 @@
         "zh-CN": "リセット"
       },
       "rarity": "I",
-      "icon": "/assets/chips/reset.webp",
+      "icon": "/assets/chips/reset-wiki-104093860fb6.webp",
       "effect": {
         "ja": "場にいるあなたのタタ全員を回収し、回収したタタ1体につきエナジーキャンディを200個獲得する。",
         "en": "Recall all your deployed Tatari and gain 200 Energy Candies for each recalled Tatari.",
@@ -2271,7 +2319,16 @@
         ],
         "notes": "",
         "pdfPage": 91
-      }
+      },
+      "iconStatus": "verified"
     }
-  ]
+  ],
+  "iconSource": {
+    "sourceType": "public_wiki",
+    "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+    "retrievedAt": "2026-10-06",
+    "thirdPartyLicenseStatus": "unconfirmed",
+    "termsUrl": "https://atwiki.jp/tos",
+    "userAuthorization": "Explicit request to replace all 49 chip images from the public Wiki"
+  }
 }

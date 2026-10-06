@@ -49,3 +49,7 @@ UI修正: 図鑑カードの余白を含む全体を個別詳細へのネイテ�
 ローカルレビューcommit: fix/ui-chip-audit-20261006。最終保存時にworking tree cleanを確認。437変更ファイルには全411 HTMLのasset-version同期を含む。保護対象のゲーム/チップ/従来Tier正本、広告設定、編成core、promoにcommit差分なし。ローカルQA用127.0.0.1:8765のLISTENは最終netstat確認時に存在しなかった。一時ブラウザviewport overrideのresetは操作ツール不在により未確認。
 
 権限/取得診断：git実行時にC:\Users\asahi/.config/git/ignoreのPermission denied警告が出たが、commit・status・テストは成功。サンドボックス内のGet-CimInstance Win32_Process読取はアクセス拒否となり、権限付きの同読取にも識別可能な結果がなく、未知のNodeプロセスは停止していない。HTTP403のWiki取得を偽装User-Agent/認証/別経路で回避していない。ブラウザ素材取得は、アクセスできていた通常表示ページからの依頼済み保存として実施。
+
+本番反映準備の追記（2026-10-06）：ユーザーの「反映して」を受け最新main 7944c7b14e46bce9b1dfe72eb794c496ab313ba7を統合。mainで別途完了していた図鑑修正7c49a70dとチップ49画像・8誤対応修正7944c7b1を保持。上記の素材未比較・未採用という記載はこの作業の統合前の経過であり、現在のチップ対応状況は docs/evidence/chip-correspondence-2026-10-06.md/.json を参照。第三者転載条件は同記録でもunconfirmedのまま。EN/zh-CN図鑑リンクの言語prefixとチップ回帰テストを保持し、最終CSSと役割別Tierの生成・全検査を再実施する。
+
+統合後の最終検査：38スクリプト群・408テスト・失敗0、生成A=B/B=C成功、npm.cmd run validate全項目成功、最新mainに対する追加差分のgit diff --check成功。asset version e12c2af44463。ログ：task/tests-merged.log、validation-merged.log、generation-merged.log。最新mainから取り込んだチップ正本・49WebP・編成処理・チップ一覧処理・広告/GA4設定は今回の追加差分0。実ブラウザ未確認と3名称確認中は継続。

@@ -74,7 +74,7 @@
     "test:treasure-hunt": "node --test tests/treasure-hunt.test.mjs",
     "test:feeding": "node --test tests/feeding.test.mjs",
     "test:i18n": "node --test tests/i18n.test.mjs",
-    "test:pdf-evidence": "node --test tests/pdf-evidence.test.mjs",
+    "test:pdf-evidence": "node --test tests/pdf-evidence.test.mjs tests/chip-correspondence.test.mjs",
     "test:og": "node --test tests/og-cards.test.mjs",
     "test:gift-codes": "node --test tests/gift-codes.test.mjs",
     "test:summer-party": "node --test tests/summer-party.test.mjs",
