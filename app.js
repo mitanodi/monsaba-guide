@@ -193,26 +193,12 @@ function renderCards() {
   $('#resultCount').textContent = `${rows.length}系統 / ${rows.reduce((a, f) => a + f.evolutions.length, 0)}体`;
   $('#cards').innerHTML = rows.length ? rows.map(f => {
     const image = stage1Image(f.id);
-    return `<article class="card catalog-card" tabindex="0" data-family="${esc(f.id)}" aria-label="${esc(getFamilyDisplayLabel(f))}を比較表示">
-    <a class="card-image" href="/tata/${encodeURIComponent(f.id)}/"><img loading="lazy" decoding="async" src="${esc(image.src)}"${responsiveAttrs(image, true)} width="${image.width}" height="${image.height}" alt="${esc(f.evolutions[0].name)}" /></a>
+    const prefix = document.documentElement.lang === 'en' ? '/en' : document.documentElement.lang === 'zh-CN' ? '/zh-cn' : '';
+    return `<article class="card catalog-card" data-family="${esc(f.id)}"><a class="catalog-card-link" href="${prefix}/tata/${encodeURIComponent(f.id)}/" aria-label="${esc(getFamilyDisplayLabel(f))}の個別ページを見る">
+    <span class="card-image"><img loading="lazy" decoding="async" src="${esc(image.src)}"${responsiveAttrs(image, true)} width="${image.width}" height="${image.height}" alt="${esc(f.evolutions[0].name)}" /></span>
     <div class="card-body"><div class="card-top"><span class="attribute">${attrIcon[f.attribute] || ''} ${esc(f.attribute)}属性</span><span class="source-state">${f.evolutions.length}段階</span></div>
-    <h3><a href="/tata/${encodeURIComponent(f.id)}/">${esc(getFamilyDisplayLabel(f))}</a></h3><div class="card-bottom"><span class="source-state">T1–T${f.evolutions.length}</span><a class="detail-link" href="/tata/${encodeURIComponent(f.id)}/" aria-label="${esc(getFamilyDisplayLabel(f))}の個別ページを見る">詳細</a></div></div></article>`
+    <h3>${esc(getFamilyDisplayLabel(f))}</h3><div class="card-bottom"><span class="source-state">T1–T${f.evolutions.length}</span><span class="detail-link">詳細</span></div></div></a></article>`
   }).join('') : '<div class="empty">条件に合うタタがありません。検索語や属性を変えてください。</div>';
-  $('#cards').querySelectorAll('.card').forEach(card => {
-    const go = e => {
-      if (e?.target?.closest('.detail-link'))
-        return;
-      selectFamily(card.dataset.family, true);
-      $('#compare').scrollIntoView({ behavior: 'smooth', block: 'start' })
-    };
-    card.addEventListener('click', go);
-    card.addEventListener('keydown', e => {
-      if ((e.key === 'Enter' || e.key === ' ') && !e.target.closest('.detail-link')) {
-        e.preventDefault();
-        go(e)
-      }
-    })
-  });
 }
 function renderSelect() {
   $('#familySelect').innerHTML = state.families.map(f => `<option value="${esc(f.id)}">${attrIcon[f.attribute] || ''} ${esc(getFamilyDisplayLabel(f))}</option>`).join('');
