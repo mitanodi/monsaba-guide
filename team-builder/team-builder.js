@@ -571,7 +571,7 @@ function renderChipResults() {
 
   const selectedIds = new Set(team.chips[currentPlayer]);
   const rows = chips.filter((chip) => !query || `${chipName(chip)} ${chip.name?.ja || ''} ${chipEffect(chip)}`.toLocaleLowerCase().includes(query));
-  node.innerHTML = rows.map((chip) => `<button type="button" class="formation-chip-option${selectedIds.has(chip.id) ? ' is-selected' : ''}" data-chip-id="${esc(chip.id)}" aria-pressed="${selectedIds.has(chip.id)}" title="${esc(chipEffect(chip))}"><img loading="lazy" decoding="async" src="${esc(chip.icon)}" width="48" height="48" alt=""><span>${esc(chipName(chip))}</span></button>`).join('') || `<p>${esc(COPY.noChips)}</p>`;
+  node.innerHTML = rows.map((chip) => `<button type="button" class="formation-chip-option${selectedIds.has(chip.id) ? ' is-selected' : ''}" data-chip-id="${esc(chip.id)}" aria-pressed="${selectedIds.has(chip.id)}" title="${esc(chipEffect(chip))}"><img loading="lazy" decoding="async" src="${esc(chip.icon)}" width="48" height="48" alt=""><span>${esc(chipName(chip))}${chip.iconStatus === 'pending' ? `<small> · ${esc(COPY.placeholder)}</small>` : ''}</span></button>`).join('') || `<p>${esc(COPY.noChips)}</p>`;
 }
 
 function renderChipSettings() {
@@ -589,7 +589,7 @@ function renderChipSettings() {
   node.hidden = false;
   const players = PLAYER_IDS.map((id) => {
     const selectedChips = team.chips[id].map((chipId) => chipById.get(chipId)).filter(Boolean);
-    const items = selectedChips.map((chip) => `<button type="button" class="formation-chip-selected" data-chip-id="${esc(chip.id)}" data-chip-player="${id}" aria-label="${esc(message(COPY.chipRemove, { name: chipName(chip) }))}"><img src="${esc(chip.icon)}" width="40" height="40" alt=""><span>${esc(chipName(chip))}</span><b aria-hidden="true">−</b></button>`).join('');
+    const items = selectedChips.map((chip) => `<button type="button" class="formation-chip-selected" data-chip-id="${esc(chip.id)}" data-chip-player="${id}" aria-label="${esc(message(COPY.chipRemove, { name: chipName(chip) }))}"><img src="${esc(chip.icon)}" width="40" height="40" alt=""><span>${esc(chipName(chip))}${chip.iconStatus === 'pending' ? `<small> · ${esc(COPY.placeholder)}</small>` : ''}</span><b aria-hidden="true">−</b></button>`).join('');
     return `<section class="formation-chip-player is-player-${id}${currentPlayer === id ? ' is-current' : ''}"><div class="formation-chip-player-head"><button type="button" data-current-player="${id}" aria-pressed="${currentPlayer === id}"><b>${esc(message(COPY.chipsForPlayer, { player: id }))}</b></button><span>${esc(message(COPY.chipCount, { count: selectedChips.length }))}</span></div><div class="formation-chip-selected-list">${items}</div></section>`;
   }).join('');
   node.innerHTML = `<div class="formation-chip-heading"><h3>${esc(COPY.chips)}</h3><p>${esc(message(COPY.chipCount, { count: team.chips[currentPlayer].length }))}</p></div><div class="formation-chip-player-grid">${players}</div><label class="formation-chip-search">${esc(COPY.chipSearch)}<input id="team-chip-search" type="search" autocomplete="off" value="${esc(chipQuery)}" placeholder="${esc(COPY.chipSearchPlaceholder)}"></label><div id="team-chip-results" class="formation-chip-options"></div>`;
@@ -1094,7 +1094,10 @@ async function exportImage() {
 
           await image.decode();
 
-          context.drawImage(image, baseX + chipIndex * 42, 119 + detailOffset, 34, 34);
+          const scale = Math.min(34 / image.naturalWidth, 34 / image.naturalHeight);
+          const width = image.naturalWidth * scale;
+          const height = image.naturalHeight * scale;
+          context.drawImage(image, baseX + chipIndex * 42 + (34 - width) / 2, 119 + detailOffset + (34 - height) / 2, width, height);
 
         } catch { /* omit unavailable chip image */ }
       }

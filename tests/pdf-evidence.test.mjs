@@ -77,12 +77,12 @@ test('target pages keep their current evidence dateModified in all three languag
   }
 });
 
-test('four corrected chip icons keep their ID, display name, hashed asset and 96px dimensions', async () => {
+test('four previously corrected chip IDs keep their names and verified Wiki asset references', async () => {
   const expected = {
-    'rock-ii': ['岩の息吹II', 'rock-ii-d27266e7e6f3.webp'],
-    'lightning-ii': ['雷の息吹II', 'lightning-ii-adb75288a7f7.webp'],
-    'glass-cannon': ['ガラス大砲', 'glass-cannon-6964d4975725.webp'],
-    'boss-killer': ['ボスキラー', 'boss-killer-1eea45bf2c0c.webp']
+    'rock-ii': ['岩の息吹II', 'rock-ii-wiki-229078656f23.webp'],
+    'lightning-ii': ['雷の息吹II', 'lightning-ii-wiki-ab54f6ba0116.webp'],
+    'glass-cannon': ['ガラス大砲', 'glass-cannon-wiki-d4218dc599f9.webp'],
+    'boss-killer': ['ボスキラー', 'boss-killer-wiki-64a4579f0ac8.webp']
   };
   const chipsById = new Map(chips.chips.map((chip) => [chip.id, chip]));
   for (const [id, [displayName, fileName]] of Object.entries(expected)) {
@@ -94,7 +94,7 @@ test('four corrected chip icons keep their ID, display name, hashed asset and 96
     const digest = createHash('sha256').update(bytes).digest('hex');
     assert.equal(fileName.endsWith(`${digest.slice(0, 12)}.webp`), true, `${id}: stale asset hash`);
     const metadata = await sharp(bytes).metadata();
-    assert.equal(metadata.width, 96, `${id}: width`);
-    assert.equal(metadata.height, 96, `${id}: height`);
+    assert.ok(metadata.width > 96, `${id}: full Wiki card width`);
+    assert.ok(metadata.height > metadata.width, `${id}: full Wiki card aspect ratio`);
   }
 });

@@ -1,0 +1,1791 @@
+{
+  "observedAt": "2026-10-06",
+  "baseCommit": "7c49a70dbdc54363dd0fe8ddce2e3ef3ccad19b9",
+  "referenceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+  "wikiLastUpdated": "2026-09-27 22:55",
+  "termsUrl": "https://atwiki.jp/tos",
+  "materialsUrl": "https://w.atwiki.jp/monstersurvival/pages/26.html",
+  "reusePermission": "User explicitly requested all 49 images; third-party license permission remains unconfirmed. atwiki general terms prohibit unauthorized use; no chip-specific ban was found on the reviewed source/material pages.",
+  "gameplayBaselineSha256": "52fb9307979527c701bb92983e044ad31aebd1f6bc1d8512a01a7869c849427e",
+  "rows": [
+    {
+      "id": "sugar-iii",
+      "name": "糖分補給III",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1795/%E7%B3%96%E5%88%86%E8%A3%9C%E7%B5%A63.webp",
+      "wikiTableRow": 1,
+      "pdfEffectPage": 43,
+      "beforeIcon": "/assets/chips/sugar-iii.webp",
+      "beforeSha256": "df350be816683fc689cfe569a1319429509fddb7b16c367b12d1f38eecf621cd",
+      "beforeArtwork": "sugar-iii",
+      "afterIcon": "/assets/chips/sugar-iii-wiki-cccd244dc723.webp",
+      "afterSha256": "cccd244dc723c789699ae577a4326e778b5b39772dcfddb6288d70859103b005",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "5",
+        "4",
+        "8"
+      ],
+      "wikiNumbers": [
+        "5",
+        "4",
+        "8"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1795/%E7%B3%96%E5%88%86%E8%A3%9C%E7%B5%A63.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "cccd244dc723c789699ae577a4326e778b5b39772dcfddb6288d70859103b005",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "bounty-iii",
+      "name": "賞金稼ぎIII",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1195/%E8%B3%9E%E9%87%91%E7%A8%BC%E3%81%8E%E2%85%A2.webp",
+      "wikiTableRow": 2,
+      "pdfEffectPage": 44,
+      "beforeIcon": "/assets/chips/bounty-iii.webp",
+      "beforeSha256": "c570806f42d8f63b3a96181c500460282ef3f44ff225710383e58681c7aba7bd",
+      "beforeArtwork": "bounty-iii",
+      "afterIcon": "/assets/chips/bounty-iii-wiki-d92d159c6645.webp",
+      "afterSha256": "d92d159c6645c7b3859af22b5759cb1ac7a376ae06385bc693098d7b5b9a7097",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "120",
+        "4",
+        "8"
+      ],
+      "wikiNumbers": [
+        "120",
+        "4",
+        "8"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1195/%E8%B3%9E%E9%87%91%E7%A8%BC%E3%81%8E%E2%85%A2.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "d92d159c6645c7b3859af22b5759cb1ac7a376ae06385bc693098d7b5b9a7097",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "slot-iv",
+      "name": "スロット・肆",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1194/%E3%82%B9%E3%83%AD%E3%83%83%E3%83%88%E3%83%BB%E8%82%86.webp",
+      "wikiTableRow": 3,
+      "pdfEffectPage": 45,
+      "beforeIcon": "/assets/chips/slot-iv.webp",
+      "beforeSha256": "926975671b55f0f387beea1317f01158c88780f340df9439e0e0645dd81789f0",
+      "beforeArtwork": "slot-iv",
+      "afterIcon": "/assets/chips/slot-iv-wiki-595b89e80845.webp",
+      "afterSha256": "595b89e808451482f8da284412cbcfae24912f4dd3bd4089a29f88998bd03849",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "4"
+      ],
+      "wikiNumbers": [
+        "4"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1194/%E3%82%B9%E3%83%AD%E3%83%83%E3%83%88%E3%83%BB%E8%82%86.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "595b89e808451482f8da284412cbcfae24912f4dd3bd4089a29f88998bd03849",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "water-iii",
+      "name": "水の息吹III",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1193/%E6%B0%B4%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A2.webp",
+      "wikiTableRow": 4,
+      "pdfEffectPage": 46,
+      "beforeIcon": "/assets/chips/water-iii.webp",
+      "beforeSha256": "36dbb9b1e02c8260cd4c034fdeb91e241ad9626e27e523fae43721cdeb57002f",
+      "beforeArtwork": "water-iii",
+      "afterIcon": "/assets/chips/water-iii-wiki-4a52980feec7.webp",
+      "afterSha256": "4a52980feec733f92d6c25efc1d5a966d8f9b844993df77aedc86270579fa4a5",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "40"
+      ],
+      "wikiNumbers": [
+        "40"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1193/%E6%B0%B4%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A2.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "4a52980feec733f92d6c25efc1d5a966d8f9b844993df77aedc86270579fa4a5",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "fire-iii",
+      "name": "炎の息吹III",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1192/%E7%82%8E%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A2.webp",
+      "wikiTableRow": 5,
+      "pdfEffectPage": 47,
+      "beforeIcon": "/assets/chips/fire-iii.webp",
+      "beforeSha256": "cf543108dc5d32fe38c6c8e72a9589589ad48734054add51ff31160c12e57fd9",
+      "beforeArtwork": "fire-iii",
+      "afterIcon": "/assets/chips/fire-iii-wiki-81d17e96262f.webp",
+      "afterSha256": "81d17e96262fada9dbd75a7c2040e0ee0c25c9280c9c575abfc27478304f5f19",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "40"
+      ],
+      "wikiNumbers": [
+        "40"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1192/%E7%82%8E%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A2.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "81d17e96262fada9dbd75a7c2040e0ee0c25c9280c9c575abfc27478304f5f19",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "grass-iii",
+      "name": "草の息吹III",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1191/%E8%8D%89%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A2.webp",
+      "wikiTableRow": 6,
+      "pdfEffectPage": 48,
+      "beforeIcon": "/assets/chips/grass-iii.webp",
+      "beforeSha256": "0b69000b3d4bc683a60622ca44a8bf0ec64bc10ba7f669214e3a37624bb7bde9",
+      "beforeArtwork": "grass-iii",
+      "afterIcon": "/assets/chips/grass-iii-wiki-36001dbb8e43.webp",
+      "afterSha256": "36001dbb8e436b57fe9fb8d022711ee04d62e70034b77c7b1d91a29f03774c84",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "40"
+      ],
+      "wikiNumbers": [
+        "40"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1191/%E8%8D%89%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A2.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "36001dbb8e436b57fe9fb8d022711ee04d62e70034b77c7b1d91a29f03774c84",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "rock-iii",
+      "name": "岩の息吹III",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1190/%E5%B2%A9%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A2.webp",
+      "wikiTableRow": 7,
+      "pdfEffectPage": 49,
+      "beforeIcon": "/assets/chips/rock-iii.webp",
+      "beforeSha256": "51420ca8fc0b925beed0442a523da12a127ed802bd206e4fbf6f995b528001a1",
+      "beforeArtwork": "rock-iii",
+      "afterIcon": "/assets/chips/rock-iii-wiki-80acd44b8a29.webp",
+      "afterSha256": "80acd44b8a2987325b6b3f06d686614163618a0f67c37ee16330b2d8ac089a7b",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "40"
+      ],
+      "wikiNumbers": [
+        "40"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1190/%E5%B2%A9%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A2.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "80acd44b8a2987325b6b3f06d686614163618a0f67c37ee16330b2d8ac089a7b",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "lightning-iii",
+      "name": "雷の息吹III",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1188/%E9%9B%B7%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A2.webp",
+      "wikiTableRow": 8,
+      "pdfEffectPage": 50,
+      "beforeIcon": "/assets/chips/lightning-iii.webp",
+      "beforeSha256": "09fa68b7d67e57b38089aef260166e5da104ed6f256298c981d5df60379bf28f",
+      "beforeArtwork": "lightning-iii",
+      "afterIcon": "/assets/chips/lightning-iii-wiki-510928e6a034.webp",
+      "afterSha256": "510928e6a034913b895d29aba55b0052bf5fd33e133fe9a6e70447edde0246b8",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "40"
+      ],
+      "wikiNumbers": [
+        "40"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1188/%E9%9B%B7%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A2.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "510928e6a034913b895d29aba55b0052bf5fd33e133fe9a6e70447edde0246b8",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "lawn-care",
+      "name": "芝生のお手入れ",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1189/%E8%8A%9D%E7%94%9F%E3%81%AE%E3%81%8A%E6%89%8B%E5%85%A5%E3%82%8C.webp",
+      "wikiTableRow": 9,
+      "pdfEffectPage": 51,
+      "beforeIcon": "/assets/chips/lawn-care.webp",
+      "beforeSha256": "82066f0a615417c3aa2b869748ebea86c5653de4470a48b9a53e63a6b4bb41cb",
+      "beforeArtwork": "lawn-care",
+      "afterIcon": "/assets/chips/lawn-care-wiki-86c543bc19f1.webp",
+      "afterSha256": "86c543bc19f198352eeee680796352b743ce880823f7ab9eadb8653fef117c20",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "numeric-conflict-retained-in-game-source",
+      "localNumbers": [
+        "6",
+        "5",
+        "50"
+      ],
+      "wikiNumbers": [
+        "6",
+        "5",
+        "40"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1189/%E8%8A%9D%E7%94%9F%E3%81%AE%E3%81%8A%E6%89%8B%E5%85%A5%E3%82%8C.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "86c543bc19f198352eeee680796352b743ce880823f7ab9eadb8653fef117c20",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "horizontal",
+      "name": "横並び",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1187/%E6%A8%AA%E4%B8%A6%E3%81%B3.webp",
+      "wikiTableRow": 10,
+      "pdfEffectPage": 52,
+      "beforeIcon": "/assets/chips/horizontal.webp",
+      "beforeSha256": "bfd679f210d9759d61fe486bb955e5c676ae144eae92f1bfad8ad268d30cf425",
+      "beforeArtwork": "horizontal",
+      "afterIcon": "/assets/chips/horizontal-wiki-33243f50488f.webp",
+      "afterSha256": "33243f50488fc493dd2646e7f794eabc91131ac16dbb9479e517111f792d14a1",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "4"
+      ],
+      "wikiNumbers": [
+        "4"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1187/%E6%A8%AA%E4%B8%A6%E3%81%B3.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "33243f50488fc493dd2646e7f794eabc91131ac16dbb9479e517111f792d14a1",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "center-debut",
+      "name": "センターデビュー",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1186/%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%87%E3%83%93%E3%83%A5%E3%83%BC.webp",
+      "wikiTableRow": 11,
+      "pdfEffectPage": 53,
+      "beforeIcon": "/assets/chips/center-debut.webp",
+      "beforeSha256": "03d7a64e37447fbc71f1733b3be887551e5f4451da6acfff88f00c5440ec8297",
+      "beforeArtwork": "center-debut",
+      "afterIcon": "/assets/chips/center-debut-wiki-3e3f9a46b278.webp",
+      "afterSha256": "3e3f9a46b278626727ae5addd799f3a88eba589cb446c548f6de5e537c0907b0",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "2"
+      ],
+      "wikiNumbers": [
+        "2"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1186/%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%87%E3%83%93%E3%83%A5%E3%83%BC.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "3e3f9a46b278626727ae5addd799f3a88eba589cb446c548f6de5e537c0907b0",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "fate-iii",
+      "name": "運命に委ねるIII",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1185/%E9%81%8B%E5%91%BD%E3%81%AB%E5%A7%94%E3%81%AD%E3%82%8B%E2%85%A2.webp",
+      "wikiTableRow": 12,
+      "pdfEffectPage": 54,
+      "beforeIcon": "/assets/chips/fate-iii.webp",
+      "beforeSha256": "3a15430efc9c037778235d42f8ba2bcba8bf1ae2a22ce779bc2830fc83918f7b",
+      "beforeArtwork": "fate-iii",
+      "afterIcon": "/assets/chips/fate-iii-wiki-7ad9f32f96e8.webp",
+      "afterSha256": "7ad9f32f96e8effcfce0c16506d45889f6c00dc1250958ad254aae60efc7c823",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "1",
+        "200"
+      ],
+      "wikiNumbers": [
+        "1",
+        "200"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1185/%E9%81%8B%E5%91%BD%E3%81%AB%E5%A7%94%E3%81%AD%E3%82%8B%E2%85%A2.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "7ad9f32f96e8effcfce0c16506d45889f6c00dc1250958ad254aae60efc7c823",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "strategic-move",
+      "name": "戦略的移動",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1184/%E6%88%A6%E7%95%A5%E7%9A%84%E7%A7%BB%E5%8B%95.webp",
+      "wikiTableRow": 13,
+      "pdfEffectPage": 55,
+      "beforeIcon": "/assets/chips/strategic-move.webp",
+      "beforeSha256": "56a0d5f8071dab4870cd0c94d5d6eb75e667c2220057b22ddc47eadb8923ad06",
+      "beforeArtwork": "strategic-move",
+      "afterIcon": "/assets/chips/strategic-move-wiki-778111cf5535.webp",
+      "afterSha256": "778111cf55355feb7bddd6621e13a415b2b3d3c789d417d5b177b12040e5c238",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "numeric-conflict-retained-in-game-source",
+      "localNumbers": [
+        "20",
+        "20"
+      ],
+      "wikiNumbers": [
+        "30",
+        "20"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1184/%E6%88%A6%E7%95%A5%E7%9A%84%E7%A7%BB%E5%8B%95.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "778111cf55355feb7bddd6621e13a415b2b3d3c789d417d5b177b12040e5c238",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "three-four-five",
+      "name": "三四五",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1183/%E4%B8%89%E5%9B%9B%E4%BA%94.webp",
+      "wikiTableRow": 14,
+      "pdfEffectPage": 56,
+      "beforeIcon": "/assets/chips/three-four-five.webp",
+      "beforeSha256": "1fd58068cfcef1fe47c987d116296718cce8a145b9405048c3279286c192b7ec",
+      "beforeArtwork": "three-four-five",
+      "afterIcon": "/assets/chips/three-four-five-wiki-46d2be40076f.webp",
+      "afterSha256": "46d2be40076f3db79988312a25a12f659edd892a29b707e2f9718aea183dcf39",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "4",
+        "3",
+        "5"
+      ],
+      "wikiNumbers": [
+        "4",
+        "3",
+        "5"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1183/%E4%B8%89%E5%9B%9B%E4%BA%94.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "46d2be40076f3db79988312a25a12f659edd892a29b707e2f9718aea183dcf39",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "sugar-ii",
+      "name": "糖分補給II",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1794/%E7%B3%96%E5%88%86%E8%A3%9C%E7%B5%A62.webp",
+      "wikiTableRow": 15,
+      "pdfEffectPage": 57,
+      "beforeIcon": "/assets/chips/sugar-ii.webp",
+      "beforeSha256": "99171d94b93b569448e10609725673f893cf48463998ed9bae44e9dc1db789a1",
+      "beforeArtwork": "sugar-ii",
+      "afterIcon": "/assets/chips/sugar-ii-wiki-0ea11d962428.webp",
+      "afterSha256": "0ea11d96242867a1d65cf4ef0a76fa016c7e9630a855594f2aa0c9fa0c56d2bb",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "5",
+        "3",
+        "8"
+      ],
+      "wikiNumbers": [
+        "5",
+        "3",
+        "8"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1794/%E7%B3%96%E5%88%86%E8%A3%9C%E7%B5%A62.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "0ea11d96242867a1d65cf4ef0a76fa016c7e9630a855594f2aa0c9fa0c56d2bb",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "bounty-ii",
+      "name": "賞金稼ぎII",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1181/%E8%B3%9E%E9%87%91%E7%A8%BC%E3%81%8E%E2%85%A1.webp",
+      "wikiTableRow": 16,
+      "pdfEffectPage": 58,
+      "beforeIcon": "/assets/chips/bounty-ii.webp",
+      "beforeSha256": "352bded13a90e2ce0f490066e2cb4971681afecc332513f8de43597ea69e3ad4",
+      "beforeArtwork": "bounty-ii",
+      "afterIcon": "/assets/chips/bounty-ii-wiki-59976c724502.webp",
+      "afterSha256": "59976c724502d99829c754e91826119d82f08a0402eda1b6b95f7e925d692bb9",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "120",
+        "3",
+        "8"
+      ],
+      "wikiNumbers": [
+        "120",
+        "3",
+        "8"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1181/%E8%B3%9E%E9%87%91%E7%A8%BC%E3%81%8E%E2%85%A1.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "59976c724502d99829c754e91826119d82f08a0402eda1b6b95f7e925d692bb9",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "slot-iii",
+      "name": "スロット・参",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1180/%E3%82%B9%E3%83%AD%E3%83%83%E3%83%88%E3%83%BB%E5%8F%82.webp",
+      "wikiTableRow": 17,
+      "pdfEffectPage": 59,
+      "beforeIcon": "/assets/chips/slot-iii.webp",
+      "beforeSha256": "d5f8886c85149d2a2cd3915387beba81ed1055725e072dda0fe99d4cce1d92c5",
+      "beforeArtwork": "slot-iii",
+      "afterIcon": "/assets/chips/slot-iii-wiki-749df7dc26a9.webp",
+      "afterSha256": "749df7dc26a9144a080df56a571b97fbd639d979f976d089bb0b56f04a0f35ed",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "3"
+      ],
+      "wikiNumbers": [
+        "3"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1180/%E3%82%B9%E3%83%AD%E3%83%83%E3%83%88%E3%83%BB%E5%8F%82.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "749df7dc26a9144a080df56a571b97fbd639d979f976d089bb0b56f04a0f35ed",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "water-ii",
+      "name": "水の息吹II",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1179/%E6%B0%B4%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A1.webp",
+      "wikiTableRow": 18,
+      "pdfEffectPage": 60,
+      "beforeIcon": "/assets/chips/water-ii.webp",
+      "beforeSha256": "0d78fe07922580f9d41aa7676da2217588f22f65ee64e846dd115a311b1cd189",
+      "beforeArtwork": "water-ii",
+      "afterIcon": "/assets/chips/water-ii-wiki-4b883970fd01.webp",
+      "afterSha256": "4b883970fd018313a6f3a621f6f2a19c15238121ba8e1dd3b664390f2e3b4b6e",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "30"
+      ],
+      "wikiNumbers": [
+        "30"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1179/%E6%B0%B4%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A1.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "4b883970fd018313a6f3a621f6f2a19c15238121ba8e1dd3b664390f2e3b4b6e",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "fire-ii",
+      "name": "炎の息吹II",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1178/%E7%82%8E%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A1.webp",
+      "wikiTableRow": 19,
+      "pdfEffectPage": 61,
+      "beforeIcon": "/assets/chips/fire-ii.webp",
+      "beforeSha256": "dac1b3eb587c954ecd4122da56378e1e1a8c07109c82a53078f305f20f9b21fd",
+      "beforeArtwork": "fire-ii",
+      "afterIcon": "/assets/chips/fire-ii-wiki-6574c87b82df.webp",
+      "afterSha256": "6574c87b82df1c9063814bc8e53cbd85b97810fb24994e4a2b1d77cd1328a78f",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "30"
+      ],
+      "wikiNumbers": [
+        "30"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1178/%E7%82%8E%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A1.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "6574c87b82df1c9063814bc8e53cbd85b97810fb24994e4a2b1d77cd1328a78f",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "grass-ii",
+      "name": "草の息吹II",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1177/%E8%8D%89%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A1.webp",
+      "wikiTableRow": 20,
+      "pdfEffectPage": 62,
+      "beforeIcon": "/assets/chips/grass-ii.webp",
+      "beforeSha256": "c55c1c40b4eef956d50f5983a2d3f8b8e238dcc4229577aea8786344171a92c9",
+      "beforeArtwork": "grass-ii",
+      "afterIcon": "/assets/chips/grass-ii-wiki-a79e4de4220a.webp",
+      "afterSha256": "a79e4de4220ac3c9f8e7d6a5d3c5cb8282cb7f8c43c4525421b5ed7ad058ebdf",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "30"
+      ],
+      "wikiNumbers": [
+        "30"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1177/%E8%8D%89%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A1.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "a79e4de4220ac3c9f8e7d6a5d3c5cb8282cb7f8c43c4525421b5ed7ad058ebdf",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "rock-ii",
+      "name": "岩の息吹II",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1176/%E5%B2%A9%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A1.webp",
+      "wikiTableRow": 21,
+      "pdfEffectPage": 63,
+      "beforeIcon": "/assets/chips/rock-ii-d27266e7e6f3.webp",
+      "beforeSha256": "d27266e7e6f3ae3b97f7cb3233dedb74ef7abc74d07b0f877db90f20efdbd3df",
+      "beforeArtwork": "rock-ii",
+      "afterIcon": "/assets/chips/rock-ii-wiki-229078656f23.webp",
+      "afterSha256": "229078656f2375cf405f79948dfa8aa90dfe47ba830363416178cf58c0b742bb",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "30"
+      ],
+      "wikiNumbers": [
+        "30"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1176/%E5%B2%A9%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A1.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "229078656f2375cf405f79948dfa8aa90dfe47ba830363416178cf58c0b742bb",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "lightning-ii",
+      "name": "雷の息吹II",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1175/%E9%9B%B7%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A1.webp",
+      "wikiTableRow": 22,
+      "pdfEffectPage": 64,
+      "beforeIcon": "/assets/chips/lightning-ii-adb75288a7f7.webp",
+      "beforeSha256": "adb75288a7f791e3b5b89881bdf6ee72a3a0877e2f00e262a76f3ba196de7790",
+      "beforeArtwork": "lightning-ii",
+      "afterIcon": "/assets/chips/lightning-ii-wiki-ab54f6ba0116.webp",
+      "afterSha256": "ab54f6ba0116d11c911a9869770eba327d6f0a46cf2d8794428f7ef20a86aaee",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "30"
+      ],
+      "wikiNumbers": [
+        "30"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1175/%E9%9B%B7%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A1.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "ab54f6ba0116d11c911a9869770eba327d6f0a46cf2d8794428f7ef20a86aaee",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "glass-cannon",
+      "name": "ガラス大砲",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1174/%E3%82%AC%E3%83%A9%E3%82%B9%E5%A4%A7%E7%A0%B2.webp",
+      "wikiTableRow": 23,
+      "pdfEffectPage": 65,
+      "beforeIcon": "/assets/chips/glass-cannon-6964d4975725.webp",
+      "beforeSha256": "6964d49757255b4e905f0fa1671b8d8d272606f4a406f4d4c4674eab4d9fccdf",
+      "beforeArtwork": "glass-cannon",
+      "afterIcon": "/assets/chips/glass-cannon-wiki-d4218dc599f9.webp",
+      "afterSha256": "d4218dc599f9b8cfbd56ce91601e36fa7ad5ab9199bdbf03967521ae5d9bab8e",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "25",
+        "10"
+      ],
+      "wikiNumbers": [
+        "25",
+        "10"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1174/%E3%82%AC%E3%83%A9%E3%82%B9%E5%A4%A7%E7%A0%B2.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "d4218dc599f9b8cfbd56ce91601e36fa7ad5ab9199bdbf03967521ae5d9bab8e",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "boss-killer",
+      "name": "ボスキラー",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1173/%E3%83%9C%E3%82%B9%E3%82%AD%E3%83%A9%E3%83%BC.webp",
+      "wikiTableRow": 24,
+      "pdfEffectPage": 66,
+      "beforeIcon": "/assets/chips/boss-killer-1eea45bf2c0c.webp",
+      "beforeSha256": "1eea45bf2c0cfd446bd23890281945018e0e71bddee5013f5f40679e35375978",
+      "beforeArtwork": "boss-killer",
+      "afterIcon": "/assets/chips/boss-killer-wiki-64a4579f0ac8.webp",
+      "afterSha256": "64a4579f0ac826c41228cd4aa66d9261b2605515f3dee62a7c07d5d086269da0",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "numeric-conflict-retained-in-game-source",
+      "localNumbers": [
+        "25"
+      ],
+      "wikiNumbers": [
+        "20"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1173/%E3%83%9C%E3%82%B9%E3%82%AD%E3%83%A9%E3%83%BC.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "64a4579f0ac826c41228cd4aa66d9261b2605515f3dee62a7c07d5d086269da0",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "maverick",
+      "name": "マーベリック",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1171/%E3%83%9E%E3%83%BC%E3%83%99%E3%83%AA%E3%83%83%E3%82%AF.webp",
+      "wikiTableRow": 25,
+      "pdfEffectPage": 67,
+      "beforeIcon": "/assets/chips/maverick.webp",
+      "beforeSha256": "eb3339e83ad27de8e911e7fe22a7d6c36a4f5396a16e9c99b1a410bcac46f9dc",
+      "beforeArtwork": "rock-ii",
+      "afterIcon": "/assets/chips/maverick-wiki-3e5126fec946.webp",
+      "afterSha256": "3e5126fec94651e749c56f22cc7930b5cbd44c9f409d5411169c7b24b5323709",
+      "suppliedAsset": null,
+      "artworkComparison": "corrected-public-wiki-asset",
+      "effectComparison": "numeric-conflict-retained-in-game-source",
+      "localNumbers": [
+        "20"
+      ],
+      "wikiNumbers": [
+        "35"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1171/%E3%83%9E%E3%83%BC%E3%83%99%E3%83%AA%E3%83%83%E3%82%AF.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "3e5126fec94651e749c56f22cc7930b5cbd44c9f409d5411169c7b24b5323709",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "back-shooter",
+      "name": "バックシューター",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1170/%E3%83%90%E3%83%83%E3%82%AF%E3%82%B7%E3%83%A5%E3%83%BC%E3%82%BF%E3%83%BC.webp",
+      "wikiTableRow": 26,
+      "pdfEffectPage": 68,
+      "beforeIcon": "/assets/chips/back-shooter.webp",
+      "beforeSha256": "a3d1523c41e1668cdb5a839124186cba414c2803e7dc77f301207f7a4fa5f186",
+      "beforeArtwork": "lightning-ii",
+      "afterIcon": "/assets/chips/back-shooter-wiki-2a65d4f88d22.webp",
+      "afterSha256": "2a65d4f88d224dbcf1d710b5a90e898933d55b79bd954b09bde41f7905738fa1",
+      "suppliedAsset": null,
+      "artworkComparison": "corrected-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "2",
+        "30"
+      ],
+      "wikiNumbers": [
+        "2",
+        "30"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1170/%E3%83%90%E3%83%83%E3%82%AF%E3%82%B7%E3%83%A5%E3%83%BC%E3%82%BF%E3%83%BC.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "2a65d4f88d224dbcf1d710b5a90e898933d55b79bd954b09bde41f7905738fa1",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "rear-support",
+      "name": "後方支援",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1172/%E5%BE%8C%E6%96%B9%E6%94%AF%E6%8F%B4.webp",
+      "wikiTableRow": 27,
+      "pdfEffectPage": 69,
+      "beforeIcon": "/assets/chips/rear-support.webp",
+      "beforeSha256": "f60c4edd1eefc833a71ed9fd7c2829ae54bd6548e0adf366317f2e650266781b",
+      "beforeArtwork": "glass-cannon",
+      "afterIcon": "/assets/chips/rear-support-wiki-61e3b689dff1.webp",
+      "afterSha256": "61e3b689dff189c043780037e07241a8841fdfb490b6bcfba5ee131a24c376e8",
+      "suppliedAsset": null,
+      "artworkComparison": "corrected-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "1",
+        "30"
+      ],
+      "wikiNumbers": [
+        "1",
+        "30"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1172/%E5%BE%8C%E6%96%B9%E6%94%AF%E6%8F%B4.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "61e3b689dff189c043780037e07241a8841fdfb490b6bcfba5ee131a24c376e8",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "upgrade",
+      "name": "アップグレード",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1169/%E3%82%A2%E3%83%83%E3%83%97%E3%82%B0%E3%83%AC%E3%83%BC%E3%83%89.webp",
+      "wikiTableRow": 28,
+      "pdfEffectPage": 70,
+      "beforeIcon": "/assets/chips/upgrade.webp",
+      "beforeSha256": "5afdbcb5adbfcbe41480662be4a6381edc0a9b646f14f519c300b9ec1f6eb501",
+      "beforeArtwork": "boss-killer",
+      "afterIcon": "/assets/chips/upgrade-wiki-5fcc0d335818.webp",
+      "afterSha256": "5fcc0d3358183107adacf8a4752efee7c8b18292d3998646595d9460bcc6e2c3",
+      "suppliedAsset": null,
+      "artworkComparison": "corrected-public-wiki-asset",
+      "effectComparison": "numeric-conflict-retained-in-game-source",
+      "localNumbers": [
+        "3",
+        "1"
+      ],
+      "wikiNumbers": [
+        "3",
+        "2"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1169/%E3%82%A2%E3%83%83%E3%83%97%E3%82%B0%E3%83%AC%E3%83%BC%E3%83%89.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "5fcc0d3358183107adacf8a4752efee7c8b18292d3998646595d9460bcc6e2c3",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "shuffle",
+      "name": "シャッフル",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1168/%E3%82%B7%E3%83%A3%E3%83%83%E3%83%95%E3%83%AB.webp",
+      "wikiTableRow": 29,
+      "pdfEffectPage": 71,
+      "beforeIcon": "/assets/chips/shuffle.webp",
+      "beforeSha256": "75a88bd0c26263281b51b51765d3c294216e00140b30e1a6c38884bf6c9997fe",
+      "beforeArtwork": "maverick",
+      "afterIcon": "/assets/chips/shuffle-wiki-ae2f3abb35f4.webp",
+      "afterSha256": "ae2f3abb35f486b771b97da2a992e673e695fec1c3f78bd70baa9f687960d355",
+      "suppliedAsset": null,
+      "artworkComparison": "corrected-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "600"
+      ],
+      "wikiNumbers": [
+        "600"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1168/%E3%82%B7%E3%83%A3%E3%83%83%E3%83%95%E3%83%AB.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "ae2f3abb35f486b771b97da2a992e673e695fec1c3f78bd70baa9f687960d355",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "adverse-attribute",
+      "name": "下剋上",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1167/%E4%B8%8B%E5%89%8B%E4%B8%8A.webp",
+      "wikiTableRow": 30,
+      "pdfEffectPage": 72,
+      "beforeIcon": "/assets/chips/adverse-attribute.webp",
+      "beforeSha256": "9a1c3005d876e135b14c47f9c0475245640582888ef4d8a22ccd9e00d84af3fe",
+      "beforeArtwork": "back-shooter",
+      "afterIcon": "/assets/chips/adverse-attribute-wiki-68ca68080aa9.webp",
+      "afterSha256": "68ca68080aa99577675951be1c862c9ce741b143e5cdc1b10fbabb6969496912",
+      "suppliedAsset": null,
+      "artworkComparison": "corrected-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [],
+      "wikiNumbers": [],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1167/%E4%B8%8B%E5%89%8B%E4%B8%8A.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "68ca68080aa99577675951be1c862c9ce741b143e5cdc1b10fbabb6969496912",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "and-one",
+      "name": "アンドワン",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1166/%E3%82%A2%E3%83%B3%E3%83%89%E3%83%AF%E3%83%B3.webp",
+      "wikiTableRow": 31,
+      "pdfEffectPage": 73,
+      "beforeIcon": "/assets/chips/and-one.webp",
+      "beforeSha256": "b9c193eb69787cfa33692163c95b9f69385348647c0cc0f76bf99bf0d11b42ff",
+      "beforeArtwork": "rear-support",
+      "afterIcon": "/assets/chips/and-one-wiki-635d6a77f388.webp",
+      "afterSha256": "635d6a77f388e9fe6247594b61cca6745841bc01fa27f1ac50e6e9e316f8eaf8",
+      "suppliedAsset": null,
+      "artworkComparison": "corrected-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "1",
+        "250"
+      ],
+      "wikiNumbers": [
+        "1",
+        "250"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1166/%E3%82%A2%E3%83%B3%E3%83%89%E3%83%AF%E3%83%B3.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "635d6a77f388e9fe6247594b61cca6745841bc01fa27f1ac50e6e9e316f8eaf8",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "undeployed-tatari",
+      "name": "未編成タタ",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1165/%E6%9C%AA%E7%B7%A8%E6%88%90%E3%82%BF%E3%82%BF.webp",
+      "wikiTableRow": 32,
+      "pdfEffectPage": 74,
+      "beforeIcon": "/assets/chips/undeployed-tatari.webp",
+      "beforeSha256": "a91e32a8a2df8460b556354ddfcdf0bce1f0391aa93fb166e4a1b81fbb9259e5",
+      "beforeArtwork": "upgrade",
+      "afterIcon": "/assets/chips/undeployed-tatari-wiki-b4fc2f3e853d.webp",
+      "afterSha256": "b4fc2f3e853d731708bdd3b9b80af1c975af6ee0aa2b7cab1cd68193780b8ee0",
+      "suppliedAsset": null,
+      "artworkComparison": "corrected-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "1",
+        "3"
+      ],
+      "wikiNumbers": [
+        "1",
+        "3"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1165/%E6%9C%AA%E7%B7%A8%E6%88%90%E3%82%BF%E3%82%BF.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "b4fc2f3e853d731708bdd3b9b80af1c975af6ee0aa2b7cab1cd68193780b8ee0",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "fate-ii",
+      "name": "運命に委ねるII",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1164/%E9%81%8B%E5%91%BD%E3%81%AB%E5%A7%94%E3%81%AD%E3%82%8B%E2%85%A1.webp",
+      "wikiTableRow": 33,
+      "pdfEffectPage": 75,
+      "beforeIcon": "/assets/chips/fate-ii.webp",
+      "beforeSha256": "207c055ac415a69d9f9908bea30597898d35db084141ed353ce4ed6966f5f5f4",
+      "beforeArtwork": "fate-ii",
+      "afterIcon": "/assets/chips/fate-ii-wiki-31fb04fe2052.webp",
+      "afterSha256": "31fb04fe2052e17c4ee68aaefaf778fc3b6dd1eb253dc6cc61d7492e28ca90a8",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "1",
+        "150"
+      ],
+      "wikiNumbers": [
+        "1",
+        "150"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1164/%E9%81%8B%E5%91%BD%E3%81%AB%E5%A7%94%E3%81%AD%E3%82%8B%E2%85%A1.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "31fb04fe2052e17c4ee68aaefaf778fc3b6dd1eb253dc6cc61d7492e28ca90a8",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "river-boundary",
+      "name": "川の境界線",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1163/%E5%B7%9D%E3%81%AE%E5%A2%83%E7%95%8C%E7%B7%9A.webp",
+      "wikiTableRow": 34,
+      "pdfEffectPage": 76,
+      "beforeIcon": "/assets/chips/river-boundary.webp",
+      "beforeSha256": "62b192bb03bc2af9d04ac801b0881c2007a79e4ac0511a5c588e15f03160164a",
+      "beforeArtwork": "river-boundary",
+      "afterIcon": "/assets/chips/river-boundary-wiki-17085c15a685.webp",
+      "afterSha256": "17085c15a685d077743f8b53d007adb5d0618da6cd5523f36bcfb52a4527dd68",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "40"
+      ],
+      "wikiNumbers": [
+        "40"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1163/%E5%B7%9D%E3%81%AE%E5%A2%83%E7%95%8C%E7%B7%9A.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "17085c15a685d077743f8b53d007adb5d0618da6cd5523f36bcfb52a4527dd68",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "bucket-theory",
+      "name": "バケツ理論",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1162/%E3%83%90%E3%82%B1%E3%83%84%E7%90%86%E8%AB%96.webp",
+      "wikiTableRow": 35,
+      "pdfEffectPage": 77,
+      "beforeIcon": "/assets/chips/bucket-theory.webp",
+      "beforeSha256": "2ee540a2b7b2be50322de344d84ffadfd38621e4b9d3e5ea90a57452ae4b866f",
+      "beforeArtwork": "bucket-theory",
+      "afterIcon": "/assets/chips/bucket-theory-wiki-092e55aeb808.webp",
+      "afterSha256": "092e55aeb808d6db3cf21f765139caf881e63b5b049bb01f7f535ac025626978",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "10"
+      ],
+      "wikiNumbers": [
+        "10"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1162/%E3%83%90%E3%82%B1%E3%83%84%E7%90%86%E8%AB%96.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "092e55aeb808d6db3cf21f765139caf881e63b5b049bb01f7f535ac025626978",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "sugar-i",
+      "name": "糖分補給I",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1793/%E7%B3%96%E5%88%86%E8%A3%9C%E7%B5%A61.webp",
+      "wikiTableRow": 36,
+      "pdfEffectPage": 78,
+      "beforeIcon": "/assets/chips/sugar-i.webp",
+      "beforeSha256": "4ebc4af30f226c0d10b290ed071da7d0fe40479991d171fa0cac4119fef86c59",
+      "beforeArtwork": "sugar-i",
+      "afterIcon": "/assets/chips/sugar-i-wiki-4b44e6ffe373.webp",
+      "afterSha256": "4b44e6ffe37340015e3c435037dc16f7506332a22cba464d0d641d14942c367b",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "5",
+        "2",
+        "8"
+      ],
+      "wikiNumbers": [
+        "5",
+        "2",
+        "8"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1793/%E7%B3%96%E5%88%86%E8%A3%9C%E7%B5%A61.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "4b44e6ffe37340015e3c435037dc16f7506332a22cba464d0d641d14942c367b",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "bounty-i",
+      "name": "賞金稼ぎI",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1160/%E8%B3%9E%E9%87%91%E7%A8%BC%E3%81%8E%E2%85%A0.webp",
+      "wikiTableRow": 37,
+      "pdfEffectPage": 79,
+      "beforeIcon": "/assets/chips/bounty-i.webp",
+      "beforeSha256": "ff65fa6310f330c7dc5f545c4a3630cb1e886443f973553456d11db0013304f6",
+      "beforeArtwork": "bounty-i",
+      "afterIcon": "/assets/chips/bounty-i-wiki-198b031024f7.webp",
+      "afterSha256": "198b031024f7d64e6e806e8bf2698d9e371762f2114c9ae5a25e87ec21599bcf",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "120",
+        "2",
+        "8"
+      ],
+      "wikiNumbers": [
+        "120",
+        "2",
+        "8"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1160/%E8%B3%9E%E9%87%91%E7%A8%BC%E3%81%8E%E2%85%A0.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "198b031024f7d64e6e806e8bf2698d9e371762f2114c9ae5a25e87ec21599bcf",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "slot-ii",
+      "name": "スロット・弐",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1159/%E3%82%B9%E3%83%AD%E3%83%83%E3%83%88%E3%83%BB%E5%BC%90.webp",
+      "wikiTableRow": 38,
+      "pdfEffectPage": 80,
+      "beforeIcon": "/assets/chips/slot-ii.webp",
+      "beforeSha256": "22b049165981f2aee183a53e16b2493e113bddc47f81abffbfaa8d66d9207bdc",
+      "beforeArtwork": "slot-ii",
+      "afterIcon": "/assets/chips/slot-ii-wiki-4866b9e0e055.webp",
+      "afterSha256": "4866b9e0e055445beff6f4310665656b23d0114ce0adc28e3ea53886c003a8ef",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "2"
+      ],
+      "wikiNumbers": [
+        "2"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1159/%E3%82%B9%E3%83%AD%E3%83%83%E3%83%88%E3%83%BB%E5%BC%90.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "4866b9e0e055445beff6f4310665656b23d0114ce0adc28e3ea53886c003a8ef",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "slack-off",
+      "name": "サボる",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1158/%E3%82%B5%E3%83%9C%E3%82%8B.webp",
+      "wikiTableRow": 39,
+      "pdfEffectPage": 81,
+      "beforeIcon": "/assets/chips/slack-off.webp",
+      "beforeSha256": "0d1e428111c5b0c2b301765bcb97bc812de6b2468d256630667cff5655d55f66",
+      "beforeArtwork": "slack-off",
+      "afterIcon": "/assets/chips/slack-off-wiki-3f4ede08a686.webp",
+      "afterSha256": "3f4ede08a686a6e7cb723774452bbd8f26d39ac6d216a735c0a39d74495f8e13",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "numeric-conflict-retained-in-game-source",
+      "localNumbers": [
+        "90",
+        "300"
+      ],
+      "wikiNumbers": [
+        "40",
+        "300"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1158/%E3%82%B5%E3%83%9C%E3%82%8B.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "3f4ede08a686a6e7cb723774452bbd8f26d39ac6d216a735c0a39d74495f8e13",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "water-i",
+      "name": "水の息吹I",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1157/%E6%B0%B4%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A0.webp",
+      "wikiTableRow": 40,
+      "pdfEffectPage": 82,
+      "beforeIcon": "/assets/chips/water-i.webp",
+      "beforeSha256": "95303f707e727d18e4052fc73252fe8093caeb2b6d1e575aca22ca34e9b7a9bf",
+      "beforeArtwork": "water-i",
+      "afterIcon": "/assets/chips/water-i-wiki-d562cb83ac7f.webp",
+      "afterSha256": "d562cb83ac7fb77552dfd72896a1621a1d4fc8b6f2b0428a8bdff5d5fe45587b",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "20"
+      ],
+      "wikiNumbers": [
+        "20"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1157/%E6%B0%B4%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A0.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "d562cb83ac7fb77552dfd72896a1621a1d4fc8b6f2b0428a8bdff5d5fe45587b",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "fire-i",
+      "name": "炎の息吹I",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1156/%E7%82%8E%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A0.webp",
+      "wikiTableRow": 41,
+      "pdfEffectPage": 83,
+      "beforeIcon": "/assets/chips/fire-i.webp",
+      "beforeSha256": "f79d98fc3ee7bfea59c3310d1a7d8472a450884992fbc0828875c4195a416309",
+      "beforeArtwork": "fire-i",
+      "afterIcon": "/assets/chips/fire-i-wiki-45e237055633.webp",
+      "afterSha256": "45e2370556337b58839e3f22f973a4f494a73fa67bff36851b5561d435274f88",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "20"
+      ],
+      "wikiNumbers": [
+        "20"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1156/%E7%82%8E%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A0.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "45e2370556337b58839e3f22f973a4f494a73fa67bff36851b5561d435274f88",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "grass-i",
+      "name": "草の息吹I",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1155/%E8%8D%89%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A0.webp",
+      "wikiTableRow": 42,
+      "pdfEffectPage": 84,
+      "beforeIcon": "/assets/chips/grass-i.webp",
+      "beforeSha256": "ee4ed2efe24ed7e4addbd393609f2e298da6c64b07ca372d0854707d1e9e56f3",
+      "beforeArtwork": "grass-i",
+      "afterIcon": "/assets/chips/grass-i-wiki-7a60c8717078.webp",
+      "afterSha256": "7a60c8717078d2de87bec56d35371db6a779b4d12b27450894e11bddf02c9d7e",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "20"
+      ],
+      "wikiNumbers": [
+        "20"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1155/%E8%8D%89%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A0.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "7a60c8717078d2de87bec56d35371db6a779b4d12b27450894e11bddf02c9d7e",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "rock-i",
+      "name": "岩の息吹I",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1154/%E5%B2%A9%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A0.webp",
+      "wikiTableRow": 43,
+      "pdfEffectPage": 85,
+      "beforeIcon": "/assets/chips/rock-i.webp",
+      "beforeSha256": "63adf492d45eb8ecb81c9daaacbf09c949f5b3ff32023349ae3f3521d025a10c",
+      "beforeArtwork": "rock-i",
+      "afterIcon": "/assets/chips/rock-i-wiki-6c57f09466cf.webp",
+      "afterSha256": "6c57f09466cf22581dcd9baace3cd4cf7d0f8ee039e6c8cc65885cd1ce1a1699",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "20"
+      ],
+      "wikiNumbers": [
+        "20"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1154/%E5%B2%A9%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A0.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "6c57f09466cf22581dcd9baace3cd4cf7d0f8ee039e6c8cc65885cd1ce1a1699",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "lightning-i",
+      "name": "雷の息吹I",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1153/%E9%9B%B7%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A0.webp",
+      "wikiTableRow": 44,
+      "pdfEffectPage": 86,
+      "beforeIcon": "/assets/chips/lightning-i.webp",
+      "beforeSha256": "d1f531c8890407ed4beca685490a532ad1c19655cc476149d875df3a87504b47",
+      "beforeArtwork": "lightning-i",
+      "afterIcon": "/assets/chips/lightning-i-wiki-2023c4f5bf0a.webp",
+      "afterSha256": "2023c4f5bf0a9f9851c883b36cb6a7340f226610fa8a0b943fa0ecb2667e181a",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "20"
+      ],
+      "wikiNumbers": [
+        "20"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1153/%E9%9B%B7%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A0.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "2023c4f5bf0a9f9851c883b36cb6a7340f226610fa8a0b943fa0ecb2667e181a",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "wall",
+      "name": "城壁",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1152/%E5%9F%8E%E5%A3%81.webp",
+      "wikiTableRow": 45,
+      "pdfEffectPage": 87,
+      "beforeIcon": "/assets/chips/wall.webp",
+      "beforeSha256": "e0c95ad206769d59397af141224decfe07cc1b9b7e69cdd7950dc70961e19826",
+      "beforeArtwork": "wall",
+      "afterIcon": "/assets/chips/wall-wiki-8e35a1a2bf64.webp",
+      "afterSha256": "8e35a1a2bf645ab4ccf2c0cf586f91c4d154255e8c8ae031799216842c66dd61",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "2",
+        "40",
+        "10"
+      ],
+      "wikiNumbers": [
+        "2",
+        "40",
+        "10"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1152/%E5%9F%8E%E5%A3%81.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "8e35a1a2bf645ab4ccf2c0cf586f91c4d154255e8c8ae031799216842c66dd61",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "bandage",
+      "name": "バンテージ",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1151/%E3%83%90%E3%83%B3%E3%83%86%E3%83%BC%E3%82%B8.webp",
+      "wikiTableRow": 46,
+      "pdfEffectPage": 88,
+      "beforeIcon": "/assets/chips/bandage.webp",
+      "beforeSha256": "7d2eb2606df351fc022812225bbe764ff9ad9086f820a92ccb78915e78e2e9cf",
+      "beforeArtwork": "bandage",
+      "afterIcon": "/assets/chips/bandage-wiki-06222fb60ea7.webp",
+      "afterSha256": "06222fb60ea79be019531b71a96e9fb033fd42eedd02b28f5dbdcd657c13e5fa",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "2",
+        "4",
+        "15"
+      ],
+      "wikiNumbers": [
+        "2",
+        "4",
+        "15"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1151/%E3%83%90%E3%83%B3%E3%83%86%E3%83%BC%E3%82%B8.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "06222fb60ea79be019531b71a96e9fb033fd42eedd02b28f5dbdcd657c13e5fa",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "parting-gift",
+      "name": "別れの贈り物",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1150/%E5%88%A5%E3%82%8C%E3%81%AE%E8%B4%88%E3%82%8A%E7%89%A9.webp",
+      "wikiTableRow": 47,
+      "pdfEffectPage": 89,
+      "beforeIcon": "/assets/chips/parting-gift.webp",
+      "beforeSha256": "2c8ca225d3a9b82f1ef13b48cd9dde8edd1fc9a39c09adfc903eb2e56aa2db5c",
+      "beforeArtwork": "parting-gift",
+      "afterIcon": "/assets/chips/parting-gift-wiki-5fe1551225e2.webp",
+      "afterSha256": "5fe1551225e28672f73b11fa217b6bcb038c8016da4979bb4d0eb4bbc2245ccd",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "numeric-conflict-retained-in-game-source",
+      "localNumbers": [
+        "1",
+        "200"
+      ],
+      "wikiNumbers": [
+        "1",
+        "40"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1150/%E5%88%A5%E3%82%8C%E3%81%AE%E8%B4%88%E3%82%8A%E7%89%A9.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "5fe1551225e28672f73b11fa217b6bcb038c8016da4979bb4d0eb4bbc2245ccd",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "fate-i",
+      "name": "運命に委ねるI",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1149/%E9%81%8B%E5%91%BD%E3%81%AB%E5%A7%94%E3%81%AD%E3%82%8B%E2%85%A0.webp",
+      "wikiTableRow": 48,
+      "pdfEffectPage": 90,
+      "beforeIcon": "/assets/chips/fate-i.webp",
+      "beforeSha256": "c58d16e2f03604efcfd2cf68fec4486b2533613e97ec136c09c609df57dc59ab",
+      "beforeArtwork": "fate-i",
+      "afterIcon": "/assets/chips/fate-i-wiki-9477cac46f16.webp",
+      "afterSha256": "9477cac46f16d36e848c40d0823287bb8334722ffa1aff7bc9fac20004de83bb",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "1",
+        "100"
+      ],
+      "wikiNumbers": [
+        "1",
+        "100"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1149/%E9%81%8B%E5%91%BD%E3%81%AB%E5%A7%94%E3%81%AD%E3%82%8B%E2%85%A0.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "9477cac46f16d36e848c40d0823287bb8334722ffa1aff7bc9fac20004de83bb",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    },
+    {
+      "id": "reset",
+      "name": "リセット",
+      "nameComparison": "matched",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1148/%E3%83%AA%E3%82%BB%E3%83%83%E3%83%88.webp",
+      "wikiTableRow": 49,
+      "pdfEffectPage": 91,
+      "beforeIcon": "/assets/chips/reset.webp",
+      "beforeSha256": "098dd544f4e27a11160703358fbe6e039027aa09f75611abb24a5288accb76c8",
+      "beforeArtwork": "reset",
+      "afterIcon": "/assets/chips/reset-wiki-104093860fb6.webp",
+      "afterSha256": "104093860fb6ae528dbb3a510d66a60cd5d08fe902afab9df4872d4e0d67530b",
+      "suppliedAsset": null,
+      "artworkComparison": "matched-public-wiki-asset",
+      "effectComparison": "table-meaning-and-numbers-matched",
+      "localNumbers": [
+        "1",
+        "200"
+      ],
+      "wikiNumbers": [
+        "1",
+        "200"
+      ],
+      "imageSource": {
+        "sourceType": "public_wiki",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1148/%E3%83%AA%E3%82%BB%E3%83%83%E3%83%88.webp",
+        "retrievedAt": "2026-10-06",
+        "httpStatus": 200,
+        "sha256": "104093860fb6ae528dbb3a510d66a60cd5d08fe902afab9df4872d4e0d67530b",
+        "transformation": "none; original WebP bytes",
+        "userAuthorization": "Explicit request to replace all 49 chip images with matching public Wiki materials",
+        "thirdPartyLicenseStatus": "unconfirmed",
+        "termsUrl": "https://atwiki.jp/tos"
+      }
+    }
+  ],
+  "importedWikiImages": [
+    "sugar-iii",
+    "bounty-iii",
+    "slot-iv",
+    "water-iii",
+    "fire-iii",
+    "grass-iii",
+    "rock-iii",
+    "lightning-iii",
+    "lawn-care",
+    "horizontal",
+    "center-debut",
+    "fate-iii",
+    "strategic-move",
+    "three-four-five",
+    "sugar-ii",
+    "bounty-ii",
+    "slot-iii",
+    "water-ii",
+    "fire-ii",
+    "grass-ii",
+    "rock-ii",
+    "lightning-ii",
+    "glass-cannon",
+    "boss-killer",
+    "maverick",
+    "back-shooter",
+    "rear-support",
+    "upgrade",
+    "shuffle",
+    "adverse-attribute",
+    "and-one",
+    "undeployed-tatari",
+    "fate-ii",
+    "river-boundary",
+    "bucket-theory",
+    "sugar-i",
+    "bounty-i",
+    "slot-ii",
+    "slack-off",
+    "water-i",
+    "fire-i",
+    "grass-i",
+    "rock-i",
+    "lightning-i",
+    "wall",
+    "bandage",
+    "parting-gift",
+    "fate-i",
+    "reset"
+  ]
+}
