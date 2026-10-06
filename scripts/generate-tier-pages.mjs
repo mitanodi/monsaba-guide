@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { load } from 'cheerio';
 import { MODES, legacyRatings } from '../lib/tata-tier.mjs';
+import { renderPositionBoards } from './lib/position-tier-board.mjs';
 import { renderTierBoard, esc } from './lib/tier-board.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
@@ -25,6 +26,19 @@ const ninjaAdMaxTataContent = (familyId, position) => {
   return `<aside class="wrap ninja-admax-slot ninja-admax-expansion" data-admax-slot="TATA_${position}_${familyId.toUpperCase()}" data-admax-position="${position}" data-admax-placement="2026-09-all-content" aria-label="広告"><span class="ninja-admax-label">広告</span><script>(function(){var tag=window.matchMedia('(max-width: 820px)').matches?'https://adm.shinobi.jp/s/${tags.sp}':'https://adm.shinobi.jp/s/${tags.pc}';document.write('<scr'+'ipt src="'+tag+'"></scr'+'ipt>');}());</script></aside>`;
 };
 const imobileSlot = slot => `<aside class="wrap imobile-ad-slot" aria-label="広告"><span class="imobile-ad-label">広告</span><script src="/imobile-ads.js?v=${assetVersion}" data-imobile-slot="${slot}"></script></aside>`;
+const positionData = json('data/zombie-rush/position-tiers.json');
+function positionRatingLink(familyId, locale, prefix) {
+  const labels = {
+    ja: ['ゾンビラッシュ役割別', '前衛', '中衛', '後衛', '未評価', '役割別評価なし'],
+    en: ['Zombie Rush by position', 'Front', 'Middle', 'Rear', 'Unrated', 'No position rating'],
+    'zh-CN': ['僵尸突袭位置评价', '前卫', '中卫', '后卫', '未评价', '无位置评价']
+  }[locale];
+  const values = ['front', 'middle', 'rear'].map((position, i) => {
+    const entry = positionData.entries.find(e => e.position === position && e.familyId === familyId);
+    return entry ? `${labels[i + 1]} ${entry.tier === 'HOLD' ? labels[4] : entry.tier}` : '';
+  }).filter(Boolean);
+  return `<p data-zombie-position-ratings><a href="/${prefix}tata-tier/#mode-zombie">${labels[0]}</a>：${esc(values.join(' / ') || labels[5])}</p>`;
+}
 const editorial = json('data/editorial-content.json').families;
 const data = json('data/tata-tier.json'), families = json('data/tatari.json').families, images = json('data/tata-images.json').families, translations = json('data/i18n/tata-tier.json');
 write('data/tier-ratings.json', JSON.stringify(legacyRatings(data), null, 2) + '\n');
@@ -51,8 +65,9 @@ for (const [locale, prefix] of [['ja', ''], ['en', 'en/'], ['zh-CN', 'zh-cn/']])
   const ads = $('main .astra-ad').toArray().map(el => $.html(el));
   const byline = $('.article-byline').first().toString();
   const nav = `<nav id="tier-navigation" class="wrap tier-mode-nav" aria-label="${esc(copy.title)}">${MODES.map((mode, i) => `<a href="#mode-${mode}">${esc(copy.labels[i])}</a>`).join('')}</nav>`;
-  const filters = `<div class="wrap tier-filter" role="group" aria-label="${esc(copy.filter)}"><span>${esc(copy.filter)}</span>${[['all', copy.all], ...Object.entries(copy.attributes)].map(([attr, label], i) => `<button type="button" class="filter${i === 0 ? ' is-active' : ''}" data-tier-attribute="${attr}" aria-pressed="${i === 0}">${esc(label)}</button>`).join('')}</div>`;
-  const boards = MODES.map((mode, i) => renderTierBoard({
+  const searchLabels = { ja: ['タタ名で絞り込む', 'タタ名を入力'], en: ['Filter by Tatari name', 'Enter a Tatari name'], 'zh-CN': ['按塔塔名称筛选', '输入塔塔名称'] }[locale];
+  const filters = `<div class="wrap tier-filter" role="group" aria-label="${esc(copy.filter)}"><span>${esc(copy.filter)}</span>${[['all', copy.all], ...Object.entries(copy.attributes)].map(([attr, label], i) => `<button type="button" class="filter${i === 0 ? ' is-active' : ''}" data-tier-attribute="${attr}" aria-pressed="${i === 0}">${esc(label)}</button>`).join('')}<label class="tier-name-filter">${searchLabels[0]}<input type="search" data-tier-search placeholder="${searchLabels[1]}"></label></div>`;
+  const boards = MODES.map((mode, i) => (mode === 'zombie' ? renderPositionBoards({ data: positionData, legacy: renderTierBoard({ data, families, images, locale, copy, mode }), families, images, locale, copy }) : renderTierBoard({
     data,
     families,
     images,
@@ -60,7 +75,7 @@ for (const [locale, prefix] of [['ja', ''], ['en', 'en/'], ['zh-CN', 'zh-cn/']])
     copy,
     mode,
     afterDescription: locale === 'ja' && mode === 'normal' ? imobileSlot('tier') : ''
-  }) + (ads[i] || '') + (locale === 'ja' && i === MODES.length - 1 ? ninjaAdMaxTier : '')).join('\n');
+  })) + (ads[i] || '') + (locale === 'ja' && i === MODES.length - 1 ? ninjaAdMaxTier : '')).join('\n');
   const main = `<main id="main-content"><section class="page-hero tier-page-hero astra-compact-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/${prefix}">${locale === 'ja' ? 'トップ' : locale === 'en' ? 'Home' : '首页'}</a><span>›</span><span>${esc(copy.labels[0])} Tier</span></nav><span class="attribute">${esc(copy.updated)} ${data.updated}</span><h1>${esc(copy.title)}</h1><p>${esc(copy.intro)}</p></div></section>${nav}${byline}<div id="tier-list">${filters}${copy.legend ? `<p class="wrap tier-criteria-panel">${esc(copy.legend)}</p>` : ''}${boards}</div></main>`;
   html = html.replace(/<main\b[^>]*>[\s\S]*?<\/main>/, main);
   html = patchHtml(html, [['title', () => `<title>${esc(copy.title)}</title>`], ['meta[name="description"]', () => `<meta name="description" content="${esc(copy.intro)}">`], ['script[type="application/ld+json"]', el => {
@@ -95,10 +110,12 @@ for (const [locale, prefix] of [['ja', ''], ['en', 'en/'], ['zh-CN', 'zh-cn/']])
     if (!load(source)('.mode-rating-grid').length)
       source = patchHtml(source, [['.quick-purpose-label + h2 + p', () => '<div class="mode-rating-grid"></div>']]);
     source = patchHtml(source, [
-      ['.mode-rating-grid', () => `<div class="mode-rating-grid">${MODES.map((mode, i) => `<div data-ranking-mode="${mode}" data-status="${entry.rankings[mode].status}"><span>${esc(copy.labels[i])}</span><b>${esc(label(entry.rankings[mode]))}</b>${entry.rankings[mode].status === 'provisional' ? `<small>${esc(copy.provisional)}</small>` : ''}</div>`).join('')}</div>`],
+      ['.mode-rating-grid', () => `<div class="mode-rating-grid">${MODES.map((mode, i) => `<div data-ranking-mode="${mode}" data-status="${entry.rankings[mode].status}"><span>${esc(copy.labels[i])}${mode === 'zombie' ? (locale === 'ja' ? '（旧統合）' : locale === 'en' ? ' (previous combined)' : '（原综合）') : ''}</span><b>${esc(label(entry.rankings[mode]))}</b>${entry.rankings[mode].status === 'provisional' ? `<small>${esc(copy.provisional)}</small>` : ''}</div>`).join('')}</div>`],
       ['.tata-hero-meta > span:first-child > b', () => `<b>${esc(label(entry.rankings.overall))}</b>`],
       ['.tata-quick-answers > h2:first-of-type + p', () => `<p data-tier-summary>${esc(summary)}</p>`]
     ]);
+    source = patchHtml(source, [['[data-zombie-position-ratings]', () => '']]);
+    source = patchHtml(source, [['.mode-rating-grid', (el, $) => $.html(el) + positionRatingLink(entry.familyId, locale, prefix)]]);
     if (['riifuro', 'sabooru', 'tsubutsumuri'].includes(entry.familyId)) {
       source = patchHtml(source, [['.rating-hold-note', () => ''], ['.source-note > p:first-of-type', (el, $) => $.html(el)
         .replace('Tierは当サイト独自の暫定評価です。', 'Tierは当サイト独自の評価です。')

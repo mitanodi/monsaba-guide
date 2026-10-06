@@ -37,22 +37,34 @@
   nav.id ||= 'global-navigation';
   nav.setAttribute('aria-label', ui('主要メニュー'));
 
-  const path = location.pathname;
-  const currentHref = path.startsWith('/tata/') ? '/#tatari'
-    : ['/guides/', '/zombie-rush/', '/boss-rally/', '/badge-dojo/', '/normal-guide/'].some((route) => path.startsWith(route)) ? '/guides/'
-      : path.startsWith('/attribute/') ? '/#tatari'
-        : path.startsWith('/tata-tier/') ? '/tata-tier/'
-          : path.startsWith('/evolution-priority/') ? '/evolution-priority/'
-            : path.startsWith('/consult/') ? '/consult/'
-              : path.startsWith('/search/') ? '/search/'
-                : path.startsWith('/compare/') ? '/compare/'
-                  : path.startsWith('/team-builder/') ? '/team-builder/'
-                    : path.startsWith('/beginner-guide/') ? '/beginner-guide/'
-                      : path.startsWith('/friends/') ? '/friends/'
-                        : path.startsWith('/board/') ? '/board/'
-                          : null;
-  if (currentHref)
-    nav.querySelector(`a[href="${currentHref}"]`)?.setAttribute('aria-current', 'page');
+  const syncCurrentNavigation = () => {
+    const path = location.pathname.replace(/^\/(?:en|zh-cn)(?=\/)/, '') || '/';
+    const currentHref = path === '/' ? (/^#(?:tatari|family-)/.test(location.hash) ? '/#tatari' : '/')
+      : path.startsWith('/tata/') ? '/#tatari'
+        : ['/guides/', '/zombie-rush/', '/boss-rally/', '/badge-dojo/', '/normal-guide/'].some((route) => path.startsWith(route)) ? '/guides/'
+          : path.startsWith('/attribute/') ? '/#tatari'
+            : path.startsWith('/tata-tier/') ? '/tata-tier/'
+              : path.startsWith('/evolution-priority/') ? '/evolution-priority/'
+                : path.startsWith('/consult/') ? '/consult/'
+                  : path.startsWith('/search/') ? '/search/'
+                    : path.startsWith('/compare/') ? '/compare/'
+                      : path.startsWith('/team-builder/') ? '/team-builder/'
+                        : path.startsWith('/beginner-guide/') ? '/beginner-guide/'
+                          : path.startsWith('/friends/') ? '/friends/'
+                            : path.startsWith('/board/') ? '/board/'
+                              : path;
+    document.querySelectorAll('#global-navigation a, .mobile-bottom-nav a').forEach((link) => {
+      link.removeAttribute('aria-current');
+      const target = new URL(link.href, location.href);
+      const targetHref = `${target.pathname}${target.hash}`;
+      if (targetHref === localizedRoute(currentHref) || (path !== '/' && targetHref === localizedRoute(path)))
+        link.setAttribute('aria-current', 'page');
+    });
+  };
+  window.MONSABA_NAV = Object.freeze({ syncCurrent: syncCurrentNavigation });
+  window.addEventListener('hashchange', syncCurrentNavigation);
+  window.addEventListener('popstate', syncCurrentNavigation);
+  syncCurrentNavigation();
 
   const button = document.createElement('button');
   button.className = 'mobile-nav-toggle';
@@ -250,6 +262,7 @@
   mobileBottomNav.innerHTML = `<a href="${localizedRoute('/')}">⌂<span>${mobileCopy.home}</span></a><a href="${localizedRoute('/#tatari')}">◈<span>${mobileCopy.tata}</span></a><a href="${localizedRoute('/tata-tier/')}">▲<span>${mobileCopy.tier}</span></a><a href="${localizedRoute('/team-builder/')}">▦<span>${mobileCopy.team}</span></a><button type="button">⌕<span>${mobileCopy.search}</span></button>`;
   document.body.appendChild(mobileBottomNav);
   mobileBottomNav.querySelector('button').addEventListener('click', openGlobalSearch);
+  syncCurrentNavigation();
 
   const topButton = document.createElement('button');
   topButton.className = 'back-to-top';

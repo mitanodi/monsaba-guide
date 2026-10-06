@@ -64,7 +64,7 @@ test('all three locales render every family once per board in the specified orde
     assert.equal($('.astra-ad').length, prefix ? 0 : 4, '既存A8枠は日本語Tierページに4枠を維持する');
     assert.equal($('.ninja-admax-slot').length, prefix ? 0 : 1, '端末別AdMax枠は日本語Tierページだけに置く');
     for (const mode of MODES) {
-      const board = $(`#mode-${mode}`);
+      const board = $(mode === 'zombie' ? '#legacy-zombie' : `#mode-${mode}`);
       const ids = board.find('[data-family-id]').map((_, el) => $(el).attr('data-family-id')).get();
       assert.equal(ids.length, 66);
       assert.equal(new Set(ids).size, 66);
@@ -112,7 +112,7 @@ test('operator-confirmed September 16 ratings appear without pending qualifiers 
     for (const prefix of ['', 'en/', 'zh-cn/']) {
       const board = load(read(`${prefix}tata-tier/index.html`)), detail = load(read(`${prefix}tata/${id}/index.html`)), beginner = load(read(`${prefix}beginner-guide/index.html`));
       for (const [mode, tier] of Object.entries(modes)) {
-        const card = board(`#mode-${mode} [data-family-id="${id}"]`), cell = detail(`[data-ranking-mode="${mode}"]`);
+        const card = board(`${mode === 'zombie' ? '#legacy-zombie' : '#mode-' + mode} [data-family-id="${id}"]`), cell = detail(`[data-ranking-mode="${mode}"]`);
         assert.equal(card.closest('[data-tier]').attr('data-tier'), tier);
         assert.equal(card.attr('data-status'), 'confirmed');
         assert.equal(card.find('.tier-status').length, 0);

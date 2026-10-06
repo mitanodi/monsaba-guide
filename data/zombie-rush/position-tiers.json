@@ -1,0 +1,393 @@
+{
+  "version": 1,
+  "updated": "2026-10-06",
+  "source": {
+    "type": "user-image",
+    "libraryFileId": "libfile_326929c6936c819184d98b2a99adb4c8",
+    "name": "IMG_9021.png",
+    "notes": "User-supplied ratings transcribed independently by position. Three name correspondences await confirmation; no grades assigned to unlisted families."
+  },
+  "futureContributor": {
+    "name": "始祖",
+    "url": "https://x.com/twx84",
+    "scope": "future-tier-creation"
+  },
+  "entries": [
+    {
+      "position": "front",
+      "tier": "SS",
+      "order": 0,
+      "sourceName": "アタタマ",
+      "familyId": "atatama",
+      "status": "transcribed"
+    },
+    {
+      "position": "front",
+      "tier": "SS",
+      "order": 1,
+      "sourceName": "コマキリ",
+      "familyId": "komakiri",
+      "status": "transcribed"
+    },
+    {
+      "position": "front",
+      "tier": "SS",
+      "order": 2,
+      "sourceName": "ガオデン",
+      "familyId": "gaoden",
+      "status": "transcribed"
+    },
+    {
+      "position": "front",
+      "tier": "SS",
+      "order": 3,
+      "sourceName": "ツヨカニ",
+      "familyId": "kenkani",
+      "status": "transcribed"
+    },
+    {
+      "position": "front",
+      "tier": "SS",
+      "order": 4,
+      "sourceName": "シズクシ",
+      "familyId": null,
+      "status": "name-pending"
+    },
+    {
+      "position": "front",
+      "tier": "S",
+      "order": 5,
+      "sourceName": "フグマル",
+      "familyId": "fugumaru",
+      "status": "transcribed"
+    },
+    {
+      "position": "front",
+      "tier": "S",
+      "order": 6,
+      "sourceName": "ヒノムシ",
+      "familyId": "fureimuji",
+      "status": "transcribed"
+    },
+    {
+      "position": "front",
+      "tier": "S",
+      "order": 7,
+      "sourceName": "ヌスケ",
+      "familyId": "nusuke",
+      "status": "transcribed"
+    },
+    {
+      "position": "front",
+      "tier": "S",
+      "order": 8,
+      "sourceName": "ヤミノメ",
+      "familyId": "yaminome",
+      "status": "transcribed"
+    },
+    {
+      "position": "front",
+      "tier": "S",
+      "order": 9,
+      "sourceName": "ホネギョ",
+      "familyId": "togegyo",
+      "status": "transcribed"
+    },
+    {
+      "position": "front",
+      "tier": "A",
+      "order": 10,
+      "sourceName": "コワガルー",
+      "familyId": "kowagaru",
+      "status": "transcribed"
+    },
+    {
+      "position": "front",
+      "tier": "A",
+      "order": 11,
+      "sourceName": "パチルフ",
+      "familyId": "denrou",
+      "status": "transcribed"
+    },
+    {
+      "position": "front",
+      "tier": "A",
+      "order": 12,
+      "sourceName": "コロカメ",
+      "familyId": "gantoru",
+      "status": "transcribed"
+    },
+    {
+      "position": "front",
+      "tier": "A",
+      "order": 13,
+      "sourceName": "ヒバイヌ",
+      "familyId": "matchiba",
+      "status": "transcribed"
+    },
+    {
+      "position": "front",
+      "tier": "A",
+      "order": 14,
+      "sourceName": "パクマ",
+      "familyId": "pakuma",
+      "status": "transcribed"
+    },
+    {
+      "position": "front",
+      "tier": "B",
+      "order": 15,
+      "sourceName": "トコペン",
+      "familyId": "tafupen",
+      "status": "transcribed"
+    },
+    {
+      "position": "front",
+      "tier": "B",
+      "order": 16,
+      "sourceName": "フクロクモ",
+      "familyId": "fukurogumo",
+      "status": "transcribed"
+    },
+    {
+      "position": "front",
+      "tier": "HOLD",
+      "order": 17,
+      "sourceName": "トラーニー",
+      "familyId": "haamitora",
+      "status": "unrated"
+    },
+    {
+      "position": "front",
+      "tier": "HOLD",
+      "order": 18,
+      "sourceName": "エレキネコ",
+      "familyId": "erekineko",
+      "status": "unrated"
+    },
+    {
+      "position": "middle",
+      "tier": "SS",
+      "order": 0,
+      "sourceName": "ブラピ",
+      "familyId": null,
+      "status": "name-pending"
+    },
+    {
+      "position": "middle",
+      "tier": "S",
+      "order": 1,
+      "sourceName": "ヒマワリン",
+      "familyId": "himawarin",
+      "status": "transcribed"
+    },
+    {
+      "position": "middle",
+      "tier": "S",
+      "order": 2,
+      "sourceName": "ビリモ",
+      "familyId": "birimori",
+      "status": "transcribed"
+    },
+    {
+      "position": "middle",
+      "tier": "S",
+      "order": 3,
+      "sourceName": "ヒノムシ",
+      "familyId": "fureimuji",
+      "status": "transcribed"
+    },
+    {
+      "position": "middle",
+      "tier": "S",
+      "order": 4,
+      "sourceName": "マルッシュ",
+      "familyId": "marushu",
+      "status": "transcribed"
+    },
+    {
+      "position": "middle",
+      "tier": "S",
+      "order": 5,
+      "sourceName": "フリコー",
+      "familyId": "riifuro",
+      "status": "transcribed"
+    },
+    {
+      "position": "middle",
+      "tier": "A",
+      "order": 6,
+      "sourceName": "クンブー",
+      "familyId": "kunbuu",
+      "status": "transcribed"
+    },
+    {
+      "position": "rear",
+      "tier": "SS",
+      "order": 0,
+      "sourceName": "ヤミノメ",
+      "familyId": "yaminome",
+      "status": "transcribed"
+    },
+    {
+      "position": "rear",
+      "tier": "SS",
+      "order": 1,
+      "sourceName": "コロタマ",
+      "familyId": "korotama",
+      "status": "transcribed"
+    },
+    {
+      "position": "rear",
+      "tier": "SS",
+      "order": 2,
+      "sourceName": "イルカ",
+      "familyId": null,
+      "status": "name-pending"
+    },
+    {
+      "position": "rear",
+      "tier": "SS",
+      "order": 3,
+      "sourceName": "シズクジ",
+      "familyId": "shizukuchou",
+      "status": "transcribed"
+    },
+    {
+      "position": "rear",
+      "tier": "SS",
+      "order": 4,
+      "sourceName": "ヒニャオ",
+      "familyId": "hinyao",
+      "status": "transcribed"
+    },
+    {
+      "position": "rear",
+      "tier": "S",
+      "order": 5,
+      "sourceName": "ウミミ",
+      "familyId": "umimi",
+      "status": "transcribed"
+    },
+    {
+      "position": "rear",
+      "tier": "S",
+      "order": 6,
+      "sourceName": "モエミン",
+      "familyId": "erekoon",
+      "status": "transcribed"
+    },
+    {
+      "position": "rear",
+      "tier": "S",
+      "order": 7,
+      "sourceName": "ナミアシカ",
+      "familyId": "boruzarashi",
+      "status": "transcribed"
+    },
+    {
+      "position": "rear",
+      "tier": "A",
+      "order": 8,
+      "sourceName": "スケダコ",
+      "familyId": "sukedako",
+      "status": "transcribed"
+    },
+    {
+      "position": "rear",
+      "tier": "A",
+      "order": 9,
+      "sourceName": "コパンダ",
+      "familyId": "takepanda",
+      "status": "transcribed"
+    },
+    {
+      "position": "rear",
+      "tier": "A",
+      "order": 10,
+      "sourceName": "トジコモル",
+      "familyId": "hikikomoru",
+      "status": "transcribed"
+    },
+    {
+      "position": "rear",
+      "tier": "B",
+      "order": 11,
+      "sourceName": "ヒモリ",
+      "familyId": "himori",
+      "status": "transcribed"
+    },
+    {
+      "position": "rear",
+      "tier": "B",
+      "order": 12,
+      "sourceName": "コロコン",
+      "familyId": "korokon",
+      "status": "transcribed"
+    },
+    {
+      "position": "rear",
+      "tier": "B",
+      "order": 13,
+      "sourceName": "ボウズヘビ",
+      "familyId": "nenbutsuhebi",
+      "status": "transcribed"
+    },
+    {
+      "position": "rear",
+      "tier": "B",
+      "order": 14,
+      "sourceName": "ヤンザル",
+      "familyId": "yanzaru",
+      "status": "transcribed"
+    },
+    {
+      "position": "rear",
+      "tier": "C",
+      "order": 15,
+      "sourceName": "ビリジカ",
+      "familyId": "denjika",
+      "status": "transcribed"
+    },
+    {
+      "position": "rear",
+      "tier": "C",
+      "order": 16,
+      "sourceName": "ネコオリ",
+      "familyId": "nekoori",
+      "status": "transcribed"
+    },
+    {
+      "position": "rear",
+      "tier": "C",
+      "order": 17,
+      "sourceName": "フルッグ",
+      "familyId": "furuggu",
+      "status": "transcribed"
+    },
+    {
+      "position": "rear",
+      "tier": "C",
+      "order": 18,
+      "sourceName": "ヒエビ",
+      "familyId": "fureebi",
+      "status": "transcribed"
+    },
+    {
+      "position": "rear",
+      "tier": "HOLD",
+      "order": 19,
+      "sourceName": "モグリン",
+      "familyId": "mogurin",
+      "status": "unrated"
+    },
+    {
+      "position": "rear",
+      "tier": "HOLD",
+      "order": 20,
+      "sourceName": "ネムクラゲ",
+      "familyId": "nemukurage",
+      "status": "unrated"
+    }
+  ]
+}

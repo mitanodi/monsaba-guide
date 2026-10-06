@@ -1,0 +1,791 @@
+{
+  "referenceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+  "checkedAt": "2026-10-06",
+  "count": 49,
+  "records": [
+    {
+      "id": "sugar-iii",
+      "name": "糖分補給III",
+      "localIcon": "/assets/chips/sugar-iii.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "糖分補給3",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1795/%E7%B3%96%E5%88%86%E8%A3%9C%E7%B5%A63.webp",
+      "wikiEffect": "5秒ごとにエナジーキャンディを4個獲得する。あなたのタタはLv.8までレベルアップできるようになる。",
+      "currentEffect": "5秒ごとにエナジーキャンディを4個獲得する。あなたのタタはLv.8までレベルアップできるようになる。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "downloaded-pixel-comparison",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "bounty-iii",
+      "name": "賞金稼ぎIII",
+      "localIcon": "/assets/chips/bounty-iii.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "賞金稼ぎⅢ",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1195/%E8%B3%9E%E9%87%91%E7%A8%BC%E3%81%8E%E2%85%A2.webp",
+      "wikiEffect": "120秒以内にあなたのタタがゾンビを倒して獲得するエナジーキャンディが4個増加する。あなたのタタはLv.8までレベルアップできるようになる。",
+      "currentEffect": "120秒以内に、あなたのタタがゾンビを倒して獲得するエナジーキャンディが4個増加する。あなたのタタはLv.8までレベルアップできるようになる。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "slot-iv",
+      "name": "スロット・肆",
+      "localIcon": "/assets/chips/slot-iv.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "スロット・肆",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1194/%E3%82%B9%E3%83%AD%E3%83%83%E3%83%88%E3%83%BB%E8%82%86.webp",
+      "wikiEffect": "編成中のタタをランダムで4匹獲得する。出陣数が上限に達した場合、未獲得の数に応じて、あなたのタタをランダムでレベルアップさせる。",
+      "currentEffect": "編成中のタタをランダムで4匹獲得する。出陣数が上限に達した場合、未獲得の数に応じて、あなたのタタをランダムでレベルアップさせる。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "water-iii",
+      "name": "水の息吹III",
+      "localIcon": "/assets/chips/water-iii.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "水の息吹Ⅲ",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1193/%E6%B0%B4%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A2.webp",
+      "wikiEffect": "あなたの水属性タタが40%のダメージ増加を獲得",
+      "currentEffect": "あなたの水属性タタが40%のダメージ増加を獲得する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "fire-iii",
+      "name": "炎の息吹III",
+      "localIcon": "/assets/chips/fire-iii.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "炎の息吹Ⅲ",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1192/%E7%82%8E%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A2.webp",
+      "wikiEffect": "あなたの炎属性タタが40%のダメージ増加を獲得",
+      "currentEffect": "あなたの炎属性タタが40%のダメージ増加を獲得する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "grass-iii",
+      "name": "草の息吹III",
+      "localIcon": "/assets/chips/grass-iii.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "草の息吹Ⅲ",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1191/%E8%8D%89%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A2.webp",
+      "wikiEffect": "あなたの草属性タタが40%のダメージ増加を獲得",
+      "currentEffect": "あなたの草属性タタが40%のダメージ増加を獲得する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "rock-iii",
+      "name": "岩の息吹III",
+      "localIcon": "/assets/chips/rock-iii.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "岩の息吹Ⅲ",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1190/%E5%B2%A9%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A2.webp",
+      "wikiEffect": "あなたの岩属性タタが40%のダメージ増加を獲得",
+      "currentEffect": "あなたの岩属性タタが40%のダメージ増加を獲得する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "lightning-iii",
+      "name": "雷の息吹III",
+      "localIcon": "/assets/chips/lightning-iii.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "雷の息吹Ⅲ",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1188/%E9%9B%B7%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A2.webp",
+      "wikiEffect": "あなたの雷属性タタが40%のダメージ増加を獲得",
+      "currentEffect": "あなたの雷属性タタが40%のダメージ増加を獲得する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "lawn-care",
+      "name": "芝生のお手入れ",
+      "localIcon": "/assets/chips/lawn-care.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "芝生のお手入れ",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1189/%E8%8A%9D%E7%94%9F%E3%81%AE%E3%81%8A%E6%89%8B%E5%85%A5%E3%82%8C.webp",
+      "wikiEffect": "マップ下側に6台の草刈り機が生成され、発動すると先頭のゾンビ5体（ボス以外）を倒し、ボスゾンビとその後続のゾンビに最大HPの40％のダメージを与える。",
+      "currentEffect": "マップ下部に芝刈り機が6台出現する。発動後、最初のゾンビ5体（ボスを除く）を倒し、それ以降のゾンビには最大HPの50%のダメージを与える。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "horizontal",
+      "name": "横並び",
+      "localIcon": "/assets/chips/horizontal.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "横並び",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1187/%E6%A8%AA%E4%B8%A6%E3%81%B3.webp",
+      "wikiEffect": "出陣しているあなたのタタのレベルを4にリセットする。",
+      "currentEffect": "出陣中のタタのレベルを4にリセットする。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "center-debut",
+      "name": "センターデビュー",
+      "localIcon": "/assets/chips/center-debut.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "センターデビュー",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1186/%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%87%E3%83%93%E3%83%A5%E3%83%BC.webp",
+      "wikiEffect": "ボスゾンビは中央2列にのみ出現するようになる。",
+      "currentEffect": "ボスゾンビは中央2列にのみ出現する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "fate-iii",
+      "name": "運命に委ねるIII",
+      "localIcon": "/assets/chips/fate-iii.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "運命に委ねるⅢ",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1185/%E9%81%8B%E5%91%BD%E3%81%AB%E5%A7%94%E3%81%AD%E3%82%8B%E2%85%A2.webp",
+      "wikiEffect": "ランダムで同ランクのチップを１つ獲得し、エナジーキャンディを200個獲得する。",
+      "currentEffect": "ランダムで同ランクのチップを1つ獲得し、エナジーキャンディを200個獲得する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "strategic-move",
+      "name": "戦略的移動",
+      "localIcon": "/assets/chips/strategic-move.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "戦略的移動",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1184/%E6%88%A6%E7%95%A5%E7%9A%84%E7%A7%BB%E5%8B%95.webp",
+      "wikiEffect": "タタを移動させた後、30秒間、そのタタの攻撃力と攻撃速度が20％増加する。",
+      "currentEffect": "タタを移動した後、そのタタの攻撃力と攻撃速度が20秒間20%増加する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "three-four-five",
+      "name": "三四五",
+      "localIcon": "/assets/chips/three-four-five.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "三四五",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1183/%E4%B8%89%E5%9B%9B%E4%BA%94.webp",
+      "wikiEffect": "初めてLv.4のタタが同時に3匹場にいる時、それらのタタ全員をLv.5までレベルアップさせる。",
+      "currentEffect": "初めてLv.4のタタが3体同時に場にいるとき、全員をLv.5にする。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "sugar-ii",
+      "name": "糖分補給II",
+      "localIcon": "/assets/chips/sugar-ii.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "糖分補給2",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1794/%E7%B3%96%E5%88%86%E8%A3%9C%E7%B5%A62.webp",
+      "wikiEffect": "5秒ごとにエナジーキャンディを3個獲得する。あなたのタタはLv.8までレベルアップできるようになる。",
+      "currentEffect": "5秒ごとにエナジーキャンディを3個獲得する。あなたのタタはLv.8までレベルアップできるようになる。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "bounty-ii",
+      "name": "賞金稼ぎII",
+      "localIcon": "/assets/chips/bounty-ii.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "賞金稼ぎⅡ",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1181/%E8%B3%9E%E9%87%91%E7%A8%BC%E3%81%8E%E2%85%A1.webp",
+      "wikiEffect": "120秒以内にあなたのタタがゾンビを倒して獲得するエナジーキャンディが3個増加する。あなたのタタはLv.8までレベルアップできるようになる。",
+      "currentEffect": "120秒以内に、あなたのタタがゾンビを倒して獲得するエナジーキャンディが3個増加する。あなたのタタはLv.8までレベルアップできるようになる。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "slot-iii",
+      "name": "スロット・参",
+      "localIcon": "/assets/chips/slot-iii.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "スロット・参",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1180/%E3%82%B9%E3%83%AD%E3%83%83%E3%83%88%E3%83%BB%E5%8F%82.webp",
+      "wikiEffect": "編成中のタタをランダムで3匹獲得する。出陣数が上限に達した場合、未獲得の数に応じて、あなたのタタをランダムでレベルアップさせる。",
+      "currentEffect": "編成中のタタをランダムで3匹獲得する。出陣数が上限に達した場合、未獲得の数に応じて、あなたのタタをランダムでレベルアップさせる。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "water-ii",
+      "name": "水の息吹II",
+      "localIcon": "/assets/chips/water-ii.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "水の息吹Ⅱ",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1179/%E6%B0%B4%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A1.webp",
+      "wikiEffect": "あなたの水属性タタが30%のダメージ増加を獲得",
+      "currentEffect": "あなたの水属性タタが30%のダメージ増加を獲得する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "fire-ii",
+      "name": "炎の息吹II",
+      "localIcon": "/assets/chips/fire-ii.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "炎の息吹Ⅱ",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1178/%E7%82%8E%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A1.webp",
+      "wikiEffect": "あなたの炎属性タタが30%のダメージ増加を獲得",
+      "currentEffect": "あなたの炎属性タタが30%のダメージ増加を獲得する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "grass-ii",
+      "name": "草の息吹II",
+      "localIcon": "/assets/chips/grass-ii.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "草の息吹Ⅱ",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1177/%E8%8D%89%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A1.webp",
+      "wikiEffect": "あなたの草属性タタが30%のダメージ増加を獲得",
+      "currentEffect": "あなたの草属性タタが30%のダメージ増加を獲得する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "rock-ii",
+      "name": "岩の息吹II",
+      "localIcon": "/assets/chips/rock-ii-d27266e7e6f3.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "岩の息吹Ⅱ",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1176/%E5%B2%A9%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A1.webp",
+      "wikiEffect": "あなたの岩属性タタが30%のダメージ増加を獲得",
+      "currentEffect": "あなたの岩属性タタが30%のダメージ増加を獲得する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "lightning-ii",
+      "name": "雷の息吹II",
+      "localIcon": "/assets/chips/lightning-ii-adb75288a7f7.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "雷の息吹Ⅱ",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1175/%E9%9B%B7%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A1.webp",
+      "wikiEffect": "あなたの雷属性タタが30%のダメージ増加を獲得",
+      "currentEffect": "あなたの雷属性タタが30%のダメージ増加を獲得する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "glass-cannon",
+      "name": "ガラス大砲",
+      "localIcon": "/assets/chips/glass-cannon-6964d4975725.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "ガラス大砲",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1174/%E3%82%AC%E3%83%A9%E3%82%B9%E5%A4%A7%E7%A0%B2.webp",
+      "wikiEffect": "あなたのタタ全員の攻撃力が25％増加し、最大HPが10％減少する。",
+      "currentEffect": "あなたのタタ全員の攻撃力が25%増加し、最大HPが10%減少する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "boss-killer",
+      "name": "ボスキラー",
+      "localIcon": "/assets/chips/boss-killer-1eea45bf2c0c.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "ボスキラー",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1173/%E3%83%9C%E3%82%B9%E3%82%AD%E3%83%A9%E3%83%BC.webp",
+      "wikiEffect": "あなたのタタのボスゾンビへのダメージが20％増加する。",
+      "currentEffect": "ボスゾンビに与えるダメージが25%増加する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "maverick",
+      "name": "マーベリック",
+      "localIcon": "/assets/chips/maverick.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "マーベリック",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1171/%E3%83%9E%E3%83%BC%E3%83%99%E3%83%AA%E3%83%83%E3%82%AF.webp",
+      "wikiEffect": "あなたのタタの隣接マスに味方がいない場合、そのタタの攻撃力、最大HP、防御力が35％増加する。",
+      "currentEffect": "あなたのタタの隣接マスに味方がいない場合、そのタタの攻撃力、最大HP、防御力が20%増加する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "back-shooter",
+      "name": "バックシューター",
+      "localIcon": "/assets/chips/back-shooter.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "バックシューター",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1170/%E3%83%90%E3%83%83%E3%82%AF%E3%82%B7%E3%83%A5%E3%83%BC%E3%82%BF%E3%83%BC.webp",
+      "wikiEffect": "あなたの後ろ2列のタタの攻撃速度が30％増加する。",
+      "currentEffect": "あなたの後ろ2列のタタの攻撃速度が30%増加する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "rear-support",
+      "name": "後方支援",
+      "localIcon": "/assets/chips/rear-support.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "後方支援",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1172/%E5%BE%8C%E6%96%B9%E6%94%AF%E6%8F%B4.webp",
+      "wikiEffect": "前方にタタが1匹しかいない場合、ダメージが30%増加する。",
+      "currentEffect": "前方にタタが1匹しかいない場合、ダメージが30%増加する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "upgrade",
+      "name": "アップグレード",
+      "localIcon": "/assets/chips/upgrade.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "アップグレード",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1169/%E3%82%A2%E3%83%83%E3%83%97%E3%82%B0%E3%83%AC%E3%83%BC%E3%83%89.webp",
+      "wikiEffect": "あなたの場にいるLv.3以下のタタ全員をランダムで編成内のタタと入れ替え、Lv.を2 アップさせる。",
+      "currentEffect": "あなたの場にいるLv.3以下のタタ全員をランダムで編成内のタタへ入れ替え、Lv.を1アップさせる。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "shuffle",
+      "name": "シャッフル",
+      "localIcon": "/assets/chips/shuffle.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "シャッフル",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1168/%E3%82%B7%E3%83%A3%E3%83%83%E3%83%95%E3%83%AB.webp",
+      "wikiEffect": "あなたの場にいるタタ全員をランダムで編成内のタタと入れ替え、エナジーキャンディを600個獲得する.",
+      "currentEffect": "あなたの場にいるタタ全員をランダムで編成内のタタと入れ替え、エナジーキャンディを600個獲得する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "adverse-attribute",
+      "name": "下剋上",
+      "localIcon": "/assets/chips/adverse-attribute.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "下剋上",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1167/%E4%B8%8B%E5%89%8B%E4%B8%8A.webp",
+      "wikiEffect": "自分の属性が敵に不利な場合でも、有利として扱う。",
+      "currentEffect": "自分の属性が敵に不利な場合でも、有利として扱う。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "and-one",
+      "name": "アンドワン",
+      "localIcon": "/assets/chips/and-one.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "アンドワン",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1166/%E3%82%A2%E3%83%B3%E3%83%89%E3%83%AF%E3%83%B3.webp",
+      "wikiEffect": "あなたの編成上限が1増加し、エナジーキャンディを250個獲得する。",
+      "currentEffect": "あなたの編成上限が1増加し、エナジーキャンディを250個獲得する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "undeployed-tatari",
+      "name": "未編成タタ",
+      "localIcon": "/assets/chips/undeployed-tatari.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "未編成タタ",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1165/%E6%9C%AA%E7%B7%A8%E6%88%90%E3%82%BF%E3%82%BF.webp",
+      "wikiEffect": "あなたの編成中のタタをランダムで1匹召喚する。そのタタはLv.3固定で、レベルアップ不可・復活不可・出現上限を消費しない。",
+      "currentEffect": "あなたの編成中のタタをランダムで1匹召喚する。そのタタはLv.3固定で、レベルアップ不可・復活不可・出陣上限を消費しない。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "fate-ii",
+      "name": "運命に委ねるII",
+      "localIcon": "/assets/chips/fate-ii.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "運命に委ねるⅡ",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1164/%E9%81%8B%E5%91%BD%E3%81%AB%E5%A7%94%E3%81%AD%E3%82%8B%E2%85%A1.webp",
+      "wikiEffect": "ランダムで同ランクのチップを１つ獲得し、エナジーキャンディを150個獲得する。",
+      "currentEffect": "ランダムで同ランクのチップを1つ獲得し、エナジーキャンディを150個獲得する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "river-boundary",
+      "name": "川の境界線",
+      "localIcon": "/assets/chips/river-boundary.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "川の境界線",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1163/%E5%B7%9D%E3%81%AE%E5%A2%83%E7%95%8C%E7%B7%9A.webp",
+      "wikiEffect": "川の上にいるゾンビの移動速度が40%減少する。",
+      "currentEffect": "川の上にいるゾンビの移動速度が40%減少する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "bucket-theory",
+      "name": "バケツ理論",
+      "localIcon": "/assets/chips/bucket-theory.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "バケツ理論",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1162/%E3%83%90%E3%82%B1%E3%83%84%E7%90%86%E8%AB%96.webp",
+      "wikiEffect": "あなたの出陣しているタタの中で、最も少ない属性のタタの攻撃力、防御力、攻撃速度が10%増加する。最も少ない属性が複数存在する場合は、そのすべてに適用される。",
+      "currentEffect": "あなたの出陣しているタタの中で、最も少ない属性のタタの攻撃力、防御力、攻撃速度が10%増加する。最も少ない属性が複数存在する場合は、そのすべてに適用される。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "sugar-i",
+      "name": "糖分補給I",
+      "localIcon": "/assets/chips/sugar-i.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "糖分補給1",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1793/%E7%B3%96%E5%88%86%E8%A3%9C%E7%B5%A61.webp",
+      "wikiEffect": "5秒ごとにエナジーキャンディを2個獲得する。あなたのタタはLv.8までレベルアップできるようになる。",
+      "currentEffect": "5秒ごとにエナジーキャンディを2個獲得する。あなたのタタはLv.8までレベルアップできるようになる。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "bounty-i",
+      "name": "賞金稼ぎI",
+      "localIcon": "/assets/chips/bounty-i.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "賞金稼ぎⅠ",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1160/%E8%B3%9E%E9%87%91%E7%A8%BC%E3%81%8E%E2%85%A0.webp",
+      "wikiEffect": "120秒以内にあなたのタタがゾンビを倒して獲得するエナジーキャンディが2個増加する。あなたのタタはLv.8までレベルアップできるようになる。",
+      "currentEffect": "120秒以内に、あなたのタタがゾンビを倒して獲得するエナジーキャンディが2個増加する。あなたのタタはLv.8までレベルアップできるようになる。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "slot-ii",
+      "name": "スロット・弐",
+      "localIcon": "/assets/chips/slot-ii.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "スロット・弐",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1159/%E3%82%B9%E3%83%AD%E3%83%83%E3%83%88%E3%83%BB%E5%BC%90.webp",
+      "wikiEffect": "編成中のタタをランダムで2匹獲得する。出陣数が上限に達した場合、未獲得の数に応じて、あなたのタタをランダムでレベルアップさせる。",
+      "currentEffect": "編成中のタタをランダムで2匹獲得する。出陣数が上限に達した場合、未獲得の数に応じて、あなたのタタをランダムでレベルアップさせる。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "slack-off",
+      "name": "サボる",
+      "localIcon": "/assets/chips/slack-off.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "サボる",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1158/%E3%82%B5%E3%83%9C%E3%82%8B.webp",
+      "wikiEffect": "強制オート戦闘モード（40秒間）、エナジーキャンディを300個獲得",
+      "currentEffect": "強制オート戦闘モード（90秒間）になり、エナジーキャンディを300個獲得する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "water-i",
+      "name": "水の息吹I",
+      "localIcon": "/assets/chips/water-i.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "水の息吹Ⅰ",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1157/%E6%B0%B4%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A0.webp",
+      "wikiEffect": "あなたの水属性タタが20%のダメージ増加を獲得",
+      "currentEffect": "あなたの水属性タタが20%のダメージ増加を獲得する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "fire-i",
+      "name": "炎の息吹I",
+      "localIcon": "/assets/chips/fire-i.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "炎の息吹Ⅰ",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1156/%E7%82%8E%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A0.webp",
+      "wikiEffect": "あなたの炎属性タタが20%のダメージ増加を獲得",
+      "currentEffect": "あなたの炎属性タタが20%のダメージ増加を獲得する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "grass-i",
+      "name": "草の息吹I",
+      "localIcon": "/assets/chips/grass-i.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "草の息吹Ⅰ",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1155/%E8%8D%89%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A0.webp",
+      "wikiEffect": "あなたの草属性タタが20%のダメージ増加を獲得",
+      "currentEffect": "あなたの草属性タタが20%のダメージ増加を獲得する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "rock-i",
+      "name": "岩の息吹I",
+      "localIcon": "/assets/chips/rock-i.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "岩の息吹Ⅰ",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1154/%E5%B2%A9%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A0.webp",
+      "wikiEffect": "あなたの岩属性タタが20%のダメージ増加を獲得",
+      "currentEffect": "あなたの岩属性タタが20%のダメージ増加を獲得する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "lightning-i",
+      "name": "雷の息吹I",
+      "localIcon": "/assets/chips/lightning-i.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "雷の息吹Ⅰ",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1153/%E9%9B%B7%E3%81%AE%E6%81%AF%E5%90%B9%E2%85%A0.webp",
+      "wikiEffect": "あなたの雷属性タタ发20%のダメージ増加を獲得",
+      "currentEffect": "あなたの雷属性タタが20%のダメージ増加を獲得する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "wall",
+      "name": "城壁",
+      "localIcon": "/assets/chips/wall.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "城壁",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1152/%E5%9F%8E%E5%A3%81.webp",
+      "wikiEffect": "あなたの前2列のタタの最大HPと防御力が40%増加し、与えるダメージが10％減少する。",
+      "currentEffect": "あなたの前2列のタタの最大HPと防御力が40%増加し、与えるダメージが10%減少する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "bandage",
+      "name": "バンテージ",
+      "localIcon": "/assets/chips/bandage.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "バンテージ",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1151/%E3%83%90%E3%83%B3%E3%83%86%E3%83%BC%E3%82%B8.webp",
+      "wikiEffect": "あなたの前2列のタタが4秒ごとに失ったHPの15%を回復する。",
+      "currentEffect": "あなたの前2列のタタが4秒ごとに失ったHPの15%を回復する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "parting-gift",
+      "name": "別れの贈り物",
+      "localIcon": "/assets/chips/parting-gift.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "別れの贈り物",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1150/%E5%88%A5%E3%82%8C%E3%81%AE%E8%B4%88%E3%82%8A%E7%89%A9.webp",
+      "wikiEffect": "あなたのタタが1体倒れるたびにエナジーキャンディを40個獲得する。",
+      "currentEffect": "あなたのタタが1体倒れるたびにエナジーキャンディを200個獲得する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "fate-i",
+      "name": "運命に委ねるI",
+      "localIcon": "/assets/chips/fate-i.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "運命に委ねるⅠ",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1149/%E9%81%8B%E5%91%BD%E3%81%AB%E5%A7%94%E3%81%AD%E3%82%8B%E2%85%A0.webp",
+      "wikiEffect": "ランダムで同ランクのチップを１つ獲得し、エナジーキャンディを100個獲得する。",
+      "currentEffect": "ランダムで同ランクのチップを1つ獲得し、エナジーキャンディを100個獲得する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    },
+    {
+      "id": "reset",
+      "name": "リセット",
+      "localIcon": "/assets/chips/reset.webp",
+      "localDimensions": [
+        96,
+        96
+      ],
+      "wikiName": "リセット",
+      "wikiImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/1148/%E3%83%AA%E3%82%BB%E3%83%83%E3%83%88.webp",
+      "wikiEffect": "場にいるあなたのタタ全員を回収して、回収したタタ1体につきエナジーキャンディを200個獲得する。",
+      "currentEffect": "場にいるあなたのタタ全員を回収し、回収したタタ1体につきエナジーキャンディを200個獲得する。",
+      "nameMapping": "matched-normalized-filename",
+      "imageComparison": "not-completed",
+      "externalReuse": "unconfirmed-not-adopted"
+    }
+  ]
+}

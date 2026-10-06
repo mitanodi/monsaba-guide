@@ -27,10 +27,7 @@
     const team = bottom.querySelector(`a[href="${prefix}/team-builder/"]`);
     if (team)
       bottom.append(team);
-    bottom.querySelectorAll('a').forEach(a => {
-      if (a.pathname === location.pathname && !a.hash)
-        a.setAttribute('aria-current', 'page');
-    });
+    window.MONSABA_NAV?.syncCurrent();
   }
   document.querySelector('.astra-compact-toggle')?.addEventListener('click', e => {
     const compact = e.currentTarget.getAttribute('aria-pressed') !== 'true';
