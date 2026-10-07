@@ -731,17 +731,24 @@
       "verifiedAt": "2026-10-07",
       "status": "externally_confirmed",
       "summary": {
-        "ja": "4人チームで陣地を占領し、ユニオンポイントを競います。募集は水曜09:00〜木曜08:59、本戦は木曜〜翌火曜という外部記録です。濃縮ドリンクは4週目のリーグへ持越し可能。攻撃100缶という概要とレベル・疲労別必要数表が併存し、報酬もデイリーと最終一括の記載が混在するため、その数値・支給時期は保留しています。 9/9履歴にはMVPのフェスボックス、初回獲得のパーティホール、ギフト共有・実績展示のバンケットハウス、訪問ビー玉、チームキルのエアドロップ削除が掲載されています。ギフトボックスは獲得から5日で期限切れとなり金レンガへ変換。フェスボックスとは別です。10/7予告の石けん・変換10→65は一般配信未確認です。",
-        "en": "Four-player teams capture territory for union points. The guide lists recruitment Wednesday 09:00–Thursday 08:59 and battles Thursday–Tuesday; server applicability is unverified. Concentrated drinks can carry into the fourth-week league. A 100-drink overview conflicts with level/fatigue costs, and daily versus final reward timing is inconsistent. These fields remain pending. The September 9 history lists an MVP Fest Box, a Party Hall on first acquisition, and a separate Banquet House for sharing gifts and displaying achievements. Visits award random marbles; team-kill airdrops were removed. Gift Boxes expire five days after acquisition and convert to gold bricks; they are distinct from Fest Boxes. October 7 soap and conversion changes (10 to 65) remain release-unconfirmed previews.",
-        "zh-CN": "四人队伍占领领地并竞争联盟积分。外部资料记录周三09:00至周四08:59招募，周四至次周二比赛，服务器适用范围待确认。浓缩饮料可保留至第四周联赛。100罐攻击费用与等级疲劳表、每日与最终结算说明存在差异，相关字段保留待确认。 9月9日历史记录列出MVP庆典箱、首次获得时的派对大厅，以及另设的宴会屋用于共享礼盒、展示成就。访客可得随机弹珠，团队击杀空投已移除。礼盒自获得起5日后过期并转为金砖，与庆典箱不同。10月7日肥皂及10→65转换量仍属未确认全面发布的预告。"
+        "ja": "4人チームで陣地を占領し、ユニオンポイントを競います。募集水曜09:00～木曜08:59・本戦木曜～翌火曜、濃縮ドリンクの4週目持越しは外部記録。攻撃100缶とレベル・疲労別必要数、デイリー/最終報酬の適用は保留。公式9/9英語告知ではMVP Giftboxの初回獲得でBanquet Hallを取得し、同館で箱を共有・実績を展示、訪問者はランダムなビー玉を獲得します。MVP Giftboxは獲得から5日で失効し金レンガへ変換、チームキルのBlitz Giftsは削除。外部日本語のフェスボックス/ギフトボックス、パーティホール/バンケットハウスとの名称対応は未確認で、別物とは断定しません。10/7の石けん・最終金レンガ10→65はメンテナンス告知段階です。",
+        "en": "Four-player teams capture territory for union points. External recruitment and battle schedules, fourth-week drink carryover, fatigue-based costs and daily/final reward timing retain their source caveats. The official September 9 notice awards a Banquet Hall with the first MVP Giftbox; the same hall shares boxes, displays achievements and grants visiting trainers random pinballs. MVP Giftboxes expire after five days and convert to Gold Bricks; team-kill Blitz Gifts were removed. Differing Japanese box/building terms are not asserted to be separate items. October 7 soap rewards and final Gold Bricks increasing from 10 to 65 are announced changes awaiting maintenance completion.",
+        "zh-CN": "四人队伍占领领地并竞争联盟积分。外部招募比赛时刻、第四周饮料继承、疲劳费用及每日/最终奖励适用仍保留资料限制。官方9月9日公告记载首次获得MVP Giftbox可获得Banquet Hall，并在同一建筑共享礼盒、展示成就，访客随机获得弹珠。MVP Giftbox在获得5日后过期并转为金砖，团队击杀Blitz Gifts已移除。不同日文礼盒和建筑名称的对应待确认，不断言为不同物品。10月7日肥皂及最终金砖10→65仍为维护公告阶段。"
       },
       "pending": [
         "时区・サーバー",
         "攻撃消費の適用範囲",
         "報酬支給タイミング",
-        "訪問回数制限・箱の地域別名称・10/7予告の一般配信"
+        "訪問回数制限・箱の地域別名称・10/7予告の一般配信",
+        "外部日本語の箱/建物表記と公式英語名の対応"
       ],
-      "historySourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html"
+      "historySourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
+      "previousExternalSummary": {
+        "ja": "4人チームで陣地を占領し、ユニオンポイントを競います。募集は水曜09:00〜木曜08:59、本戦は木曜〜翌火曜という外部記録です。濃縮ドリンクは4週目のリーグへ持越し可能。攻撃100缶という概要とレベル・疲労別必要数表が併存し、報酬もデイリーと最終一括の記載が混在するため、その数値・支給時期は保留しています。 9/9履歴にはMVPのフェスボックス、初回獲得のパーティホール、ギフト共有・実績展示のバンケットハウス、訪問ビー玉、チームキルのエアドロップ削除が掲載されています。ギフトボックスは獲得から5日で期限切れとなり金レンガへ変換。フェスボックスとは別です。10/7予告の石けん・変換10→65は一般配信未確認です。",
+        "en": "Four-player teams capture territory for union points. The guide lists recruitment Wednesday 09:00–Thursday 08:59 and battles Thursday–Tuesday; server applicability is unverified. Concentrated drinks can carry into the fourth-week league. A 100-drink overview conflicts with level/fatigue costs, and daily versus final reward timing is inconsistent. These fields remain pending. The September 9 history lists an MVP Fest Box, a Party Hall on first acquisition, and a separate Banquet House for sharing gifts and displaying achievements. Visits award random marbles; team-kill airdrops were removed. Gift Boxes expire five days after acquisition and convert to gold bricks; they are distinct from Fest Boxes. October 7 soap and conversion changes (10 to 65) remain release-unconfirmed previews.",
+        "zh-CN": "四人队伍占领领地并竞争联盟积分。外部资料记录周三09:00至周四08:59招募，周四至次周二比赛，服务器适用范围待确认。浓缩饮料可保留至第四周联赛。100罐攻击费用与等级疲劳表、每日与最终结算说明存在差异，相关字段保留待确认。 9月9日历史记录列出MVP庆典箱、首次获得时的派对大厅，以及另设的宴会屋用于共享礼盒、展示成就。访客可得随机弹珠，团队击杀空投已移除。礼盒自获得起5日后过期并转为金砖，与庆典箱不同。10月7日肥皂及10→65转换量仍属未确认全面发布的预告。"
+      },
+      "officialSourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1546782191499870238"
     },
     {
       "id": "zombie-siege",
@@ -809,7 +816,15 @@
     }
   ],
   "upcoming": {
-    "status": "external-preview-implementation-unconfirmed",
+    "status": "official-maintenance-announced-not-yet-completed",
+    "officialAnnouncement": {
+      "sourceUrl": "https://x.com/monsaba_jp/status/2105855307163246689",
+      "publishedAt": "2026-10-02T12:00:04+09:00",
+      "announcedDate": "2026-10-07",
+      "family": "サトリッサム",
+      "status": "official-date-announced-general-release-not-observed",
+      "checkedAt": "2026-10-07"
+    },
     "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
     "announcedDate": "2026-10-07",
     "newFamily": "サトリッサム",
@@ -825,7 +840,7 @@
       "オーシャントレジャー"
     ],
     "unknown": [
-      "一般配信日・サーバー別開放",
+      "10/7 16:00開始予定メンテナンスの完了・サーバー別開放",
       "先行タタ画像・正式外国語名",
       "未掲載の通常/ZR倍率・間隔・進化差",
       "サボティアモ45000ビー玉の操作動詞・達成判定",
@@ -872,10 +887,11 @@
         "name": "ニジイロタタ",
         "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
         "summary": {
-          "ja": "先行告知の対象はネコオリ・コマキリ・ビリジカ・ガオデン・ウミミ・ヤンザル・コロコン・フルッグ・ヒモリ・コロジューの10種。T4のピカピカ形態が適切なスパで一定時間過ごすと確率で獲得する7種類の追加要素です。T5や新系統には数えません。必要時間・確率・7種類の正式名は未確認。",
-          "en": "The preview lists ten eligible Tata and seven rainbow additions for shiny T4 forms acquired by spending time in a suitable spa. They are not counted as T5 or new families. Required time, probability and the seven official names remain unverified.",
-          "zh-CN": "预告列出10种对象及7种彩虹追加要素，闪亮T4在符合条件的温泉停留一定时间后按概率获得。不计为T5或新系列；所需时间、概率及7种正式名称待确认。"
-        }
+          "ja": "公式10/6告知では対象10種それぞれに7種類のSparkle外観を追加予定。T4のピカピカ形態が適切なスパで一定時間過ごすと確率で獲得します。T5や新系統には数えません。対象はネコオリ・コマキリ・ビリジカ・ガオデン・ウミミ・ヤンザル・コロコン・フルッグ・ヒモリ・コロジュー。必要時間・確率・外観ごとの正式名は未確認。",
+          "en": "The official October 6 notice announces seven Sparkle appearances for each of ten eligible T4 Tata: Frostnip, Manteeny, Voltfawn, Zappur, Droppit, Punchimp, Sparkit, Frugling, Blueflick and Rubblet. T4 Glitter forms obtain them at random after time in a suitable spa. They are not T5 or new families. Time, probability and individual appearance names remain unverified.",
+          "zh-CN": "官方10月6日公告预定为10种对象各追加7种Sparkle外观，闪亮T4在符合条件的温泉停留一定时间后按概率获得。不计为T5或新系列；所需时间、概率及各外观正式名称待确认。"
+        },
+        "officialSourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1556924814034345996"
       },
       {
         "name": "秋の物語・キラカード",
@@ -890,17 +906,111 @@
         "name": "オーシャントレジャー・パス",
         "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
         "summary": {
-          "ja": "先行告知では月間パスをクエストでカギを集めるイベントへ変更。旧月間パスは販売終了後も残存期間の特典を維持し、週間パス報酬は調整予定。価格・必要カギ数・地域別提供状況は未確認。",
-          "en": "The preview describes replacing the monthly pass with an event where quests grant keys. Existing monthly-pass benefits continue for their remaining term, while weekly rewards are planned to change. Prices, required key counts and regional availability remain unverified.",
-          "zh-CN": "预告记载月卡改为通过任务收集钥匙的活动；旧月卡停售后仍保留剩余期间权益，周卡奖励将调整。价格、所需钥匙数量及地区供应待确认。"
-        }
+          "ja": "公式10/6英語告知ではDeepsea Diveへ月間パスを統合し、クエストでPass Pointsを集めると案内。日本語外部資料の「カギ」と表現が異なるため混同しません。旧月間パスは販売終了後も残存期間の特典を維持し、週間報酬は調整予定。価格・必要ポイント数・地域別提供は未確認。",
+          "en": "The official October 6 notice integrates the monthly pass into Deepsea Dive, where quests grant Pass Points. Japanese external material refers to keys; the terms are kept distinct. Existing monthly-pass benefits continue for their remaining term and weekly rewards are planned to change. Prices, point requirements and regional availability remain unverified.",
+          "zh-CN": "官方10月6日英文公告将月卡整合至Deepsea Dive，通过任务获得Pass Points；日文外部资料使用钥匙表述，暂不混同。旧月卡停售后仍保留剩余期间权益，周卡奖励将调整。价格、所需点数及地区供应待确认。"
+        },
+        "officialSourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1556924814034345996"
       }
-    ]
+    ],
+    "officialMaintenance": {
+      "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1556924814034345996",
+      "publishedAt": "2026-10-06T16:03:21+09:00",
+      "startsAt": "2026-10-07T16:00:00+09:00",
+      "expectedDurationHours": 2,
+      "completionObserved": false
+    },
+    "officialEnglishNames": {
+      "newFamily": "Popa",
+      "drillerooT4": "Armavolve",
+      "cactobudT4": "Cactobodhi",
+      "spa": "Sparkly Spa",
+      "station": "Spa Station",
+      "rainbow": "Sparkle Tatari",
+      "album": "Autumn Tales",
+      "shinyCards": "Foil Cards",
+      "passEvent": "Deepsea Dive"
+    },
+    "officialGoldrushChanges": {
+      "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1556924814034345996",
+      "finalGoldBricks": {
+        "previous": 10,
+        "value": 65
+      },
+      "directGoldBricksRemoved": [
+        20,
+        40
+      ],
+      "spaSoap": "reward quantity depends on league ranking",
+      "status": "announced-not-yet-completed"
+    }
   },
+  "communityCampaigns": [
+    {
+      "id": "crazy-doctor-fan-art",
+      "sourceUrl": "https://x.com/monsaba_jp/status/2099724896813154616",
+      "sourceType": "official_x",
+      "deadline": "2026-09-30",
+      "status": "past-announced-deadline",
+      "regionEligibility": null,
+      "summary": {
+        "ja": "クレイジー博士ファンアートは、公式Xの9/15告知で締切9/30を確認。確認日10/7時点では掲載期限を過ぎた企画として履歴へ整理。地域別の応募資格・結果発表は未確認。",
+        "en": "The official September 15 post confirms a September 30 deadline for the Crazy Doctor fan-art campaign. It is archived as past its announced deadline as of October 7. Regional eligibility and published results remain unverified.",
+        "zh-CN": "官方9月15日公告确认疯狂博士同人绘画活动截止于9月30日。截至10月7日已超过公告期限，归入历史活动；地区资格及结果公布待确认。"
+      }
+    },
+    {
+      "id": "tatari-musical",
+      "sourceUrl": "https://x.com/monsaba_jp/status/2095419117704814963",
+      "sourceType": "official_x",
+      "deadline": "2026-09-30",
+      "announcedPrizePoolUsd": 5000,
+      "status": "ended-results-announced",
+      "regionEligibility": null,
+      "summary": {
+        "ja": "TatariMusicalは公式Xで9/30締切・賞金総額5,000ドル、公式Discordで10/1入賞発表を確認。終了企画の履歴へ整理。対象地域と個別支払状態は未確認。",
+        "en": "Official X confirms the September 30 deadline and US$5,000 prize pool; official Discord published winners on October 1. The campaign is archived as ended. Regional eligibility and individual payment status are unverified.",
+        "zh-CN": "官方X确认9月30日截止及5,000美元奖金总额，官方Discord于10月1日公布获奖结果，归入已结束活动；地区资格及个人支付状态待确认。"
+      },
+      "resultsSourceUrl": "https://discord.com/channels/1343763804349267989/1377810027766747206/1555089199323947120",
+      "resultsPublishedAt": "2026-10-01"
+    },
+    {
+      "id": "from-pet-to-tatari",
+      "sourceUrl": "https://discord.com/channels/1343763804349267989/1377810027766747206/1552635775143911474",
+      "sourceType": "official_discord",
+      "startDate": "2026-09-24",
+      "deadline": "2026-10-24",
+      "timezone": null,
+      "status": "within-announced-period",
+      "regionEligibility": null,
+      "summary": {
+        "ja": "公式DiscordのFrom Pet to Tatariは9/24～10/24募集、10/25～11/2審査、11/3～11/9投票、11/10発表予定。所有する実在ペットのオリジナル写真・動画を公開投稿し公式フォームへ申請。AI生成・転載は対象外、Discordへの投稿だけでは応募になりません。開発は最低3か月、実装日は未保証。対象地域・締切時刻は未確認。",
+        "en": "From Pet to Tatari accepts submissions September 24–October 24, with review October 25–November 2, voting November 3–9 and a planned November 10 announcement. Submit original public photos or videos of a real pet you own through the official form; AI or copied content is excluded and Discord posts alone do not count. Development takes at least three months, with no guaranteed release date. Regional eligibility and cutoff time are unverified.",
+        "zh-CN": "From Pet to Tatari于9月24日～10月24日征集，10月25日～11月2日评审、11月3日～9日投票、预定11月10日公布。需公开发布自有真实宠物的原创照片或视频并提交官方表单；AI生成及转载不接受，仅在Discord发帖不算报名。开发至少3个月，无保证发布日期；地区资格及截止时刻待确认。"
+      }
+    },
+    {
+      "id": "trick-or-critter",
+      "sourceUrl": "https://discord.com/channels/1343763804349267989/1377810027766747206/1555090820627963905",
+      "sourceType": "official_discord",
+      "startDate": "2026-10-01",
+      "deadline": "2026-10-31",
+      "timezone": "UTC",
+      "status": "within-announced-period",
+      "announcedPrizePoolUsd": 3000,
+      "regionEligibility": null,
+      "summary": {
+        "ja": "公式DiscordのTrick or Critterは10/1～10/31（UTC）、賞金総額3,000ドルの短編動画企画。60秒未満の動画をTikTokまたはYouTube Shortsへ指定タグ付きで公開し、Farlight Creatorsへ申請。対象地域・正確な締切時刻は未確認。応募・投稿は本作業で行っていません。",
+        "en": "Trick or Critter runs October 1–31, 2026 (UTC), with an announced US$3,000 prize pool. Publish a video under 60 seconds on TikTok or YouTube Shorts with the required hashtags, then submit through Farlight Creators. Regional eligibility and the exact cutoff time remain unverified. No entry or post was submitted in this audit.",
+        "zh-CN": "Trick or Critter于2026年10月1日～31日（UTC）举行，公告奖金总额3,000美元。需在TikTok或YouTube Shorts公开发布不足60秒且包含指定标签的视频，并通过Farlight Creators报名；地区资格及准确截止时刻待确认。本次未报名或发帖。"
+      }
+    }
+  ],
   "coverage": {
     "chipImagesCompared": 49,
     "chipEffectsReviewed": 49,
-    "chipEffectConflicts": 3,
+    "chipEffectConflicts": 0,
     "tataFamiliesRead": 66,
     "externalDedicatedSkills": 198,
     "forms": 242,
@@ -914,13 +1024,14 @@
     "normalNameConflicts": 20,
     "normalExternalNumericFields": 502,
     "pendingOfficialChipNames": {
-      "en": 49,
+      "en": 28,
       "zh-CN": 49
     },
-    "eventsReviewed": 7
+    "eventsReviewed": 7,
+    "chipConflictsResolvedByOfficial": 3,
+    "officialEnglishChipNames": 21
   },
   "uninvestigated": [
-    "公式Discordの現在のファンアート企画・Tatari Musical告知",
     "ゲーム内の全242形態の最新通常スキル画面"
   ],
   "unverified": [
@@ -928,7 +1039,7 @@
     "実際のコード交換",
     "新T4画像6形態",
     "簡体字名6形態",
-    "チップ正式英語名49件・簡体字名49件",
+    "チップ正式英語名28件・簡体字名49件",
     "ギフト/ボス/施設の資料履歴と日本版実画面の一致",
     "Season2の難易度継承の最下位例外"
   ],
@@ -951,6 +1062,24 @@
       "街灯其余4种的正式名称和图片",
       "价格・購入回数・地域別UI",
       "取消返還の実機確認"
+    ]
+  },
+  "officialDiscord": {
+    "checkedAt": "2026-10-07",
+    "sourceUrls": [
+      "https://discord.com/channels/1343763804349267989/1344150608743104532/1541736245124792390",
+      "https://discord.com/channels/1343763804349267989/1344150608743104532/1551858168974417943",
+      "https://discord.com/channels/1343763804349267989/1344150608743104532/1556924814034345996"
+    ],
+    "readChannels": [
+      "official.news",
+      "community.events",
+      "redeem.codes"
+    ],
+    "status": "existing-member-read-only-no-posts-or-role-changes",
+    "codeSourceUrls": [
+      "https://discord.com/channels/1343763804349267989/1507036690672517350/1507300585823670373",
+      "https://discord.com/channels/1343763804349267989/1507036690672517350/1552983131470954497"
     ]
   }
 }

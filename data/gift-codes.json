@@ -64,7 +64,7 @@
           "quantity": 3
         },
         {
-          "item": "capsule",
+          "item": "blue_tatari_capsule",
           "quantity": 1
         },
         {
@@ -76,15 +76,16 @@
           "quantity": 1
         }
       ],
-      "rewardStatus": "external_source_unredeemed",
-      "expiresAt": null,
-      "expiryStatus": "unknown",
-      "confirmationStatus": "externally_listed_unredeemed",
+      "rewardStatus": "official_source_unredeemed",
+      "expiresAt": "2026-10-25T01:00:00+09:00",
+      "expiryStatus": "official_announced",
+      "confirmationStatus": "officially_listed_unredeemed",
       "lastChecked": "2026-10-07",
-      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
+      "sourceUrl": "https://discord.com/channels/1343763804349267989/1507036690672517350/1552983131470954497",
       "currentListingSources": [
         "https://w.atwiki.jp/monstersurvival/pages/1.html",
-        "https://nekonokyositu.com/monsaba/14001/"
+        "https://nekonokyositu.com/monsaba/14001/",
+        "https://discord.com/channels/1343763804349267989/1507036690672517350/1552983131470954497"
       ],
       "regionStatus": "not_verified_for_all_regions",
       "redemptionStatus": "not_tested_in_this_audit",
@@ -94,15 +95,61 @@
         "iconsActuallyViewed": 9
       },
       "verificationNotes": {
-        "ja": "英語資料ではTATAMOON表記もあります。期限は今回の公開本文で確認できず、10/24・10/25を確定日として掲載しません。",
-        "en": "Some English sources use TATAMOON. No expiry date was verified in the current public text.",
-        "zh-CN": "部分英文资料使用TATAMOON。当前公开正文未确认到期日。"
+        "ja": "公式Discordの9/25告知で報酬と期限表示2026/10/25 01:00（この端末の日本時間表示）を確認。青タタカプセル1個。公式文字列はtatamoonです。地域別可否・実交換は未確認。",
+        "en": "The official September 25 Discord notice confirms rewards, including one Blue Tatari Capsule, and displays expiry as October 25, 2026, 01:00 in this device’s Japan time. The official string is tatamoon. Regional availability and redemption remain unverified.",
+        "zh-CN": "官方9月25日Discord公告确认奖励包含1个蓝色塔塔胶囊，期限显示为2026年10月25日01:00（本设备日本时间）。官方字符串为tatamoon；地区适用及实际兑换待确认。"
       },
       "conflictSources": [
         "https://w.atwiki.jp/monstersurvival/pages/1.html",
         "https://www.pockettactics.com/clash-of-critters/codes"
       ],
-      "searchKey": "tatamoon"
+      "searchKey": "tatamoon",
+      "previousObservation": {
+        "verificationNotes": {
+          "ja": "英語資料ではTATAMOON表記もあります。期限は今回の公開本文で確認できず、10/24・10/25を確定日として掲載しません。",
+          "en": "Some English sources use TATAMOON. No expiry date was verified in the current public text.",
+          "zh-CN": "部分英文资料使用TATAMOON。当前公开正文未确认到期日。"
+        },
+        "expiryStatus": "unknown",
+        "expiresAt": null,
+        "reward": [
+          {
+            "item": "marble",
+            "quantity": 20
+          },
+          {
+            "item": "candy",
+            "quantity": 1800
+          },
+          {
+            "item": "silver_brick",
+            "quantity": 15
+          },
+          {
+            "item": "gold_brick",
+            "quantity": 3
+          },
+          {
+            "item": "capsule",
+            "quantity": 1
+          },
+          {
+            "item": "blue_lunch_box",
+            "quantity": 1
+          },
+          {
+            "item": "cookie",
+            "quantity": 1
+          }
+        ]
+      },
+      "expirySource": {
+        "sourceUrl": "https://discord.com/channels/1343763804349267989/1507036690672517350/1552983131470954497",
+        "displayed": "2026年10月25日日曜日 1:00",
+        "displayTimeZone": "Asia/Tokyo",
+        "status": "official-discord-date-display-read",
+        "checkedAt": "2026-10-07"
+      }
     },
     {
       "code": "bulipaohuata",
@@ -457,8 +504,8 @@
       ],
       "rewardStatus": "multi_source_confirmed",
       "expiresAt": null,
-      "expiryStatus": "unannounced",
-      "confirmationStatus": "multi_source_confirmed",
+      "expiryStatus": "official_reported_expired",
+      "confirmationStatus": "officially_reported_expired_unredeemed",
       "lastChecked": "2026-10-07",
       "previousObservation": {
         "lastChecked": "2026-09-14",
@@ -472,15 +519,15 @@
       "regionStatus": "not_verified_for_all_regions",
       "redemptionStatus": "not_tested_in_this_audit",
       "verificationNotes": {
-        "ja": "@wikiとPocket Gamerは終了報告、国内一覧と一部英語一覧は掲載を継続。未使用アカウントでの交換不可は未確認。",
-        "en": "Wiki and Pocket Gamer report expiry; Japanese and some English lists still include it. Failure on an unused account has not been verified.",
-        "zh-CN": "Wiki与Pocket Gamer报告已结束，日文及部分英文列表仍收录。未使用账号兑换失败尚未验证。"
+        "ja": "公式Discordは小文字goonbugをexpiredと表示。既存コピー文字列GoonBugは履歴として保持し、大文字小文字の同一扱い・地域別可否・実交換は未確認です。",
+        "en": "Official Discord marks lowercase goonbug as expired. The historical copy string GoonBug is retained; case equivalence, regional availability and actual redemption are unverified.",
+        "zh-CN": "官方Discord将小写goonbug标为expired。保留既有复制字符串GoonBug作为历史记录；大小写等价、地区适用及实际兑换待确认。"
       },
       "conflictSources": [
         "https://w.atwiki.jp/monstersurvival/pages/1.html",
         "https://www.pockettactics.com/clash-of-critters/codes"
       ],
-      "validityStatus": "conflicting_reports",
+      "validityStatus": "officially_reported_expired",
       "expiryReports": [
         {
           "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
@@ -498,7 +545,17 @@
           "checkedAt": "2026-10-07"
         }
       ],
-      "searchKey": "goonbug"
+      "searchKey": "goonbug",
+      "previousOfficialReview": {
+        "verificationNotes": {
+          "ja": "@wikiとPocket Gamerは終了報告、国内一覧と一部英語一覧は掲載を継続。未使用アカウントでの交換不可は未確認。",
+          "en": "Wiki and Pocket Gamer report expiry; Japanese and some English lists still include it. Failure on an unused account has not been verified.",
+          "zh-CN": "Wiki与Pocket Gamer报告已结束，日文及部分英文列表仍收录。未使用账号兑换失败尚未验证。"
+        },
+        "validityStatus": "conflicting_reports"
+      },
+      "officialString": "goonbug",
+      "sourceUrl": "https://discord.com/channels/1343763804349267989/1507036690672517350/1507300585823670373"
     },
     {
       "code": "HelloTatari",
@@ -519,8 +576,8 @@
       ],
       "rewardStatus": "multi_source_confirmed",
       "expiresAt": null,
-      "expiryStatus": "unannounced",
-      "confirmationStatus": "multi_source_confirmed",
+      "expiryStatus": "official_reported_expired",
+      "confirmationStatus": "officially_reported_expired_unredeemed",
       "lastChecked": "2026-10-07",
       "previousObservation": {
         "lastChecked": "2026-09-14",
@@ -534,15 +591,15 @@
       "regionStatus": "not_verified_for_all_regions",
       "redemptionStatus": "not_tested_in_this_audit",
       "verificationNotes": {
-        "ja": "終了報告と掲載継続が混在し、英語資料にはビー玉1000の記載もあります。既存の国内100を保持し、交換可否は再確認待ち。",
-        "en": "Expiry reports conflict with ongoing listings; some English sources say 1,000 pinballs. The existing Japanese value of 100 is retained; redemption is pending.",
-        "zh-CN": "结束报告与继续收录并存；部分英文资料写弹珠1000。保留既有日文值100，兑换可否待确认。"
+        "ja": "公式Discordは小文字hellotatariをexpiredと表示。既存コピー文字列HelloTatariは履歴として保持し、大文字小文字の同一扱い・地域別可否・実交換は未確認です。",
+        "en": "Official Discord marks lowercase hellotatari as expired. The historical copy string HelloTatari is retained; case equivalence, regional availability and actual redemption are unverified.",
+        "zh-CN": "官方Discord将小写hellotatari标为expired。保留既有复制字符串HelloTatari作为历史记录；大小写等价、地区适用及实际兑换待确认。"
       },
       "conflictSources": [
         "https://w.atwiki.jp/monstersurvival/pages/1.html",
         "https://www.pockettactics.com/clash-of-critters/codes"
       ],
-      "validityStatus": "conflicting_reports",
+      "validityStatus": "officially_reported_expired",
       "expiryReports": [
         {
           "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
@@ -560,7 +617,17 @@
           "checkedAt": "2026-10-07"
         }
       ],
-      "searchKey": "hellotatari"
+      "searchKey": "hellotatari",
+      "previousOfficialReview": {
+        "verificationNotes": {
+          "ja": "終了報告と掲載継続が混在し、英語資料にはビー玉1000の記載もあります。既存の国内100を保持し、交換可否は再確認待ち。",
+          "en": "Expiry reports conflict with ongoing listings; some English sources say 1,000 pinballs. The existing Japanese value of 100 is retained; redemption is pending.",
+          "zh-CN": "结束报告与继续收录并存；部分英文资料写弹珠1000。保留既有日文值100，兑换可否待确认。"
+        },
+        "validityStatus": "conflicting_reports"
+      },
+      "officialString": "hellotatari",
+      "sourceUrl": "https://discord.com/channels/1343763804349267989/1507036690672517350/1507300585823670373"
     },
     {
       "code": "WeeklyGift",

@@ -13,7 +13,19 @@
   "actuallyViewedRewardIcons": 9,
   "copyStringsPreserved": true,
   "redemptionsPerformed": 0,
-  "officialDistribution": "not_verified",
+  "officialDistribution": "tatamoon_listing_and_hellotatari_goonbug_expiry_verified_in_official_discord",
+  "officialReview": {
+    "checkedAt": "2026-10-07",
+    "tatamoon": {
+      "sourceUrl": "https://discord.com/channels/1343763804349267989/1507036690672517350/1552983131470954497",
+      "displayedDeadline": "2026-10-25 01:00 JST",
+      "rewardCorrection": "Blue Tatari Capsule ×1",
+      "redemptionStatus": "unredeemed"
+    },
+    "expiredOfficialStrings": ["hellotatari", "goonbug"],
+    "expirySourceUrl": "https://discord.com/channels/1343763804349267989/1507036690672517350/1507300585823670373",
+    "caseEquivalence": "unverified"
+  },
   "sourceUrls": [
     "https://w.atwiki.jp/monstersurvival/pages/1.html",
     "https://nekonokyositu.com/monsaba/14001/",
@@ -21,9 +33,11 @@
     "https://www.pockettactics.com/clash-of-critters/codes",
     "https://beebom.com/clash-of-critters-codes/",
     "https://ucngame.com/codes/clash-of-critters-codes/",
+    "https://discord.com/channels/1343763804349267989/1507036690672517350/1552983131470954497",
+    "https://discord.com/channels/1343763804349267989/1507036690672517350/1507300585823670373",
     "https://www.topuplive.com/news/clash-of-critters-codes.html"
   ],
-  "conflicts": [
+  "initialConflicts": [
     "WeeklyGift",
     "WelcomeGift",
     "openfestb26",
@@ -33,5 +47,6 @@
     "HelloTatari",
     "tatamoon"
   ],
-  "expiresAt": null
+  "conflicts": ["WeeklyGift", "WelcomeGift", "openfestb26", "openfesta26", "openfestc26"],
+  "expiresAt": {"tatamoon": "2026-10-25T01:00:00+09:00", "others": "exact_deadline_unknown"}
 }

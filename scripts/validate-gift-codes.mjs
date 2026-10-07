@@ -28,12 +28,15 @@ if (JSON.stringify(data.active.map((entry) => entry.code)) !== JSON.stringify(ex
   fail('code order or exact casing differs');
 if (data.active.length !== expected.length || data.expired.length !== 0)
   fail('active/expired separation is invalid');
-if (!data.active.slice(0, 2).every((entry) => entry.isNew && entry.reward.length > 0 && entry.confirmationStatus === 'externally_listed_unredeemed'))
+if (!data.active.slice(0, 2).every((entry) => entry.isNew && entry.reward.length > 0) || data.active[0].confirmationStatus !== 'externally_listed_unredeemed' || data.active[1].confirmationStatus !== 'officially_listed_unredeemed')
   fail('NEW external evidence state is invalid');
 if (data.active.slice(2).some((entry) => entry.isNew))
   fail('only the first two codes may be NEW');
-if (data.active.some((entry) => entry.expiresAt !== null || !['unknown', 'unannounced'].includes(entry.expiryStatus)))
+if (data.active.filter(entry=>!['tatamoon','GoonBug','HelloTatari'].includes(entry.code)).some((entry) => entry.expiresAt !== null || !['unknown', 'unannounced'].includes(entry.expiryStatus)))
   fail('unknown expiry was not preserved');
+const moon=data.active.find(entry=>entry.code==='tatamoon');
+if (moon.expiresAt !== '2026-10-25T01:00:00+09:00' || moon.expiryStatus !== 'official_announced' || moon.sourceUrl !== 'https://discord.com/channels/1343763804349267989/1507036690672517350/1552983131470954497') fail('official tatamoon deadline or evidence differs');
+for (const code of ['GoonBug','HelloTatari']) { const entry=data.active.find(row=>row.code===code);if(entry.validityStatus !== 'officially_reported_expired' || entry.officialString !== code.toLowerCase() || entry.expiresAt !== null) fail('official expiry status differs: '+code); }
 if (new Set(expected).size !== expected.length)
   fail('expected fixture contains duplicate codes');
 const files = ['gift-codes/index.html', 'en/gift-codes/index.html', 'zh-cn/gift-codes/index.html'];

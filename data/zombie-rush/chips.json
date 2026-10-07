@@ -71,7 +71,7 @@
       "id": "sugar-iii",
       "name": {
         "ja": "糖分補給III",
-        "en": "糖分補給III",
+        "en": "Photosynthesis III",
         "zh-CN": "糖分補給III"
       },
       "rarity": "III",
@@ -121,15 +121,22 @@
       },
       "nameLocalizationStatus": {
         "ja": "image-compared",
-        "en": "official-name-pending-japanese-fallback",
+        "en": "official-source-confirmed",
         "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "en": {
+          "sourceType": "official_discord",
+          "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1541736245124792390",
+          "verifiedAt": "2026-10-07"
+        }
       }
     },
     {
       "id": "bounty-iii",
       "name": {
         "ja": "賞金稼ぎIII",
-        "en": "賞金稼ぎIII",
+        "en": "Bounty Hunter III",
         "zh-CN": "賞金稼ぎIII"
       },
       "rarity": "III",
@@ -179,8 +186,15 @@
       },
       "nameLocalizationStatus": {
         "ja": "image-compared",
-        "en": "official-name-pending-japanese-fallback",
+        "en": "official-source-confirmed",
         "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "en": {
+          "sourceType": "official_discord",
+          "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1541736245124792390",
+          "verifiedAt": "2026-10-07"
+        }
       }
     },
     {
@@ -535,7 +549,7 @@
       "id": "lawn-care",
       "name": {
         "ja": "芝生のお手入れ",
-        "en": "芝生のお手入れ",
+        "en": "Lawn Care",
         "zh-CN": "芝生のお手入れ"
       },
       "rarity": "III",
@@ -577,16 +591,32 @@
       },
       "iconStatus": "verified",
       "effectSource": {
+        "sourceType": "official_discord",
+        "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1551858168974417943",
+        "sourceUpdatedAt": "2026-09-22",
+        "effectiveAt": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "officially_confirmed",
+        "notes": "公式9/23更新告知で現在値を確認。旧画像・外部表の相違は履歴として保持。"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-source-confirmed",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "en": {
+          "sourceType": "official_discord",
+          "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1551858168974417943",
+          "verifiedAt": "2026-10-07"
+        }
+      },
+      "previousEffectSource": {
         "sourceType": "public_wiki",
         "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
         "sourceUpdatedAt": "2026-09-27",
         "verifiedAt": "2026-10-07",
         "status": "externally_confirmed"
-      },
-      "nameLocalizationStatus": {
-        "ja": "image-compared",
-        "en": "official-name-pending-japanese-fallback",
-        "zh-CN": "official-name-pending-japanese-fallback"
       }
     },
     {
@@ -766,7 +796,7 @@
       "id": "strategic-move",
       "name": {
         "ja": "戦略的移動",
-        "en": "戦略的移動",
+        "en": "On the Move",
         "zh-CN": "戦略的移動"
       },
       "rarity": "III",
@@ -808,16 +838,32 @@
       },
       "iconStatus": "verified",
       "effectSource": {
+        "sourceType": "official_discord",
+        "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1551858168974417943",
+        "sourceUpdatedAt": "2026-09-22",
+        "effectiveAt": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "officially_confirmed",
+        "notes": "公式9/23更新告知で現在値を確認。旧画像・外部表の相違は履歴として保持。"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-source-confirmed",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "en": {
+          "sourceType": "official_discord",
+          "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1551858168974417943",
+          "verifiedAt": "2026-10-07"
+        }
+      },
+      "previousEffectSource": {
         "sourceType": "public_wiki",
         "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
         "sourceUpdatedAt": "2026-09-27",
         "verifiedAt": "2026-10-07",
         "status": "externally_confirmed"
-      },
-      "nameLocalizationStatus": {
-        "ja": "image-compared",
-        "en": "official-name-pending-japanese-fallback",
-        "zh-CN": "official-name-pending-japanese-fallback"
       }
     },
     {
@@ -881,7 +927,7 @@
       "id": "sugar-ii",
       "name": {
         "ja": "糖分補給II",
-        "en": "糖分補給II",
+        "en": "Photosynthesis II",
         "zh-CN": "糖分補給II"
       },
       "rarity": "II",
@@ -931,15 +977,22 @@
       },
       "nameLocalizationStatus": {
         "ja": "image-compared",
-        "en": "official-name-pending-japanese-fallback",
+        "en": "official-source-confirmed",
         "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "en": {
+          "sourceType": "official_discord",
+          "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1541736245124792390",
+          "verifiedAt": "2026-10-07"
+        }
       }
     },
     {
       "id": "bounty-ii",
       "name": {
         "ja": "賞金稼ぎII",
-        "en": "賞金稼ぎII",
+        "en": "Bounty Hunter II",
         "zh-CN": "賞金稼ぎII"
       },
       "rarity": "II",
@@ -989,8 +1042,15 @@
       },
       "nameLocalizationStatus": {
         "ja": "image-compared",
-        "en": "official-name-pending-japanese-fallback",
+        "en": "official-source-confirmed",
         "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "en": {
+          "sourceType": "official_discord",
+          "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1541736245124792390",
+          "verifiedAt": "2026-10-07"
+        }
       }
     },
     {
@@ -1345,7 +1405,7 @@
       "id": "glass-cannon",
       "name": {
         "ja": "ガラス大砲",
-        "en": "ガラス大砲",
+        "en": "Glass Cannon",
         "zh-CN": "ガラス大砲"
       },
       "rarity": "II",
@@ -1395,15 +1455,22 @@
       },
       "nameLocalizationStatus": {
         "ja": "image-compared",
-        "en": "official-name-pending-japanese-fallback",
+        "en": "official-source-confirmed",
         "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "en": {
+          "sourceType": "official_discord",
+          "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1541736245124792390",
+          "verifiedAt": "2026-10-07"
+        }
       }
     },
     {
       "id": "boss-killer",
       "name": {
         "ja": "ボスキラー",
-        "en": "ボスキラー",
+        "en": "Boss Killer",
         "zh-CN": "ボスキラー"
       },
       "rarity": "II",
@@ -1444,23 +1511,39 @@
       },
       "iconStatus": "verified",
       "effectSource": {
+        "sourceType": "official_discord",
+        "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1551858168974417943",
+        "sourceUpdatedAt": "2026-09-22",
+        "effectiveAt": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "officially_confirmed",
+        "notes": "公式9/23更新告知で現在値を確認。旧画像・外部表の相違は履歴として保持。"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-source-confirmed",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "en": {
+          "sourceType": "official_discord",
+          "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1551858168974417943",
+          "verifiedAt": "2026-10-07"
+        }
+      },
+      "previousEffectSource": {
         "sourceType": "public_wiki",
         "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
         "sourceUpdatedAt": "2026-09-27",
         "verifiedAt": "2026-10-07",
         "status": "externally_confirmed"
-      },
-      "nameLocalizationStatus": {
-        "ja": "image-compared",
-        "en": "official-name-pending-japanese-fallback",
-        "zh-CN": "official-name-pending-japanese-fallback"
       }
     },
     {
       "id": "maverick",
       "name": {
         "ja": "マーベリック",
-        "en": "マーベリック",
+        "en": "The Exile",
         "zh-CN": "マーベリック"
       },
       "rarity": "II",
@@ -1503,16 +1586,32 @@
       },
       "iconStatus": "verified",
       "effectSource": {
+        "sourceType": "official_discord",
+        "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1551858168974417943",
+        "sourceUpdatedAt": "2026-09-22",
+        "effectiveAt": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "officially_confirmed",
+        "notes": "公式9/23更新告知で現在値を確認。旧画像・外部表の相違は履歴として保持。"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-source-confirmed",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "en": {
+          "sourceType": "official_discord",
+          "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1551858168974417943",
+          "verifiedAt": "2026-10-07"
+        }
+      },
+      "previousEffectSource": {
         "sourceType": "public_wiki",
         "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
         "sourceUpdatedAt": "2026-09-27",
         "verifiedAt": "2026-10-07",
         "status": "externally_confirmed"
-      },
-      "nameLocalizationStatus": {
-        "ja": "image-compared",
-        "en": "official-name-pending-japanese-fallback",
-        "zh-CN": "official-name-pending-japanese-fallback"
       }
     },
     {
@@ -1577,15 +1676,15 @@
       "id": "rear-support",
       "name": {
         "ja": "後方支援",
-        "en": "後方支援",
+        "en": "Backend Support",
         "zh-CN": "後方支援"
       },
       "rarity": "II",
       "icon": "/assets/chips/rear-support-wiki-61e3b689dff1.webp",
       "effect": {
-        "ja": "前方にタタが1匹しかいない場合、ダメージが30%増加する。",
-        "en": "If only one Tatari is ahead, its damage rises 30%.",
-        "zh-CN": "若前方只有1只塔塔，其伤害提高30%。"
+        "ja": "前方にタタが1匹しかいない場合、ダメージが45%増加する。",
+        "en": "If only one Tatari is ahead, its damage rises 45%.",
+        "zh-CN": "若前方只有1只塔塔，其伤害提高45%。"
       },
       "tags": [
         "attack",
@@ -1619,6 +1718,32 @@
       },
       "iconStatus": "verified",
       "effectSource": {
+        "sourceType": "official_discord",
+        "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1551858168974417943",
+        "sourceUpdatedAt": "2026-09-22",
+        "effectiveAt": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "officially_confirmed",
+        "notes": "公式9/23更新告知で現在値を確認。旧画像・外部表の相違は履歴として保持。"
+      },
+      "verificationNote": {
+        "ja": "旧画像・外部表との差は、公式9/23更新告知で解決。掲載効果は更新後の値です。",
+        "en": "The official September 23 update resolves the older image/table discrepancy. The effect uses the updated value.",
+        "zh-CN": "官方9月23日更新公告解决旧图片与表格差异，效果采用更新后数值。"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-source-confirmed",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "en": {
+          "sourceType": "official_discord",
+          "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1551858168974417943",
+          "verifiedAt": "2026-10-07"
+        }
+      },
+      "previousEffectSource": {
         "sourceType": "public_wiki",
         "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
         "sourceUpdatedAt": "2026-09-27",
@@ -1626,30 +1751,34 @@
         "status": "conflicting",
         "notes": "外部攻略表は30%、同ページ説明は45%。掲載値30%を維持し、確定は保留。"
       },
-      "verificationNote": {
-        "ja": "外部攻略表は30%、同ページ説明は45%。掲載値30%を維持し、確定は保留。",
-        "en": "Conflicting source text: the table lists 30%, while the explanation lists 45%. The previous 30% value is retained.",
-        "zh-CN": "来源存在冲突：表格为30%，说明为45%。暂保留原有30%。"
-      },
-      "nameLocalizationStatus": {
-        "ja": "image-compared",
-        "en": "official-name-pending-japanese-fallback",
-        "zh-CN": "official-name-pending-japanese-fallback"
+      "effectHistory": {
+        "previous": {
+          "ja": "前方にタタが1匹しかいない場合、ダメージが30%増加する。",
+          "en": "If only one Tatari is ahead, its damage rises 30%.",
+          "zh-CN": "若前方只有1只塔塔，其伤害提高30%。"
+        },
+        "previousVerificationNote": {
+          "ja": "外部攻略表は30%、同ページ説明は45%。掲載値30%を維持し、確定は保留。",
+          "en": "Conflicting source text: the table lists 30%, while the explanation lists 45%. The previous 30% value is retained.",
+          "zh-CN": "来源存在冲突：表格为30%，说明为45%。暂保留原有30%。"
+        },
+        "resolvedBy": "https://discord.com/channels/1343763804349267989/1344150608743104532/1551858168974417943",
+        "resolvedAt": "2026-10-07"
       }
     },
     {
       "id": "upgrade",
       "name": {
         "ja": "アップグレード",
-        "en": "アップグレード",
+        "en": "Patch Upgrade",
         "zh-CN": "アップグレード"
       },
       "rarity": "II",
       "icon": "/assets/chips/upgrade-wiki-5fcc0d335818.webp",
       "effect": {
-        "ja": "あなたの場にいるLv.3以下のタタ全員をランダムで編成内のタタへ入れ替え、Lv.を1アップさせる。",
-        "en": "Randomly reroll all deployed Tatari at Lv.3 or below, then raise their level by 1.",
-        "zh-CN": "随机重置场上所有Lv.3以下塔塔的编成，并使其等级提高1。"
+        "ja": "あなたの場にいるLv.3以下のタタ全員をランダムで編成内のタタへ入れ替え、Lv.を2アップさせる。",
+        "en": "Randomly reroll all deployed Tatari at Lv.3 or below, then raise their level by 2.",
+        "zh-CN": "随机重置场上所有Lv.3以下塔塔的编成，并使其等级提高2。"
       },
       "tags": [
         "random",
@@ -1683,6 +1812,32 @@
       },
       "iconStatus": "verified",
       "effectSource": {
+        "sourceType": "official_discord",
+        "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1551858168974417943",
+        "sourceUpdatedAt": "2026-09-22",
+        "effectiveAt": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "officially_confirmed",
+        "notes": "公式9/23更新告知で現在値を確認。旧画像・外部表の相違は履歴として保持。"
+      },
+      "verificationNote": {
+        "ja": "旧画像・外部表との差は、公式9/23更新告知で解決。掲載効果は更新後の値です。",
+        "en": "The official September 23 update resolves the older image/table discrepancy. The effect uses the updated value.",
+        "zh-CN": "官方9月23日更新公告解决旧图片与表格差异，效果采用更新后数值。"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-source-confirmed",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "en": {
+          "sourceType": "official_discord",
+          "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1551858168974417943",
+          "verifiedAt": "2026-10-07"
+        }
+      },
+      "previousEffectSource": {
         "sourceType": "public_wiki",
         "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
         "sourceUpdatedAt": "2026-09-27",
@@ -1690,22 +1845,26 @@
         "status": "conflicting",
         "notes": "ゲーム内資料・カード画像は+1、外部攻略表は+2。掲載値は従来資料の+1を維持し、現行値の確定は保留。"
       },
-      "verificationNote": {
-        "ja": "ゲーム内資料・カード画像は+1、外部攻略表は+2。掲載値は従来資料の+1を維持し、現行値の確定は保留。",
-        "en": "Conflicting sources: the card shows +1, while the external guide lists +2. The previous +1 value is retained pending verification.",
-        "zh-CN": "来源存在冲突：卡片为+1，外部攻略表为+2。暂保留原有+1，等待核实。"
-      },
-      "nameLocalizationStatus": {
-        "ja": "image-compared",
-        "en": "official-name-pending-japanese-fallback",
-        "zh-CN": "official-name-pending-japanese-fallback"
+      "effectHistory": {
+        "previous": {
+          "ja": "あなたの場にいるLv.3以下のタタ全員をランダムで編成内のタタへ入れ替え、Lv.を1アップさせる。",
+          "en": "Randomly reroll all deployed Tatari at Lv.3 or below, then raise their level by 1.",
+          "zh-CN": "随机重置场上所有Lv.3以下塔塔的编成，并使其等级提高1。"
+        },
+        "previousVerificationNote": {
+          "ja": "ゲーム内資料・カード画像は+1、外部攻略表は+2。掲載値は従来資料の+1を維持し、現行値の確定は保留。",
+          "en": "Conflicting sources: the card shows +1, while the external guide lists +2. The previous +1 value is retained pending verification.",
+          "zh-CN": "来源存在冲突：卡片为+1，外部攻略表为+2。暂保留原有+1，等待核实。"
+        },
+        "resolvedBy": "https://discord.com/channels/1343763804349267989/1344150608743104532/1551858168974417943",
+        "resolvedAt": "2026-10-07"
       }
     },
     {
       "id": "shuffle",
       "name": {
         "ja": "シャッフル",
-        "en": "シャッフル",
+        "en": "Shuffle",
         "zh-CN": "シャッフル"
       },
       "rarity": "II",
@@ -1755,8 +1914,15 @@
       },
       "nameLocalizationStatus": {
         "ja": "image-compared",
-        "en": "official-name-pending-japanese-fallback",
+        "en": "official-source-confirmed",
         "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "en": {
+          "sourceType": "official_discord",
+          "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1541736245124792390",
+          "verifiedAt": "2026-10-07"
+        }
       }
     },
     {
@@ -1821,7 +1987,7 @@
       "id": "and-one",
       "name": {
         "ja": "アンドワン",
-        "en": "アンドワン",
+        "en": "New Recruit",
         "zh-CN": "アンドワン"
       },
       "rarity": "II",
@@ -1871,8 +2037,15 @@
       },
       "nameLocalizationStatus": {
         "ja": "image-compared",
-        "en": "official-name-pending-japanese-fallback",
+        "en": "official-source-confirmed",
         "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "en": {
+          "sourceType": "official_discord",
+          "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1541736245124792390",
+          "verifiedAt": "2026-10-07"
+        }
       }
     },
     {
@@ -1996,7 +2169,7 @@
       "id": "river-boundary",
       "name": {
         "ja": "川の境界線",
-        "en": "川の境界線",
+        "en": "Make Waves",
         "zh-CN": "川の境界線"
       },
       "rarity": "II",
@@ -2046,23 +2219,30 @@
       },
       "nameLocalizationStatus": {
         "ja": "image-compared",
-        "en": "official-name-pending-japanese-fallback",
+        "en": "official-source-confirmed",
         "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "en": {
+          "sourceType": "official_discord",
+          "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1541736245124792390",
+          "verifiedAt": "2026-10-07"
+        }
       }
     },
     {
       "id": "bucket-theory",
       "name": {
         "ja": "バケツ理論",
-        "en": "バケツ理論",
+        "en": "Weakest Link",
         "zh-CN": "バケツ理論"
       },
       "rarity": "II",
       "icon": "/assets/chips/bucket-theory-wiki-092e55aeb808.webp",
       "effect": {
-        "ja": "あなたの出陣しているタタの中で、最も少ない属性のタタの攻撃力、防御力、攻撃速度が10%増加する。最も少ない属性が複数存在する場合は、そのすべてに適用される。",
-        "en": "The least represented attribute among deployed Tatari gains 10% attack, defense and attack speed. Ties apply to every tied attribute.",
-        "zh-CN": "场上数量最少的属性塔塔攻击力、防御力与攻击速度提高10%；若并列，所有并列属性均生效。"
+        "ja": "あなたの出陣しているタタの中で、最も少ない属性のタタの攻撃力、防御力、攻撃速度が15%増加する。最も少ない属性が複数存在する場合は、そのすべてに適用される。",
+        "en": "The least represented attribute among deployed Tatari gains 15% attack, defense and attack speed. Ties apply to every tied attribute.",
+        "zh-CN": "场上数量最少的属性塔塔攻击力、防御力与攻击速度提高15%；若并列，所有并列属性均生效。"
       },
       "tags": [
         "attack",
@@ -2097,6 +2277,32 @@
       },
       "iconStatus": "verified",
       "effectSource": {
+        "sourceType": "official_discord",
+        "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1551858168974417943",
+        "sourceUpdatedAt": "2026-09-22",
+        "effectiveAt": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "officially_confirmed",
+        "notes": "公式9/23更新告知で現在値を確認。旧画像・外部表の相違は履歴として保持。"
+      },
+      "verificationNote": {
+        "ja": "旧画像・外部表との差は、公式9/23更新告知で解決。掲載効果は更新後の値です。",
+        "en": "The official September 23 update resolves the older image/table discrepancy. The effect uses the updated value.",
+        "zh-CN": "官方9月23日更新公告解决旧图片与表格差异，效果采用更新后数值。"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-source-confirmed",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "en": {
+          "sourceType": "official_discord",
+          "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1551858168974417943",
+          "verifiedAt": "2026-10-07"
+        }
+      },
+      "previousEffectSource": {
         "sourceType": "public_wiki",
         "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
         "sourceUpdatedAt": "2026-09-27",
@@ -2104,22 +2310,26 @@
         "status": "conflicting",
         "notes": "現在の外部攻略表は10%、過去の更新予告は15%。掲載値10%を維持し、現行ゲーム内照合は未実施。"
       },
-      "verificationNote": {
-        "ja": "現在の外部攻略表は10%、過去の更新予告は15%。掲載値10%を維持し、現行ゲーム内照合は未実施。",
-        "en": "The current external table lists 10%; an earlier update preview listed 15%. The displayed 10% awaits in-game verification.",
-        "zh-CN": "当前外部攻略表为10%，旧更新预告为15%。暂保留10%，尚未在游戏内核实。"
-      },
-      "nameLocalizationStatus": {
-        "ja": "image-compared",
-        "en": "official-name-pending-japanese-fallback",
-        "zh-CN": "official-name-pending-japanese-fallback"
+      "effectHistory": {
+        "previous": {
+          "ja": "あなたの出陣しているタタの中で、最も少ない属性のタタの攻撃力、防御力、攻撃速度が10%増加する。最も少ない属性が複数存在する場合は、そのすべてに適用される。",
+          "en": "The least represented attribute among deployed Tatari gains 10% attack, defense and attack speed. Ties apply to every tied attribute.",
+          "zh-CN": "场上数量最少的属性塔塔攻击力、防御力与攻击速度提高10%；若并列，所有并列属性均生效。"
+        },
+        "previousVerificationNote": {
+          "ja": "現在の外部攻略表は10%、過去の更新予告は15%。掲載値10%を維持し、現行ゲーム内照合は未実施。",
+          "en": "The current external table lists 10%; an earlier update preview listed 15%. The displayed 10% awaits in-game verification.",
+          "zh-CN": "当前外部攻略表为10%，旧更新预告为15%。暂保留10%，尚未在游戏内核实。"
+        },
+        "resolvedBy": "https://discord.com/channels/1343763804349267989/1344150608743104532/1551858168974417943",
+        "resolvedAt": "2026-10-07"
       }
     },
     {
       "id": "sugar-i",
       "name": {
         "ja": "糖分補給I",
-        "en": "糖分補給I",
+        "en": "Photosynthesis I",
         "zh-CN": "糖分補給I"
       },
       "rarity": "I",
@@ -2169,15 +2379,22 @@
       },
       "nameLocalizationStatus": {
         "ja": "image-compared",
-        "en": "official-name-pending-japanese-fallback",
+        "en": "official-source-confirmed",
         "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "en": {
+          "sourceType": "official_discord",
+          "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1541736245124792390",
+          "verifiedAt": "2026-10-07"
+        }
       }
     },
     {
       "id": "bounty-i",
       "name": {
         "ja": "賞金稼ぎI",
-        "en": "賞金稼ぎI",
+        "en": "Bounty Hunter I",
         "zh-CN": "賞金稼ぎI"
       },
       "rarity": "I",
@@ -2227,8 +2444,15 @@
       },
       "nameLocalizationStatus": {
         "ja": "image-compared",
-        "en": "official-name-pending-japanese-fallback",
+        "en": "official-source-confirmed",
         "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "en": {
+          "sourceType": "official_discord",
+          "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1541736245124792390",
+          "verifiedAt": "2026-10-07"
+        }
       }
     },
     {
@@ -2293,7 +2517,7 @@
       "id": "slack-off",
       "name": {
         "ja": "サボる",
-        "en": "サボる",
+        "en": "AFK Mode",
         "zh-CN": "サボる"
       },
       "rarity": "I",
@@ -2335,16 +2559,32 @@
       },
       "iconStatus": "verified",
       "effectSource": {
+        "sourceType": "official_discord",
+        "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1551858168974417943",
+        "sourceUpdatedAt": "2026-09-22",
+        "effectiveAt": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "officially_confirmed",
+        "notes": "公式9/23更新告知で現在値を確認。旧画像・外部表の相違は履歴として保持。"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-source-confirmed",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "en": {
+          "sourceType": "official_discord",
+          "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1551858168974417943",
+          "verifiedAt": "2026-10-07"
+        }
+      },
+      "previousEffectSource": {
         "sourceType": "public_wiki",
         "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
         "sourceUpdatedAt": "2026-09-27",
         "verifiedAt": "2026-10-07",
         "status": "externally_confirmed"
-      },
-      "nameLocalizationStatus": {
-        "ja": "image-compared",
-        "en": "official-name-pending-japanese-fallback",
-        "zh-CN": "official-name-pending-japanese-fallback"
       }
     },
     {
@@ -2700,7 +2940,7 @@
       "id": "bandage",
       "name": {
         "ja": "バンテージ",
-        "en": "バンテージ",
+        "en": "First-Aid Kit",
         "zh-CN": "バンテージ"
       },
       "rarity": "I",
@@ -2750,15 +2990,22 @@
       },
       "nameLocalizationStatus": {
         "ja": "image-compared",
-        "en": "official-name-pending-japanese-fallback",
+        "en": "official-source-confirmed",
         "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "en": {
+          "sourceType": "official_discord",
+          "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1541736245124792390",
+          "verifiedAt": "2026-10-07"
+        }
       }
     },
     {
       "id": "parting-gift",
       "name": {
         "ja": "別れの贈り物",
-        "en": "別れの贈り物",
+        "en": "Parting Gift",
         "zh-CN": "別れの贈り物"
       },
       "rarity": "I",
@@ -2800,16 +3047,32 @@
       },
       "iconStatus": "verified",
       "effectSource": {
+        "sourceType": "official_discord",
+        "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1551858168974417943",
+        "sourceUpdatedAt": "2026-09-22",
+        "effectiveAt": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "officially_confirmed",
+        "notes": "公式9/23更新告知で現在値を確認。旧画像・外部表の相違は履歴として保持。"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-source-confirmed",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "en": {
+          "sourceType": "official_discord",
+          "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1551858168974417943",
+          "verifiedAt": "2026-10-07"
+        }
+      },
+      "previousEffectSource": {
         "sourceType": "public_wiki",
         "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
         "sourceUpdatedAt": "2026-09-27",
         "verifiedAt": "2026-10-07",
         "status": "externally_confirmed"
-      },
-      "nameLocalizationStatus": {
-        "ja": "image-compared",
-        "en": "official-name-pending-japanese-fallback",
-        "zh-CN": "official-name-pending-japanese-fallback"
       }
     },
     {
@@ -2874,7 +3137,7 @@
       "id": "reset",
       "name": {
         "ja": "リセット",
-        "en": "リセット",
+        "en": "Mission Reset",
         "zh-CN": "リセット"
       },
       "rarity": "I",
@@ -2924,8 +3187,15 @@
       },
       "nameLocalizationStatus": {
         "ja": "image-compared",
-        "en": "official-name-pending-japanese-fallback",
+        "en": "official-source-confirmed",
         "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "en": {
+          "sourceType": "official_discord",
+          "sourceUrl": "https://discord.com/channels/1343763804349267989/1344150608743104532/1541736245124792390",
+          "verifiedAt": "2026-10-07"
+        }
       }
     }
   ],

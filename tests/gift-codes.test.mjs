@@ -27,9 +27,16 @@ test('gift code data preserves all exact strings, order and unknown states', () 
   assert.deepEqual(data.active.map((entry) => entry.code), codes);
   assert.equal(data.active.length, 14);
   assert.equal(data.expired.length, 0);
-  assert.ok(data.active.slice(0, 2).every((entry) => entry.isNew && entry.reward.length > 0 && entry.confirmationStatus === 'externally_listed_unredeemed'));
+  assert.ok(data.active.slice(0, 2).every((entry) => entry.isNew && entry.reward.length > 0));
+  assert.equal(data.active[0].confirmationStatus,'externally_listed_unredeemed');
+  assert.equal(data.active[1].confirmationStatus,'officially_listed_unredeemed');
   assert.ok(data.active.slice(2).every((entry) => !entry.isNew));
-  assert.ok(data.active.every((entry) => entry.expiresAt === null && ['unknown', 'unannounced'].includes(entry.expiryStatus)));
+  const moon=data.active.find(x=>x.code==='tatamoon');
+  assert.equal(moon.expiresAt,'2026-10-25T01:00:00+09:00');assert.equal(moon.expiryStatus,'official_announced');
+  assert.equal(moon.sourceUrl,'https://discord.com/channels/1343763804349267989/1507036690672517350/1552983131470954497');
+  assert.deepEqual(moon.reward.find(x=>x.item==='blue_tatari_capsule'),{item:'blue_tatari_capsule',quantity:1});
+  for(const code of ['GoonBug','HelloTatari']){const c=data.active.find(x=>x.code===code);assert.equal(c.validityStatus,'officially_reported_expired');assert.equal(c.officialString,code.toLowerCase());assert.equal(c.expiresAt,null);}
+  assert.ok(data.active.filter(x=>!['tatamoon','GoonBug','HelloTatari'].includes(x.code)).every((entry) => entry.expiresAt === null && ['unknown', 'unannounced'].includes(entry.expiryStatus)));
   assert.equal(new Set(codes).size, 14);
 });
 

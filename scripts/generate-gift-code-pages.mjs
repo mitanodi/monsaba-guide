@@ -147,6 +147,7 @@ for (const [locale,t] of Object.entries(locales)) {
   Object.assign(t,copyText[locale]);
   t.items.gold_brick={ja:'金レンガ',en:'Gold brick','zh-CN':'金砖'}[locale];
   t.items.shiny_fruit={ja:'ピカピカの実',en:'Shiny fruit','zh-CN':'闪光果实'}[locale];
+  t.items.blue_tatari_capsule={ja:'青タタカプセル',en:'Blue Tatari Capsule','zh-CN':'蓝色塔塔胶囊'}[locale];
 }
 const alternates = Object.entries(locales).map(([locale, t]) => `<link rel="alternate" hreflang="${t.hreflang}" href="${BASE_URL}${route(locale)}" data-i18n-alternate>`).join('') + `<link rel="alternate" hreflang="x-default" href="${BASE_URL}/gift-codes/" data-i18n-alternate><meta property="og:locale:alternate" content="en_US" data-i18n-alternate><meta property="og:locale:alternate" content="zh_CN" data-i18n-alternate>`;
 function layout(locale, tag) {
@@ -166,9 +167,10 @@ function rewardHtml(entry, t) {
 }
 function cardHtml(entry, t) {
   const locale = Object.entries(locales).find(([,value])=>value===t)[0];
-  const confirmation = t.external;
+  const confirmation = entry.confirmationStatus?.startsWith('official') ? {ja:'公式告知確認・実交換未確認',en:'Official notice checked; redemption untested','zh-CN':'官方公告确认；实际兑换未验证'}[locale] : t.external;
+  const expiry = entry.expiresAt ? esc(entry.expiresAt.replace('T',' ').replace('+09:00',' JST')) : entry.validityStatus === 'officially_reported_expired' ? {ja:'公式は失効と表示（正確な失効日時は不明）',en:'Officially marked expired; exact expiry time unknown','zh-CN':'官方标为已过期；准确过期时刻不明'}[locale] : t.unannounced;
   const note = entry.verificationNotes?.[locale];
-  return `<article class="gift-code-card" translate="no"><div class="gift-code-card-head">${entry.isNew ? '<span class="gift-code-new">NEW</span>' : `<span class="gift-code-status">${entry.validityStatus === 'conflicting_reports' ? 'CONFLICT' : 'LISTED'}</span>`}<span class="gift-code-status">${entry.lastChecked}</span></div><code>${esc(entry.code)}</code><dl class="gift-code-details"><div><dt>${t.reward}</dt><dd>${rewardHtml(entry, t)}</dd></div><div><dt>${t.expiry}</dt><dd>${t.unannounced}</dd></div><div><dt>${t.confirmation}</dt><dd>${confirmation}</dd></div></dl>${note ? `<p class="section-note">${esc(note)}</p>` : ''}${entry.sourceUrl ? `<a href="${esc(entry.sourceUrl)}">${esc(t.state)}</a>` : ''}<button class="button gift-copy-button" type="button" data-copy-code="${esc(entry.code)}">${t.copy}</button></article>`;
+  return `<article class="gift-code-card" translate="no"><div class="gift-code-card-head">${entry.isNew ? '<span class="gift-code-new">NEW</span>' : `<span class="gift-code-status">${entry.validityStatus === 'officially_reported_expired' ? 'EXPIRED' : entry.validityStatus === 'conflicting_reports' ? 'CONFLICT' : 'LISTED'}</span>`}<span class="gift-code-status">${entry.lastChecked}</span></div><code>${esc(entry.code)}</code><dl class="gift-code-details"><div><dt>${t.reward}</dt><dd>${rewardHtml(entry, t)}</dd></div><div><dt>${t.expiry}</dt><dd>${expiry}</dd></div><div><dt>${t.confirmation}</dt><dd>${confirmation}</dd></div></dl>${note ? `<p class="section-note">${esc(note)}</p>` : ''}${entry.sourceUrl ? `<a href="${esc(entry.sourceUrl)}">${esc(t.state)}</a>` : ''}<button class="button gift-copy-button" type="button" data-copy-code="${esc(entry.code)}">${t.copy}</button></article>`;
 }
 function renderPage(locale) {
   const t = locales[locale];

@@ -24,18 +24,26 @@ test('normal and dedicated skills retain independent evolution and level dimensi
  assert.equal(normal.byFamily.erekineko.stages[0].externalReview.sourceSkillName,'電猫拳');
  assert.equal(zr.byFamily.himori.skills[2].values.find(v=>v.metric==='damagePercent').value,270);
 });
-test('reviewed effect corrections preserve three conflicts instead of resolving them by invention',()=>{
+test('dated official update resolves older chip conflicts while preserving their evidence',()=>{
  const chips=json('data/zombie-rush/chips.json').chips;
  for(const id of ['upgrade','rear-support','bucket-theory'])assert.ok(chips.find(c=>c.id===id).verificationNote);
+ for(const [id,value] of [['rear-support','45%'],['bucket-theory','15%']])for(const language of ['ja','en','zh-CN'])assert.ok(chips.find(c=>c.id===id).effect[language].includes(value));
+ assert.ok(chips.find(c=>c.id==='upgrade').effect.ja.includes('2アップ'));
+ for(const id of ['upgrade','rear-support','bucket-theory']){const c=chips.find(c=>c.id===id);assert.equal(c.effectSource.sourceUrl,'https://discord.com/channels/1343763804349267989/1344150608743104532/1551858168974417943');assert.equal(c.effectSource.effectiveAt,'2026-09-23');assert.ok(c.effectHistory.previousVerificationNote);}
  for(const [id,number] of [['slack-off','40'],['boss-killer','20'],['maverick','35'],['lawn-care','40'],['parting-gift','40'],['strategic-move','30']])
   for(const language of ['ja','en','zh-CN']) assert.ok(chips.find(c=>c.id===id).effect[language].includes(number),id+' '+language);
 });
 
-test('unknown chip names retain the entire Japanese label in both foreign locales',()=>{
+test('official chip names have source records and unknown names retain complete Japanese labels',()=>{
+ let confirmed=0;
  for(const chip of json('data/zombie-rush/chips.json').chips){
-  assert.equal(chip.name.en,chip.name.ja);assert.equal(chip.name['zh-CN'],chip.name.ja);
-  assert.equal(chip.nameLocalizationStatus.en,'official-name-pending-japanese-fallback');
+  assert.equal(chip.name['zh-CN'],chip.name.ja);
+  if(chip.nameLocalizationStatus.en==='official-source-confirmed'){confirmed++;assert.equal(chip.nameSources.en.sourceType,'official_discord');assert.match(chip.nameSources.en.sourceUrl,/\/(1541736245124792390|1551858168974417943)$/);}
+  else {assert.equal(chip.name.en,chip.name.ja);assert.equal(chip.nameLocalizationStatus.en,'official-name-pending-japanese-fallback');}
  }
+ assert.equal(confirmed,21);
+ const names=Object.fromEntries(json('data/zombie-rush/chips.json').chips.map(c=>[c.id,c.name.en]));
+ assert.equal(names['rear-support'],'Backend Support');assert.equal(names.upgrade,'Patch Upgrade');assert.equal(names['bucket-theory'],'Weakest Link');assert.equal(names['sugar-iii'],'Photosynthesis III');
 });
 
 import {languageSwitchHash} from '../team-builder/locale-handoff.js';

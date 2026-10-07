@@ -151,7 +151,7 @@ const COPY = {
     dragToBoard: 'Drag onto the board to place',
     dropOccupied: 'Drop a Tata from the list onto an empty cell.',
     chips: 'Chips',
-    chipNameFallback: 'Official chip names are pending; complete Japanese labels are shown.',
+    chipNameFallback: 'Confirmed official names are used; unconfirmed names keep complete Japanese labels.',
     chipsForPlayer: 'Player {player} chips',
     chipCount: '{count} / 3 types',
     chipSearch: 'Search chips',
