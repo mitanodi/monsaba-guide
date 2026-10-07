@@ -1,14 +1,14 @@
 {
-  "sourceBytes": 42905,
-  "overwrittenDeclarationsRemoved": 4,
+  "sourceBytes": 43523,
+  "overwrittenDeclarationsRemoved": 5,
   "files": {
     "astra.css": 13981,
     "astra-home.css": 8916,
-    "astra-team.css": 6039,
+    "astra-team.css": 6391,
     "astra-calendar.css": 2560,
     "astra-community.css": 732,
     "astra-detail.css": 1560,
     "astra-tier.css": 1559
   },
-  "totalBytes": 35347
+  "totalBytes": 35699
 }

@@ -1922,3 +1922,24 @@ body[data-astra] .astra-ad-desktop {
     font-size: 16px!important
   }
 }
+/* Phones: keep the Tata picker in the page flow instead of a floating sheet. */
+@media(max-width:700px) {
+  body[data-astra] .formation-picker,
+  body[data-astra] .formation-picker.is-sheet-open {
+    position: static!important;
+    inset: auto;
+    width: auto;
+    max-height: none!important;
+    transform: none!important;
+    visibility: visible!important;
+    pointer-events: auto!important;
+    box-shadow: var(--astra-shadow);
+    z-index: auto
+  }
+  body[data-astra] .team-picker-sheet-toggle {
+    display: none!important
+  }
+  body[data-astra] .formation-picker-list {
+    max-height: 60dvh!important
+  }
+}
