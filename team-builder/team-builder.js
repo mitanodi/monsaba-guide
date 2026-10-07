@@ -248,9 +248,9 @@ const COPY = {
   }
 }[locale];
 const ATTRIBUTE_LABELS = {
-  ja: { all: 'すべて', 草: '草', 水: '水', 火: '火', 雷: '雷', 岩: '岩' },
-  en: { all: 'All', 草: 'Grass', 水: 'Water', 火: 'Fire', 雷: 'Thunder', 岩: 'Rock' },
-  'zh-CN': { all: '全部', 草: '草', 水: '水', 火: '火', 雷: '雷', 岩: '岩' }
+  ja: { all: 'すべて', 火: '火', 草: '草', 水: '水', 岩: '岩', 雷: '雷' },
+  en: { all: 'All', 火: 'Fire', 草: 'Grass', 水: 'Water', 岩: 'Rock', 雷: 'Thunder' },
+  'zh-CN': { all: '全部', 火: '火', 草: '草', 水: '水', 岩: '岩', 雷: '雷' }
 }[locale];
 
 const PICKER_ORDER_LABELS = {
