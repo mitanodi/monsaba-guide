@@ -6,7 +6,7 @@ import {
   emptyTeam, cloneTeam, sanitizeTeam, loadTeams, loadDraft, saveDraft, saveTeamList, upsertTeam, loadModeDrafts, saveModeDrafts, switchModeDraft,
   placementIssue, placeMember, randomPlacementIndex, copyMemberToPlayer, togglePlayerChip, removeMember, moveMember, setPlayerUnlock, playerCount, playerLimit, activePlayerIds,
   levelLimit, encodeTeam, decodeTeam, teamText, stageImageFor, formationExportTitle, formationContextLabel, BOSS_RALLY_OPTIONS, DOJO_OPTIONS,
-  FREE_SLOT_KIND, freeSlot, freeSlotCount, tataCount
+  FREE_SLOT_KIND, freeSlot, freeSlotCount, tataCount, PICKER_POSITIONS, pickerOrder
 } from './team-core.js';
 
 const $ = (selector) => document.querySelector(selector);
@@ -253,7 +253,18 @@ const ATTRIBUTE_LABELS = {
   'zh-CN': { all: '全部', 草: '草', 水: '水', 火: '火', 雷: '雷', 岩: '岩' }
 }[locale];
 
+const PICKER_ORDER_LABELS = {
+  ja: { label: '並び順（ゾンビ役割別Tier）', front: '前衛', middle: '中衛', rear: '後衛' },
+  en: { label: 'Order (Zombie Rush Tier by position)', front: 'Front', middle: 'Middle', rear: 'Rear' },
+  'zh-CN': { label: '排序（僵尸突袭位置强度榜）', front: '前卫', middle: '中卫', rear: '后卫' }
+}[locale];
+
 let families = [];
+
+// Optional Tier data for picker order; the catalog order is used when it is unavailable.
+let tierOrderData = {};
+
+let pickerPosition = PICKER_POSITIONS[0];
 
 let chips = [];
 
@@ -695,11 +706,26 @@ function renderFilters() {
   $('#team-attribute-filters').innerHTML = Object.entries(ATTRIBUTE_LABELS).map(([key, label]) => `<button type="button" class="attribute-filter${attribute === key ? ' is-active' : ''}" data-attribute="${esc(key)}" aria-pressed="${attribute === key}">${esc(label)}</button>`).join('');
 
 }
+function renderPickerOrder() {
+  let node = $('#team-picker-order');
+  if (!node) {
+    node = document.createElement('div');
+    node.id = 'team-picker-order';
+    node.className = 'formation-picker-order';
+    $('#team-attribute-filters').before(node);
+  }
+  // Only Zombie Rush has several boards; other modes follow a single Tier board.
+  node.hidden = team.mode !== 'zombie' || !tierOrderData.positionData;
+  if (node.hidden)
+    return;
+  node.innerHTML = `<fieldset><legend>${esc(PICKER_ORDER_LABELS.label)}</legend><div class="formation-segmented">${PICKER_POSITIONS.map((position) => `<button type="button" data-picker-position="${position}" aria-pressed="${pickerPosition === position}">${esc(PICKER_ORDER_LABELS[position])}</button>`).join('')}</div></fieldset>`;
+}
 function renderPicker({ resetScroll = false } = {}) {
   const query = $('#team-picker-search').value;
 
   const ownedOnly = $('#team-owned-only').checked;
-  const rows = families.filter((family) => (attribute === 'all' || family.attribute === attribute) && (!ownedOnly || (roster.entries[family.id]?.stage || 0) > 0) && familyMatches(family, query, getFamilySearchAliases(family)));
+  renderPickerOrder();
+  const rows = pickerOrder(families, tierOrderData, team.mode, pickerPosition).filter((family) => (attribute === 'all' || family.attribute === attribute) && (!ownedOnly || (roster.entries[family.id]?.stage || 0) > 0) && familyMatches(family, query, getFamilySearchAliases(family)));
   const list = $('#team-picker-list');
   const flexEntry = `<article class="formation-flex-picker"><button type="button" data-pick-flex draggable="true" data-drag-kind="${FREE_SLOT_KIND}"><span class="formation-flex-symbol" aria-hidden="true">?</span><b>${esc(COPY.flexAdd)}</b><small>${esc(COPY.flexDescription)}</small></button></article>`;
   const tataEntries = rows.map((family) => {
@@ -1984,6 +2010,13 @@ function bind() {
     renderPicker({ resetScroll: true });
 
   });
+  $('.formation-picker').addEventListener('click', (event) => {
+    const button = event.target.closest('[data-picker-position]');
+    if (!button)
+      return;
+    pickerPosition = button.dataset.pickerPosition;
+    renderPicker({ resetScroll: true });
+  });
   $('#team-edit-close').addEventListener('click', () => $('#team-edit-dialog').close());
   $('#team-edit-content').addEventListener('click', (event) => {
     if (editingIndex === null || !team.slots[editingIndex])
@@ -2353,6 +2386,9 @@ async function boot() {
 
   }));
   families = tatari.families || [];
+
+  const [tierData, positionData] = await Promise.all(['/data/tata-tier.json', '/data/zombie-rush/position-tiers.json'].map((url) => fetch(url).then((response) => response.ok ? response.json() : null).catch(() => null)));
+  tierOrderData = { tierData, positionData };
 
   chips = chipData.chips || [];
 
