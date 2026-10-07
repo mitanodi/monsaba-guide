@@ -172,7 +172,9 @@ body[data-astra] .site-header {
   border-bottom: var(--astra-border);
   z-index: 100
 }
-body[data-astra] .header-inner {
+/* Rail, menus and sticky bars are offset by this height, so compact mode must not shrink it. */
+body[data-astra] .header-inner,
+body[data-astra] .site-header.is-compact .header-inner {
   height: 72px;
   gap: 20px;
   width: calc(100% - 40px);
@@ -497,6 +499,16 @@ body[data-astra] .catalog-card .card-top {
 body[data-astra] .catalog-card .card-bottom {
   font-size: 10px
 }
+body[data-astra] .catalog-card .card-chevron {
+  color: var(--primary);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  transition: transform .15s
+}
+body[data-astra] .catalog-card:hover .card-chevron {
+  transform: translateX(3px)
+}
 .astra-compact-toggle {
   font-size: 11px!important;
   margin-left: auto
@@ -509,6 +521,10 @@ body[data-astra] .astra-catalog.is-compact .card-image img {
   width: 64px
 }
 body[data-astra] .astra-catalog.is-compact .card-bottom {
+  margin-top: 0;
+  justify-content: flex-end
+}
+body[data-astra] .astra-catalog.is-compact .card-bottom .source-state {
   display: none
 }
 .astra-journey {
@@ -1102,7 +1118,8 @@ body[data-astra] .back-to-top {
   }
 }
 @media(max-width:1099px) {
-  body[data-astra] .header-inner {
+  body[data-astra] .header-inner,
+  body[data-astra] .site-header.is-compact .header-inner {
     height: 64px;
     gap: 12px;
     width: calc(100% - 24px)
