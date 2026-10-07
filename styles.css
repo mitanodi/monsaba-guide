@@ -3322,6 +3322,10 @@ footer {
   color: #667085;
   font-size: 12px
 }
+/* A standalone byline is also a .wrap; keep its centring margins. */
+.wrap.article-byline {
+  margin-inline: auto
+}
 .visible-kicker {
   display: block;
   color: var(--primary);
