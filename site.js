@@ -293,11 +293,20 @@
     && Boolean(target.closest('form,input,textarea,select,option,button,[contenteditable]:not([contenteditable="false"])'));
   const isFixedAdInteraction = (target) => target instanceof Element
     && Boolean(target.closest('.floating-affiliate'));
+  // A list or panel that is already scrolled down must scroll back up instead of starting a refresh.
+  const isInsideScrolledArea = (target) => {
+    for (let node = target instanceof Element ? target : null; node && node !== document.body && node !== document.documentElement; node = node.parentElement) {
+      if (node.scrollTop > 0)
+        return true;
+    }
+    return false;
+  };
   const pullToRefreshIsBlocked = (target) => header.classList.contains('nav-open')
     || isFormInteraction(target)
     || isFormInteraction(document.activeElement)
     || isFixedAdInteraction(target)
-    || isFixedAdInteraction(document.activeElement);
+    || isFixedAdInteraction(document.activeElement)
+    || isInsideScrolledArea(target);
 
   const ensurePullIndicator = () => {
     const supported = supportsPullToRefresh();
