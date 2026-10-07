@@ -898,6 +898,7 @@
 }
 /* Separate the order switch from the attribute filters that follow it. */
 .formation-picker-order {
+  margin-top: 8px;
   margin-bottom: 14px;
   padding-bottom: 12px;
   border-bottom: 1px solid #dfe5ec
