@@ -22,8 +22,10 @@ test('Team Builder picker reads each Tier board from the top-left', () => {
 });
 
 test('Zombie Rush picker follows the selected position board, then keeps catalog order', () => {
-  for (const position of ['front', 'middle', 'rear']) {
-    const board = ['SS', 'S', 'A', 'B', 'C', 'HOLD'].flatMap(tier => positionData.entries.filter(entry => entry.position === position && entry.tier === tier).sort((a, b) => a.order - b.order).map(entry => entry.familyId)).filter(Boolean);
+  const boardOf = position => ['SS', 'S', 'A', 'B', 'C', 'HOLD'].flatMap(tier => positionData.entries.filter(entry => entry.position === position && entry.tier === tier).sort((a, b) => a.order - b.order).map(entry => entry.familyId)).filter(Boolean);
+  for (const position of ['all', 'front', 'middle', 'rear']) {
+    // 'all' reads the three boards in page order and keeps each Tata at its first appearance.
+    const board = position === 'all' ? [...new Set(['front', 'middle', 'rear'].flatMap(boardOf))] : boardOf(position);
     const actual = ids(pickerOrder(families, { tierData, positionData }, 'zombie', position));
     assert.deepEqual(actual.slice(0, board.length), board, position);
     const rest = families.map(family => family.id).filter(id => !board.includes(id));
@@ -34,4 +36,5 @@ test('Zombie Rush picker follows the selected position board, then keeps catalog
 test('Picker keeps catalog order when Tier data is unavailable', () => {
   assert.deepEqual(ids(pickerOrder(families, {}, 'normal')), ids(families));
   assert.deepEqual(ids(pickerOrder(families, {}, 'zombie', 'front')), ids(families));
+  assert.deepEqual(ids(pickerOrder(families, {}, 'zombie')), ids(families));
 });

@@ -836,14 +836,14 @@
   display: grid;
   gap: 8px
 }
-.formation-placement-controls fieldset,.formation-picker-order fieldset,.team-dialog fieldset {
+.formation-placement-controls fieldset,.team-dialog fieldset {
   min-width: 0;
   margin: 0;
   border: 1px solid #dfe5ec;
   border-radius: 8px;
   padding: 8px
 }
-.formation-placement-controls legend,.formation-picker-order legend,.team-dialog legend {
+.formation-placement-controls legend,.team-dialog legend {
   padding-inline: 5px;
   color: #475467;
   font-size: 12px;
@@ -873,7 +873,7 @@
   background: #edf6ff;
   color: #205a99
 }
-.formation-level-options button[aria-pressed=true],.formation-picker-order button[aria-pressed=true] {
+.formation-level-options button[aria-pressed=true] {
   border-color: #2f6fb2;
   background: #2f6fb2;
   color: #fff
@@ -891,6 +891,15 @@
   color: #344054;
   padding: 5px 11px;
   font-weight: 800
+}
+.formation-picker-order-label {
+  flex-basis: 100%;
+  color: #475467;
+  font-size: 12px;
+  font-weight: 800
+}
+.formation-picker-order[hidden] {
+  display: none
 }
 .attribute-filter.is-active {
   border-color: #2f6fb2;

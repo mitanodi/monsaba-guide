@@ -254,9 +254,9 @@ const ATTRIBUTE_LABELS = {
 }[locale];
 
 const PICKER_ORDER_LABELS = {
-  ja: { label: '並び順（ゾンビ役割別Tier）', front: '前衛', middle: '中衛', rear: '後衛' },
-  en: { label: 'Order (Zombie Rush Tier by position)', front: 'Front', middle: 'Middle', rear: 'Rear' },
-  'zh-CN': { label: '排序（僵尸突袭位置强度榜）', front: '前卫', middle: '中卫', rear: '后卫' }
+  ja: { label: 'ゾンビ役割別Tierの順に並べる', all: 'すべて', front: '前衛', middle: '中衛', rear: '後衛' },
+  en: { label: 'Order by Zombie Rush Tier by position', all: 'All', front: 'Front', middle: 'Middle', rear: 'Rear' },
+  'zh-CN': { label: '按僵尸突袭位置强度榜排序', all: '全部', front: '前卫', middle: '中卫', rear: '后卫' }
 }[locale];
 
 let families = [];
@@ -711,14 +711,17 @@ function renderPickerOrder() {
   if (!node) {
     node = document.createElement('div');
     node.id = 'team-picker-order';
-    node.className = 'formation-picker-order';
+    node.className = 'attribute-filters formation-picker-order';
+    node.setAttribute('role', 'group');
+    node.setAttribute('aria-label', PICKER_ORDER_LABELS.label);
     $('#team-attribute-filters').before(node);
   }
   // Only Zombie Rush has several boards; other modes follow a single Tier board.
   node.hidden = team.mode !== 'zombie' || !tierOrderData.positionData;
   if (node.hidden)
     return;
-  node.innerHTML = `<fieldset><legend>${esc(PICKER_ORDER_LABELS.label)}</legend><div class="formation-segmented">${PICKER_POSITIONS.map((position) => `<button type="button" data-picker-position="${position}" aria-pressed="${pickerPosition === position}">${esc(PICKER_ORDER_LABELS[position])}</button>`).join('')}</div></fieldset>`;
+  // Same pill buttons as the attribute filters below, so both rows read as one control set.
+  node.innerHTML = `<span class="formation-picker-order-label">${esc(PICKER_ORDER_LABELS.label)}</span>${PICKER_POSITIONS.map((position) => `<button type="button" class="attribute-filter${pickerPosition === position ? ' is-active' : ''}" data-picker-position="${position}" aria-pressed="${pickerPosition === position}">${esc(PICKER_ORDER_LABELS[position])}</button>`).join('')}`;
 }
 function renderPicker({ resetScroll = false } = {}) {
   const query = $('#team-picker-search').value;

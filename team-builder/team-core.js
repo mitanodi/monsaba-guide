@@ -736,18 +736,19 @@ export function stage1ImageFor(family, imageByFamily) {
 
 }
 
-export const PICKER_POSITIONS = ['front', 'middle', 'rear'];
+export const PICKER_POSITIONS = ['all', 'front', 'middle', 'rear'];
 const PICKER_TIER_MODE = { free: 'overall', boss: 'overall', normal: 'normal', dojo: 'dojo' };
 const TIER_ORDER = ['SSS', 'SS', 'S', 'A', 'B', 'C', 'D', 'HOLD'];
 
 // Read each Tier board left to right, top to bottom (same order as /tata-tier/).
-// Zombie Rush follows the chosen position board. Families on no board keep catalog order at the end.
-export function pickerOrder(families, { tierData, positionData } = {}, mode = 'free', position = 'front') {
+// Zombie Rush follows the chosen position board; 'all' reads front, middle, then rear like the Tier page.
+// Families on no board keep catalog order at the end.
+export function pickerOrder(families, { tierData, positionData } = {}, mode = 'free', position = 'all') {
   let ids = [];
   if (mode === 'zombie')
     ids = (positionData?.entries || [])
-      .filter((entry) => entry.position === position && entry.familyId)
-      .sort((a, b) => TIER_ORDER.indexOf(a.tier) - TIER_ORDER.indexOf(b.tier) || a.order - b.order)
+      .filter((entry) => (position === 'all' || entry.position === position) && entry.familyId)
+      .sort((a, b) => PICKER_POSITIONS.indexOf(a.position) - PICKER_POSITIONS.indexOf(b.position) || TIER_ORDER.indexOf(a.tier) - TIER_ORDER.indexOf(b.tier) || a.order - b.order)
       .map((entry) => entry.familyId);
   else {
     const key = PICKER_TIER_MODE[mode] || 'overall';
