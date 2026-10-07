@@ -197,7 +197,7 @@ function renderCards() {
     return `<article class="card catalog-card" data-family="${esc(f.id)}"><a class="catalog-card-link" href="${prefix}/tata/${encodeURIComponent(f.id)}/" aria-label="${esc(getFamilyDisplayLabel(f))}の個別ページを見る">
     <span class="card-image"><img loading="lazy" decoding="async" src="${esc(image.src)}"${responsiveAttrs(image, true)} width="${image.width}" height="${image.height}" alt="${esc(f.evolutions[0].name)}" /></span>
     <div class="card-body"><div class="card-top"><span class="attribute">${attrIcon[f.attribute] || ''} ${esc(f.attribute)}属性</span><span class="source-state">${f.evolutions.length}段階</span></div>
-    <h3>${esc(getFamilyDisplayLabel(f))}</h3><div class="card-bottom"><span class="source-state">T1–T${f.evolutions.length}</span><span class="detail-link">詳細</span></div></div></a></article>`
+    <h3>${esc(getFamilyDisplayLabel(f))}</h3><div class="card-bottom"><span class="source-state">T1–T${f.evolutions.length}</span><span class="card-chevron" aria-hidden="true">›</span></div></div></a></article>`
   }).join('') : '<div class="empty">条件に合うタタがありません。検索語や属性を変えてください。</div>';
 }
 function renderSelect() {

@@ -892,6 +892,20 @@
   padding: 5px 11px;
   font-weight: 800
 }
+/* The visible order switch adds a row; keep the list as the stretching last row. */
+.formation-picker:has(> .formation-picker-order:not([hidden])) {
+  grid-template-rows: auto auto auto auto auto minmax(0,1fr)
+}
+/* Separate the order switch from the attribute filters that follow it. */
+.formation-picker-order {
+  margin-top: 8px;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #dfe5ec
+}
+.formation-picker-order[hidden] {
+  display: none
+}
 .attribute-filter.is-active {
   border-color: #2f6fb2;
   background: #2f6fb2;
