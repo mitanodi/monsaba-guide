@@ -721,7 +721,7 @@ function renderPickerOrder() {
   if (node.hidden)
     return;
   // Same pill buttons as the attribute filters below, so both rows read as one control set.
-  node.innerHTML = `<span class="formation-picker-order-label">${esc(PICKER_ORDER_LABELS.label)}</span>${PICKER_POSITIONS.map((position) => `<button type="button" class="attribute-filter${pickerPosition === position ? ' is-active' : ''}" data-picker-position="${position}" aria-pressed="${pickerPosition === position}">${esc(PICKER_ORDER_LABELS[position])}</button>`).join('')}`;
+  node.innerHTML = PICKER_POSITIONS.map((position) => `<button type="button" class="attribute-filter${pickerPosition === position ? ' is-active' : ''}" data-picker-position="${position}" aria-pressed="${pickerPosition === position}">${esc(PICKER_ORDER_LABELS[position])}</button>`).join('');
 }
 function renderPicker({ resetScroll = false } = {}) {
   const query = $('#team-picker-search').value;

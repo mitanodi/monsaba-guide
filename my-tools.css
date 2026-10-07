@@ -892,12 +892,6 @@
   padding: 5px 11px;
   font-weight: 800
 }
-.formation-picker-order-label {
-  flex-basis: 100%;
-  color: #475467;
-  font-size: 12px;
-  font-weight: 800
-}
 /* The visible order switch adds a row; keep the list as the stretching last row. */
 .formation-picker:has(> .formation-picker-order:not([hidden])) {
   grid-template-rows: auto auto auto auto auto minmax(0,1fr)
