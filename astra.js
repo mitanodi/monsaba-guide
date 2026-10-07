@@ -60,47 +60,4 @@
       }
     });
   }
-  // Make the existing sheet operable by keyboard with focus return; mode and drag logic stay in team-builder.js.
-  const picker = document.querySelector('.formation-picker');
-  if (picker) {
-    let lastFocus = null;
-    const isNarrow = () => matchMedia('(max-width:700px)').matches;
-    new MutationObserver(() => {
-      if (!isNarrow())
-        return;
-      const open = picker.classList.contains('is-sheet-open');
-      if (open && !picker.hasAttribute('data-astra-open')) {
-        lastFocus = document.activeElement;
-        picker.setAttribute('data-astra-open', 'true');
-        picker.setAttribute('role', 'dialog');
-        picker.setAttribute('aria-modal', 'true');
-        picker.querySelector('input')?.focus();
-      } else if (!open && picker.hasAttribute('data-astra-open')) {
-        picker.removeAttribute('data-astra-open');
-        picker.removeAttribute('role');
-        picker.removeAttribute('aria-modal');
-        if (lastFocus?.isConnected)
-          lastFocus.focus();
-      }
-    }).observe(picker, { attributes: true, attributeFilter: ['class'] });
-    document.addEventListener('keydown', event => {
-      if (!isNarrow() || !picker.classList.contains('is-sheet-open'))
-        return;
-      if (event.key === 'Escape') {
-        document.querySelector('.team-picker-sheet-toggle[aria-expanded=true]')?.click();
-        return;
-      }
-      if (event.key === 'Tab') {
-        const nodes = [...picker.querySelectorAll('button:not([disabled]),a[href],input,select'), document.querySelector('.team-picker-sheet-toggle')].filter(e => e && e.getClientRects().length);
-        const first = nodes[0], last = nodes.at(-1);
-        if (event.shiftKey && document.activeElement === first) {
-          event.preventDefault();
-          last?.focus();
-        } else if (!event.shiftKey && document.activeElement === last) {
-          event.preventDefault();
-          first?.focus();
-        }
-      }
-    });
-  }
 })();
