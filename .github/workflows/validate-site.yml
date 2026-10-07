@@ -24,6 +24,7 @@ jobs:
       - run: npm test
       - run: npm run validate:data
       - run: npm run generate:site
+      - run: npm run validate:assets
       - run: git diff --exit-code
       - run: npm run validate:site
       - run: npm run validate:growth

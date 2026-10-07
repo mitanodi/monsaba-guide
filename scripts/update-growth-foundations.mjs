@@ -2,7 +2,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const root = path.resolve(import.meta.dirname, '..');
-const assetVersion = '20260825-affiliate';
 const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'assets', 'data', 'scripts', 'promo', 'en', 'zh-cn', 'i18n']);
 function walk(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -23,10 +22,6 @@ for (const file of walk(root)) {
     html = html.replace(/(<script src="\/growth\.js(?:\?[^\"]*)?" defer><\/script>)/, '<script src="/monetization.js" defer></script>$1');
   }
   if (route.startsWith('/board/')) html = html.replace(/<script src="\/monetization\.js(?:\?[^\"]*)?" defer><\/script>/g, '');
-  for (const asset of ['styles.css', 'app.js', 'site.js', 'monetization.js', 'growth.js', 'search/search.js', 'compare/compare.js']) {
-    html = html.replaceAll(`"/${asset}"`, `"/${asset}?v=${assetVersion}"`);
-    html = html.replaceAll(`"./${asset}"`, `"./${asset}?v=${assetVersion}"`);
-  }
   if (html === before) continue;
   fs.writeFileSync(file, html);
   changed += 1;

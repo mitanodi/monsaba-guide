@@ -1,3 +1,4 @@
+import { normalizeAssetHtml, assetPolicy } from './lib/asset-cache.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -20,8 +21,7 @@ expect(read('compare/index.html').includes('compareASearch') && read('compare/co
 expect(read('tata/denjika/index.html').includes('data-family-id="denjika"') && read('tata/denjika/index.html').includes('tata-favorite-button'), 'タタ履歴・お気に入りUIがありません');
 expect(read('consult/consult.js').includes('answerProvenance'), '相談所の根拠表示がありません');
 expect(read('zombie-rush/index.html').includes('Season 1実戦Tier') && read('zombie-rush/index.html').includes('旧環境Tier'), 'ZR新旧Tierが分離されていません');
-const versions = [...new Set([...read('index.html').matchAll(/\?v=([a-f0-9]{12})/g)].map(match => match[1]))];
-expect(versions.length === 1 && versions[0] === json('data/asset-build.json').version, '共通asset versionが不正です');
+expect(assetPolicy.strategy === 'revalidate' && normalizeAssetHtml(read('index.html')) === read('index.html'), '固定asset URLまたは再検証方式が不正です');
 for (const file of [
   'stages/index.html',
   'evolution/index.html',
@@ -37,4 +37,4 @@ if (errors.length) {
   console.error(`30項目追加検証失敗 (${errors.length})\n- ${errors.join('\n- ')}`);
   process.exit(1)
 }
-console.log('30項目追加検証成功: data foundations / solver / search / compare / favorites / ZR / asset version');
+console.log('30項目追加検証成功: data foundations / solver / search / compare / favorites / ZR / fixed asset URLs');

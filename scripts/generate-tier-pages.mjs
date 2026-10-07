@@ -15,7 +15,6 @@ const write = (file, value) => {
     fs.writeFileSync(path.join(root, file), value);
   }
 };
-const assetVersion = json('data/asset-build.json').version;
 const ninjaAdMaxTier = `<aside class="wrap ninja-admax-slot" data-admax-slot="MONSABA_TIER" aria-label="広告"><span class="ninja-admax-label">広告</span><script>(function(){var tag=window.matchMedia('(max-width: 820px)').matches?'https://adm.shinobi.jp/s/27d44b57ec346ee2bce4628d6574f79b':'https://adm.shinobi.jp/s/1a63f0edf4570c706857b356204f1a61';document.write('<scr'+'ipt src="'+tag+'"></scr'+'ipt>');}());</script></aside>`;
 const ninjaAdMaxTata = `<aside class="wrap ninja-admax-slot" data-admax-slot="MONSABA_TATA" data-admax-position="MID" aria-label="広告"><span class="ninja-admax-label">広告</span><script>(function(){var tag=window.matchMedia('(max-width: 820px)').matches?'https://adm.shinobi.jp/s/dfb46622bdef6255102d47782ae5475a':'https://adm.shinobi.jp/s/ed3e55b49454e200992898abbe7bb903';document.write('<scr'+'ipt src="'+tag+'"></scr'+'ipt>');}());</script></aside>`;
 const ninjaAdMaxTataContent = (familyId, position) => {
@@ -25,7 +24,7 @@ const ninjaAdMaxTataContent = (familyId, position) => {
   }[position];
   return `<aside class="wrap ninja-admax-slot ninja-admax-expansion" data-admax-slot="TATA_${position}_${familyId.toUpperCase()}" data-admax-position="${position}" data-admax-placement="2026-09-all-content" aria-label="広告"><span class="ninja-admax-label">広告</span><script>(function(){var tag=window.matchMedia('(max-width: 820px)').matches?'https://adm.shinobi.jp/s/${tags.sp}':'https://adm.shinobi.jp/s/${tags.pc}';document.write('<scr'+'ipt src="'+tag+'"></scr'+'ipt>');}());</script></aside>`;
 };
-const imobileSlot = slot => `<aside class="wrap imobile-ad-slot" aria-label="広告"><span class="imobile-ad-label">広告</span><script src="/imobile-ads.js?v=${assetVersion}" data-imobile-slot="${slot}"></script></aside>`;
+const imobileSlot = slot => `<aside class="wrap imobile-ad-slot" aria-label="広告"><span class="imobile-ad-label">広告</span><script src="/imobile-ads.js" data-imobile-slot="${slot}"></script></aside>`;
 const positionData = json('data/zombie-rush/position-tiers.json');
 function positionRatingLink(familyId, locale, prefix) {
   const labels = {
@@ -92,10 +91,9 @@ for (const [locale, prefix] of [['ja', ''], ['en', 'en/'], ['zh-CN', 'zh-cn/']])
   const keepImobileStyles = locale === 'ja' || load(html)('.imobile-content-ad').length > 0;
   html = html.replace(/<link[^>]+href="\/(?:astra(?:-tier)?\.css|tata-tier\/tier-boards\.css|imobile-ads\.css)[^>]*>/g, '')
     .replace(/(<script async src="https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=[^"]+"[^>]*data-monsaba-ga4="loader")(?: type="[^"]*")?>/g, '$1 type="text/plain">')
-    .replace('</head>', `<link rel="stylesheet" href="/astra.css?v=${assetVersion}"><link rel="stylesheet" href="/astra-tier.css?v=${assetVersion}"><link rel="stylesheet" href="/tata-tier/tier-boards.css?v=${assetVersion}">${keepImobileStyles ? '<link rel="stylesheet" href="/imobile-ads.css?v=' + assetVersion + '">' : ''}</head>`);
-  html = html.replace(/(src="\/tata-tier\/tata-tier\.js)(?:\?[^\"]*)?"/g, `$1?v=${assetVersion}"`);
-  if (locale !== 'ja' && !html.includes(`/i18n/${prefix.slice(0, -1)}-runtime.js?v=${assetVersion}`)) {
-    html = html.replace('</body>', `<script src="/i18n/${prefix.slice(0, -1)}-runtime.js?v=${assetVersion}" defer></script><script src="/i18n-runtime.js?v=${assetVersion}" defer></script></body>`);
+    .replace('</head>', `<link rel="stylesheet" href="/astra.css"><link rel="stylesheet" href="/astra-tier.css"><link rel="stylesheet" href="/tata-tier/tier-boards.css">${keepImobileStyles ? '<link rel="stylesheet" href="/imobile-ads.css">' : ''}</head>`);
+  if (locale !== 'ja' && !html.includes(`/i18n/${prefix.slice(0, -1)}-runtime.js`)) {
+    html = html.replace('</body>', `<script src="/i18n/${prefix.slice(0, -1)}-runtime.js" defer></script><script src="/i18n-runtime.js" defer></script></body>`);
   }
   write(file, html);
 
@@ -143,7 +141,7 @@ for (const [locale, prefix] of [['ja', ''], ['en', 'en/'], ['zh-CN', 'zh-cn/']])
       if (entry.familyId === 'gaoden' && locale === 'ja') {
         source = patchHtml(source, [['.tata-consult-cta', (el, $) => `${$.html(el)}${imobileSlot('gaoden')}`]]);
         if (!load(source)('link[href^="/imobile-ads.css"]').length)
-          source = source.replace('</head>', '<link rel="stylesheet" href="/imobile-ads.css?v=' + assetVersion + '"></head>');
+          source = source.replace('</head>', '<link rel="stylesheet" href="/imobile-ads.css"></head>');
       }
     }
     write(detail, source);

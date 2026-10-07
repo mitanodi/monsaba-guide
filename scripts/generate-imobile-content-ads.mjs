@@ -124,10 +124,6 @@ function placementFor(route, candidates, mainLength) {
 }
 
 const htmlFiles = collectHtml(root);
-const versionSource = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-const assetVersion = versionSource.match(/href="\/astra\.css\?v=([a-f\d]+)"/i)?.[1];
-if (!assetVersion)
-  throw new Error('Could not read the current shared asset version from index.html');
 
 let added = 0;
 let skipped = 0;
@@ -143,7 +139,7 @@ for (const file of htmlFiles) {
     }
     let corrected = html.replace(/[ \t]*<aside\b(?=[^>]*\bimobile-content-ad\b)[^>]*>[\s\S]*?<\/aside>[ \t]*(?:\r?\n)?/, '');
     if (!load(corrected)('.imobile-ad-slot').length) {
-      corrected = corrected.replace(/[ \t]*<link rel="stylesheet" href="\/imobile-ads\.css\?v=[^"]+">[ \t]*(?:\r?\n)?/, '');
+      corrected = corrected.replace(/[ \t]*<link rel="stylesheet" href="\/imobile-ads\.css(?:\?v=[^"]+)?">[ \t]*(?:\r?\n)?/, '');
     }
     fs.writeFileSync(file, corrected, 'utf8');
     skipped++;
@@ -174,14 +170,14 @@ for (const file of htmlFiles) {
   }
 
   const placement = placementFor(route, candidates, contentLength($));
-  const aside = `\n<aside class="wrap imobile-ad-slot imobile-content-ad" data-imobile-placement="${placement.slot}" aria-label="${adLabel}"><span class="imobile-ad-label">${adLabel}</span><script src="/imobile-ads.js?v=${assetVersion}" data-imobile-slot="${placement.slot}"></script></aside>`;
+  const aside = `\n<aside class="wrap imobile-ad-slot imobile-content-ad" data-imobile-placement="${placement.slot}" aria-label="${adLabel}"><span class="imobile-ad-label">${adLabel}</span><script src="/imobile-ads.js" data-imobile-slot="${placement.slot}"></script></aside>`;
   let updated = `${html.slice(0, placement.offset)}${aside}${html.slice(placement.offset)}`;
   const updatedDoc = load(updated);
   if (!updatedDoc('link[href^="/imobile-ads.css"]').length) {
     const headClose = updated.toLowerCase().lastIndexOf('</head>');
     if (headClose < 0)
       throw new Error(`Could not find </head> in ${route || '/'}`);
-    const css = `<link rel="stylesheet" href="/imobile-ads.css?v=${assetVersion}">`;
+    const css = `<link rel="stylesheet" href="/imobile-ads.css">`;
     updated = `${updated.slice(0, headClose)}${css}${updated.slice(headClose)}`;
   }
   updated = updated.replace(/[ \t]+(?=\r?$)/gm, '');
@@ -191,4 +187,4 @@ for (const file of htmlFiles) {
   }
 }
 
-console.log(`i-mobile content slots: added ${added}; skipped ${skipped}; asset version ${assetVersion}`);
+console.log(`i-mobile content slots: added ${added}; skipped ${skipped}; fixed asset URLs`);

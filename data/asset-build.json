@@ -1,4 +1,7 @@
 {
-  "version": "a0abe310bf8e",
-  "generatedAt": "2026-08-28"
+  "strategy": "revalidate",
+  "cacheControl": "public, no-cache",
+  "migrations": {
+    "/assets/aug30-update.css": "/styles/aug30-update.css"
+  }
 }

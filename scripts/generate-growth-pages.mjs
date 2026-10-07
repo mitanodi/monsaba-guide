@@ -25,7 +25,7 @@ function pageShell({ route, title, description, body, structured, robots, script
   return `<!doctype html>
 <html lang="ja"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
   ${renderSeoHead({ title, description, route, robots })}
-  <link rel="icon" href="/favicon.ico" sizes="any" /><link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" /><link rel="apple-touch-icon" href="/apple-touch-icon.png" /><link rel="manifest" href="/site.webmanifest" /><link rel="stylesheet" href="/styles.css?v=20260825-growth" />
+  <link rel="icon" href="/favicon.ico" sizes="any" /><link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" /><link rel="apple-touch-icon" href="/apple-touch-icon.png" /><link rel="manifest" href="/site.webmanifest" /><link rel="stylesheet" href="/styles.css" />
   <script type="application/ld+json">${safeJsonLd(structured)}</script></head>
 <body data-page-type="${pageType}"><a class="skip-link" href="#main-content">本文へスキップ</a>${renderHeader(route)}<main id="main-content">${body}
   <section class="wrap source-note page-freshness"><strong>情報の状態</strong><p><span class="trust-label is-verified">確認済み</span> 最終更新 <time datetime="${status.updated}">${formatJapanDateTime(status.updated)}</time> / データ確認 <time datetime="${status.verified}">${formatJapanDateTime(status.verified)}</time></p>${status.pending?.length ? `<p><span class="trust-label is-pending">確認中</span> ${status.pending.map(esc).join(' / ')}</p>` : ''}<a href="/about-data/">更新・確認方針を見る</a></section>

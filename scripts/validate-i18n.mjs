@@ -156,7 +156,7 @@ for (const sourceFile of sourceFiles) {
     }
     expect(html.includes(`<option value="${locale.key}" selected>`), `${localRoute}: language selector state missing`);
     if (route !== '/tatari-names/')
-      expect(html.includes(`/i18n/${locale.directory}-runtime.js?v=${JSON.parse(read('data/asset-build.json')).version}`), `${localRoute}: versioned locale runtime missing`);
+      expect(html.includes(`/i18n/${locale.directory}-runtime.js`), `${localRoute}: fixed locale runtime missing`);
     expect(!/\b(?:undefined|null|\[i18n\.[^\]]+\])\b/.test(html), `${localRoute}: missing translation marker rendered`);
     expect(!invalidMarker.test(html), `${localRoute}: bootstrap marker rendered`);
     expect(!html.includes(`${BASE_URL}/${locale.directory}/assets/`), `${localRoute}: structured-data asset URL was localized`);

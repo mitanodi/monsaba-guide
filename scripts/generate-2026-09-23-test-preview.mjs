@@ -10,7 +10,6 @@ const route = '/updates/2026-09-23-test-preview/';
 const preview = JSON.parse(fs.readFileSync(path.join(root, 'data/zombie-rush/seasons/season-2-test-preview.json'), 'utf8'));
 const liveChipByJapaneseName = new Map(JSON.parse(fs.readFileSync(path.join(root, 'data/zombie-rush/chips.json'), 'utf8')).chips.map((chip) => [chip.name.ja, chip]));
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]);
-const assetVersion = JSON.parse(fs.readFileSync(path.join(root, 'data/asset-build.json'), 'utf8')).version;
 const directions = { up: ['↑', '強化'], down: ['↓', '弱体化'] };
 const write = (outputRoute, html) => {
   const directory = path.join(root, outputRoute.replace(/^\//, ''));
@@ -92,7 +91,7 @@ function localizedPage(locale) {
     robots: 'noindex,follow'
   }).replace('ja_JP', localeValue).replaceAll('content="モンサバ攻略DB"', `content="${english ? 'Clash of Critters Guide DB' : 'Clash of Critters 攻略DB'}"`).replace(/(<link rel="canonical"[^>]*?)\s*\/>/, '$1>');
   const skip = english ? 'Skip to content' : '跳到正文';
-  const runtime = `<script src="/i18n/${english ? 'en' : 'zh-cn'}-runtime.js?v=${assetVersion}" defer></script><script src="/i18n-runtime.js?v=${assetVersion}" defer></script>`;
+  const runtime = `<script src="/i18n/${english ? 'en' : 'zh-cn'}-runtime.js" defer></script><script src="/i18n-runtime.js" defer></script>`;
   return `<!doctype html><html lang="${english ? 'en' : 'zh-CN'}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${head}${alternates(route)}<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="stylesheet" href="/styles.css"><script type="application/ld+json">${jsonLd(localRoute, title, description, english ? 'en' : 'zh-CN')}</script>${renderGa4Tag()}</head><body data-locale="${locale}" data-page-type="update-preview"><a class="skip-link" href="#main-content">${skip}</a>${header}<main id="main-content"><section class="page-hero update-preview-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="${prefix}/">${english ? 'Home' : '首页'}</a><span>›</span><a href="${prefix}/updates/">${english ? 'Updates' : '更新记录'}</a><span>›</span><span>${english ? 'Test server preview' : '测试服务器预览'}</span></nav><div class="family-page-head"><div><span class="visible-kicker">${english ? 'Test-server information · live release pending' : '测试服务器信息 · 正式服待确认'}</span><h1>${english ? 'Sep 23 test server preview' : '9月23日测试服务器预览'}</h1><p>${english ? 'Zombie Rush Season 2 · Lucaron · new T4s · chip changes' : 'Zombie Rush Season 2 · Lucaron · 新T4 · 芯片调整'}</p></div></div></div></section>${followUpNote(locale)}${body}</main>${footer}${runtime}<script src="/family-display.js"></script><script src="/site.js"></script><script src="/growth.js"></script></body></html>`;
 }
 

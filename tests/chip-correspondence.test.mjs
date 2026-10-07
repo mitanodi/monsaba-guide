@@ -43,7 +43,7 @@ test('eight original errors are corrected, 41 prior matches maintained, no pendi
  assert.equal(audit.rows.filter(r=>r.effectComparison.startsWith('numeric')).length,7);
 });
 test('card display contains original artwork without stretching or editing the downloaded asset',()=>{
- assert.match(read('assets/aug30-update.css').toString(),/\.chip-card img\{[^}]*object-fit:contain/);
+ assert.match(read('styles/aug30-update.css').toString(),/\.chip-card img\{[^}]*object-fit:contain/);
  assert.match(read('my-tools.css').toString(),/\.formation-chip-option img\s*\{[^}]*object-fit: contain/);
 });
 test('every chip ID survives shared URL, draft and saved-team round trips after image replacement',()=>{

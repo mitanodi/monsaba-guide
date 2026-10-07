@@ -1,3 +1,4 @@
+import { normalizeSiteAssets } from './lib/asset-cache.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -67,6 +68,7 @@ export function prepareDeployment(root, environment) {
     }
   }
   walk(root);
+  normalizeSiteAssets(root);
   return count;
 }
 

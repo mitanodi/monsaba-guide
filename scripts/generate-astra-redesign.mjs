@@ -1,3 +1,4 @@
+import { normalizeAssetHtml } from './lib/asset-cache.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
@@ -121,7 +122,6 @@ function insertNinjaAdMaxSlots($, route, needed) {
       $('footer').before(ninjaAdMaxContent(slot, position));
   }
 }
-const version = JSON.parse(read('data/asset-build.json')).version;
 // Existing canonical SEO remains authoritative. The new calendar is an additional route.
 for (const locale of ['ja', 'en', 'zh-CN']) {
   const p = locale === 'ja' ? '' : locale === 'en' ? 'en/' : 'zh-cn/', c = astraCopy[locale];
@@ -320,7 +320,7 @@ for (const file of walk(root)) {
   if (plan.length) {
     $('.astra-experiment-bar').append(`<a href="?ads=live">既存広告を確認</a>`);
     if (!$('script[src*="monetization.js"]').length)
-      $('footer').after(`<script src="/monetization.js?v=${version}" type="text/plain" defer></script>`);
+      $('footer').after(`<script src="/monetization.js" type="text/plain" defer></script>`);
   }
   const ninjaPlan = locale === 'ja' ? ninjaAdMaxPlans[route] : null;
   if (ninjaPlan) {
@@ -335,23 +335,23 @@ for (const file of walk(root)) {
   if (locale === 'ja' && !route.startsWith('/tata/') && route !== '/tata-tier/')
     insertNinjaAdMaxSlots($, route, targetNinjaSlots);
   if (locale === 'ja' && (route === '/tata-tier/' || route.startsWith('/tata/') || targetNinjaSlots))
-    $('footer').after(`<script src="/ninja-admax.js?v=${version}" defer></script>`);
+    $('footer').after(`<script src="/ninja-admax.js" defer></script>`);
   if (plan.length)
-    $('footer').after(`<script src="/astra-ads.js?v=${version}" defer></script>`);
+    $('footer').after(`<script src="/astra-ads.js" defer></script>`);
   $('.hero-cta,.site-stats,#attributeFilters').attr('role', 'group');
   const attributes = bodyMatch[1].replace(/\sdata-astra(?:-page)?="[^"]*"/g, '');
   const bodyHtml = $.html().replace(/[ \t]+(?=\r?\n)/g, '').replace(/\s(required|hidden|checked|disabled|selected|multiple|readonly|autofocus)=""/g, ' $1');
   html = html.replace(bodyMatch[0], `<body${attributes} data-astra="experiment" data-astra-page="${esc(route)}">${bodyHtml}</body>`);
   html = html.replace(/<link[^>]*href="\/astra(?:-[a-z]+)?\.css[^>]*>/g, '').replace(/<script[^>]*src="\/astra(?:-calendar)?\.js[^>]*><\/script>/g, '');
   const pageCss = route === '/' ? ['home'] : route === '/events/' ? ['home'] : route === '/events/calendar/' ? ['calendar'] : route === '/team-builder/' ? ['team'] : route.startsWith('/team-builder/community/') ? ['community', 'team'] : route.startsWith('/tata/') ? ['detail'] : route === '/tata-tier/' ? ['tier'] : ['/beginner-guide/', '/evolution-priority/'].includes(route) ? ['home'] : [];
-  html = html.replace('</head>', ['astra', ...pageCss.map(x => 'astra-' + x)].map(x => `<link rel="stylesheet" href="/${x}.css?v=${version}">`).join('') + '</head>').replace('</body>', `<script src="/astra.js?v=${version}" defer></script>${route === '/' || route === '/events/' ? `<script type="module" src="/astra-calendar.js?v=${version}"></script>` : ''}</body>`);
+  html = html.replace('</head>', ['astra', ...pageCss.map(x => 'astra-' + x)].map(x => `<link rel="stylesheet" href="/${x}.css">`).join('') + '</head>').replace('</body>', `<script src="/astra.js" defer></script>${route === '/' || route === '/events/' ? `<script type="module" src="/astra-calendar.js"></script>` : ''}</body>`);
   html = html.replace(/(<script async src="https:\/\/www.googletagmanager.com[^\"]*")([^>]*>)/g, (_, a, b) => a + b.replace(/ type="[^"]*"/g, '').replace('>', ' type="text/plain">'));
-  if (locale !== 'ja' && route !== '/tatari-names/' && !html.includes(`/i18n/${locale === 'en' ? 'en' : 'zh-cn'}-runtime.js?v=${version}`)) {
+  if (locale !== 'ja' && route !== '/tatari-names/' && !html.includes(`/i18n/${locale === 'en' ? 'en' : 'zh-cn'}-runtime.js`)) {
     const directory = locale === 'en' ? 'en' : 'zh-cn';
-    html = html.replace('</body>', `<script src="/i18n/${directory}-runtime.js?v=${version}" defer></script><script src="/i18n-runtime.js?v=${version}" defer></script></body>`);
+    html = html.replace('</body>', `<script src="/i18n/${directory}-runtime.js" defer></script><script src="/i18n-runtime.js" defer></script></body>`);
   }
   // Self-localized generators may copy a header from the preceding build. Normalize all asset URLs last.
-  html = html.replace(/((?:href|src)="(?:\.\/|\.\.\/|\/)[^"?]+\.(?:css|js))(?:\?v=[^"#]*)?("(?:\s|>))/g, `$1?v=${version}$2`);
+  html = normalizeAssetHtml(html, '/' + relative);
   if (fs.readFileSync(file, 'utf8') !== html)
     fs.writeFileSync(file, html);
 }

@@ -56,7 +56,6 @@ for (const locale of ['en', 'zh-CN'])
 const notices = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/notices.json'), 'utf8'));
 const tatari = JSON.parse(fs.readFileSync(path.join(root, 'data/tatari.json'), 'utf8'));
 const localizeTataNames = createTataHtmlLocalizer(tatari);
-const assetVersion = JSON.parse(fs.readFileSync(path.join(root, 'data/asset-build.json'), 'utf8')).version;
 const locales = ['en', 'zh-CN'];
 const targetDirectory = Object.freeze({ en: 'en', 'zh-CN': 'zh-cn' });
 const translations = Object.fromEntries(locales.map((locale) => [locale, JSON.parse(fs.readFileSync(path.join(root, `data/i18n/${locale}.json`), 'utf8'))]));
@@ -405,8 +404,8 @@ function localizeHtml(source, sourceRoute, locale, missing) {
   const noticeKey = sourceRoute.startsWith('/board/') ? 'board' : sourceRoute === '/friends/' ? 'friends' : sourceRoute === '/privacy/' ? 'privacy' : sourceRoute === '/consult/' ? 'consult' : null;
   if (noticeKey)
     html = html.replace(/(<main\b[^>]*>)/, `$1<p class="wrap i18n-locale-notice" role="note">${notices[noticeKey][locale]}</p>`);
-  const runtime = `<script src="/i18n/${targetDirectory[locale]}-runtime.js?v=${assetVersion}" defer></script><script src="/i18n-runtime.js?v=${assetVersion}" defer></script>`;
-  const runtimeUrl = `/i18n/${targetDirectory[locale]}-runtime.js?v=${assetVersion}`;
+  const runtime = `<script src="/i18n/${targetDirectory[locale]}-runtime.js" defer></script><script src="/i18n-runtime.js" defer></script>`;
+  const runtimeUrl = `/i18n/${targetDirectory[locale]}-runtime.js`;
   if (!html.includes(runtimeUrl)) {
     let insertedBeforeScript = false;
     html = html.replace(/(<script\b(?![^>]*application\/ld\+json)[^>]*src=)/, (match) => {

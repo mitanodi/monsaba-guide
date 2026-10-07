@@ -42,11 +42,20 @@
       ]
     },
     {
-      "source": "/assets/(.*)",
+      "source": "/assets/((?!.*\\.(?:css|js)$).*)",
       "headers": [
         {
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/((?!api/).*\\.(?:css|js))",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, no-cache"
         }
       ]
     },
