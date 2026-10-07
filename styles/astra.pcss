@@ -1916,3 +1916,9 @@ body[data-astra] .astra-ad-desktop {
     padding-right: 96px
   }
 }
+/* iOS Safari zooms into any focused text field under 16px; keep touch typing at 16px instead of disabling zoom. */
+@media(hover:none) and (pointer:coarse) {
+  body[data-astra] :is(input:not([type=checkbox],[type=radio],[type=range],[type=color],[type=file],[type=button],[type=submit],[type=reset]),textarea) {
+    font-size: 16px!important
+  }
+}
