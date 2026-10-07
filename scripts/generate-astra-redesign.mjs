@@ -269,6 +269,12 @@ for (const file of walk(root)) {
     $('.page-hero').addClass('astra-compact-hero');
     const intro = $('.page-hero .family-page-head>div>p');
     $('#team-help-title').after(intro);
+    const teamIntro = locale === 'ja'
+      ? `モンサバのタタを6×6の36マスへ配置できる編成メーカー。全${count}系統を検索し、選択した進化形態の画像と段階バッジで編成を作成・保存・共有できます。`
+      : locale === 'en'
+        ? `Build a Clash of Critters formation on a 6×6 board. Search all ${count} families, use the selected evolution’s image and stage badge, then save or share the result.`
+        : `可在6×6共36格棋盘放置塔塔的阵容编辑器。支持搜索全部${count}个系列，以所选进化形态的图片和阶段徽标创建、保存并分享阵容。`;
+    $('#team-help-title').siblings('p').first().text(teamIntro);
     const players = $('#team-player-settings');
     if (players.length && !players.parent().is('details')) {
       const detail = $(`<details class="astra-player-details"><summary>${locale === 'ja' ? 'Player設定・上限解放' : locale === 'en' ? 'Player settings & limits' : 'Player设置与上限'}</summary></details>`);
