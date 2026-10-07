@@ -261,7 +261,10 @@
     "新T4を含む条件・スキルは、外部攻略資料とゲーム内資料を区別して掲載します。未掲載の数値は確認待ちです。個別ページと進化試練DBを確認してください。": "Trial conditions and skills, including new T4s, distinguish external guides from game evidence. Missing values remain pending; see the family page and Trial Database.",
     "外部攻略資料の効果数値": "Effect values from external guides",
     "確認待ち：ダメージ倍率、ダメージ回数、クールダウン、減速エリアの数値": "Pending: damage multiplier, hit count, cooldown and slow-zone values",
-    "モンサバのタタを6×6の36マスへ配置できる編成メーカー。全66系統を検索し、選択した進化形態の画像と段階バッジで編成を作成・保存・共有できます。": "Build a Clash of Critters formation on a 6×6 board. Search all 66 families, use the selected evolution’s image and stage badge, then save or share the result."
+    "モンサバのタタを6×6の36マスへ配置できる編成メーカー。全66系統を検索し、選択した進化形態の画像と段階バッジで編成を作成・保存・共有できます。": "Build a Clash of Critters formation on a 6×6 board. Search all 66 families, use the selected evolution’s image and stage badge, then save or share the result.",
+    "前衛": "Front",
+    "中衛": "Middle",
+    "後衛": "Rear"
   },
   "zh-CN": {
     "公式クリエイター素材": "官方创作者素材",
@@ -513,6 +516,9 @@
     "新T4を含む条件・スキルは、外部攻略資料とゲーム内資料を区別して掲載します。未掲載の数値は確認待ちです。個別ページと進化試練DBを確認してください。": "包括新T4在内的条件与技能区分外部攻略和游戏内证据。未公布数值待确认，请查看个别页面与试炼数据库。",
     "外部攻略資料の効果数値": "外部攻略资料的效果数值",
     "確認待ち：ダメージ倍率、ダメージ回数、クールダウン、減速エリアの数値": "待确认：伤害倍率、攻击次数、冷却及减速区域数值",
-    "モンサバのタタを6×6の36マスへ配置できる編成メーカー。全66系統を検索し、選択した進化形態の画像と段階バッジで編成を作成・保存・共有できます。": "可在6×6共36格棋盘放置塔塔的阵容编辑器。支持搜索全部66个系列，以所选进化形态的图片和阶段徽标创建、保存并分享阵容。"
+    "モンサバのタタを6×6の36マスへ配置できる編成メーカー。全66系統を検索し、選択した進化形態の画像と段階バッジで編成を作成・保存・共有できます。": "可在6×6共36格棋盘放置塔塔的阵容编辑器。支持搜索全部66个系列，以所选进化形态的图片和阶段徽标创建、保存并分享阵容。",
+    "前衛": "前卫",
+    "中衛": "中卫",
+    "後衛": "后卫"
   }
 }
