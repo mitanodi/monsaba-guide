@@ -136,6 +136,18 @@ const locales = {
   }
 };
 const route = (locale) => `/${locales[locale].dir ? `${locales[locale].dir}/` : ''}gift-codes/`;
+const listingCount = data.active.length;
+const newCount = data.active.filter(e => e.isNew).length;
+const copyText = {
+  ja: {title:'モンサバ ギフトコード一覧｜2026年10月・入力方法', description:`2026年10月7日に公開掲載を確認した${listingCount}コード。報酬・期限・地域・交換可否と、資料間の相違を分けて掲載。正確な文字列をコピーできます。`, lead:`公開資料で掲載を再確認した${listingCount}コードです。全件のゲーム内交換可否は未確認です。`,current:`公開掲載 ${listingCount}コード`,newest:`今回追加 ${newCount}コード`,checked:'公開資料確認：2026年10月7日',stateText:'国内外の公開資料と報酬画像9種を照合。掲載・報酬・地域・期限・実交換は別管理です。既存のコピー文字列と国内報酬を維持し、相違は各カードに表示しています。',external:'外部掲載確認・実交換未確認'},
+  en: {title:'Clash of Critters Gift Codes | October 2026',description:`${listingCount} publicly listed codes checked on October 7, 2026, with reward, expiry and regional conflicts shown separately. Copy exact strings.`,lead:`These ${listingCount} codes appear in current public sources. In-game redemption of every code is unverified.`,current:`${listingCount} publicly listed codes`,newest:`${newCount} added in this audit`,checked:'Public sources checked: October 7, 2026',stateText:'Domestic and international lists and nine reward icons were compared. Listing, rewards, region, expiry and redemption are separate. Existing copy strings and Japanese rewards are retained; conflicts appear on each card.',external:'Externally listed; redemption untested'},
+  'zh-CN': {title:'Clash of Critters 兑换码列表｜2026年10月',description:`2026年10月7日核对公开资料中的${listingCount}个代码，分别标示奖励、期限、地区及兑换状态，并展示来源差异。`,lead:`当前公开资料收录${listingCount}个代码，尚未在游戏内逐一验证兑换。`,current:`公开收录 ${listingCount}个代码`,newest:`本次新增 ${newCount}个代码`,checked:'公开资料核对：2026年10月7日',stateText:'已核对国内外列表并查看9种奖励图标。收录、奖励、地区、期限和实际兑换分别管理。保留既有复制字符串和日文奖励，来源差异在各卡片展示。',external:'外部收录确认；实际兑换未验证'}
+};
+for (const [locale,t] of Object.entries(locales)) {
+  Object.assign(t,copyText[locale]);
+  t.items.gold_brick={ja:'金レンガ',en:'Gold brick','zh-CN':'金砖'}[locale];
+  t.items.shiny_fruit={ja:'ピカピカの実',en:'Shiny fruit','zh-CN':'闪光果实'}[locale];
+}
 const alternates = Object.entries(locales).map(([locale, t]) => `<link rel="alternate" hreflang="${t.hreflang}" href="${BASE_URL}${route(locale)}" data-i18n-alternate>`).join('') + `<link rel="alternate" hreflang="x-default" href="${BASE_URL}/gift-codes/" data-i18n-alternate><meta property="og:locale:alternate" content="en_US" data-i18n-alternate><meta property="og:locale:alternate" content="zh_CN" data-i18n-alternate>`;
 function layout(locale, tag) {
   const t = locales[locale];
@@ -150,11 +162,13 @@ function ga4(locale) {
 function rewardHtml(entry, t) {
   if (!entry.reward)
     return `<span class="trust-label is-pending">${t.pendingReward}</span>`;
-  return `<ul class="gift-rewards">${entry.reward.map((reward) => `<li>${esc(t.items[reward.item])} ×${reward.quantity.toLocaleString('en-US')}</li>`).join('')}</ul>`;
+  return `<ul class="gift-rewards">${entry.reward.map((reward) => `<li>${esc(t.items[reward.item] || t.pendingReward)} ×${reward.quantity.toLocaleString('en-US')}</li>`).join('')}</ul>`;
 }
 function cardHtml(entry, t) {
-  const confirmation = entry.confirmationStatus === 'user_screenshot_listed' ? t.screenshot : entry.confirmationStatus === 'external_latest' ? t.external : t.multiple;
-  return `<article class="gift-code-card"><div class="gift-code-card-head">${entry.isNew ? '<span class="gift-code-new">NEW</span>' : '<span class="gift-code-status">CURRENT</span>'}<span class="gift-code-status">${entry.lastChecked}</span></div><code>${esc(entry.code)}</code><dl class="gift-code-details"><div><dt>${t.reward}</dt><dd>${rewardHtml(entry, t)}</dd></div><div><dt>${t.expiry}</dt><dd>${t.unannounced}</dd></div><div><dt>${t.confirmation}</dt><dd>${confirmation}</dd></div></dl><button class="button gift-copy-button" type="button" data-copy-code="${esc(entry.code)}">${t.copy}</button></article>`;
+  const locale = Object.entries(locales).find(([,value])=>value===t)[0];
+  const confirmation = t.external;
+  const note = entry.verificationNotes?.[locale];
+  return `<article class="gift-code-card" translate="no"><div class="gift-code-card-head">${entry.isNew ? '<span class="gift-code-new">NEW</span>' : `<span class="gift-code-status">${entry.validityStatus === 'conflicting_reports' ? 'CONFLICT' : 'LISTED'}</span>`}<span class="gift-code-status">${entry.lastChecked}</span></div><code>${esc(entry.code)}</code><dl class="gift-code-details"><div><dt>${t.reward}</dt><dd>${rewardHtml(entry, t)}</dd></div><div><dt>${t.expiry}</dt><dd>${t.unannounced}</dd></div><div><dt>${t.confirmation}</dt><dd>${confirmation}</dd></div></dl>${note ? `<p class="section-note">${esc(note)}</p>` : ''}${entry.sourceUrl ? `<a href="${esc(entry.sourceUrl)}">${esc(t.state)}</a>` : ''}<button class="button gift-copy-button" type="button" data-copy-code="${esc(entry.code)}">${t.copy}</button></article>`;
 }
 function renderPage(locale) {
   const t = locales[locale];
@@ -171,7 +185,7 @@ function renderPage(locale) {
       name: t.title,
       description: t.description,
       datePublished: '2026-08-30',
-      dateModified: '2026-09-14',
+      dateModified: data.lastChecked,
       inLanguage: t.lang
     }, {
       '@type': 'BreadcrumbList',

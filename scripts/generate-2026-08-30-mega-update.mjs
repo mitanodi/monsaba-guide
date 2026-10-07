@@ -60,22 +60,24 @@ function shell({ route, title, description, body, type = 'CollectionPage', image
     inLanguage: 'ja'
   }, breadcrumbSchema(crumbs)];
   const alternates = [['ja', route], ['en', `/en${route}`], ['zh-Hans', `/zh-cn${route}`], ['x-default', route]].map(([lang, href]) => `<link rel="alternate" hreflang="${lang}" href="${absoluteUrl(href)}" data-i18n-alternate>`).join('');
-  return `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${renderSeoHead({ title, description, route, image, type: type === 'Article' ? 'article' : 'website' })}${alternates}<link rel="icon" href="/favicon.ico" sizes="any"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/assets/aug30-update.css"><script type="application/ld+json">${safeJsonLd({ '@context': 'https://schema.org', '@graph': graph })}</script></head><body data-locale="ja" data-page-type="mega-update"><a class="skip-link" href="#main-content">本文へスキップ</a>${renderHeader(route)}<main id="main-content"><section class="page-hero"><div class="wrap">${renderBreadcrumb(crumbs)}<div class="family-page-head"><div><span class="visible-kicker">v0.46.1・${japaneseDate(updated)}確認</span><h1>${esc(label)}</h1><p>${esc(description)}</p></div></div></div></section>${body}<section class="wrap source-note page-freshness"><strong>情報の状態</strong><p><span class="trust-label is-verified">ゲーム内確認</span> <span class="trust-label is-external">外部確認</span> <span class="trust-label is-pending">確認待ち</span></p><p>当サイトで一次証拠と外部情報を区別して独自に整理した内容です。最終確認日：${japaneseDate(updated)}</p><a href="/about-data/">データ方針を見る</a></section></main>${renderFooter(`${familyCount}系統 / ${formCount}体`)}<script src="/family-display.js"></script><script src="/site.js"></script></body></html>`;
+  return `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${renderSeoHead({ title, description, route, image, type: type === 'Article' ? 'article' : 'website' })}${alternates}<link rel="icon" href="/favicon.ico" sizes="any"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/assets/aug30-update.css"><script type="application/ld+json">${safeJsonLd({ '@context': 'https://schema.org', '@graph': graph })}</script></head><body data-locale="ja" data-page-type="mega-update"><a class="skip-link" href="#main-content">本文へスキップ</a>${renderHeader(route)}<main id="main-content"><section class="page-hero"><div class="wrap">${renderBreadcrumb(crumbs)}<div class="family-page-head"><div><span class="visible-kicker">${updated >= '2026-10-07' ? '外部資料照合' : 'v0.46.1'}・${japaneseDate(updated)}確認</span><h1>${esc(label)}</h1><p>${esc(description)}</p></div></div></div></section>${body}<section class="wrap source-note page-freshness"><strong>情報の状態</strong><p><span class="trust-label is-verified">ゲーム内確認</span> <span class="trust-label is-external">外部確認</span> <span class="trust-label is-pending">確認待ち</span></p><p>当サイトで一次証拠と外部情報を区別して独自に整理した内容です。最終確認日：${japaneseDate(updated)}</p><a href="/about-data/">データ方針を見る</a></section></main>${renderFooter(`${familyCount}系統 / ${formCount}体`)}<script src="/family-display.js"></script><script src="/site.js"></script></body></html>`;
 }
 
 write('/zombie-rush/chips/', shell({
   route: '/zombie-rush/chips/',
   title: 'ゾンビラッシュ チップ図鑑｜49種の効果・検索・フィルタ',
-  description: 'ゾンビラッシュのチップ49種をゲーム内画面から確認。名称、Rank、効果、数値を検索し、攻撃・防御・回復・配置・ランダム・レベル操作で絞り込めます。',
+  description: '全49チップの画像・名前・Rankを実照合。効果は外部攻略資料で確認し、資料間の矛盾を分けて表示します。',
+  updated: chips.updated,
   image: '/assets/chips/sugar-iii.webp',
-  body: `<section class="wrap static-section"><div class="summary-box"><strong>ゲーム内確認済み：${chips.count}種</strong><p>通常スキルとは別のゾンビラッシュ専用データです。おすすめTierは実戦根拠が不足するため作成していません。</p></div><div data-chip-browser><div class="data-browser-controls"><label>名称・効果を検索<input type="search" data-chip-search data-filter-type="search" placeholder="例：水、回復、スロット"></label><label>Rank<select data-chip-rarity data-filter-type="rarity"><option value="">すべて</option><option>III</option><option>II</option><option>I</option></select></label><label>効果分類<select data-chip-tag data-filter-type="category"><option value="">すべて</option><option value="attack">攻撃</option><option value="defense">防御</option><option value="heal">回復</option><option value="cc">CC</option><option value="placement">配置</option><option value="random">ランダム</option><option value="level">レベル操作</option><option value="drawback">デメリット</option><option value="special">特殊効果</option></select></label></div><p class="result-count" data-chip-count aria-live="polite">${chips.count}件</p><div class="chip-grid" data-chip-results><p>データを読み込んでいます。</p></div></div><h2 class="page-h2">出典</h2><ul class="source-list"><li>ゲーム内チップ一覧：写真.pdf p.40〜42</li><li>個別効果ポップアップ：写真.pdf p.43〜91</li></ul><p class="evidence-image-note">アイコンはユーザー提供ゲーム内資料の匿名部分だけを切り出しています。プレイヤー名・UID・戦績は含みません。</p><nav class="attribute-guide-nav"><a href="/zombie-rush/">ゾンビラッシュ攻略</a><a href="/updates/2026-08-30/">今回の更新内容</a></nav></section><script src="/zombie-rush/chips/chips.js" defer></script>`
+  body: `<section class="wrap static-section"><div class="summary-box"><strong>チップ全${chips.count}種：画像・名前・Rankを照合済み</strong><p>通常スキルとは別のゾンビラッシュ専用データです。おすすめTierは実戦根拠が不足するため作成していません。</p></div><div data-chip-browser><div class="data-browser-controls"><label>名称・効果を検索<input type="search" data-chip-search data-filter-type="search" placeholder="例：水、回復、スロット"></label><label>Rank<select data-chip-rarity data-filter-type="rarity"><option value="">すべて</option><option>III</option><option>II</option><option>I</option></select></label><label>効果分類<select data-chip-tag data-filter-type="category"><option value="">すべて</option><option value="attack">攻撃</option><option value="defense">防御</option><option value="heal">回復</option><option value="cc">CC</option><option value="placement">配置</option><option value="random">ランダム</option><option value="level">レベル操作</option><option value="drawback">デメリット</option><option value="special">特殊効果</option></select></label></div><p class="result-count" data-chip-count aria-live="polite">${chips.count}件</p><div class="chip-grid" data-chip-results><p>データを読み込んでいます。</p></div></div><h2 class="page-h2">出典</h2><ul class="source-list"><li><a href="https://w.atwiki.jp/monstersurvival/pages/128.html">モンサバWiki：チップ画像・名前・Rank・効果（2026年10月7日照合）</a></li><li>旧ゲーム内チップ一覧：写真.pdf p.40〜42</li><li>個別効果ポップアップ：写真.pdf p.43〜91</li></ul><p class="evidence-image-note">画像はモンサバWikiのカード画像です。効果は外部攻略資料で確認し、資料間の矛盾は各カードに表示しています。</p><nav class="attribute-guide-nav"><a href="/zombie-rush/">ゾンビラッシュ攻略</a><a href="/updates/2026-08-30/">今回の更新内容</a></nav></section><script src="/zombie-rush/chips/chips.js" defer></script>`
 }));
 
 write('/evolution/trials/', shell({
   route: '/evolution/trials/',
+  updated: trials.updated,
   title: `モンサバ 進化試練DB｜全${familyCount}系統のT2・T3・T4条件`,
   description: `モンサバ全${familyCount}系統の進化試練を検索。T2・T3・T4の星数、餌付け、共有進行、指定素材を外部確認情報として整理し、不自然な数値は確認待ちで表示します。`,
-  body: `<section class="wrap static-section"><div class="alert-box"><strong>進化条件は外部確認情報です</strong><p>今回のゲーム内PDFにある「進化まであと星」は個人進行の残数なので使用していません。国内攻略情報で照合した条件を掲載し、曖昧な表記や不自然な数値は確認待ちにしています。</p></div><div data-trial-browser><div class="data-browser-controls"><label>系統・進化名・条件を検索<input type="search" data-trial-search data-filter-type="search" placeholder="例：パクマ、ボスラリー、36星"></label><label>属性<select data-trial-attribute data-filter-type="attribute"><option value="">すべて</option><option>草</option><option>水</option><option>火</option><option>雷</option><option>岩</option></select></label><label>確認状態<select data-trial-status data-filter-type="status"><option value="">すべて</option><option value="externally_confirmed">外部確認</option><option value="pending">確認待ち</option></select></label></div><p class="result-count" data-trial-count aria-live="polite">${familyCount}系統</p><div class="trial-grid" data-trial-results><p>データを読み込んでいます。</p></div></div><h2 class="page-h2">出典</h2><p><a href="https://monster-survival.games-wiki.com/evolution-list" target="_blank" rel="noopener noreferrer">国内攻略Wiki 進化条件一覧</a>（2026年8月28日更新を2026年8月30日に照合）。本文・画像・表は転載せず、条件データを当サイトのfamily IDへ対応付けています。</p><nav class="attribute-guide-nav"><a href="/evolution/">進化攻略ハブ</a><a href="/evolution-priority/">進化優先度</a></nav></section><script src="/evolution/trials/trials.js" defer></script>`
+  body: `<section class="wrap static-section"><div class="alert-box"><strong>進化条件は外部確認情報です</strong><p>今回のゲーム内PDFにある「進化まであと星」は個人進行の残数なので使用していません。国内攻略情報で照合した条件を掲載し、曖昧な表記や不自然な数値は確認待ちにしています。</p></div><div data-trial-browser><div class="data-browser-controls"><label>系統・進化名・条件を検索<input type="search" data-trial-search data-filter-type="search" placeholder="例：パクマ、ボスラリー、36星"></label><label>属性<select data-trial-attribute data-filter-type="attribute"><option value="">すべて</option><option>草</option><option>水</option><option>火</option><option>雷</option><option>岩</option></select></label><label>確認状態<select data-trial-status data-filter-type="status"><option value="">すべて</option><option value="externally_confirmed">外部確認</option><option value="pending">確認待ち</option></select></label></div><p class="result-count" data-trial-count aria-live="polite">${familyCount}系統</p><div class="trial-grid" data-trial-results><p>データを読み込んでいます。</p></div></div><h2 class="page-h2">出典</h2><p><a href="https://w.atwiki.jp/monstersurvival/pages/125.html" target="_blank" rel="noopener noreferrer">モンサバWiki 進化の試練データベース</a>（2026年10月1日更新を2026年10月7日に照合）。本文・画像・表は転載せず、条件データを当サイトのfamily IDへ対応付けています。</p><nav class="attribute-guide-nav"><a href="/evolution/">進化攻略ハブ</a><a href="/evolution-priority/">進化優先度</a></nav></section><script src="/evolution/trials/trials.js" defer></script>`
 }));
 
 const zombieSiegeEvent = events.events.find((event) => event.id === 'zombie-siege');
@@ -228,7 +230,7 @@ write('/updates/2026-08-30/', shell({
   title: '2026年8月30日 大型更新｜パクマ・新T4・チップ・イベント・進化試練',
   description: 'ゲーム内v0.46.1資料を根拠にパクマ系、ロードパス、ナムアミダイジャ、ゾンビラッシュチップ49種を追加。イベント・進化試練・Tier差分も監査しました。',
   type: 'Article',
-  body: `<article class="wrap static-section"><h2 class="page-h2">追加・更新した内容</h2><ul class="check-list"><li>新タタ「パクマ → クマッシュ → マリンベア → ブリズリー」と通常スキル・T4オーラ</li><li>スケダコ系T4「ロードパス」とボウズヘビ系T4「ナムアミダイジャ」</li><li>ゲーム内確認済みゾンビラッシュチップ49種の検索・フィルタDB</li><li>全${familyCount}系統の進化試練検索（外部確認と確認待ちを分離）</li><li>9つのイベント攻略と現行・旧仕様・確認待ちの分離</li><li>国内外Tier差分監査。根拠不足のため既存Tierは据え置き、パクマ系は保留</li></ul><h2 class="page-h2">データ集計</h2><p><strong>${familyCount}系統・${formCount}体・${formCount}スキル段階</strong>。比較、マイモンサバ、編成メーカーは共通DBを読むため、新family IDを壊さずそのまま利用できます。</p><h2 class="page-h2">情報源の区別</h2><p>ゲーム内PDFを一次証拠、公式更新履歴を一次情報、国内外攻略サイトを二次情報として扱いました。個人戦績・ランキングページは公開に使っていません。</p><nav class="attribute-guide-nav"><a href="/tata/pakuma/">パクマ系</a><a href="/zombie-rush/chips/">チップ図鑑</a><a href="/evolution/trials/">進化試練DB</a><a href="/events/">イベント攻略</a></nav></article>`
+  body: `<article class="wrap static-section"><h2 class="page-h2">追加・更新した内容</h2><ul class="check-list"><li>新タタ「パクマ → クマッシュ → マリンベア → ブリズリー」と通常スキル・T4オーラ</li><li>スケダコ系T4「ロードパス」とボウズヘビ系T4「ナムアミダイジャ」</li><li>ゲーム内確認済みゾンビラッシュチップ49種の検索・フィルタDB</li><li>当時の全64系統の進化試練検索（外部確認と確認待ちを分離）</li><li>9つのイベント攻略と現行・旧仕様・確認待ちの分離</li><li>国内外Tier差分監査。根拠不足のため既存Tierは据え置き、パクマ系は保留</li></ul><h2 class="page-h2">データ集計</h2><p><strong>当時64系統・230体・230スキル段階</strong>。比較、マイモンサバ、編成メーカーは共通DBを読むため、新family IDを壊さずそのまま利用できます。</p><h2 class="page-h2">情報源の区別</h2><p>ゲーム内PDFを一次証拠、公式更新履歴を一次情報、国内外攻略サイトを二次情報として扱いました。個人戦績・ランキングページは公開に使っていません。</p><nav class="attribute-guide-nav"><a href="/tata/pakuma/">パクマ系</a><a href="/zombie-rush/chips/">チップ図鑑</a><a href="/evolution/trials/">進化試練DB</a><a href="/events/">イベント攻略</a></nav></article>`
 }));
 
 function inject(file, key, html) {
@@ -251,7 +253,7 @@ function removeInjected(file, key) {
   fs.writeFileSync(target, `${source.trimEnd()}\n`);
 }
 
-inject('zombie-rush/index.html', 'CHIPS', `<section class="wrap static-section"><h2 class="page-h2">ゾンビラッシュチップ</h2><p>ゲーム内で確認した49種を、Rank・効果分類・名称で検索できます。通常スキルとは別データです。</p><a class="button" href="/zombie-rush/chips/">チップ図鑑を開く</a></section>`);
+inject('zombie-rush/index.html', 'CHIPS', `<section class="wrap static-section"><h2 class="page-h2">ゾンビラッシュチップ</h2><p>画像を照合した全49種を、Rank・効果分類・名称で検索できます。効果は外部確認・資料差を区別しています。通常スキルとは別データです。</p><a class="button" href="/zombie-rush/chips/">チップ図鑑を開く</a></section>`);
 inject('evolution/index.html', 'TRIALS', `<section class="wrap static-section"><h2 class="page-h2">全${familyCount}系統の進化試練</h2><p>外部確認と確認待ちを分け、系統・属性・条件から検索できます。</p><a class="button" href="/evolution/trials/">進化試練DBを開く</a></section>`);
 inject('index.html', 'LATEST', `<section class="wrap static-section"><h2 class="page-h2">2026年8月30日の大型更新</h2><div class="guide-hub-grid"><article class="guide-hub-card"><h3>パクマ系・新T4</h3><p>この更新で新規6形態を追加しました。現在のDBは${familyCount}系統・${formCount}体です。</p><a href="/updates/2026-08-30/">更新内容を見る</a></article><article class="guide-hub-card"><h3>ゾンビラッシュチップ</h3><p>ゲーム内確認済み49種を検索できます。</p><a href="/zombie-rush/chips/">チップ図鑑を見る</a></article><article class="guide-hub-card"><h3>進化試練・イベント</h3><p>全系統の試練検索と9イベントを更新しました。</p><a href="/evolution/trials/">進化試練を見る</a></article></div></section>`);
 inject('updates/index.html', 'AUG30', `<section class="update-card"><time datetime="2026-08-30">2026年8月30日</time><h2>パクマ・新T4・チップ・イベント・進化試練の大型更新</h2><p>v0.46.1ゲーム内資料と公式・国内外情報を統合しました。</p><a href="/updates/2026-08-30/">詳しく見る</a></section>`);
@@ -310,7 +312,7 @@ function localizedShell(locale, { route, title, description, body, type = 'Colle
   const formattedDate = locale === 'en' ? englishDate(updated) : japaneseDate(updated);
   const kicker = updated === DEFAULT_CONTENT_DATE
     ? 'v0.46.1 · Aug 30, 2026'
-    : locale === 'en' ? `${updated >= '2026-09-09' ? 'v0.47.1' : 'v0.46.1'} · ${formattedDate}` : `${updated >= '2026-09-09' ? 'v0.47.1' : 'v0.46.1'}・${formattedDate}确认`;
+    : locale === 'en' ? `${updated >= '2026-10-07' ? 'External source review' : updated >= '2026-09-23' ? 'v0.48.1' : updated >= '2026-09-09' ? 'v0.47.1' : 'v0.46.1'} · ${formattedDate}` : `${updated >= '2026-10-07' ? '外部资料核对' : updated >= '2026-09-23' ? 'v0.48.1' : updated >= '2026-09-09' ? 'v0.47.1' : 'v0.46.1'}・${formattedDate}确认`;
   const checked = updated === DEFAULT_CONTENT_DATE
     ? config.checked
     : locale === 'en' ? `Last checked: ${formattedDate}` : `最后确认：${formattedDate}`;
@@ -319,8 +321,8 @@ function localizedShell(locale, { route, title, description, body, type = 'Colle
 const localizedChip = {
   en: {
     title: 'Zombie Rush Chip Database | 49 effects and filters',
-    description: 'Search all 49 chips verified from in-game screens by name, rank, attack, defense, healing, placement, randomness and level effects.',
-    summary: '49 chips verified in game',
+    description: 'Search 49 visually compared chips by name, rank and effect. External effect evidence and conflicting values are labeled separately.',
+    summary: '49 chip images, names and ranks compared',
     note: 'This database is separate from normal Tatari skills. We are not publishing a chip tier list without sufficient battle evidence.',
     search: 'Search names and effects',
     placeholder: 'Water, healing, slot…',
@@ -329,13 +331,13 @@ const localizedChip = {
     all: 'All',
     load: 'Loading data…',
     source: 'Sources',
-    sourceText: 'In-game chip index: PDF pp.40–42. Individual effect popups: PDF pp.43–91.',
+    sourceText: 'Chip images and effects: <a href="https://w.atwiki.jp/monstersurvival/pages/128.html">Monster Survival Wiki</a>, reviewed October 7, 2026. Historical in-game evidence: PDF pp.40–42 and pp.43–91. Three effect conflicts remain labeled. Unconfirmed official English chip names use the complete compared Japanese label.',
     back: 'Zombie Rush guide'
   },
   'zh-CN': {
     title: 'Zombie Rush 芯片图鉴｜49种效果与筛选',
-    description: '依据游戏内画面整理49种芯片，可按名称、Rank、攻击、防御、治疗、位置、随机与等级效果搜索。',
-    summary: '游戏内确认：49种',
+    description: '已实际比对49种芯片的图片、名称与Rank；效果来自外部攻略资料，矛盾数值单独标记。',
+    summary: '已比对49种芯片图片、名称与Rank',
     note: '本数据库与塔塔普通技能分开保存。实战证据不足，因此不制作芯片Tier。',
     search: '搜索名称与效果',
     placeholder: '水、治疗、插槽……',
@@ -344,7 +346,7 @@ const localizedChip = {
     all: '全部',
     load: '正在加载数据……',
     source: '信息来源',
-    sourceText: '游戏内芯片一览：PDF第40–42页；各芯片效果：PDF第43–91页。',
+    sourceText: '图片与效果：<a href="https://w.atwiki.jp/monstersurvival/pages/128.html">Monster Survival Wiki</a>，2026年10月7日核对。历史游戏截图：PDF第40–42页和第43–91页；3项效果矛盾另行标记。中文正式名称未确认时，完整显示已比对的日文原名。',
     back: 'Zombie Rush 攻略'
   }
 };
@@ -354,8 +356,9 @@ for (const locale of Object.keys(localeConfig)) {
     route: '/zombie-rush/chips/',
     title: t.title,
     description: t.description,
+    updated: chips.updated,
     image: '/assets/chips/sugar-iii.webp',
-    body: `<section class="wrap static-section"><div class="summary-box"><strong>${t.summary}</strong><p>${t.note}</p></div><div data-chip-browser><div class="data-browser-controls"><label>${t.search}<input type="search" data-chip-search data-filter-type="search" placeholder="${t.placeholder}"></label><label>${t.rank}<select data-chip-rarity data-filter-type="rarity"><option value="">${t.all}</option><option>III</option><option>II</option><option>I</option></select></label><label>${t.category}<select data-chip-tag data-filter-type="category"><option value="">${t.all}</option><option value="attack">Attack</option><option value="defense">Defense</option><option value="heal">Healing</option><option value="cc">CC</option><option value="placement">Placement</option><option value="random">Random</option><option value="level">Level</option><option value="drawback">Drawback</option><option value="special">Special</option></select></label></div><p class="result-count" data-chip-count aria-live="polite">49</p><div class="chip-grid" data-chip-results><p>${t.load}</p></div></div><h2 class="page-h2">${t.source}</h2><p>${t.sourceText}</p><nav class="attribute-guide-nav"><a href="${localeConfig[locale].prefix}/zombie-rush/">${t.back}</a></nav></section><script src="/zombie-rush/chips/chips.js" defer></script>`
+    body: `<section class="wrap static-section"><div class="summary-box"><strong>${t.summary}</strong><p>${t.note}</p></div><div data-chip-browser><div class="data-browser-controls"><label>${t.search}<input type="search" data-chip-search data-filter-type="search" placeholder="${t.placeholder}"></label><label>${t.rank}<select data-chip-rarity data-filter-type="rarity"><option value="">${t.all}</option><option>III</option><option>II</option><option>I</option></select></label><label>${t.category}<select data-chip-tag data-filter-type="category"><option value="">${t.all}</option><option value="attack">${locale === 'zh-CN' ? '攻击' : 'Attack'}</option><option value="defense">${locale === 'zh-CN' ? '防御' : 'Defense'}</option><option value="heal">${locale === 'zh-CN' ? '治疗' : 'Healing'}</option><option value="cc">${locale === 'zh-CN' ? '控制' : 'CC'}</option><option value="placement">${locale === 'zh-CN' ? '站位' : 'Placement'}</option><option value="random">${locale === 'zh-CN' ? '随机' : 'Random'}</option><option value="level">${locale === 'zh-CN' ? '等级' : 'Level'}</option><option value="drawback">${locale === 'zh-CN' ? '负面' : 'Drawback'}</option><option value="special">${locale === 'zh-CN' ? '特殊' : 'Special'}</option></select></label></div><p class="result-count" data-chip-count aria-live="polite">49</p><div class="chip-grid" data-chip-results><p>${t.load}</p></div></div><h2 class="page-h2">${t.source}</h2><p>${t.sourceText}</p><nav class="attribute-guide-nav"><a href="${localeConfig[locale].prefix}/zombie-rush/">${t.back}</a></nav></section><script src="/zombie-rush/chips/chips.js" defer></script>`
   }));
 }
 const localizedTrial = {
@@ -398,6 +401,7 @@ for (const locale of Object.keys(localeConfig)) {
     route: '/evolution/trials/',
     title: t.title,
     description: t.description,
+    updated: trials.updated,
     body: `<section class="wrap static-section"><div class="alert-box"><strong>${t.warning}</strong><p>${t.note}</p></div><div data-trial-browser><div class="data-browser-controls"><label>${t.search}<input type="search" data-trial-search data-filter-type="search" placeholder="${t.placeholder}"></label><label>${t.attribute}<select data-trial-attribute data-filter-type="attribute"><option value="">${t.all}</option><option value="草">Grass</option><option value="水">Water</option><option value="火">Fire</option><option value="雷">Lightning</option><option value="岩">Rock</option></select></label><label>${t.status}<select data-trial-status data-filter-type="status"><option value="">${t.all}</option><option value="externally_confirmed">${t.external}</option><option value="pending">${t.pending}</option></select></label></div><p class="result-count" data-trial-count aria-live="polite">${familyCount}</p><div class="trial-grid" data-trial-results><p>${t.load}</p></div></div><h2 class="page-h2">${t.source}</h2><p>${t.sourceText}</p></section><script src="/evolution/trials/trials.js" defer></script>`
   }));
 }
@@ -614,8 +618,8 @@ for (const locale of Object.keys(localeConfig)) {
   }));
 }
 
-inject('en/zombie-rush/index.html', 'CHIPS_EN', '<section class="wrap static-section"><h2>Zombie Rush chips</h2><p>Search all 49 chips verified from in-game screens.</p><a class="button" href="/en/zombie-rush/chips/">Open the chip database</a></section>');
-inject('zh-cn/zombie-rush/index.html', 'CHIPS_ZH', '<section class="wrap static-section"><h2>Zombie Rush 芯片</h2><p>可搜索游戏内确认的49种芯片。</p><a class="button" href="/zh-cn/zombie-rush/chips/">打开芯片图鉴</a></section>');
+inject('en/zombie-rush/index.html', 'CHIPS_EN', '<section class="wrap static-section"><h2>Zombie Rush chips</h2><p>Search all 49 visually compared chips, with external effect sources and conflicts labeled.</p><a class="button" href="/en/zombie-rush/chips/">Open the chip database</a></section>');
+inject('zh-cn/zombie-rush/index.html', 'CHIPS_ZH', '<section class="wrap static-section"><h2>Zombie Rush 芯片</h2><p>可搜索已比对图片的49种芯片，区分外部效果来源与矛盾。</p><a class="button" href="/zh-cn/zombie-rush/chips/">打开芯片图鉴</a></section>');
 inject('en/evolution/index.html', 'TRIALS_EN', `<section class="wrap static-section"><h2>Evolution trials for all ${familyCount} families</h2><a class="button" href="/en/evolution/trials/">Open the trial database</a></section>`);
 inject('zh-cn/evolution/index.html', 'TRIALS_ZH', `<section class="wrap static-section"><h2>全部${familyCount}个系列的进化试炼</h2><a class="button" href="/zh-cn/evolution/trials/">打开试炼数据库</a></section>`);
 inject('events/treasure-hunt/index.html', 'EVENT_GUIDE', '<section class="wrap static-section"><h2 class="page-h2">オタカラ探しの進め方</h2><div class="trust-label-row"><span class="trust-label is-external">コミュニティ確認</span></div><div class="event-status-grid"><article><h3>鍵と中央宝箱</h3><p>開始後に4人を選び、1人の盤面でオタカラを3回見つけると鍵を1個獲得します。鍵4個で中央宝箱を開き、同じメンバーから複数の鍵も取得できます。</p></article><article><h3>コスト・爆弾・盤面拡張</h3><p>鍵ごとに必要アイテム数が5増え、盤面は最大3回拡張します。爆弾は追加で1〜3マスを掘ります。上の独自ソルバーで候補を比較してください。</p></article></div><div class="summary-box"><strong>Human Verification</strong><p>日本版の4人選択、鍵、中央宝箱、盤面拡張、爆弾効果、終了日時の画面を確認待ちです。</p></div><a href="/evolution/trials/">関連する進化試練を見る</a></section>');
@@ -693,3 +697,43 @@ inject('en/events/index.html', 'EVENT_ROTATION_EN', '<section class="wrap static
 inject('zh-cn/events/index.html', 'EVENT_ROTATION_ZH', '<section class="wrap static-section"><h2>社区确认的基本轮换</h2><p><span class="trust-label is-external">社区信息</span> 钓鱼大赛 → 寻宝 → 跑步派对 → 僵尸围城 → 魔法农场被记录为每3天推进一次的基本轮换。关闭、改版与地区差异可能改变安排，因此不作为确定日程，请以游戏内日历为准。</p></section>');
 
 console.log(`2026-08-30 pages generated: ${familyCount} families, ${chips.count} chips, ${trials.families.length} trials, ${events.events.length} events.`);
+
+// Current research is separate from dated game evidence and archived forecasts.
+const currentResearch = read('current-research.json');
+const researchCopy = {
+  ja: ['2026年10月7日 統合データ更新', 'チップ・進化条件・専用スキル・イベント・施設・ギフトコードを再照合し、情報源と未確認事項を分けて更新しました。', '更新した内容', 'イベント・施設', '現行のWave別ボス', 'Season 2の数値調整', '予告・確認待ち', '外部攻略資料で確認', '項目', '旧値', '現行外部値', '名称・条件は日本語資料を掲載。未確認の外国語名・数値は推測していません。'],
+  en: ['October 7, 2026 Integrated Data Update', 'Rechecked chips, evolution trials, dedicated skills, events, facilities and gift codes, with sources and uncertainty labeled separately.', 'What changed', 'Events and facilities', 'Current wave bosses', 'Season 2 numeric changes', 'Preview and pending verification', 'External guide evidence', 'Field', 'Previous', 'Current external value', 'Unreviewed names and conditions remain complete Japanese source text; translations and missing numbers are not invented.'],
+  'zh-CN': ['2026年10月7日综合数据更新', '重新核对芯片、进化条件、专用技能、活动、设施与兑换码，明确区分资料来源及待确认内容。', '更新内容', '活动与设施', '当前每波首领', 'Season 2数值调整', '预告与待确认', '外部攻略资料确认', '字段', '旧值', '当前外部值', '未经核对的名称与条件保留完整日文原文，不推测翻译及缺失数值。']
+};
+const metricLabels = {
+  damagePercent: ['ダメージ倍率 %','Damage %','伤害倍率 %'], shieldPercent: ['シールド %','Shield %','护盾 %'],
+  damageIntervalSeconds: ['ダメージ間隔 秒','Damage interval (s)','伤害间隔 秒'], projectileCount: ['弾数','Projectile count','弹数'],
+  activationPercent: ['発動率 %','Activation %','触发概率 %'], activationIntervalSeconds: ['発動間隔 秒','Activation interval (s)','触发间隔 秒'],
+  attackPercent: ['攻撃力 %','Attack %','攻击力 %'], defensePercent: ['防御力 %','Defense %','防御力 %'],
+  sleepPercent: ['睡眠率 %','Sleep %','睡眠概率 %'], healingPercent: ['回復倍率 %','Healing %','恢复倍率 %']
+};
+for (const locale of ['ja', 'en', 'zh-CN']) {
+  const c = researchCopy[locale], prefix = locale === 'ja' ? '' : localeConfig[locale].prefix, column = locale === 'ja' ? 0 : locale === 'en' ? 1 : 2;
+  const bullet = locale === 'ja'
+    ? ['全49チップの画像・名前・Rank・効果を照合。明瞭な効果6件と編成内召喚の翻訳を訂正し、数値矛盾3件は個別表示。', '全66系統の進化条件とLv3/Lv5/Lv7専用スキル198件を外部資料で補完。通常スキルとT4属性オーラは分離。', '公式更新で存在を確認したトコヨニャット・ネコノミコトを追加。画像は確認待ち、既存画像への誤割当はしません。', '全242形態の通常本文を段階別に確認し、効果ポップアップの数値502項目とツバルカT4を補完。名称相違20形態は既存ゲーム内根拠を保護。英語名5件を外部資料で確認し、未確認の簡体字名は日本語へフォールバック。', 'コード2件を追加、既存3件の報酬を補完。掲載・失効報告・実交換未確認を分離。']
+    : locale === 'en'
+      ? ['Compared all 49 chip images, names, ranks and effects. Corrected six clear effect values and in-team summon wording; three numeric conflicts remain labeled.', 'Added external evolution evidence for all 66 families and 198 dedicated Lv3/Lv5/Lv7 skills. Normal skills and T4 auras remain separate.', 'Added officially implemented Thunderpaw and Cinderclaw. Their images remain pending rather than reusing another evolution’s image.', 'Reviewed normal descriptions for all 242 forms, added 502 effect-popup values and Tsubaruka T4 details; 20 name conflicts retain existing game evidence. Five English names use labeled external evidence; missing Chinese names fall back to Japanese.', 'Added two codes and filled three existing reward records. Public listing, expiry reports and unperformed redemption are distinct.']
+      : ['比对全部49种芯片的图片、名称、Rank及效果，纠正6项明确数值及编队内召唤说明，单独标注3项数值矛盾。', '补充全部66个系列的外部进化资料与198个Lv3/Lv5/Lv7专用技能；普通技能和T4属性光环分开。', '加入官方已实装的トコヨニャット与ネコノミコト，图片待确认，不套用其他进化阶段图片。', '核对全部242个形态的普通技能资料，补充502项效果数值；20项名称矛盾保留既有游戏依据。5个英文名称使用外部资料，未确认中文名称完整回退至日文。', '新增2个兑换码、补充3项既有奖励，分别标记公开收录、失效报告和未实际兑换。'];
+  const bosses = currentResearch.zombieRush.waveBosses.map(row => `<li><b>Wave ${row.wave}</b> <span translate="no" lang="ja">${esc(row.name)} — ${row.weaknessVariants.map(esc).join(' / ')}</span></li>`).join('');
+  const balance = currentResearch.zombieRush.balanceAdjustments.map(row => {
+    const family = tatari.families.find(f => f.id === row.familyId), evolution = family.evolutions[0];
+    const name = (locale === 'en' ? evolution.nameEn : locale === 'zh-CN' ? evolution.nameZhHans : evolution.name) || evolution.name;
+    const value = v => Array.isArray(v) ? v.join('–') : String(v);
+    return `<li translate="no"><a href="${prefix}/tata/${family.id}/">${esc(name)}</a> Lv${row.level} · ${esc(metricLabels[row.metric][column])}: ${value(row.previous)} → <b>${value(row.value)}</b></li>`;
+  }).join('');
+  const originalPreviewNames = '<span lang="ja" translate="no">サトリッサム／ファミリッサム、エクスカボーラー、サボティアモ</span>';
+  const previewDetails = currentResearch.upcoming.details.map(item=>`<section><h3 lang="ja" translate="no">${esc(item.name)}</h3><p>${esc(item.summary[locale])}</p><a href="${esc(item.sourceUrl)}">${c[7]} · preview</a></section>`).join('');
+  const pending = locale === 'ja'
+    ? '10/7資料のサトリッサム／ファミリッサム、エクスカボーラー、サボティアモ、スパ、ニジイロタタは予告です。現在の公式ストア履歴では一般配信を確認できていないため現行DBへは追加していません。新T4等の画像6件・簡体字名6件、全形態の最新通常数値、専用スキルの未掲載倍率・間隔、共有進行の換算式は確認待ち。公式Discordの現在の企画告知は未調査です。'
+    : locale === 'en'
+      ? originalPreviewNames + ', spa and rainbow forms are October 7 previews; general release is not confirmed by current official store history. Six images and six Chinese names, latest normal numeric values for all forms, unlisted dedicated-skill numbers and shared-progress conversion remain pending. Current official Discord campaign announcements have not been researched.'
+      : '10月7日资料中的' + originalPreviewNames + '、温泉及彩虹形态属于预告；当前官方商店记录未确认全面发布。6项图片、6个中文名称、全部形态最新普通数值、专用技能未公布倍率与间隔、共享进度换算仍待确认。当前官方Discord活动公告尚未调查。';
+  const body = `<article class="wrap static-section"><h2>${c[2]}</h2><ul>${bullet.map(v=>`<li>${v}</li>`).join('')}</ul><p>${c[11]}</p><nav class="attribute-guide-nav"><a href="${prefix}/zombie-rush/chips/">${locale === 'ja' ? 'チップ図鑑' : locale === 'en' ? 'Chip database' : '芯片图鉴'}</a><a href="${prefix}/evolution/trials/">${locale === 'ja' ? '進化試練' : locale === 'en' ? 'Evolution trials' : '进化试炼'}</a><a href="${prefix}/gift-codes/">${locale === 'ja' ? 'ギフトコード' : locale === 'en' ? 'Gift codes' : '兑换码'}</a></nav><h2>${c[3]}</h2>${currentResearch.events.map(event=>`<section${event.id === 'analyzer' ? ' id="analyzer"' : ''}><h3>${esc(event.id)}</h3><p>${esc(event.summary[locale])}</p><a href="${event.sourceUrl}">${c[7]} · 2026-10-07</a>${event.historySourceUrl ? `<a href="${event.historySourceUrl}"> · ${locale === 'ja' ? '更新履歴' : locale === 'en' ? 'Update history' : '更新历史'}</a>` : ''}</section>`).join('')}<section><h3>${locale === 'ja' ? 'キャンプ・カード・ゲーム内フレンド' : locale === 'en' ? 'Camp, cards and in-game friends' : '营地、卡片与游戏好友'}</h3><p>${esc(currentResearch.facilities.summary[locale])}</p><a href="${currentResearch.facilities.sourceUrl}">${c[7]}</a> · <a href="${currentResearch.facilities.officialSourceUrl}">Official store</a></section><h2>${c[4]}</h2><p>${locale === 'ja' ? '弱点の単一／複合表記は資料のまま掲載。難易度別の対応は未確認です。' : locale === 'en' ? 'Single and combined weaknesses retain source notation; their mapping to difficulty is unverified.' : '单一及复合弱点保留资料标记，对应难度待确认。'}</p><ol>${bosses}</ol><h2>${c[5]}</h2><ul>${balance}</ul><p><a href="${currentResearch.zombieRush.sourceUrl}">${c[7]} · 9/23 balance</a></p><h2>${c[6]}</h2><p>${pending}</p>${previewDetails}<a href="${currentResearch.upcoming.sourceUrl}">${c[7]} · preview</a><p><a href="${currentResearch.officialCurrent.sourceUrl}">Official store history · 0.48.1 / 2026-09-23</a></p></article>`;
+  const page = { route:'/updates/2026-10-07/',title:c[0],description:c[1],body,type:'Article',updated:currentResearch.checkedAt };
+  write(`${prefix}/updates/2026-10-07/`, (locale === 'ja' ? shell(page) : localizedShell(locale,page)).replace(/(<body[^>]*)(>)/, '$1 data-i18n-native="integrated-research"$2'));
+}

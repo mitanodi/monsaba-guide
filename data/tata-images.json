@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-04-official-assets-v2",
+  "version": "2026-10-07",
   "generatedFrom": "Monster Survival official creator assets manifest (2026-09-04)",
   "sourcePolicy": {
     "gameImagesOnly": true,
@@ -12,9 +12,9 @@
   },
   "counts": {
     "families": 66,
-    "forms": 240,
+    "forms": 242,
     "verifiedForms": 236,
-    "pendingForms": 4,
+    "pendingForms": 6,
     "officialCreatorAssetForms": 224,
     "userProvidedPdfForms": 12
   },
@@ -1802,6 +1802,14 @@
           "sourceSha256": "476bf9ba93b3a03e01f5fd6b0a3fcb36471c831626add6a7861058434ec617fa",
           "optimizedPath": "/assets/official/tata/erekineko/t3-512.webp",
           "verifiedAt": "2026-09-04"
+        },
+        {
+          "stage": 4,
+          "name": "トコヨニャット",
+          "src": null,
+          "status": "pending",
+          "reason": "official_image_not_obtained",
+          "verifiedAt": "2026-10-07"
         }
       ]
     },
@@ -1971,6 +1979,14 @@
           "sourceSha256": "f8ec78628f83afcad45b837cf5f5b5e11d39c62c5919937d9229939a8ae26ea0",
           "optimizedPath": "/assets/official/tata/hinyao/t3-512.webp",
           "verifiedAt": "2026-09-04"
+        },
+        {
+          "stage": 4,
+          "name": "ネコノミコト",
+          "src": null,
+          "status": "pending",
+          "reason": "official_image_not_obtained",
+          "verifiedAt": "2026-10-07"
         }
       ]
     },

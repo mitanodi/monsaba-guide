@@ -44,6 +44,9 @@ for (const [file, reps] of Object.entries(gift)) {
   write(file, s)
 }
 
+const currentResearch = JSON.parse(read('data/current-research.json'));
+const tatari = JSON.parse(read('data/tatari.json'));
+const count = tatari.families.length, forms = tatari.families.flatMap(f => f.evolutions).length;
 const content = {
   ja: {
     'index.html': ['2026年9月11日 最新情報', 'v0.47.1でヌスケ系、エーテリファル、ジャンガルパカを追加し、65系統・236体へ更新しました。ラフトレースは9月12日予定のユーザー報告として掲載し、詳細ルールは確認中です。<br><a href="/tata/nusuke/">ヌスケ系を見る</a> · <a href="/events/running-party/">ランニングパーティー攻略</a> · <a href="/gift-codes/">最新ギフトコード</a>'],
@@ -74,6 +77,24 @@ const content = {
   }
 };
 for (const locale of Object.values(content))
+  for (const file of Object.keys(locale))
+    if (["index.html","updates/index.html","events/running-party/index.html","zombie-rush/index.html"].some(route => file === route || file === `en/${route}` || file === `zh-cn/${route}`)) delete locale[file];
+for (const locale of Object.values(content))
   for (const [file, [title, text]] of Object.entries(locale))
-    inject(file, `<section class="wrap static-section"><h2 class="page-h2">${title}</h2><p>${text}</p></section>`);
+    inject(file, `<section class="wrap static-section" translate="no"><h2 class="page-h2">${title}</h2><p>${text}</p></section>`);
 console.log('2026-09-11 page notices generated.');
+
+for (const [locale,prefix] of [['ja',''],['en','/en'],['zh-CN','/zh-cn']]) {
+ const label = locale === 'ja' ? '2026年10月7日 資料照合・更新' : locale === 'en' ? 'October 7, 2026 source review' : '2026年10月7日资料核对';
+ const summary = locale === 'ja' ? count+'系統・'+forms+'形態。全49チップを実照合し、全系統の進化条件と専用スキルを外部攻略資料から補完。画像・矛盾する数値は確認待ちとして表示しています。' : locale === 'en' ? count+' families / '+forms+' forms. All 49 chip images were compared. Evolution trials and dedicated skills use labeled external evidence; missing images and conflicting values remain pending.' : count+'个系列／'+forms+'个形态。已比对全部49种芯片图片，按外部攻略资料补充进化条件与专用技能，缺图及矛盾数值另行标记待确认。';
+ const link = '<a href="'+prefix+'/updates/2026-10-07/">'+label+'</a>';
+ for(const route of ['/index.html','/updates/index.html']) inject((prefix+route).slice(1), '<section class="wrap static-section" translate="no"><h2>'+label+'</h2><p>'+summary+'</p>'+link+'</section>');
+ const zr = locale === 'ja' ? 'Season 2は9月23日の公式更新で開始を確認。外部攻略資料では4時間周期・3時間開催、難易度ごとに25Wave／750キル、1開催最大3回、クエストは1日1件追加／最大3件。ランキング報酬は1日1回、順位上昇時は差額のみです。時刻のタイムゾーンとサーバー差は未確認です。' : locale === 'en' ? 'Season 2 is confirmed in the September 23 official update. External rules: every 4 hours for 3 hours, 25 waves / 750 kills per difficulty, up to 3 attempts per occurrence, 1 daily quest with a maximum stock of 3. Ranking rewards are daily, with differences for improved rank. Source timezone and server applicability remain unverified.' : 'Season 2已在9月23日官方更新确认开始。外部规则：每4小时开放3小时，每难度25波／750击杀，每场最多3次，每日新增1任务，最多储存3个。排名奖励每日一次，升排名仅发差额；时区及服务器适用范围待确认。';
+ inject((prefix+'/zombie-rush/index.html').slice(1), '<section class="wrap static-section" translate="no"><h2>Season 2</h2><p>'+zr+'</p><a href="'+currentResearch.zombieRush.sourceUrl+'">'+(locale==='ja'?'外部攻略資料で確認':locale==='en'?'External guide evidence':'外部攻略资料确认')+'</a> · '+link+'</section>');
+ for(const event of currentResearch.events) {
+   if(event.id==='analyzer')continue;
+   const file=(prefix+event.route+'index.html').slice(1);
+   inject(file,'<section class="wrap static-section" translate="no"><h2>'+label+'</h2><p>'+event.summary[locale]+'</p><a href="'+event.sourceUrl+'">'+(locale==='ja'?'外部攻略資料で確認':locale==='en'?'External guide evidence':'外部攻略资料确认')+'</a>'+(event.historySourceUrl ? ' · <a href="'+event.historySourceUrl+'">'+(locale==='ja'?'更新履歴':locale==='en'?'Update history':'更新历史')+'</a>' : '')+' · '+link+'</section>');
+ }
+ inject((prefix+'/faq/index.html').slice(1), '<section class="wrap static-section" translate="no"><h2>'+label+'</h2><p>'+currentResearch.facilities.summary[locale]+'</p><p>'+(locale==='ja'?'80人はゲーム内フレンドの上限です。攻略サイトの募集掲示板の投稿制限とは別です。':locale==='en'?'The 80-friend limit applies to the game; it is separate from this site’s recruitment-board posting limit.':'80人上限适用于游戏好友，与本站招募留言板的发布限制不同。')+'</p><a href="'+currentResearch.facilities.sourceUrl+'">'+(locale==='ja'?'外部更新履歴':locale==='en'?'External update history':'外部更新历史')+'</a> · '+link+'</section>');
+}

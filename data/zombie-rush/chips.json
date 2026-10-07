@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-30",
+  "updated": "2026-10-07",
   "gameVersion": "0.46.1",
   "count": 49,
   "source": {
@@ -111,7 +111,19 @@
         "notes": "",
         "pdfPage": 43
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "bounty-iii",
@@ -157,7 +169,19 @@
         "notes": "",
         "pdfPage": 44
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "slot-iv",
@@ -203,7 +227,19 @@
         "notes": "",
         "pdfPage": 45
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "water-iii",
@@ -249,7 +285,19 @@
         "notes": "",
         "pdfPage": 46
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "fire-iii",
@@ -295,7 +343,19 @@
         "notes": "",
         "pdfPage": 47
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "grass-iii",
@@ -341,7 +401,19 @@
         "notes": "",
         "pdfPage": 48
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "rock-iii",
@@ -387,7 +459,19 @@
         "notes": "",
         "pdfPage": 49
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "lightning-iii",
@@ -433,7 +517,19 @@
         "notes": "",
         "pdfPage": 50
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "lawn-care",
@@ -445,9 +541,9 @@
       "rarity": "III",
       "icon": "/assets/chips/lawn-care-wiki-86c543bc19f1.webp",
       "effect": {
-        "ja": "マップ下部に芝刈り機が6台出現する。発動後、最初のゾンビ5体（ボスを除く）を倒し、それ以降のゾンビには最大HPの50%のダメージを与える。",
-        "en": "Six lawnmowers appear at the bottom. Each defeats the first 5 non-boss zombies it hits, then deals 50% of max HP to later zombies.",
-        "zh-CN": "地图底部出现6台割草机。每台消灭最先碰到的5只非首领僵尸，之后对僵尸造成其最大HP的50%伤害。"
+        "ja": "マップ下部に芝刈り機が6台出現する。発動後、最初のゾンビ5体（ボスを除く）を倒し、それ以降のゾンビには最大HPの40%のダメージを与える。",
+        "en": "Six lawnmowers appear at the bottom. Each defeats the first 5 non-boss zombies it hits, then deals 40% of max HP to later zombies.",
+        "zh-CN": "地图底部出现6台割草机。每台消灭最先碰到的5只非首领僵尸，之后对僵尸造成其最大HP的40%伤害。"
       },
       "tags": [
         "attack",
@@ -479,7 +575,19 @@
         "notes": "",
         "pdfPage": 51
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "horizontal",
@@ -524,7 +632,19 @@
         "notes": "",
         "pdfPage": 52
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "center-debut",
@@ -570,7 +690,19 @@
         "notes": "",
         "pdfPage": 53
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "fate-iii",
@@ -616,7 +748,19 @@
         "notes": "",
         "pdfPage": 54
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "strategic-move",
@@ -628,9 +772,9 @@
       "rarity": "III",
       "icon": "/assets/chips/strategic-move-wiki-778111cf5535.webp",
       "effect": {
-        "ja": "タタを移動した後、そのタタの攻撃力と攻撃速度が20秒間20%増加する。",
-        "en": "After moving a Tatari, its attack and attack speed rise 20% for 20 seconds.",
-        "zh-CN": "移动塔塔后，该塔塔的攻击力与攻击速度提高20%，持续20秒。"
+        "ja": "タタを移動した後、そのタタの攻撃力と攻撃速度が30秒間20%増加する。",
+        "en": "After moving a Tatari, its attack and attack speed rise 30% for 20 seconds.",
+        "zh-CN": "移动塔塔后，该塔塔的攻击力与攻击速度提高30%，持续20秒。"
       },
       "tags": [
         "attack",
@@ -662,7 +806,19 @@
         "notes": "",
         "pdfPage": 55
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "three-four-five",
@@ -707,7 +863,19 @@
         "notes": "",
         "pdfPage": 56
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "sugar-ii",
@@ -753,7 +921,19 @@
         "notes": "",
         "pdfPage": 57
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "bounty-ii",
@@ -799,7 +979,19 @@
         "notes": "",
         "pdfPage": 58
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "slot-iii",
@@ -845,7 +1037,19 @@
         "notes": "",
         "pdfPage": 59
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "water-ii",
@@ -891,7 +1095,19 @@
         "notes": "",
         "pdfPage": 60
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "fire-ii",
@@ -937,7 +1153,19 @@
         "notes": "",
         "pdfPage": 61
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "grass-ii",
@@ -983,7 +1211,19 @@
         "notes": "",
         "pdfPage": 62
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "rock-ii",
@@ -1029,7 +1269,19 @@
         "notes": "",
         "pdfPage": 63
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "lightning-ii",
@@ -1075,7 +1327,19 @@
         "notes": "",
         "pdfPage": 64
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "glass-cannon",
@@ -1121,7 +1385,19 @@
         "notes": "",
         "pdfPage": 65
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "boss-killer",
@@ -1133,9 +1409,9 @@
       "rarity": "II",
       "icon": "/assets/chips/boss-killer-wiki-64a4579f0ac8.webp",
       "effect": {
-        "ja": "ボスゾンビに与えるダメージが25%増加する。",
-        "en": "Damage dealt to boss zombies rises 25%.",
-        "zh-CN": "对首领僵尸造成的伤害提高25%。"
+        "ja": "ボスゾンビに与えるダメージが20%増加する。",
+        "en": "Damage dealt to boss zombies rises 20%.",
+        "zh-CN": "对首领僵尸造成的伤害提高20%。"
       },
       "tags": [
         "attack"
@@ -1166,7 +1442,19 @@
         "notes": "",
         "pdfPage": 66
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "maverick",
@@ -1178,9 +1466,9 @@
       "rarity": "II",
       "icon": "/assets/chips/maverick-wiki-3e5126fec946.webp",
       "effect": {
-        "ja": "あなたのタタの隣接マスに味方がいない場合、そのタタの攻撃力、最大HP、防御力が20%増加する。",
-        "en": "If a Tatari has no allied Tatari in adjacent squares, it gains 20% attack, max HP and defense.",
-        "zh-CN": "若塔塔相邻格没有友方塔塔，其攻击力、最大HP与防御力提高20%。"
+        "ja": "あなたのタタの隣接マスに味方がいない場合、そのタタの攻撃力、最大HP、防御力が35%増加する。",
+        "en": "If a Tatari has no allied Tatari in adjacent squares, it gains 35% attack, max HP and defense.",
+        "zh-CN": "若塔塔相邻格没有友方塔塔，其攻击力、最大HP与防御力提高35%。"
       },
       "tags": [
         "attack",
@@ -1213,7 +1501,19 @@
         "notes": "",
         "pdfPage": 67
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "back-shooter",
@@ -1259,7 +1559,19 @@
         "notes": "",
         "pdfPage": 68
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "rear-support",
@@ -1305,7 +1617,25 @@
         "notes": "",
         "pdfPage": 69
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "conflicting",
+        "notes": "外部攻略表は30%、同ページ説明は45%。掲載値30%を維持し、確定は保留。"
+      },
+      "verificationNote": {
+        "ja": "外部攻略表は30%、同ページ説明は45%。掲載値30%を維持し、確定は保留。",
+        "en": "Conflicting source text: the table lists 30%, while the explanation lists 45%. The previous 30% value is retained.",
+        "zh-CN": "来源存在冲突：表格为30%，说明为45%。暂保留原有30%。"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "upgrade",
@@ -1351,7 +1681,25 @@
         "notes": "",
         "pdfPage": 70
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "conflicting",
+        "notes": "ゲーム内資料・カード画像は+1、外部攻略表は+2。掲載値は従来資料の+1を維持し、現行値の確定は保留。"
+      },
+      "verificationNote": {
+        "ja": "ゲーム内資料・カード画像は+1、外部攻略表は+2。掲載値は従来資料の+1を維持し、現行値の確定は保留。",
+        "en": "Conflicting sources: the card shows +1, while the external guide lists +2. The previous +1 value is retained pending verification.",
+        "zh-CN": "来源存在冲突：卡片为+1，外部攻略表为+2。暂保留原有+1，等待核实。"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "shuffle",
@@ -1397,7 +1745,19 @@
         "notes": "",
         "pdfPage": 71
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "adverse-attribute",
@@ -1443,7 +1803,19 @@
         "notes": "",
         "pdfPage": 72
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "and-one",
@@ -1489,7 +1861,19 @@
         "notes": "",
         "pdfPage": 73
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "undeployed-tatari",
@@ -1502,8 +1886,8 @@
       "icon": "/assets/chips/undeployed-tatari-wiki-b4fc2f3e853d.webp",
       "effect": {
         "ja": "あなたの編成中のタタをランダムで1匹召喚する。そのタタはLv.3固定で、レベルアップ不可・復活不可・出陣上限を消費しない。",
-        "en": "Summon one random Tatari not in your lineup at fixed Lv.3. It cannot level up, revive or consume the deployment limit.",
-        "zh-CN": "随机召唤1只未编入队伍的塔塔，固定为Lv.3；不可升级、不可复活且不占上阵上限。"
+        "en": "Summon one random Tatari from your lineup at fixed Lv.3. It cannot level up or revive and does not consume the deployment limit.",
+        "zh-CN": "从你的阵容中随机召唤1只塔塔，固定为Lv.3；不可升级、不可复活且不占上阵上限。"
       },
       "tags": [
         "random",
@@ -1536,7 +1920,19 @@
         "notes": "",
         "pdfPage": 74
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "fate-ii",
@@ -1582,7 +1978,19 @@
         "notes": "",
         "pdfPage": 75
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "river-boundary",
@@ -1628,7 +2036,19 @@
         "notes": "",
         "pdfPage": 76
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "bucket-theory",
@@ -1675,7 +2095,25 @@
         "notes": "",
         "pdfPage": 77
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "conflicting",
+        "notes": "現在の外部攻略表は10%、過去の更新予告は15%。掲載値10%を維持し、現行ゲーム内照合は未実施。"
+      },
+      "verificationNote": {
+        "ja": "現在の外部攻略表は10%、過去の更新予告は15%。掲載値10%を維持し、現行ゲーム内照合は未実施。",
+        "en": "The current external table lists 10%; an earlier update preview listed 15%. The displayed 10% awaits in-game verification.",
+        "zh-CN": "当前外部攻略表为10%，旧更新预告为15%。暂保留10%，尚未在游戏内核实。"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "sugar-i",
@@ -1721,7 +2159,19 @@
         "notes": "",
         "pdfPage": 78
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "bounty-i",
@@ -1767,7 +2217,19 @@
         "notes": "",
         "pdfPage": 79
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "slot-ii",
@@ -1813,7 +2275,19 @@
         "notes": "",
         "pdfPage": 80
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "slack-off",
@@ -1825,9 +2299,9 @@
       "rarity": "I",
       "icon": "/assets/chips/slack-off-wiki-3f4ede08a686.webp",
       "effect": {
-        "ja": "強制オート戦闘モード（90秒間）になり、エナジーキャンディを300個獲得する。",
-        "en": "Enter forced auto-battle for 90 seconds and gain 300 Energy Candies.",
-        "zh-CN": "强制进入自动战斗模式90秒，并获得300个能量糖果。"
+        "ja": "強制オート戦闘モード（40秒間）になり、エナジーキャンディを300個獲得する。",
+        "en": "Enter forced auto-battle for 40 seconds and gain 300 Energy Candies.",
+        "zh-CN": "强制进入自动战斗模式40秒，并获得300个能量糖果。"
       },
       "tags": [
         "drawback",
@@ -1859,7 +2333,19 @@
         "notes": "",
         "pdfPage": 81
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "water-i",
@@ -1905,7 +2391,19 @@
         "notes": "",
         "pdfPage": 82
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "fire-i",
@@ -1951,7 +2449,19 @@
         "notes": "",
         "pdfPage": 83
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "grass-i",
@@ -1997,7 +2507,19 @@
         "notes": "",
         "pdfPage": 84
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "rock-i",
@@ -2043,7 +2565,19 @@
         "notes": "",
         "pdfPage": 85
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "lightning-i",
@@ -2089,7 +2623,19 @@
         "notes": "",
         "pdfPage": 86
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "wall",
@@ -2136,7 +2682,19 @@
         "notes": "",
         "pdfPage": 87
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "bandage",
@@ -2182,7 +2740,19 @@
         "notes": "",
         "pdfPage": 88
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "parting-gift",
@@ -2194,9 +2764,9 @@
       "rarity": "I",
       "icon": "/assets/chips/parting-gift-wiki-5fe1551225e2.webp",
       "effect": {
-        "ja": "あなたのタタが1体倒れるたびにエナジーキャンディを200個獲得する。",
-        "en": "Gain 200 Energy Candies whenever one of your Tatari is defeated.",
-        "zh-CN": "每当你的1只塔塔倒下时，获得200个能量糖果。"
+        "ja": "あなたのタタが1体倒れるたびにエナジーキャンディを40個獲得する。",
+        "en": "Gain 40 Energy Candies whenever one of your Tatari is defeated.",
+        "zh-CN": "每当你的1只塔塔倒下时，获得40个能量糖果。"
       },
       "tags": [
         "special",
@@ -2228,7 +2798,19 @@
         "notes": "",
         "pdfPage": 89
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "fate-i",
@@ -2274,7 +2856,19 @@
         "notes": "",
         "pdfPage": 90
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     },
     {
       "id": "reset",
@@ -2320,7 +2914,19 @@
         "notes": "",
         "pdfPage": 91
       },
-      "iconStatus": "verified"
+      "iconStatus": "verified",
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-09-27",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      }
     }
   ],
   "iconSource": {
@@ -2330,5 +2936,21 @@
     "thirdPartyLicenseStatus": "unconfirmed",
     "termsUrl": "https://atwiki.jp/tos",
     "userAuthorization": "Explicit request to replace all 49 chip images from the public Wiki"
+  },
+  "effectAudit": {
+    "checkedAt": "2026-10-07",
+    "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+    "compared": 49,
+    "externallyConfirmed": 46,
+    "conflicting": 3,
+    "changedNumericIds": [
+      "slack-off",
+      "boss-killer",
+      "maverick",
+      "lawn-care",
+      "parting-gift",
+      "strategic-move"
+    ],
+    "gameVersionConfirmed": false
   }
 }

@@ -36,7 +36,7 @@ test('A: current repository has confirmed coverage and explicit unresolved suppl
   assert.deepEqual(result.errors, []);
   assert.equal(result.stats.formsChecked, totalForms);
   assert.equal(result.stats.enNames, 237);
-  assert.equal(result.stats.enSourceCoverage, 237);
+  assert.equal(result.stats.enSourceCoverage, 242);
   assert.equal(result.stats.zhCnNames, 236);
   assert.equal(result.stats.zhCnSourceCoverage, 236);
 });
@@ -102,7 +102,7 @@ test('H: pending evidence cannot back a published official name', () => {
 
 test('I/J: EN and zh-CN coverage are computed dynamically from all canonical forms', () => {
   const result = validate();
-  assert.equal(result.stats.enSourceCoverage, 237);
+  assert.equal(result.stats.enSourceCoverage, 242);
   assert.equal(result.stats.zhCnSourceCoverage, 236);
   assert.equal(result.stats.formsChecked, totalForms);
 });

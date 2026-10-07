@@ -1,0 +1,5928 @@
+{
+  "checkedAt": "2026-10-07",
+  "sourceType": "public_wiki",
+  "formCount": 242,
+  "mode": "normal",
+  "scope": "visible per-stage skill names and effect popup values; current game numbers not independently verified",
+  "reviews": [
+    {
+      "familyId": "takepanda",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/55.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "タケノコの術",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "減速",
+          "values": [
+            {
+              "label": "効果",
+              "value": "減速比率30%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "takepanda",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/55.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "タケの術",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "減速",
+          "values": [
+            {
+              "label": "効果",
+              "value": "減速比率30%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "takepanda",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/55.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "タケタケの術",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "減速",
+          "values": [
+            {
+              "label": "効果",
+              "value": "減速比率30%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "takepanda",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/55.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "竹海戦術",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "減速",
+          "values": [
+            {
+              "label": "効果",
+              "value": "減速比率30%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "tsubaruka",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/60.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "あっかんべー",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "減速",
+          "values": [
+            {
+              "label": "減速比率",
+              "value": "30%"
+            },
+            {
+              "label": "持続時間",
+              "value": "3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "tsubaruka",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/60.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "連続ツバ吐き",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "束縛",
+          "values": [
+            {
+              "label": "持続時間",
+              "value": "1秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "tsubaruka",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/60.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ツバ嵐",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "束縛",
+          "values": [
+            {
+              "label": "持続時間",
+              "value": "1秒"
+            }
+          ]
+        },
+        {
+          "name": "減速エリア",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        }
+      ]
+    },
+    {
+      "familyId": "tsubaruka",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/60.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ドシャツバ嵐",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "束縛",
+          "values": [
+            {
+              "label": "持続時間",
+              "value": "1秒"
+            }
+          ]
+        },
+        {
+          "name": "減速エリア",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        }
+      ]
+    },
+    {
+      "familyId": "birimori",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/81.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "パルスエコー",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "偵察",
+          "values": [
+            {
+              "label": "効果",
+              "value": "追加ダメージ比率15%"
+            },
+            {
+              "label": "効果",
+              "value": "最大ダメージ倍率300%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間3.5秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "birimori",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/81.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "パルスリンク",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "偵察",
+          "values": [
+            {
+              "label": "効果",
+              "value": "追加ダメージ比率20%"
+            },
+            {
+              "label": "効果",
+              "value": "最大ダメージ倍率300%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間3.5秒"
+            }
+          ]
+        },
+        {
+          "name": "コウモリ-被ダメージ増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率15%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "birimori",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/81.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "パルスバースト",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "完全偵察",
+          "values": [
+            {
+              "label": "効果",
+              "value": "追加ダメージ比率20%"
+            },
+            {
+              "label": "効果",
+              "value": "最大ダメージ倍率300%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間3.5秒"
+            }
+          ]
+        },
+        {
+          "name": "コウモリ-被ダメージ増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率15%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "birimori",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/81.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "バットライト",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "完全偵察",
+          "values": [
+            {
+              "label": "効果",
+              "value": "追加ダメージ比率20%"
+            },
+            {
+              "label": "効果",
+              "value": "最大ダメージ倍率300%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間3.5秒"
+            }
+          ]
+        },
+        {
+          "name": "コウモリ-被ダメージ増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率15%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "togegyo",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/85.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ダゴンウェーブ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "引きずり",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        }
+      ]
+    },
+    {
+      "familyId": "togegyo",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/85.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ダゴンタイド",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "引きずり",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        },
+        {
+          "name": "潮流-ダメージ減少",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        }
+      ]
+    },
+    {
+      "familyId": "togegyo",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/85.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ダゴンサージ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "引きずり",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        },
+        {
+          "name": "スタン",
+          "values": [
+            {
+              "label": "効果",
+              "value": "スタン確率3%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間1秒"
+            }
+          ]
+        },
+        {
+          "name": "潮流-ダメージ減少",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        }
+      ]
+    },
+    {
+      "familyId": "togegyo",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/85.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ダゴンアビス",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "引きずり",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        },
+        {
+          "name": "スタン",
+          "values": [
+            {
+              "label": "効果",
+              "value": "スタン確率3%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間1秒"
+            }
+          ]
+        },
+        {
+          "name": "潮流-ダメージ減少",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        }
+      ]
+    },
+    {
+      "familyId": "yotsubird",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/24.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "シード",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "yotsubird",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/24.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ダブルシード",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "kaenjack",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/41.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "クイックファイア",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "kaenjack",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/41.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ラピッドファイア",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "hihidog",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/23.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "チェインボルト",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "hihidog",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/23.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "インフィニボルト",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "hanarenaishi",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/52.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ナシ落とし",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "hanarenaishi",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/52.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "超ナシ落とし",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "birinamazu",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/63.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "電気玉",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "birinamazu",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/63.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "束縛電気玉",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "束縛",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        }
+      ]
+    },
+    {
+      "familyId": "daishell",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/28.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "バブルウェーブ",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "daishell",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/28.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "バブルブラスト",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "減速",
+          "values": [
+            {
+              "label": "移動速度を低下させる。減速比率",
+              "value": "30%持続時間：3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "batarisu",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/40.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "松ぼっくり地雷",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "batarisu",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/40.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "松ぼっくり地雷・改",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "guuhog",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/62.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "反撃トゲ",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "guuhog",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/62.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "広域反撃トゲ",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "capibarrie",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/29.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "みかん弾",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "capibarrie",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/29.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "回復みかん弾",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "rokubuhi",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/61.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "泥投げ",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "rokubuhi",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/61.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "減速泥投げ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "減速",
+          "values": [
+            {
+              "label": "効果",
+              "value": "原則比率30%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "marushu",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/59.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ミニ胞子",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "胞子-攻撃速度増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率25%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "marushu",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/59.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ミドル胞子",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "胞子-攻撃速度増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率25%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "marushu",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/59.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "メガ胞子",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "胞子-被ダメージ増加",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        },
+        {
+          "name": "胞子-攻撃速度増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率25%"
+            }
+          ]
+        },
+        {
+          "name": "胞子-被ダメージ減少",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        }
+      ]
+    },
+    {
+      "familyId": "marushu",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/59.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ギガ胞子",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "胞子-被ダメージ増加",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        },
+        {
+          "name": "胞子-攻撃速度増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率25%"
+            }
+          ]
+        },
+        {
+          "name": "胞子-被ダメージ減少",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        }
+      ]
+    },
+    {
+      "familyId": "fugumaru",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/110.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "板前修行",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "fugumaru",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/110.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "酢飯デビュー",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "一貫-攻撃力増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率15%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間4秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "fugumaru",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/110.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "匠の一貫",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "一貫-攻撃力増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率15%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間4秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "fugumaru",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/110.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "美酒ラン二つ星",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "一貫-攻撃力増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率15%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間4秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "greenbee",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/54.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "グラスダッシュ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "無敵",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        }
+      ]
+    },
+    {
+      "familyId": "greenbee",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/54.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "フラッシュダッシュ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "無敵",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        },
+        {
+          "name": "被ダメージ増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率20%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "greenbee",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/54.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "閃光タックル",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "無敵",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        },
+        {
+          "name": "被ダメージ増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率20%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間3秒"
+            }
+          ]
+        },
+        {
+          "name": "ノックバック",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        }
+      ]
+    },
+    {
+      "familyId": "greenbee",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/54.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "閃光突進",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "無敵",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        },
+        {
+          "name": "被ダメージ増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率20%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間3秒"
+            }
+          ]
+        },
+        {
+          "name": "ノックバック",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        }
+      ]
+    },
+    {
+      "familyId": "kowagaru",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/68.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ジャブ",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "kowagaru",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/68.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ストレート",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "被ダメージ増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率20%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "kowagaru",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/68.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "クロスカウンター",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "被ダメージ増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率20%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "kowagaru",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/68.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "フィニッシュブロー",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "被ダメージ増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率20%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "kunbuu",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/45.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "辛口定食",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "料理シールド",
+          "values": [
+            {
+              "label": "効果",
+              "value": "最大シールド値12%HP"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間6秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "kunbuu",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/45.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ハンバーグ定食",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "グリルシールド",
+          "values": [
+            {
+              "label": "効果",
+              "value": "最大シールド値12%HP"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ倍率10％"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ間隔1秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間6秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "kunbuu",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/45.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "火鍋フルコース",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "攻撃力増加",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        },
+        {
+          "name": "グリルシールド",
+          "values": [
+            {
+              "label": "効果",
+              "value": "最大シールド値12%HP"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ倍率10％"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ間隔1秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間6秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "kunbuu",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/45.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "カロリー爆弾",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "攻撃力増加",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        },
+        {
+          "name": "グリルシールド",
+          "values": [
+            {
+              "label": "効果",
+              "value": "最大シールド値12%HP"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ倍率10％"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ間隔1秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間6秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "tsubutsumuri",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/69.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "水晶クラスター",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "水晶クラスター",
+          "values": [
+            {
+              "label": "効果",
+              "value": "継承HP比率100%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "tsubutsumuri",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/69.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "共鳴水晶",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "水晶クラスター",
+          "values": [
+            {
+              "label": "効果",
+              "value": "継承HP比率100%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "tsubutsumuri",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/69.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "再生水晶",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "水晶クラスター",
+          "values": [
+            {
+              "label": "効果",
+              "value": "継承HP比率100%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "tsubutsumuri",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/69.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "複生水晶",
+      "nameComparison": "conflicting-existing-game-evidence",
+      "effects": [
+        {
+          "name": "水晶クラスター",
+          "values": [
+            {
+              "label": "効果",
+              "value": "継承HP比率100%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "pupunku",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/49.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ププガス",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "pupunku",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/49.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "引火ガス",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "pupunku",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/49.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "爆発ガス",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "pupunku",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/49.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ガスの芸術",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "erekineko",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/80.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "電猫拳",
+      "nameComparison": "conflicting-existing-game-evidence",
+      "effects": []
+    },
+    {
+      "familyId": "erekineko",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/80.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "雷猫拳",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "erekineko",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/80.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "轟雷拳",
+      "nameComparison": "conflicting-existing-game-evidence",
+      "effects": [
+        {
+          "name": "エレキネコ-防御力増加",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        }
+      ]
+    },
+    {
+      "familyId": "erekineko",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/80.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "雷霆拳",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "エレキネコ-防御力増加",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        }
+      ]
+    },
+    {
+      "familyId": "sukedako",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/38.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "身代わりタコ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "子ダコ",
+          "values": [
+            {
+              "label": "継承HP比率",
+              "value": "30%"
+            },
+            {
+              "label": "最大生存時間",
+              "value": "12秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "sukedako",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/38.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "先陣タコ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "子ダコ",
+          "values": [
+            {
+              "label": "継承HP比率",
+              "value": "30%"
+            },
+            {
+              "label": "最大生存時間",
+              "value": "12秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "sukedako",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/38.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "捨て身タコ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "子ダコ",
+          "values": [
+            {
+              "label": "継承HP比率",
+              "value": "30%"
+            },
+            {
+              "label": "最大生存時間",
+              "value": "12秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "sukedako",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/38.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "フィッシュ＆キング",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "子ダコ",
+          "values": [
+            {
+              "label": "継承HP比率",
+              "value": "30%"
+            },
+            {
+              "label": "最大生存時間",
+              "value": "12秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "hinyao",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/50.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "パチパチニャン弾",
+      "nameComparison": "conflicting-existing-game-evidence",
+      "effects": [
+        {
+          "name": "ニャンコの絆",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ範囲拡大1マス"
+            },
+            {
+              "label": "効果",
+              "value": "最大拡大回数3回"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "hinyao",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/50.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "アツアツニャン弾",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "ニャンコの絆",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ範囲拡大1マス"
+            },
+            {
+              "label": "効果",
+              "value": "最大拡大回数3回"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "hinyao",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/50.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "メラメラニャン弾",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "ニャンコの絆",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ範囲拡大1マス"
+            },
+            {
+              "label": "効果",
+              "value": "最大拡大回数3回"
+            }
+          ]
+        },
+        {
+          "name": "ヒニャオ-攻撃力増加",
+          "values": [
+            {
+              "label": "増加比率",
+              "value": "15%"
+            }
+          ],
+          "basis": "増加率は付与元の攻撃力に基づく"
+        }
+      ]
+    },
+    {
+      "familyId": "hinyao",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/50.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ゴウゴウニャン弾",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "ニャンコの絆",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ範囲拡大1マス"
+            },
+            {
+              "label": "効果",
+              "value": "最大拡大回数3回"
+            }
+          ]
+        },
+        {
+          "name": "ヒニャオ-攻撃力増加",
+          "values": [
+            {
+              "label": "増加比率",
+              "value": "15%"
+            }
+          ],
+          "basis": "増加率は付与元の攻撃力に基づく"
+        }
+      ]
+    },
+    {
+      "familyId": "mumukaba",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/109.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ムムのキス",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "脆弱",
+          "values": [
+            {
+              "label": "効果",
+              "value": "HPの割合が50％未満"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "mumukaba",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/109.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "マリリンのキス",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "脆弱",
+          "values": [
+            {
+              "label": "効果",
+              "value": "HPの割合が50％未満"
+            }
+          ]
+        },
+        {
+          "name": "ピンクシールド",
+          "values": [
+            {
+              "label": "効果",
+              "value": "シールド値10％HP"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "mumukaba",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/109.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "モンローのキス",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "脆弱",
+          "values": [
+            {
+              "label": "効果",
+              "value": "HPの割合が50％未満"
+            }
+          ]
+        },
+        {
+          "name": "ピンクシールド",
+          "values": [
+            {
+              "label": "効果",
+              "value": "シールド値10％HP"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "mumukaba",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/109.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ディーバのキス",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "脆弱",
+          "values": [
+            {
+              "label": "効果",
+              "value": "HPの割合が50％未満"
+            }
+          ]
+        },
+        {
+          "name": "ピンクシールド",
+          "values": [
+            {
+              "label": "効果",
+              "value": "シールド値10％HP"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "hikaru",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/111.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "スパークシールド",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "静電気シールド",
+          "values": [
+            {
+              "label": "効果",
+              "value": "シールド値10%HP"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間4秒"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ倍率50％"
+            },
+            {
+              "label": "効果",
+              "value": "クールダウン7.5秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "hikaru",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/111.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ミラージュシールド",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "静電気シールド",
+          "values": [
+            {
+              "label": "効果",
+              "value": "シールド値10%HP"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間4秒"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ倍率50％"
+            },
+            {
+              "label": "効果",
+              "value": "クールダウン7.5秒"
+            }
+          ]
+        },
+        {
+          "name": "麻痺",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率15%"
+            },
+            {
+              "label": "効果",
+              "value": "効果間隔1.5秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            },
+            {
+              "label": "効果",
+              "value": "効果時間0.2秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "hikaru",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/111.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "シャイニングシールド",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "静電気シールド",
+          "values": [
+            {
+              "label": "効果",
+              "value": "シールド値10%HP"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間4秒"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ倍率50％"
+            },
+            {
+              "label": "効果",
+              "value": "クールダウン7.5秒"
+            }
+          ]
+        },
+        {
+          "name": "麻痺",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率15%"
+            },
+            {
+              "label": "効果",
+              "value": "効果間隔1.5秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            },
+            {
+              "label": "効果",
+              "value": "効果時間0.2秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "hikaru",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/111.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "シャイニングシールド",
+      "nameComparison": "conflicting-existing-game-evidence",
+      "effects": [
+        {
+          "name": "静電気シールド",
+          "values": [
+            {
+              "label": "効果",
+              "value": "シールド値10%HP"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間4秒"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ倍率50％"
+            },
+            {
+              "label": "効果",
+              "value": "クールダウン7.5秒"
+            }
+          ]
+        },
+        {
+          "name": "麻痺",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率15%"
+            },
+            {
+              "label": "効果",
+              "value": "効果間隔1.5秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            },
+            {
+              "label": "効果",
+              "value": "効果時間0.2秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "atatama",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/113.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "バブルブレス",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "燃焼",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率20%"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ間隔1秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "atatama",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/113.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ガマブレス",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "燃焼",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率20%"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ間隔1秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            },
+            {
+              "label": "効果",
+              "value": "追加ダメージ固定倍率20%"
+            },
+            {
+              "label": "効果",
+              "value": "燃焼1秒消費ごとに20%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "atatama",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/113.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ロールタンブレス",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "燃焼",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率20%"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ間隔1秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            },
+            {
+              "label": "効果",
+              "value": "追加ダメージ固定倍率20%"
+            },
+            {
+              "label": "効果",
+              "value": "燃焼1秒消費ごとに20%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "atatama",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/113.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "フレイムブレス",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "燃焼",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率20%"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ間隔1秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            },
+            {
+              "label": "効果",
+              "value": "追加ダメージ固定倍率20%"
+            },
+            {
+              "label": "効果",
+              "value": "燃焼1秒消費ごとに20%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "yaminome",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/114.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "種ポイズン",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "毒",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率5%"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ倍率12%"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ間隔1秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "yaminome",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/114.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "花ポイズン",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "毒",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率5%"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ倍率12%"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ間隔1秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "yaminome",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/114.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "魔花ポイズン",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "毒",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率5%"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ倍率12%"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ間隔1秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            }
+          ]
+        },
+        {
+          "name": "毒エリア",
+          "values": [
+            {
+              "label": "効果",
+              "value": "持続時間4秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "yaminome",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/114.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "道化ポイズン",
+      "nameComparison": "conflicting-existing-game-evidence",
+      "effects": [
+        {
+          "name": "毒",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率5%"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ倍率12%"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ間隔1秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            }
+          ]
+        },
+        {
+          "name": "毒エリア",
+          "values": [
+            {
+              "label": "効果",
+              "value": "持続時間4秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "korokon",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/44.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "火の玉",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "korokon",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/44.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "花火",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "korokon",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/44.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "炎火",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "korokon",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/44.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "花火",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "mogurin",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/67.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "モグタマ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "穴潜り-被ダメージ減少",
+          "values": [
+            {
+              "label": "効果",
+              "value": "減少比率30%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "mogurin",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/67.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "サンドボール",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "穴潜り-被ダメージ減少",
+          "values": [
+            {
+              "label": "効果",
+              "value": "減少比率30%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "mogurin",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/67.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "サンドキャノン",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "視界妨害",
+          "values": [
+            {
+              "label": "効果",
+              "value": "視界妨害頻度 攻撃14回ごと"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間3秒"
+            }
+          ]
+        },
+        {
+          "name": "穴潜り-被ダメージ減少",
+          "values": [
+            {
+              "label": "効果",
+              "value": "減少比率30%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "mogurin",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/67.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "サンドメテオ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "視界妨害",
+          "values": [
+            {
+              "label": "効果",
+              "value": "視界妨害頻度 攻撃14回ごと"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間3秒"
+            }
+          ]
+        },
+        {
+          "name": "穴潜り-被ダメージ減少",
+          "values": [
+            {
+              "label": "効果",
+              "value": "減少比率30%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "biripiyo",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/77.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ダブルリンク",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "充電-被ダメージ減少",
+          "values": [
+            {
+              "label": "効果",
+              "value": "減少比率20%"
+            }
+          ]
+        },
+        {
+          "name": "充電-攻撃力増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率30%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "biripiyo",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/77.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "デルタリンク",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "充電-被ダメージ減少",
+          "values": [
+            {
+              "label": "効果",
+              "value": "減少比率20%"
+            }
+          ]
+        },
+        {
+          "name": "充電-攻撃力増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率30%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "biripiyo",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/77.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "コアリンク",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "充電-被ダメージ減少",
+          "values": [
+            {
+              "label": "効果",
+              "value": "減少比率20%"
+            }
+          ]
+        },
+        {
+          "name": "充電-攻撃力増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率30%"
+            }
+          ]
+        },
+        {
+          "name": "強力充電-攻撃力増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率50%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "biripiyo",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/77.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "エレクトロリンク",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "充電-被ダメージ減少",
+          "values": [
+            {
+              "label": "効果",
+              "value": "減少比率20%"
+            }
+          ]
+        },
+        {
+          "name": "充電-攻撃力増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率30%"
+            }
+          ]
+        },
+        {
+          "name": "強力充電-攻撃力増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率50%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "potakage",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/35.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "泡",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "ステルス",
+          "values": [
+            {
+              "label": "初回累計ダメージ",
+              "value": "10%HP"
+            },
+            {
+              "label": "持続時間",
+              "value": "6秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "potakage",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/35.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "渦",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "ステルス",
+          "values": [
+            {
+              "label": "初回累計ダメージ",
+              "value": "10%HP"
+            },
+            {
+              "label": "持続時間",
+              "value": "6秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "potakage",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/35.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "激流",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "ステルス",
+          "values": [
+            {
+              "label": "初回累計ダメージ",
+              "value": "10%HP"
+            },
+            {
+              "label": "持続時間",
+              "value": "6秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "potakage",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/35.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "渦潮",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "ステルス",
+          "values": [
+            {
+              "label": "初回累計ダメージ",
+              "value": "10%HP"
+            },
+            {
+              "label": "持続時間",
+              "value": "6秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "fukurogumo",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/57.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "露バブル",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "雫シールド",
+          "values": [
+            {
+              "label": "効果",
+              "value": "生成時間16秒"
+            },
+            {
+              "label": "効果",
+              "value": "シールド値30%HP"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "fukurogumo",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/57.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "緑葉の加護",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "雫シールド",
+          "values": [
+            {
+              "label": "効果",
+              "value": "生成時間16秒"
+            },
+            {
+              "label": "効果",
+              "value": "シールド値30%HP"
+            }
+          ]
+        },
+        {
+          "name": "スタン",
+          "values": [
+            {
+              "label": "効果",
+              "value": "持続時間3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "fukurogumo",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/57.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "森の加護",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "雫シールド",
+          "values": [
+            {
+              "label": "効果",
+              "value": "生成時間16秒"
+            },
+            {
+              "label": "効果",
+              "value": "シールド値30%HP"
+            }
+          ]
+        },
+        {
+          "name": "スタン",
+          "values": [
+            {
+              "label": "効果",
+              "value": "持続時間3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "fukurogumo",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/57.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "森羅の加護",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "雫シールド",
+          "values": [
+            {
+              "label": "効果",
+              "value": "生成時間16秒"
+            },
+            {
+              "label": "効果",
+              "value": "シールド値30%HP"
+            }
+          ]
+        },
+        {
+          "name": "スタン",
+          "values": [
+            {
+              "label": "効果",
+              "value": "持続時間3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "nemukurage",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/36.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "水療玉",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "nemukurage",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/36.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "汲水療玉",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "nemukurage",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/36.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "荒波水療玉",
+      "nameComparison": "conflicting-existing-game-evidence",
+      "effects": []
+    },
+    {
+      "familyId": "nemukurage",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/36.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "波動水療玉",
+      "nameComparison": "conflicting-existing-game-evidence",
+      "effects": []
+    },
+    {
+      "familyId": "sabooru",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/58.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "トゲ降らし",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "トゲ刺し",
+          "values": [
+            {
+              "label": "ダメージ倍率増加",
+              "value": "スタックごとに15％"
+            },
+            {
+              "label": "爆発ダメージ倍率",
+              "value": "スタックごとに20％"
+            },
+            {
+              "label": "効果",
+              "value": "最大スタック数5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "sabooru",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/58.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "トゲ嵐",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "トゲ刺し",
+          "values": [
+            {
+              "label": "ダメージ倍率増加",
+              "value": "スタックごとに15％"
+            },
+            {
+              "label": "爆発ダメージ倍率",
+              "value": "スタックごとに20％"
+            },
+            {
+              "label": "効果",
+              "value": "最大スタック数5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "sabooru",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/58.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "トゲ爆弾",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "トゲ刺し",
+          "values": [
+            {
+              "label": "ダメージ倍率増加",
+              "value": "スタックごとに15％"
+            },
+            {
+              "label": "爆発ダメージ倍率",
+              "value": "スタックごとに20％"
+            },
+            {
+              "label": "効果",
+              "value": "最大スタック数5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "korotama",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/70.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "一球入魂",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "korotama",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/70.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "二球連投",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "減速",
+          "values": [
+            {
+              "label": "効果",
+              "value": "現象比率30％"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "korotama",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/70.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "三球猛攻",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "減速",
+          "values": [
+            {
+              "label": "効果",
+              "value": "現象比率30％"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "korotama",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/70.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "全霊魂球",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "減速",
+          "values": [
+            {
+              "label": "効果",
+              "value": "現象比率30％"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "yanzaru",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/66.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "サルトモ",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "yanzaru",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/66.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "サルダチ",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "yanzaru",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/66.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "サルゾク",
+      "nameComparison": "conflicting-existing-game-evidence",
+      "effects": []
+    },
+    {
+      "familyId": "yanzaru",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/66.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "無限サル召喚",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "gaoden",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/73.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ストレートウェーブ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "ノックバック",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        }
+      ]
+    },
+    {
+      "familyId": "gaoden",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/73.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "アークウェーブ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "ノックバック",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        }
+      ]
+    },
+    {
+      "familyId": "gaoden",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/73.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "サンダーウェーブ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "ノックバック",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        },
+        {
+          "name": "鼓舞-ダメージ増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率20％"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "gaoden",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/73.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "エレクトロパルス",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "ノックバック",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        },
+        {
+          "name": "鼓舞-ダメージ増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率20％"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "himawarin",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/56.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "温かい陽光",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "陽だまり-攻撃力増加",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        }
+      ]
+    },
+    {
+      "familyId": "himawarin",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/56.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "勇気の陽光",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "陽だまり-攻防増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率15％"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "himawarin",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/56.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "必勝の陽光",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "陽だまり-攻防増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率15％"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "himawarin",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/56.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "凱旋の陽光",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "陽だまり-攻防増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率15％"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "nekoori",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/30.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "アイスブロック",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "減速",
+          "values": [
+            {
+              "label": "減速比率",
+              "value": "30%"
+            },
+            {
+              "label": "持続時間",
+              "value": "3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "nekoori",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/30.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "スプリットブロック",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "減速",
+          "values": [
+            {
+              "label": "減速比率",
+              "value": "30%"
+            },
+            {
+              "label": "持続時間",
+              "value": "3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "nekoori",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/30.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "フロストブロック",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "減速",
+          "values": [
+            {
+              "label": "減速比率",
+              "value": "30%"
+            },
+            {
+              "label": "持続時間",
+              "value": "3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "nekoori",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/30.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ブリザードブロック",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "減速",
+          "values": [
+            {
+              "label": "減速比率",
+              "value": "30%"
+            },
+            {
+              "label": "持続時間",
+              "value": "3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "furuggu",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/51.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ドラゴンフルーツ",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "furuggu",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/51.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ハウルフルーツ",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "furuggu",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/51.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ホーリーフルーツ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "減速",
+          "values": [
+            {
+              "label": "効果",
+              "value": "減速比率30%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "furuggu",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/51.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "クロスボムフルーツ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "減速",
+          "values": [
+            {
+              "label": "効果",
+              "value": "減速比率30%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "himori",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/43.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "フレイムボール",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "燃焼",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率20%"
+            },
+            {
+              "label": "効果",
+              "value": "増強別枠ダメージ倍率20％"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ間隔1秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "himori",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/43.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "スコーチボール",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "燃焼",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率20%"
+            },
+            {
+              "label": "効果",
+              "value": "増強別枠ダメージ倍率20％"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ間隔1秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "himori",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/43.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ブレイズボール",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "燃焼",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率20%"
+            },
+            {
+              "label": "効果",
+              "value": "増強別枠ダメージ倍率20％"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ間隔1秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "himori",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/43.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "サンブレイズボール",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "燃焼",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率20%"
+            },
+            {
+              "label": "効果",
+              "value": "増強別枠ダメージ倍率20％"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ間隔1秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "komakiri",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/53.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "二連撃",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "komakiri",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/53.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "三連撃",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "komakiri",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/53.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "クイーンの舞",
+      "nameComparison": "conflicting-existing-game-evidence",
+      "effects": [
+        {
+          "name": "被ダメージ増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率20%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "komakiri",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/53.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "エンプレスの舞",
+      "nameComparison": "conflicting-existing-game-evidence",
+      "effects": [
+        {
+          "name": "被ダメージ増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率20%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "umimi",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/32.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "クラウドミスト",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "減速",
+          "values": [
+            {
+              "label": "減速比率",
+              "value": "30%"
+            },
+            {
+              "label": "持続時間",
+              "value": "3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "umimi",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/32.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "パニッシュミスト",
+      "nameComparison": "conflicting-existing-game-evidence",
+      "effects": [
+        {
+          "name": "減速",
+          "values": [
+            {
+              "label": "減速比率",
+              "value": "30%"
+            },
+            {
+              "label": "持続時間",
+              "value": "3秒"
+            }
+          ]
+        },
+        {
+          "name": "被ダメージ増加",
+          "values": [
+            {
+              "label": "増加比率",
+              "value": "20%"
+            },
+            {
+              "label": "持続時間",
+              "value": "3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "umimi",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/32.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "裁きの雲海",
+      "nameComparison": "conflicting-existing-game-evidence",
+      "effects": [
+        {
+          "name": "減速",
+          "values": [
+            {
+              "label": "減速比率",
+              "value": "30%"
+            },
+            {
+              "label": "持続時間",
+              "value": "3秒"
+            }
+          ]
+        },
+        {
+          "name": "被ダメージ増加",
+          "values": [
+            {
+              "label": "増加比率",
+              "value": "20%"
+            },
+            {
+              "label": "持続時間",
+              "value": "3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "umimi",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/32.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "裁きの雲域",
+      "nameComparison": "conflicting-existing-game-evidence",
+      "effects": [
+        {
+          "name": "減速",
+          "values": [
+            {
+              "label": "減速比率",
+              "value": "30%"
+            },
+            {
+              "label": "持続時間",
+              "value": "3秒"
+            }
+          ]
+        },
+        {
+          "name": "被ダメージ増加",
+          "values": [
+            {
+              "label": "増加比率",
+              "value": "20%"
+            },
+            {
+              "label": "持続時間",
+              "value": "3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "purabi",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/78.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ラビットダンス",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "応援-攻防増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率15%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "purabi",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/78.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "チアダンス",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "応援-攻防増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率15%"
+            }
+          ]
+        },
+        {
+          "name": "ピンチ",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージを受けたあと、HPが10%以下になる"
+            }
+          ]
+        },
+        {
+          "name": "無敵",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        }
+      ]
+    },
+    {
+      "familyId": "purabi",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/78.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "サンダーダンス",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "応援-攻防増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率15%"
+            }
+          ]
+        },
+        {
+          "name": "ピンチ",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージを受けたあと、HPが10%以下になる"
+            }
+          ]
+        },
+        {
+          "name": "無敵",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        }
+      ]
+    },
+    {
+      "familyId": "purabi",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/78.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ライトニングダンス",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "応援-攻防増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率15%"
+            }
+          ]
+        },
+        {
+          "name": "ピンチ",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージを受けたあと、HPが10%以下になる"
+            }
+          ]
+        },
+        {
+          "name": "無敵",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        }
+      ]
+    },
+    {
+      "familyId": "rokuju",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/64.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ブルービーム",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "rokuju",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/64.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "フィジョンビーム",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "rokuju",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/64.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ウルトラビーム",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "rokuju",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/64.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ファイナルビーム",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "boruzarashi",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/31.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ウォーターボール",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "boruzarashi",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/31.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ウェーブボール",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "ダメージ減少",
+          "values": [
+            {
+              "label": "減速比率",
+              "value": "20%"
+            },
+            {
+              "label": "持続時間",
+              "value": "3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "boruzarashi",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/31.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ダブルボール",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "ダメージ減少",
+          "values": [
+            {
+              "label": "減速比率",
+              "value": "20%"
+            },
+            {
+              "label": "持続時間",
+              "value": "3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "boruzarashi",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/31.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ハドウボール",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "ダメージ減少",
+          "values": [
+            {
+              "label": "減速比率",
+              "value": "20%"
+            },
+            {
+              "label": "持続時間",
+              "value": "3秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "gantoru",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/65.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "コロコロスピン",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "gantoru",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/65.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "コウラスピン",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "カメシールド",
+          "values": [
+            {
+              "label": "効果",
+              "value": "シールド値20％"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "gantoru",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/65.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ガードスピン",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "カメシールド",
+          "values": [
+            {
+              "label": "効果",
+              "value": "シールド値20％"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "gantoru",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/65.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ガンバンスピン",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "カメシールド",
+          "values": [
+            {
+              "label": "効果",
+              "value": "シールド値20％"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "denjika",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/74.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ビリリランス",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "麻痺",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率15%"
+            },
+            {
+              "label": "効果",
+              "value": "効果間隔1.5秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            },
+            {
+              "label": "効果",
+              "value": "効果時間0.2秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "denjika",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/74.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ボルトランス",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "麻痺",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率15%"
+            },
+            {
+              "label": "効果",
+              "value": "効果間隔1.5秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            },
+            {
+              "label": "効果",
+              "value": "効果時間0.2秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "denjika",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/74.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "エレキランス",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "麻痺",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率15%"
+            },
+            {
+              "label": "効果",
+              "value": "効果間隔1.5秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            },
+            {
+              "label": "効果",
+              "value": "効果時間0.2秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "denjika",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/74.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "超化学エレキランス",
+      "nameComparison": "conflicting-existing-game-evidence",
+      "effects": [
+        {
+          "name": "麻痺",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率15%"
+            },
+            {
+              "label": "効果",
+              "value": "効果間隔1.5秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            },
+            {
+              "label": "効果",
+              "value": "効果時間0.2秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "tafupen",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/33.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "アイスカウンター",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "氷のシールド",
+          "values": [
+            {
+              "label": "シールド値",
+              "value": "付与元HP12%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "tafupen",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/33.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "フロストカウンター",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "氷のシールド",
+          "values": [
+            {
+              "label": "シールド値",
+              "value": "付与元HP12%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "tafupen",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/33.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "クリスタルカウンター",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "氷のシールド",
+          "values": [
+            {
+              "label": "シールド値",
+              "value": "付与元HP12%"
+            }
+          ]
+        },
+        {
+          "name": "氷の像",
+          "values": [
+            {
+              "label": "HP減少比率",
+              "value": "5%"
+            },
+            {
+              "label": "HP減少間隔",
+              "value": "1秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "tafupen",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/33.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "グレイシアカウンター",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "氷のシールド",
+          "values": [
+            {
+              "label": "シールド値",
+              "value": "付与元HP12%"
+            }
+          ]
+        },
+        {
+          "name": "氷の像",
+          "values": [
+            {
+              "label": "HP減少比率",
+              "value": "5%"
+            },
+            {
+              "label": "HP減少間隔",
+              "value": "1秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "fureimuji",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/46.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ファイアリング",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "fureimuji",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/46.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "フレイムリング",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "蝶の舞-攻撃力増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率15%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            }
+          ],
+          "basis": "攻撃力が増加。増加量は付与元の攻撃力に基づく。"
+        }
+      ]
+    },
+    {
+      "familyId": "fureimuji",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/46.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "フレアリング",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "蝶の舞-攻撃力増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率15%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            }
+          ],
+          "basis": "攻撃力が増加。増加量は付与元の攻撃力に基づく。"
+        }
+      ]
+    },
+    {
+      "familyId": "fureimuji",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/46.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ブレイズリング",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "蝶の舞-攻撃力増加",
+          "values": [
+            {
+              "label": "効果",
+              "value": "増加比率15%"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            }
+          ],
+          "basis": "攻撃力が増加。増加量は付与元の攻撃力に基づく。"
+        }
+      ]
+    },
+    {
+      "familyId": "erekoon",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/76.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "パルス",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "erekoon",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/76.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ブレイクパルス",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "erekoon",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/76.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "サンダーパルス",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "erekoon",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/76.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "激震パルス",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "nenbutsuhebi",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/71.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "一打退散",
+      "nameComparison": "conflicting-existing-game-evidence",
+      "effects": []
+    },
+    {
+      "familyId": "nenbutsuhebi",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/71.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "功徳増進",
+      "nameComparison": "conflicting-existing-game-evidence",
+      "effects": [
+        {
+          "name": "スタン",
+          "values": [
+            {
+              "label": "効果",
+              "value": "持続時間1秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "nenbutsuhebi",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/71.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "功徳無量",
+      "nameComparison": "conflicting-existing-game-evidence",
+      "effects": [
+        {
+          "name": "スタン",
+          "values": [
+            {
+              "label": "効果",
+              "value": "持続時間1秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "nenbutsuhebi",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/71.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "功徳円満",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "スタン",
+          "values": [
+            {
+              "label": "効果",
+              "value": "持続時間1秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "matchiba",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/42.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "パイロピラー",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "matchiba",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/42.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "フレイムピラー",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "matchiba",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/42.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "フレアストライク",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "ダメージ減少",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        }
+      ]
+    },
+    {
+      "familyId": "matchiba",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/42.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ヘルストライク",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "ダメージ減少",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        }
+      ]
+    },
+    {
+      "familyId": "denrou",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/75.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "残影の連撃",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "denrou",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/75.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "麻痺の連撃",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "麻痺",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率15%"
+            },
+            {
+              "label": "効果",
+              "value": "効果間隔1.5秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            },
+            {
+              "label": "効果",
+              "value": "効果時間0.2秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "denrou",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/75.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "疾風の連撃",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "麻痺",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率15%"
+            },
+            {
+              "label": "効果",
+              "value": "効果間隔1.5秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            },
+            {
+              "label": "効果",
+              "value": "効果時間0.2秒"
+            }
+          ]
+        },
+        {
+          "name": "無敵",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        }
+      ]
+    },
+    {
+      "familyId": "denrou",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/75.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "迅雷連撃",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "麻痺",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率15%"
+            },
+            {
+              "label": "効果",
+              "value": "効果間隔1.5秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            },
+            {
+              "label": "効果",
+              "value": "効果時間0.2秒"
+            }
+          ]
+        },
+        {
+          "name": "無敵",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        }
+      ]
+    },
+    {
+      "familyId": "kenkani",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/34.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ハサミ攻撃",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "kenkani",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/34.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "裂傷ハサミ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "裂傷",
+          "values": [
+            {
+              "label": "ダメージ倍率",
+              "value": "20%"
+            },
+            {
+              "label": "最大発動回数",
+              "value": "8回"
+            },
+            {
+              "label": "持続時間",
+              "value": "4秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "kenkani",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/34.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "回復歴戦ハサミ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "裂傷",
+          "values": [
+            {
+              "label": "ダメージ倍率",
+              "value": "20%"
+            },
+            {
+              "label": "最大発動回数",
+              "value": "8回"
+            },
+            {
+              "label": "持続時間",
+              "value": "4秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "kenkani",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/34.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "油圧ハサミ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "裂傷",
+          "values": [
+            {
+              "label": "ダメージ倍率",
+              "value": "20%"
+            },
+            {
+              "label": "最大発動回数",
+              "value": "8回"
+            },
+            {
+              "label": "持続時間",
+              "value": "4秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "fureebi",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/47.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "連続パンチ",
+      "nameComparison": "conflicting-existing-game-evidence",
+      "effects": []
+    },
+    {
+      "familyId": "fureebi",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/47.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "灼熱パンチ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "燃焼",
+          "values": [
+            {
+              "label": "効果",
+              "value": "燃焼の頻度8回のパンチごと"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ倍率20％"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ間隔1秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "fureebi",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/47.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "疾風灼熱パンチ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "燃焼",
+          "values": [
+            {
+              "label": "効果",
+              "value": "燃焼の頻度8回のパンチごと"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ倍率20％"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ間隔1秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "fureebi",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/47.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "極限灼熱パンチ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "燃焼",
+          "values": [
+            {
+              "label": "効果",
+              "value": "燃焼の頻度8回のパンチごと"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ倍率20％"
+            },
+            {
+              "label": "効果",
+              "value": "ダメージ間隔1秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "haamitora",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/48.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "火花クラッシュ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "ピンチ",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージを受けた後、HPが10％以下になる。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "haamitora",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/48.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "火炎クラッシュ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "燃焼",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        },
+        {
+          "name": "ピンチ",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージを受けた後、HPが10％以下になる。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "haamitora",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/48.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "灼炎クラッシュ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "ピンチ",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージを受けた後、HPが10％以下になる。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "haamitora",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/48.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "爆炎クラッシュ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "ピンチ",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージを受けた後、HPが10％以下になる。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "shiiparusu",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/79.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "白雲サンダー",
+      "nameComparison": "matched",
+      "effects": []
+    },
+    {
+      "familyId": "shiiparusu",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/79.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "白黒サンダー",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "麻痺",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率15%"
+            },
+            {
+              "label": "効果",
+              "value": "効果間隔1.5秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            },
+            {
+              "label": "効果",
+              "value": "効果時間0.2秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "shiiparusu",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/79.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "黒雲サンダー",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "麻痺",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率15%"
+            },
+            {
+              "label": "効果",
+              "value": "効果間隔1.5秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            },
+            {
+              "label": "効果",
+              "value": "効果時間0.2秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "shiiparusu",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/79.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "密雲サンダー",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "麻痺",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率15%"
+            },
+            {
+              "label": "効果",
+              "value": "効果間隔1.5秒"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間5秒"
+            },
+            {
+              "label": "効果",
+              "value": "効果時間0.2秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "shizukuchou",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/37.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "水眠弾",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "減速",
+          "values": [
+            {
+              "label": "減速比率",
+              "value": "30%"
+            },
+            {
+              "label": "持続時間",
+              "value": "3秒"
+            }
+          ]
+        },
+        {
+          "name": "睡眠",
+          "values": [
+            {
+              "label": "睡眠頻度",
+              "value": "3回ごとに減速を付与"
+            },
+            {
+              "label": "最大持続時間",
+              "value": "4秒"
+            },
+            {
+              "label": "早く目覚めるまでのダメージ",
+              "value": "10％HP"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "shizukuchou",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/37.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "水眠ミサイル",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "減速",
+          "values": [
+            {
+              "label": "減速比率",
+              "value": "30%"
+            },
+            {
+              "label": "持続時間",
+              "value": "3秒"
+            }
+          ]
+        },
+        {
+          "name": "睡眠",
+          "values": [
+            {
+              "label": "睡眠頻度",
+              "value": "3回ごとに減速を付与"
+            },
+            {
+              "label": "最大持続時間",
+              "value": "4秒"
+            },
+            {
+              "label": "早く目覚めるまでのダメージ",
+              "value": "10％HP"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "shizukuchou",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/37.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "安眠ミサイル",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "減速",
+          "values": [
+            {
+              "label": "減速比率",
+              "value": "30%"
+            },
+            {
+              "label": "持続時間",
+              "value": "3秒"
+            }
+          ]
+        },
+        {
+          "name": "睡眠",
+          "values": [
+            {
+              "label": "睡眠頻度",
+              "value": "3回ごとに減速を付与"
+            },
+            {
+              "label": "最大持続時間",
+              "value": "4秒"
+            },
+            {
+              "label": "早く目覚めるまでのダメージ",
+              "value": "10％HP"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "shizukuchou",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/37.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "永眠ミサイル",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "減速",
+          "values": [
+            {
+              "label": "減速比率",
+              "value": "30%"
+            },
+            {
+              "label": "持続時間",
+              "value": "3秒"
+            }
+          ]
+        },
+        {
+          "name": "睡眠",
+          "values": [
+            {
+              "label": "睡眠頻度",
+              "value": "3回ごとに減速を付与"
+            },
+            {
+              "label": "最大持続時間",
+              "value": "4秒"
+            },
+            {
+              "label": "早く目覚めるまでのダメージ",
+              "value": "10％HP"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "doriruu",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/72.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "回転爪",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "ノックバック",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        },
+        {
+          "name": "裂傷",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率20％"
+            },
+            {
+              "label": "効果",
+              "value": "最大発動回数8回"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間4秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "doriruu",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/72.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "疾風爪",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "スタン",
+          "values": [
+            {
+              "label": "効果",
+              "value": "持続時間1秒"
+            }
+          ]
+        },
+        {
+          "name": "ノックバック",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        },
+        {
+          "name": "裂傷",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率20％"
+            },
+            {
+              "label": "効果",
+              "value": "最大発動回数8回"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間4秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "doriruu",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/72.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "裂空爪",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "スタン",
+          "values": [
+            {
+              "label": "効果",
+              "value": "持続時間1秒"
+            }
+          ]
+        },
+        {
+          "name": "ノックバック",
+          "values": [],
+          "status": "numeric-values-unpublished"
+        },
+        {
+          "name": "裂傷",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率20％"
+            },
+            {
+              "label": "効果",
+              "value": "最大発動回数8回"
+            },
+            {
+              "label": "効果",
+              "value": "持続時間4秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "riifuro",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/103.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "パストゾーン",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "スロウクロック",
+          "values": [
+            {
+              "label": "効果",
+              "value": "攻撃速度低下率1スタックにつき5%"
+            },
+            {
+              "label": "効果",
+              "value": "移動速度低下率1スタックごとに5%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "riifuro",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/103.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "プリゼントゾーン",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "スロウクロック",
+          "values": [
+            {
+              "label": "効果",
+              "value": "攻撃速度低下率1スタックにつき5%"
+            },
+            {
+              "label": "効果",
+              "value": "移動速度低下率1スタックごとに5%"
+            }
+          ]
+        },
+        {
+          "name": "スタン",
+          "values": [
+            {
+              "label": "効果",
+              "value": "持続時間1秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "riifuro",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/103.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "フューチャーゾーン",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "スロウクロック",
+          "values": [
+            {
+              "label": "効果",
+              "value": "攻撃速度低下率1スタックにつき5%"
+            },
+            {
+              "label": "効果",
+              "value": "移動速度低下率1スタックごとに5%"
+            }
+          ]
+        },
+        {
+          "name": "スタン",
+          "values": [
+            {
+              "label": "効果",
+              "value": "持続時間1秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "riifuro",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/103.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "エターナルゾーン",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "スロウクロック",
+          "values": [
+            {
+              "label": "効果",
+              "value": "攻撃速度低下率1スタックにつき5%"
+            },
+            {
+              "label": "効果",
+              "value": "移動速度低下率1スタックごとに5%"
+            }
+          ]
+        },
+        {
+          "name": "スタン",
+          "values": [
+            {
+              "label": "効果",
+              "value": "持続時間1秒"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "hikikomoru",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/117.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "エレキケージ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "エレキケージ",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率12％"
+            },
+            {
+              "label": "移動速度減少",
+              "value": "20％"
+            },
+            {
+              "label": "攻撃速度減少",
+              "value": "20％"
+            },
+            {
+              "label": "追加効果ターゲット",
+              "value": "1"
+            },
+            {
+              "label": "シグナル弾ダメージ倍率",
+              "value": "30％"
+            },
+            {
+              "label": "電流ダメージ倍率",
+              "value": "90％"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "hikikomoru",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/117.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "ボルトケージ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "エレキケージ",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率12％"
+            },
+            {
+              "label": "移動速度減少",
+              "value": "20％"
+            },
+            {
+              "label": "攻撃速度減少",
+              "value": "20％"
+            },
+            {
+              "label": "追加効果ターゲット",
+              "value": "2"
+            },
+            {
+              "label": "シグナル弾ダメージ倍率",
+              "value": "30％"
+            },
+            {
+              "label": "電流ダメージ倍率",
+              "value": "90％"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "hikikomoru",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/117.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "キネシスケージ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "エレキケージ",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率12％"
+            },
+            {
+              "label": "移動速度減少",
+              "value": "20％"
+            },
+            {
+              "label": "攻撃速度減少",
+              "value": "20％"
+            },
+            {
+              "label": "追加効果ターゲット",
+              "value": "2"
+            },
+            {
+              "label": "シグナル弾ダメージ倍率",
+              "value": "30％"
+            },
+            {
+              "label": "電流ダメージ倍率",
+              "value": "90％"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "hikikomoru",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/117.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "モルデーケージ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "エレキケージ",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージ倍率12％"
+            },
+            {
+              "label": "移動速度減少",
+              "value": "20％"
+            },
+            {
+              "label": "攻撃速度減少",
+              "value": "20％"
+            },
+            {
+              "label": "追加効果ターゲット",
+              "value": "2"
+            },
+            {
+              "label": "シグナル弾ダメージ倍率",
+              "value": "30％"
+            },
+            {
+              "label": "電流ダメージ倍率",
+              "value": "90％"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "pakuma",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/123.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "フィッシュトス",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "食いしん坊-被ダメージ増加",
+          "values": [
+            {
+              "label": "増加比率",
+              "value": "50%"
+            }
+          ]
+        },
+        {
+          "name": "ピンチ",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージを受けHPが10%以下になる"
+            },
+            {
+              "label": "回復倍率",
+              "value": "20%"
+            },
+            {
+              "label": "魚の下限数",
+              "value": "1匹"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "pakuma",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/123.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "フィッシュショット",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "食いしん坊-被ダメージ増加",
+          "values": [
+            {
+              "label": "増加比率",
+              "value": "50%"
+            }
+          ]
+        },
+        {
+          "name": "ピンチ",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージを受けHPが10%以下になる"
+            },
+            {
+              "label": "回復倍率",
+              "value": "20%"
+            },
+            {
+              "label": "魚の下限数",
+              "value": "1匹"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "pakuma",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/123.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "フィッシュクランチ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "食いしん坊-被ダメージ増加",
+          "values": [
+            {
+              "label": "増加比率",
+              "value": "50%"
+            }
+          ]
+        },
+        {
+          "name": "ピンチ",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージを受けHPが10%以下になる"
+            },
+            {
+              "label": "回復倍率",
+              "value": "20%"
+            },
+            {
+              "label": "魚の下限数",
+              "value": "1匹"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "pakuma",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/123.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "楽勝",
+      "nameComparison": "conflicting-existing-game-evidence",
+      "effects": [
+        {
+          "name": "食いしん坊-被ダメージ増加",
+          "values": [
+            {
+              "label": "増加比率",
+              "value": "50%"
+            }
+          ]
+        },
+        {
+          "name": "ピンチ",
+          "values": [
+            {
+              "label": "効果",
+              "value": "ダメージを受けHPが10%以下になる"
+            },
+            {
+              "label": "回復倍率",
+              "value": "20%"
+            },
+            {
+              "label": "魚の下限数",
+              "value": "1匹"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "nusuke",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/129.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "コソコソッと登場",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "子分",
+          "values": [
+            {
+              "label": "子分の数",
+              "value": "3"
+            },
+            {
+              "label": "脱落までの被ダメージ回数",
+              "value": "5"
+            },
+            {
+              "label": "回復倍率初期値",
+              "value": "16%"
+            },
+            {
+              "label": "戻った後の追加回復倍率",
+              "value": "子分1体につき8%"
+            }
+          ]
+        },
+        {
+          "name": "怪盗-攻撃力増加",
+          "values": [
+            {
+              "label": "増加比率",
+              "value": "スタックごとに4%"
+            },
+            {
+              "label": "初期スタック",
+              "value": "2"
+            },
+            {
+              "label": "戻った後の追加スタック数",
+              "value": "子分1体につき1"
+            },
+            {
+              "label": "持続時間",
+              "value": "8秒"
+            }
+          ],
+          "basis": "攻撃力が増加する。増加量は付与元の攻撃力に基づく"
+        }
+      ]
+    },
+    {
+      "familyId": "nusuke",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/129.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "変面トリック",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "子分",
+          "values": [
+            {
+              "label": "子分の数",
+              "value": "3"
+            },
+            {
+              "label": "脱落までの被ダメージ回数",
+              "value": "5"
+            },
+            {
+              "label": "回復倍率初期値",
+              "value": "16%"
+            },
+            {
+              "label": "戻った後の追加回復倍率",
+              "value": "子分1体につき8%"
+            }
+          ]
+        },
+        {
+          "name": "怪盗-攻撃力増加",
+          "values": [
+            {
+              "label": "増加比率",
+              "value": "スタックごとに4%"
+            },
+            {
+              "label": "初期スタック",
+              "value": "2"
+            },
+            {
+              "label": "戻った後の追加スタック数",
+              "value": "子分1体につき1"
+            },
+            {
+              "label": "持続時間",
+              "value": "8秒"
+            }
+          ],
+          "basis": "攻撃力が増加する。増加量は付与元の攻撃力に基づく"
+        }
+      ]
+    },
+    {
+      "familyId": "nusuke",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/129.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "千面マジック",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "子分",
+          "values": [
+            {
+              "label": "子分の数",
+              "value": "3"
+            },
+            {
+              "label": "脱落までの被ダメージ回数",
+              "value": "5"
+            },
+            {
+              "label": "回復倍率初期値",
+              "value": "16%"
+            },
+            {
+              "label": "戻った後の追加回復倍率",
+              "value": "子分1体につき8%"
+            }
+          ]
+        },
+        {
+          "name": "怪盗-攻撃力増加",
+          "values": [
+            {
+              "label": "増加比率",
+              "value": "スタックごとに4%"
+            },
+            {
+              "label": "初期スタック",
+              "value": "2"
+            },
+            {
+              "label": "戻った後の追加スタック数",
+              "value": "子分1体につき1"
+            },
+            {
+              "label": "持続時間",
+              "value": "8秒"
+            }
+          ],
+          "basis": "攻撃力が増加する。増加量は付与元の攻撃力に基づく"
+        }
+      ]
+    },
+    {
+      "familyId": "nusuke",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/129.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "仮面フィナーレ",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "子分",
+          "values": [
+            {
+              "label": "子分の数",
+              "value": "3"
+            },
+            {
+              "label": "脱落までの被ダメージ回数",
+              "value": "5"
+            },
+            {
+              "label": "回復倍率初期値",
+              "value": "16%"
+            },
+            {
+              "label": "戻った後の追加回復倍率",
+              "value": "子分1体につき8%"
+            }
+          ]
+        },
+        {
+          "name": "怪盗-攻撃力増加",
+          "values": [
+            {
+              "label": "増加比率",
+              "value": "スタックごとに4%"
+            },
+            {
+              "label": "初期スタック",
+              "value": "2"
+            },
+            {
+              "label": "戻った後の追加スタック数",
+              "value": "子分1体につき1"
+            },
+            {
+              "label": "持続時間",
+              "value": "8秒"
+            }
+          ],
+          "basis": "攻撃力が増加する。増加量は付与元の攻撃力に基づく"
+        }
+      ]
+    },
+    {
+      "familyId": "rukaron",
+      "stage": 1,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/142.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "マカロンエコー",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "歓びの歌-ダメージ増加",
+          "values": [
+            {
+              "label": "増加比率",
+              "value": "4%"
+            },
+            {
+              "label": "最大スタック",
+              "value": "5"
+            },
+            {
+              "label": "減衰時間",
+              "value": "5秒ごとに"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "rukaron",
+      "stage": 2,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/142.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "パステルエコー",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "歓びの歌-ダメージ増加＆被ダメージ減少",
+          "values": [
+            {
+              "label": "増加比率",
+              "value": "4%"
+            },
+            {
+              "label": "減少比率",
+              "value": "4%"
+            },
+            {
+              "label": "最大スタック",
+              "value": "5"
+            },
+            {
+              "label": "減衰時間",
+              "value": "5秒ごとに"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "rukaron",
+      "stage": 3,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/142.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "メルヘンエコー",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "歓びの歌-ダメージ増加＆被ダメージ減少",
+          "values": [
+            {
+              "label": "増加比率",
+              "value": "4%"
+            },
+            {
+              "label": "減少比率",
+              "value": "4%"
+            },
+            {
+              "label": "最大スタック",
+              "value": "5"
+            },
+            {
+              "label": "減衰時間",
+              "value": "5秒ごとに"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "familyId": "rukaron",
+      "stage": 4,
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/142.html",
+      "verifiedAt": "2026-10-07",
+      "sourceSkillName": "アクエリアエコー",
+      "nameComparison": "matched",
+      "effects": [
+        {
+          "name": "歓びの歌-ダメージ増加＆被ダメージ減少",
+          "values": [
+            {
+              "label": "増加比率",
+              "value": "4%"
+            },
+            {
+              "label": "減少比率",
+              "value": "4%"
+            },
+            {
+              "label": "最大スタック",
+              "value": "5"
+            },
+            {
+              "label": "減衰時間",
+              "value": "5秒ごとに"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

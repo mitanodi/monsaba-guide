@@ -13,6 +13,8 @@ const images = json('data/tata-images.json');
 const tatari = json('data/tatari.json');
 const sourceMap = json('data/official-assets/tata-source-map.json');
 const expectedPending = [
+  'erekineko:T4',
+  'hinyao:T4',
   'nenbutsuhebi:T4',
   'shizukuchou:T4',
   'sukedako:T4',
@@ -23,9 +25,9 @@ const forms = images.families.flatMap((family) => family.forms.map((form) => ({ 
 const official = forms.filter((form) => form.sourceType === 'official_creator_asset');
 const pending = forms.filter((form) => form.status === 'pending');
 
-test('all 240 Tata forms have one stage-correct mapping with four expected pending', () => {
-  assert.equal(forms.length, 240);
-  assert.equal(new Set(forms.map((form) => `${form.familyId}:T${form.stage}`)).size, 240);
+test('all 242 Tata forms have one stage-correct mapping with six expected pending', () => {
+  assert.equal(forms.length, 242);
+  assert.equal(new Set(forms.map((form) => `${form.familyId}:T${form.stage}`)).size, 242);
   assert.equal(official.length, 224);
   assert.deepEqual(pending.map((form) => `${form.familyId}:T${form.stage}`).sort(), expectedPending);
   assert.equal(forms.filter((form) => form.status === 'verified' && form.sourceType !== 'official_creator_asset').length, 12);

@@ -52,28 +52,29 @@ test('new family has no invented skill numbers, ratings, or evolution requiremen
   assert.equal(tatari.families.find((family) => family.id === 'rukaron').evolutions[0].nameEn, 'Dolphie');
   assert.equal(tatari.families.find((family) => family.id === 'pakuma').evolutions[0].nameEn, 'Snowcub');
   for (const stage of skills.byFamily.rukaron.stages) {
-    assert.equal(stage.verificationStatus, 'pending-user-skill-evidence');
-    assert.deepEqual(stage.values, []);
-    assert.equal(stage.skillName, '確認待ち');
+    assert.equal(stage.verificationStatus, 'externally_confirmed');
+    assert.equal(stage.evidence.sourceUrl, 'https://w.atwiki.jp/monstersurvival/pages/142.html');
+    assert.ok(stage.values.some(value => value.label === 'ダメージ増加' && value.value === 'スタックごとに4%'));
+    assert.ok(stage.unknownFields.includes('ダメージ倍率'));
+    assert.notEqual(stage.skillName, '確認待ち');
   }
   const ratings = json('data/tier-ratings.json');
   assert.equal(ratings.overall.byFamily.rukaron.tier, null);
   assert.equal(ratings.zombieRush.byFamily.rukaron.tier, null);
   for (const condition of json('data/evolution-trials.json').families.find((family) => family.familyId === 'rukaron').conditions)
-    assert.equal(condition.status, 'pending');
+    assert.equal(condition.individualEvidence.sourceUrl, 'https://w.atwiki.jp/monstersurvival/pages/142.html');
 });
 
-test('pending names cannot be filled with wiki names or invented translations', () => {
-  for (const [field, value] of [['nameEn', 'Blubbles'], ['nameZhHans', '虚构名称']]) {
-    const data = fixture();
-    data.tatari.families.find((family) => family.id === 'rukaron').evolutions[1][field] = value;
-    assert.ok(validateTataNameSources(data).errors.length > 0);
+test('reviewed wiki names require matching dated external evidence; pending Chinese names remain empty', () => {
+  assert.equal(validateTataNameSources(fixture()).errors.length, 0);
+  for (const [field,value] of [['nameEn','Unreviewed'],['nameZhHans','虚构名称']]) {
+    const data=fixture(); data.tatari.families.find(f=>f.id==='rukaron').evolutions[1][field]=value;
+    assert.ok(validateTataNameSources(data).errors.length>0);
   }
-  const data = fixture();
-  const row = data.source.forms.find((item) => item.familyId === 'rukaron' && item.stage === 2);
-  row.englishName = 'Blubbles';
-  data.tatari.families.find((family) => family.id === 'rukaron').evolutions[1].nameEn = 'Blubbles';
-  assert.ok(validateTataNameSources(data).errors.some((error) => error.includes('Pending Tata name')));
+  for(const url of ['https://example.com/name','https://w.atwiki.jp/other/pages/17.html']) {
+    const data=fixture(); data.source.forms.find(r=>r.familyId==='rukaron'&&r.stage===2).localizedEvidence.en.url=url;
+    assert.ok(validateTataNameSources(data).errors.length>0);
+  }
 });
 
 test('untrusted URLs and missing uncertainty states cannot become official evidence', () => {

@@ -56,7 +56,7 @@ test('the archived preview keeps its original status and a separate confirmed-fa
   assert.equal(preview.followUp.familyId, 'rukaron');
   assert.equal(preview.followUp.checkedAt, '2026-10-06');
   assert.equal(live.find((family) => family.id === 'rukaron').evolutions[0].verification.implementation, 'official-store-confirmed');
-  for (const name of ['トコヨニャット', 'ネコノミコト']) assert.ok(!live.some((family) => family.evolutions.some((stage) => stage.name === name)));
+  for (const name of ['トコヨニャット', 'ネコノミコト']) assert.ok(live.some((family) => family.evolutions.some((stage) => stage.name === name && stage.verification?.implementation === 'official-store-confirmed')));
   for (const route of ['updates/2026-09-23-test-preview/index.html', 'en/updates/2026-09-23-test-preview/index.html', 'zh-cn/updates/2026-09-23-test-preview/index.html']) {
     assert.match(read(route), /data-preview-follow-up="2026-10-06"/);
     assert.match(read(route), /\/tata\/rukaron\//);

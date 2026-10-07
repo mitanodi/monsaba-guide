@@ -21,46 +21,16 @@
     'zh-CN': { count: (n) => `${n}个系列`, pending: '待确认', external: '外部确认', empty: '没有符合条件的系列。', detail: '塔塔页面' }
   }[locale];
   const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
-  const translateCondition = (value) => {
-    if (!value || locale === 'ja')
-      return value || ui.pending;
-    const maps = locale === 'en' ? [
-      ['入手後から育成開始', 'Training begins after obtaining'],
-      ['最終進化', 'Final evolution'],
-      ['星上げ', 'star upgrades'],
-      ['個別試練', 'individual trial'],
-      ['餌付け', 'feedings'],
-      ['共有進行', 'shared progress'],
-      ['または', 'or'],
-      ['ランク', ' rank'],
-      ['回', ' times'],
-      ['体捕獲', ' Tatari captured'],
-      ['星（MAX）', ' stars (MAX)'],
-      ['星', ' stars']
-    ] : [
-      ['入手後から育成開始', '获得后开始培养'],
-      ['最終進化', '最终进化'],
-      ['星上げ', '升星'],
-      ['個別試練', '个别试炼'],
-      ['餌付け', '喂食'],
-      ['共有進行', '共享进度'],
-      ['または', '或'],
-      ['ランク', '级'],
-      ['回', '次'],
-      ['体捕獲', '只塔塔捕获'],
-      ['星（MAX）', '星（MAX）'],
-      ['星', '星']
-    ];
-    return maps.reduce((text, [from, to]) => text.replaceAll(from, to), value);
-  };
+  const translateCondition = (value) => value || ui.pending;
   let families = [];
   const render = () => {
     const query = root.querySelector('[data-trial-search]').value.trim().toLocaleLowerCase(locale);
     const attribute = root.querySelector('[data-trial-attribute]').value;
     const status = root.querySelector('[data-trial-status]').value;
-    const matches = families.filter((family) => (!query || `${family.familyName} ${family.conditions.map((item) => `${item.tataName} ${item.condition}`).join(' ')}`.toLocaleLowerCase(locale).includes(query)) && (!attribute || family.attribute === attribute) && (!status || family.conditions.some((item) => item.status === status)));
+    const matches = families.filter((family) => (!query || `${family.familyName} ${family.searchNames} ${family.conditions.map((item) => `${item.tataName} ${item.condition}`).join(' ')}`.toLocaleLowerCase(locale).includes(query)) && (!attribute || family.attribute === attribute) && (!status || family.conditions.some((item) => item.status === status)));
     root.querySelector('[data-trial-count]').textContent = ui.count(matches.length);
-    root.querySelector('[data-trial-results]').innerHTML = matches.length ? matches.map((family) => `<article class="trial-card"><div class="trial-card-head"><h2>${esc(family.evolutions?.[0] || family.familyName)}系</h2><span>${esc(family.attribute)}</span></div><ol>${family.conditions.map((item) => `<li><strong>T${item.stage} ${esc(item.tataName)}</strong><p>${esc(translateCondition(item.condition))}</p><span class="trust-label ${item.status === 'pending' ? 'is-pending' : 'is-external'}">${item.status === 'pending' ? ui.pending : ui.external}</span></li>`).join('')}</ol><a href="/tata/${encodeURIComponent(family.familyId)}/">${ui.detail}</a></article>`).join('') : `<p class="empty">${ui.empty}</p>`;
+    const prefix = locale === 'en' ? '/en' : locale === 'zh-CN' ? '/zh-cn' : '';
+    root.querySelector('[data-trial-results]').innerHTML = matches.length ? matches.map((family) => `<article class="trial-card" translate="no"><div class="trial-card-head"><h2>${esc(family.displayName)}</h2><span>${esc(family.attribute)}</span></div><ol>${family.conditions.map((item) => `<li><strong>T${item.stage} ${esc(family.evolutions?.find(e => e.stage === item.stage)?.displayName || item.tataName)}</strong>${locale === 'ja' ? '' : `<small>${locale === 'en' ? 'Conditions: Japanese source; translation pending' : '条件：日文原文；翻译待确认'}</small>`}<p lang="ja">${esc(translateCondition(item.condition))}</p><a class="trust-label is-external" href="${esc(item.individualEvidence?.sourceUrl || item.sourceUrl)}">${ui.external}</a>${item.status === 'pending' ? ` <span class="trust-label is-pending">${ui.pending}</span>` : ''}</li>`).join('')}</ol><a href="${prefix}/tata/${encodeURIComponent(family.familyId)}/">${ui.detail}</a></article>`).join('') : `<p class="empty">${ui.empty}</p>`;
   };
   for (const control of root.querySelectorAll('input,select'))
     control.addEventListener('input', () => {
@@ -72,9 +42,8 @@
     });
   Promise.all([fetch('/data/evolution-trials.json', { cache: 'no-store' }).then((r) => r.json()), fetch('/data/tatari.json', { cache: 'no-store' }).then((r) => r.json())]).then(([data, tatari]) => {
 
-    const names = new Map(tatari.families.map((family) => [family.id, family.evolutions.map((item) => item.name)]));
-
-    families = data.families.map((family) => ({ ...family, evolutions: names.get(family.familyId) }));
+    const names = new Map(tatari.families.map((family) => [family.id, family.evolutions.map(item => ({ ...item, displayName: (locale === 'en' ? item.nameEn : locale === 'zh-CN' ? item.nameZhHans : item.name) || item.name }))]));
+    families = data.families.map((family) => ({ ...family, evolutions: names.get(family.familyId), displayName: names.get(family.familyId)?.[0]?.displayName || family.familyName, searchNames: names.get(family.familyId)?.flatMap(e => [e.name, e.nameEn, e.nameZhHans]).join(' ') }));
 
     render();
 

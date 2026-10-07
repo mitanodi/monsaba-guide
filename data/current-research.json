@@ -1,0 +1,956 @@
+{
+  "version": 1,
+  "checkedAt": "2026-10-07",
+  "externalAdoptionAuthorized": true,
+  "officialCurrent": {
+    "version": "0.48.1",
+    "publishedAt": "2026-09-23",
+    "sourceUrl": "https://apps.apple.com/jp/app/id6741567125",
+    "features": [
+      "ルカロン",
+      "トコヨニャット",
+      "ネコノミコト",
+      "ゾンビラッシュ Season 2",
+      "タタ分析機"
+    ],
+    "recheckedAt": "2026-10-07T03:14:11.933Z"
+  },
+  "zombieRush": {
+    "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+    "season": 2,
+    "maxWaves": 25,
+    "maxKills": 750,
+    "intervalHours": 4,
+    "durationHours": 3,
+    "attemptsPerOccurrence": 3,
+    "dailyQuestAdditions": 1,
+    "maxQuestStock": 3,
+    "rewards": "one daily ranking reward with differences for improved rank",
+    "timezone": "source timezone unconfirmed",
+    "waveBosses": [
+      {
+        "wave": 1,
+        "name": "Wヘッドゾンビ",
+        "weaknessVariants": [
+          "無し"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 2,
+        "name": "怪魚ゾンビ",
+        "weaknessVariants": [
+          "雷",
+          "雷/炎"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 3,
+        "name": "船長ゾンビ",
+        "weaknessVariants": [
+          "水",
+          "水/草"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 4,
+        "name": "シャーマンゾンビ",
+        "weaknessVariants": [
+          "炎",
+          "炎/岩"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 5,
+        "name": "タイヤゾンビ",
+        "weaknessVariants": [
+          "草",
+          "草/雷"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 6,
+        "name": "スターゾンビ",
+        "weaknessVariants": [
+          "岩",
+          "岩/水"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 7,
+        "name": "水鉄砲ゾンビ",
+        "weaknessVariants": [
+          "雷",
+          "雷/炎"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 8,
+        "name": "酔っ払いゾンビ",
+        "weaknessVariants": [
+          "水",
+          "水/草"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 9,
+        "name": "騎士ゾンビ",
+        "weaknessVariants": [
+          "炎",
+          "炎/岩"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 10,
+        "name": "クライムゾンビ",
+        "weaknessVariants": [
+          "草",
+          "草/雷"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 11,
+        "name": "電撃ゾンビ",
+        "weaknessVariants": [
+          "岩",
+          "岩/水"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 12,
+        "name": "船乗りゾンビ",
+        "weaknessVariants": [
+          "雷",
+          "雷/炎"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 13,
+        "name": "シェフゾンビ",
+        "weaknessVariants": [
+          "水",
+          "水/草"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 14,
+        "name": "ビッグプラントゾンビ",
+        "weaknessVariants": [
+          "炎",
+          "炎/岩"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 15,
+        "name": "ゴルフゾンビ",
+        "weaknessVariants": [
+          "岩",
+          "岩/水"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 15,
+        "name": "ワームゾンビ",
+        "weaknessVariants": [
+          "草",
+          "草/雷"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 16,
+        "name": "魚銛ゾンビ",
+        "weaknessVariants": [
+          "雷",
+          "雷/炎"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 17,
+        "name": "溶鉱炉ゾンビ",
+        "weaknessVariants": [
+          "水",
+          "水/草"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 18,
+        "name": "ファラオゾンビ",
+        "weaknessVariants": [
+          "草",
+          "草/雷"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 19,
+        "name": "ピエロゾンビ",
+        "weaknessVariants": [
+          "岩",
+          "岩/水"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 20,
+        "name": "社長ゾンビ",
+        "weaknessVariants": [
+          "炎",
+          "炎/岩"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 20,
+        "name": "イエティゾンビ",
+        "weaknessVariants": [
+          "雷",
+          "雷/炎"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 21,
+        "name": "石像ゾンビ",
+        "weaknessVariants": [
+          "草",
+          "草/雷"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 22,
+        "name": "ガーデンゾンビ",
+        "weaknessVariants": [
+          "炎",
+          "炎/岩"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 23,
+        "name": "火山ゾンビ",
+        "weaknessVariants": [
+          "水",
+          "水/草"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 24,
+        "name": "レーザーゾンビ",
+        "weaknessVariants": [
+          "岩",
+          "岩/水"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 25,
+        "name": "酔っ払いゾンビ",
+        "weaknessVariants": [
+          "水",
+          "水/草"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 25,
+        "name": "ワームゾンビ",
+        "weaknessVariants": [
+          "草",
+          "草/雷"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      },
+      {
+        "wave": 25,
+        "name": "ビッグプラントゾンビ",
+        "weaknessVariants": [
+          "炎",
+          "炎/岩"
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "status": "externally_confirmed"
+      }
+    ],
+    "balanceAdjustments": [
+      {
+        "familyId": "gantoru",
+        "level": 7,
+        "metric": "damagePercent",
+        "previous": 280,
+        "value": 420,
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "greenbee",
+        "level": 5,
+        "metric": "damagePercent",
+        "previous": 300,
+        "value": 450,
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "tafupen",
+        "level": 5,
+        "metric": "shieldPercent",
+        "previous": 6,
+        "value": 10,
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "tafupen",
+        "level": 7,
+        "metric": "damagePercent",
+        "previous": 150,
+        "value": 240,
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "mogurin",
+        "level": 5,
+        "metric": "damageIntervalSeconds",
+        "previous": 3,
+        "value": 2,
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "potakage",
+        "level": 5,
+        "metric": "damagePercent",
+        "previous": 50,
+        "value": 100,
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "nemukurage",
+        "level": 3,
+        "metric": "projectileCount",
+        "previous": 2,
+        "value": 3,
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "nemukurage",
+        "level": 5,
+        "metric": "damagePercent",
+        "previous": 100,
+        "value": 140,
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "haamitora",
+        "level": 5,
+        "metric": "activationPercent",
+        "previous": 30,
+        "value": 60,
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "haamitora",
+        "level": 7,
+        "metric": "activationIntervalSeconds",
+        "previous": [
+          9,
+          13
+        ],
+        "value": [
+          6,
+          9
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "pupunku",
+        "level": 5,
+        "metric": "attackPercent",
+        "previous": 15,
+        "value": 25,
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "pupunku",
+        "level": 5,
+        "metric": "defensePercent",
+        "previous": 15,
+        "value": 25,
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "nenbutsuhebi",
+        "level": 3,
+        "metric": "activationPercent",
+        "previous": 20,
+        "value": 40,
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "fugumaru",
+        "level": 7,
+        "metric": "damagePercent",
+        "previous": 300,
+        "value": 450,
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "mumukaba",
+        "level": 3,
+        "metric": "damagePercent",
+        "previous": 250,
+        "value": 400,
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "mumukaba",
+        "level": 5,
+        "metric": "activationIntervalSeconds",
+        "previous": [
+          12,
+          20
+        ],
+        "value": [
+          9,
+          15
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "himori",
+        "level": 7,
+        "metric": "damagePercent",
+        "previous": 300,
+        "value": 270,
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "umimi",
+        "level": 3,
+        "metric": "sleepPercent",
+        "previous": 30,
+        "value": 20,
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "fureimuji",
+        "level": 3,
+        "metric": "activationPercent",
+        "previous": 40,
+        "value": 30,
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "himawarin",
+        "level": 3,
+        "metric": "activationIntervalSeconds",
+        "previous": [
+          8,
+          12
+        ],
+        "value": [
+          12,
+          18
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "korotama",
+        "level": 5,
+        "metric": "damagePercent",
+        "previous": 70,
+        "value": 60,
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "korotama",
+        "level": 7,
+        "metric": "damagePercent",
+        "previous": 60,
+        "value": 50,
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "riifuro",
+        "level": 5,
+        "metric": "activationIntervalSeconds",
+        "previous": [
+          10,
+          14
+        ],
+        "value": [
+          14,
+          18
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "atatama",
+        "level": 5,
+        "metric": "activationIntervalSeconds",
+        "previous": [
+          10,
+          16
+        ],
+        "value": [
+          14,
+          20
+        ],
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "atatama",
+        "level": 7,
+        "metric": "damagePercent",
+        "previous": 550,
+        "value": 450,
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "yaminome",
+        "level": 7,
+        "metric": "damagePercent",
+        "previous": 420,
+        "value": 300,
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "purabi",
+        "level": 3,
+        "metric": "healingPercent",
+        "previous": 10,
+        "value": 5,
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      },
+      {
+        "familyId": "purabi",
+        "level": 7,
+        "metric": "damagePercent",
+        "previous": 120,
+        "value": 150,
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+        "sourceType": "public_wiki",
+        "sourceVersion": "2026-09-23",
+        "verifiedAt": "2026-10-07",
+        "status": "externally_confirmed"
+      }
+    ],
+    "pending": [
+      "チップ取得Wave10/15の実画面",
+      "難易度別弱点への対応",
+      "Season2専用スキルの未掲載数値"
+    ]
+  },
+  "events": [
+    {
+      "id": "running-party",
+      "route": "/events/running-party/",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/132.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "summary": {
+        "ja": "4人チームの移動距離と獲得報酬を共有します。旧ルーレットの分布は合計100%で、1/2/3/4/5/8m・5m＋おまけ・20mの8結果があります。Wikiの6.47mは追加回の消費・独立性などの前提が未確認のため、現行ラフトの確定期待値には使いません。倍率は平均効率を改善すると断定せず、高倍率では結果の振れ幅が大きくなります。",
+        "en": "Four players share distance and earned rewards. The older roulette has eight outcomes totaling 100%. The guide’s 6.47 m estimate depends on unverified bonus-spin rules and is not treated as a confirmed Raft Race expectation. Higher multipliers increase variance; they do not establish better average efficiency.",
+        "zh-CN": "四人共享移动距离与奖励。旧轮盘有8种结果，概率合计100%。资料中的6.47m涉及尚未确认的额外回合规则，不作为当前Raft Race的确定期望值。高倍率增加波动，不能据此断定平均效率更高。"
+      },
+      "pending": [
+        "現在のテーマ・開催日・追加回の厳密なルール"
+      ]
+    },
+    {
+      "id": "carnival-fest",
+      "route": "/events/carnival-fest/",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/137.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "summary": {
+        "ja": "通常と次回報酬2倍は別の確率分布で、どちらも合計100%。大当たりは通常0.60%／2倍時1.00%、次回報酬2倍は7%／12%、ハズレは30%／0%。2倍状態は報酬の単純な倍算だけではありません。絵柄から特定できない報酬は名称を推測していません。",
+        "en": "Normal and doubled-reward states have different distributions, each totaling 100%. Jackpot: 0.60% / 1.00%; next doubled reward: 7% / 12%; miss: 30% / 0%. The doubled state is not just twice the normal reward. Unidentified reward icons remain unnamed.",
+        "zh-CN": "普通与奖励翻倍状态采用不同分布，均合计100%。大奖0.60%／1.00%，下次奖励翻倍7%／12%，未中奖30%／0%。翻倍状态不只是奖励数量乘二；未识别的图标不推测名称。"
+      },
+      "pending": [
+        "名称未同定の報酬画像",
+        "日本版の実画面・抽選実測"
+      ]
+    },
+    {
+      "id": "island-treasure",
+      "route": "/events/island-treasure/",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/131.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "summary": {
+        "ja": "4人チームで陣地を占領し、ユニオンポイントを競います。募集は水曜09:00〜木曜08:59、本戦は木曜〜翌火曜という外部記録です。濃縮ドリンクは4週目のリーグへ持越し可能。攻撃100缶という概要とレベル・疲労別必要数表が併存し、報酬もデイリーと最終一括の記載が混在するため、その数値・支給時期は保留しています。 9/9履歴にはMVPのフェスボックス、初回獲得のパーティホール、ギフト共有・実績展示のバンケットハウス、訪問ビー玉、チームキルのエアドロップ削除が掲載されています。ギフトボックスは獲得から5日で期限切れとなり金レンガへ変換。フェスボックスとは別です。10/7予告の石けん・変換10→65は一般配信未確認です。",
+        "en": "Four-player teams capture territory for union points. The guide lists recruitment Wednesday 09:00–Thursday 08:59 and battles Thursday–Tuesday; server applicability is unverified. Concentrated drinks can carry into the fourth-week league. A 100-drink overview conflicts with level/fatigue costs, and daily versus final reward timing is inconsistent. These fields remain pending. The September 9 history lists an MVP Fest Box, a Party Hall on first acquisition, and a separate Banquet House for sharing gifts and displaying achievements. Visits award random marbles; team-kill airdrops were removed. Gift Boxes expire five days after acquisition and convert to gold bricks; they are distinct from Fest Boxes. October 7 soap and conversion changes (10 to 65) remain release-unconfirmed previews.",
+        "zh-CN": "四人队伍占领领地并竞争联盟积分。外部资料记录周三09:00至周四08:59招募，周四至次周二比赛，服务器适用范围待确认。浓缩饮料可保留至第四周联赛。100罐攻击费用与等级疲劳表、每日与最终结算说明存在差异，相关字段保留待确认。 9月9日历史记录列出MVP庆典箱、首次获得时的派对大厅，以及另设的宴会屋用于共享礼盒、展示成就。访客可得随机弹珠，团队击杀空投已移除。礼盒自获得起5日后过期并转为金砖，与庆典箱不同。10月7日肥皂及10→65转换量仍属未确认全面发布的预告。"
+      },
+      "pending": [
+        "时区・サーバー",
+        "攻撃消費の適用範囲",
+        "報酬支給タイミング",
+        "訪問回数制限・箱の地域別名称・10/7予告の一般配信"
+      ],
+      "historySourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html"
+    },
+    {
+      "id": "zombie-siege",
+      "route": "/events/zombie-siege/",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/133.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "summary": {
+        "ja": "ハントコインの消費はフィールド倍率と同数で、ポイントはチーム共有。タタの進化によるキル確率ボーナスは青0%、紫2.5%、金5%、赤7.5%、虹10%。属性相性は関係しないという外部説明です。ゾンビ別確率と期待値表は丸め・集計条件に疑問が残るため、総期待値を確定値にはしません。",
+        "en": "Hunt Coin cost follows the field multiplier, and points are shared by the team. Evolution bonuses are blue 0%, purple 2.5%, gold 5%, red 7.5%, rainbow 10%; the guide states elemental matchup does not apply. The aggregate expected value is withheld because its calculation and rounding are unclear.",
+        "zh-CN": "狩猎币消耗与场地倍率相同，积分由队伍共享。进化击杀概率加成为蓝0%、紫2.5%、金5%、红7.5%、虹10%；资料说明不受属性克制影响。总期望值的计算和舍入条件不清晰，因此不作为确定值。"
+      },
+      "pending": [
+        "日本版の実画面・全確率の集計条件"
+      ]
+    },
+    {
+      "id": "analyzer",
+      "route": "/updates/2026-10-07/#analyzer",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/143.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "summary": {
+        "ja": "タタ分析機は9/23の公式更新で存在を確認。外部資料では1回50タタ分析カプセル、通常／レア／スーパーレア60%／35%／5%、一度に1収集品。重複返還は通常1/2/5、レア2/4/10。通常のガチャカプセルとは別アイテムです。スパやニジイロタタは10/7予告として分離しています。",
+        "en": "The analyzer is confirmed in the September 23 official update. External details: 50 analysis capsules per attempt, one collectible, normal/rare/super-rare probabilities 60%/35%/5%; duplicate refunds 1/2/5 or rare 2/4/10. Analysis capsules are separate from ordinary capsules. Spa and rainbow-form additions remain October 7 preview information.",
+        "zh-CN": "分析机已在9月23日官方更新确认。外部细节：每次50个分析胶囊、获得1个收藏品，普通／稀有／超稀有概率60%／35%／5%；重复返还普通1/2/5、稀有2/4/10。分析胶囊与普通抽奖胶囊不同。温泉及彩虹形态另列为10月7日预告。"
+      },
+      "pending": [
+        "日本版各ラベル・資質上昇の詳細確率"
+      ]
+    },
+    {
+      "id": "boss-rally",
+      "route": "/boss-rally/",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/21.html",
+      "historySourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "summary": {
+        "ja": "順位は最高到達レベルと与ダメージで決まり、同ボス再登場時に進行を引き継ぎます。Lv99クリア後は最大ダメージを競います。怪魚は移動後5秒間被ダメージ増、ロックスターは15体召喚し取り巻き生存中に本体軽減、走り屋は1回限りの3連撃と鉱夫召喚、酔っ払いは全ゾンビを加速・火力強化、社長はタタ1体を強制退場。9/9履歴のクッキー加算は各ボスの全難易度クリアごとに基本報酬+10%、最大+50%。個別難易度ごとの加算や複利ではありません。",
+        "en": "Rank uses highest level and damage; progress carries over when the same boss returns. After level 99, maximum damage determines competition. Fish takes extra damage for five seconds after teleporting. Rockstar summons 15 minions and reduces incoming damage while they live; Runner uses one triple strike and summons miners; Drunk boosts all zombies; President removes one Tatari. September 9 history adds 10% of the base ranking-cookie reward per boss with all difficulties cleared, capped at 50%, rather than per difficulty or compound growth.",
+        "zh-CN": "排名按最高等级与伤害计算，同一首领再次出现时继承进度，99级通关后比最高伤害。怪鱼传送后5秒受伤增加；摇滚首领召唤15个随从，随从存活时本体减伤；走行首领有一次三连击并召唤矿工；醉汉强化所有僵尸；社长强制移除1只塔塔。9月9日记录：每种首领全部难度通关后，排名曲奇奖励按基础量增加10%，上限50%；并非每个难度加成，也非复利。"
+      },
+      "pending": [
+        "同ボス再クリア・リセット・過去クリア分の加算扱い",
+        "現行サーバーの周期・基準日（外部頁は日次表記、2日周期候補と相違）"
+      ]
+    },
+    {
+      "id": "fishing-tournament",
+      "route": "/events/fishing-tournament/",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/134.html",
+      "historySourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "summary": {
+        "ja": "4人チームで魚の大きさを競います。順位用の金貨はサイズ・重量の差分、個人報酬用の銀貨は累計で、倍率は銀貨だけに作用します。釣り竿1本につきまき餌0.3%、10分間チーム全員Lv+1、同時最大4個。9/9履歴では銀貨2,000万後の繰り返し報酬追加を確認しましたが、間隔・内容は未掲載のため推測しません。",
+        "en": "Four-player teams compete on fish size. Ranking gold coins use size/weight differences; personal silver coins accumulate, and multipliers affect silver only. Each rod has a 0.3% bait chance. Bait gives the team +1 level for ten minutes, with up to four used together. September 9 history adds repeat rewards after 20 million silver coins; their interval and contents remain unpublished.",
+        "zh-CN": "四人队伍比鱼的大小。排名金币按尺寸和重量差额获得，个人奖励银币累计，倍率只影响银币。每根鱼竿有0.3%概率获得鱼饵，使用后全队10分钟内等级+1，同时最多4个。9月9日记录新增2,000万银币后的重复奖励，间隔与内容未公布，不推测。"
+      },
+      "pending": [
+        "2,000万以降の繰り返し報酬間隔・内容",
+        "魚種・重量アイコンの実物名称"
+      ]
+    }
+  ],
+  "upcoming": {
+    "status": "external-preview-implementation-unconfirmed",
+    "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
+    "announcedDate": "2026-10-07",
+    "newFamily": "サトリッサム",
+    "newForms": [
+      "ファミリッサム",
+      "エクスカボーラー",
+      "サボティアモ"
+    ],
+    "features": [
+      "スパ",
+      "ニジイロタタ",
+      "秋の物語",
+      "オーシャントレジャー"
+    ],
+    "unknown": [
+      "一般配信日・サーバー別開放",
+      "先行タタ画像・正式外国語名",
+      "未掲載の通常/ZR倍率・間隔・進化差",
+      "サボティアモ45000ビー玉の操作動詞・達成判定",
+      "スパ効果・消費量・ニジイロ獲得率"
+    ],
+    "details": [
+      {
+        "name": "サトリッサム → コモリッサム → フタリッサム → ファミリッサム",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/145.html",
+        "summary": {
+          "ja": "先行個別資料：T2は6星＋同タタ1匹確保、T3は18星・ステータス3回・共有進行70/4000、T4は36星・Bランク・共有進行120/7200・同タタ15匹確保。被ダメージ20%減・回復量40%減。死んだふりは8秒、120%ダメージを1.25秒間隔、初期被弾9回・発動ごとに必要回数+3。岩オーラは3.5～17.5%、非岩属性は半減。各進化での数値差、未掲載倍率・間隔は未確認。",
+          "en": "Preview: T2 requires 6 stars and one copy; T3 requires 18 stars, three stat increases and shared progress 70/4000; T4 requires 36 stars, rank B, progress 120/7200 and 15 copies. Incoming damage falls by 20% and healing received by 40%. Feigning death lasts 8 seconds, dealing 120% every 1.25 seconds; it initially requires 9 hits, then 3 more per activation. The rock aura ranges from 3.5% to 17.5%, halved for other attributes. Evolution differences and unlisted numbers remain unverified.",
+          "zh-CN": "先行资料：T2需6星及同种1只；T3需18星、3次属性提升及共享进度70/4000；T4需36星、B等级、共享进度120/7200及同种15只。受到伤害减少20%、受到治疗减少40%。装死持续8秒，每1.25秒造成120%伤害，初始需受击9次，每次发动后所需次数增加3。岩光环3.5～17.5%，非岩属性效果减半；进化数值差异及未公布数值待确认。"
+        }
+      },
+      {
+        "name": "エクスカボーラー（先行T4）",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/72.html",
+        "summary": {
+          "ja": "個別表でBランク・共有進行120/7200・ロックケーキ15個を確認。必要な星数、共有進行の換算・達成判定、一般配信は未確認。既存T3の条件へ流用しません。",
+          "en": "The individual preview table lists rank B, shared progress 120/7200 and 15 Rock Cakes. Required stars, progress conversion, completion logic and general release remain unverified. These requirements are not applied to the existing T3.",
+          "zh-CN": "先行个别表记载B等级、共享进度120/7200及15个岩石蛋糕。所需星数、进度换算、达成判定及全面发布待确认，不套用于既有T3。"
+        }
+      },
+      {
+        "name": "サボティアモ（先行T4）",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/58.html",
+        "summary": {
+          "ja": "個別表で36星・Bランク・ビー玉のアイコン45,000個・ゾンビラッシュ累計150Waveを確認。実画像を確認しましたが、ビー玉の「獲得/使用/発射」の動詞は表に未掲載のため保留。一般配信は未確認。",
+          "en": "The individual preview table lists 36 stars, rank B, a marble icon with 45,000, and 150 cumulative Zombie Rush waves. The icon was actually viewed, but the table does not specify collecting, spending or firing those marbles; that action remains pending. General release is unverified.",
+          "zh-CN": "先行个别表记载36星、B等级、弹珠图标45,000个及Zombie Rush累计150波。已实际查看图标，但表中未注明获得、消耗或发射弹珠的动作，因此保留；全面发布待确认。"
+        }
+      },
+      {
+        "name": "不思議なスパ・スパ駅",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "summary": {
+          "ja": "先行告知ではT4所有とトレジャーMVPでスパを解放。石けんで7日間の効果を有効化・変更し、招待したフレンドに一部効果を共有。スパ駅はT4所有とスパを持つフレンドが条件。具体的なバフ数値・消費量・地域差は未確認。",
+          "en": "Preview: owning a T4 and receiving a Treasure MVP award unlock the spa. Soap activates effects for seven days and changes them; invited friends receive part of the effect. The station requires a T4 and a friend with a spa. Buff values, costs and regional differences remain unverified.",
+          "zh-CN": "预告：拥有T4并在宝藏活动获得MVP可解锁温泉；肥皂可启用7天效果并更换效果，邀请好友共享部分效果。车站需拥有T4及有温泉的好友；加成数值、消耗及地区差异待确认。"
+        }
+      },
+      {
+        "name": "ニジイロタタ",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "summary": {
+          "ja": "先行告知の対象はネコオリ・コマキリ・ビリジカ・ガオデン・ウミミ・ヤンザル・コロコン・フルッグ・ヒモリ・コロジューの10種。T4のピカピカ形態が適切なスパで一定時間過ごすと確率で獲得する7種類の追加要素です。T5や新系統には数えません。必要時間・確率・7種類の正式名は未確認。",
+          "en": "The preview lists ten eligible Tata and seven rainbow additions for shiny T4 forms acquired by spending time in a suitable spa. They are not counted as T5 or new families. Required time, probability and the seven official names remain unverified.",
+          "zh-CN": "预告列出10种对象及7种彩虹追加要素，闪亮T4在符合条件的温泉停留一定时间后按概率获得。不计为T5或新系列；所需时间、概率及7种正式名称待确认。"
+        }
+      },
+      {
+        "name": "秋の物語・キラカード",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "summary": {
+          "ja": "先行告知では現アルバム終了後に新アルバムへ移行し、完成報酬は永久アイコンフレーム。キラカードは通常カードの演出違いで交換・プレゼント可能、イベント報酬は変わりません。開始日・出現率は未確認。",
+          "en": "The preview places the new album after the current one, awarding a permanent frame on completion. Shiny cards change visual effects, can be traded or gifted, and do not change event rewards. Start dates and drop rates remain unverified.",
+          "zh-CN": "预告记载新相册在当前相册结束后开启，集齐获得永久头像框。闪卡为普通卡的演出版本，可交换或赠送，不影响活动奖励；开启日期及概率待确认。"
+        }
+      },
+      {
+        "name": "オーシャントレジャー・パス",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "summary": {
+          "ja": "先行告知では月間パスをクエストでカギを集めるイベントへ変更。旧月間パスは販売終了後も残存期間の特典を維持し、週間パス報酬は調整予定。価格・必要カギ数・地域別提供状況は未確認。",
+          "en": "The preview describes replacing the monthly pass with an event where quests grant keys. Existing monthly-pass benefits continue for their remaining term, while weekly rewards are planned to change. Prices, required key counts and regional availability remain unverified.",
+          "zh-CN": "预告记载月卡改为通过任务收集钥匙的活动；旧月卡停售后仍保留剩余期间权益，周卡奖励将调整。价格、所需钥匙数量及地区供应待确认。"
+        }
+      }
+    ]
+  },
+  "coverage": {
+    "chipImagesCompared": 49,
+    "chipEffectsReviewed": 49,
+    "chipEffectConflicts": 3,
+    "tataFamiliesRead": 66,
+    "externalDedicatedSkills": 198,
+    "forms": 242,
+    "verifiedImages": 236,
+    "pendingImages": 6,
+    "normalStage1NamesMatched": 62,
+    "normalStage1NameConflicts": 4,
+    "normalStageLatestNumericCoverage": "all 242 stage descriptions reviewed; unpublished base damage/cooldown and conflicting existing evidence remain pending",
+    "dedicatedNumericFieldsConfirmed": 28,
+    "normalFormsRead": 242,
+    "normalNameConflicts": 20,
+    "normalExternalNumericFields": 502,
+    "pendingOfficialChipNames": {
+      "en": 49,
+      "zh-CN": 49
+    },
+    "eventsReviewed": 7
+  },
+  "uninvestigated": [
+    "公式Discordの現在のファンアート企画・Tatari Musical告知",
+    "ゲーム内の全242形態の最新通常スキル画面"
+  ],
+  "unverified": [
+    "物理iPhone",
+    "実際のコード交換",
+    "新T4画像6形態",
+    "簡体字名6形態",
+    "チップ正式英語名49件・簡体字名49件",
+    "ギフト/ボス/施設の資料履歴と日本版実画面の一致",
+    "Season2の難易度継承の最下位例外"
+  ],
+  "facilities": {
+    "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
+    "verifiedAt": "2026-10-07",
+    "sourceType": "public_wiki",
+    "officialSourceUrl": "https://play.google.com/store/apps/details?id=com.farlightgames.pgame.gp&hl=ja",
+    "historyDates": [
+      "2026-07-29",
+      "2026-09-09",
+      "2026-09-23"
+    ],
+    "summary": {
+      "ja": "外部更新履歴：9/9に昼夜変化と建物テーマ「竹林の街」、ゲーム内フレンド上限50→80、カード交換の星ランク絞り込み・連続受取演出。9/23に街灯6種（いちごコーン型ランタン・波模様の街灯等）とゴールドタウンのアメジスト鉱床、以前のアルバム保存、交換申請取消時のカード・当日交換回数返還、銀レンガ販売。公式ストアは昼夜・建物テーマ、新街灯・防衛ビー玉・カード改善・銀レンガ販売の存在を確認しています。保存済みアルバムは思い出ギャラリーで閲覧します。価格や販売上限は未確認です。",
+      "en": "External update history: September 9 added day/night changes, a bamboo-town building theme, an in-game friend limit of 80 instead of 50, star-rank card filters and continuous gift collection. September 23 lists six streetlights and an amethyst deposit, saved older albums, cancellation returning the card and daily trade allowance, and silver-brick sales. Official store text confirms day/night and building themes, new lights, defense marbles, card improvements and silver-brick sales. Saved albums remain viewable through the memory gallery. Prices and purchase limits are unverified.",
+      "zh-CN": "外部更新历史：9月9日新增昼夜变化、竹林建筑主题、游戏好友上限50→80、卡片交换星级筛选及连续领取演出。9月23日列出6种街灯和紫水晶矿床、旧相册保存、取消交换申请退还卡片及当日次数、银砖出售。官方商店确认昼夜和建筑主题、新街灯、防卫弹珠、卡片改进及银砖销售的存在。已保存相册可通过回忆画廊查看；价格和购买上限待确认。"
+    },
+    "pending": [
+      "街灯其余4种的正式名称和图片",
+      "价格・購入回数・地域別UI",
+      "取消返還の実機確認"
+    ]
+  }
+}

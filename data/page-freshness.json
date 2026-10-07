@@ -18,20 +18,23 @@
       "verified": "2026-09-01"
     },
     "/tata/pakuma/": {
-      "updated": "2026-10-06",
+      "updated": "2026-10-07",
       "verified": "2026-08-30",
       "gameVersion": "0.46.1",
-      "imageVerified": "2026-10-06"
+      "imageVerified": "2026-10-06",
+      "externalVerified": "2026-10-07"
     },
     "/tata/sukedako/": {
-      "updated": "2026-08-30",
+      "updated": "2026-10-07",
       "verified": "2026-08-30",
-      "gameVersion": "0.46.1"
+      "gameVersion": "0.46.1",
+      "externalVerified": "2026-10-07"
     },
     "/tata/nenbutsuhebi/": {
-      "updated": "2026-08-30",
+      "updated": "2026-10-07",
       "verified": "2026-08-30",
-      "gameVersion": "0.46.1"
+      "gameVersion": "0.46.1",
+      "externalVerified": "2026-10-07"
     },
     "/attribute/*": {
       "updated": "2026-08-25T17:57:25+09:00"
@@ -73,10 +76,11 @@
     },
     "/zombie-rush/chips/": {
       "published": "2026-08-30",
-      "updated": "2026-08-30",
+      "updated": "2026-10-07",
       "verified": "2026-08-30",
       "gameVersion": "0.46.1",
-      "status": "verified"
+      "status": "verified",
+      "externalVerified": "2026-10-07"
     },
     "/boss-rally/": {
       "updated": "2026-08-25T17:57:25+09:00"
@@ -181,9 +185,10 @@
     },
     "/evolution/trials/": {
       "published": "2026-08-30",
-      "updated": "2026-08-30",
+      "updated": "2026-10-07",
       "verified": "2026-08-30",
-      "gameVersion": "0.46.1"
+      "gameVersion": "0.46.1",
+      "externalVerified": "2026-10-07"
     },
     "/roles/*": {
       "published": "2026-08-28",
@@ -255,7 +260,7 @@
       "pending": []
     },
     "/tata/rukaron/": {
-      "updated": "2026-10-06",
+      "updated": "2026-10-07",
       "imageVerified": "2026-10-06",
       "published": "2026-10-06",
       "status": "partial-evidence",
@@ -267,11 +272,264 @@
         "総合Tier・用途別評価"
       ],
       "verified": "2026-10-06",
-      "gameVersion": "画像・名称のみ確認"
+      "gameVersion": "画像・名称のみ確認",
+      "externalVerified": "2026-10-07"
     },
     "/tata/nusuke/": {
-      "updated": "2026-10-06",
-      "imageVerified": "2026-10-06"
+      "updated": "2026-10-07",
+      "imageVerified": "2026-10-06",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/takepanda/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/tsubaruka/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/birimori/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/togegyo/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/yotsubird/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/kaenjack/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/hihidog/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/hanarenaishi/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/birinamazu/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/daishell/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/batarisu/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/guuhog/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/capibarrie/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/rokubuhi/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/marushu/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/fugumaru/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/greenbee/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/kowagaru/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/kunbuu/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/tsubutsumuri/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/pupunku/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/erekineko/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/hinyao/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/mumukaba/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/hikaru/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/atatama/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/yaminome/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/korokon/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/mogurin/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/biripiyo/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/potakage/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/fukurogumo/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/nemukurage/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/sabooru/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/korotama/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/yanzaru/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/gaoden/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/himawarin/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/nekoori/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/furuggu/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/himori/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/komakiri/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/umimi/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/purabi/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/rokuju/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/boruzarashi/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/gantoru/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/denjika/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/tafupen/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/fureimuji/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/erekoon/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/matchiba/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/denrou/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/kenkani/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/fureebi/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/haamitora/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/shiiparusu/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/shizukuchou/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/doriruu/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/riifuro/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/tata/hikikomoru/": {
+      "updated": "2026-10-07",
+      "externalVerified": "2026-10-07"
+    },
+    "/updates/2026-10-07/": {
+      "published": "2026-10-07",
+      "updated": "2026-10-07",
+      "verified": "2026-10-07",
+      "externalVerified": "2026-10-07",
+      "status": "mixed-evidence-with-pending-fields"
     }
   }
 }

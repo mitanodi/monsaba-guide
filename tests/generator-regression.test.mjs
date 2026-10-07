@@ -47,7 +47,10 @@ test('A8 originals and all tracking identifiers remain exact; Production retains
   assert.match(read('monetization.js'), /link\.rel = 'sponsored nofollow noopener'/);
   assert.match(read('monetization.js'), /pixel\.src = offer\.trackingPixel/);
 });
-test('all 399 published SEO records survive generation unchanged', () => {
+test('all 399 published SEO records retain their fields except explicitly reviewed October 7 changes', () => {
+  const historical = JSON.parse(read('tests/fixtures/seo-baseline-fields-2026-10-06.json'));
+  const policy = JSON.parse(read('tests/fixtures/seo-approved-changes-2026-10-07.json'));
+  const apply = (object, change) => { const keys = change.path.slice(1).split('/'); let parent = object; for (const key of keys.slice(0, -1)) parent = parent[key]; parent[keys.at(-1)] = change.value; };
   const expected = JSON.parse(read('tests/fixtures/generation-seo.json'));
   for (const [file, hash] of Object.entries(expected)) {
     const $ = load(read(file));
@@ -59,6 +62,11 @@ test('all 399 published SEO records survive generation unchanged', () => {
       robots: $('meta[name="robots"]').toArray().map(e => $(e).attr('content')),
       schemas: $('script[type="application/ld+json"]').toArray().map(e => JSON.parse($(e).text()))
     };
-    assert.equal(sha(JSON.stringify(fields)), hash, file);
+    if (historical[file]) {
+      assert.equal(sha(JSON.stringify(historical[file])), hash, file + ': published baseline changed');
+      const approved = structuredClone(historical[file]);
+      for (const change of policy.changes[file] || []) apply(approved, change);
+      assert.deepEqual(fields, approved, file);
+    } else assert.equal(sha(JSON.stringify(fields)), hash, file);
   }
 });

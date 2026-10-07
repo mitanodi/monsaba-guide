@@ -11,7 +11,7 @@ const { getFamilyDisplayName, getFamilyDisplayLabel, getFamilySearchAliases } = 
 
 test('all 66 family labels use the stage 1 name while retaining every search alias', () => {
   assert.equal(tatari.families.length, 66);
-  assert.equal(tatari.families.flatMap((family) => family.evolutions).length, 240);
+  assert.equal(tatari.families.flatMap((family) => family.evolutions).length, 242);
   for (const family of tatari.families) {
     assert.equal(getFamilyDisplayName(family), family.evolutions[0].name, family.id);
     assert.equal(getFamilyDisplayLabel(family), `${family.evolutions[0].name}系`, family.id);

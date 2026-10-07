@@ -1,0 +1,1432 @@
+{
+  "baseHead": "f25627496fac6016a69bae90e8e7849ebe83c588",
+  "dateModified": "2026-10-07",
+  "changes": {
+    "tata/takepanda/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/tsubaruka/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/birimori/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/togegyo/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/yotsubird/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/kaenjack/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/hihidog/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/hanarenaishi/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/birinamazu/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/daishell/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/batarisu/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/guuhog/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/capibarrie/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/rokubuhi/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/marushu/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/fugumaru/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/greenbee/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/kowagaru/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/kunbuu/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/tsubutsumuri/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/pupunku/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/erekineko/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      },
+      {
+        "path": "/schemas/0/@graph/0/about/alternateName/9",
+        "value": "トコヨニャット"
+      },
+      {
+        "path": "/schemas/0/@graph/0/about/alternateName/10",
+        "value": "Thunderpaw"
+      },
+      {
+        "path": "/title",
+        "value": "モンサバ エレキネコ系（デンニャン・トコヨニャット）は強い？進化・スキル・用途"
+      },
+      {
+        "path": "/schemas/0/@graph/0/name",
+        "value": "モンサバ エレキネコ系（デンニャン・トコヨニャット）は強い？進化・スキル・用途"
+      }
+    ],
+    "tata/sukedako/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/hinyao/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      },
+      {
+        "path": "/schemas/0/@graph/0/about/alternateName/9",
+        "value": "ネコノミコト"
+      },
+      {
+        "path": "/schemas/0/@graph/0/about/alternateName/10",
+        "value": "Cinderclaw"
+      },
+      {
+        "path": "/title",
+        "value": "モンサバ ヒニャオ系（マネヒネコ・ネコノミコト）は強い？進化・スキル・用途"
+      },
+      {
+        "path": "/schemas/0/@graph/0/name",
+        "value": "モンサバ ヒニャオ系（マネヒネコ・ネコノミコト）は強い？進化・スキル・用途"
+      }
+    ],
+    "tata/mumukaba/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/hikaru/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/atatama/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/yaminome/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/korokon/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/mogurin/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/biripiyo/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/potakage/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/fukurogumo/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/nemukurage/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/sabooru/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/korotama/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/yanzaru/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/gaoden/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/himawarin/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/nekoori/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/furuggu/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/himori/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/komakiri/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/umimi/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/purabi/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/rokuju/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/boruzarashi/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/gantoru/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/denjika/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/tafupen/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/fureimuji/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/erekoon/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/nenbutsuhebi/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/matchiba/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/denrou/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/kenkani/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/fureebi/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/haamitora/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/shiiparusu/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/shizukuchou/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/doriruu/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/riifuro/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/hikikomoru/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/pakuma/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/nusuke/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "tata/rukaron/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/takepanda/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/tsubaruka/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/birimori/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/togegyo/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/yotsubird/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/kaenjack/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/hihidog/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/hanarenaishi/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/birinamazu/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/daishell/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/batarisu/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/guuhog/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/capibarrie/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/rokubuhi/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/marushu/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/fugumaru/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/greenbee/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/kowagaru/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/kunbuu/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/tsubutsumuri/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/pupunku/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/erekineko/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      },
+      {
+        "path": "/schemas/0/@graph/0/about/alternateName/9",
+        "value": "トコヨニャット"
+      },
+      {
+        "path": "/schemas/0/@graph/0/about/alternateName/10",
+        "value": "Thunderpaw"
+      }
+    ],
+    "en/tata/sukedako/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/hinyao/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      },
+      {
+        "path": "/schemas/0/@graph/0/about/alternateName/9",
+        "value": "ネコノミコト"
+      },
+      {
+        "path": "/schemas/0/@graph/0/about/alternateName/10",
+        "value": "Cinderclaw"
+      }
+    ],
+    "en/tata/mumukaba/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/hikaru/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/atatama/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/yaminome/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/korokon/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/mogurin/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/biripiyo/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/potakage/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/fukurogumo/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/nemukurage/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/sabooru/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/korotama/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/yanzaru/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/gaoden/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/himawarin/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/nekoori/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/furuggu/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/himori/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/komakiri/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/umimi/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/purabi/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/rokuju/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/boruzarashi/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/gantoru/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/denjika/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/tafupen/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/fureimuji/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/erekoon/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/nenbutsuhebi/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/matchiba/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/denrou/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/kenkani/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/fureebi/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/haamitora/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/shiiparusu/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/shizukuchou/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/doriruu/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/riifuro/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/hikikomoru/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/pakuma/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/nusuke/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/tata/rukaron/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/takepanda/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/tsubaruka/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/birimori/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/togegyo/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/yotsubird/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/kaenjack/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/hihidog/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/hanarenaishi/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/birinamazu/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/daishell/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/batarisu/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/guuhog/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/capibarrie/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/rokubuhi/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/marushu/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/fugumaru/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/greenbee/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/kowagaru/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/kunbuu/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/tsubutsumuri/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/pupunku/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/erekineko/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      },
+      {
+        "path": "/schemas/0/@graph/0/about/alternateName/9",
+        "value": "トコヨニャット"
+      },
+      {
+        "path": "/schemas/0/@graph/0/about/alternateName/10",
+        "value": "Thunderpaw"
+      }
+    ],
+    "zh-cn/tata/sukedako/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/hinyao/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      },
+      {
+        "path": "/schemas/0/@graph/0/about/alternateName/9",
+        "value": "ネコノミコト"
+      },
+      {
+        "path": "/schemas/0/@graph/0/about/alternateName/10",
+        "value": "Cinderclaw"
+      }
+    ],
+    "zh-cn/tata/mumukaba/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/hikaru/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/atatama/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/yaminome/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/korokon/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/mogurin/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/biripiyo/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/potakage/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/fukurogumo/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/nemukurage/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/sabooru/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/korotama/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/yanzaru/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/gaoden/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/himawarin/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/nekoori/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/furuggu/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/himori/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/komakiri/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/umimi/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/purabi/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/rokuju/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/boruzarashi/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/gantoru/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/denjika/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/tafupen/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/fureimuji/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/erekoon/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/nenbutsuhebi/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/matchiba/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/denrou/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/kenkani/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/fureebi/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/haamitora/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/shiiparusu/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/shizukuchou/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/doriruu/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/riifuro/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/hikikomoru/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/pakuma/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/nusuke/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/tata/rukaron/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "evolution/trials/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "gift-codes/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      },
+      {
+        "path": "/title",
+        "value": "モンサバ ギフトコード一覧｜2026年10月・入力方法"
+      },
+      {
+        "path": "/schemas/0/@graph/0/name",
+        "value": "モンサバ ギフトコード一覧｜2026年10月・入力方法"
+      },
+      {
+        "path": "/description",
+        "value": "2026年10月7日に公開掲載を確認した14コード。報酬・期限・地域・交換可否と、資料間の相違を分けて掲載。正確な文字列をコピーできます。"
+      },
+      {
+        "path": "/schemas/0/@graph/0/description",
+        "value": "2026年10月7日に公開掲載を確認した14コード。報酬・期限・地域・交換可否と、資料間の相違を分けて掲載。正確な文字列をコピーできます。"
+      }
+    ],
+    "zombie-rush/chips/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      },
+      {
+        "path": "/description",
+        "value": "全49チップの画像・名前・Rankを実照合。効果は外部攻略資料で確認し、資料間の矛盾を分けて表示します。"
+      },
+      {
+        "path": "/schemas/0/@graph/0/description",
+        "value": "全49チップの画像・名前・Rankを実照合。効果は外部攻略資料で確認し、資料間の矛盾を分けて表示します。"
+      }
+    ],
+    "en/evolution/trials/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "en/gift-codes/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      },
+      {
+        "path": "/title",
+        "value": "Clash of Critters Gift Codes | October 2026"
+      },
+      {
+        "path": "/schemas/0/@graph/0/name",
+        "value": "Clash of Critters Gift Codes | October 2026"
+      },
+      {
+        "path": "/description",
+        "value": "14 publicly listed codes checked on October 7, 2026, with reward, expiry and regional conflicts shown separately. Copy exact strings."
+      },
+      {
+        "path": "/schemas/0/@graph/0/description",
+        "value": "14 publicly listed codes checked on October 7, 2026, with reward, expiry and regional conflicts shown separately. Copy exact strings."
+      }
+    ],
+    "en/zombie-rush/chips/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      },
+      {
+        "path": "/description",
+        "value": "Search 49 visually compared chips by name, rank and effect. External effect evidence and conflicting values are labeled separately."
+      },
+      {
+        "path": "/schemas/0/@graph/0/description",
+        "value": "Search 49 visually compared chips by name, rank and effect. External effect evidence and conflicting values are labeled separately."
+      }
+    ],
+    "zh-cn/evolution/trials/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      }
+    ],
+    "zh-cn/gift-codes/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      },
+      {
+        "path": "/title",
+        "value": "Clash of Critters 兑换码列表｜2026年10月"
+      },
+      {
+        "path": "/schemas/0/@graph/0/name",
+        "value": "Clash of Critters 兑换码列表｜2026年10月"
+      },
+      {
+        "path": "/description",
+        "value": "2026年10月7日核对公开资料中的14个代码，分别标示奖励、期限、地区及兑换状态，并展示来源差异。"
+      },
+      {
+        "path": "/schemas/0/@graph/0/description",
+        "value": "2026年10月7日核对公开资料中的14个代码，分别标示奖励、期限、地区及兑换状态，并展示来源差异。"
+      }
+    ],
+    "zh-cn/zombie-rush/chips/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/dateModified",
+        "value": "2026-10-07"
+      },
+      {
+        "path": "/description",
+        "value": "已实际比对49种芯片的图片、名称与Rank；效果来自外部攻略资料，矛盾数值单独标记。"
+      },
+      {
+        "path": "/schemas/0/@graph/0/description",
+        "value": "已实际比对49种芯片的图片、名称与Rank；效果来自外部攻略资料，矛盾数值单独标记。"
+      }
+    ],
+    "index.html": [
+      {
+        "path": "/schemas/0/@graph/1/description",
+        "value": "モンサバ攻略DBは、モンスターサバイバル（モンサバ）のタタ66系統・242体を収録。Tier、進化先、スキル効果・数値を一覧で確認できます。"
+      }
+    ],
+    "faq/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/mainEntity/4/acceptedAnswer/text",
+        "value": "専用変更だけを理由に総合Tierを自動変更しません。現在のシーズンと実戦根拠を確認し、モードごとの評価を分けて扱います。"
+      },
+      {
+        "path": "/schemas/0/@graph/0/mainEntity/5/acceptedAnswer/text",
+        "value": "既存の進化優先度では、ネコオリ系・ヒモリ系・フルッグ系が候補です。必要な星数と個別試練は進化試練DBで確認してください。手持ちと目的でも変わります。"
+      }
+    ],
+    "en/index.html": [
+      {
+        "path": "/schemas/0/@graph/1/description",
+        "value": "Clash of Critters Guide DB covers 66 families and 242 forms, with tiers, evolutions, skill effects and values."
+      }
+    ],
+    "en/faq/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/mainEntity/4/acceptedAnswer/text",
+        "value": "Dedicated-skill changes do not automatically change overall tiers. Ratings remain separated by mode and require current-season battle evidence."
+      },
+      {
+        "path": "/schemas/0/@graph/0/mainEntity/5/acceptedAnswer/text",
+        "value": "Existing editorial priorities include Frostnip, Blueflick and Frugling. Check the Trial Database for stars and individual requirements; priorities depend on your roster and goals."
+      }
+    ],
+    "zh-cn/index.html": [
+      {
+        "path": "/schemas/0/@graph/1/description",
+        "value": "Clash of Critters攻略DB收录66 个系列、242个形态，可查看Tier、进化及技能效果与数值。"
+      }
+    ],
+    "zh-cn/faq/index.html": [
+      {
+        "path": "/schemas/0/@graph/0/mainEntity/4/acceptedAnswer/text",
+        "value": "专用技能变更不会自动改变综合Tier；按模式区分评价，并需要当前赛季实战依据。"
+      },
+      {
+        "path": "/schemas/0/@graph/0/mainEntity/5/acceptedAnswer/text",
+        "value": "既有培养建议包括猫冰、蓝舌火蜥和火果蛙；请在试炼数据库核对星数及个别条件，优先度也取决于持有角色与目标。"
+      }
+    ]
+  }
+}

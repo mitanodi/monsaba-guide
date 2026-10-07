@@ -79,7 +79,7 @@ write('/evolution/t4/', shell({
   route: '/evolution/t4/',
   title: 'モンサバ T4おすすめ｜第4進化の大きな変化',
   description: '確認済みの進化差分と既存進化優先度から、T4で変化が大きい系統を整理します。未確認の新T4詳細は掲載しません。',
-  body: `<section class="wrap static-section"><h2 class="page-h2">確認済みの高インパクトT4</h2><div class="guide-hub-grid">${t4Transitions.map(item => { const f = byId.get(item.familyId); return f ? card(getFamilyDisplayLabel(f), `${item.headline}。${item.reason}`, `/tata/${f.id}/#stage-4`, 'T4差分を見る') : '' }).join('') || card('確認中', '既存DBで根拠が揃った候補から追加します。')}</div><div class="alert-box"><strong>新T4の詳細は確認待ち</strong><p>ロードパスとナムアミダイジャは公式告知で名称を確認済みですが、スキル・必要星数はゲーム内スクリーンショット確認まで追加しません。</p></div></section>`
+  body: `<section class="wrap static-section"><h2 class="page-h2">確認済みの高インパクトT4</h2><div class="guide-hub-grid">${t4Transitions.map(item => { const f = byId.get(item.familyId); return f ? card(getFamilyDisplayLabel(f), `${item.headline}。${item.reason}`, `/tata/${f.id}/#stage-4`, 'T4差分を見る') : '' }).join('') || card('確認中', '既存DBで根拠が揃った候補から追加します。')}</div><div class="alert-box"><strong>新T4の詳細は確認待ち</strong><p>新T4を含む条件・スキルは、外部攻略資料とゲーム内資料を区別して掲載します。未掲載の数値は確認待ちです。個別ページと進化試練DBを確認してください。</p></div></section>`
 }));
 
 write('/items/', shell({

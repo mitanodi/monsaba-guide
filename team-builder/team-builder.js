@@ -1,4 +1,5 @@
 import { familyMatches, loadRoster } from '../my-monsaba/roster-core.js';
+import { languageSwitchHash } from './locale-handoff.js';
 import {
   HANDOFF_KEY, MODE_LABELS, PLAYER_IDS, BASE_LEVEL_LIMIT, MAX_LEVEL_LIMIT,
   boardRows, boardColumns, boardSlotCount,
@@ -73,6 +74,7 @@ const COPY = {
     dragToBoard: '盤面へドラッグして配置',
     dropOccupied: '一覧のタタは空きマスへドロップしてください。',
     chips: 'チップ',
+    chipNameFallback: '',
     chipsForPlayer: 'Player {player}のチップ',
     chipCount: '{count} / 3種類',
     chipSearch: 'チップを検索',
@@ -149,6 +151,7 @@ const COPY = {
     dragToBoard: 'Drag onto the board to place',
     dropOccupied: 'Drop a Tata from the list onto an empty cell.',
     chips: 'Chips',
+    chipNameFallback: 'Official chip names are pending; complete Japanese labels are shown.',
     chipsForPlayer: 'Player {player} chips',
     chipCount: '{count} / 3 types',
     chipSearch: 'Search chips',
@@ -225,6 +228,7 @@ const COPY = {
     dragToBoard: '拖到棋盘上放置',
     dropOccupied: '请将列表中的塔塔拖到空位。',
     chips: '芯片',
+    chipNameFallback: '芯片正式名待确认，完整显示日文原名。',
     chipsForPlayer: 'Player {player}的芯片',
     chipCount: '{count} / 3种',
     chipSearch: '搜索芯片',
@@ -570,8 +574,8 @@ function renderChipResults() {
   const query = chipQuery.trim().toLocaleLowerCase();
 
   const selectedIds = new Set(team.chips[currentPlayer]);
-  const rows = chips.filter((chip) => !query || `${chipName(chip)} ${chip.name?.ja || ''} ${chipEffect(chip)}`.toLocaleLowerCase().includes(query));
-  node.innerHTML = rows.map((chip) => `<button type="button" class="formation-chip-option${selectedIds.has(chip.id) ? ' is-selected' : ''}" data-chip-id="${esc(chip.id)}" aria-pressed="${selectedIds.has(chip.id)}" title="${esc(chipEffect(chip))}"><img loading="lazy" decoding="async" src="${esc(chip.icon)}" width="48" height="48" alt=""><span>${esc(chipName(chip))}${chip.iconStatus === 'pending' ? `<small> · ${esc(COPY.placeholder)}</small>` : ''}</span></button>`).join('') || `<p>${esc(COPY.noChips)}</p>`;
+  const rows = chips.filter((chip) => !query || `${chipName(chip)} ${chip.name?.ja || ''} ${chip.id} ${chip.id.replaceAll('-', ' ')} ${chipEffect(chip)}`.toLocaleLowerCase().includes(query));
+  node.innerHTML = rows.map((chip) => `<button type="button" translate="no" class="formation-chip-option${selectedIds.has(chip.id) ? ' is-selected' : ''}" data-chip-id="${esc(chip.id)}" aria-pressed="${selectedIds.has(chip.id)}" title="${esc(chipEffect(chip))}"><img loading="lazy" decoding="async" src="${esc(chip.icon)}" width="48" height="48" alt=""><span>${esc(chipName(chip))}${chip.iconStatus === 'pending' ? `<small> · ${esc(COPY.placeholder)}</small>` : ''}</span></button>`).join('') || `<p>${esc(COPY.noChips)}</p>`;
 }
 
 function renderChipSettings() {
@@ -589,10 +593,10 @@ function renderChipSettings() {
   node.hidden = false;
   const players = PLAYER_IDS.map((id) => {
     const selectedChips = team.chips[id].map((chipId) => chipById.get(chipId)).filter(Boolean);
-    const items = selectedChips.map((chip) => `<button type="button" class="formation-chip-selected" data-chip-id="${esc(chip.id)}" data-chip-player="${id}" aria-label="${esc(message(COPY.chipRemove, { name: chipName(chip) }))}"><img src="${esc(chip.icon)}" width="40" height="40" alt=""><span>${esc(chipName(chip))}${chip.iconStatus === 'pending' ? `<small> · ${esc(COPY.placeholder)}</small>` : ''}</span><b aria-hidden="true">−</b></button>`).join('');
+    const items = selectedChips.map((chip) => `<button type="button" translate="no" class="formation-chip-selected" data-chip-id="${esc(chip.id)}" data-chip-player="${id}" aria-label="${esc(message(COPY.chipRemove, { name: chipName(chip) }))}"><img src="${esc(chip.icon)}" width="40" height="40" alt=""><span>${esc(chipName(chip))}${chip.iconStatus === 'pending' ? `<small> · ${esc(COPY.placeholder)}</small>` : ''}</span><b aria-hidden="true">−</b></button>`).join('');
     return `<section class="formation-chip-player is-player-${id}${currentPlayer === id ? ' is-current' : ''}"><div class="formation-chip-player-head"><button type="button" data-current-player="${id}" aria-pressed="${currentPlayer === id}"><b>${esc(message(COPY.chipsForPlayer, { player: id }))}</b></button><span>${esc(message(COPY.chipCount, { count: selectedChips.length }))}</span></div><div class="formation-chip-selected-list">${items}</div></section>`;
   }).join('');
-  node.innerHTML = `<div class="formation-chip-heading"><h3>${esc(COPY.chips)}</h3><p>${esc(message(COPY.chipCount, { count: team.chips[currentPlayer].length }))}</p></div><div class="formation-chip-player-grid">${players}</div><label class="formation-chip-search">${esc(COPY.chipSearch)}<input id="team-chip-search" type="search" autocomplete="off" value="${esc(chipQuery)}" placeholder="${esc(COPY.chipSearchPlaceholder)}"></label><div id="team-chip-results" class="formation-chip-options"></div>`;
+  node.innerHTML = `<div class="formation-chip-heading"><h3>${esc(COPY.chips)}</h3><p>${esc(message(COPY.chipCount, { count: team.chips[currentPlayer].length }))}</p></div><div class="formation-chip-player-grid">${players}</div><label class="formation-chip-search">${esc(COPY.chipSearch)}<input id="team-chip-search" type="search" autocomplete="off" value="${esc(chipQuery)}" placeholder="${esc(COPY.chipSearchPlaceholder)}"></label>${COPY.chipNameFallback ? `<p class="section-note" translate="no">${esc(COPY.chipNameFallback)}</p>` : ''}<div id="team-chip-results" class="formation-chip-options"></div>`;
   renderChipResults();
 }
 
@@ -702,7 +706,7 @@ function renderPicker({ resetScroll = false } = {}) {
 
     const image = stage1Image(family);
 
-    const original = getJapaneseSecondaryLabel(family.evolutions[0]);
+    const original = getJapaneseSecondaryLabel(family.evolutions[0], locale);
 
     const familyLabel = getFamilyDisplayLabel(family);
 
@@ -1647,6 +1651,10 @@ function changeUnlock(target) {
 }
 
 function bind() {
+  $('#site-language')?.addEventListener('change', () => {
+    const hash = languageSwitchHash(localStorage, team, families, chips);
+    history.replaceState(null, '', `${location.pathname}${location.search}${hash}`);
+  }, { capture: true });
   $('#team-board').addEventListener('click', (event) => {
     if (Date.now() < suppressClickUntil) {
 

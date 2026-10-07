@@ -136,7 +136,7 @@ const indexedOfficialResponseRoutes = ['/events/', '/events/treasure-hunt/'];
 for (const route of modifiedRoutes) {
   for (const prefix of ['', '/en', '/zh-cn']) {
     const localizedRoute = `${prefix}${route}`;
-    const expectedDate = route === '/tata/pakuma/' ? '2026-10-06' : '2026-08-30';
+    const expectedDate = route === '/updates/2026-08-30/' ? '2026-08-30' : '2026-10-07';
     expect(dateModifiedFor(localizedRoute) === expectedDate, `${localizedRoute}: dateModified must be ${expectedDate}`);
   }
 }
@@ -151,7 +151,7 @@ for (const route of modifiedRoutes) {
   for (const prefix of ['', '/en', '/zh-cn']) {
     const localizedRoute = `${prefix}${route}`;
     const url = `https://monster-survival.com${localizedRoute}`.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const expectedLastmod = route === '/tata/pakuma/' ? '2026-10-06' : '2026-08-30';
+    const expectedLastmod = route === '/updates/2026-08-30/' ? '2026-08-30' : '2026-10-07';
     expect(new RegExp(`<loc>${url}</loc><lastmod>${expectedLastmod}</lastmod>`).test(sitemap), `${localizedRoute}: sitemap lastmod must be ${expectedLastmod}`);
   }
 }

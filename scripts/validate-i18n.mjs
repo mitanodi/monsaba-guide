@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { load } from 'cheerio';
 import { BASE_URL } from './site-config.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
@@ -81,7 +82,11 @@ for (const term of ['系', 'パクマ', '魔法の農場リメイク', 'サン�
 const sortedProtectedTerms = [...protectedTerms].sort((a, b) => b.length - a.length);
 const untranslated = { en: new Set(), 'zh-CN': new Set() };
 function collectUntranslated(html, locale) {
-  const visible = html
+  const sourceDocument = load(html);
+  // Explicit Japanese source quotations and pending official names are kept
+  // in their original language; surrounding UI still requires translation.
+  sourceDocument('[lang="ja"][translate="no"]').remove();
+  const visible = sourceDocument.html()
     .replace(/<([a-z][\w:-]*)\b[^>]*class="[^"]*(?:localized-original-name|tata-i18n-names)[^"]*"[^>]*>[\s\S]*?<\/\1>/gi, '')
     .replace(/<script\b[\s\S]*?<\/script>/gi, '')
     .replace(/<style\b[\s\S]*?<\/style>/gi, '')
@@ -204,7 +209,7 @@ const skills = JSON.parse(read('data/tata-skills.json'));
 const currentFamilyCount = tatari.families.length;
 const currentFormCount = tatari.families.flatMap((family) => family.evolutions).length;
 expect(currentFamilyCount === 66, `Tatari family count must be 66, got ${currentFamilyCount}`);
-expect(currentFormCount === 240, `Monster count must be 240, got ${currentFormCount}`);
+expect(currentFormCount === 242, `Monster count must be 242, got ${currentFormCount}`);
 expect(skills.totals?.stages === currentFormCount && skills.totals?.skills === currentFormCount, `Skill stage count changed: ${skills.totals?.stages}`);
 expect(read('site.js').includes("localStorage.setItem('monsabaLanguage:v1'"), 'Language preference is not stored');
 expect(read('site.js').includes('location.search') && read('site.js').includes('location.hash'), 'Language switching does not preserve query/hash');

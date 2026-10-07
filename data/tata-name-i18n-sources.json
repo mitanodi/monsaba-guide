@@ -24,11 +24,11 @@
     }
   },
   "summary": {
-    "canonicalForms": 240,
-    "englishConfirmed": 237,
+    "canonicalForms": 242,
+    "englishConfirmed": 242,
     "simplifiedChineseConfirmed": 236,
     "bothConfirmed": 236,
-    "needsReview": 4
+    "needsReview": 6
   },
   "forms": [
     {
@@ -3627,7 +3627,7 @@
       "familyId": "rukaron",
       "stage": 2,
       "japaneseName": "パステルカ",
-      "englishName": null,
+      "englishName": "Blubbles",
       "simplifiedChineseName": null,
       "confidence": "pending-official",
       "sourceType": "supplemental-evidence",
@@ -3637,8 +3637,10 @@
       },
       "localizedEvidence": {
         "en": {
-          "status": "pending",
-          "reason": "official-localized-name-not-obtained"
+          "status": "externally_confirmed",
+          "sourceType": "public_wiki",
+          "url": "https://w.atwiki.jp/monstersurvival/pages/17.html",
+          "checkedAt": "2026-10-07"
         },
         "zh-CN": {
           "status": "pending",
@@ -3646,14 +3648,14 @@
         }
       },
       "observedExternalEnglishName": "Blubbles",
-      "externalNameAdopted": false,
-      "checkedAt": "2026-10-06"
+      "externalNameAdopted": true,
+      "checkedAt": "2026-10-07"
     },
     {
       "familyId": "rukaron",
       "stage": 3,
       "japaneseName": "メルフィン",
-      "englishName": null,
+      "englishName": "Aquariel",
       "simplifiedChineseName": null,
       "confidence": "pending-official",
       "sourceType": "supplemental-evidence",
@@ -3663,8 +3665,10 @@
       },
       "localizedEvidence": {
         "en": {
-          "status": "pending",
-          "reason": "official-localized-name-not-obtained"
+          "status": "externally_confirmed",
+          "sourceType": "public_wiki",
+          "url": "https://w.atwiki.jp/monstersurvival/pages/17.html",
+          "checkedAt": "2026-10-07"
         },
         "zh-CN": {
           "status": "pending",
@@ -3672,14 +3676,14 @@
         }
       },
       "observedExternalEnglishName": "Aquariel",
-      "externalNameAdopted": false,
-      "checkedAt": "2026-10-06"
+      "externalNameAdopted": true,
+      "checkedAt": "2026-10-07"
     },
     {
       "familyId": "rukaron",
       "stage": 4,
       "japaneseName": "オパーリア",
-      "englishName": null,
+      "englishName": "Irisia",
       "simplifiedChineseName": null,
       "confidence": "pending-official",
       "sourceType": "supplemental-evidence",
@@ -3689,8 +3693,10 @@
       },
       "localizedEvidence": {
         "en": {
-          "status": "pending",
-          "reason": "official-localized-name-not-obtained"
+          "status": "externally_confirmed",
+          "sourceType": "public_wiki",
+          "url": "https://w.atwiki.jp/monstersurvival/pages/17.html",
+          "checkedAt": "2026-10-07"
         },
         "zh-CN": {
           "status": "pending",
@@ -3698,8 +3704,64 @@
         }
       },
       "observedExternalEnglishName": "Irisia",
-      "externalNameAdopted": false,
-      "checkedAt": "2026-10-06"
+      "externalNameAdopted": true,
+      "checkedAt": "2026-10-07"
+    },
+    {
+      "familyId": "erekineko",
+      "stage": 4,
+      "japaneseName": "トコヨニャット",
+      "englishName": "Thunderpaw",
+      "simplifiedChineseName": null,
+      "confidence": "pending-official",
+      "sourceType": "supplemental-evidence",
+      "japaneseEvidence": {
+        "sourceType": "official-store",
+        "url": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+        "checkedAt": "2026-10-07",
+        "status": "confirmed"
+      },
+      "localizedEvidence": {
+        "en": {
+          "status": "externally_confirmed",
+          "sourceType": "public_wiki",
+          "url": "https://w.atwiki.jp/monstersurvival/pages/17.html",
+          "checkedAt": "2026-10-07"
+        },
+        "zh-CN": {
+          "status": "pending",
+          "reason": "localized-name-not-obtained"
+        }
+      },
+      "checkedAt": "2026-10-07"
+    },
+    {
+      "familyId": "hinyao",
+      "stage": 4,
+      "japaneseName": "ネコノミコト",
+      "englishName": "Cinderclaw",
+      "simplifiedChineseName": null,
+      "confidence": "pending-official",
+      "sourceType": "supplemental-evidence",
+      "japaneseEvidence": {
+        "sourceType": "official-store",
+        "url": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+        "checkedAt": "2026-10-07",
+        "status": "confirmed"
+      },
+      "localizedEvidence": {
+        "en": {
+          "status": "externally_confirmed",
+          "sourceType": "public_wiki",
+          "url": "https://w.atwiki.jp/monstersurvival/pages/17.html",
+          "checkedAt": "2026-10-07"
+        },
+        "zh-CN": {
+          "status": "pending",
+          "reason": "localized-name-not-obtained"
+        }
+      },
+      "checkedAt": "2026-10-07"
     }
   ]
 }

@@ -6,7 +6,7 @@
   const phrases = payload.phrases || [];
   const properNames = payload.properNames || [];
   const localePrefix = payload.locale === 'en' ? '/en' : '/zh-cn';
-  const excludedSelector = '.official-x-post-text,.friend-comment,.board-question-body,.board-answer-body,.board-reply-body,[data-ugc],#friendsList,#boardThreads,#boardThread';
+  const excludedSelector = '[translate="no"],.official-x-post-text,.friend-comment,.board-question-body,.board-answer-body,.board-reply-body,[data-ugc],#friendsList,#boardThreads,#boardThread';
 
   function translate(source) {
     const value = String(source || '');
@@ -101,7 +101,7 @@
     });
     const elements = [root, ...root.querySelectorAll?.('[aria-label],[title],[placeholder],[alt]') || []];
     elements.forEach((element) => ['aria-label', 'title', 'placeholder', 'alt'].forEach((name) => {
-      if (element.hasAttribute?.(name))
+      if (!element.closest(excludedSelector) && element.hasAttribute?.(name))
         element.setAttribute(name, translate(element.getAttribute(name)));
     }));
   }

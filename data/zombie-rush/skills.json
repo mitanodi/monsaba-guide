@@ -1,0 +1,3794 @@
+{
+  "version": 1,
+  "updated": "2026-10-07",
+  "mode": "zombie-rush",
+  "description": "Dedicated Lv3/Lv5/Lv7 skills from external guides. Normal evolution stage and skill level are independent. T4 attribute auras do not apply in Zombie Rush.",
+  "byFamily": {
+    "takepanda": {
+      "familyId": "takepanda",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/55.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "パンダ！パンチ！",
+          "description": "ダメージを与えた際、一定確率でターゲット位置にコパンダを召喚。小範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/55.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "はちみつ酒",
+          "description": "味方1体へ「酒-攻撃力増加＆攻撃速度増加」を付与。（はちみつ酒を投げつけて付与する）",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/55.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "ホームアドバンテージ",
+          "description": "味方の位置に竹林を生成。範囲内の味方に「ダメージ増加と被ダメージ減少」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/55.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "tsubaruka": {
+      "familyId": "tsubaruka",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/60.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "草むらコール",
+          "description": "一定時間ごとに周囲の仲間に「ダメージ増加」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/60.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "ネバネバツバ",
+          "description": "ネバネバツバを吐き、範囲ダメージを与えて「強力減速エリア」を残す",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/60.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "ピンポイント誘爆",
+          "description": "最後に移動した方向へツバを吐き続ける。ボスを優先的に狙う",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/60.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "birimori": {
+      "familyId": "birimori",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/81.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "共鳴ソニック",
+          "description": "周囲の自身の仲間に「ダメージ増加・小」を、周囲のチームメイトの仲間に「ダメージ増加・大」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/81.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "コウモリラッシュ",
+          "description": "コウモリの群れを呼び出し、前方の広範囲にダメージを与え、範囲内の仲間を回復する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/81.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "ビートレーダー",
+          "description": "複数の地点をロックオンし、小範囲に継続ダメージを与える。ボスのいる位置を優先的に狙う",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/81.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "togegyo": {
+      "familyId": "togegyo",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/85.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "虚空の渦",
+          "description": "一定時間ごとに自身の近くに渦を召喚し、小範囲ダメージと「減速」を与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/85.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "古の神の贈り物",
+          "description": "一定時間ごとに「シールド」を獲得する。シールド消滅時、消費したシールド量に応じて一定のHPを回復する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/85.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "深淵の捕食",
+          "description": "「減速」を付与する渦を複数列召喚する。渦が爆発すると敵にダメージを与え、「スタン」と「潮流ー被ダメージ増加」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/85.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "yotsubird": {
+      "familyId": "yotsubird",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/24.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "シード追撃",
+          "description": "攻撃時、一定確率でダメージシードまたは回復シードを追加で発射する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/24.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "ヒーリングチェーン",
+          "description": "周囲に弱った味方がいる時、その仲間を継続的に回復する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/24.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "シードショット",
+          "description": "異なる敵に高速で大量のダメージシードまたは回復シードを発射する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/24.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "kaenjack": {
+      "familyId": "kaenjack",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/41.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "フレイムボール・改",
+          "description": "攻撃時、一定確率でフレイムボールを追加発射。小範囲ダメージと「燃焼」を付与",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/41.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "スプレッドファイア",
+          "description": "攻撃時、一定の確率で散弾フレイムボールを追加で発射する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/41.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "フレイムボール弾幕・極",
+          "description": "5波の扇形フレイムボール弾幕を発射する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/41.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "hihidog": {
+      "familyId": "hihidog",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/23.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "フォークライトニング",
+          "description": "攻撃時、一定の確率で敵から敵へ伝う連鎖雷を追加で発射する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/23.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "ドッグフレンド",
+          "description": "一定時間ごとにビパピーを召喚。チェインボルトで間を通過する敵にダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/23.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "1万ボルト",
+          "description": "地面を広範囲にわたって帯電させ、継続ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/23.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "hanarenaishi": {
+      "familyId": "hanarenaishi",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/52.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "梨シールド",
+          "description": "攻撃時、一定の確率で梨シールドを追加で獲得する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/52.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "もうひと梨",
+          "description": "攻撃時、一定の確率で梨を追加で落とす",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/52.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "梨の雨",
+          "description": "周囲に連続で梨を12個落とす",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/52.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "birinamazu": {
+      "familyId": "birinamazu",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/63.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "臨界スパーク",
+          "description": "攻撃時、一定確率で貫通スパークを追加発射。稀に爆発を起こして小範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/63.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "リチャージ",
+          "description": "同じスキルを2回使用すると、そのスキルのクールダウンを即座にリセットする",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/63.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "電撃ネット",
+          "description": "電撃ネットを射出。範囲継続ダメージを与え、一定確率で「束縛」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/63.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "daishell": {
+      "familyId": "daishell",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/28.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "バブルライン",
+          "description": "攻撃時、一定の確率で横方向泡ビームを追加で発射し、範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/28.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "バブルガード",
+          "description": "一定時間ごとに自身を回復する。溢れた分は「シールド」に変換される",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/28.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "アルティメットバブル",
+          "description": "アルティメットバブルを発射し、広範囲ダメージと「減速」を与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/28.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "batarisu": {
+      "familyId": "batarisu",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/40.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "松ぼっくり地雷・極",
+          "description": "攻撃時、一定の確率で強力松ぼっくりを追加で発射。小範囲ダメージと「スタン」を付与",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/40.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "リスリスゲリラ隊",
+          "description": "一定時間ごとにトスリスを召喚し地雷を埋める。地雷は発動時に小範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/40.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "陣地防衛",
+          "description": "地雷陣を設置し、短時間後に広範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/40.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "guuhog": {
+      "familyId": "guuhog",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/62.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "真・反撃トゲ",
+          "description": "ダメージを受けた際、一定の確率でトゲ攻撃を放つ",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/62.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "トゲ散弾",
+          "description": "密集したトゲを発射する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/62.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "トゲトゲアーマー",
+          "description": "周囲に敵が多い時、「被ダメージ減少」を獲得し、継続的にトゲを全方位へ発射する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/62.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "capibarrie": {
+      "familyId": "capibarrie",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/29.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "皮むきサービス",
+          "description": "攻撃時、一定の確率で剥き終わったミカンを追加で発射し、仲間を回復する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/29.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "ジャンボみかん",
+          "description": "大きなミカンを発射し、味方を回復して「ミカン-ダメージ増加」と「ミカン-攻撃力増加」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/29.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "ラピッドみかん",
+          "description": "継続的にみかん弾を発射する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/29.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "rokubuhi": {
+      "familyId": "rokubuhi",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/61.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "ハード泥玉",
+          "description": "攻撃時、一定確率で敵を貫通する巨大な泥玉を追加で発射する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/61.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "泥玉連射",
+          "description": "周囲に敵がいる際、攻撃時に泥玉をさらに追加で発射する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/61.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "泥玉フェス",
+          "description": "泥玉を連続発射し、前方の扇形範囲を広域攻撃する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/61.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "marushu": {
+      "familyId": "marushu",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/59.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "破損胞子",
+          "description": "破損胞子を1つ発射し、一定確率で「被ダメージ増加」を付与",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/59.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "爆発胞子",
+          "description": "周囲で敵が倒れると爆発小ダメ。自身がトドメを刺した場合は広範囲ダメージに強化",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/59.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "長寿胞子",
+          "description": "長寿胞子を広く拡散させ、継続的に範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/59.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "fugumaru": {
+      "familyId": "fugumaru",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/110.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "ラーメン屋出前",
+          "description": "ラーメン屋台を設置する。攻撃時、一定の確率で追加のラーメンを発射し、仲間を回復する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/110.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "鳥鬼族",
+          "description": "焼き鳥台を設置する。一定時間ごとに自身を回復し、焼き鳥を発射して小範囲ダメージを与える。ダメージを受けると、次の発射までの間隔が短縮される",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/110.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "寿司軍艦",
+          "description": "船盛を出撃させ、進路上の敵にダメージを与える。その後、船盛が爆発して範囲ダメージと「燃焼」を与え、中心部には追加ダメージと「スタン」を与える",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "damagePercent",
+              "value": 450,
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/110.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "greenbee": {
+      "familyId": "greenbee",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/54.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "健康ガス",
+          "description": "攻撃時、後方の味方に「ガス-ダメージ増加」「ガス-攻撃力増加」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/54.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "エアドロップアタック",
+          "description": "攻撃時、一定時間ごとに現在地に追加小範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "damagePercent",
+              "value": 450,
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/54.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "連続タックル",
+          "description": "一定時間ごとにグリーンビートルを召喚し突進させる",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/54.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "kowagaru": {
+      "familyId": "kowagaru",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/68.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "連打！",
+          "description": "攻撃時、一定確率で「残像」を生成。追加パンチを1回放ち範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/68.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "カウンター！",
+          "description": "被弾時、一定確率で「反撃」。回避状態へ移行し、短期間「無敵」になる",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/68.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "流星拳！",
+          "description": "範囲内の複数にグローブを乱打し、最後にスーパーグローブで広範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/68.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "kunbuu": {
+      "familyId": "kunbuu",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/45.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "おかわり！",
+          "description": "HP変化時、一定確率で「食べ物」を発射する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/45.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "おやつ配り",
+          "description": "一定時間ごとに広範囲の味方に「おやつシールド」を付与し、自身を回復させる",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/45.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "食べ物祭り",
+          "description": "食べ物を投げ続ける。敵にはダメージと「スタン」を、味方には回復または「攻撃力増加」を付与",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/45.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "tsubutsumuri": {
+      "familyId": "tsubutsumuri",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/69.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "輝晶クラスター",
+          "description": "一定時間ごとにデコイとなるクラスターを召喚。クラスターは攻撃を引き受けつつ継続ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/69.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "輝晶バースト",
+          "description": "自身の輝晶クラスターが周囲に広範囲ダメージを放つ。未設置時はクラスターを1つ召喚する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/69.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "輝晶レゾナンス",
+          "description": "輝晶ブロックを発射し、広範囲ダメージと「結晶化」を付与。範囲内にクラスターがあれば共鳴し、効果を再発動する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/69.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "pupunku": {
+      "familyId": "pupunku",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/49.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "フレイムボール",
+          "description": "攻撃時、一定の確率で「フレイムボール」を発射する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/49.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "情熱ガス",
+          "description": "攻撃時、一定の確率で後方にガスを噴射。後方の味方に「ガス-攻防増加」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "attackPercent",
+              "value": 25,
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            },
+            {
+              "metric": "defensePercent",
+              "value": 25,
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/49.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "爆竹フェス",
+          "description": "前方範囲に炎を連続で放ち、それぞれの炎が小範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/49.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "erekineko": {
+      "familyId": "erekineko",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/80.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "金貨はどこに？",
+          "description": "攻撃時、一定確率(20％)で金貨をドロップ。金貨は消滅時に「エナジーキャンディ(5個)」に変化する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/80.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "善行の心",
+          "description": "一定時間ごとに、ランダムな味方2体へ「攻撃力増加」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/80.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "散財豪雨",
+          "description": "前方に広範囲の金貨を降らせ、ダメージと「スタン」を与える。さらに一定確率(20％)でエナジーキャンディ(5個)を追加獲得する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/80.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "sukedako": {
+      "familyId": "sukedako",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/38.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "イカ墨スプラッシュ",
+          "description": "攻撃時、一定の確率で追加の「イカ墨弾」を発射し、範囲ダメージを与え、一定の確率で「視界妨害」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/38.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "プロテクトフィールド",
+          "description": "一定時間ごとに広がり続けるフィールドを展開し、範囲内の仲間に「被ダメージ減少」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/38.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "タコ降臨",
+          "description": "タコボムを召喚し、広範囲ダメージを与える。もっとも弱っているボスを優先的に攻撃し、中心範囲に追加ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/38.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "hinyao": {
+      "familyId": "hinyao",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/50.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "ドン引きの視線",
+          "description": "ダメージを与えた時、追加で「ダメージ減少」を付与する。敵ごとに発動間隔がある",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/50.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "スイープオーブ",
+          "description": "スイープオーブを召喚する。攻撃時にスイープオーブが連携攻撃し、進路上の敵にダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/50.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "中玉・大玉・超大玉",
+          "description": "貫通オーブを発射する。ダメージは飛行距離に応じて増加し、終点に到達すると範囲継続ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/50.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "mumukaba": {
+      "familyId": "mumukaba",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/109.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "ハートドキドキ",
+          "description": "一定時間ごとにハートを発射し、的に1ダメージと「スタン」を与え、さらにその周囲の敵にダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "damagePercent",
+              "value": 400,
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/109.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "ピンクハグ",
+          "description": "一定時間ごとに周りの仲間に、ダメージを数回完全に防ぐ「回数シールド」を付与する。回数はこのタタの進化段階に応じて増加する",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "activationIntervalSeconds",
+              "value": [
+                9,
+                15
+              ],
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/109.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "心の障壁",
+          "description": "「心の障壁」を一列生成し、敵の投射物を遮断する。遮断できる回数はこのタタの進化段階に応じて増加する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/109.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "hikaru": {
+      "familyId": "hikaru",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/111.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "グロウスパーク",
+          "description": "一定時間ごとにフィールド内で跳ね返る電気玉を1個発射する。敵に小ダメージと麻痺を与え、仲間に重複可能な「蛍光」を1スタック付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/111.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "フォーカスビーム",
+          "description": "前方にビームを1本放ち、敵に小ダメージと「麻痺」を与え、仲間に重複可能な「蛍光」を1スタック付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/111.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "グリーム",
+          "description": "前方の一定の範囲内の仲間に、重複可能な「蛍光」を1スタック付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/111.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "atatama": {
+      "familyId": "atatama",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/113.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "チャネリング",
+          "description": "移動時に即座に目標地点に到達でき、目標地点周辺の仲間に「ダメージ増加」と「攻撃力増加」を与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/113.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "トードチャント",
+          "description": "歌声を響かせ、前方の広範囲に「スタン」を与える",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "activationIntervalSeconds",
+              "value": [
+                14,
+                20
+              ],
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/113.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "オイルバースト",
+          "description": "前方広範囲に高温の油を噴射して、「減速」を与える。その後、油が燃焼して継続ダメージと「燃焼」を与え、最終的に爆燃して追加ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "damagePercent",
+              "value": 450,
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/113.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "yaminome": {
+      "familyId": "yaminome",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/114.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "ポイズングロウ",
+          "description": "「毒」を付与した時一定確率で「寄生毒」を1スタックする。「寄生毒」を付与する時、一定確率で追加の小範囲ダメージを与える。",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/114.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "シャドウスプレイ",
+          "description": "一定時間ごとにシャドウを5体発射し、単体ダメージを与え、「寄生毒」を1スタック付与する。シャドウはすでに「寄生毒」を持つ敵を貫通する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/114.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "シャドウブルーム",
+          "description": "大量のシャドウを召喚し、広範囲ダメージを与える。敵に「寄生毒」を1スタック付与し、その敵が持つ「寄生毒」のスタック数を2倍にする。優先的にボスを攻撃する",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "damagePercent",
+              "value": 300,
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/114.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "korokon": {
+      "familyId": "korokon",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/44.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "狐火",
+          "description": "攻撃時に「狐火」が発生。敵が接近するとすべての狐火を発射してダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/44.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "スプレッドファイア",
+          "description": "攻撃時、一定の確率で散弾フレイムボールを追加で発射する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/44.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "花火ショー",
+          "description": "一定時間ごとにタマキツネを召喚して花火ショーを披露する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/44.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "mogurin": {
+      "familyId": "mogurin",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/67.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "煙玉",
+          "description": "攻撃時、一定の確率で「霧」を追加で発生させ、範囲ダメージを与え、「ダメージ減少」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/67.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "逃げは役に立つ",
+          "description": "周囲に敵がいる際、広範囲に継続ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "damageIntervalSeconds",
+              "value": 2,
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/67.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "モグラは3匹だけじゃない",
+          "description": "モグリンを複数召喚し、継続的に攻撃させる",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/67.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "biripiyo": {
+      "familyId": "biripiyo",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/77.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "誘雷針",
+          "description": "一定時間ごとに自身の至近距離へ落雷を発生させ、小範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/77.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "拡散電気玉",
+          "description": "一定時間ごとに電気玉を発射し、牽制を行う",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/77.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "電力全開",
+          "description": "味方全員を電気で繋ぎ、「充電-攻撃力増加」と「充電-被ダメージ減少」のバフを同時に付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/77.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "potakage": {
+      "familyId": "potakage",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/35.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "減速の渦",
+          "description": "攻撃時、一定確率で追加の「水の渦」を召喚。小範囲継続ダメージと「減速」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/35.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "巨大な渦",
+          "description": "一定時間ごとに大渦を召喚し、広範囲継続ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "damagePercent",
+              "value": 100,
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/35.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "秘術・渦隠れ",
+          "description": "水の渦を複数召喚。「ステルス」状態のピチャカゲの仲間が出現し、敵を攻撃する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/35.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "fukurogumo": {
+      "familyId": "fukurogumo",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/57.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "液化シールド",
+          "description": "シールド値変化時、一定確率で横方向に「緑の泡」を発射し、範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/57.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "クモの巣",
+          "description": "クモの巣を発射し広範囲ダメージ。一定確率で「クモの巣-束縛」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/57.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "クモの巣穴",
+          "description": "クモを召喚し続け前方へ突撃させる。クモは撃破されると爆発して範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/57.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "nemukurage": {
+      "familyId": "nemukurage",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/36.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "拡散ウォーターボール",
+          "description": "攻撃時、一定の確率で「水の玉」を3個追加で発射する",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "projectileCount",
+              "value": 3,
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/36.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed",
+          "conflicts": [
+            {
+              "field": "projectileCount",
+              "individualPage": 2,
+              "balanceTable": 3,
+              "resolution": "use dated September 23 balance table"
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "バウンドバブル",
+          "description": "大きな水の泡を発射し、範囲ダメージを与え、一定の確率で「スタン」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "damagePercent",
+              "value": 140,
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/36.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "援護クラゲ",
+          "description": "一定時間ごとに援護クラゲを召喚する。援護クラゲは範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/36.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "sabooru": {
+      "familyId": "sabooru",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/58.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "むりやり掌",
+          "description": "一定時間ごとに自身の攻撃速度が増加する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/58.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "トゲ扇",
+          "description": "扇状のトゲを3回発射する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/58.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "トゲ仲間",
+          "description": "サボテンの仲間を召喚。仲間は8方向に貫通トゲを発射し、一定時間後に爆発ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/58.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "korotama": {
+      "familyId": "korotama",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/70.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "ウェイストビーム",
+          "description": "ダメージを与えた際、一定確率で爆発を誘発し、範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/70.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "バウンドボール",
+          "description": "貫通性能を持つバウンドボールを3個発射する。画面の左右端に当たると跳ね返る性質を持つ",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "damagePercent",
+              "value": 60,
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/70.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "スパイラルボール",
+          "description": "渦を発生させるボールを放つ。範囲ダメージを与えつつ、敵を中心部へ強力に引き寄せる",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "damagePercent",
+              "value": 50,
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/70.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "yanzaru": {
+      "familyId": "yanzaru",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/66.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "かかってこい！",
+          "description": "一定時間ごとに「デコイ(分身)」を召喚。分身は消滅時に範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/66.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "銅頭鉄壁",
+          "description": "自身または召喚物が被弾時、一定確率で「銅頭鉄壁-被ダメージ減少」を獲得する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/66.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "ゾンビ荒らし",
+          "description": "金棒を振り回し継続範囲ダメージ。金棒は画面端で反射する性質を持つ",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/66.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "gaoden": {
+      "familyId": "gaoden",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/73.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "静電気",
+          "description": "被弾時、一定確率で攻撃してきた敵に「麻痺」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/73.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "アークコンデンサー",
+          "description": "攻撃時、一定確率で弧状の追加範囲ダメージを繰り出す",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/73.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "強震スパーク",
+          "description": "強烈なスパークで広範囲ダメージを与え、一定確率で敵を「ノックバック：ノックバック確率:40%」させる",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/73.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "himawarin": {
+      "familyId": "himawarin",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/56.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "ウォームオーラ",
+          "description": "範囲内の味方に継続的に「シールド」を付与する光のオーラを展開する",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "activationIntervalSeconds",
+              "value": [
+                12,
+                18
+              ],
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/56.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "変色サングラス",
+          "description": "攻撃時、一定確率で「特殊な光」を生成。小範囲ダメージと「スタン」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/56.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "ミラーボール",
+          "description": "全体を照らす光を放ち、敵に「スタン」、味方に「陽だまり-攻撃力増加」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/56.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "nekoori": {
+      "familyId": "nekoori",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/30.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "爆裂氷晶",
+          "description": "攻撃時、一定の確率で爆発する氷を追加で発射し、範囲ダメージを与え、一定確率で「凍結：移動と攻撃ができなくなる。<br>凍結確率:45%<br>持続時間1.5秒」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/30.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "アイスフラワー",
+          "description": "一定時間ごとに散弾状のアイススパイクを放ち、「減速」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/30.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "アイスロード",
+          "description": "前方に氷の道を敷き、広範囲ダメージを与え、一定の確率で「凍結」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/30.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "furuggu": {
+      "familyId": "furuggu",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/51.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "連続爆発",
+          "description": "攻撃時、一定確率で爆裂ドラゴンフルーツを追加発射し、範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/51.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "フルーツエクスプレス",
+          "description": "攻撃時、一定確率でワイルドフルーツを追加発射。命中時に広範囲継続ダメージ",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/51.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "ドラゴンフルーツレイン",
+          "description": "前方にドラゴンフルーツの雨を降らせる",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/51.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "himori": {
+      "familyId": "himori",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/43.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "連射",
+          "description": "攻撃時、一定の確率で火の玉を3発追加で発射する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/43.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "ホーミングファイア",
+          "description": "燃焼ダメージを与えた時、一定確率で対象位置へ「ホーミングする火の玉」を発射する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/43.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "ブレイズトレイル",
+          "description": "前方に灼熱の道を生成し広範囲ダメージを与え、一定の確率で「燃焼」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "damagePercent",
+              "value": 270,
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/43.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "komakiri": {
+      "familyId": "komakiri",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/53.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "デュアルブロッサム",
+          "description": "攻撃時、一定確率で花びらの刃を2枚追加発射する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/53.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "ヒーリングブレード",
+          "description": "回復を受けた際、一定確率で刃を発射。一定時間ごとに自身を回復させる",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/53.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "狂撃",
+          "description": "鎌を振り回し広範囲継続ダメージ＋自己回復。終了後、一時的に自身が「スタン」状態になる",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/53.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "umimi": {
+      "familyId": "umimi",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/32.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "眠りの霧",
+          "description": "眠りの霧を噴射し、小範囲ダメージを与え、一定の確率で「睡眠」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "sleepPercent",
+              "value": 20,
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/32.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "爆発の霧",
+          "description": "ダメージを与えた時、一定の確率で対象の周りに爆発する霧を生成し、小範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/32.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "海霧散らし",
+          "description": "海霧を呼び、全ての敵に、「超被ダメージ増加」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/32.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "purabi": {
+      "familyId": "purabi",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/78.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "音響共鳴",
+          "description": "一定時間ごとに貫通音波を発射。敵にはダメージを、経路上にいる味方には回復を与える",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "healingPercent",
+              "value": 5,
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/78.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "一緒に踊ろう",
+          "description": "一定時間ごとに周囲の仲間に「無敵」を付与。",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/78.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "パルスハーモニー",
+          "description": "電波を3本放ち広範囲攻撃。確率で「減速・束縛・スタン」のデバフをバラ撒く",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "damagePercent",
+              "value": 150,
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/78.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "rokuju": {
+      "familyId": "rokuju",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/64.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "ブルーライトシールド",
+          "description": "攻撃時、一定確率でシールドを追加獲得する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/64.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "ビーム掃射",
+          "description": "ビームで周囲を掃射し、範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/64.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "地震帯",
+          "description": "攻撃時、一定確率で地震を発生。広範囲ダメージと「スタン」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/64.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "boruzarashi": {
+      "familyId": "boruzarashi",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/31.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "ボールドリブル",
+          "description": "貫通するボールを２つ発射する。ボールは一定距離を飛んで戻った後、再び発射される",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/31.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "高圧ウォーターボール",
+          "description": "貫通する高圧ウォーターボールを発射し、まれに爆発して広範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/31.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "大波乗り",
+          "description": "一定時間ごとに大波を起こし、広範囲ダメージを与え、一定の確率で「ノックバック」させる",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/31.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "gantoru": {
+      "familyId": "gantoru",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/65.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "山揺らし",
+          "description": "一定時間ごとに地震を起こし、広範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/65.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "ガーディアンパス",
+          "description": "甲羅を発射し味方の間を跳ねさせる。味方には「カメシールド」を付与、敵にはダメージ",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/65.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "八方スピン",
+          "description": "敵を貫通する回転甲羅を、8方向へ一斉に放つ",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "damagePercent",
+              "value": 420,
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/65.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "denjika": {
+      "familyId": "denjika",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/74.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "拡散エレキランス",
+          "description": "攻撃時、一定確率で「拡散するエレキランス」を追加射出する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/74.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "追撃電気玉",
+          "description": "麻痺ダメージを与えた際、一定確率で対象へ追撃の電気玉を発射する。",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/74.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "非科学電撃ランス",
+          "description": "巨大なランスで広範囲ダメージを与え、一定確率で敵を「麻痺」状態にする",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/74.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "tafupen": {
+      "familyId": "tafupen",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/33.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "アドバンスクリスタル",
+          "description": "攻撃時、一定の確率で氷を6枚追加で発射する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/33.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "シールドシェア",
+          "description": "自身がシールドを獲得した時、一定の確率で周囲の仲間にも「薄氷のシールド」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "shieldPercent",
+              "value": 10,
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/33.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "アイスエキシビジョン",
+          "description": "攻撃可能な氷像を一列召喚する。消滅時に爆発して範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "damagePercent",
+              "value": 240,
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/33.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "fureimuji": {
+      "familyId": "fureimuji",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/46.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "フワフワフレイム",
+          "description": "攻撃時、一定の確率で炎を追加で放ち、範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "activationPercent",
+              "value": 30,
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/46.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "火の蝶",
+          "description": "火の蝶を放ち、広範囲継続ダメージと「火の蝶-被ダメージ増加」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/46.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "蝶の羽",
+          "description": "羽を広げ、範囲内の仲間に「蝶の翅-全ステータス増加」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/46.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "erekoon": {
+      "familyId": "erekoon",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/76.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "エクストラライトニング",
+          "description": "ダメージを与えた際、一定確率で対象に追撃の電撃を落とす",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/76.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "ボールライトニング",
+          "description": "電気玉を召喚し、チェインボルトを放ち続けて周囲の敵を攻撃する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/76.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "サンダーホーン",
+          "description": "雷を誘発する角を射出。命中地点の周囲に連続で落雷を発生させ、小範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/76.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "nenbutsuhebi": {
+      "familyId": "nenbutsuhebi",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/71.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "功徳共有",
+          "description": "攻撃時、一定確率で味方1体のHPを「1」回復し、攻撃速度を増加させる",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "activationPercent",
+              "value": 40,
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/71.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "功徳バウンド",
+          "description": "一定時間ごとに戦場で跳ね返る音波を3個発射する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/71.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "功徳配布",
+          "description": "前方の扇形範囲に大きさの異なる音波を連続で放つ",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/71.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "matchiba": {
+      "familyId": "matchiba",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/42.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "ファイアサーペント",
+          "description": "攻撃時、一定確率でランダムな方向へ伸びる火柱を追加で発生させる",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/42.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "フレイムサークル",
+          "description": "一定時間ごとに周囲を回る火の玉を生成し、周囲に範囲継続ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/42.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "ヘルインフェルノ",
+          "description": "周囲に強力な火柱を継続的に発生させる",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/42.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "denrou": {
+      "familyId": "denrou",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/75.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "残影追撃",
+          "description": "攻撃時、一定確率で「残影追撃」が発生。この追撃自体もさらなる残影追撃を誘発する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/75.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "ターゲットマーク",
+          "description": "敵1体をマーク。残影がその周囲へ継続的に範囲ダメージを叩き込む",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/75.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "ライトニングスラッシュ",
+          "description": "瞬時に姿を消して戦場を縦横無尽に駆け抜け、広範囲の敵を斬り伏せる",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/75.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "kenkani": {
+      "familyId": "kenkani",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/34.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "クラブヒール",
+          "description": "一定時間ごとに自身を回復。溢れた分は「シールド」に変換される",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/34.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "クラブアタック",
+          "description": "攻撃時、一定確率で追加の広範囲ダメージと「ノックバック」を与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/34.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "クラブスラッシュ",
+          "description": "右前方へマップの端まで連続ではさみ攻撃を繰り出し、範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/34.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "fureebi": {
+      "familyId": "fureebi",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/47.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "百裂パンチ",
+          "description": "攻撃時、一定の確率でパンチを3回打つ",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/47.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "爆裂パンチ",
+          "description": "ダメージを与えた時、一定の確率で小範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/47.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "散裂パンチ",
+          "description": "散裂パンチで扇形範囲の敵を複数回攻撃する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/47.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "haamitora": {
+      "familyId": "haamitora",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/48.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "火の結界",
+          "description": "攻撃された時、一定の確率でその敵に「燃焼」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/48.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "火焔爆裂",
+          "description": "攻撃時に一定の確率で周囲に範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "activationPercent",
+              "value": 60,
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/48.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "仙術・焔掌",
+          "description": "火焔掌を複数回繰り出し、前方に広範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "activationIntervalSeconds",
+              "value": [
+                6,
+                9
+              ],
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/48.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "shiiparusu": {
+      "familyId": "shiiparusu",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/79.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "クイックライトニング",
+          "description": "電気の槍を1発、高速で発射する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/79.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "クラウドラッシュ",
+          "description": "攻撃時、一定確率で移動する雲を生成。雷で継続ダメージを与え、画面端に到達すると消滅する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/79.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "暗雲襲来",
+          "description": "巨大な黒雲を2つ生成し前方へ突進させる。降り注ぐ複数の雷により、広範囲へ継続ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/79.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "shizukuchou": {
+      "familyId": "shizukuchou",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/37.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "繭から蝶へ",
+          "description": "ダメージを与えた時、一定の確率で対象位置から貫通する「水の蝶」を1体発射する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/37.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "蝶と共に",
+          "description": "一定時間ごとに複数の仲間に「攻撃時、一定の確率で追加の水の蝶を発射する」効果を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/37.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "絶え間なく舞う蝶",
+          "description": "水の蝶を複数召喚し、貫通する水の霧で攻撃。一定の確率で「睡眠」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/37.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "doriruu": {
+      "familyId": "doriruu",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/72.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "アーマーピアサー",
+          "description": "攻撃時、一定の確率で前方へ「追加の突き」を放ち、範囲ダメージと「防御力減少」を与える。さらに、命中した敵の数に応じて「防御力増加」を獲得する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/72.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "強敵適応",
+          "description": "一定時間ごとに「ホルシールド」を獲得する。シールド値は周囲の敵の数に応じて増加する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/72.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "どこでも行きたい放題",
+          "description": "配置エリアの外まで移動できる。一定時間ごとに「スタンバイ」を獲得し、移動終了後に「スタンバイ」を消費して広範囲ダメージを与える。「ピンチ」になると後退して自身を回復し、このスキル効果をしばらく失う",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/72.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "riifuro": {
+      "familyId": "riifuro",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/103.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "波動ヒール",
+          "description": "周期的に仲間を回復する。時折回復頻度が上昇する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/103.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "年輪逆転",
+          "description": "周期的に範囲内の敵の位置を記録し、一定時間後に敵をその記録位置へ移動させる",
+          "verificationStatus": "externally_confirmed",
+          "values": [
+            {
+              "metric": "activationIntervalSeconds",
+              "value": [
+                14,
+                18
+              ],
+              "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/19.html",
+              "verifiedAt": "2026-10-07"
+            }
+          ],
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/103.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "四季のごとく",
+          "description": "自分より進化段階の低いフクロウの仲間を全員召喚し、戦場を移動しながら継続的に範囲ダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/103.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "hikikomoru": {
+      "familyId": "hikikomoru",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/117.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "ビリビリケージ",
+          "description": "攻撃時、一定の確率で小型のエレキケージを追加で1個生成し、小範囲に継続ダメージを与える。また、その中の一部の敵に「束縛」または「減速」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/117.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "キャッチボール",
+          "description": "ボールマシンを2個生成する。電気玉がマシンの間で跳ね返り、進路上の敵にダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/117.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "電気クラスター",
+          "description": "一定時間ごとにトジコモルの仲間たちを召喚し、電流を走らせて進路上の敵にダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/117.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "pakuma": {
+      "familyId": "pakuma",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/123.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "いつでもコーラ",
+          "description": "攻撃時、一定の確率でコーラを1本生成する。コーラを1本投げて小範囲ダメージを与えるか、それを飲んで自身を回復し、「コーラ-ダメージ増加」を獲得する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/123.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "押し寄せる魚波",
+          "description": "小魚を1匹投げて大魚とカジキを引き寄せる。それぞれ順番に進路上の敵にダメージを与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/123.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "ハッピーシェア",
+          "description": "コーラのエサを7個配置し、それぞれに魚が食いついて小範囲ダメージを与える。その後、魚神がすべての仲間にコーラをわけあたえ、「コーラ-攻防増加」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/123.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "nusuke": {
+      "familyId": "nusuke",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/129.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "盗みにも道義あり",
+          "description": "一定時間ごとに仲間3体から攻撃力とHPを盗む。一定時間後に返し、さらに回復と「お返し-攻撃力増加」を与える",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/129.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "一投千金",
+          "description": "一定時間ごとに、空いている1マスに金貨を投げる。仲間は金貨を拾うと「金貨-ダメージ増加」を獲得する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/129.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "祝砲エース",
+          "description": "一定時間ごとに祝砲でターゲットを狙ってチャージし、発射して命中すると単体ダメージと「抱きつき-スタン」を与え、スタン終了時に追加ダメージを与える、ボスを優先して攻撃する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/129.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    },
+    "rukaron": {
+      "familyId": "rukaron",
+      "sourceType": "public_wiki",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/142.html",
+      "verifiedAt": "2026-10-07",
+      "status": "externally_confirmed",
+      "skills": [
+        {
+          "level": 3,
+          "name": "虹の加護",
+          "description": "一定時間ごとに虹を召喚し、範囲内の仲間に「虹の歌-HP増加」を付与する",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/142.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 5,
+          "name": "泡の音波",
+          "description": "貫通する泡を発射し、広範囲ダメージと、重複する「泡の歌-被ダメージ増加」を与える。泡は戦場の端に触れると跳ね返る",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/142.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        },
+        {
+          "level": 7,
+          "name": "重なる波音",
+          "description": "波を起こし、範囲ダメージと「スタン」を与える。さらに仲間を回復し、「波の歌-攻防増加」を付与する。仲間に命中すると前方に延び、その後波が強化される",
+          "verificationStatus": "externally_confirmed",
+          "values": null,
+          "unknownFields": [
+            "倍率・クールダウン等の未掲載数値",
+            "進化段階による専用スキル数値の差"
+          ],
+          "sourceType": "public_wiki",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/142.html",
+          "verifiedAt": "2026-10-07",
+          "status": "externally_confirmed"
+        }
+      ]
+    }
+  },
+  "count": {
+    "families": 66,
+    "skills": 198
+  }
+}

@@ -6,6 +6,8 @@ import path from 'node:path';
 const root = path.resolve(import.meta.dirname, '..');
 const data = JSON.parse(fs.readFileSync(path.join(root, 'data/gift-codes.json'), 'utf8'));
 const codes = [
+  'tatatata',
+  'tatamoon',
   'bulipaohuata',
   'dcardtatago',
   'steeamertata',
@@ -23,19 +25,19 @@ const pages = ['gift-codes/index.html', 'en/gift-codes/index.html', 'zh-cn/gift-
 
 test('gift code data preserves all exact strings, order and unknown states', () => {
   assert.deepEqual(data.active.map((entry) => entry.code), codes);
-  assert.equal(data.active.length, 12);
+  assert.equal(data.active.length, 14);
   assert.equal(data.expired.length, 0);
-  assert.ok(data.active.slice(0, 3).every((entry) => entry.isNew && entry.reward === null && entry.rewardStatus === 'unknown'));
-  assert.ok(data.active.slice(3).every((entry) => !entry.isNew));
+  assert.ok(data.active.slice(0, 2).every((entry) => entry.isNew && entry.reward.length > 0 && entry.confirmationStatus === 'externally_listed_unredeemed'));
+  assert.ok(data.active.slice(2).every((entry) => !entry.isNew));
   assert.ok(data.active.every((entry) => entry.expiresAt === null && ['unknown', 'unannounced'].includes(entry.expiryStatus)));
-  assert.equal(new Set(codes).size, 12);
+  assert.equal(new Set(codes).size, 14);
 });
 
-test('all locales render twelve cards and three NEW badges in exact order', () => {
+test('all locales render fourteen cards and two NEW badges in exact order', () => {
   for (const relative of pages) {
     const html = fs.readFileSync(path.join(root, relative), 'utf8');
-    assert.equal((html.match(/class="gift-code-card"/g) || []).length, 12, relative);
-    assert.equal((html.match(/class="gift-code-new"/g) || []).length, 3, relative);
+    assert.equal((html.match(/class="gift-code-card"/g) || []).length, 14, relative);
+    assert.equal((html.match(/class="gift-code-new"/g) || []).length, 2, relative);
     let cursor = -1;
     for (const code of codes) {
 

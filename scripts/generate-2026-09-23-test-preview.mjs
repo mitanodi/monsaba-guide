@@ -35,7 +35,7 @@ const jsonLd = (localRoute, title, description, language) => safeJsonLd({
     name: title,
     description,
     datePublished: '2026-09-21',
-    dateModified: preview.followUp?.checkedAt || '2026-09-21',
+    dateModified: '2026-10-07',
     inLanguage: language
   }]
 });
@@ -60,8 +60,9 @@ const previewImagesZh = previewImages
 const followUpNote = (locale) => {
   if (preview.followUp?.familyId !== 'rukaron') return '';
   const prefix = locale === 'ja' ? '' : locale === 'en' ? '/en' : '/zh-cn';
+  const current = locale === 'ja' ? '2026年10月7日再確認：公式ストアで猫T4の実装を確認。通常・専用スキルと明瞭なチップ調整数値は外部攻略資料で補完しました。以下の9月予告と10月6日の記録は当時の状態です。' : locale === 'en' ? 'October 7 recheck: official stores confirm both cat T4s. Normal and dedicated skills and clear chip adjustments now have labeled external evidence. The September preview and October 6 note below describe their historical state.' : '10月7日复核：官方商店确认两种猫T4已实装。普通、专用技能及明确芯片调整已按外部资料补充。下方9月预告和10月6日记录为当时状态。';
   const text = locale === 'ja' ? '2026年10月6日追記：公式ストアでルカロンの追加を確認し、提供資料の4段階の画像・日本語名を図鑑へ追加しました。スキル・他の新T4・チップ調整の確認状態は変更していません。' : locale === 'en' ? 'October 6, 2026 follow-up: the official store confirms the new Dolphie family. Four images and Japanese names from the supplied material are now in the database. Skills, the other new T4s and chip adjustments retain their pending status.' : '2026年10月6日补充：官方商店已确认新增Dolphie系列，现已加入资料提供的4阶段图片与日文名。技能、其他新T4及芯片调整的待确认状态保持不变。';
-  return `<section class="wrap static-section" data-preview-follow-up="2026-10-06"><p>${text}</p><a href="${prefix}/tata/rukaron/">${locale === 'ja' ? 'ルカロン系の現在の図鑑を見る' : locale === 'en' ? 'View the current Dolphie family page' : '查看当前系列图鉴'}</a></section>`;
+  return `<section class="wrap static-section" data-preview-follow-up="2026-10-07"><p>${current}</p><a href="${prefix}/updates/2026-10-07/">${locale === 'ja' ? '現在の確認状態を見る' : locale === 'en' ? 'View current verification status' : '查看当前确认状态'}</a></section><section class="wrap static-section" data-preview-follow-up="2026-10-06"><p>${text}</p><a href="${prefix}/tata/rukaron/">${locale === 'ja' ? 'ルカロン系の現在の図鑑を見る' : locale === 'en' ? 'View the current Dolphie family page' : '查看当前系列图鉴'}</a></section>`;
 };
 
 function japanesePage() {

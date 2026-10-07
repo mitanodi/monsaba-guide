@@ -6,6 +6,7 @@ import { execFileSync } from 'node:child_process';
 import { load } from 'cheerio';
 const root = path.resolve(import.meta.dirname, '..');
 const read = f => fs.readFileSync(path.join(root, f), 'utf8');
+const withoutExternalReview = x => JSON.parse(JSON.stringify(x, (key, value) => key === 'externalReview' ? undefined : value));
 const control = f => execFileSync('git', ['show', `pre-astra-redesign-20260915:${f}`], { cwd: root, encoding: 'utf8' });
 test('Astra preserves core data, affiliate code, saved-data keys and share codec byte for byte', () => {
   for (const f of [
@@ -25,7 +26,22 @@ test('the supplied character update preserves all existing families and skill va
   const after = JSON.parse(read('data/tatari.json'));
   assert.deepEqual(after.families.map(f => f.id), [...before.families.map(f => f.id), 'rukaron']);
   for (const original of before.families) {
-    const current = structuredClone(after.families.find(f => f.id === original.id));
+    const current = withoutExternalReview(after.families.find(f => f.id === original.id));
+    if (['erekineko', 'hinyao'].includes(original.id)) {
+      assert.equal(current.evolutions[3].image, null);
+      assert.equal(current.evolutions[3].verification.names, 'external-guide-confirmed');
+      current.evolutions.length = original.evolutions.length;
+      current.searchAliases.length = original.searchAliases.length;
+    }
+    if (['tsubaruka', 'shizukuchou', 'erekineko', 'hinyao'].includes(original.id)) {
+      assert.equal(current.skills[3].evidence.sourceType, 'public_wiki');
+      current.skills.length = original.skills.length;
+    }
+    if (original.id === 'nusuke') for (const s of current.skills) {
+      assert.equal(original.skills.find(x => x.stage === s.stage).stats.length, 0);
+      assert.equal(s.evidence.sourceUrl, 'https://w.atwiki.jp/monstersurvival/pages/129.html');
+      s.stats = []; delete s.verificationStatus; delete s.evidence; delete s.unknownFields;
+    }
     if (['pakuma', 'nusuke'].includes(original.id)) {
       for (const stage of current.evolutions) {
         assert.equal(stage.image, `assets/tata-provided/${original.id}/t${stage.stage}-512.webp`);
@@ -36,7 +52,21 @@ test('the supplied character update preserves all existing families and skill va
   }
   const oldSkills = JSON.parse(control('data/tata-skills.json'));
   const newSkills = JSON.parse(read('data/tata-skills.json'));
-  for (const [id, stages] of Object.entries(oldSkills.byFamily)) assert.deepEqual(newSkills.byFamily[id], stages, id);
+  for (const [id, stages] of Object.entries(oldSkills.byFamily)) {
+    const current = withoutExternalReview(newSkills.byFamily[id]);
+    if (['erekineko', 'hinyao'].includes(id)) current.stages.length = stages.stages.length;
+    for (const s of current.stages) {
+      const old = stages.stages.find(x => x.stage === s.stage);
+      if ((['tsubaruka', 'shizukuchou'].includes(id) && s.stage === 4) || id === 'nusuke') {
+        assert.equal(s.evidence.sourceType, 'public_wiki');
+        assert.equal(old.values.length, 0);
+        for (const key of ['description', 'values', 'verificationStatus', 'evidence', 'unknownFields']) {
+          if (key in old) s[key] = structuredClone(old[key]); else delete s[key];
+        }
+      }
+    }
+    assert.deepEqual(current, stages, id);
+  }
   assert.equal(Object.keys(newSkills.byFamily).length, Object.keys(oldSkills.byFamily).length + 1);
 });
 test('Astra preserves SEO identity on representative existing pages in all three languages', () => {

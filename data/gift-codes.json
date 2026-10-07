@@ -1,37 +1,231 @@
 {
   "version": 3,
-  "lastChecked": "2026-09-14",
+  "lastChecked": "2026-10-07",
   "availabilityStatement": "publicly_listed_not_all_redeemed",
   "active": [
     {
-      "code": "bulipaohuata",
+      "code": "tatatata",
       "isNew": true,
-      "reward": null,
-      "rewardStatus": "unknown",
+      "reward": [
+        {
+          "item": "marble",
+          "quantity": 200
+        },
+        {
+          "item": "silver_brick",
+          "quantity": 10
+        },
+        {
+          "item": "capsule",
+          "quantity": 10
+        },
+        {
+          "item": "shiny_fruit",
+          "quantity": 1
+        }
+      ],
+      "rewardStatus": "external_source_unredeemed",
       "expiresAt": null,
       "expiryStatus": "unknown",
-      "confirmationStatus": "user_screenshot_listed",
-      "lastChecked": "2026-09-14"
+      "confirmationStatus": "externally_listed_unredeemed",
+      "lastChecked": "2026-10-07",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
+      "currentListingSources": [
+        "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "https://nekonokyositu.com/monsaba/14001/"
+      ],
+      "regionStatus": "not_verified_for_all_regions",
+      "redemptionStatus": "not_tested_in_this_audit",
+      "rewardImageEvidence": {
+        "checkedAt": "2026-10-07",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "iconsActuallyViewed": 9
+      },
+      "searchKey": "tatatata"
+    },
+    {
+      "code": "tatamoon",
+      "isNew": true,
+      "reward": [
+        {
+          "item": "marble",
+          "quantity": 20
+        },
+        {
+          "item": "candy",
+          "quantity": 1800
+        },
+        {
+          "item": "silver_brick",
+          "quantity": 15
+        },
+        {
+          "item": "gold_brick",
+          "quantity": 3
+        },
+        {
+          "item": "capsule",
+          "quantity": 1
+        },
+        {
+          "item": "blue_lunch_box",
+          "quantity": 1
+        },
+        {
+          "item": "cookie",
+          "quantity": 1
+        }
+      ],
+      "rewardStatus": "external_source_unredeemed",
+      "expiresAt": null,
+      "expiryStatus": "unknown",
+      "confirmationStatus": "externally_listed_unredeemed",
+      "lastChecked": "2026-10-07",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
+      "currentListingSources": [
+        "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "https://nekonokyositu.com/monsaba/14001/"
+      ],
+      "regionStatus": "not_verified_for_all_regions",
+      "redemptionStatus": "not_tested_in_this_audit",
+      "rewardImageEvidence": {
+        "checkedAt": "2026-10-07",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "iconsActuallyViewed": 9
+      },
+      "verificationNotes": {
+        "ja": "英語資料ではTATAMOON表記もあります。期限は今回の公開本文で確認できず、10/24・10/25を確定日として掲載しません。",
+        "en": "Some English sources use TATAMOON. No expiry date was verified in the current public text.",
+        "zh-CN": "部分英文资料使用TATAMOON。当前公开正文未确认到期日。"
+      },
+      "conflictSources": [
+        "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "https://www.pockettactics.com/clash-of-critters/codes"
+      ],
+      "searchKey": "tatamoon"
+    },
+    {
+      "code": "bulipaohuata",
+      "isNew": false,
+      "reward": [
+        {
+          "item": "candy",
+          "quantity": 1000
+        },
+        {
+          "item": "silver_brick",
+          "quantity": 1
+        },
+        {
+          "item": "cookie",
+          "quantity": 1
+        }
+      ],
+      "rewardStatus": "external_source_unredeemed",
+      "expiresAt": null,
+      "expiryStatus": "unknown",
+      "confirmationStatus": "externally_listed_unredeemed",
+      "lastChecked": "2026-10-07",
+      "previousObservation": {
+        "lastChecked": "2026-09-14",
+        "confirmationStatus": "user_screenshot_listed",
+        "rewardStatus": "unknown"
+      },
+      "currentListingSources": [
+        "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "https://nekonokyositu.com/monsaba/14001/"
+      ],
+      "regionStatus": "not_verified_for_all_regions",
+      "redemptionStatus": "not_tested_in_this_audit",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
+      "rewardImageEvidence": {
+        "checkedAt": "2026-10-07",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "iconsActuallyViewed": 9
+      },
+      "searchKey": "bulipaohuata"
     },
     {
       "code": "dcardtatago",
-      "isNew": true,
-      "reward": null,
-      "rewardStatus": "unknown",
+      "isNew": false,
+      "reward": [
+        {
+          "item": "candy",
+          "quantity": 1000
+        },
+        {
+          "item": "silver_brick",
+          "quantity": 1
+        },
+        {
+          "item": "cookie",
+          "quantity": 1
+        }
+      ],
+      "rewardStatus": "external_source_unredeemed",
       "expiresAt": null,
       "expiryStatus": "unknown",
-      "confirmationStatus": "user_screenshot_listed",
-      "lastChecked": "2026-09-14"
+      "confirmationStatus": "externally_listed_unredeemed",
+      "lastChecked": "2026-10-07",
+      "previousObservation": {
+        "lastChecked": "2026-09-14",
+        "confirmationStatus": "user_screenshot_listed",
+        "rewardStatus": "unknown"
+      },
+      "currentListingSources": [
+        "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "https://nekonokyositu.com/monsaba/14001/"
+      ],
+      "regionStatus": "not_verified_for_all_regions",
+      "redemptionStatus": "not_tested_in_this_audit",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
+      "rewardImageEvidence": {
+        "checkedAt": "2026-10-07",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "iconsActuallyViewed": 9
+      },
+      "searchKey": "dcardtatago"
     },
     {
       "code": "steeamertata",
-      "isNew": true,
-      "reward": null,
-      "rewardStatus": "unknown",
+      "isNew": false,
+      "reward": [
+        {
+          "item": "candy",
+          "quantity": 1500
+        },
+        {
+          "item": "silver_brick",
+          "quantity": 5
+        },
+        {
+          "item": "capsule",
+          "quantity": 1
+        }
+      ],
+      "rewardStatus": "external_source_unredeemed",
       "expiresAt": null,
       "expiryStatus": "unknown",
-      "confirmationStatus": "user_screenshot_listed",
-      "lastChecked": "2026-09-14"
+      "confirmationStatus": "externally_listed_unredeemed",
+      "lastChecked": "2026-10-07",
+      "previousObservation": {
+        "lastChecked": "2026-09-14",
+        "confirmationStatus": "user_screenshot_listed",
+        "rewardStatus": "unknown"
+      },
+      "currentListingSources": [
+        "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "https://nekonokyositu.com/monsaba/14001/"
+      ],
+      "regionStatus": "not_verified_for_all_regions",
+      "redemptionStatus": "not_tested_in_this_audit",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
+      "rewardImageEvidence": {
+        "checkedAt": "2026-10-07",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "iconsActuallyViewed": 9
+      },
+      "searchKey": "steeamertata"
     },
     {
       "code": "ttukkapet26",
@@ -54,8 +248,20 @@
       "expiresAt": null,
       "expiryStatus": "unannounced",
       "confirmationStatus": "externally_listed_unredeemed",
-      "lastChecked": "2026-09-14",
-      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html"
+      "lastChecked": "2026-10-07",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
+      "previousObservation": {
+        "lastChecked": "2026-09-14",
+        "confirmationStatus": "externally_listed_unredeemed",
+        "rewardStatus": "external_source_unredeemed"
+      },
+      "currentListingSources": [
+        "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "https://nekonokyositu.com/monsaba/14001/"
+      ],
+      "regionStatus": "not_verified_for_all_regions",
+      "redemptionStatus": "not_tested_in_this_audit",
+      "searchKey": "ttukkapet26"
     },
     {
       "code": "openfestc26",
@@ -78,7 +284,28 @@
       "expiresAt": null,
       "expiryStatus": "unannounced",
       "confirmationStatus": "externally_listed_unredeemed",
-      "lastChecked": "2026-09-14"
+      "lastChecked": "2026-10-07",
+      "previousObservation": {
+        "lastChecked": "2026-09-14",
+        "confirmationStatus": "externally_listed_unredeemed",
+        "rewardStatus": "external_source_unredeemed"
+      },
+      "currentListingSources": [
+        "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "https://nekonokyositu.com/monsaba/14001/"
+      ],
+      "regionStatus": "not_verified_for_all_regions",
+      "redemptionStatus": "not_tested_in_this_audit",
+      "verificationNotes": {
+        "ja": "英語資料の一部はopenfestcと表記。国内資料のコピー文字列openfestc26を維持。銀レンガの地域名も未確認。",
+        "en": "Some English lists say openfestc. The Japanese copy string openfestc26 is retained; regional brick naming is unverified.",
+        "zh-CN": "部分英文资料写作openfestc。保留日文资料的复制字符串openfestc26；砖块地区名称待确认。"
+      },
+      "conflictSources": [
+        "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "https://www.pockettactics.com/clash-of-critters/codes"
+      ],
+      "searchKey": "openfestc26"
     },
     {
       "code": "openfestb26",
@@ -101,7 +328,28 @@
       "expiresAt": null,
       "expiryStatus": "unannounced",
       "confirmationStatus": "externally_listed_unredeemed",
-      "lastChecked": "2026-09-14"
+      "lastChecked": "2026-10-07",
+      "previousObservation": {
+        "lastChecked": "2026-09-14",
+        "confirmationStatus": "externally_listed_unredeemed",
+        "rewardStatus": "external_source_unredeemed"
+      },
+      "currentListingSources": [
+        "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "https://nekonokyositu.com/monsaba/14001/"
+      ],
+      "regionStatus": "not_verified_for_all_regions",
+      "redemptionStatus": "not_tested_in_this_audit",
+      "verificationNotes": {
+        "ja": "国内表はアメ1500・銀レンガ1・クッキー1、英語資料はアメ1000・Blue Shop Tickets表記。地域差は未確認。",
+        "en": "Japanese guides list 1,500 candy, 1 Silver Brick and 1 cookie; English sources list 1,000 candy and Blue Shop Tickets. Regional differences are unverified.",
+        "zh-CN": "日文资料为糖果1500、银砖1、曲奇1；英文资料为糖果1000与Blue Shop Tickets。地区差异待确认。"
+      },
+      "conflictSources": [
+        "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "https://www.pockettactics.com/clash-of-critters/codes"
+      ],
+      "searchKey": "openfestb26"
     },
     {
       "code": "openfesta26",
@@ -124,7 +372,28 @@
       "expiresAt": null,
       "expiryStatus": "unannounced",
       "confirmationStatus": "externally_listed_unredeemed",
-      "lastChecked": "2026-09-14"
+      "lastChecked": "2026-10-07",
+      "previousObservation": {
+        "lastChecked": "2026-09-14",
+        "confirmationStatus": "externally_listed_unredeemed",
+        "rewardStatus": "external_source_unredeemed"
+      },
+      "currentListingSources": [
+        "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "https://nekonokyositu.com/monsaba/14001/"
+      ],
+      "regionStatus": "not_verified_for_all_regions",
+      "redemptionStatus": "not_tested_in_this_audit",
+      "verificationNotes": {
+        "ja": "銀レンガは英語資料でBlue Shop Ticketsと表記。地域のアイテム名対応は未確認。",
+        "en": "English sources call the Silver Brick reward Blue Shop Tickets; the regional item-name mapping is unverified.",
+        "zh-CN": "英文资料将银砖奖励称为Blue Shop Tickets；地区物品名对应待确认。"
+      },
+      "conflictSources": [
+        "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "https://www.pockettactics.com/clash-of-critters/codes"
+      ],
+      "searchKey": "openfesta26"
     },
     {
       "code": "welcome2026",
@@ -155,7 +424,19 @@
       "expiresAt": null,
       "expiryStatus": "unannounced",
       "confirmationStatus": "multi_source_confirmed",
-      "lastChecked": "2026-09-14"
+      "lastChecked": "2026-10-07",
+      "previousObservation": {
+        "lastChecked": "2026-09-14",
+        "confirmationStatus": "multi_source_confirmed",
+        "rewardStatus": "multi_source_confirmed"
+      },
+      "currentListingSources": [
+        "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "https://nekonokyositu.com/monsaba/14001/"
+      ],
+      "regionStatus": "not_verified_for_all_regions",
+      "redemptionStatus": "not_tested_in_this_audit",
+      "searchKey": "welcome2026"
     },
     {
       "code": "GoonBug",
@@ -178,7 +459,46 @@
       "expiresAt": null,
       "expiryStatus": "unannounced",
       "confirmationStatus": "multi_source_confirmed",
-      "lastChecked": "2026-09-14"
+      "lastChecked": "2026-10-07",
+      "previousObservation": {
+        "lastChecked": "2026-09-14",
+        "confirmationStatus": "multi_source_confirmed",
+        "rewardStatus": "multi_source_confirmed"
+      },
+      "currentListingSources": [
+        "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "https://nekonokyositu.com/monsaba/14001/"
+      ],
+      "regionStatus": "not_verified_for_all_regions",
+      "redemptionStatus": "not_tested_in_this_audit",
+      "verificationNotes": {
+        "ja": "@wikiとPocket Gamerは終了報告、国内一覧と一部英語一覧は掲載を継続。未使用アカウントでの交換不可は未確認。",
+        "en": "Wiki and Pocket Gamer report expiry; Japanese and some English lists still include it. Failure on an unused account has not been verified.",
+        "zh-CN": "Wiki与Pocket Gamer报告已结束，日文及部分英文列表仍收录。未使用账号兑换失败尚未验证。"
+      },
+      "conflictSources": [
+        "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "https://www.pockettactics.com/clash-of-critters/codes"
+      ],
+      "validityStatus": "conflicting_reports",
+      "expiryReports": [
+        {
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
+          "status": "reported_expired",
+          "checkedAt": "2026-10-07"
+        },
+        {
+          "sourceUrl": "https://www.pocketgamer.com/clash-of-critters/codes/",
+          "status": "reported_expired",
+          "checkedAt": "2026-10-07"
+        },
+        {
+          "sourceUrl": "https://nekonokyositu.com/monsaba/14001/",
+          "status": "listed_no_expiry",
+          "checkedAt": "2026-10-07"
+        }
+      ],
+      "searchKey": "goonbug"
     },
     {
       "code": "HelloTatari",
@@ -201,7 +521,46 @@
       "expiresAt": null,
       "expiryStatus": "unannounced",
       "confirmationStatus": "multi_source_confirmed",
-      "lastChecked": "2026-09-14"
+      "lastChecked": "2026-10-07",
+      "previousObservation": {
+        "lastChecked": "2026-09-14",
+        "confirmationStatus": "multi_source_confirmed",
+        "rewardStatus": "multi_source_confirmed"
+      },
+      "currentListingSources": [
+        "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "https://nekonokyositu.com/monsaba/14001/"
+      ],
+      "regionStatus": "not_verified_for_all_regions",
+      "redemptionStatus": "not_tested_in_this_audit",
+      "verificationNotes": {
+        "ja": "終了報告と掲載継続が混在し、英語資料にはビー玉1000の記載もあります。既存の国内100を保持し、交換可否は再確認待ち。",
+        "en": "Expiry reports conflict with ongoing listings; some English sources say 1,000 pinballs. The existing Japanese value of 100 is retained; redemption is pending.",
+        "zh-CN": "结束报告与继续收录并存；部分英文资料写弹珠1000。保留既有日文值100，兑换可否待确认。"
+      },
+      "conflictSources": [
+        "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "https://www.pockettactics.com/clash-of-critters/codes"
+      ],
+      "validityStatus": "conflicting_reports",
+      "expiryReports": [
+        {
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
+          "status": "reported_expired",
+          "checkedAt": "2026-10-07"
+        },
+        {
+          "sourceUrl": "https://www.pocketgamer.com/clash-of-critters/codes/",
+          "status": "reported_expired",
+          "checkedAt": "2026-10-07"
+        },
+        {
+          "sourceUrl": "https://nekonokyositu.com/monsaba/14001/",
+          "status": "listed_no_expiry",
+          "checkedAt": "2026-10-07"
+        }
+      ],
+      "searchKey": "hellotatari"
     },
     {
       "code": "WeeklyGift",
@@ -220,7 +579,28 @@
       "expiresAt": null,
       "expiryStatus": "unannounced",
       "confirmationStatus": "multi_source_confirmed",
-      "lastChecked": "2026-09-14"
+      "lastChecked": "2026-10-07",
+      "previousObservation": {
+        "lastChecked": "2026-09-14",
+        "confirmationStatus": "multi_source_confirmed",
+        "rewardStatus": "multi_source_confirmed"
+      },
+      "currentListingSources": [
+        "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "https://nekonokyositu.com/monsaba/14001/"
+      ],
+      "regionStatus": "not_verified_for_all_regions",
+      "redemptionStatus": "not_tested_in_this_audit",
+      "verificationNotes": {
+        "ja": "国内表はカプセル3個、英語資料は5個。既存の国内値を保持し、日本版の実交換は未確認。",
+        "en": "Japanese guides list 3 capsules; English guides list 5. The existing Japanese reward is retained; redemption in Japan is untested.",
+        "zh-CN": "日文资料为3个胶囊，英文资料为5个。保留既有日文值，日本版实际兑换未验证。"
+      },
+      "conflictSources": [
+        "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "https://www.pockettactics.com/clash-of-critters/codes"
+      ],
+      "searchKey": "weeklygift"
     },
     {
       "code": "WelcomeGift",
@@ -239,14 +619,35 @@
       "expiresAt": null,
       "expiryStatus": "unannounced",
       "confirmationStatus": "multi_source_confirmed",
-      "lastChecked": "2026-09-14"
+      "lastChecked": "2026-10-07",
+      "previousObservation": {
+        "lastChecked": "2026-09-14",
+        "confirmationStatus": "multi_source_confirmed",
+        "rewardStatus": "multi_source_confirmed"
+      },
+      "currentListingSources": [
+        "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "https://nekonokyositu.com/monsaba/14001/"
+      ],
+      "regionStatus": "not_verified_for_all_regions",
+      "redemptionStatus": "not_tested_in_this_audit",
+      "verificationNotes": {
+        "ja": "国内表はカプセル6個、英語資料は通常5個＋レア1個。種類の内訳は日本版未確認。",
+        "en": "Japanese guides list 6 capsules; English guides list 5 regular plus 1 rare capsule. The Japanese breakdown is unverified.",
+        "zh-CN": "日文资料为6个胶囊，英文资料为普通5个＋稀有1个。日本版种类明细待确认。"
+      },
+      "conflictSources": [
+        "https://w.atwiki.jp/monstersurvival/pages/1.html",
+        "https://www.pockettactics.com/clash-of-critters/codes"
+      ],
+      "searchKey": "welcomegift"
     }
   ],
   "expired": [],
   "researchNotes": {
-    "checkedAt": "2026-09-14",
-    "evidence": "docs/evidence/gift-codes-2026-09-14.md",
-    "reason": "ユーザー提供スクリーンショットで12件の一覧掲載と新規3件のNEW表示を確認。利用可否・期限・報酬は未確認のものを推測しない",
+    "checkedAt": "2026-10-07",
+    "evidence": "docs/evidence/gift-codes-2026-10-07.json",
+    "reason": "Current domestic and international public lists compared. Nine distinct reward icons actually viewed. Copy casing and pre-existing rewards preserved; conflicting reports shown separately.",
     "statusFieldsSeparated": true
   }
 }

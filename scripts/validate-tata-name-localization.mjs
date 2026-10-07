@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { load } from 'cheerio';
 import '../family-display.js';
 
 const root = path.resolve(import.meta.dirname, '..');
@@ -12,10 +13,17 @@ const japaneseNamesFor = (locale) => [...new Set(forms
   .filter(({ evolution }) => evolution.nameVerification?.[locale] !== 'pending')
   .map(({ evolution }) => evolution.name))].sort((a, b) => b.length - a.length);
 
-const stripAllowedJapanese = (html) => html
+// Imported source statements retain their complete original labels. Only
+// explicitly marked Japanese source blocks are exempt; primary names and UI
+// outside those blocks remain subject to the original check.
+const stripAllowedJapanese = (html) => {
+  const $ = load(html);
+  $('[lang="ja"][translate="no"]').remove();
+  return $.html()
   .replace(/<([a-z][\w:-]*)\b[^>]*class="[^"]*(?:localized-original-name|tata-i18n-names)[^"]*"[^>]*>[\s\S]*?<\/\1>/gi, '')
   .replace(/"alternateName"\s*:\s*\[[\s\S]*?\]/gi, '')
   .replace(/<(?:script|style)\b[\s\S]*?<\/(?:script|style)>/gi, '');
+};
 
 for (const { family, evolution } of forms) {
   for (const locale of ['en', 'zh-CN']) {

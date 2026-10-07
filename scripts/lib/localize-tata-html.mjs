@@ -1,4 +1,5 @@
 import '../../family-display.js';
+import { protectLocalizedHtml } from './protect-localized-html.mjs';
 
 const {
   normalizeLocale,
@@ -18,8 +19,9 @@ export function createTataHtmlLocalizer(tatari) {
   const formByToken = new Map(japaneseNames.map((name) => [tokenByJapanese.get(name), byJapanese.get(name)]));
 
   const replaceOutsideAllowedJapanese = (source, replacer) => {
+    const native = protectLocalizedHtml(source);
     const protectedBlocks = [];
-    let html = source.replace(
+    let html = native.html.replace(
       /<([a-z][\w:-]*)\b[^>]*class="[^"]*(?:localized-original-name|tata-i18n-names)[^"]*"[^>]*>[\s\S]*?<\/\1>|"alternateName"\s*:\s*\[[\s\S]*?\]|<script\b(?![^>]*application\/ld\+json)[\s\S]*?<\/script>|<style\b[\s\S]*?<\/style>/gi,
       (block) => {
         const token = `<tata-localization-block data-index="${protectedBlocks.length}"></tata-localization-block>`;
@@ -31,7 +33,7 @@ export function createTataHtmlLocalizer(tatari) {
     protectedBlocks.forEach((block, index) => {
       html = html.replace(`<tata-localization-block data-index="${index}"></tata-localization-block>`, block);
     });
-    return html;
+    return native.restore(html);
   };
 
   const protect = (source) => replaceOutsideAllowedJapanese(source, (html) => {

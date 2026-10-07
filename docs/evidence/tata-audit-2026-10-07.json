@@ -1,0 +1,5226 @@
+{
+  "checkedAt": "2026-10-07",
+  "changes": [
+    {
+      "familyId": "erekineko",
+      "stage": 4,
+      "change": "implemented T4 added",
+      "evidence": [
+        "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+        "https://w.atwiki.jp/monstersurvival/pages/80.html"
+      ]
+    },
+    {
+      "familyId": "hinyao",
+      "stage": 4,
+      "change": "implemented T4 added",
+      "evidence": [
+        "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+        "https://w.atwiki.jp/monstersurvival/pages/50.html"
+      ]
+    }
+  ],
+  "officialImplementationSource": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
+  "externalAdoptionAuthorized": true,
+  "foreignNameConflict": {
+    "familyId": "rukaron",
+    "stage": 1,
+    "official": "Dolphie",
+    "wiki": "Snowcub",
+    "resolution": "retain official Dolphie"
+  },
+  "upcomingExternalForms": [
+    {
+      "name": "ファミリッサム",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/145.html"
+    },
+    {
+      "name": "エクスカボーラー",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/72.html"
+    },
+    {
+      "name": "サボティアモ",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/58.html"
+    }
+  ],
+  "upcomingImplementationStatus": "official-current-implementation-not-confirmed",
+  "unresolved": [
+    "共有進行の換算式",
+    "ヌスケ・ドリルー・エレキネコT3共通表と個別表の数値差",
+    "岩T4肥料消費数",
+    "未確認画像6形態",
+    "簡体字名6形態",
+    "ツバルカT4の未掲載ダメージ倍率・回数・クールダウン",
+    "通常スキル全242段階の最新数値照合（既存実物根拠を保護）",
+    "ZR専用スキルの未掲載倍率・CD・進化段階差",
+    "新規専用スキルのEN/zh-CN本文翻訳"
+  ],
+  "families": [
+    {
+      "familyId": "takepanda",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/55.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "タケノコの術",
+        "external": "タケノコの術",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "コパンダ",
+          "english": "Pandaroo",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "熊猫猫",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "タケパンダ",
+          "english": "Pandaroot",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "熊熊猫",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "パンドウラク",
+          "english": "Pandarrior",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "熊猫小侠",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "バンブオウ",
+          "english": "Pandagrand",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "熊猫大侠",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ サンシャインサラダを3個与える",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/55.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ ピンボールでビー玉を15000個発射",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/55.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ ブタとタケの煮込み15個を与える ＋ ピンボールでビー玉45000個発射",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/55.html"
+        }
+      ]
+    },
+    {
+      "familyId": "tsubaruka",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/60.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "あっかんべー",
+        "external": "あっかんべー",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ベロパカ",
+          "english": "Lollama",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "小舌驼",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ツバルカ",
+          "english": "Slobberlama",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "口水驼",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "ビチャルパカ",
+          "english": "Ptooielama",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "啊呸驼",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "ジャンガルパカ",
+          "english": "Blechlama",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "一塌糊驼",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "name-confirmed-values-pending"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ 連続ログイン2日",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/60.html"
+        },
+        {
+          "stage": 3,
+          "condition": "餌付けでステータスを3回上げる ＋ ピンボールでビー玉を15000個発射。確認待ち：必要な星数",
+          "status": "pending",
+          "pendingFields": [
+            "必要な星数"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/60.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ パックからカード60枚獲得 ＋ ピンボールでビー玉45000個発射",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/60.html"
+        }
+      ]
+    },
+    {
+      "familyId": "birimori",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/81.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "パルスエコー",
+        "external": "パルスエコー",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ビリモ",
+          "english": "Zaplet",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "电音蝠",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ビリモリ",
+          "english": "Synthhog",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "电波蝠",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "パルバット",
+          "english": "Sonarbat",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "大雷音蝠",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "ヴァンパルス",
+          "english": "Umbraveil",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "夜翼领主",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ ゾンビラッシュでLv.5にする",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/81.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：釣竿2000消費／スケートボード2000使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/81.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ ゾンビラッシュで5回Lv.7にする ＋ 共有進行：スケートボード6000使用／釣竿6000消費。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/81.html"
+        }
+      ]
+    },
+    {
+      "familyId": "togegyo",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/85.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "ダゴンウェーブ",
+        "external": "ダゴンウェーブ",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ホネギョ",
+          "english": "Maskfry",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "小骨鱼",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "トゲギョ",
+          "english": "Ospisces",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "刺骨鱼",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "ガイアーマ",
+          "english": "Armorjaw",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "铠骨鱼",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "アビスカル",
+          "english": "Dagondeep",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "印斯茅斯之主",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ ボスラリーに10回挑戦",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/85.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：釣竿2000消費／弾200000使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/85.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ パックからカード60枚獲得 ＋ 共有進行：釣竿6000消費／弾600000使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/85.html"
+        }
+      ]
+    },
+    {
+      "familyId": "yotsubird",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/24.html",
+      "formCount": 2,
+      "normalStage1Name": {
+        "current": "シード",
+        "external": "シード",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "フタバード",
+          "english": "Clucky",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "菜鸡",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ヨツバード",
+          "english": "Cluckeroo",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "幸运鸡",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "試練なし（通常進化）",
+          "status": "externally_confirmed",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/24.html"
+        }
+      ]
+    },
+    {
+      "familyId": "kaenjack",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/41.html",
+      "formCount": 2,
+      "normalStage1Name": {
+        "current": "クイックファイア",
+        "external": "クイックファイア",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "スズメラ",
+          "english": "Sparkrow",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "小火雀",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "カエンジャク",
+          "english": "Scorchwing",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "烈火雀",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "試練なし（通常進化）",
+          "status": "externally_confirmed",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/41.html"
+        }
+      ]
+    },
+    {
+      "familyId": "hihidog",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/23.html",
+      "formCount": 2,
+      "normalStage1Name": {
+        "current": "チェインボルト",
+        "external": "チェインボルト",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ヒパピー",
+          "english": "Zapup",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "电嘟狗",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ビビドッグ",
+          "english": "Zapooch",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "猛电犬",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": null,
+          "status": "pending",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/23.html"
+        }
+      ]
+    },
+    {
+      "familyId": "hanarenaishi",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/52.html",
+      "formCount": 2,
+      "normalStage1Name": {
+        "current": "ナシ落とし",
+        "external": "ナシ落とし",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ナンモナイシ",
+          "english": "Solpear",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "鸭梨",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ハナレナイシ",
+          "english": "Pearpair",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "不分梨",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "試練なし（通常進化）",
+          "status": "externally_confirmed",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/52.html"
+        }
+      ]
+    },
+    {
+      "familyId": "birinamazu",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/63.html",
+      "formCount": 2,
+      "normalStage1Name": {
+        "current": "電気玉",
+        "external": "電気玉",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ノロマズ",
+          "english": "Wobbler",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "呆呆鱼",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ビリナマズ",
+          "english": "Boltskipper",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "电憨鱼",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": null,
+          "status": "pending",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/63.html"
+        }
+      ]
+    },
+    {
+      "familyId": "daishell",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/28.html",
+      "formCount": 2,
+      "normalStage1Name": {
+        "current": "バブルウェーブ",
+        "external": "バブルウェーブ",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "チーシェル",
+          "english": "Shellshy",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "胆小蟹",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ダイシェル",
+          "english": "Boldclaw",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "胆大蟹",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "試練なし（通常進化）",
+          "status": "externally_confirmed",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/28.html"
+        }
+      ]
+    },
+    {
+      "familyId": "batarisu",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/40.html",
+      "formCount": 2,
+      "normalStage1Name": {
+        "current": "松ぼっくり地雷",
+        "external": "松ぼっくり地雷",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "トスリス",
+          "english": "Cindermunk",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "火花栗",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "バタリス",
+          "english": "Embertail",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "火焰栗",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "試練なし（通常進化）",
+          "status": "externally_confirmed",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/40.html"
+        }
+      ]
+    },
+    {
+      "familyId": "guuhog",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/62.html",
+      "formCount": 2,
+      "normalStage1Name": {
+        "current": "反撃トゲ",
+        "external": "反撃トゲ",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ハリネム",
+          "english": "Dozy",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "打盹刺",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "グウホッグ",
+          "english": "Snoozebo",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "呼噜刺",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/62.html"
+        }
+      ]
+    },
+    {
+      "familyId": "capibarrie",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/29.html",
+      "formCount": 2,
+      "normalStage1Name": {
+        "current": "みかん弾",
+        "external": "みかん弾",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "カピラス",
+          "english": "Capywata",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "卡橘巴拉",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "カピバルリー",
+          "english": "Capypapa",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "卡骑巴拉",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "3星",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/29.html"
+        }
+      ]
+    },
+    {
+      "familyId": "rokubuhi",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/61.html",
+      "formCount": 2,
+      "normalStage1Name": {
+        "current": "泥投げ",
+        "external": "泥投げ",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "マドブヒ",
+          "english": "Mudrump",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "泥巴猪",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ロクブヒ",
+          "english": "Rockhog",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "摇滚岩猪",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "試練なし（通常進化）",
+          "status": "externally_confirmed",
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/61.html"
+        }
+      ]
+    },
+    {
+      "familyId": "marushu",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/59.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "ミニ胞子",
+        "external": "ミニ胞子",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "マルッシュ",
+          "english": "Funglet",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "嘟嘟菇",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "マボロッシュ",
+          "english": "Trippet",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "致幻菇",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "マダムッシュ",
+          "english": "Hyphoria",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "靡醉菇",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "イルミラージュ",
+          "english": "Ecstamira",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "极乐魔菇",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ 2日間ログイン",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/59.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ ピンボールでビー玉を15000個発射",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/59.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ 草バッジ5個所有 ＋ ピンボールでビー玉45000個発射",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/59.html"
+        }
+      ]
+    },
+    {
+      "familyId": "fugumaru",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/110.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "板前修行",
+        "external": "板前修行",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "フグマル",
+          "english": "Blowfin",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "气球河豚",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ニギリマル",
+          "english": "Puffbelly",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "寿司河豚",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "フナモリマル",
+          "english": "Chefugu",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "大师河豚",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "タイショウマル",
+          "english": "Pyromaki",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "军舰河豚王",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/110.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ エナジードリンクを5000本使用",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/110.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ 弁当24個作成 ＋ エナジードリンク20000本使用",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/110.html"
+        }
+      ]
+    },
+    {
+      "familyId": "greenbee",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/54.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "グラスダッシュ",
+        "external": "グラスダッシュ",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "グリンビィ",
+          "english": "Goonbug",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "绿甲虫",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "チョイワルブーン",
+          "english": "Capobeetle",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "酷甲虫",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "チョーワルブーン",
+          "english": "Donscarab",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "甲虫霸霸",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "ブーンマント",
+          "english": "Beetleknight",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "甲虫侠",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ ボスラリーに10回挑戦",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/54.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ ピンボールでビー玉を15000個発射",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/54.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ ブタとタケの煮込み15個を与える ＋ ピンボールでビー玉45000個発射",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/54.html"
+        }
+      ]
+    },
+    {
+      "familyId": "kowagaru",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/68.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "ジャブ",
+        "external": "ジャブ",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "コワガルー",
+          "english": "Joeyo",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "怂小袋",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ツヨガルー",
+          "english": "Puncharoo",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "拳击袋",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "ガルッキー",
+          "english": "Kangachamp",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "拳王阿袋",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "ガルチャンプ",
+          "english": "Kaiseroo",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "传奇阿袋",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "アイランドトレジャーで敵を30体撃破。確認待ち：必要な星数",
+          "status": "pending",
+          "pendingFields": [
+            "必要な星数"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/68.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ エナジードリンクを5000本使用",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/68.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ 24星の岩タタ3体所有 ＋ 共有進行：オタカラ120（肥料消費数は720000と7200で不一致、確認待ち）。確認待ち：共有進行の合算・換算式、肥料消費数",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式",
+            "肥料消費数"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/68.html"
+        }
+      ]
+    },
+    {
+      "familyId": "kunbuu",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/45.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "辛口定食",
+        "external": "辛口定食",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "クンブー",
+          "english": "Souphog",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "碗仔猪",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ハンバーブー",
+          "english": "Grillhog",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "汉堡猪",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "ブヒナベブー",
+          "english": "Hothog",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "火锅猪",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "カロリキング",
+          "english": "Searhog",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "煎扒猪",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ マグマラーメン・トウガラシソーダ・クッキーを1個ずつ与える",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/45.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：スケートボード2000使用／肥料4200使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/45.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ マグマラーメン60個を与える ＋ エナジードリンク20000本使用",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/45.html"
+        }
+      ]
+    },
+    {
+      "familyId": "tsubutsumuri",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/69.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "水晶クラスター",
+        "external": "水晶クラスター",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ツブツムリ",
+          "english": "Shardsnail",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "晶粒蜗牛",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ジェムツムリ",
+          "english": "Gemsnail",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "晶石蜗牛",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "クォーツムリ",
+          "english": "Jewelsnail",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "晶矿蜗牛",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "アメジスネイル",
+          "english": "Crystalsnail",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "晶芯蜗牛",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ ピンボールでシールドを5個獲得",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/69.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ エナジードリンクを5000本使用",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/69.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ タタボックス50個獲得 ＋ 共有進行：オタカラ120（肥料消費数は720000と7200で不一致、確認待ち）。確認待ち：共有進行の合算・換算式、肥料消費数",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式",
+            "肥料消費数"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/69.html"
+        }
+      ]
+    },
+    {
+      "familyId": "pupunku",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/49.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "ププガス",
+        "external": "ププガス",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ププンク",
+          "english": "Fumekit",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "噗噗鼬",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "クサンク",
+          "english": "Sulfunk",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "臭屁鼬",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "マグマスク",
+          "english": "Magmusk",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "爆火鼬",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "ボンバスカー",
+          "english": "Blastniff",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "燃尾飞鼬",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ クッキーを30個与える",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/49.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：スケートボード2000使用／肥料4200使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/49.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ 炎バッジ5個所有 ＋ エナジードリンク20000本使用",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/49.html"
+        }
+      ]
+    },
+    {
+      "familyId": "erekineko",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/80.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "雷猫拳",
+        "external": "電猫拳",
+        "status": "conflict-retained-game-evidence"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "エレキネコ",
+          "english": "Kittazap",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "电喵宝",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "デンニャン",
+          "english": "Nekowatt",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "电财喵",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "スピニャット",
+          "english": "Voltazar",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "雷伏金喵",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "トコヨニャット",
+          "english": "Thunderpaw",
+          "englishStatus": "externally_confirmed",
+          "simplifiedChinese": null,
+          "chineseStatus": "pending",
+          "normalSkill": "externally-supplemented"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ ピンボールでビー玉を2400個発射",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/80.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：オタカラ70／肥料4200使用。確認待ち：共有進行の合算・換算式、資料間で異なる共有進行数値",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式",
+            "資料間で異なる共有進行数値"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/80.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ ビー玉40000個発射、またはネコノミコトの図鑑開放 ＋ 共有進行：スケートボード6000使用／釣竿6000消費。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/80.html"
+        }
+      ]
+    },
+    {
+      "familyId": "sukedako",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/38.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "身代わりタコ",
+        "external": "身代わりタコ",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "スケダコ",
+          "english": "Dumbopus",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "呆呆章鱼",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ウオダコ",
+          "english": "Dazopus",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "困惑章鱼",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "オクトーム",
+          "english": "Fishopus",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "不是章鱼",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "ロードパス",
+          "english": "Lordopus",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "国王章鱼",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ タタ捕獲で40体捕獲",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/38.html"
+        },
+        {
+          "stage": 3,
+          "condition": "餌付けでステータスを3回上げる ＋ 共有進行：釣竿2000消費／弾200000使用。確認待ち：必要な星数、共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "必要な星数",
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/38.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ 総攻撃20回発動または参加 ＋ 共有進行：釣竿6000消費／弾600000使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/38.html"
+        }
+      ]
+    },
+    {
+      "familyId": "hinyao",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/50.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "バチバチニャン弾",
+        "external": "パチパチニャン弾",
+        "status": "conflict-retained-game-evidence"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ヒニャオ",
+          "english": "Flameow",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "火喵宝",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "マネヒネコ",
+          "english": "Nekoflare",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "火财喵",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "ネコマダラ",
+          "english": "Silversear",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "炙炎银喵",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "ネコノミコト",
+          "english": "Cinderclaw",
+          "englishStatus": "externally_confirmed",
+          "simplifiedChinese": null,
+          "chineseStatus": "pending",
+          "normalSkill": "externally-supplemented"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ エレキネコと通常ステージを10回クリア",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/50.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ エナジードリンクを5000本使用",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/50.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ ビー玉40000個発射、またはトコヨニャットの図鑑開放 ＋ エナジードリンク20000本使用",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/50.html"
+        }
+      ]
+    },
+    {
+      "familyId": "mumukaba",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/109.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "ムムのキス",
+        "external": "ムムのキス",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ムムカバ",
+          "english": "Momopo",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "梦梦河马",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "マリリンバ",
+          "english": "Lulupo",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "露露河马",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "モンローバ",
+          "english": "Lilypo",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "丽丽河马",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "ヒポディーバ",
+          "english": "Gemmapo",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "珍珍河马",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ 岩粒ドーナツを10個与える",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/109.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ エナジードリンクを5000本使用",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/109.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ パックからカード60枚獲得 ＋ 共有進行：オタカラ120（肥料消費数は720000と7200で不一致、確認待ち）。確認待ち：共有進行の合算・換算式、肥料消費数",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式",
+            "肥料消費数"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/109.html"
+        }
+      ]
+    },
+    {
+      "familyId": "hikaru",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/111.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "スパークシールド",
+        "external": "スパークシールド",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ピカル",
+          "english": "Glowfly",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "微光萤",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ボルタル",
+          "english": "Phosflare",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "幻彩萤",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "ルシフェル",
+          "english": "Glimmerwing",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "曜光萤",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "ルミナリオン",
+          "english": "Luminastra",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "极光萤",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ ピンボールで星の袋に20回入れる",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/111.html"
+        },
+        {
+          "stage": 3,
+          "condition": "餌付けでステータスを3回上げる ＋ 共有進行：釣竿2000消費／スケートボード2000使用。確認待ち：必要な星数、共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "必要な星数",
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/111.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ ピカピカの実15個獲得 ＋ 共有進行：スケートボード6000使用／釣竿6000消費。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/111.html"
+        }
+      ]
+    },
+    {
+      "familyId": "atatama",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/113.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "バブルブレス",
+        "external": "バブルブレス",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "アタタマ",
+          "english": "Poakie",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "泡泡蝌",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ヒガマ",
+          "english": "Sizzribb",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "火蟾蜍",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "メラガマ",
+          "english": "Lickflicker",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "卷舌蟾蜍",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "ダルマグマ",
+          "english": "Ignitoad",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "火云神蟾",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ トウガラシソーダを10個与える",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/113.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ エナジードリンクを5000本使用",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/113.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ 火山ピザ15個を与える ＋ エナジードリンク20000本使用",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/113.html"
+        }
+      ]
+    },
+    {
+      "familyId": "yaminome",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/114.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "種ポイズン",
+        "external": "種ポイズン",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ヤミノメ",
+          "english": "Budboo",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "暗影花",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ヤミハナ",
+          "english": "Snapshade",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "幽影花",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "ヤミマンドラ",
+          "english": "Thornwisp",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "幻影花",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "ダークラウン",
+          "english": "Chomperwraith",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "秘影花灵",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ 任意の建物を10個建築",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/114.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ ピンボールでビー玉を15000個発射",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/114.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ 任意の食べ物120個を与える ＋ ピンボールでビー玉45000個発射",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/114.html"
+        }
+      ]
+    },
+    {
+      "familyId": "korokon",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/44.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "火の玉",
+        "external": "火の玉",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "コロコン",
+          "english": "Sparkit",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "球球狐",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ニコン",
+          "english": "Flametail",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "眯眯狐",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "ヨウエンビ",
+          "english": "Flarevix",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "艳尾狐",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "キツネビア",
+          "english": "Phantifox",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "幻尾狐",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ ピンボールでビー玉を2400個発射",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/44.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：スケートボード2000使用／肥料4200使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/44.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ 24星の炎タタ3体所有 ＋ エナジードリンク20000本使用",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/44.html"
+        }
+      ]
+    },
+    {
+      "familyId": "mogurin",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/67.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "モグタマ",
+        "external": "モグタマ",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "モグリン",
+          "english": "Gopher",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "小地鼠",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "モグデント",
+          "english": "Watchroo",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "前哨鼠",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "モグトリデ",
+          "english": "Bastogard",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "堡垒鼠",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "モグパレス",
+          "english": "Cratzar",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "地皇鼠",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "モグリンを1体獲得。確認待ち：必要な星数",
+          "status": "pending",
+          "pendingFields": [
+            "必要な星数"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/67.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ エナジードリンクを5000本使用",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/67.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ タタボックス50個獲得 ＋ 共有進行：オタカラ120（肥料消費数は720000と7200で不一致、確認待ち）。確認待ち：共有進行の合算・換算式、肥料消費数",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式",
+            "肥料消費数"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/67.html"
+        }
+      ]
+    },
+    {
+      "familyId": "biripiyo",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/77.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "ダブルリンク",
+        "external": "ダブルリンク",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ビリピヨ",
+          "english": "Sparkeet",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "电咕咕",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "エレクトリ",
+          "english": "Buzzbeak",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "电嘴鸟",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "ビリビバシ",
+          "english": "Toucanzam",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "电歌巨鸟",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "ライオウム",
+          "english": "Technocan",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "电音歌王",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/77.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：オタカラ70／肥料4200使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/77.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ ゾンビラッシュで5回Lv.7にする ＋ 共有進行：スケートボード6000使用／釣竿6000消費。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/77.html"
+        }
+      ]
+    },
+    {
+      "familyId": "potakage",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/35.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "泡",
+        "external": "泡",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ポタカゲ",
+          "english": "Skinklet",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "水滴蜥",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ピチャカゲ",
+          "english": "Skinkoon",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "水隐蜥",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "アクアガマ",
+          "english": "Ninjaguana",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "水影忍者",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "イガマスター",
+          "english": "Hychroma",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "御水宗师",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ 任意の建物を5つ建築",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/35.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：釣竿2000消費／スケートボード2000使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/35.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ タタボックス50個獲得 ＋ 共有進行：釣竿6000消費／弾600000使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/35.html"
+        }
+      ]
+    },
+    {
+      "familyId": "fukurogumo",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/57.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "露バブル",
+        "external": "露バブル",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "フクロクモ",
+          "english": "Sackling",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "叶露蛛",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ボトルグモ",
+          "english": "Jarachnid",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "叶瓶蛛",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "チュラリウム",
+          "english": "Terracrawler",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "森林瓶蛛",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "シンラリウム",
+          "english": "Weaverfang",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "森罗瓶蛛",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ ピンボールでビー玉を800個獲得",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/57.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ ピンボールでビー玉を15000個発射",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/57.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ 24星の草タタ3体所有 ＋ ピンボールでビー玉45000個発射",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/57.html"
+        }
+      ]
+    },
+    {
+      "familyId": "nemukurage",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/36.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "水療玉",
+        "external": "水療玉",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ネムクラゲ",
+          "english": "Lullely",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "悠眠水母",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "スヤクラゲ",
+          "english": "Yawnelly",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "织梦水母",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "ルナドール",
+          "english": "Souverelle",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "爱洛公主",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "オロラクイン",
+          "english": "Somnrayna",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "星海女王",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ 任意の建物を5つ建築",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/36.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：釣竿2000消費／スケートボード2000使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/36.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ 水バッジ5個所有 ＋ 共有進行：釣竿6000消費／弾600000使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/36.html"
+        }
+      ]
+    },
+    {
+      "familyId": "sabooru",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/58.html",
+      "formCount": 3,
+      "normalStage1Name": {
+        "current": "トゲ降らし",
+        "external": "トゲ降らし",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "サボール",
+          "english": "Cactobud",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "仙刺球",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "サボケン",
+          "english": "Cactobloom",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "仙刺掌",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "サボディビル",
+          "english": "Cactoczar",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "仙刺大王",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ ゾンビラッシュに3回挑戦（編成に含める）",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/58.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ ピンボールでビー玉を15000個発射",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/58.html"
+        }
+      ]
+    },
+    {
+      "familyId": "korotama",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/70.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "一球入魂",
+        "external": "一球入魂",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "コロタマ",
+          "english": "Humbug",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "十克郎",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "コロロック",
+          "english": "Humbleetle",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "石颗郎",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "スカラーべ",
+          "english": "Zenscarab",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "施课郎",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "スカリギオ",
+          "english": "Hierotyrus",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "圣光大祭司",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ ピンボールで星の袋に10回入れる",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/70.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ エナジードリンクを5000本使用",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/70.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ タタ捕獲200体 ＋ 共有進行：オタカラ120（肥料消費数は720000と7200で不一致、確認待ち）。確認待ち：共有進行の合算・換算式、肥料消費数",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式",
+            "肥料消費数"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/70.html"
+        }
+      ]
+    },
+    {
+      "familyId": "yanzaru",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/66.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "サルトモ",
+        "external": "サルトモ",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ヤンザル",
+          "english": "Punchimp",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "顽皮吗喽",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ワルキー",
+          "english": "Rockfu",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "棍棒吗喽",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "イビルザル",
+          "english": "Rockwu",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "天命吗喽",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "サルタイセイ",
+          "english": "Rockong",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "大圣吗喽",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ ヤンザルを1体獲得",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/66.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ エナジードリンクを5000本使用",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/66.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ 24星の岩タタ3体所有 ＋ 共有進行：オタカラ120（肥料消費数は720000と7200で不一致、確認待ち）。確認待ち：共有進行の合算・換算式、肥料消費数",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式",
+            "肥料消費数"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/66.html"
+        }
+      ]
+    },
+    {
+      "familyId": "gaoden",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/73.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "ストレートウェーブ",
+        "external": "ストレートウェーブ",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ガオデン",
+          "english": "Zappur",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "小电狮",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ガルルデン",
+          "english": "Electroar",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "闪电狮",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "キングデン",
+          "english": "Blitzmane",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "雷电狮鹫",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "エンペラデン",
+          "english": "Stormlion",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "雷翼狮王",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ 通常ステージを20回クリア",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/73.html"
+        },
+        {
+          "stage": 3,
+          "condition": "12星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：オタカラ70／肥料4200使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/73.html"
+        },
+        {
+          "stage": 4,
+          "condition": "24星 ＋ 餌付けでランクBにする ＋ 24星の雷タタ3体所有 ＋ 共有進行：スケートボード6000使用／釣竿6000消費。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/73.html"
+        }
+      ]
+    },
+    {
+      "familyId": "himawarin",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/56.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "温かい陽光",
+        "external": "温かい陽光",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ヒマワリン",
+          "english": "Buddi",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "盆盆葵",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "キラワー",
+          "english": "Sunfleur",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "啦啦葵",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "サーフクリン",
+          "english": "Solaflora",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "冲浪葵",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "サンフクリン",
+          "english": "Heliabloom",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "逐日金葵",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ ピンボールでビー玉を800個獲得",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/56.html"
+        },
+        {
+          "stage": 3,
+          "condition": "餌付けでステータスを3回上げる ＋ ピンボールでビー玉を15000個発射。確認待ち：必要な星数",
+          "status": "pending",
+          "pendingFields": [
+            "必要な星数"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/56.html"
+        },
+        {
+          "stage": 4,
+          "condition": "餌付けでランクBにする ＋ 任意の建物20個購入 ＋ ピンボールでビー玉45000個発射。確認待ち：必要な星数",
+          "status": "pending",
+          "pendingFields": [
+            "必要な星数"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/56.html"
+        }
+      ]
+    },
+    {
+      "familyId": "nekoori",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/30.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "アイスブロック",
+        "external": "アイスブロック",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ネコオリ",
+          "english": "Frostnip",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "猫冰",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "チルネコ",
+          "english": "Frostpaw",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "冰团猫",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "チルレオ",
+          "english": "Frostique",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "冰雪猫王",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "ブリズレオ",
+          "english": "Frostluna",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "凛月猫王",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "3星 ＋ 通常ステージでゾンビを300体撃破",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/30.html"
+        },
+        {
+          "stage": 3,
+          "condition": "6星 ＋ 餌付けでステータスを3回上げる ＋ ステージ8-80をクリア",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/30.html"
+        },
+        {
+          "stage": 4,
+          "condition": "24星 ＋ 餌付けでランクBにする ＋ 24星の水タタを3体所有 ＋ 共有進行：釣竿6000消費／スケートボード6000使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/30.html"
+        }
+      ]
+    },
+    {
+      "familyId": "furuggu",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/51.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "ドラゴンフルーツ",
+        "external": "ドラゴンフルーツ",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "フルッグ",
+          "english": "Frugling",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "火果蛙",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "フルルッグ",
+          "english": "Frugatoad",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "大果蛙",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "ドラフルッグ",
+          "english": "Frugagon",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "巨果蛙",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "フルグロウン",
+          "english": "Frugantuan",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "极果蛙",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "3星 ＋ ピンボールでビー玉を500個獲得",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/51.html"
+        },
+        {
+          "stage": 3,
+          "condition": "6星 ＋ 餌付けでステータスを3回上げる ＋ ボスラリー難易度12に到達",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/51.html"
+        },
+        {
+          "stage": 4,
+          "condition": "24星 ＋ 餌付けでランクBにする ＋ タタボックス30個獲得 ＋ ピンボールでビー玉45000個発射",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/51.html"
+        }
+      ]
+    },
+    {
+      "familyId": "himori",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/43.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "フレイムボール",
+        "external": "フレイムボール",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ヒモリ",
+          "english": "Blueflick",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "蓝舌火蜥",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "フレイモリ",
+          "english": "Ignisnap",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "蓝角蝾螈",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "ボルケザード",
+          "english": "Azurion",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "焰尾龙",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "インフェルドラ",
+          "english": "Newflamander",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "曜尾龙",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "3星 ＋ ピンボールでビー玉を1000個発射",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/43.html"
+        },
+        {
+          "stage": 3,
+          "condition": "6星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：スケートボード2000使用／肥料4200使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/43.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ ビー玉40000個発射 ＋ エナジードリンク20000本使用",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/43.html"
+        }
+      ]
+    },
+    {
+      "familyId": "komakiri",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/53.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "二連撃",
+        "external": "二連撃",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "コマキリ",
+          "english": "Manteeny",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "小粉螳",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ハナキリ",
+          "english": "Stalkerix",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "兰花螳",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "ヴァルキリ",
+          "english": "Serrabloom",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "霓裳兰螳",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "サクランティス",
+          "english": "Orchitoria",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "兰花女王",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ 通常ステージを20回クリア",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/53.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ ピンボールでビー玉を15000個発射",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/53.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ 24星の草タタ3体所有 ＋ ピンボールでビー玉45000個発射",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/53.html"
+        }
+      ]
+    },
+    {
+      "familyId": "umimi",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/32.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "クラウドミスト",
+        "external": "クラウドミスト",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ウミミ",
+          "english": "Droppit",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "小海兔",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ウミピョン",
+          "english": "Bubbit",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "海兔姬",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "ウミロップ",
+          "english": "Tideon",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "海兔公主",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "アクアリーナ",
+          "english": "Haplysia",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "海兔女王",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ ウミミを1体獲得",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/32.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：釣竿2000消費／スケートボード2000使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/32.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ パックからカード60枚獲得 ＋ 共有進行：釣竿6000消費／弾600000使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/32.html"
+        }
+      ]
+    },
+    {
+      "familyId": "purabi",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/78.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "ラビットダンス",
+        "external": "ラビットダンス",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "プラビ",
+          "english": "Cheerling",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "星兔蛋",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "スタピョン",
+          "english": "Cheerlet",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "星兔兔",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "ステラビット",
+          "english": "Cheerspring",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "星兔姬",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "アストラビット",
+          "english": "Cheerstella",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "星兔偶像",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ ピンボールで星の袋に10回入れる",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/78.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：オタカラ70／肥料4200使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/78.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ カミナリ天ぷら盛り合わせ15個を与える ＋ 共有進行：スケートボード6000使用／釣竿6000消費。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/78.html"
+        }
+      ]
+    },
+    {
+      "familyId": "rokuju",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/64.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "ブルービーム",
+        "external": "ブルービーム",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "コロジュー",
+          "english": "Rubblet",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "小岩蜥",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ロクジュー",
+          "english": "Cobbledon",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "烈岩蜥",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "ジオジュラ",
+          "english": "Rockzilla",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "岩暴龙",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "ジュラゴン",
+          "english": "Meteorax",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "陨岩龙",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ 通常ステージでゾンビを300体撃破",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/64.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ エナジードリンクを5000本使用",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/64.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ ゾンビラッシュで5回Lv.7にする ＋ 共有進行：オタカラ120（肥料消費数は720000と7200で不一致、確認待ち）。確認待ち：共有進行の合算・換算式、肥料消費数",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式",
+            "肥料消費数"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/64.html"
+        }
+      ]
+    },
+    {
+      "familyId": "boruzarashi",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/31.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "ウォーターボール",
+        "external": "ウォーターボール",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ナミアシカ",
+          "english": "Sealing",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "波波狮",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ボルザラシ",
+          "english": "Sealoon",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "球球海狮",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "ダブザラシ",
+          "english": "Seaswirl",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "浪花海狮",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "ダイドウオウ",
+          "english": "Sealord",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "幻海狮王",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ ピンボールでビー玉を2400個発射",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/31.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：釣竿2000消費／スケートボード2000使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/31.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ ビー玉40000個発射 ＋ 共有進行：釣竿6000消費／弾600000使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/31.html"
+        }
+      ]
+    },
+    {
+      "familyId": "gantoru",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/65.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "コロコロスピン",
+        "external": "コロコロスピン",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "コロカメ",
+          "english": "Gibber",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "小岩龟",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ガントル",
+          "english": "Turtuff",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "盘岩龟",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "ガンタス",
+          "english": "Rockshell",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "岩背龟",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "ガンバンタス",
+          "english": "Terraton",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "磐石龟",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ ピンボールでシールドを5個獲得",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/65.html"
+        },
+        {
+          "stage": 3,
+          "condition": "12星 ＋ 餌付けでステータスを3回上げる ＋ エナジードリンクを5000本使用",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/65.html"
+        },
+        {
+          "stage": 4,
+          "condition": "30星 ＋ 餌付けでランクBにする ＋ 岩バッジ5個所有 ＋ 共有進行：オタカラ120（肥料消費数は720000と7200で不一致、確認待ち）。確認待ち：共有進行の合算・換算式、肥料消費数",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式",
+            "肥料消費数"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/65.html"
+        }
+      ]
+    },
+    {
+      "familyId": "denjika",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/74.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "ビリリランス",
+        "external": "ビリリランス",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ビリジカ",
+          "english": "Voltfawn",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "小电鹿",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "デンジカ",
+          "english": "Sparkdoe",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "电鹿",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "ジバジカ",
+          "english": "Zapantler",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "磁角电鹿",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "マグネクス",
+          "english": "Magnedart",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "电鹿族长",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ 通常ステージでゾンビを300体撃破",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/74.html"
+        },
+        {
+          "stage": 3,
+          "condition": "餌付けでステータスを3回上げる ＋ 共有進行：オタカラ70／肥料4200使用。確認待ち：必要な星数、共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "必要な星数",
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/74.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ カミナリ天ぷら盛り合わせ15個を与える ＋ 共有進行：スケートボード6000使用／釣竿6000消費。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/74.html"
+        }
+      ]
+    },
+    {
+      "familyId": "tafupen",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/33.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "アイスカウンター",
+        "external": "アイスカウンター",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "トコペン",
+          "english": "Waddledo",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "企呼呼",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "タフペン",
+          "english": "Swaystroll",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "企鼓鼓",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "フブペン",
+          "english": "Stoodbeak",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "企汹汹",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "ペンペラー",
+          "english": "Glideflip",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "企霸霸",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ ネコアイスを3個与える",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/33.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：釣竿2000消費／スケートボード2000使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/33.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ ゾンビラッシュで5回Lv.7にする ＋ 共有進行：釣竿6000消費／スケートボード6000使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/33.html"
+        }
+      ]
+    },
+    {
+      "familyId": "fureimuji",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/46.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "ファイアリング",
+        "external": "ファイアリング",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ヒノムシ",
+          "english": "Ashlarva",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "绒焰虫",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "フレイムシ",
+          "english": "Firecoil",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "焦焰蝶",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "バタフレア",
+          "english": "Charflutter",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "炽焰蝶",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "バタブレイズ",
+          "english": "Chrysolaria",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "曜焰蝶王",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ コロジューと通常ステージを10回クリア",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/46.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：スケートボード2000使用／肥料4200使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/46.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ 24星の炎タタ3体所有 ＋ エナジードリンク20000本使用",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/46.html"
+        }
+      ]
+    },
+    {
+      "familyId": "erekoon",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/76.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "パルス",
+        "external": "パルス",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "モエミン",
+          "english": "Zapuni",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "萌角兽",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "エレコーン",
+          "english": "Surgehoof",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "电角兽",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "エレキリン",
+          "english": "Voltmare",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "霹雳角兽",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "ボルキリン",
+          "english": "Boltallion",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "雷极角兽",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ ボスラリーに10回挑戦",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/76.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：オタカラ70／肥料4200使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/76.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ 24星の雷タタ4体所有 ＋ 共有進行：スケートボード6000使用／釣竿6000消費。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/76.html"
+        }
+      ]
+    },
+    {
+      "familyId": "nenbutsuhebi",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/71.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "功徳ピストル",
+        "external": "一打退散",
+        "status": "conflict-retained-game-evidence"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ボウズヘビ",
+          "english": "Taptail",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "小功德蛇",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ネンブツヘビ",
+          "english": "Rattlecoil",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "大功德君",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "ボンノオロチ",
+          "english": "Clangnaga",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "德思内克",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "ナムアミダイジャ",
+          "english": "Dharmadder",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "圣音灵蛇",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ 通常ステージでゾンビを300体撃破",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/71.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ エナジードリンクを5000本使用",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/71.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ 総攻撃20回発動または参加 ＋ 共有進行：オタカラ120（肥料消費数は720000と7200で不一致、確認待ち）。確認待ち：共有進行の合算・換算式、肥料消費数",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式",
+            "肥料消費数"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/71.html"
+        }
+      ]
+    },
+    {
+      "familyId": "matchiba",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/42.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "パイロピラー",
+        "external": "パイロピラー",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ヒバイヌ",
+          "english": "Pyropup",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "小火柴",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "マッチバ",
+          "english": "Pyrohound",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "火柴柴",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "フレベロス",
+          "english": "Hellhound",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "烈焰三头犬",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "ヘルベロス",
+          "english": "Pyrodaemon",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "狱火三头犬",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ クッキーを30個与える",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/42.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ ピンボールでビー玉を15000個発射",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/42.html"
+        },
+        {
+          "stage": 4,
+          "condition": "30星 ＋ 餌付けでランクBにする ＋ 火山ピザ15個を与える ＋ エナジードリンク20000本使用",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/42.html"
+        }
+      ]
+    },
+    {
+      "familyId": "denrou",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/75.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "残影の連撃",
+        "external": "残影の連撃",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "パチルフ",
+          "english": "Voltkit",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "小电狼",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "デンロウ",
+          "english": "Voltling",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "电狼仔",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "ライロウ",
+          "english": "Voltverine",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "疾风电狼",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "ジンライロウ",
+          "english": "Voltreaver",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "迅雷天狼",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ ゾンビラッシュに3回挑戦（編成に含める）",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/75.html"
+        },
+        {
+          "stage": 3,
+          "condition": "36星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：オタカラ70／肥料4200使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/75.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ 雷バッジ5個所有 ＋ 共有進行：スケートボード6000使用／釣竿6000消費。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/75.html"
+        }
+      ]
+    },
+    {
+      "familyId": "kenkani",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/34.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "ハサミ攻撃",
+        "external": "ハサミ攻撃",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ツヨカニ",
+          "english": "Cribbler",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "厚礼蟹",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ケンカニ",
+          "english": "Clawzor",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "厚力蟹",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "クラブロー",
+          "english": "Dreadclaw",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "厚力蟹霸",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "チョキング",
+          "english": "Cribking",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "厚厉蟹皇",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ ゾンビラッシュでLv.5にする",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/34.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：釣竿2000消費／スケートボード2000使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/34.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ タタボックス50個獲得 ＋ 共有進行：釣竿6000消費／弾600000使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/34.html"
+        }
+      ]
+    },
+    {
+      "familyId": "fureebi",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/47.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "連発パンチ",
+        "external": "連続パンチ",
+        "status": "conflict-retained-game-evidence"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ヒエビ",
+          "english": "Shrimpyro",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "小火虾",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "フレービ",
+          "english": "Pyroprawn",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "极火虾",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "バーニフィス",
+          "english": "Pyroclobster",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "火拳虾",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "ボルケイセ",
+          "english": "Pyroviathan",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "烈焰金刚虾",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ エナジードリンクを800本獲得",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/47.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：スケートボード2000使用／肥料4200使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/47.html"
+        },
+        {
+          "stage": 4,
+          "condition": "餌付けでランクBにする ＋ ゾンビラッシュで5回Lv.7にする ＋ エナジードリンク20000本使用。確認待ち：必要な星数",
+          "status": "pending",
+          "pendingFields": [
+            "必要な星数"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/47.html"
+        }
+      ]
+    },
+    {
+      "familyId": "haamitora",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/48.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "火花クラッシュ",
+        "external": "火花クラッシュ",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "トラーニー",
+          "english": "Tindercub",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "娇虎学徒",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ハーミットラ",
+          "english": "Kitjitsu",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "静虎居士",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "ゼンガー",
+          "english": "Taiglow",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "焰虎大师",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "マスタイガー",
+          "english": "Saberheart",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "炽心虎尊",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ 通常ステージを20回クリア",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/48.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：スケートボード2000使用／肥料4200使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/48.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ 総攻撃20回発動または参加 ＋ エナジードリンク20000本使用",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/48.html"
+        }
+      ]
+    },
+    {
+      "familyId": "shiiparusu",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/79.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "白雲サンダー",
+        "external": "白雲サンダー",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ライメー",
+          "english": "Fluffle",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "闪电绵羊",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "シーパルス",
+          "english": "Nimbuzzy",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "风暴绵羊",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "アラシープ",
+          "english": "Galewether",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "雷霆绵羊",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "アマルテラ",
+          "english": "Cosmoram",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "寰宇神羊",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ ビリビリマシュマロを3個与える",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/79.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：オタカラ70／肥料4200使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/79.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ ビリビリマシュマロ60個を与える ＋ 共有進行：スケートボード6000使用／釣竿6000消費。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/79.html"
+        }
+      ]
+    },
+    {
+      "familyId": "shizukuchou",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/37.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "水眠弾",
+        "external": "水眠弾",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "シズクジ",
+          "english": "Dewgrub",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "露水虫",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "シズクチョウ",
+          "english": "Ripplewing",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "露水蝶",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "ミストリア",
+          "english": "Waveflutter",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "水舞蝶",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "エーテリファル",
+          "english": "Morphanessa",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "潋滟水蝶",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "externally-supplemented"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ ヒノムシと通常ステージを10回クリア",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/37.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：釣竿2000消費／スケートボード2000使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/37.html"
+        },
+        {
+          "stage": 4,
+          "condition": "餌付けでランクBにする ＋ 水バッジ5個所有 ＋ 共有進行：釣竿6000消費／弾600000使用。確認待ち：必要な星数、共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "必要な星数",
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/37.html"
+        }
+      ]
+    },
+    {
+      "familyId": "doriruu",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/72.html",
+      "formCount": 3,
+      "normalStage1Name": {
+        "current": "回転爪",
+        "external": "回転爪",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ホルリン",
+          "english": "Drilleroo",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "小穿山",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ドリルー",
+          "english": "Cragolin",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "大钻山",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "ボーランバ",
+          "english": "Borelord",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "钻山王",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ クリスタルタコスを3個与える",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/72.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：オタカラ70／肥料4200使用。確認待ち：共有進行の合算・換算式、資料間で異なる共有進行数値",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式",
+            "資料間で異なる共有進行数値"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/72.html"
+        }
+      ]
+    },
+    {
+      "familyId": "riifuro",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/103.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "パストゾーン",
+        "external": "パストゾーン",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "フリコー",
+          "english": "Hootlet",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "钟摆鸮",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "リーフロ",
+          "english": "Tikowl",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "时羽鸮",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "ツリーフロ",
+          "english": "Chronerva",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "圣叶鸮",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "クロノウル",
+          "english": "Hypnostrix",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "晖刻神鸮",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ 2日間ログイン",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/103.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ ピンボールでビー玉を15000個発射",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/103.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ バッジ25個所有 ＋ ピンボールでビー玉45000個発射",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/103.html"
+        }
+      ]
+    },
+    {
+      "familyId": "hikikomoru",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/117.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "エレキケージ",
+        "external": "エレキケージ",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "トジコモル",
+          "english": "Cavyzap",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "天笼鼠",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "ヒキコモル",
+          "english": "Hippiehog",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "窝居鼠",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "モルターボ",
+          "english": "Wheekroller",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "追风鼠",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "モルボット",
+          "english": "Gigagnash",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "暴走机甲鼠",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://monster-survival.games-wiki.com/evolution-list",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/117.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる。確認待ち：個別試練",
+          "status": "pending",
+          "pendingFields": [
+            "個別試練"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/117.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ タタボックス50個獲得 ＋ 共有進行：スケートボード6000使用／釣竿6000消費。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/117.html"
+        }
+      ]
+    },
+    {
+      "familyId": "pakuma",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/123.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "フィッシュトス",
+        "external": "フィッシュトス",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "パクマ",
+          "english": "Snowcub",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "贪吃熊",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 2,
+          "name": "クマッシュ",
+          "english": "Polarpaw",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "摸鱼熊",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 3,
+          "name": "マリンベア",
+          "english": "Blizzgrizz",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "来势熊熊",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        },
+        {
+          "stage": 4,
+          "name": "ブリズリー",
+          "english": "Anglerbear",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "盖世英熊",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "existing-game-evidence-preserved"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ 任意の食べ物を30個与える",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/123.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：釣竿2000消費／弾200000使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/123.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ 寿司の荒波盛り15個を与える ＋ 共有進行：釣竿6000消費／弾600000使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/123.html"
+        }
+      ]
+    },
+    {
+      "familyId": "nusuke",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/129.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "コソコソッと登場",
+        "external": "コソコソッと登場",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ヌスケ",
+          "english": "Ringtail",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "干脆面",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "externally-supplemented"
+        },
+        {
+          "stage": 2,
+          "name": "ラクディット",
+          "english": "Rizzler",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "改头浣面",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "externally-supplemented"
+        },
+        {
+          "stage": 3,
+          "name": "マスクーン",
+          "english": "Zorrock",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "怪盗千面",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "externally-supplemented"
+        },
+        {
+          "stage": 4,
+          "name": "トリックーン",
+          "english": "Phantothief",
+          "englishStatus": "existing-evidence-preserved",
+          "simplifiedChinese": "偷心假面",
+          "chineseStatus": "existing-evidence-preserved",
+          "normalSkill": "externally-supplemented"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ クッキー・岩粒ドーナツ・クリスタルタコス・ロックケーキを合計50個獲得",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/129.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：共通表70／4200、個別ページ40／2400で不一致。数値確認待ち。確認待ち：共有進行の合算・換算式、資料間で異なる共有進行数値",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式",
+            "資料間で異なる共有進行数値"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/129.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ ピカピカの実15個獲得 ＋ 共有進行：オタカラ120（肥料消費数は720000と7200で不一致、確認待ち）。確認待ち：共有進行の合算・換算式、肥料消費数",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式",
+            "肥料消費数"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/129.html"
+        }
+      ]
+    },
+    {
+      "familyId": "rukaron",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/142.html",
+      "formCount": 4,
+      "normalStage1Name": {
+        "current": "マカロンエコー",
+        "external": "マカロンエコー",
+        "status": "matched"
+      },
+      "normalValues": "all evolution descriptions and popup effects externally reviewed; existing base game evidence retained; latest game damage/cooldown not independently reverified",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "ルカロン",
+          "english": "Dolphie",
+          "englishStatus": "confirmed",
+          "simplifiedChinese": null,
+          "chineseStatus": "pending",
+          "normalSkill": "externally-supplemented"
+        },
+        {
+          "stage": 2,
+          "name": "パステルカ",
+          "english": "Blubbles",
+          "englishStatus": "externally_confirmed",
+          "simplifiedChinese": null,
+          "chineseStatus": "pending",
+          "normalSkill": "externally-supplemented"
+        },
+        {
+          "stage": 3,
+          "name": "メルフィン",
+          "english": "Aquariel",
+          "englishStatus": "externally_confirmed",
+          "simplifiedChinese": null,
+          "chineseStatus": "pending",
+          "normalSkill": "externally-supplemented"
+        },
+        {
+          "stage": 4,
+          "name": "オパーリア",
+          "english": "Irisia",
+          "englishStatus": "externally_confirmed",
+          "simplifiedChinese": null,
+          "chineseStatus": "pending",
+          "normalSkill": "externally-supplemented"
+        }
+      ],
+      "zombieRushLevels": [
+        3,
+        5,
+        7
+      ],
+      "imageStatus": "existing-image-manifest-preserved",
+      "evolutionConditions": [
+        {
+          "stage": 2,
+          "condition": "6星 ＋ 任意の建物を5つ購入（共通表の建築表記とは異なるため個別ページに従う）",
+          "status": "externally_confirmed",
+          "pendingFields": [],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/142.html"
+        },
+        {
+          "stage": 3,
+          "condition": "18星 ＋ 餌付けでステータスを3回上げる ＋ 共有進行：釣竿2000消費／弾200000使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/142.html"
+        },
+        {
+          "stage": 4,
+          "condition": "36星 ＋ 餌付けでランクBにする ＋ 総攻撃20回発動または参加 ＋ 共有進行：釣竿6000消費／弾600000使用。確認待ち：共有進行の合算・換算式",
+          "status": "pending",
+          "pendingFields": [
+            "共有進行の合算・換算式"
+          ],
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/125.html",
+          "individualSource": "https://w.atwiki.jp/monstersurvival/pages/142.html"
+        }
+      ]
+    }
+  ],
+  "zombieRushCoverage": {
+    "families": 66,
+    "skills": 198
+  },
+  "normalCoverage": {
+    "forms": 242,
+    "latestIndividualPagesRead": 66,
+    "stage1NamesMatched": 62,
+    "stage1NameConflicts": 4,
+    "latestAllStageNumericAudit": "not-completed",
+    "missingNormalDescription": [
+      {
+        "familyId": "tsubaruka",
+        "stage": 4,
+        "reason": "Individual guide only publishes Lv1 description; T4 text remains unverified"
+      }
+    ]
+  },
+  "previewEvidence": {
+    "status": "external-preview-implementation-unconfirmed",
+    "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html",
+    "independentlyCounted": false,
+    "details": [
+      {
+        "name": "サトリッサム系",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/145.html"
+      },
+      {
+        "name": "不思議なスパ・スパ駅",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html"
+      },
+      {
+        "name": "ニジイロタタ",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html"
+      },
+      {
+        "name": "秋の物語・キラカード",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html"
+      },
+      {
+        "name": "オーシャントレジャー・パス",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/1.html"
+      }
+    ]
+  }
+}

@@ -4,6 +4,7 @@ import { BASE_URL } from './site-config.mjs';
 import { polishTranslation } from './i18n-quality.mjs';
 import { createTataHtmlLocalizer } from './lib/localize-tata-html.mjs';
 import { astraCopy } from './astra-copy.mjs';
+import { protectLocalizedHtml } from './lib/protect-localized-html.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const config = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/config.json'), 'utf8'));
@@ -157,6 +158,12 @@ function translator(locale, missing) {
     const trimmed = raw.replace(/\s+/g, ' ').trim();
     if (!trimmed || !japanese.test(trimmed))
       return raw;
+    if (/として評価しています。$/.test(trimmed)) {
+      const modes = locale === 'en' ? {総合:'Overall',通常:'Normal',ゾンビラッシュ:'Zombie Rush',道場:'Dojo',初心者:'Beginner'} : {総合:'综合',通常:'普通',ゾンビラッシュ:'僵尸突围',道場:'道场',初心者:'新手'};
+      const ratings = trimmed.replace('として評価しています。','').split('、');
+      if (ratings.every(r=>/^(総合|通常|ゾンビラッシュ|道場|初心者) (SSS|SS|S|A|B|C|D)$/.test(r)))
+        return raw.replace(trimmed, ratings.map(r=>r.replace(/^(総合|通常|ゾンビラッシュ|道場|初心者)/,m=>modes[m])).join(' / '));
+    }
     if (editorialDescriptions.get(trimmed)?.[locale])
       return raw.replace(trimmed, editorialDescriptions.get(trimmed)[locale]);
     if (trimmed === '暫定')
@@ -362,7 +369,8 @@ function addSeoAlternates(html, sourceRoute, locale = 'ja') {
 
 function localizeHtml(source, sourceRoute, locale, missing) {
   const translate = translator(locale, missing);
-  let html = source;
+  const native = protectLocalizedHtml(source);
+  let html = native.html;
   html = html.replace(/<script\b([^>]*application\/ld\+json[^>]*)>([\s\S]*?)<\/script>/gi, (_, attributes, json) => `<script${attributes}>${localizeJsonLd(json, locale, translate)}</script>`);
   const blocks = [];
   html = html.replace(/<([a-z][\w:-]*)\b[^>]*\btranslate="no"[^>]*>[\s\S]*?<\/\1>|<meta\b[^>]*\bdata-og-card\b[^>]*>|<(?:script|style)\b[\s\S]*?<\/(?:script|style)>|<!--[\s\S]*?-->/gi, (block) => {
@@ -381,6 +389,7 @@ function localizeHtml(source, sourceRoute, locale, missing) {
     html = html.replace(`<i18n-block data-index="${index}"></i18n-block>`, block);
 
   });
+  html = native.restore(html);
   html = html.replace(/\bsrc="([^"]+)"/g, (_, value) => `src="${normalizeSharedResource(value, sourceRoute)}"`);
   html = html.replace(/<html\s+lang="[^"]+"/, `<html lang="${config.locales[locale].htmlLang}"`);
   html = html.replace(/<body\b([^>]*)>/, (_, attributes) => `<body data-locale="${locale}"${attributes.replace(/\sdata-locale="[^"]*"/g, '')}>`);
@@ -487,6 +496,10 @@ for (const file of sourceFiles) {
   const japanese = addJapaneseMetadata(source, route);
   if (japanese !== source)
     write(file, japanese);
+  // This generator writes its own three reviewed locale versions. Do not
+  // replace those native copies with the generic Japanese text translator.
+  if (sourceRouteIsNative(route, japanese))
+    continue;
   for (const locale of locales) {
     const relative = path.relative(root, file);
     const output = path.join(root, targetDirectory[locale], relative);
@@ -503,3 +516,13 @@ for (const locale of locales) {
 }
 if (!process.exitCode)
   console.log(`i18n pages generated: Japanese ${sourceFiles.length}, English ${sourceFiles.length}, Simplified Chinese ${sourceFiles.length}`);
+
+function sourceRouteIsNative(route, html) {
+  if (route !== '/updates/2026-10-07/' || !html.includes('data-i18n-native="integrated-research"')) return false;
+  for (const locale of locales) {
+    const nativeFile = path.join(root, targetDirectory[locale], 'updates/2026-10-07/index.html');
+    if (!fs.existsSync(nativeFile) || !read(nativeFile).includes(`data-locale="${locale}"`))
+      throw new Error(`Missing native localized integrated update: ${locale}`);
+  }
+  return true;
+}

@@ -16,16 +16,16 @@ test('official pending Tata review remains a subset of all unresolved forms', ()
     .map((form) => `${form.familyId}:T${form.stage}`).sort();
   assert.deepEqual(images.counts, {
     families: 66,
-    forms: 240,
+    forms: 242,
     verifiedForms: 236,
-    pendingForms: 4,
+    pendingForms: 6,
     officialCreatorAssetForms: 224,
     userProvidedPdfForms: 12
   });
   assert.equal(images.officialPendingReview.status, 'official_team_checking');
   assert.equal(images.officialPendingReview.asOf, '2026-09-05');
   assert.ok(review.every((item) => pending.includes(item)));
-  assert.equal(pending.length, 4);
+  assert.equal(pending.length, 6);
   assert.equal(review.length, 2);
 });
 test('event display names and official inquiry states are explicit', () => {

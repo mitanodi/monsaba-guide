@@ -11,9 +11,13 @@ const chips=JSON.parse(read('data/zombie-rush/chips.json')).chips;
 const audit=JSON.parse(read('docs/evidence/chip-correspondence-2026-10-06.json'));
 const hash=b=>createHash('sha256').update(b).digest('hex');
 const correctedIds=['maverick','back-shooter','rear-support','upgrade','shuffle','adverse-attribute','and-one','undeployed-tatari'];
-test('all 49 chips retain baseline gameplay and saved-team identifiers',()=>{
+test('all 49 chips retain baseline fields and saved-team identifiers except reviewed effect corrections',()=>{
  assert.equal(chips.length,49);assert.equal(new Set(chips.map(c=>c.id)).size,49);
- assert.equal(hash(JSON.stringify(chips.map(({icon,iconStatus,...chip})=>chip))),'52fb9307979527c701bb92983e044ad31aebd1f6bc1d8512a01a7869c849427e');
+ const baseline=JSON.parse(read('docs/evidence/chip-gameplay-baseline-2026-10-06.json')).chips;
+ const stable = ({effect,effectSource,verificationNote,name,nameLocalizationStatus,...chip}) => ({...chip,nameJa:name.ja});
+ assert.deepEqual(chips.map(stable),baseline.map(stable));
+ const allowed=new Set(['slack-off','boss-killer','maverick','lawn-care','parting-gift','strategic-move','undeployed-tatari']);
+ for(const chip of chips) if(!allowed.has(chip.id)) assert.deepEqual(chip.effect,baseline.find(b=>b.id===chip.id).effect,chip.id);
 });
 test('all 49 visually reviewed Wiki cards retain original download hashes and native proportions',async()=>{
  const hashes=new Set();

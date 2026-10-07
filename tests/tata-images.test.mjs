@@ -23,9 +23,9 @@ test('66 Stage 1 mappings map one-to-one to the database', () => {
 
 test('only verified forms have publishable image URLs', () => {
   const forms = images.families.flatMap((family) => family.forms);
-  assert.equal(forms.length, 240);
+  assert.equal(forms.length, 242);
   assert.equal(forms.filter((form) => form.status === 'verified').length, 236);
-  assert.equal(forms.filter((form) => form.status === 'pending').length, 4);
+  assert.equal(forms.filter((form) => form.status === 'pending').length, 6);
   assert.equal(forms.filter((form) => form.sourceType === 'official_creator_asset').length, 224);
   assert.equal(new Set(forms.filter((form) => form.status === 'verified').map((form) => form.src)).size, 236);
   assert.ok(forms.filter((form) => form.status === 'pending').every((form) => form.src === null && ['locked_silhouette_only', 'official_image_not_obtained'].includes(form.reason)));
@@ -45,7 +45,7 @@ test('generated JA, EN and zh-CN pages use the shared crops', () => {
 test('detail pages publish verified crops and neutral pending states', () => {
   const allDetailHtml = tatari.families.map((family) => read(`tata/${family.id}/index.html`)).join('\n');
   assert.equal((allDetailHtml.match(/<img[^>]+class="tata-form-image"/g) || []).length, 236);
-  assert.equal((allDetailHtml.match(/class="tata-image-pending"/g) || []).length, 4);
+  assert.equal((allDetailHtml.match(/class="tata-image-pending"/g) || []).length, 6);
   assert.doesNotMatch(allDetailHtml, /assets\/thumbs\//);
   assert.match(read('tata/purabi/index.html'), /assets\/official\/tata\/purabi\/t1-512\.webp/);
   assert.match(read('tata/purabi/index.html'), /assets\/official\/tata\/purabi\/t3-512\.webp/);
@@ -70,16 +70,16 @@ test('Tier, Compare, Team Builder, My Monsaba, Search and Evolution Priority use
   assert.doesNotMatch(read('evolution-priority/evolution-priority.js'), /assets\/thumbs\//);
 });
 
-test('current UI counts are 66 families, 240 forms and 14 Water families and 13 per other attribute', () => {
+test('current UI counts are 66 families, 242 forms and 14 Water families and 13 per other attribute', () => {
   const counts = Object.fromEntries(['草', '水', '火', '雷', '岩'].map((attribute) => [attribute, tatari.families.filter((family) => family.attribute === attribute).length]));
   assert.equal(tatari.families.length, 66);
-  assert.equal(tatari.families.flatMap((family) => family.evolutions).length, 240);
+  assert.equal(tatari.families.flatMap((family) => family.evolutions).length, 242);
   assert.deepEqual(counts, { 草: 13, 水: 14, 火: 13, 雷: 13, 岩: 13 });
   for (const file of ['index.html', 'about/index.html', 'about-data/index.html', 'tata-tier/index.html', 'en/index.html', 'zh-cn/index.html']) {
     assert.doesNotMatch(read(file), /63系統|224体|63 families|224 Tatari|63 个系列|224 个 Tatari/, `${file}: stale current count`);
   }
   assert.match(read('index.html'), /<span><b>66<\/b>系統<\/span>/, 'home hero: current family count');
-  assert.match(read('index.html'), /<span><b>240<\/b>体<\/span>/, 'home hero: current form count');
+  assert.match(read('index.html'), /<span><b>242<\/b>体<\/span>/, 'home hero: current form count');
   assert.match(read('index.html'), /water[^>]*href="\/attribute\/water\/"[^>]*>[^<]*水属性 <small>14系統<\/small>/);
   assert.doesNotMatch(read('index.html'), /water[^>]*href="\/attribute\/water\/"[^>]*>[^<]*水属性 <small>12系統<\/small>/);
 });

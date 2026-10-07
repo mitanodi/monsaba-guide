@@ -17,6 +17,15 @@ const hasOfficialStoreEvidence = (evidence) => {
       && /^\d{4}-\d{2}-\d{2}$/.test(evidence?.checkedAt || '');
   } catch { return false; }
 };
+const hasExternalNameEvidence = (evidence) => {
+  try {
+    const url = new URL(evidence?.url);
+    return evidence?.status === 'externally_confirmed' && evidence?.sourceType === 'public_wiki'
+      && url.protocol === 'https:' && url.hostname === 'w.atwiki.jp'
+      && url.pathname === '/monstersurvival/pages/17.html'
+      && /^\d{4}-\d{2}-\d{2}$/.test(evidence?.checkedAt || '');
+  } catch { return false; }
+};
 
 function describe(label, values) {
   return `[${label}]\n${Object.entries(values)
@@ -96,8 +105,9 @@ export function validateTataNameSources({ source, tatari, skills, generatedHtml 
     if (!rowByKey.has(key)) rowByKey.set(key, row);
 
     if (isSupplemental(row) && (row.confidence !== 'pending-official'
-      || !exactString(row.japaneseEvidence?.manifest)
-      || !Number.isInteger(row.japaneseEvidence?.sourcePage) || row.japaneseEvidence.sourcePage < 1)) {
+      || !(hasOfficialStoreEvidence(row.japaneseEvidence)
+        || (exactString(row.japaneseEvidence?.manifest)
+          && Number.isInteger(row.japaneseEvidence?.sourcePage) && row.japaneseEvidence.sourcePage >= 1)))) {
       fail('invalidDocuments', 'Invalid supplemental Tata evidence', { family: row.familyId, stage: row.stage });
     }
 
@@ -118,7 +128,7 @@ export function validateTataNameSources({ source, tatari, skills, generatedHtml 
         if (evidence?.status === 'pending') {
           if (name !== null || !exactString(evidence.reason))
             fail('pendingOfficial', 'Pending Tata name must remain empty', { family: row.familyId, stage: row.stage, locale: rule.locale });
-        } else if (!hasOfficialStoreEvidence(evidence) || !exactString(name)) {
+        } else if (!(hasOfficialStoreEvidence(evidence) || hasExternalNameEvidence(evidence)) || !exactString(name)) {
           fail('invalidDocuments', 'Invalid supplemental localized source', { family: row.familyId, stage: row.stage, locale: rule.locale });
         }
         continue;
@@ -205,6 +215,8 @@ export function validateTataNameSources({ source, tatari, skills, generatedHtml 
             fail('pendingOfficial', 'Pending Tata name published as official', { family: family.id, stage: evolution.stage, locale: rule.locale });
         } else if (hasOfficialStoreEvidence(evidence) && exactString(dbName) && dbName === sourceName) {
           officialNames[rule.locale] += 1;
+          coverage[rule.locale] += 1;
+        } else if (hasExternalNameEvidence(evidence) && exactString(dbName) && dbName === sourceName) {
           coverage[rule.locale] += 1;
         }
         continue;

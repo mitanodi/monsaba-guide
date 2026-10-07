@@ -35,13 +35,17 @@ expect(preview.newTatari.name === 'ルカロン' && preview.newTatari.databaseSt
 expect(preview.newEvolutions.some((item) => item.from === 'エレキネコ' && item.to === 'トコヨニャット' && item.stage === 4), 'Tokoyonyatto preview missing');
 expect(preview.newEvolutions.some((item) => item.from === 'ヒニャオ' && item.to === 'ネコノミコト' && item.stage === 4), 'Nekonomikoto preview missing');
 const liveNames = tatari.families.flatMap((family) => family.evolutions.map((stage) => stage.name));
-expect(!liveNames.includes('トコヨニャット') && !liveNames.includes('ネコノミコト'), 'unconfirmed preview T4 must not enter the live Tatari database');
+for (const [id,name] of [['erekineko','トコヨニャット'],['hinyao','ネコノミコト']]) {
+  const form=tatari.families.find(f=>f.id===id)?.evolutions.find(e=>e.stage===4);
+  expect(form?.name===name && form.verification?.implementation==='official-store-confirmed', `${name}: independent official implementation evidence required`);
+  expect(form.image===null && form.nameZhHans===null, `${name}: unknown image and Chinese name must remain pending`);
+}
 const rukaron = tatari.families.find((family) => family.id === 'rukaron');
 expect(rukaron?.evolutions[0]?.verification?.implementation === 'official-store-confirmed', 'Rukaron needs independent official implementation evidence');
 expect(preview.followUp?.familyId === 'rukaron' && preview.followUp.checkedAt === '2026-10-06', 'preview archive needs a dated follow-up');
 expect(preview.followUp?.officialImplementationUrl === 'https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp', 'follow-up official implementation source mismatch');
-expect(rukaron.skills.every((skill) => skill.verificationStatus === 'pending-user-skill-evidence' && skill.stats.length === 0), 'unconfirmed skills must remain pending');
-expect(liveChips.chips.find((chip) => chip.name.ja === 'サボる')?.effect.ja.includes('90秒'), 'live chip data must retain its verified 90-second Slack Off value');
+expect(rukaron.skills.every((skill) => skill.verificationStatus === 'externally_confirmed' && skill.evidence?.sourceUrl==='https://w.atwiki.jp/monstersurvival/pages/142.html' && skill.unknownFields?.includes('ダメージ倍率')), 'partial external skill evidence must retain unknown multipliers');
+expect(liveChips.chips.find((chip) => chip.name.ja === 'サボる')?.effect.ja.includes('40秒'), 'current externally confirmed Slack Off value must be 40 seconds');
 
 for (const [locale, file] of [['ja', 'updates/2026-09-23-test-preview/index.html'], ['en', 'en/updates/2026-09-23-test-preview/index.html'], ['zh-CN', 'zh-cn/updates/2026-09-23-test-preview/index.html']]) {
   const html = read(file);
