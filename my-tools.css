@@ -1321,9 +1321,20 @@
 .formation-picker-list{min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;touch-action:pan-y}
 .formation-stage-choice {
   display: grid;
-  grid-template-columns: minmax(0,1fr) 38px;
-  flex: 1 1 138px;
-  gap: 4px
+  grid-template-columns: 44px 24px;
+  flex: 0 0 auto;
+  gap: 2px
+}
+.formation-stage-choice>[data-pick-family] {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 4px;
+  place-items: center
+}
+.formation-stage-choice>.formation-drag-handle {
+  min-width: 24px;
+  min-height: 44px;
+  padding: 0
 }
 .formation-drag-handle{display:grid;place-items:center;min-width:38px;min-height:42px;border:1px solid #9eb3c8;border-radius:6px;background:#edf5fd;color:#245985;padding:0;font-size:20px;line-height:1;cursor:grab;touch-action:none;
   -webkit-user-select: none;
@@ -1481,26 +1492,35 @@
 }
 .formation-flex-picker>button {
   display: grid;
-  grid-template-columns: 52px minmax(0,1fr);
+  grid-template-columns: 24px minmax(0,1fr);
   align-items: center;
-  gap: 3px 10px;
+  gap: 8px;
   width: 100%;
-  min-height: 72px;
+  min-height: 44px;
   border: 2px dashed #2f6fb2;
   border-radius: 10px;
   background: #edf5fd;
   color: #174b7e;
-  padding: 8px;
+  padding: 6px 8px;
   text-align: left
 }
 .formation-flex-picker .formation-flex-symbol {
-  grid-row: 1/3
+  width: 24px;
+  height: 24px;
+  font-size: 18px
 }
 .formation-flex-picker b {
   font-size: 15px
 }
 .formation-flex-picker small {
-  color: #526173
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap
 }
 .formation-edit-summary.is-flex .formation-flex-symbol {
   width: 80px;
@@ -1514,8 +1534,5 @@
 @media(max-width:430px) {
   .formation-cell.is-flex-slot b {
     font-size: 7px
-  }
-  .formation-flex-picker>button {
-    min-height: 64px
   }
 }

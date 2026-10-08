@@ -23,14 +23,46 @@ test('Team Builder picker reads each Tier board from the top-left', () => {
 
 test('Zombie Rush picker follows the selected position board, then keeps catalog order', () => {
   const boardOf = position => ['SS', 'S', 'A', 'B', 'C', 'HOLD'].flatMap(tier => positionData.entries.filter(entry => entry.position === position && entry.tier === tier).sort((a, b) => a.order - b.order).map(entry => entry.familyId)).filter(Boolean);
-  for (const position of ['all', 'front', 'middle', 'rear']) {
-    // 'all' reads the three boards in page order and keeps each Tata at its first appearance.
-    const board = position === 'all' ? [...new Set(['front', 'middle', 'rear'].flatMap(boardOf))] : boardOf(position);
+  for (const position of ['front', 'middle', 'rear']) {
+    const board = boardOf(position);
     const actual = ids(pickerOrder(families, { tierData, positionData }, 'zombie', position));
     assert.deepEqual(actual.slice(0, board.length), board, position);
     const rest = families.map(family => family.id).filter(id => !board.includes(id));
     assert.deepEqual(actual.slice(board.length), rest, position);
   }
+});
+
+test('Zombie Rush all orders by Tier, then position, and uses each family at its highest Tier', () => {
+  const catalog = ['unlisted', 'front-s', 'shared', 'rear-ss', 'middle-ss', 'front-ss-2', 'front-ss-1', 'hold'].map(id => ({ id }));
+  const entries = [
+    { familyId: 'hold', position: 'front', tier: 'HOLD', order: 0 },
+    { familyId: 'front-s', position: 'front', tier: 'S', order: 0 },
+    { familyId: 'shared', position: 'front', tier: 'S', order: 1 },
+    { familyId: 'rear-ss', position: 'rear', tier: 'SS', order: 0 },
+    { familyId: 'middle-ss', position: 'middle', tier: 'SS', order: 0 },
+    { familyId: 'shared', position: 'middle', tier: 'SS', order: 1 },
+    { familyId: 'front-ss-2', position: 'front', tier: 'SS', order: 1 },
+    { familyId: 'front-ss-1', position: 'front', tier: 'SS', order: 0 },
+    { familyId: null, position: 'front', tier: 'SS', order: 2 }
+  ];
+  const before = structuredClone(entries);
+  const actual = ids(pickerOrder(catalog, { positionData: { entries } }, 'zombie', 'all'));
+  assert.deepEqual(actual, ['front-ss-1', 'front-ss-2', 'middle-ss', 'shared', 'rear-ss', 'front-s', 'hold', 'unlisted']);
+  assert.deepEqual(entries, before, 'source grades and ordering must not be mutated');
+  assert.equal(new Set(actual).size, catalog.length);
+});
+
+test('Zombie Rush all exhausts SS before S and keeps the resolved SS families', () => {
+  const actual = ids(pickerOrder(families, { positionData }, 'zombie', 'all'));
+  const ss = new Set(positionData.entries.filter(e => e.tier === 'SS' && e.familyId).map(e => e.familyId));
+  assert.deepEqual(new Set(actual.slice(0, ss.size)), ss);
+  for (const [position, familyId, order] of [['front', 'shizukuchou', 4], ['middle', 'purabi', 0], ['rear', 'rukaron', 2]]) {
+    const entry = positionData.entries.find(e => e.position === position && e.familyId === familyId);
+    assert.equal(entry.tier, 'SS');
+    assert.equal(entry.order, order);
+    assert.ok(actual.indexOf(familyId) < ss.size);
+  }
+  assert.equal(positionData.entries.filter(e => e.tier === 'HOLD').length, 4);
 });
 
 test('Picker keeps catalog order when Tier data is unavailable', () => {
