@@ -1,5 +1,7 @@
 {
   "en": {
+    "Tierメーカー": "Tier Maker",
+    "役割別Tier表を作成・画像保存": "Create role tiers and save images",
     "公式クリエイター素材": "Official creator assets",
     "一部画像には、モンスターサバイバル運営よりクリエイター向けに提供されたゲーム素材を使用しています。素材の使用は、当サイトが公式攻略サイト・公式認定・公式パートナーであることを意味しません。": "Some images use game assets supplied to creators by the Monster Survival operations team. Their use does not make this an official guide, officially endorsed site, or official partner.",
     "掲載している一部画像素材は、モンスターサバイバル運営チームより共有いただいた公式Creator Assetsを使用しています。": "Some images shown on this site use official Creator Assets shared by the Monster Survival operations team.",
@@ -264,9 +266,21 @@
     "モンサバのタタを6×6の36マスへ配置できる編成メーカー。全66系統を検索し、選択した進化形態の画像と段階バッジで編成を作成・保存・共有できます。": "Build a Clash of Critters formation on a 6×6 board. Search all 66 families, use the selected evolution’s image and stage badge, then save or share the result.",
     "前衛": "Front",
     "中衛": "Middle",
-    "後衛": "Rear"
+    "後衛": "Rear",
+    "モンサバのタタ67系統を草・水・火・雷・岩の属性別に探し、Tier・役割・進化優先・比較へ進める属性ハブです。": "Browse all 67 Tatari families by Grass, Water, Fire, Lightning, and Rock, then continue to tiers, roles, evolution priorities, and comparisons.",
+    "67系統を5属性から探す": "Browse 67 families across 5 attributes",
+    "全67系統の進化試練": "Evolution trials for all 67 families",
+    "全67系統のタタを6×6盤面へ配置し、進化段階を付けて編成を作成・保存・共有できます。": "Place all 67 Tata families on a 6×6 board, choose evolution stages, and save or share your formation.",
+    "モンサバのタタを6×6の36マスへ配置できる編成メーカー。全67系統を検索し、T1画像と進化段階バッジで編成を作成・保存・共有できます。": "Build a Clash of Critters formation on a 6×6 board. Search all 67 families, use T1 images with stage badges, and save or share the result.",
+    "モンサバ攻略DBは、モンスターサバイバル（モンサバ）のタタ67系統・246体を収録。Tier、進化先、スキル効果・数値を一覧で確認できます。": "Clash of Critters Guide DB covers 67 families and 246 forms, with tiers, evolutions, skill effects and values.",
+    "この更新で新規6形態を追加しました。現在のDBは67系統・246体です。": "That update added six forms. The current database contains 67 families and 246 forms.",
+    "モンサバのタタを6×6の36マスへ配置できる編成メーカー。全67系統を検索し、選択した進化形態の画像と段階バッジで編成を作成・保存・共有できます。": "Build a Clash of Critters formation on a 6×6 board. Search all 67 families, use the selected evolution’s image and stage badge, then save or share the result.",
+    "日本語名と進化画像は提供資料で確認しました。スキル・進化条件・評価・外国語名は確認待ちです。": "Japanese names and evolution images were checked against the provided material. Skills, evolution requirements, ratings and localized names remain unconfirmed.",
+    "スキル資料が未確認のため、進化による性能の変化は判断できません。": "Skill evidence is still pending, so performance changes through evolution cannot yet be determined."
   },
   "zh-CN": {
+    "Tierメーカー": "Tier制作器",
+    "役割別Tier表を作成・画像保存": "制作定位分级表并保存图片",
     "公式クリエイター素材": "官方创作者素材",
     "一部画像には、モンスターサバイバル運営よりクリエイター向けに提供されたゲーム素材を使用しています。素材の使用は、当サイトが公式攻略サイト・公式認定・公式パートナーであることを意味しません。": "部分图片使用了《Monster Survival》运营团队向创作者提供的游戏素材。这并不表示本站是官方攻略站、获得官方认证或属于官方合作伙伴。",
     "掲載している一部画像素材は、モンスターサバイバル運営チームより共有いただいた公式Creator Assetsを使用しています。": "本站展示的部分图片使用了《Monster Survival》运营团队分享的官方 Creator Assets。",
@@ -519,6 +533,16 @@
     "モンサバのタタを6×6の36マスへ配置できる編成メーカー。全66系統を検索し、選択した進化形態の画像と段階バッジで編成を作成・保存・共有できます。": "可在6×6共36格棋盘放置塔塔的阵容编辑器。支持搜索全部66个系列，以所选进化形态的图片和阶段徽标创建、保存并分享阵容。",
     "前衛": "前卫",
     "中衛": "中卫",
-    "後衛": "后卫"
+    "後衛": "后卫",
+    "モンサバのタタ67系統を草・水・火・雷・岩の属性別に探し、Tier・役割・進化優先・比較へ進める属性ハブです。": "按草、水、火、雷、岩五种属性浏览全部67个塔塔系列，并查看Tier、定位、进化优先级与比较。",
+    "67系統を5属性から探す": "按5种属性查找67个系列",
+    "全67系統の進化試練": "全部67个系列的进化试炼",
+    "全67系統のタタを6×6盤面へ配置し、進化段階を付けて編成を作成・保存・共有できます。": "可将全部67个塔塔系列放入6×6棋盘，选择进化阶段，并创建、保存或分享阵容。",
+    "モンサバのタタを6×6の36マスへ配置できる編成メーカー。全67系統を検索し、T1画像と進化段階バッジで編成を作成・保存・共有できます。": "可在6×6共36格棋盘放置塔塔的阵容编辑器。支持搜索全部67个系列，以T1图片和进化阶段徽标创建、保存并分享阵容。",
+    "モンサバ攻略DBは、モンスターサバイバル（モンサバ）のタタ67系統・246体を収録。Tier、進化先、スキル効果・数値を一覧で確認できます。": "Clash of Critters攻略DB收录67个系列、246个形态，可查看Tier、进化及技能效果与数值。",
+    "この更新で新規6形態を追加しました。現在のDBは67系統・246体です。": "当时新增6个形态。当前数据库收录67个系列、246个形态。",
+    "モンサバのタタを6×6の36マスへ配置できる編成メーカー。全67系統を検索し、選択した進化形態の画像と段階バッジで編成を作成・保存・共有できます。": "可在6×6共36格棋盘放置塔塔的阵容编辑器。支持搜索全部67个系列，以所选进化形态的图片和阶段徽标创建、保存并分享阵容。",
+    "日本語名と進化画像は提供資料で確認しました。スキル・進化条件・評価・外国語名は確認待ちです。": "日文名称和进化图片已与提供资料核对。技能、进化条件、评级和外语名称仍待确认。",
+    "スキル資料が未確認のため、進化による性能の変化は判断できません。": "技能资料尚待确认，因此暂时无法判断进化带来的性能变化。"
   }
 }

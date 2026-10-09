@@ -12,8 +12,9 @@ test('nested untranslated content and adjacent advertising bytes survive localiz
 test('normal and dedicated skills retain independent evolution and level dimensions',()=>{
  const normal=json('data/tata-skills.json'),zr=json('data/zombie-rush/skills.json');
  assert.equal(Object.keys(zr.byFamily).length,66);
- assert.equal(Object.values(normal.byFamily).reduce((n,f)=>n+f.stages.length,0),242);
+ assert.equal(Object.values(normal.byFamily).reduce((n,f)=>n+f.stages.length,0),246);
  for(const family of Object.values(normal.byFamily))for(const stage of family.stages){
+  if(stage.verificationStatus==='pending-user-skill-evidence'){assert.equal(stage.skillName,'確認待ち');assert.deepEqual(stage.values,[]);continue;}
   assert.equal(stage.externalReview.sourceType,'public_wiki');
   assert.match(stage.externalReview.sourceUrl,/^https:\/\/w.atwiki.jp\/monstersurvival\/pages\/\d+\.html$/);
  }

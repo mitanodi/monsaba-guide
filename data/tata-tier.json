@@ -1957,6 +1957,34 @@
       "roles": [
         "サポート"
       ]
+    },
+    {
+      "familyId": "satorissamu",
+      "slug": "satorissamu",
+      "rankings": {
+        "overall": {
+          "tier": "HOLD",
+          "status": "hold",
+          "order": 67
+        },
+        "normal": {
+          "tier": "HOLD",
+          "status": "hold"
+        },
+        "zombie": {
+          "tier": "HOLD",
+          "status": "hold"
+        },
+        "dojo": {
+          "tier": "HOLD",
+          "status": "hold"
+        },
+        "beginner": {
+          "tier": "HOLD",
+          "status": "hold"
+        }
+      },
+      "roles": []
     }
   ],
   "beginnerGuideFamilies": [

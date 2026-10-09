@@ -54,7 +54,12 @@ test('four unrated positions and all previous combined mode ratings remain uncha
     'data/tata-tier.json': '7f9da44c8ef73484cef4c36908cac7cdaceabfdb610c1ebc86cdee8bd808bc49',
     'data/tier-ratings.json': '23113b86bdb16667fc05aa4e2683bf9257e55b2770be2f5cfad7a1e14f7ffcda',
     'data/evolution-priority.json': '8e38ea84dee41c0ae806d1dbe3fcb9192ddb9c2623e29aa0443e2de822274688'
-  })) assert.equal(createHash('sha256').update(read(file).replace(/\r\n/g, '\n')).digest('hex'), expectedHash, file);
+  })) {
+    let source=read(file).replace(/\r\n/g,'\n');
+    if(file==='data/tata-tier.json') {const d=JSON.parse(source); d.families=d.families.filter(f=>f.familyId!=='satorissamu'); source=JSON.stringify(d,null,2)+'\n';}
+    if(file==='data/tier-ratings.json') {const d=JSON.parse(source); for(const mode of ['overall','zombieRush']) {d[mode].groups=d[mode].groups.map(g=>({...g,ids:g.ids.filter(id=>id!=='satorissamu')})).filter(g=>g.ids.length); delete d[mode].byFamily?.satorissamu;} source=JSON.stringify(d,null,2)+'\n';}
+    assert.equal(createHash('sha256').update(source).digest('hex'), expectedHash, file);
+  }
 });
 
 test('resolved entries use existing localized names, images, attributes and links, and synchronize detail position ratings', () => {

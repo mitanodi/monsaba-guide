@@ -57,6 +57,8 @@ export function createTataHtmlLocalizer(tatari) {
     });
 
     if (normalized === 'en') {
+      const pendingNames = forms.filter(f => !f.nameEn).map(f => escapeRegExp(f.name)).join('|');
+      if (pendingNames) html = html.replace(new RegExp(`(${pendingNames}) family\\b`, 'g'), '$1 Family');
       const localizedFamilyNames = [...new Set(forms.map((form) => form.nameEn).filter(Boolean))]
         .sort((a, b) => b.length - a.length)
         .map(escapeRegExp)

@@ -49,6 +49,25 @@ test('Preview, development and unknown builds retain noindex and disabled integr
   }
 });
 
+test('Tier maker uses production analytics while preserving its intentional noindex policy', () => {
+  for (const prefix of ['', 'en/', 'zh-cn/']) {
+    const source = read(prefix + 'tier-maker/index.html'), before = load(source);
+    const production = prepareHtml(source, 'production'), after = load(production);
+    assert.equal(after('script[data-monsaba-ga4][type="text/plain"]').length, 0);
+    assert.equal(after('script[data-monsaba-ga4=loader]').length, 1);
+    for (const selector of ['meta[name=robots]', 'link[rel=canonical]', 'link[hreflang]'])
+      assert.deepEqual(after(selector).map((_, e) => after(e).toString()).get(), before(selector).map((_, e) => before(e).toString()).get());
+    assert.equal(after('meta[data-deployment-robots]').length, 0);
+    assert.equal(prepareHtml(production, 'production'), production);
+    for (const environment of ['preview', 'development', undefined, 'unknown']) {
+      const preview = prepareHtml(source, environment), $ = load(preview);
+      assert.equal($('script[data-monsaba-ga4]:not([type="text/plain"])').length, 0);
+      assert.equal($('meta[data-deployment-robots]').attr('content'), 'noindex,nofollow');
+      assert.equal(prepareHtml(preview, environment), preview);
+    }
+  }
+});
+
 test('HTTP noindex excludes only the two production domains; original security headers remain', () => {
   const config = JSON.parse(read('vercel.json'));
   assert.ok(!config.headers[0].headers.some(h => h.key === 'X-Robots-Tag'));

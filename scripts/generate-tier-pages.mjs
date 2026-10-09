@@ -75,7 +75,9 @@ for (const [locale, prefix] of [['ja', ''], ['en', 'en/'], ['zh-CN', 'zh-cn/']])
     mode,
     afterDescription: locale === 'ja' && mode === 'normal' ? imobileSlot('tier') : ''
   })) + (ads[i] || '') + (locale === 'ja' && i === MODES.length - 1 ? ninjaAdMaxTier : '')).join('\n');
-  const main = `<main id="main-content"><section class="page-hero tier-page-hero astra-compact-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/${prefix}">${locale === 'ja' ? 'トップ' : locale === 'en' ? 'Home' : '首页'}</a><span>›</span><span>${esc(copy.labels[0])} Tier</span></nav><span class="attribute">${esc(copy.updated)} ${data.updated}</span><h1>${esc(copy.title)}</h1><p>${esc(copy.intro)}</p></div></section>${nav}${byline}<div id="tier-list">${filters}${copy.legend ? `<p class="wrap tier-criteria-panel">${esc(copy.legend)}</p>` : ''}${boards}</div></main>`;
+  const toolLabel = {ja:'自分のTier表を作る',en:'Create your own Tier list','zh-CN':'制作自己的 Tier 表'}[locale];
+  const toolLink = `<p class="wrap tier-maker-link"><a href="/${prefix}tier-maker/">${toolLabel} →</a></p>`;
+  const main = `<main id="main-content"><section class="page-hero tier-page-hero astra-compact-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/${prefix}">${locale === 'ja' ? 'トップ' : locale === 'en' ? 'Home' : '首页'}</a><span>›</span><span>${esc(copy.labels[0])} Tier</span></nav><span class="attribute">${esc(copy.updated)} ${data.updated}</span><h1>${esc(copy.title)}</h1><p>${esc(copy.intro)}</p></div></section>${nav}${toolLink}${byline}<div id="tier-list">${filters}${copy.legend ? `<p class="wrap tier-criteria-panel">${esc(copy.legend)}</p>` : ''}${boards}</div></main>`;
   html = html.replace(/<main\b[^>]*>[\s\S]*?<\/main>/, main);
   html = patchHtml(html, [['title', () => `<title>${esc(copy.title)}</title>`], ['meta[name="description"]', () => `<meta name="description" content="${esc(copy.intro)}">`], ['script[type="application/ld+json"]', el => {
     const structured = JSON.parse(el.text());
@@ -100,6 +102,9 @@ for (const [locale, prefix] of [['ja', ''], ['en', 'en/'], ['zh-CN', 'zh-cn/']])
   // Existing detail pages retain their content, SEO, images, ads and layout.
   for (const entry of data.families) {
     const detail = `${prefix}tata/${entry.slug}/index.html`;
+    // New detail pages are created by generate:tata/i18n before the later Tier pass.
+    // Check mode still rejects any missing final page.
+    if (!fs.existsSync(path.join(root, detail)) && !process.argv.includes('--check')) continue;
     const label = ranking => ranking.tier === 'HOLD' ? copy.hold : ranking.tier;
     const summary = MODES.map((mode, i) => `${copy.labels[i]} ${label(entry.rankings[mode])}${entry.rankings[mode].status === 'provisional' ? ' ※' : ''}`).join(' / ');
     let source = patchHtml(read(detail), [['.ninja-admax-slot', () => ''], ['.imobile-ad-slot:not(.imobile-content-ad)', () => '']]);

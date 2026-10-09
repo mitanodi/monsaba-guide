@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updated": "2026-10-07",
-  "familyCount": 66,
+  "updated": "2026-10-10",
+  "familyCount": 67,
   "source": {
     "sourceType": "public_wiki",
     "sourceName": "モンスターサバイバル@wiki 進化条件一覧・個別タタ",
@@ -4723,6 +4723,58 @@
             "status": "externally_confirmed"
           },
           "sourceUpdatedAt": "2026-10-01"
+        }
+      ]
+    },
+    {
+      "familyId": "satorissamu",
+      "familyName": "サトリッサム",
+      "attribute": "岩",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "コモリッサム",
+          "condition": "進化条件はゲーム内資料の確認待ち",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "user-provided-image",
+          "sourceUrl": "/tata/satorissamu/",
+          "checkedAt": "2026-10-10",
+          "confirmedParts": [],
+          "pendingFields": [
+            "進化条件"
+          ],
+          "evidence": "data/user-tata-evidence-2026-10-10.json"
+        },
+        {
+          "stage": 3,
+          "tataName": "フタリッサム",
+          "condition": "進化条件はゲーム内資料の確認待ち",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "user-provided-image",
+          "sourceUrl": "/tata/satorissamu/",
+          "checkedAt": "2026-10-10",
+          "confirmedParts": [],
+          "pendingFields": [
+            "進化条件"
+          ],
+          "evidence": "data/user-tata-evidence-2026-10-10.json"
+        },
+        {
+          "stage": 4,
+          "tataName": "ファミリッサム",
+          "condition": "進化条件はゲーム内資料の確認待ち",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "user-provided-image",
+          "sourceUrl": "/tata/satorissamu/",
+          "checkedAt": "2026-10-10",
+          "confirmedParts": [],
+          "pendingFields": [
+            "進化条件"
+          ],
+          "evidence": "data/user-tata-evidence-2026-10-10.json"
         }
       ]
     }

@@ -488,5 +488,12 @@
     "bytes": 4498,
     "source": "assets/tata-provided/rukaron/t1-512.webp",
     "sourceSha256": "0114af33f6c5e5ec66ab4156000f7a571871d3908f9243d95c4c3bc248477a7a"
+  },
+  {
+    "file": "assets/astra/satorissamu-128.webp",
+    "width": 128,
+    "bytes": 3766,
+    "source": "assets/tata-provided/satorissamu/t1-512.webp",
+    "sourceSha256": "87a3483aa78fced4a4517490ba374becc35009b66ec79601d1186b691f7213a6"
   }
 ]

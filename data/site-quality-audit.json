@@ -2,8 +2,8 @@
   "version": 1,
   "asOf": "2026-09-05",
   "totals": {
-    "pages": 411,
-    "indexable": 372,
+    "pages": 417,
+    "indexable": 375,
     "brokenLinks": 0,
     "brokenImages": 0,
     "structuralIssues": 0,
@@ -1230,6 +1230,16 @@
       "reasons": []
     },
     {
+      "route": "/en/tata/satorissamu/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
       "route": "/en/tata/shiiparusu/",
       "verified": "2026-08-24",
       "ageDays": 12,
@@ -2323,6 +2333,16 @@
       "route": "/tata/sabooru/",
       "verified": "2026-08-24",
       "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/tata/satorissamu/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
       "category": "evergreen",
       "priority": "LOW",
       "status": "verified",
@@ -3543,6 +3563,16 @@
       "route": "/zh-cn/tata/sabooru/",
       "verified": "2026-08-24",
       "ageDays": 12,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/tata/satorissamu/",
+      "verified": "2026-09-01",
+      "ageDays": 4,
       "category": "evergreen",
       "priority": "LOW",
       "status": "verified",

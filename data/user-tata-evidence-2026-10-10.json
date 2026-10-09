@@ -1,0 +1,218 @@
+{
+  "version": 1,
+  "checkedAt": "2026-10-10",
+  "sourceType": "user-provided-image",
+  "scope": "user-confirmed Japanese names and image-stage mapping only; no invented stats or foreign names",
+  "originalsDirectory": "Local task source archive; not deployed",
+  "records": [
+    {
+      "id": "shizukuchou:T4",
+      "familyId": "shizukuchou",
+      "stage": 4,
+      "name": "エーテリファル",
+      "sourceFile": "shizukuchou-t4.webp",
+      "sourceSha256": "33acbd2688f851064df46aec3d4f4dbd661d3899e85eca4256382d36c8f25be7",
+      "sourceWidth": 1081,
+      "sourceHeight": 992,
+      "outputs": {
+        "256": {
+          "path": "/assets/tata-provided/shizukuchou/t4-256.webp",
+          "sha256": "0daf46194de4f2c6d644581d4fefb4be5cf00b30e789beabdc8200120e775554",
+          "bytes": 59278
+        },
+        "512": {
+          "path": "/assets/tata-provided/shizukuchou/t4-512.webp",
+          "sha256": "9e746edbefc290b4655a92e3515a5350a3fcd9b7441ca32cd7c3513bebb9d5e6",
+          "bytes": 187978
+        }
+      },
+      "confirmedBy": "user",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "id": "hinyao:T4",
+      "familyId": "hinyao",
+      "stage": 4,
+      "name": "ネコノミコト",
+      "sourceFile": "hinyao-t4.webp",
+      "sourceSha256": "f1aa786a2bed65adebb54c9cefe9ed4d846b76e9350141813bff2c653882c336",
+      "sourceWidth": 393,
+      "sourceHeight": 391,
+      "outputs": {
+        "256": {
+          "path": "/assets/tata-provided/hinyao/t4-256.webp",
+          "sha256": "134600b082a277bfafc99637aede4e5392a1fe50234c24316bd1609daf6c4de6",
+          "bytes": 68356
+        },
+        "512": {
+          "path": "/assets/tata-provided/hinyao/t4-512.webp",
+          "sha256": "f31bcefc117187c168720cd19ade3608992a21339e135bd97afffdd6b3f8720d",
+          "bytes": 181478
+        }
+      },
+      "confirmedBy": "user",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "id": "nenbutsuhebi:T4",
+      "familyId": "nenbutsuhebi",
+      "stage": 4,
+      "name": "ナムアミダイジャ",
+      "sourceFile": "nenbutsuhebi-t4.webp",
+      "sourceSha256": "38c8644e47f140b72e7b25b5f58bd2f52d2d211044b686c3f590bb09ad000c7c",
+      "sourceWidth": 256,
+      "sourceHeight": 244,
+      "outputs": {
+        "256": {
+          "path": "/assets/tata-provided/nenbutsuhebi/t4-256.webp",
+          "sha256": "eefe63296d8d3b109f2ff89838a1dcc417671c0f1f478752cc141346e9c4ca72",
+          "bytes": 66632
+        },
+        "512": {
+          "path": "/assets/tata-provided/nenbutsuhebi/t4-512.webp",
+          "sha256": "4c92d474f89b06fbab57181fbc5d7064623dfd367aac48342e337b1967b0ce43",
+          "bytes": 171548
+        }
+      },
+      "confirmedBy": "user",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "id": "erekineko:T4",
+      "familyId": "erekineko",
+      "stage": 4,
+      "name": "トコヨニャット",
+      "sourceFile": "erekineko-t4.webp",
+      "sourceSha256": "f8f4dbe8464a994e37350ec3391007bf2ab4213b0255cd3e2011802e2b5efab5",
+      "sourceWidth": 492,
+      "sourceHeight": 391,
+      "outputs": {
+        "256": {
+          "path": "/assets/tata-provided/erekineko/t4-256.webp",
+          "sha256": "b3ec370d7ae175bd7523913a54780872810caea8f49baad1bb9f93423bbbf68a",
+          "bytes": 58158
+        },
+        "512": {
+          "path": "/assets/tata-provided/erekineko/t4-512.webp",
+          "sha256": "2e7f59d4b964d18b3dfd08178545d89896fca7e154da81f87444bc59246c8acd",
+          "bytes": 171814
+        }
+      },
+      "confirmedBy": "user",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "id": "satorissamu:T1",
+      "familyId": "satorissamu",
+      "stage": 1,
+      "name": "サトリッサム",
+      "sourceFile": "satorissamu-t1.webp",
+      "sourceSha256": "832366712e077fe774a2920348e2a621ade7ebcfe780999aa7da6f4fd8bbcc50",
+      "sourceWidth": 331,
+      "sourceHeight": 307,
+      "outputs": {
+        "256": {
+          "path": "/assets/tata-provided/satorissamu/t1-256.webp",
+          "sha256": "157e29dc08ed77eadb79bd238f6bad1609c160c1669b522c5c4c1536e2787f60",
+          "bytes": 43114
+        },
+        "512": {
+          "path": "/assets/tata-provided/satorissamu/t1-512.webp",
+          "sha256": "87a3483aa78fced4a4517490ba374becc35009b66ec79601d1186b691f7213a6",
+          "bytes": 115400
+        }
+      },
+      "confirmedBy": "user",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "id": "satorissamu:T2",
+      "familyId": "satorissamu",
+      "stage": 2,
+      "name": "コモリッサム",
+      "sourceFile": "satorissamu-t2.webp",
+      "sourceSha256": "47f8425c19ad8213d223f45ee7801330d1b151090bd16dddd8edd14767dae2b4",
+      "sourceWidth": 531,
+      "sourceHeight": 510,
+      "outputs": {
+        "256": {
+          "path": "/assets/tata-provided/satorissamu/t2-256.webp",
+          "sha256": "a84b57b5e8bfe461c156deb32b2342a4263ccd83ee25b1eb2940c1ab383b3342",
+          "bytes": 54222
+        },
+        "512": {
+          "path": "/assets/tata-provided/satorissamu/t2-512.webp",
+          "sha256": "b5c31b5e2a4ab38f952d409f6fb9490bab64a61f7aefc977265bf4aead181f62",
+          "bytes": 151848
+        }
+      },
+      "confirmedBy": "user",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "id": "satorissamu:T3",
+      "familyId": "satorissamu",
+      "stage": 3,
+      "name": "フタリッサム",
+      "sourceFile": "satorissamu-t3.webp",
+      "sourceSha256": "618d7983032825458bda9e54d9b165b1ad90630198b6f3d4213191ff8d1d1389",
+      "sourceWidth": 154,
+      "sourceHeight": 188,
+      "outputs": {
+        "256": {
+          "path": "/assets/tata-provided/satorissamu/t3-256.webp",
+          "sha256": "0ce2b7e48f9321548010bf950c4fdd8fd243a70059c595f5a08c25804651866e",
+          "bytes": 57766
+        },
+        "512": {
+          "path": "/assets/tata-provided/satorissamu/t3-512.webp",
+          "sha256": "67d394ff28af84db714d7da1f824fcb419c993c433d214f0e276307edd166981",
+          "bytes": 149364
+        }
+      },
+      "confirmedBy": "user",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "id": "satorissamu:T4",
+      "familyId": "satorissamu",
+      "stage": 4,
+      "name": "ファミリッサム",
+      "sourceFile": "satorissamu-t4.webp",
+      "sourceSha256": "f4b7319b895ac9bb8f3a8eba88ec11be2a06928639c42863688e3f712524a81c",
+      "sourceWidth": 154,
+      "sourceHeight": 188,
+      "outputs": {
+        "256": {
+          "path": "/assets/tata-provided/satorissamu/t4-256.webp",
+          "sha256": "a082448a8938f0e3e67f8fc9074c181a6ebc97ccd0d6b9b1eb9178c2182a6c01",
+          "bytes": 57960
+        },
+        "512": {
+          "path": "/assets/tata-provided/satorissamu/t4-512.webp",
+          "sha256": "12490612e194fa56bd4bed7223a7bb5a156a02b9f1c285c206c4d07dff54b168",
+          "bytes": 150926
+        }
+      },
+      "confirmedBy": "user",
+      "checkedAt": "2026-10-10"
+    }
+  ],
+  "alternatives": [
+    {
+      "sourceFile": "eterifaru-alternative.webp",
+      "sourceSha256": "c72687259fa6ac406751ace1d994302e7ceacfe8a5defb561d1a4bead9dd7d61",
+      "action": "reference-only; higher resolution first image selected"
+    },
+    {
+      "sourceFile": "unassigned-pink-cat.webp",
+      "sourceSha256": "9f889e8da5084ec1e6f505bbd516996961dbc8ef4bedc058783ee32bd9ca67d6",
+      "action": "not adopted; user chose the red parasol image for Nekonomikoto"
+    },
+    {
+      "sourceFile": "morubotto-reference.webp",
+      "sourceSha256": "052dd55d5ab4c78d622da313e5239efc29e401ec4fcf7758e0efd9a56a56b8ba",
+      "action": "duplicate character confirmed visually; existing verified official image retained"
+    }
+  ]
+}

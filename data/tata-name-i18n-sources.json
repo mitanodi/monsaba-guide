@@ -24,11 +24,11 @@
     }
   },
   "summary": {
-    "canonicalForms": 242,
+    "canonicalForms": 246,
     "englishConfirmed": 242,
     "simplifiedChineseConfirmed": 236,
     "bothConfirmed": 236,
-    "needsReview": 6
+    "needsReview": 10
   },
   "forms": [
     {
@@ -3762,6 +3762,110 @@
         }
       },
       "checkedAt": "2026-10-07"
+    },
+    {
+      "familyId": "satorissamu",
+      "stage": 1,
+      "japaneseName": "サトリッサム",
+      "englishName": null,
+      "simplifiedChineseName": null,
+      "confidence": "pending-official",
+      "sourceType": "supplemental-evidence",
+      "japaneseEvidence": {
+        "sourceType": "user-provided-image",
+        "manifest": "data/user-tata-evidence-2026-10-10.json",
+        "recordId": "satorissamu:T1",
+        "sourceSha256": "832366712e077fe774a2920348e2a621ade7ebcfe780999aa7da6f4fd8bbcc50"
+      },
+      "localizedEvidence": {
+        "en": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        },
+        "zh-CN": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        }
+      },
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "familyId": "satorissamu",
+      "stage": 2,
+      "japaneseName": "コモリッサム",
+      "englishName": null,
+      "simplifiedChineseName": null,
+      "confidence": "pending-official",
+      "sourceType": "supplemental-evidence",
+      "japaneseEvidence": {
+        "sourceType": "user-provided-image",
+        "manifest": "data/user-tata-evidence-2026-10-10.json",
+        "recordId": "satorissamu:T2",
+        "sourceSha256": "47f8425c19ad8213d223f45ee7801330d1b151090bd16dddd8edd14767dae2b4"
+      },
+      "localizedEvidence": {
+        "en": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        },
+        "zh-CN": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        }
+      },
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "familyId": "satorissamu",
+      "stage": 3,
+      "japaneseName": "フタリッサム",
+      "englishName": null,
+      "simplifiedChineseName": null,
+      "confidence": "pending-official",
+      "sourceType": "supplemental-evidence",
+      "japaneseEvidence": {
+        "sourceType": "user-provided-image",
+        "manifest": "data/user-tata-evidence-2026-10-10.json",
+        "recordId": "satorissamu:T3",
+        "sourceSha256": "618d7983032825458bda9e54d9b165b1ad90630198b6f3d4213191ff8d1d1389"
+      },
+      "localizedEvidence": {
+        "en": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        },
+        "zh-CN": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        }
+      },
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "familyId": "satorissamu",
+      "stage": 4,
+      "japaneseName": "ファミリッサム",
+      "englishName": null,
+      "simplifiedChineseName": null,
+      "confidence": "pending-official",
+      "sourceType": "supplemental-evidence",
+      "japaneseEvidence": {
+        "sourceType": "user-provided-image",
+        "manifest": "data/user-tata-evidence-2026-10-10.json",
+        "recordId": "satorissamu:T4",
+        "sourceSha256": "f4b7319b895ac9bb8f3a8eba88ec11be2a06928639c42863688e3f712524a81c"
+      },
+      "localizedEvidence": {
+        "en": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        },
+        "zh-CN": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        }
+      },
+      "checkedAt": "2026-10-10"
     }
   ]
 }

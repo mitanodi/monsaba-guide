@@ -38,7 +38,8 @@ const liveNames = tatari.families.flatMap((family) => family.evolutions.map((sta
 for (const [id,name] of [['erekineko','トコヨニャット'],['hinyao','ネコノミコト']]) {
   const form=tatari.families.find(f=>f.id===id)?.evolutions.find(e=>e.stage===4);
   expect(form?.name===name && form.verification?.implementation==='official-store-confirmed', `${name}: independent official implementation evidence required`);
-  expect(form.image===null && form.nameZhHans===null, `${name}: unknown image and Chinese name must remain pending`);
+  expect(form.image===`assets/tata-provided/${id}/t4-512.webp` && form.imageEvidence?.recordId===`${id}:T4`, `${name}: user-confirmed image mapping required`);
+  expect(form.nameZhHans===null, `${name}: unknown Chinese name must remain pending`);
 }
 const rukaron = tatari.families.find((family) => family.id === 'rukaron');
 expect(rukaron?.evolutions[0]?.verification?.implementation === 'official-store-confirmed', 'Rukaron needs independent official implementation evidence');

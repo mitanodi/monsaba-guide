@@ -68,7 +68,7 @@ test('target pages keep their current evidence dateModified in all three languag
     ['/tata/sukedako/', '2026-10-07'],
     ['/tata/nenbutsuhebi/', '2026-10-07'],
     ['/zombie-rush/chips/', '2026-10-07'],
-    ['/evolution/trials/', '2026-10-07'],
+    ['/evolution/trials/', '2026-10-10'],
     ['/events/', '2026-09-05']
   ]);
   for (const [sourceRoute, expectedDate] of expectedDates) {

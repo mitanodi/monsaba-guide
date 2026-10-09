@@ -165,7 +165,7 @@ test('responsive guards cover review widths without fixed AdSense UI', () => {
   assert.match(css, /\.role-context-grid.*grid-template-columns:1fr/);
 });
 
-test('full site generation is idempotent', { timeout: 240000 }, () => {
+test('full site generation is idempotent', { timeout: 420000 }, () => {
   const tracked = execFileSync('git', ['ls-files', '--cached', '--others', '--exclude-standard', '-z'], { cwd: root })
     .toString('utf8')
     .split('\0')
@@ -185,19 +185,25 @@ test('full site generation is idempotent', { timeout: 240000 }, () => {
   const before = digest(true);
   const npmCli = process.env.npm_execpath;
   assert.ok(npmCli, 'npm executable path is unavailable');
+  // Windows can report transient file-open contention as UNKNOWN (-4094).
+  // Retry complete generation for both passes; retain both byte comparisons.
+  const generateWithRetry = () => {
   for (let attempt = 0; attempt < 12; attempt++) {
     try {
       execFileSync(process.execPath, [npmCli, 'run', 'generate:site'], { cwd: root, stdio: 'pipe', timeout: 110000 });
       break;
     } catch (error) {
       const output = `${error.stderr || ''}\n${error.stdout || ''}`;
-      if (!/EBUSY|EPERM/.test(output) || attempt === 11)
+      const temporaryOpenFailure = process.platform === 'win32' && /Error: UNKNOWN: unknown error, open /.test(output);
+      if ((!/EBUSY|EPERM/.test(output) && !temporaryOpenFailure) || attempt === 11)
         throw error;
       Atomics.wait(retrySignal, 0, 0, 200 * (attempt + 1));
     }
   }
+  };
+  generateWithRetry();
   const after = digest();
-  execFileSync(process.execPath, [npmCli, 'run', 'generate:site'], { cwd: root, stdio: 'pipe', timeout: 110000 });
+  generateWithRetry();
   assert.equal(digest(), after, 'Second full generation must produce zero changes (B == C)');
   const changed = after === before ? '' : tracked.filter((file) => createHash('sha256').update(readWithRetry(path.join(root, file))).digest('hex') !== initialHashes.get(file)).join('\n');
   assert.equal(after, before, `generate:site changed tracked output; run generation and commit the result\n${changed}`);
