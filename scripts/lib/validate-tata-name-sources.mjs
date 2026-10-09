@@ -7,6 +7,10 @@ const formKey = (familyId, stage) => `${familyId}:T${stage}`;
 const mappingKey = (familyId, stage, locale) => `${formKey(familyId, stage)}:${locale}`;
 const exactString = (value) => typeof value === 'string' && value.length > 0 && value.trim() === value;
 const isSupplemental = (row) => row?.sourceType === 'supplemental-evidence';
+const hasUserImageEvidence = (evidence, row) => evidence?.sourceType === 'user-provided-image'
+  && exactString(evidence.manifest)
+  && evidence.recordId === formKey(row.familyId, row.stage)
+  && /^[a-f0-9]{64}$/.test(evidence.sourceSha256 || '');
 const hasOfficialStoreEvidence = (evidence) => {
   try {
     const url = new URL(evidence?.url);
@@ -106,6 +110,7 @@ export function validateTataNameSources({ source, tatari, skills, generatedHtml 
 
     if (isSupplemental(row) && (row.confidence !== 'pending-official'
       || !(hasOfficialStoreEvidence(row.japaneseEvidence)
+        || hasUserImageEvidence(row.japaneseEvidence, row)
         || (exactString(row.japaneseEvidence?.manifest)
           && Number.isInteger(row.japaneseEvidence?.sourcePage) && row.japaneseEvidence.sourcePage >= 1)))) {
       fail('invalidDocuments', 'Invalid supplemental Tata evidence', { family: row.familyId, stage: row.stage });

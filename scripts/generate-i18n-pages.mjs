@@ -79,6 +79,7 @@ const read = (file) => retry(() => fs.readFileSync(file, 'utf8'));
 const write = (file, value) => retry(() => fs.writeFileSync(file, value));
 const ignored = new Set(['.git', '.github', '.vercel', 'node_modules', 'promo', 'en', 'zh-cn', 'assets', 'data', 'scripts']);
 const selfLocalized = new Set([
+  'tier-maker',
   'tata-tier',
   'zombie-rush/chips',
   'evolution/trials',

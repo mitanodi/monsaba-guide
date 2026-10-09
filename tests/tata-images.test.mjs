@@ -9,11 +9,11 @@ const json = (file) => JSON.parse(read(file));
 const images = json('data/tata-images.json');
 const tatari = json('data/tatari.json');
 
-test('66 Stage 1 mappings map one-to-one to the database', () => {
-  assert.equal(images.families.length, 66);
-  assert.equal(new Set(images.families.map((family) => family.familyId)).size, 66);
+test('67 Stage 1 mappings map one-to-one to the database', () => {
+  assert.equal(images.families.length, 67);
+  assert.equal(new Set(images.families.map((family) => family.familyId)).size, 67);
   assert.deepEqual(images.families.map((family) => family.familyId), tatari.families.map((family) => family.id));
-  assert.equal(new Set(images.families.filter((family) => family.stage1.status === 'verified').map((family) => family.stage1.sha256)).size, 66);
+  assert.equal(new Set(images.families.filter((family) => family.stage1.status === 'verified').map((family) => family.stage1.sha256)).size, 67);
   for (const family of images.families) {
     assert.ok(['verified', 'pending'].includes(family.stage1.status));
     assert.match(family.stage1.src, family.stage1.status === 'verified' ? new RegExp(`^/assets/(?:tata-crops/forms/${family.familyId}/t1\\.webp|(?:official/tata|tata-provided)/${family.familyId}/t1-512\\.webp)$`) : /^\/assets\/tata-image-pending\.svg$/);
@@ -23,11 +23,11 @@ test('66 Stage 1 mappings map one-to-one to the database', () => {
 
 test('only verified forms have publishable image URLs', () => {
   const forms = images.families.flatMap((family) => family.forms);
-  assert.equal(forms.length, 242);
-  assert.equal(forms.filter((form) => form.status === 'verified').length, 236);
-  assert.equal(forms.filter((form) => form.status === 'pending').length, 6);
+  assert.equal(forms.length, 246);
+  assert.equal(forms.filter((form) => form.status === 'verified').length, 244);
+  assert.equal(forms.filter((form) => form.status === 'pending').length, 2);
   assert.equal(forms.filter((form) => form.sourceType === 'official_creator_asset').length, 224);
-  assert.equal(new Set(forms.filter((form) => form.status === 'verified').map((form) => form.src)).size, 236);
+  assert.equal(new Set(forms.filter((form) => form.status === 'verified').map((form) => form.src)).size, 244);
   assert.ok(forms.filter((form) => form.status === 'pending').every((form) => form.src === null && ['locked_silhouette_only', 'official_image_not_obtained'].includes(form.reason)));
   assert.ok(forms.filter((form) => form.status === 'verified').every((form) => fs.existsSync(path.join(root, form.src.slice(1)))));
   assert.equal(images.sourcePolicy.lockedSilhouettesPublished, false);
@@ -36,7 +36,7 @@ test('only verified forms have publishable image URLs', () => {
 test('generated JA, EN and zh-CN pages use the shared crops', () => {
   for (const file of ['index.html', 'en/index.html', 'zh-cn/index.html']) {
     const html = read(file);
-    assert.equal((html.match(/\/assets\/(?:tata-crops\/forms\/[^/]+\/t1\.webp|(?:official\/tata|tata-provided)\/[^/]+\/t1-512\.webp)/g) || []).length, 66, `${file}: verified Stage 1 image count`);
+    assert.equal((html.match(/\/assets\/(?:tata-crops\/forms\/[^/]+\/t1\.webp|(?:official\/tata|tata-provided)\/[^/]+\/t1-512\.webp)/g) || []).length, 67, `${file}: verified Stage 1 image count`);
     assert.doesNotMatch(html, /assets\/tata-image-pending\.svg/, `${file}: all Stage 1 images obtained`);
     assert.doesNotMatch(html, /card-image[^>]*>[\s\S]{0,180}assets\/thumbs\//);
   }
@@ -44,8 +44,8 @@ test('generated JA, EN and zh-CN pages use the shared crops', () => {
 
 test('detail pages publish verified crops and neutral pending states', () => {
   const allDetailHtml = tatari.families.map((family) => read(`tata/${family.id}/index.html`)).join('\n');
-  assert.equal((allDetailHtml.match(/<img[^>]+class="tata-form-image"/g) || []).length, 236);
-  assert.equal((allDetailHtml.match(/class="tata-image-pending"/g) || []).length, 6);
+  assert.equal((allDetailHtml.match(/<img[^>]+class="tata-form-image"/g) || []).length, 244);
+  assert.equal((allDetailHtml.match(/class="tata-image-pending"/g) || []).length, 2);
   assert.doesNotMatch(allDetailHtml, /assets\/thumbs\//);
   assert.match(read('tata/purabi/index.html'), /assets\/official\/tata\/purabi\/t1-512\.webp/);
   assert.match(read('tata/purabi/index.html'), /assets\/official\/tata\/purabi\/t3-512\.webp/);
@@ -70,16 +70,16 @@ test('Tier, Compare, Team Builder, My Monsaba, Search and Evolution Priority use
   assert.doesNotMatch(read('evolution-priority/evolution-priority.js'), /assets\/thumbs\//);
 });
 
-test('current UI counts are 66 families, 242 forms and 14 Water families and 13 per other attribute', () => {
+test('current UI counts are 67 families, 246 forms and 14 Water/Rock families and 13 per other attribute', () => {
   const counts = Object.fromEntries(['草', '水', '火', '雷', '岩'].map((attribute) => [attribute, tatari.families.filter((family) => family.attribute === attribute).length]));
-  assert.equal(tatari.families.length, 66);
-  assert.equal(tatari.families.flatMap((family) => family.evolutions).length, 242);
-  assert.deepEqual(counts, { 草: 13, 水: 14, 火: 13, 雷: 13, 岩: 13 });
+  assert.equal(tatari.families.length, 67);
+  assert.equal(tatari.families.flatMap((family) => family.evolutions).length, 246);
+  assert.deepEqual(counts, { 草: 13, 水: 14, 火: 13, 雷: 13, 岩: 14 });
   for (const file of ['index.html', 'about/index.html', 'about-data/index.html', 'tata-tier/index.html', 'en/index.html', 'zh-cn/index.html']) {
     assert.doesNotMatch(read(file), /63系統|224体|63 families|224 Tatari|63 个系列|224 个 Tatari/, `${file}: stale current count`);
   }
-  assert.match(read('index.html'), /<span><b>66<\/b>系統<\/span>/, 'home hero: current family count');
-  assert.match(read('index.html'), /<span><b>242<\/b>体<\/span>/, 'home hero: current form count');
+  assert.match(read('index.html'), /<span><b>67<\/b>系統<\/span>/, 'home hero: current family count');
+  assert.match(read('index.html'), /<span><b>246<\/b>体<\/span>/, 'home hero: current form count');
   assert.match(read('index.html'), /water[^>]*href="\/attribute\/water\/"[^>]*>[^<]*水属性 <small>14系統<\/small>/);
   assert.doesNotMatch(read('index.html'), /water[^>]*href="\/attribute\/water\/"[^>]*>[^<]*水属性 <small>12系統<\/small>/);
 });

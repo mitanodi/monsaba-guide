@@ -24,11 +24,16 @@ test('Astra preserves core data, affiliate code, saved-data keys and share codec
 test('the supplied character update preserves all existing families and skill values', () => {
   const before = JSON.parse(control('data/tatari.json'));
   const after = JSON.parse(read('data/tatari.json'));
-  assert.deepEqual(after.families.map(f => f.id), [...before.families.map(f => f.id), 'rukaron']);
+  assert.deepEqual(after.families.map(f => f.id), [...before.families.map(f => f.id), 'rukaron', 'satorissamu']);
   for (const original of before.families) {
     const current = withoutExternalReview(after.families.find(f => f.id === original.id));
+    if (['shizukuchou','nenbutsuhebi','erekineko','hinyao'].includes(original.id)) {
+      const stage=current.evolutions[3];
+      assert.equal(stage.image, `assets/tata-provided/${original.id}/t4-512.webp`);
+      assert.equal(stage.imageEvidence.recordId, `${original.id}:T4`);
+      stage.image=original.evolutions[3]?.image ?? null; delete stage.imageEvidence;
+    }
     if (['erekineko', 'hinyao'].includes(original.id)) {
-      assert.equal(current.evolutions[3].image, null);
       assert.equal(current.evolutions[3].verification.names, 'external-guide-confirmed');
       current.evolutions.length = original.evolutions.length;
       current.searchAliases.length = original.searchAliases.length;
@@ -67,7 +72,7 @@ test('the supplied character update preserves all existing families and skill va
     }
     assert.deepEqual(current, stages, id);
   }
-  assert.equal(Object.keys(newSkills.byFamily).length, Object.keys(oldSkills.byFamily).length + 1);
+  assert.equal(Object.keys(newSkills.byFamily).length, Object.keys(oldSkills.byFamily).length + 2);
 });
 test('Astra preserves SEO identity on representative existing pages in all three languages', () => {
   const routes = [
@@ -118,7 +123,7 @@ test('Calendar is real and localized; essential data remains available without J
     assert.ok($('script[src*="calendar/calendar.js"]').length);
     assert.match($.html(), /BreadcrumbList/);
     const home = load(read(`${locale}index.html`));
-    assert.equal(home('#cards .catalog-card').length, 66);
+    assert.equal(home('#cards .catalog-card').length, 67);
     assert.equal(home('.astra-primary-nav').length, 1);
   }
 });

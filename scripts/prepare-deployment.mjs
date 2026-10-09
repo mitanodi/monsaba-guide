@@ -7,7 +7,7 @@ import { load } from 'cheerio';
 // Generated source stays safe for comparisons. Only an explicit Production
 // build restores the original production integrations; unknown environments fail closed.
 export function prepareHtml(source, environment) {
-  if (!source.includes('data-astra="experiment"'))
+  if (!source.includes('data-astra="experiment"') && !/<body\b[^>]*class="[^"]*\btm-page\b/.test(source))
     return source;
   const production = environment === 'production';
   const body = source.match(/<body([^>]*)>([\s\S]*?)<\/body>/);

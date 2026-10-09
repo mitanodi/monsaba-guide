@@ -16,6 +16,7 @@ const evolutionPriority = readJson('data/evolution-priority.json');
 const acquisition = readJson('data/tata-acquisition.json');
 const freshness = readJson('data/page-freshness.json');
 const tataImages = readJson('data/tata-images.json');
+const tataNameSources = readJson('data/tata-name-i18n-sources.json');
 const officialSkillIcons = readJson('data/official-assets/skill-icons.json');
 const evolutionTrials = readJson('data/evolution-trials.json');
 const zombieSkills = readJson('data/zombie-rush/skills.json');
@@ -88,6 +89,10 @@ function renderPage(family, index) {
   const displayLabel = getFamilyDisplayLabel(family);
   const stageData = skills.byFamily?.[family.id]?.stages || [];
   const pendingSkillEvidence = stageData.some((stage) => stage.verificationStatus === 'pending-user-skill-evidence');
+  const firstEnglishEvidence = tataNameSources.forms.find(form => form.familyId === family.id && form.stage === 1)?.localizedEvidence?.en;
+  const pendingSourceNote = firstEnglishEvidence?.status === 'confirmed' && firstEnglishEvidence?.sourceType === 'official-store'
+    ? '日本語名と進化画像は提供資料、T1英語名は公式ストアで確認しました。スキル・進化条件・評価・一部の外国語名は確認待ちです。'
+    : '日本語名と進化画像は提供資料で確認しました。スキル・進化条件・評価・外国語名は確認待ちです。';
   const overall = ratings.overall?.byFamily?.[family.id];
   const zombie = ratings.zombieRush?.byFamily?.[family.id];
   const evaluations = evaluationRows(family.id);
@@ -168,17 +173,19 @@ function renderPage(family, index) {
   const priorityAnswer = [...roadmap, ...transitions].length
     ? `<ul class="plain-list">${roadmap.map((item) => `<li><b>${esc(item.priority)}</b>：T3まで${item.requiredStars}星。${esc(item.reason)}</li>`).join('')}${transitions.map((item) => `<li><b>T${item.fromStage}→T${item.toStage} ${esc(item.priority)}</b>：${esc(item.headline)}。${esc(item.reason)}</li>`).join('')}</ul>`
     : '<p class="section-note">現在評価情報を収集中です。根拠のない進化推奨は掲載していません。</p>';
-  const changeAnswer = changes.length
+  const changeAnswer = pendingSkillEvidence
+    ? '<p class="section-note">スキル資料が未確認のため、進化による性能の変化は判断できません。</p>'
+    : changes.length
     ? `<div class="evolution-change-list">${changes.map(({ before, after, items }) => `<article><h3>T${before.stage} ${esc(before.tataName)} → T${after.stage} ${esc(after.tataName)}</h3>${items.length ? `<ul class="plain-list">${items.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>` : '<p>確認済み数値・スキル名の差分はありません。説明全文はスキル一覧で確認できます。</p>'}</article>`).join('')}</div>`
     : '<p class="section-note">現在評価情報を収集中です。</p>';
   const quickAnswers = `<section class="wrap static-section tata-quick-answers" aria-labelledby="quick-answer-title"><p class="section-kicker visible-kicker">クイック回答</p><p class="trust-label-row"><span class="trust-label is-independent">独自評価</span>${pendingSkillEvidence ? '<span class="trust-label is-pending">画像・名称確認／スキル確認待ち</span>' : hasExternalSkills ? '<span class="trust-label is-external">外部攻略資料で補完・未掲載数値は確認待ち</span>' : '<span class="trust-label is-verified">ゲーム内データ確認済み</span>'}</p><h2 id="quick-answer-title" class="page-h2">${esc(displayName)}は強い？</h2><p>${esc(ratingAnswer)}</p><p class="quick-purpose-label">このタタは何向け？</p><h2 class="page-h2">${esc(displayLabel)}のおすすめ用途</h2>${purposeAnswer}${roles.length ? `<h3>主な役割</h3><div class="role-tags tata-role-tags">${roles.map((role) => `<span>${esc(role)}</span>`).join('')}</div>` : '<p class="section-note"><span class="trust-label is-pending">確認中</span> 役割情報は現在収集中です。</p>'}<p class="rating-hold-note">評価保留は弱いという意味ではなく、順位を付ける根拠が不足している状態です。</p><h2 class="page-h2">${esc(displayName)}は進化するべき？</h2>${priorityAnswer}</section>`;
   const evolutionLinks = family.evolutions.slice(0, -1).map((stage) => `<a class="ghost-button" href="/consult/?flow=evolution&amp;family=${encodeURIComponent(family.id)}&amp;stage=${stage.stage}">T${stage.stage} ${esc(stage.name)}から次の進化を相談</a>`).join('');
   const conditions = evolutionTrials.families.find((row) => row.familyId === family.id)?.conditions || [];
-  const trialSection = `<section class="wrap static-section"><h2 class="page-h2">進化条件</h2><p>外部攻略資料で確認した条件と、確認待ちの項目を分けて掲載しています。共有進行の合算・換算式は未確認です。</p><ol>${conditions.map((c) => `<li><b><span>T${c.stage}</span> <span>${esc(c.tataName)}</span></b><p lang="ja" translate="no">${esc(c.condition)}</p><a href="${esc(c.individualEvidence?.sourceUrl || c.sourceUrl)}">外部攻略資料で確認</a>${c.pendingFields?.length ? '<span class="trust-label is-pending">一部確認待ち</span>' : ''}</li>`).join('')}</ol><a href="/evolution/trials/">進化の試練データベース</a></section>`;
-  const zr = zombieSkills.byFamily[family.id];
+  const trialSection = `<section class="wrap static-section"><h2 class="page-h2">進化条件</h2><p>外部攻略資料で確認した条件と、確認待ちの項目を分けて掲載しています。共有進行の合算・換算式は未確認です。</p><ol>${conditions.map((c) => `<li><b><span>T${c.stage}</span> <span>${esc(c.tataName)}</span></b><p lang="ja" translate="no">${esc(c.condition)}</p>${c.sourceType === 'public_wiki' ? `<a href="${esc(c.individualEvidence?.sourceUrl || c.sourceUrl)}">外部攻略資料で確認</a>` : ''}${c.pendingFields?.length ? '<span class="trust-label is-pending">一部確認待ち</span>' : ''}</li>`).join('')}</ol><a href="/evolution/trials/">進化の試練データベース</a></section>`;
+  const zr = zombieSkills.byFamily[family.id] || { skills: [] };
   const numericLabels = {damagePercent:['ダメージ倍率','%'],attackPercent:['攻撃力増加','%'],defensePercent:['防御力増加','%'],activationIntervalSeconds:['発動間隔','秒'],damageIntervalSeconds:['ダメージ間隔','秒'],projectileCount:['発射数',''],sleepPercent:['睡眠発動率','%'],healingPercent:['回復倍率','%'],shieldPercent:['シールド倍率','%'],activationPercent:['発動率','%']};
   const renderZombieValues = values => values?.length ? `<dl lang="ja" translate="no">${values.map(v=>{const [label,unit]=numericLabels[v.metric];return `<dt>${esc(label)}</dt><dd>${esc(Array.isArray(v.value)?v.value.join('〜'):v.value)}${unit} <a href="${esc(v.sourceUrl)}">外部攻略資料</a></dd>`;}).join('')}</dl>` : '';
-  const zombieSection = `<section class="wrap static-section" id="zombie-rush-skills"><h2 class="page-h2">ゾンビラッシュ専用スキル</h2><p>進化段階Tとラッシュ中のLvは別です。T4属性オーラはゾンビラッシュでは適用されません。</p><p>外部攻略資料の日本語名・本文を掲載しています。外国語名と未掲載の倍率・クールダウンは確認待ちです。</p><div class="skills static-skills">${zr.skills.map(s=>`<section class="skill-block" data-zombie-skill-level="${s.level}"><h3 lang="ja" translate="no">Lv.${s.level} ${esc(s.name)}</h3><p lang="ja" translate="no">${esc(s.description)}</p>${renderZombieValues(s.values)}<a href="${esc(s.sourceUrl)}">外部攻略資料で確認</a><small> ${esc(s.verifiedAt)}</small></section>`).join('')}</div></section>`;
+  const zombieSection = `<section class="wrap static-section" id="zombie-rush-skills"><h2 class="page-h2">ゾンビラッシュ専用スキル</h2><p>進化段階Tとラッシュ中のLvは別です。T4属性オーラはゾンビラッシュでは適用されません。</p><p>外部攻略資料の日本語名・本文を掲載しています。外国語名と未掲載の倍率・クールダウンは確認待ちです。</p><div class="skills static-skills">${!zr.skills.length ? '<p>専用スキルはゲーム内資料の確認待ちです。</p>' : ''}${zr.skills.map(s=>`<section class="skill-block" data-zombie-skill-level="${s.level}"><h3 lang="ja" translate="no">Lv.${s.level} ${esc(s.name)}</h3><p lang="ja" translate="no">${esc(s.description)}</p>${renderZombieValues(s.values)}<a href="${esc(s.sourceUrl)}">外部攻略資料で確認</a><small> ${esc(s.verifiedAt)}</small></section>`).join('')}</div></section>`;
   const modeLinks = editorial[family.id]?.modeLinks || [
     [`/${`attribute/${attr.slug}`}/`, `${family.attribute}属性のタタを見る`],
     ['/tata-tier/', '総合タタTier'],
@@ -263,7 +270,7 @@ ${evolutionLinks ? `<section class="wrap static-section tata-consult-cta"><h2 cl
     <section class="wrap static-section"><h2 class="page-h2">次にできること</h2><p class="section-note">確認済みDBから、このタタを比較・育成・編成へ引き継げます。</p><div class="attribute-guide-nav tata-related-links"><a href="/evolution-priority/">育成優先度を見る</a><a href="/compare/?a=${encodeURIComponent(family.id)}">他のタタと比較</a><a href="/team-builder/?family=${encodeURIComponent(family.id)}">編成で使う</a><a href="/#family-${encodeURIComponent(family.id)}">図鑑で進化・スキルを比較</a><a href="/consult/?flow=detail&amp;family=${encodeURIComponent(family.id)}">攻略相談所で相談</a>${modeLinks.map(([href, label]) => `<a href="${href}">${esc(label)}</a>`).join('')}</div></section>
     <nav class="tata-sticky-actions" aria-label="タタの操作"><a href="/compare/?a=${encodeURIComponent(family.id)}">比較</a><button class="tata-roster-button" type="button">My Monsaba</button><a href="/team-builder/?family=${encodeURIComponent(family.id)}">編成で使う</a></nav>
     <nav class="wrap tata-family-nav" aria-label="前後のタタ系統">${previous ? `<a href="/tata/${previous.id}/"><span>← 前の系統</span><b>${esc(getFamilyDisplayLabel(previous))}</b></a>` : '<span></span>'}${next ? `<a href="/tata/${next.id}/"><span>次の系統 →</span><b>${esc(getFamilyDisplayLabel(next))}</b></a>` : '<span></span>'}</nav>
-    <section class="wrap source-note"><strong>掲載データについて</strong><p>${pendingSkillEvidence ? '日本語名と進化画像は提供資料、T1英語名は公式ストアで確認しました。スキル・進化条件・評価・一部の外国語名は確認待ちです。' : 'ゲーム内資料と外部攻略資料を区別し、各スキル・進化条件に出典と確認待ち項目を表示しています。ゾンビラッシュ専用スキルは通常スキルと別データです。未掲載の数値は推測していません。Tierは当サイト独自の暫定評価です。'}</p>${freshness.routes?.[route] ? `<p>最終更新 <time datetime="${dateModified}">${dateModified}</time></p>` : ''}<p class="article-byline">運営・データ確認：<a href="/about/">おぢ</a></p><a href="/about-data/">データ更新方針を見る</a></section>
+    <section class="wrap source-note"><strong>掲載データについて</strong><p>${pendingSkillEvidence ? pendingSourceNote : 'ゲーム内資料と外部攻略資料を区別し、各スキル・進化条件に出典と確認待ち項目を表示しています。ゾンビラッシュ専用スキルは通常スキルと別データです。未掲載の数値は推測していません。Tierは当サイト独自の暫定評価です。'}</p>${freshness.routes?.[route] ? `<p>最終更新 <time datetime="${dateModified}">${dateModified}</time></p>` : ''}<p class="article-byline">運営・データ確認：<a href="/about/">おぢ</a></p><a href="/about-data/">データ更新方針を見る</a></section>
   </main>
   ${renderFooter(`${families.length}系統 / ${families.flatMap((family) => family.evolutions).length}体`)}
   <dialog id="tata-roster-dialog" class="tata-roster-dialog" aria-labelledby="tata-roster-title"><form method="dialog"><h2 id="tata-roster-title">マイモンサバへ登録</h2><p>この端末だけに所持状況を保存します。</p><div id="tata-roster-stages" class="stage-picker"></div><p id="tata-roster-message" class="tool-status" role="status" aria-live="polite"></p><button class="ghost-button" value="close">閉じる</button></form></dialog>

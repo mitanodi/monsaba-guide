@@ -28,10 +28,6 @@ expect(tataSources.assets.length === 224, `Tata source records must be 224, got 
 expect(tataSources.counts.pending_to_official === 114, 'pending to official count must be 114');
 expect(tataSources.counts.verified_to_official === 110, 'verified-to-official replacement count must be 110');
 expect(JSON.stringify(pending) === JSON.stringify([
-  'erekineko:T4',
-  'hinyao:T4',
-  'nenbutsuhebi:T4',
-  'shizukuchou:T4',
   'sukedako:T4',
   'tsubaruka:T4'
 ]), `pending forms mismatch: ${pending.join(', ')}`);

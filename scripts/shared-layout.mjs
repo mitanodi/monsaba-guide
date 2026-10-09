@@ -40,6 +40,7 @@ export const GLOBAL_NAV_GROUPS = Object.freeze([
     icon: '▦',
     items: Object.freeze([
       Object.freeze({ href: '/team-builder/', label: '編成メーカー', description: '6×6盤面を作成・共有' }),
+      Object.freeze({ href: '/tier-maker/', label: 'Tierメーカー', description: '役割別Tier表を作成・画像保存' }),
       Object.freeze({ href: '/compare/', label: '比較', description: '2体を横並びで比較' }),
       Object.freeze({ href: '/consult/', label: '攻略相談', description: '条件から次の行動を整理' }),
       Object.freeze({ href: '/events/treasure-hunt/', label: 'お宝ソルバー', description: '確認済みイベント用ツール' }),

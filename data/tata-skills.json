@@ -3,10 +3,11 @@
   "source": "data/tatari.json",
   "description": "Tata skill data copied from the existing structured tatari.json source. Values are preserved as published strings and are not inferred.",
   "totals": {
-    "families": 66,
-    "stages": 242,
-    "skills": 242,
-    "unreadable": 0
+    "families": 67,
+    "stages": 246,
+    "skills": 246,
+    "unreadable": 0,
+    "pendingSkillEvidence": 4
   },
   "issues": [],
   "byFamily": {
@@ -16793,6 +16794,81 @@
                 ]
               }
             ]
+          }
+        }
+      ]
+    },
+    "satorissamu": {
+      "familyId": "satorissamu",
+      "familyName": "サトリッサム",
+      "attribute": "岩",
+      "stages": [
+        {
+          "stage": 1,
+          "tataName": "サトリッサム",
+          "skillName": "確認待ち",
+          "description": "名称と画像のみ確認済み。スキル名・効果・数値は資料確認待ちです。",
+          "values": [],
+          "sources": [],
+          "verificationStatus": "pending-user-skill-evidence",
+          "nameEn": null,
+          "nameZhHans": null,
+          "evidence": {
+            "sourceType": "user-provided-image",
+            "manifest": "data/user-tata-evidence-2026-10-10.json",
+            "skillEvidenceProvided": false,
+            "verifiedAt": "2026-10-10"
+          }
+        },
+        {
+          "stage": 2,
+          "tataName": "コモリッサム",
+          "skillName": "確認待ち",
+          "description": "名称と画像のみ確認済み。スキル名・効果・数値は資料確認待ちです。",
+          "values": [],
+          "sources": [],
+          "verificationStatus": "pending-user-skill-evidence",
+          "nameEn": null,
+          "nameZhHans": null,
+          "evidence": {
+            "sourceType": "user-provided-image",
+            "manifest": "data/user-tata-evidence-2026-10-10.json",
+            "skillEvidenceProvided": false,
+            "verifiedAt": "2026-10-10"
+          }
+        },
+        {
+          "stage": 3,
+          "tataName": "フタリッサム",
+          "skillName": "確認待ち",
+          "description": "名称と画像のみ確認済み。スキル名・効果・数値は資料確認待ちです。",
+          "values": [],
+          "sources": [],
+          "verificationStatus": "pending-user-skill-evidence",
+          "nameEn": null,
+          "nameZhHans": null,
+          "evidence": {
+            "sourceType": "user-provided-image",
+            "manifest": "data/user-tata-evidence-2026-10-10.json",
+            "skillEvidenceProvided": false,
+            "verifiedAt": "2026-10-10"
+          }
+        },
+        {
+          "stage": 4,
+          "tataName": "ファミリッサム",
+          "skillName": "確認待ち",
+          "description": "名称と画像のみ確認済み。スキル名・効果・数値は資料確認待ちです。",
+          "values": [],
+          "sources": [],
+          "verificationStatus": "pending-user-skill-evidence",
+          "nameEn": null,
+          "nameZhHans": null,
+          "evidence": {
+            "sourceType": "user-provided-image",
+            "manifest": "data/user-tata-evidence-2026-10-10.json",
+            "skillEvidenceProvided": false,
+            "verifiedAt": "2026-10-10"
           }
         }
       ]

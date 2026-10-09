@@ -10,9 +10,9 @@ const root = path.resolve(import.meta.dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const json = file => JSON.parse(read(file));
 const data = json('data/tata-tier.json'), canonical = json('data/tatari.json').families, images = json('data/tata-images.json').families;
-test('66 canonical families have five independent, valid rankings and real assets/URLs', () => {
-  assert.equal(data.families.length, 66);
-  assert.equal(new Set(data.families.map(f => f.familyId)).size, 66);
+test('67 canonical families have five independent, valid rankings and real assets/URLs', () => {
+  assert.equal(data.families.length, 67);
+  assert.equal(new Set(data.families.map(f => f.familyId)).size, 67);
   assert.deepEqual(data.families.map(f => f.familyId).sort(), canonical.map(f => f.id).sort());
   for (const f of data.families) {
     assert.deepEqual(Object.keys(f.rankings), MODES);
@@ -28,7 +28,7 @@ test('66 canonical families have five independent, valid rankings and real asset
     }
   }
   const all = data.families.flatMap(f => Object.values(f.rankings));
-  assert.equal(all.filter(r => r.tier === 'HOLD').length, 5);
+  assert.equal(all.filter(r => r.tier === 'HOLD').length, 10);
   assert.equal(all.filter(r => r.status === 'provisional').length, 5);
   assert.equal(groupRankings(data, 'overall')[0].entries.length, 11);
 });
@@ -66,8 +66,8 @@ test('all three locales render every family once per board in the specified orde
     for (const mode of MODES) {
       const board = $(mode === 'zombie' ? '#legacy-zombie' : `#mode-${mode}`);
       const ids = board.find('[data-family-id]').map((_, el) => $(el).attr('data-family-id')).get();
-      assert.equal(ids.length, 66);
-      assert.equal(new Set(ids).size, 66);
+      assert.equal(ids.length, 67);
+      assert.equal(new Set(ids).size, 67);
       assert.deepEqual(ids, groupRankings(data, mode).flatMap(g => g.entries.map(f => f.familyId)));
       for (const f of data.families) {
         const card = board.find(`[data-family-id="${f.familyId}"]`);

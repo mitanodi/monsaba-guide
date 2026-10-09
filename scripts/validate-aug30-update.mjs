@@ -136,7 +136,7 @@ const indexedOfficialResponseRoutes = ['/events/', '/events/treasure-hunt/'];
 for (const route of modifiedRoutes) {
   for (const prefix of ['', '/en', '/zh-cn']) {
     const localizedRoute = `${prefix}${route}`;
-    const expectedDate = route === '/updates/2026-08-30/' ? '2026-08-30' : '2026-10-07';
+    const expectedDate = route === '/updates/2026-08-30/' ? '2026-08-30' : route === '/evolution/trials/' ? trials.updated : '2026-10-07';
     expect(dateModifiedFor(localizedRoute) === expectedDate, `${localizedRoute}: dateModified must be ${expectedDate}`);
   }
 }

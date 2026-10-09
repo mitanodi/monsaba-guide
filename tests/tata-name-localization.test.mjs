@@ -20,8 +20,8 @@ const yanzaru = tatari.families.find((family) => family.id === 'yanzaru');
 
 test('shared resolver returns official names or explicit pending fallbacks for every canonical form', () => {
   const forms = tatari.families.flatMap((family) => family.evolutions);
-  assert.equal(tatari.families.length, 66);
-  assert.equal(forms.length, 242);
+  assert.equal(tatari.families.length, 67);
+  assert.equal(forms.length, 246);
   for (const form of forms) {
     assert.equal(getTataDisplayName(form, 'ja'), form.name);
     assert.equal(getTataDisplayName(form, 'en'), form.nameEn || form.name);

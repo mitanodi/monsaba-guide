@@ -33,11 +33,12 @@ test('Zombie Rush picker follows the selected position board, then keeps catalog
 });
 
 test('Zombie Rush all orders by Tier, then position, and uses each family at its highest Tier', () => {
-  const catalog = ['unlisted', 'front-s', 'shared', 'rear-ss', 'middle-ss', 'front-ss-2', 'front-ss-1', 'hold'].map(id => ({ id }));
+  const catalog = ['unlisted', 'front-s', 'shared', 'rear-ss', 'middle-ss', 'front-ss-2', 'front-ss-1', 'hold', 'rear-sss'].map(id => ({ id }));
   const entries = [
     { familyId: 'hold', position: 'front', tier: 'HOLD', order: 0 },
     { familyId: 'front-s', position: 'front', tier: 'S', order: 0 },
     { familyId: 'shared', position: 'front', tier: 'S', order: 1 },
+    { familyId: 'rear-sss', position: 'rear', tier: 'SSS', order: 0 },
     { familyId: 'rear-ss', position: 'rear', tier: 'SS', order: 0 },
     { familyId: 'middle-ss', position: 'middle', tier: 'SS', order: 0 },
     { familyId: 'shared', position: 'middle', tier: 'SS', order: 1 },
@@ -47,7 +48,7 @@ test('Zombie Rush all orders by Tier, then position, and uses each family at its
   ];
   const before = structuredClone(entries);
   const actual = ids(pickerOrder(catalog, { positionData: { entries } }, 'zombie', 'all'));
-  assert.deepEqual(actual, ['front-ss-1', 'front-ss-2', 'middle-ss', 'shared', 'rear-ss', 'front-s', 'hold', 'unlisted']);
+  assert.deepEqual(actual, ['rear-sss', 'front-ss-1', 'front-ss-2', 'middle-ss', 'shared', 'rear-ss', 'front-s', 'hold', 'unlisted']);
   assert.deepEqual(entries, before, 'source grades and ordering must not be mutated');
   assert.equal(new Set(actual).size, catalog.length);
 });

@@ -3,8 +3,8 @@
     "screenshotTotal": 668,
     "processedRange": "IMG_6242〜IMG_6910",
     "processedScreenshotCount": 668,
-    "familyCount": 66,
-    "monsterCount": 242,
+    "familyCount": 67,
+    "monsterCount": 246,
     "status": "all_user_screenshots_processed",
     "nonIndexScreenshots": [
       "IMG_6272.png",
@@ -4434,7 +4434,7 @@
           "name": "トコヨニャット",
           "nameEn": "Thunderpaw",
           "nameZhHans": null,
-          "image": null,
+          "image": "assets/tata-provided/erekineko/t4-512.webp",
           "source": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
           "nameVerification": {
             "en": "externally_confirmed",
@@ -4444,6 +4444,12 @@
             "implementation": "official-store-confirmed",
             "names": "external-guide-confirmed",
             "checkedAt": "2026-10-07"
+          },
+          "imageEvidence": {
+            "sourceType": "user-provided-image",
+            "manifest": "data/user-tata-evidence-2026-10-10.json",
+            "recordId": "erekineko:T4",
+            "checkedAt": "2026-10-10"
           }
         }
       ],
@@ -5008,7 +5014,7 @@
           "name": "ネコノミコト",
           "nameEn": "Cinderclaw",
           "nameZhHans": null,
-          "image": null,
+          "image": "assets/tata-provided/hinyao/t4-512.webp",
           "source": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
           "nameVerification": {
             "en": "externally_confirmed",
@@ -5018,6 +5024,12 @@
             "implementation": "official-store-confirmed",
             "names": "external-guide-confirmed",
             "checkedAt": "2026-10-07"
+          },
+          "imageEvidence": {
+            "sourceType": "user-provided-image",
+            "manifest": "data/user-tata-evidence-2026-10-10.json",
+            "recordId": "hinyao:T4",
+            "checkedAt": "2026-10-10"
           }
         }
       ],
@@ -13571,7 +13583,7 @@
           "stage": 4,
           "name": "ナムアミダイジャ",
           "source": "写真.pdf p.28-33",
-          "image": "assets/monsters/namuamidaija.webp",
+          "image": "assets/tata-provided/nenbutsuhebi/t4-512.webp",
           "sourceMetadata": {
             "sourceType": "in_game",
             "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
@@ -13590,7 +13602,13 @@
             "notes": "進化図鑑のロック中シルエット。実体画像は確認待ち"
           },
           "nameEn": "Dharmadder",
-          "nameZhHans": "圣音灵蛇"
+          "nameZhHans": "圣音灵蛇",
+          "imageEvidence": {
+            "sourceType": "user-provided-image",
+            "manifest": "data/user-tata-evidence-2026-10-10.json",
+            "recordId": "nenbutsuhebi:T4",
+            "checkedAt": "2026-10-10"
+          }
         }
       ],
       "skills": [
@@ -15786,13 +15804,19 @@
           "stage": 4,
           "name": "エーテリファル",
           "source": "https://play.google.com/store/apps/details?hl=ja&id=com.farlightgames.pgame.gp",
-          "image": null,
+          "image": "assets/tata-provided/shizukuchou/t4-512.webp",
           "nameEn": "Morphanessa",
           "nameZhHans": "潋滟水蝶",
           "verification": {
             "implementation": "official-store-confirmed",
             "names": "official-name-table-confirmed",
             "checkedAt": "2026-09-11"
+          },
+          "imageEvidence": {
+            "sourceType": "user-provided-image",
+            "manifest": "data/user-tata-evidence-2026-10-10.json",
+            "recordId": "shizukuchou:T4",
+            "checkedAt": "2026-10-10"
           }
         }
       ],
@@ -18662,6 +18686,131 @@
         "Blubbles",
         "Aquariel",
         "Irisia"
+      ]
+    },
+    {
+      "id": "satorissamu",
+      "familyName": "サトリッサム",
+      "attribute": "岩",
+      "attributeEvidence": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/145.html",
+        "checkedAt": "2026-10-10"
+      },
+      "verification": {
+        "namesAndImages": "user-confirmed",
+        "implementation": "general-release-not-independently-verified",
+        "checkedAt": "2026-10-10"
+      },
+      "evolutions": [
+        {
+          "stage": 1,
+          "name": "サトリッサム",
+          "nameEn": null,
+          "nameZhHans": null,
+          "image": "assets/tata-provided/satorissamu/t1-512.webp",
+          "source": "data/user-tata-evidence-2026-10-10.json",
+          "nameVerification": {
+            "en": "pending",
+            "zh-CN": "pending"
+          },
+          "imageEvidence": {
+            "sourceType": "user-provided-image",
+            "manifest": "data/user-tata-evidence-2026-10-10.json",
+            "recordId": "satorissamu:T1",
+            "checkedAt": "2026-10-10"
+          }
+        },
+        {
+          "stage": 2,
+          "name": "コモリッサム",
+          "nameEn": null,
+          "nameZhHans": null,
+          "image": "assets/tata-provided/satorissamu/t2-512.webp",
+          "source": "data/user-tata-evidence-2026-10-10.json",
+          "nameVerification": {
+            "en": "pending",
+            "zh-CN": "pending"
+          },
+          "imageEvidence": {
+            "sourceType": "user-provided-image",
+            "manifest": "data/user-tata-evidence-2026-10-10.json",
+            "recordId": "satorissamu:T2",
+            "checkedAt": "2026-10-10"
+          }
+        },
+        {
+          "stage": 3,
+          "name": "フタリッサム",
+          "nameEn": null,
+          "nameZhHans": null,
+          "image": "assets/tata-provided/satorissamu/t3-512.webp",
+          "source": "data/user-tata-evidence-2026-10-10.json",
+          "nameVerification": {
+            "en": "pending",
+            "zh-CN": "pending"
+          },
+          "imageEvidence": {
+            "sourceType": "user-provided-image",
+            "manifest": "data/user-tata-evidence-2026-10-10.json",
+            "recordId": "satorissamu:T3",
+            "checkedAt": "2026-10-10"
+          }
+        },
+        {
+          "stage": 4,
+          "name": "ファミリッサム",
+          "nameEn": null,
+          "nameZhHans": null,
+          "image": "assets/tata-provided/satorissamu/t4-512.webp",
+          "source": "data/user-tata-evidence-2026-10-10.json",
+          "nameVerification": {
+            "en": "pending",
+            "zh-CN": "pending"
+          },
+          "imageEvidence": {
+            "sourceType": "user-provided-image",
+            "manifest": "data/user-tata-evidence-2026-10-10.json",
+            "recordId": "satorissamu:T4",
+            "checkedAt": "2026-10-10"
+          }
+        }
+      ],
+      "skills": [
+        {
+          "stage": 1,
+          "name": "確認待ち",
+          "summary": "名称と画像のみ確認済み。スキルは資料確認待ちです。",
+          "stats": [],
+          "source": "data/user-tata-evidence-2026-10-10.json"
+        },
+        {
+          "stage": 2,
+          "name": "確認待ち",
+          "summary": "名称と画像のみ確認済み。スキルは資料確認待ちです。",
+          "stats": [],
+          "source": "data/user-tata-evidence-2026-10-10.json"
+        },
+        {
+          "stage": 3,
+          "name": "確認待ち",
+          "summary": "名称と画像のみ確認済み。スキルは資料確認待ちです。",
+          "stats": [],
+          "source": "data/user-tata-evidence-2026-10-10.json"
+        },
+        {
+          "stage": 4,
+          "name": "確認待ち",
+          "summary": "名称と画像のみ確認済み。スキルは資料確認待ちです。",
+          "stats": [],
+          "source": "data/user-tata-evidence-2026-10-10.json"
+        }
+      ],
+      "searchAliases": [
+        "サトリッサム",
+        "コモリッサム",
+        "フタリッサム",
+        "ファミリッサム"
       ]
     }
   ]

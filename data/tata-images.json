@@ -1,6 +1,6 @@
 {
-  "version": "2026-10-07",
-  "generatedFrom": "Monster Survival official creator assets manifest (2026-09-04)",
+  "version": "2026-10-10",
+  "generatedFrom": "Official creator assets, user-provided PDFs and user-confirmed images; per-form source metadata",
   "sourcePolicy": {
     "gameImagesOnly": true,
     "competitorImages": false,
@@ -11,12 +11,13 @@
     "googleDriveHotlinking": false
   },
   "counts": {
-    "families": 66,
-    "forms": 242,
-    "verifiedForms": 236,
-    "pendingForms": 6,
+    "families": 67,
+    "forms": 246,
+    "verifiedForms": 244,
+    "pendingForms": 2,
     "officialCreatorAssetForms": 224,
-    "userProvidedPdfForms": 12
+    "userProvidedPdfForms": 12,
+    "userProvidedImageForms": 8
   },
   "officialPendingReview": {
     "status": "official_team_checking",
@@ -24,17 +25,22 @@
     "note": "Creator Assetsの更新はゲーム本体のアップデートと時差が生じる場合があるため、Stage対応を証明できる公式静止画の回答待ち。",
     "forms": [
       {
-        "familyId": "nenbutsuhebi",
-        "stage": 4
-      },
-      {
         "familyId": "sukedako",
         "stage": 4
       }
     ],
-    "shizukuchouT4": "Official creator image not obtained",
+    "shizukuchouT4": "User-provided image obtained 2026-10-10; official Creator Asset still not obtained",
     "tsubarukaT4": "Official creator image not obtained",
-    "userProvidedImagesObtainedAt": "2026-10-06"
+    "userProvidedImagesObtainedAt": "2026-10-06",
+    "resolvedByUserImage": [
+      {
+        "familyId": "nenbutsuhebi",
+        "stage": 4,
+        "checkedAt": "2026-10-10",
+        "evidenceRecord": "nenbutsuhebi:T4",
+        "note": "User-confirmed image obtained; official Creator Asset remains unavailable."
+      }
+    ]
   },
   "families": [
     {
@@ -1806,10 +1812,19 @@
         {
           "stage": 4,
           "name": "トコヨニャット",
-          "src": null,
-          "status": "pending",
-          "reason": "official_image_not_obtained",
-          "verifiedAt": "2026-10-07"
+          "src": "/assets/tata-provided/erekineko/t4-512.webp",
+          "srcset": "/assets/tata-provided/erekineko/t4-256.webp 256w, /assets/tata-provided/erekineko/t4-512.webp 512w",
+          "sizes": "(max-width: 600px) 44vw, 256px",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "2e7f59d4b964d18b3dfd08178545d89896fca7e154da81f87444bc59246c8acd",
+          "sourceType": "user-provided-image",
+          "sourceSha256": "f8f4dbe8464a994e37350ec3391007bf2ab4213b0255cd3e2011802e2b5efab5",
+          "evidenceManifest": "data/user-tata-evidence-2026-10-10.json",
+          "evidenceRecord": "erekineko:T4",
+          "optimizedPath": "/assets/tata-provided/erekineko/t4-512.webp",
+          "verifiedAt": "2026-10-10"
         }
       ]
     },
@@ -1983,10 +1998,19 @@
         {
           "stage": 4,
           "name": "ネコノミコト",
-          "src": null,
-          "status": "pending",
-          "reason": "official_image_not_obtained",
-          "verifiedAt": "2026-10-07"
+          "src": "/assets/tata-provided/hinyao/t4-512.webp",
+          "srcset": "/assets/tata-provided/hinyao/t4-256.webp 256w, /assets/tata-provided/hinyao/t4-512.webp 512w",
+          "sizes": "(max-width: 600px) 44vw, 256px",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "f31bcefc117187c168720cd19ade3608992a21339e135bd97afffdd6b3f8720d",
+          "sourceType": "user-provided-image",
+          "sourceSha256": "f1aa786a2bed65adebb54c9cefe9ed4d846b76e9350141813bff2c653882c336",
+          "evidenceManifest": "data/user-tata-evidence-2026-10-10.json",
+          "evidenceRecord": "hinyao:T4",
+          "optimizedPath": "/assets/tata-provided/hinyao/t4-512.webp",
+          "verifiedAt": "2026-10-10"
         }
       ]
     },
@@ -4797,11 +4821,19 @@
         {
           "stage": 4,
           "name": "ナムアミダイジャ",
-          "src": null,
-          "width": null,
-          "height": null,
-          "status": "pending",
-          "reason": "locked_silhouette_only"
+          "src": "/assets/tata-provided/nenbutsuhebi/t4-512.webp",
+          "srcset": "/assets/tata-provided/nenbutsuhebi/t4-256.webp 256w, /assets/tata-provided/nenbutsuhebi/t4-512.webp 512w",
+          "sizes": "(max-width: 600px) 44vw, 256px",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "4c92d474f89b06fbab57181fbc5d7064623dfd367aac48342e337b1967b0ce43",
+          "sourceType": "user-provided-image",
+          "sourceSha256": "38c8644e47f140b72e7b25b5f58bd2f52d2d211044b686c3f590bb09ad000c7c",
+          "evidenceManifest": "data/user-tata-evidence-2026-10-10.json",
+          "evidenceRecord": "nenbutsuhebi:T4",
+          "optimizedPath": "/assets/tata-provided/nenbutsuhebi/t4-512.webp",
+          "verifiedAt": "2026-10-10"
         }
       ]
     },
@@ -5474,10 +5506,19 @@
         {
           "stage": 4,
           "name": "エーテリファル",
-          "src": null,
-          "status": "pending",
-          "reason": "official_image_not_obtained",
-          "verifiedAt": "2026-09-11"
+          "src": "/assets/tata-provided/shizukuchou/t4-512.webp",
+          "srcset": "/assets/tata-provided/shizukuchou/t4-256.webp 256w, /assets/tata-provided/shizukuchou/t4-512.webp 512w",
+          "sizes": "(max-width: 600px) 44vw, 256px",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "9e746edbefc290b4655a92e3515a5350a3fcd9b7441ca32cd7c3513bebb9d5e6",
+          "sourceType": "user-provided-image",
+          "sourceSha256": "33acbd2688f851064df46aec3d4f4dbd661d3899e85eca4256382d36c8f25be7",
+          "evidenceManifest": "data/user-tata-evidence-2026-10-10.json",
+          "evidenceRecord": "shizukuchou:T4",
+          "optimizedPath": "/assets/tata-provided/shizukuchou/t4-512.webp",
+          "verifiedAt": "2026-10-10"
         }
       ]
     },
@@ -6034,6 +6075,99 @@
         "sourcePage": 1,
         "evidenceManifest": "data/user-tata-evidence-2026-10-06.json",
         "verifiedAt": "2026-10-06"
+      }
+    },
+    {
+      "order": 67,
+      "familyId": "satorissamu",
+      "familyDisplay": "サトリッサム",
+      "attribute": "岩",
+      "forms": [
+        {
+          "stage": 1,
+          "name": "サトリッサム",
+          "src": "/assets/tata-provided/satorissamu/t1-512.webp",
+          "srcset": "/assets/tata-provided/satorissamu/t1-256.webp 256w, /assets/tata-provided/satorissamu/t1-512.webp 512w",
+          "sizes": "(max-width: 600px) 44vw, 256px",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "87a3483aa78fced4a4517490ba374becc35009b66ec79601d1186b691f7213a6",
+          "sourceType": "user-provided-image",
+          "sourceSha256": "832366712e077fe774a2920348e2a621ade7ebcfe780999aa7da6f4fd8bbcc50",
+          "evidenceManifest": "data/user-tata-evidence-2026-10-10.json",
+          "evidenceRecord": "satorissamu:T1",
+          "optimizedPath": "/assets/tata-provided/satorissamu/t1-512.webp",
+          "verifiedAt": "2026-10-10"
+        },
+        {
+          "stage": 2,
+          "name": "コモリッサム",
+          "src": "/assets/tata-provided/satorissamu/t2-512.webp",
+          "srcset": "/assets/tata-provided/satorissamu/t2-256.webp 256w, /assets/tata-provided/satorissamu/t2-512.webp 512w",
+          "sizes": "(max-width: 600px) 44vw, 256px",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "b5c31b5e2a4ab38f952d409f6fb9490bab64a61f7aefc977265bf4aead181f62",
+          "sourceType": "user-provided-image",
+          "sourceSha256": "47f8425c19ad8213d223f45ee7801330d1b151090bd16dddd8edd14767dae2b4",
+          "evidenceManifest": "data/user-tata-evidence-2026-10-10.json",
+          "evidenceRecord": "satorissamu:T2",
+          "optimizedPath": "/assets/tata-provided/satorissamu/t2-512.webp",
+          "verifiedAt": "2026-10-10"
+        },
+        {
+          "stage": 3,
+          "name": "フタリッサム",
+          "src": "/assets/tata-provided/satorissamu/t3-512.webp",
+          "srcset": "/assets/tata-provided/satorissamu/t3-256.webp 256w, /assets/tata-provided/satorissamu/t3-512.webp 512w",
+          "sizes": "(max-width: 600px) 44vw, 256px",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "67d394ff28af84db714d7da1f824fcb419c993c433d214f0e276307edd166981",
+          "sourceType": "user-provided-image",
+          "sourceSha256": "618d7983032825458bda9e54d9b165b1ad90630198b6f3d4213191ff8d1d1389",
+          "evidenceManifest": "data/user-tata-evidence-2026-10-10.json",
+          "evidenceRecord": "satorissamu:T3",
+          "optimizedPath": "/assets/tata-provided/satorissamu/t3-512.webp",
+          "verifiedAt": "2026-10-10"
+        },
+        {
+          "stage": 4,
+          "name": "ファミリッサム",
+          "src": "/assets/tata-provided/satorissamu/t4-512.webp",
+          "srcset": "/assets/tata-provided/satorissamu/t4-256.webp 256w, /assets/tata-provided/satorissamu/t4-512.webp 512w",
+          "sizes": "(max-width: 600px) 44vw, 256px",
+          "width": 512,
+          "height": 512,
+          "status": "verified",
+          "sha256": "12490612e194fa56bd4bed7223a7bb5a156a02b9f1c285c206c4d07dff54b168",
+          "sourceType": "user-provided-image",
+          "sourceSha256": "f4b7319b895ac9bb8f3a8eba88ec11be2a06928639c42863688e3f712524a81c",
+          "evidenceManifest": "data/user-tata-evidence-2026-10-10.json",
+          "evidenceRecord": "satorissamu:T4",
+          "optimizedPath": "/assets/tata-provided/satorissamu/t4-512.webp",
+          "verifiedAt": "2026-10-10"
+        }
+      ],
+      "stage1": {
+        "stage": 1,
+        "name": "サトリッサム",
+        "src": "/assets/tata-provided/satorissamu/t1-512.webp",
+        "srcset": "/assets/tata-provided/satorissamu/t1-256.webp 256w, /assets/tata-provided/satorissamu/t1-512.webp 512w",
+        "sizes": "(max-width: 600px) 44vw, 256px",
+        "width": 512,
+        "height": 512,
+        "status": "verified",
+        "sha256": "87a3483aa78fced4a4517490ba374becc35009b66ec79601d1186b691f7213a6",
+        "sourceType": "user-provided-image",
+        "sourceSha256": "832366712e077fe774a2920348e2a621ade7ebcfe780999aa7da6f4fd8bbcc50",
+        "evidenceManifest": "data/user-tata-evidence-2026-10-10.json",
+        "evidenceRecord": "satorissamu:T1",
+        "optimizedPath": "/assets/tata-provided/satorissamu/t1-512.webp",
+        "verifiedAt": "2026-10-10"
       }
     }
   ]

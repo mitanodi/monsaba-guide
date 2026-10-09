@@ -218,9 +218,9 @@ test('event research dates agree in every locale and sitemap', () => {
 
 test('Treasure Hunt uses the shared localized footer totals', () => {
   const expected = [
-    ['events/treasure-hunt/index.html', '66系統 / 242体'],
-    ['en/events/treasure-hunt/index.html', '66 families / 242 Tatari'],
-    ['zh-cn/events/treasure-hunt/index.html', '66 个系列 / 242 个 Tatari']
+    ['events/treasure-hunt/index.html', '67系統 / 246体'],
+    ['en/events/treasure-hunt/index.html', '67 families / 246 Tatari'],
+    ['zh-cn/events/treasure-hunt/index.html', '67 个系列 / 246 个 Tatari']
   ];
   for (const [relative, footerMeta] of expected) {
     const html = read(relative);

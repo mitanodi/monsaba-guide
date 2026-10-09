@@ -115,7 +115,8 @@
         "rank": "HOLD",
         "label": "保留",
         "ids": [
-          "rukaron"
+          "rukaron",
+          "satorissamu"
         ]
       }
     ],
@@ -2338,6 +2339,38 @@
           "サポート"
         ],
         "comment": ""
+      },
+      "satorissamu": {
+        "tier": null,
+        "normal": null,
+        "zombie": null,
+        "dojo": null,
+        "beginner": null,
+        "rankings": {
+          "overall": {
+            "tier": "HOLD",
+            "status": "hold",
+            "order": 67
+          },
+          "normal": {
+            "tier": "HOLD",
+            "status": "hold"
+          },
+          "zombie": {
+            "tier": "HOLD",
+            "status": "hold"
+          },
+          "dojo": {
+            "tier": "HOLD",
+            "status": "hold"
+          },
+          "beginner": {
+            "tier": "HOLD",
+            "status": "hold"
+          }
+        },
+        "roles": [],
+        "comment": ""
       }
     }
   },
@@ -2454,7 +2487,8 @@
         "rank": "HOLD",
         "label": "保留",
         "ids": [
-          "rukaron"
+          "rukaron",
+          "satorissamu"
         ]
       }
     ],
@@ -2785,6 +2819,11 @@
         "comment": ""
       },
       "rukaron": {
+        "tier": null,
+        "status": "hold",
+        "comment": ""
+      },
+      "satorissamu": {
         "tier": null,
         "status": "hold",
         "comment": ""
