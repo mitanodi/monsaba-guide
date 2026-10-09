@@ -290,7 +290,7 @@ async function createImage(snapshot, chosen, includeUnplaced) {
     lines.slice(0, 3).forEach((text, i) => ctx.fillText(text, x, y + i * lineHeight));
   };
   ctx.fillStyle = '#142b4a'; fitText(snapshot.title || copy.title, 28, 44, width - 56, 30);
-  ctx.fillStyle = '#52647a'; fitText(`${copy.personal} · Zombie Rush · monster-survival.com`, 28, 78, width - 56, 17);
+  ctx.fillStyle = '#52647a'; fitText(`${copy.personal} · monster-survival.com`, 28, 78, width - 56, 17);
   let y = 105;
   for (const section of sections) {
     ctx.fillStyle = '#142b4a'; fitText(categoryName(section.category, copy), 28, y + 30, width - 56, 27); y += 52;
