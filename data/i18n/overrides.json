@@ -276,7 +276,8 @@
     "この更新で新規6形態を追加しました。現在のDBは67系統・246体です。": "That update added six forms. The current database contains 67 families and 246 forms.",
     "モンサバのタタを6×6の36マスへ配置できる編成メーカー。全67系統を検索し、選択した進化形態の画像と段階バッジで編成を作成・保存・共有できます。": "Build a Clash of Critters formation on a 6×6 board. Search all 67 families, use the selected evolution’s image and stage badge, then save or share the result.",
     "日本語名と進化画像は提供資料で確認しました。スキル・進化条件・評価・外国語名は確認待ちです。": "Japanese names and evolution images were checked against the provided material. Skills, evolution requirements, ratings and localized names remain unconfirmed.",
-    "スキル資料が未確認のため、進化による性能の変化は判断できません。": "Skill evidence is still pending, so performance changes through evolution cannot yet be determined."
+    "スキル資料が未確認のため、進化による性能の変化は判断できません。": "Skill evidence is still pending, so performance changes through evolution cannot yet be determined.",
+    "総合Tier順": "Overall Tier order"
   },
   "zh-CN": {
     "Tierメーカー": "Tier制作器",
@@ -543,6 +544,7 @@
     "この更新で新規6形態を追加しました。現在のDBは67系統・246体です。": "当时新增6个形态。当前数据库收录67个系列、246个形态。",
     "モンサバのタタを6×6の36マスへ配置できる編成メーカー。全67系統を検索し、選択した進化形態の画像と段階バッジで編成を作成・保存・共有できます。": "可在6×6共36格棋盘放置塔塔的阵容编辑器。支持搜索全部67个系列，以所选进化形态的图片和阶段徽标创建、保存并分享阵容。",
     "日本語名と進化画像は提供資料で確認しました。スキル・進化条件・評価・外国語名は確認待ちです。": "日文名称和进化图片已与提供资料核对。技能、进化条件、评级和外语名称仍待确认。",
-    "スキル資料が未確認のため、進化による性能の変化は判断できません。": "技能资料尚待确认，因此暂时无法判断进化带来的性能变化。"
+    "スキル資料が未確認のため、進化による性能の変化は判断できません。": "技能资料尚待确认，因此暂时无法判断进化带来的性能变化。",
+    "総合Tier順": "综合强度榜顺序"
   }
 }

@@ -4,6 +4,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { pickerOrder } from '../team-builder/team-core.js';
 import { groupRankings } from '../lib/tata-tier.mjs';
+import { createState } from '../tier-maker/core.js';
+import { TIER_DRAFT_KEY, ORDER_KEY, readPersonalTiers, personalTierOptions, validOrder, loadOrder, saveOrder, personalTierOrder } from '../team-builder/personal-tier-order.js';
+import { load } from 'cheerio';
 
 const root = path.resolve(import.meta.dirname, '..');
 const read = file => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'));
@@ -70,4 +73,65 @@ test('Picker keeps catalog order when Tier data is unavailable', () => {
   assert.deepEqual(ids(pickerOrder(families, {}, 'normal')), ids(families));
   assert.deepEqual(ids(pickerOrder(families, {}, 'zombie', 'front')), ids(families));
   assert.deepEqual(ids(pickerOrder(families, {}, 'zombie')), ids(families));
+});
+
+test('personal order follows saved row/card positions, keeps unrated fallback, and never changes source data', () => {
+  const draft = createState(), category = draft.categories[4];
+  category.tiers[0].name = '必須';
+  category.tiers[0].cards = ['hinyao', 'takepanda', 'future-character'];
+  category.tiers[1].name = 'SSS'; // labels do not define the sort order
+  category.tiers[1].cards = ['shizukuchou'];
+  draft.categories[0].tiers[0].cards = ['shizukuchou', 'takepanda'];
+  const before = structuredClone(draft);
+  for (const mode of ['free', 'boss', 'normal', 'dojo', 'zombie']) {
+    const fallback = pickerOrder(families, { tierData, positionData }, mode);
+    const actual = ids(personalTierOrder(fallback, draft, category.id));
+    assert.deepEqual(actual.slice(0, 3), ['hinyao', 'takepanda', 'shizukuchou']);
+    assert.deepEqual(actual.slice(3), ids(fallback).filter(id => !actual.slice(0, 3).includes(id)));
+    assert.equal(new Set(actual).size, families.length);
+    assert.deepEqual(ids(personalTierOrder(fallback, draft, 'missing')), ids(fallback));
+    assert.deepEqual(ids(personalTierOrder(fallback, draft, draft.categories[1].id)), ids(fallback));
+  }
+  assert.deepEqual(ids(personalTierOrder(families, draft, draft.categories[0].id)).slice(0, 2), ['shizukuchou', 'takepanda']);
+  assert.deepEqual(draft, before);
+});
+
+test('personal Tier integration safely reads old/custom drafts and keeps preference separate from formations', () => {
+  const draft = createState();
+  draft.categories.length = 4; // old drafts do not gain categories
+  draft.categories[0].role = null; draft.categories[0].name = '<自作の前衛>';
+  const values = new Map([[TIER_DRAFT_KEY, JSON.stringify(draft)]]);
+  const storage = { getItem: key => values.get(key) ?? null, setItem: (key, value) => values.set(key, value) };
+  assert.deepEqual(readPersonalTiers(storage), draft);
+  assert.equal(personalTierOptions(draft, 'ja')[0].name, '<自作の前衛>');
+  assert.equal(personalTierOptions(draft, 'en')[1].name, 'Healer');
+  assert.equal(personalTierOptions(draft, 'zh-CN')[1].name, '治疗');
+  const id = draft.categories[0].id;
+  saveOrder(storage, id); assert.equal(loadOrder(storage, draft), id);
+  assert.equal(values.get(TIER_DRAFT_KEY), JSON.stringify(draft), 'must never write the Tier draft');
+  assert.equal(values.size, 2); assert.equal(values.get(ORDER_KEY), id);
+  assert.equal(validOrder(id, { ...draft, categories: draft.categories.slice(1) }), '');
+  const broken = { getItem: () => { throw new Error('blocked'); }, setItem: () => { throw new Error('blocked'); } };
+  assert.equal(readPersonalTiers(broken), null); assert.equal(loadOrder(broken, draft), '');
+  assert.doesNotThrow(() => saveOrder(broken, id));
+  values.set(TIER_DRAFT_KEY, '{'); assert.equal(readPersonalTiers(storage), null);
+  assert.equal(values.get(TIER_DRAFT_KEY), '{');
+  const duplicate = structuredClone(draft); duplicate.categories[0].tiers[0].cards = ['takepanda', 'takepanda'];
+  values.set(TIER_DRAFT_KEY, JSON.stringify(duplicate)); assert.equal(readPersonalTiers(storage), null);
+});
+
+test('home defaults to the editorial overall Tier order, with catalog order available in every language', () => {
+  const fixture = ['unrated', 'a', 'top', 'second', 'hold'].map(id => ({ id }));
+  const ratings = { overall: { groups: [{ ids: ['top', 'second'] }, { ids: ['a'] }, { ids: ['hold'] }] }, zombieRush: { groups: [{ ids: ['a', 'top'] }] } };
+  assert.deepEqual(ids(globalThis.MONSABA_CATALOG_ORDER.overall(fixture, ratings)), ['top', 'second', 'a', 'hold', 'unrated']);
+  assert.deepEqual(ids(globalThis.MONSABA_CATALOG_ORDER.overall(fixture, null)), ids(fixture));
+  const expected = ids(pickerOrder(families, { tierData }, 'free'));
+  assert.deepEqual(ids(globalThis.MONSABA_CATALOG_ORDER.overall(families, read('data/tier-ratings.json'))), expected);
+  for (const [prefix, label] of [['', '総合Tier順'], ['en/', 'Overall Tier order'], ['zh-cn/', '综合强度榜顺序']]) {
+    const $ = load(fs.readFileSync(path.join(root, prefix, 'index.html'), 'utf8'));
+    assert.deepEqual($('#cards .catalog-card').map((_, el) => $(el).attr('data-family')).get(), expected, prefix);
+    assert.equal($('#sort option').first().text(), label);
+    assert.equal($('#sort option[value="catalog"]').length, 1);
+    assert.equal($('script[src="/catalog-order.js"]').length, 1);
+  }
 });

@@ -1,5 +1,6 @@
 import { familyMatches, loadRoster } from '../my-monsaba/roster-core.js';
 import { languageSwitchHash } from './locale-handoff.js';
+import { TIER_DRAFT_KEY, readPersonalTiers, personalTierOptions, validOrder, loadOrder, saveOrder, personalTierOrder } from './personal-tier-order.js';
 import {
   HANDOFF_KEY, MODE_LABELS, PLAYER_IDS, BASE_LEVEL_LIMIT, MAX_LEVEL_LIMIT,
   boardRows, boardColumns, boardSlotCount,
@@ -259,12 +260,20 @@ const PICKER_ORDER_LABELS = {
   'zh-CN': { label: '按僵尸突袭位置强度榜排序', all: '全部', front: '前卫', middle: '中卫', rear: '后卫' }
 }[locale];
 
+const PERSONAL_ORDER_COPY = {
+  ja: { label: 'タタの表示順', site: '攻略DBのTier順', group: '自分のTier表', edit: 'Tier表を編集', hint: 'この端末のTier表を上から・左から参照します。未評価キャラは末尾に表示します。', empty: '自分のTier表はまだありません。Tierメーカーで作成できます。' },
+  en: { label: 'Tata order', site: 'Guide Tier order', group: 'My Tier list', edit: 'Edit Tier list', hint: 'Uses the Tier list saved on this device, top to bottom and left to right. Unrated Tata appear last.', empty: 'No Tier list saved on this device yet. Create one in Tier Maker.' },
+  'zh-CN': { label: '塔塔显示顺序', site: '攻略DB强度榜顺序', group: '我的强度榜', edit: '编辑强度榜', hint: '按此设备保存的强度榜从上到下、从左到右排列。未评价塔塔显示在末尾。', empty: '此设备尚未保存自定义强度榜，可在Tier制作器中创建。' }
+}[locale];
+
 let families = [];
 
 // Optional Tier data for picker order; the catalog order is used when it is unavailable.
 let tierOrderData = {};
 
 let pickerPosition = PICKER_POSITIONS[0];
+let personalTiers = null;
+let personalOrderId = '';
 
 let chips = [];
 
@@ -707,6 +716,16 @@ function renderFilters() {
 
 }
 function renderPickerOrder() {
+  let personalNode = $('#team-personal-order');
+  if (!personalNode) {
+    personalNode = document.createElement('div');
+    personalNode.id = 'team-personal-order';
+    personalNode.className = 'formation-personal-order';
+    $('#team-attribute-filters').before(personalNode);
+  }
+  const options = personalTierOptions(personalTiers, locale);
+  personalNode.innerHTML = `<label for="team-order-select">${esc(PERSONAL_ORDER_COPY.label)}</label><select id="team-order-select" aria-describedby="team-order-hint"><option value="">${esc(PERSONAL_ORDER_COPY.site)}</option>${options.length ? `<optgroup label="${esc(PERSONAL_ORDER_COPY.group)}">${options.map(option => `<option value="${esc(option.id)}" translate="no">${esc(option.name)}</option>`).join('')}</optgroup>` : ''}</select><p id="team-order-hint">${esc(options.length ? PERSONAL_ORDER_COPY.hint : PERSONAL_ORDER_COPY.empty)} <a href="${localePrefix}/tier-maker/" target="_blank" rel="noopener noreferrer">${esc(PERSONAL_ORDER_COPY.edit)}</a></p>`;
+  $('#team-order-select').value = personalOrderId;
   let node = $('#team-picker-order');
   if (!node) {
     node = document.createElement('div');
@@ -717,7 +736,7 @@ function renderPickerOrder() {
     $('#team-attribute-filters').before(node);
   }
   // Only Zombie Rush has several boards; other modes follow a single Tier board.
-  node.hidden = team.mode !== 'zombie' || !tierOrderData.positionData;
+  node.hidden = Boolean(personalOrderId) || team.mode !== 'zombie' || !tierOrderData.positionData;
   if (node.hidden)
     return;
   // Same pill buttons as the attribute filters below, so both rows read as one control set.
@@ -728,7 +747,8 @@ function renderPicker({ resetScroll = false } = {}) {
 
   const ownedOnly = $('#team-owned-only').checked;
   renderPickerOrder();
-  const rows = pickerOrder(families, tierOrderData, team.mode, pickerPosition).filter((family) => (attribute === 'all' || family.attribute === attribute) && (!ownedOnly || (roster.entries[family.id]?.stage || 0) > 0) && familyMatches(family, query, getFamilySearchAliases(family)));
+  const siteOrder = pickerOrder(families, tierOrderData, team.mode, personalOrderId ? 'all' : pickerPosition);
+  const rows = personalTierOrder(siteOrder, personalTiers, personalOrderId).filter((family) => (attribute === 'all' || family.attribute === attribute) && (!ownedOnly || (roster.entries[family.id]?.stage || 0) > 0) && familyMatches(family, query, getFamilySearchAliases(family)));
   const list = $('#team-picker-list');
   const flexEntry = `<article class="formation-flex-picker"><button type="button" data-pick-flex draggable="true" data-drag-kind="${FREE_SLOT_KIND}"><span class="formation-flex-symbol" aria-hidden="true">?</span><b>${esc(COPY.flexAdd)}</b><small class="visually-hidden">${esc(COPY.flexDescription)}</small></button></article>`;
   const tataEntries = rows.map((family) => {
@@ -2020,6 +2040,19 @@ function bind() {
     pickerPosition = button.dataset.pickerPosition;
     renderPicker({ resetScroll: true });
   });
+  $('.formation-picker').addEventListener('change', (event) => {
+    if (event.target.id !== 'team-order-select') return;
+    personalOrderId = validOrder(event.target.value, personalTiers);
+    saveOrder(localStorage, personalOrderId);
+    renderPicker({ resetScroll: true });
+    $('#team-order-select').focus();
+  });
+  window.addEventListener('storage', (event) => {
+    if (event.key !== TIER_DRAFT_KEY && event.key !== null) return;
+    personalTiers = readPersonalTiers(localStorage);
+    personalOrderId = validOrder(personalOrderId, personalTiers);
+    renderPicker({ resetScroll: true });
+  });
   $('#team-edit-close').addEventListener('click', () => $('#team-edit-dialog').close());
   $('#team-edit-content').addEventListener('click', (event) => {
     if (editingIndex === null || !team.slots[editingIndex])
@@ -2392,6 +2425,8 @@ async function boot() {
 
   const [tierData, positionData] = await Promise.all(['/data/tata-tier.json', '/data/zombie-rush/position-tiers.json'].map((url) => fetch(url).then((response) => response.ok ? response.json() : null).catch(() => null)));
   tierOrderData = { tierData, positionData };
+  personalTiers = readPersonalTiers(localStorage);
+  personalOrderId = loadOrder(localStorage, personalTiers);
 
   chips = chipData.chips || [];
 

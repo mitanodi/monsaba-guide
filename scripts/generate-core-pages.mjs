@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { ATTRIBUTE_META } from './site-config.mjs';
 import '../family-display.js';
+import '../catalog-order.js';
 
 const { getFamilyDisplayName, getFamilyDisplayLabel } = globalThis.MONSABA_FAMILY;
 
@@ -164,7 +165,16 @@ const longTerm = priority.longTermRecommended.map((item) => {
 
 }).join('');
 
-replaceMarker('index.html', 'TOP_CARDS', families.map(topCard).join(''));
+replaceMarker('index.html', 'TOP_CARDS', globalThis.MONSABA_CATALOG_ORDER.overall(families, ratings).map(topCard).join(''));
+// Keep the generated fallback and interactive default in the same overall Tier order.
+{
+  const file = path.join(root, 'index.html');
+  let html = readFile(file, 'utf8');
+  html = html.replace(/(<select\b[^>]*\bid="sort"[^>]*>)[\s\S]*?<\/select>/, '$1<option value="default">総合Tier順</option><option value="catalog">図鑑順</option><option value="name">名前順</option><option value="stages">進化段階が多い順</option></select>');
+  if (!html.includes('src="/catalog-order.js"'))
+    html = html.replace(/<script\b[^>]*src="(?:\.\/|\/)app\.js"[^>]*>/, '<script src="/catalog-order.js" defer></script>$&');
+  writeFile(file, html);
+}
 replaceMarker('evolution-priority/index.html', 'EVOLUTION_ROADMAP', roadmap);
 replaceMarker('evolution-priority/index.html', 'EVOLUTION_IMPACT', impact);
 replaceMarker('evolution-priority/index.html', 'EVOLUTION_AURA', aura);
