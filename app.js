@@ -142,7 +142,9 @@ function renderMeta() {
   $('#processedRange').textContent = `確認範囲：${m.processedRange || '—'}`;
 }
 function renderFilters() {
-  const attrs = ['すべて', ...new Set(state.families.map(f => f.attribute).filter(Boolean))];
+  // Same order as the Team Builder filters; any attribute not listed keeps data order after them.
+  const order = ['火', '草', '水', '岩', '雷'];
+  const attrs = ['すべて', ...[...new Set(state.families.map(f => f.attribute).filter(Boolean))].sort((a, b) => (order.indexOf(a) + 1 || order.length + 1) - (order.indexOf(b) + 1 || order.length + 1))];
   $('#attributeFilters').innerHTML = attrs.map(a => `<button type="button" class="filter ${state.attribute === a ? 'is-active' : ''}" data-attribute="${esc(a)}">${a === 'すべて' ? 'すべて' : `${attrIcon[a] || ''} ${esc(a)}属性`}</button>`).join('');
   $('#attributeFilters').querySelectorAll('.filter').forEach(b => b.addEventListener('click', () => {
     state.attribute = b.dataset.attribute;
