@@ -1078,19 +1078,60 @@ function setupPhase4Controls() {
     showOnboarding();
 }
 
+function wrapCanvasLabel(context, text, maxWidth) {
+  const lines = [];
+  let line = '';
+  for (const character of String(text)) {
+    const next = line + character;
+    if (line && context.measureText(next).width > maxWidth) {
+      const space = next.lastIndexOf(' ');
+      if (space > 0) {
+        lines.push(next.slice(0, space).trim());
+        line = next.slice(space + 1);
+      } else {
+        lines.push(line);
+        line = character;
+      }
+    } else {
+      line = next;
+    }
+  }
+  if (line.trim()) lines.push(line.trim());
+  return lines;
+}
+
 async function exportImage() {
   const canvas = $('#team-share-canvas');
 
   const context = canvas.getContext('2d');
 
-  context.fillStyle = '#101522';
-
-  context.fillRect(0, 0, canvas.width, canvas.height);
   const exportTitle = formationExportTitle(team, locale);
-
   const exportDetail = formationContextLabel(team, locale);
-
   const detailOffset = exportDetail ? 38 : 0;
+  const isZombie = team.mode === 'zombie';
+  const boardY = (isZombie ? 142 : 170) + detailOffset;
+  const cell = 168;
+  const gap = 10;
+  const columns = boardColumns(team);
+  const slotCount = boardSlotCount(team);
+  const boardWidth = columns * cell + (columns - 1) * gap;
+  const boardX = Math.round((canvas.width - boardWidth) / 2);
+  const boardBottom = boardY + Math.ceil(slotCount / columns) * (cell + gap) - gap;
+  const chipPanelY = boardBottom + 32;
+  const chipPanelWidth = (boardWidth - 24) / 2;
+  const chipCardWidth = (chipPanelWidth - 32) / 3;
+  const chipIconSize = 112;
+  context.font = '600 20px sans-serif';
+  const chipPlayers = isZombie ? PLAYER_IDS.map((id) => team.chips[id].map((chipId) => {
+    const chip = chipById.get(chipId);
+    return { chip, lines: wrapCanvasLabel(context, chipName(chip), chipCardWidth - 8) };
+  })) : [];
+  const chipLabelRows = Math.max(1, ...chipPlayers.flat().map(({ lines }) => lines.length));
+  const chipPanelHeight = 208 + chipLabelRows * 26;
+  // Reset height on every export so a later non-ZR image keeps its original size.
+  canvas.height = isZombie ? chipPanelY + chipPanelHeight + 80 : 1450;
+  context.fillStyle = '#101522';
+  context.fillRect(0, 0, canvas.width, canvas.height);
   context.fillStyle = '#f8fafc';
 
   context.font = '700 38px sans-serif';
@@ -1131,44 +1172,6 @@ async function exportImage() {
     context.fillText(`${prefix}${message(COPY.flexCount, { tata: total - freeSlotCount(team, id), flex: freeSlotCount(team, id), limit })}${team.mode === 'zombie' && settings.slotLimitPlusOne ? '  Slot+1' : ''}`, x + 32, 107 + detailOffset);
 
   });
-  if (team.mode === 'zombie') {
-    for (const [playerIndex, id] of PLAYER_IDS.entries()) {
-      const baseX = 94 + playerIndex * 570;
-      for (const [chipIndex, chipId] of team.chips[id].entries()) {
-        const chip = chipById.get(chipId);
-
-        if (!chip?.icon)
-          continue;
-
-        const image = new Image();
-
-        image.src = chip.icon;
-        try {
-
-          await image.decode();
-
-          const scale = Math.min(34 / image.naturalWidth, 34 / image.naturalHeight);
-          const width = image.naturalWidth * scale;
-          const height = image.naturalHeight * scale;
-          context.drawImage(image, baseX + chipIndex * 42 + (34 - width) / 2, 119 + detailOffset + (34 - height) / 2, width, height);
-
-        } catch { /* omit unavailable chip image */ }
-      }
-    }
-  }
-  const boardY = 170 + detailOffset;
-
-  const cell = 168;
-
-  const gap = 10;
-
-  const columns = boardColumns(team);
-
-  const slotCount = boardSlotCount(team);
-
-  const boardWidth = columns * cell + (columns - 1) * gap;
-
-  const boardX = Math.round((canvas.width - boardWidth) / 2);
   for (let index = 0; index < slotCount; index += 1) {
     const x = boardX + (index % columns) * (cell + gap);
 
@@ -1255,6 +1258,48 @@ async function exportImage() {
       context.fillText(`Lv${slot.level}`, x + 37, y + cell - 15);
 
     context.fillText(`T${slot.stage}`, x + cell - 34, y + cell - 15);
+  }
+  if (isZombie) {
+    const emptyLabel = { ja: '未選択', en: 'None selected', 'zh-CN': '未选择' }[locale];
+    for (const [playerIndex, id] of PLAYER_IDS.entries()) {
+      const x = boardX + playerIndex * (chipPanelWidth + 24);
+      const color = id === 1 ? '#ef5f61' : '#4a91e8';
+      context.fillStyle = '#171e2d';
+      context.fillRect(x, chipPanelY, chipPanelWidth, chipPanelHeight);
+      context.strokeStyle = color;
+      context.lineWidth = 3;
+      context.strokeRect(x, chipPanelY, chipPanelWidth, chipPanelHeight);
+      context.fillStyle = color;
+      context.fillRect(x + 18, chipPanelY + 18, 8, 28);
+      context.textAlign = 'left';
+      context.fillStyle = '#f8fafc';
+      context.font = '700 28px sans-serif';
+      context.fillText(`P${id}  ${COPY.chips}`, x + 38, chipPanelY + 42);
+      context.textAlign = 'center';
+      context.font = '600 20px sans-serif';
+      const selectedChips = chipPlayers[playerIndex];
+      if (!selectedChips.length) {
+        context.fillStyle = '#cbd5e1';
+        context.fillText(emptyLabel, x + chipPanelWidth / 2, chipPanelY + 130);
+      }
+      for (const [chipIndex, { chip, lines }] of selectedChips.entries()) {
+        const centerX = x + 16 + chipCardWidth * (chipIndex + 0.5);
+        const iconY = chipPanelY + 64;
+        if (chip?.icon) {
+          const image = new Image();
+          image.src = chip.icon;
+          try {
+            await image.decode();
+            const scale = Math.min(chipIconSize / image.naturalWidth, chipIconSize / image.naturalHeight);
+            const width = image.naturalWidth * scale;
+            const height = image.naturalHeight * scale;
+            context.drawImage(image, centerX - width / 2, iconY + (chipIconSize - height) / 2, width, height);
+          } catch { /* keep the name visible when its icon is unavailable */ }
+        }
+        context.fillStyle = '#f8fafc';
+        lines.forEach((line, row) => context.fillText(line, centerX, iconY + chipIconSize + 30 + row * 26));
+      }
+    }
   }
   context.textAlign = 'left';
 
