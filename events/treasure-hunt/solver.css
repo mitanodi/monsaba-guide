@@ -2,7 +2,9 @@
   display: grid;
   grid-template-columns: minmax(230px,300px) minmax(0,1fr);
   gap: 24px;
-  align-items: start
+  align-items: start;
+  /* Result/summary updates must not scroll the shape controls being operated. */
+  overflow-anchor: none
 }
 .solver-main,.solver-settings {
   min-width: 0;
@@ -12,8 +14,9 @@
   padding: 18px
 }
 .solver-settings {
-  position: sticky;
-  top: 78px
+  /* This column is taller than the viewport. Sticky bottom constraints made it
+     jump whenever the neighboring probability results changed height. */
+  position: static
 }
 .solver-settings>label {
   display: grid;

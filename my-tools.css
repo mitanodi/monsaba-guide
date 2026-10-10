@@ -892,9 +892,27 @@
   padding: 5px 11px;
   font-weight: 800
 }
-/* The visible order switch adds a row; keep the list as the stretching last row. */
-.formation-picker:has(> .formation-picker-order:not([hidden])) {
+/* Order controls add rows; keep the character list as the stretching last row. */
+.formation-picker:has(> .formation-personal-order) {
   grid-template-rows: auto auto auto auto auto minmax(0,1fr)
+}
+.formation-picker:has(> .formation-picker-order:not([hidden])) {
+  grid-template-rows: auto auto auto auto auto auto minmax(0,1fr)
+}
+.formation-personal-order {
+  min-width: 0;
+  margin-top: 8px
+}
+.formation-personal-order select {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  font-size: 16px
+}
+.formation-personal-order p {
+  margin: 6px 0 10px;
+  font-size: 12px;
+  line-height: 1.5
 }
 /* Separate the order switch from the attribute filters that follow it. */
 .formation-picker-order {

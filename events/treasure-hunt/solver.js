@@ -908,11 +908,21 @@ function boot() {
     const list = $('#currentTreasures');
     if (!grid || !list)
       return;
-    grid.innerHTML = '';
     for (const key of SHAPE_KEYS) {
       const [width, height] = key.split('x').map(Number);
       const count = model.shapeCounts[key];
       const placedCount = model.placedTreasures.filter((placement) => placement.key === key).length;
+      const shapeLabel = `${width}×${height}${width !== height ? ` (${pickerText.rotatable})` : ''}`;
+      const countText = locale === 'en' ? `${count}` : locale === 'zh-CN' ? `${count}个` : `${count}個`;
+      const existing = grid.querySelector(`[data-shape="${key}"]`);
+      if (existing) {
+        // Retain the pressed button, focus, and scroll anchor across count updates.
+        existing.classList.toggle('is-selected', count > 0);
+        existing.querySelector('.shape-count').textContent = countText;
+        existing.querySelector('.shape-add').setAttribute('aria-label', pickerText.add(shapeLabel, count));
+        existing.querySelector('.shape-minus').disabled = count === 0 || count <= placedCount;
+        continue;
+      }
       const option = document.createElement('div');
       option.className = 'shape-option';
       option.classList.toggle('is-selected', count > 0);
@@ -933,13 +943,8 @@ function boot() {
       }
       const countLabel = document.createElement('span');
       countLabel.className = 'shape-count';
-      countLabel.textContent = `${count}個`;
-      if (locale === 'en')
-        countLabel.textContent = `${count}`;
-      if (locale === 'zh-CN')
-        countLabel.textContent = `${count}个`;
+      countLabel.textContent = countText;
       add.append(createShapePreview(width, height), label, countLabel);
-      const shapeLabel = `${width}×${height}${width !== height ? ` (${pickerText.rotatable})` : ''}`;
       add.setAttribute('aria-label', pickerText.add(shapeLabel, count));
       add.addEventListener('click', () => changeShapeCount(key, 1));
 

@@ -2,6 +2,7 @@ const state = {
   families: [],
   meta: {},
   imageByFamily: new Map(),
+  ratings: null,
   query: '',
   attribute: 'すべて',
   stage: 'all',
@@ -23,15 +24,17 @@ const responsiveAttrs = (image, catalog = false) => {
 const pendingImageLabel = document.documentElement.lang === 'en' ? 'Image pending verification' : document.documentElement.lang === 'zh-CN' ? '图片待确认' : '画像確認中';
 
 async function boot() {
-  const [res, imageRes] = await Promise.all([
+  const [res, imageRes, ratings] = await Promise.all([
     fetch('/data/tatari.json', { cache: 'no-store' }),
-    fetch('/data/tata-images.json', { cache: 'no-store' })
+    fetch('/data/tata-images.json', { cache: 'no-store' }),
+    fetch('/data/tier-ratings.json', { cache: 'no-store' }).then(res => res.ok ? res.json() : null).catch(() => null)
   ]);
   if (!res.ok || !imageRes.ok)
     throw new Error(`data load ${res.status}/${imageRes.status}`);
   const [data, imageData] = await Promise.all([res.json(), imageRes.json()]);
 
   state.families = data.families || [];
+  state.ratings = ratings;
 
   state.meta = data.meta || {};
 
@@ -48,7 +51,7 @@ async function boot() {
     state.attribute = 'すべて';
   if (!['all', 't4', 'no-t4'].includes(state.stage))
     state.stage = 'all';
-  if (!['default', 'name', 'stages'].includes(state.sort))
+  if (!['default', 'catalog', 'name', 'stages'].includes(state.sort))
     state.sort = 'default';
   state.selectedId = location.hash.startsWith('#family-') ? location.hash.slice(8) : state.families[0]?.id;
   if (!state.families.some(f => f.id === state.selectedId))
@@ -181,6 +184,8 @@ function filteredFamilies() {
   const q = state.query.trim().toLowerCase();
 
   let rows = state.families.filter(f => (state.attribute === 'すべて' || f.attribute === state.attribute) && (state.stage === 'all' || (state.stage === 't4' ? f.evolutions.length >= 4 : f.evolutions.length < 4)) && (!q || searchableText(f).includes(q)));
+  if (state.sort === 'default')
+    rows = MONSABA_CATALOG_ORDER.overall(rows, state.ratings);
   if (state.sort === 'name')
     rows = [...rows].sort((a, b) => getFamilyDisplayName(a).localeCompare(getFamilyDisplayName(b), 'ja'));
   if (state.sort === 'stages')
