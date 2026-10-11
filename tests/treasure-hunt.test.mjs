@@ -235,7 +235,7 @@ test('exact探索上限後は先頭N件でなく決定的な分岐重み付き�
   assert.match(js, /createDeterministicRandom/);
 });
 
-test('おすすめ候補は最大5件', () => {
+test('内部計算結果の旧TOP5フィールドは互換性のため保持する', () => {
   assert.equal(solveTreasureModel(createDefaultModel(6)).topCandidates.length, 5);
 });
 
@@ -253,16 +253,51 @@ test('候補順位は確率降順になる', () => {
   assert.deepEqual([...candidates].sort((a, b) => b.probability - a.probability), candidates);
 });
 
-test('TOP5選択は盤面状態を変更しない説明を持つ', () => {
-  assert.match(html, /候補を選んでも盤面状態は変わりません/);
-  assert.match(js, /selectedCandidateIndex = index/);
+test('3言語でTOP5一覧・順位番号をなくし計算結果の指標を残す', () => {
+  for (const page of [html, enHtml, zhHtml]) {
+    assert.doesNotMatch(page, /TOP5|id="candidateList"|candidate-list/);
+    for (const id of ['maxProbability', 'validConfigurations', 'remainingPickaxes', 'tieSummary']) {
+      assert.match(page, new RegExp(`id="${id}"`));
+    }
+  }
+  assert.doesNotMatch(js.slice(js.indexOf('function boot()')), /topCandidates|candidateList|selectCandidate|selectedCandidateIndex|rankMark|cell-rank/);
+  assert.doesNotMatch(css, /recommendation-tier-|candidate-list|candidate-button|cell-rank/);
+});
+
+test('2x4一個の盤面は最高40%の4マスを残し33%を最高へ混ぜない', () => {
+  const model = createDefaultModel(6);
+  model.shapeCounts = normalizeShapeCounts({ '2x4': 1 });
+  model.spec = '2x4:1';
+  const result = solveTreasureModel(model);
+  assert.equal(result.configurations, 30);
+  assert.equal(result.bestProbability, 0.4);
+  assert.deepEqual(result.bestIndices, [14, 15, 20, 21]);
+  assert.equal(result.remainingPickaxes, 20);
+  const lowerTies = result.probabilities.flatMap((p, index) => Math.round(p * 100) === 33 ? [index] : []);
+  assert.ok(lowerTies.length > 1);
+  assert.ok(lowerTies.every((index) => !result.bestIndices.includes(index)));
+  assert.match(js, /lastResult\.bestIndices\.includes\(index\)/);
+});
+
+test('最高確率が5件を超えて同率なら全マスを保持し空白・発見済みを除く', () => {
+  const model = createDefaultModel(6);
+  model.shapeCounts = normalizeShapeCounts({ '1x1': 2 });
+  model.spec = '1x1:2';
+  const initial = solveTreasureModel(model);
+  assert.equal(initial.bestIndices.length, 36);
+  model.cells[0] = 'miss';
+  model.cells[1] = 'found';
+  const result = solveTreasureModel(model);
+  assert.equal(result.bestIndices.length, 34);
+  assert.ok(!result.bestIndices.includes(0) && !result.bestIndices.includes(1));
+  assert.ok(result.bestIndices.every((index) => result.probabilities[index] === result.bestProbability));
 });
 
 test('3言語で表示切替をなくし確率・おすすめ・自動計算を常時有効にする', () => {
   for (const page of [html, enHtml, zhHtml]) {
     assert.doesNotMatch(page, /id="(?:showProbability|showRecommendations|autoCalculate)"|solver-toggles/);
     assert.match(page, /id="solverResults"/);
-    assert.match(page, /id="candidateList"/);
+    assert.match(page, /id="tieSummary"/);
   }
   assert.doesNotMatch(js, /model\.preferences\.(?:showProbability|showRecommendations|autoCalculate)/);
   assert.match(js, /buildBoard\(\);\s*scheduleCalculate\(\);\s*\}/);
@@ -724,9 +759,11 @@ test('スマホsticky paletteと320px縮小を定義する', () => {
   assert.match(css, /@media\s*\(min-width:\s*520px\)\s*and\s*\(max-width:\s*760px\)/);
 });
 
-test('表示は色だけでなく状態記号と順位記号を使う', () => {
+test('最高候補は同じ色と★・各言語の読上げラベルで示す', () => {
   assert.match(js, /STATE_MARKS/);
-  assert.match(js, /rankMark/);
+  assert.match(js, /class="cell-best" aria-hidden="true">★/);
+  for (const label of ['最高確率', 'Highest probability', '最高概率']) assert.ok(js.includes(`bestCell: '${label}'`));
+  assert.match(js, /resultText\.bestCell/);
 });
 
 test('モジュールscriptは1件だけ読み込む', () => {
