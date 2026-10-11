@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
+import postcss from 'postcss';
 const source = fs.readFileSync(new URL('../site.js', import.meta.url), 'utf8');
 // Execute the actual initial navigation code with a minimal DOM. Later menu,
 // search and analytics setup is unrelated to fragment/history highlighting.
@@ -45,4 +46,26 @@ test('detail navigation and the existing exact strategy-page selection are prese
   const boss = setup('ja', '/boss-rally/', '');
   assert.equal(boss.links[3].attributes['aria-current'], 'page');
   assert.equal(boss.links[0].attributes['aria-current'], undefined);
+});
+
+test('tablet category panels reset the desktop translation in source and built CSS', () => {
+  // The base stylesheet centers desktop popovers with translateX(-50%).
+  // Astra extends the mobile menu to 1099px, beyond the base 820px reset.
+  for (const file of ['styles/astra.pcss', 'astra.css']) {
+    const css = postcss.parse(fs.readFileSync(new URL('../' + file, import.meta.url), 'utf8'));
+    let panel, navigation;
+    css.walkAtRules('media', media => {
+      if (!/max-width:\s*1099px|width\s*<=\s*1099px/.test(media.params)) return;
+      media.walkRules(rule => {
+        if (rule.selectors.includes('body[data-astra] .nav-category-panel')) panel = rule;
+        if (rule.selectors.includes('body[data-astra] #global-navigation')) navigation = rule;
+      });
+    });
+    assert.ok(panel, file + ': tablet panel rule missing');
+    const declarations = Object.fromEntries(panel.nodes.filter(node => node.type === 'decl').map(node => [node.prop, node.value]));
+    assert.equal(declarations.position, 'static', file);
+    assert.equal(declarations.transform, 'none', file + ': links must remain inside the menu');
+    assert.ok(navigation, file + ': mobile navigation rule missing');
+    assert.equal(navigation.nodes.find(node => node.prop === 'width')?.value, 'auto', file + ': menu must fit its header container');
+  }
 });
