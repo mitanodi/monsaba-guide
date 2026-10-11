@@ -319,7 +319,10 @@ function enforceInputSymmetry(probabilities, model) {
   if (maps.length <= 1)
     return probabilities;
   return probabilities.map((_, index) => (
-    maps.reduce((sum, map) => sum + probabilities[map[index]], 0) / maps.length
+    // Sum each symmetry orbit in the same order so floating-point rounding
+    // cannot split mathematically equal cells into different recommendations.
+    maps.map((map) => map[index]).sort((a, b) => a - b)
+      .reduce((sum, target) => sum + probabilities[target], 0) / maps.length
   ));
 }
 
