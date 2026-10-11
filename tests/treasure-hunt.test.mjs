@@ -152,10 +152,23 @@ test('旧宝ヒット保存データを発見済みへ統合する', () => {
   assert.equal(migrated.preferences.inputMode, 'found');
 });
 
-test('表示設定を保持し旧autoCalculate=falseも常時自動計算へ移行する', () => {
-  const value = createDefaultModel(6);
-  value.preferences = { inputMode: 'found', showProbability: false, showRecommendations: false, autoCalculate: false };
-  assert.deepEqual(normalizeModel(value).preferences, { ...value.preferences, autoCalculate: true });
+test('旧OFF設定を常時ONへ移行し盤面・形状・配置済み宝を保持する', () => {
+  for (const version of [1, 2, 3, 4, 5, 6]) {
+    const value = createDefaultModel(6);
+    value.version = version;
+    value.cells[35] = 'miss';
+    value.placedTreasures = [{ id: 'saved-treasure', key: '2x2', startIndex: 0, rotated: false }];
+    value.preferences = { inputMode: 'found', showProbability: false, showRecommendations: false, autoCalculate: false };
+    const restored = normalizeModel(value);
+    const expected = normalizeModel({ ...value, preferences: { ...value.preferences, showProbability: true, showRecommendations: true, autoCalculate: true } });
+    assert.deepEqual(restored.preferences, { inputMode: 'found', showProbability: true, showRecommendations: true, autoCalculate: true });
+    assert.equal(restored.cells[35], 'miss');
+    assert.equal(restored.spec, '1x3:1, 2x2:1');
+    assert.deepEqual(restored.shapeCounts, value.shapeCounts);
+    assert.equal(restored.placedTreasures[0].id, 'saved-treasure');
+    assert.deepEqual(solveTreasureModel(restored), solveTreasureModel(expected));
+    assert.equal(normalizeModel(restored).spec, restored.spec);
+  }
 });
 
 test('宝specを従来形式で解釈する', () => {
@@ -245,13 +258,14 @@ test('TOP5選択は盤面状態を変更しない説明を持つ', () => {
   assert.match(js, /selectedCandidateIndex = index/);
 });
 
-test('確率とおすすめの表示切替を保ち、確率は初回から常時自動計算する', () => {
-  for (const id of ['showProbability', 'showRecommendations', 'autoCalculate']) {
-    assert.match(html, new RegExp(`id="${id}"`));
+test('3言語で表示切替をなくし確率・おすすめ・自動計算を常時有効にする', () => {
+  for (const page of [html, enHtml, zhHtml]) {
+    assert.doesNotMatch(page, /id="(?:showProbability|showRecommendations|autoCalculate)"|solver-toggles/);
+    assert.match(page, /id="solverResults"/);
+    assert.match(page, /id="candidateList"/);
   }
-  assert.match(js, /autoCalculateControl\?\.closest\('label'\)\?\.remove\(\)/);
+  assert.doesNotMatch(js, /model\.preferences\.(?:showProbability|showRecommendations|autoCalculate)/);
   assert.match(js, /buildBoard\(\);\s*scheduleCalculate\(\);\s*\}/);
-  assert.doesNotMatch(js, /if \(model\.preferences\.autoCalculate\) scheduleCalculate\(\)/);
 });
 
 test('Undoは1操作分の盤面snapshotを復元する', () => {
@@ -272,10 +286,28 @@ test('矛盾時は入力見直しとUndoを案内する', () => {
   assert.match(js, /is-attention/);
 });
 
-test('詳細設定へ既存カスタムspecを残す', () => {
-  assert.match(html, /<details class="solver-advanced">/);
-  assert.match(html, /id="treasureSpec"/);
-  assert.match(html, /2x2:1, 1x3:1/);
+test('3言語で上級者spec入力を除去し通常の形状選択を維持する', () => {
+  for (const page of [html, enHtml, zhHtml]) {
+    assert.doesNotMatch(page, /solver-advanced|id="treasureSpec"|id="specHelp"/);
+    assert.match(page, /id="shapeGrid"/);
+    assert.match(page, /id="clearTreasureSettings"/);
+  }
+  assert.doesNotMatch(js, /treasureSpec|syncSpecFromTextarea|specSyncTimer/);
+  assert.doesNotMatch(css, /\.solver-(?:advanced|toggles)(?:\s|\{|$)/);
+});
+
+test('UI削除後も旧特殊specの保存値を置き換えず計算できる', () => {
+  const saved = { version: 1, size: 6, spec: '1x5:1', cells: Array(36).fill('unknown') };
+  saved.cells[0] = 'miss';
+  const restored = normalizeModel(saved);
+  assert.equal(restored.spec, '1x5:1');
+  assert.equal(restored.shapeMode, 'advanced');
+  assert.equal(restored.cells[0], 'miss');
+  assert.equal(parseSpec(restored.spec, restored.size).length, 1);
+  const result = solveTreasureModel(restored, { sampleBudget: 100, exactNodeLimit: 1 });
+  assert.ok(result.configurations > 0);
+  assert.equal(result.probabilities[0], 0);
+  assert.ok(Math.abs(result.probabilityMass - 5) < 1e-9);
 });
 
 test('10種類のcanonical宝形状pickerと宝設定だけのclear操作を公開する', () => {
@@ -495,7 +527,7 @@ test('v3の両orientation保存を物理個数を保ってv6へ移行する', ()
   assert.equal(migrated.spec, '1x3:2');
   assert.equal(migrated.shapeCounts['1x3'], 2);
   assert.equal(migrated.cells[6], 'found');
-  assert.deepEqual(migrated.preferences, { ...saved.preferences, inputMode: 'found' });
+  assert.deepEqual(migrated.preferences, { ...saved.preferences, inputMode: 'found', showProbability: true });
 });
 
 test('回転可能表示と3言語のUI文言を備える', () => {
