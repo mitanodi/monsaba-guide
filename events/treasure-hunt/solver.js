@@ -203,10 +203,10 @@ export function normalizeModel(value) {
       inputMode: value?.preferences?.inputMode === 'hit'
         ? 'found'
         : STATES.includes(value?.preferences?.inputMode) ? value.preferences.inputMode : DEFAULT_PREFERENCES.inputMode,
-      showProbability: value?.preferences?.showProbability !== false,
-      showRecommendations: value?.preferences?.showRecommendations !== false,
-      // Automatic probability calculation is now mandatory. This also
-      // migrates saved settings created when it could be disabled.
+      showProbability: true,
+      showRecommendations: true,
+      // Probability display, recommendations and calculation are always enabled.
+      // Migrate only the old display switches; keep treasure and board data.
       autoCalculate: true
     }
   };
@@ -744,7 +744,6 @@ function boot() {
   let lastResult = null;
   let selectedCandidateIndex = null;
   let calculateTimer = null;
-  let specSyncTimer = null;
   let calculating = false;
   let lastResetSnapshot = null;
   let selectedPlacement = null;
@@ -804,12 +803,6 @@ function boot() {
   }
   function syncControls() {
     $('#boardSize').value = String(model.size);
-    $('#treasureSpec').value = model.spec;
-    $('#showProbability').checked = model.preferences.showProbability;
-    $('#showRecommendations').checked = model.preferences.showRecommendations;
-    const autoCalculateControl = $('#autoCalculate');
-    if (autoCalculateControl)
-      autoCalculateControl.checked = true;
     document.querySelectorAll('[data-input-mode]').forEach((button) => {
       const selected = button.dataset.inputMode === model.preferences.inputMode;
       button.setAttribute('aria-pressed', String(selected));
@@ -1188,7 +1181,6 @@ function boot() {
   function commitTreasureChange(message) {
     model.shapeMode = 'picker';
     model.spec = shapeCountsToSpec(model.shapeCounts);
-    $('#treasureSpec').value = model.spec;
     save();
     clearResult();
     buildBoard();
@@ -1206,26 +1198,6 @@ function boot() {
     const [width, height] = key.split('x');
     commitTreasureChange(`${width}×${height}を${delta > 0 ? '追加' : '1個減ら'}しました`);
   }
-  function syncSpecFromTextarea() {
-    const text = $('#treasureSpec').value.trim();
-    const parsed = parseShapeCountsSpec(text);
-    if (parsed) {
-      model.shapeCounts = parsed;
-      model.placedTreasures = normalizePlacedTreasures(model.placedTreasures, model.size, parsed, model.cells);
-      model.shapeMode = 'picker';
-      model.spec = shapeCountsToSpec(parsed);
-      $('#treasureSpec').value = model.spec;
-      showPickerStatus('カスタム設定を宝形状へ反映しました');
-    } else {
-      model.shapeMode = 'advanced';
-      model.spec = text;
-      showPickerStatus('特殊specを上級者設定として使用します。形状カードを押すと通常設定へ戻ります。');
-    }
-    save();
-    clearResult();
-    buildBoard();
-    renderShapePicker();
-  }
   function buildBoard() {
     board.style.setProperty('--board-size', model.size);
     board.innerHTML = '';
@@ -1242,7 +1214,7 @@ function boot() {
       button.setAttribute('aria-label', `${coordinate(index)}：${placedTreasure ? `${placedShapeLabel}の宝・発見済み` : STATE_LABELS[state]}`);
       const rankCandidate = lastResult?.topCandidates.find((candidate) => candidate.index === index)
         || (lastResult?.bestIndices.includes(index) ? { index, rank: 1 } : null);
-      if (model.preferences.showRecommendations && rankCandidate) {
+      if (rankCandidate) {
         button.classList.add('is-recommended', `recommendation-tier-${rankCandidate.rank === 1 ? 1 : rankCandidate.rank <= 3 ? 2 : 3}`);
       }
       if (selectedCandidateIndex === index)
@@ -1250,10 +1222,10 @@ function boot() {
       if (pendingPlacementCells.includes(index))
         button.classList.add('is-pending-treasure');
       const probability = lastResult?.probabilities[index];
-      const probabilityText = model.preferences.showProbability && state === 'unknown' && Number.isFinite(probability)
+      const probabilityText = state === 'unknown' && Number.isFinite(probability)
         ? `${Math.round(probability * 100)}%`
         : '';
-      const rankText = model.preferences.showRecommendations && rankCandidate ? rankMark(rankCandidate.rank) : '';
+      const rankText = rankCandidate ? rankMark(rankCandidate.rank) : '';
       const markContent = placedTreasure
         ? `<span class="cell-treasure-shape">${placedShapeLabel}</span><span class="cell-found-check">✓</span>`
         : STATE_MARKS[state];
@@ -1407,7 +1379,6 @@ function boot() {
   function calculate() {
     if (calculating)
       return;
-    syncSpecFromTextarea();
     setCalculating(true);
     showStatus(resultText.calculating, resultText.calculatingDetail);
     window.setTimeout(() => {
@@ -1501,18 +1472,6 @@ function boot() {
     buildBoard();
     scheduleCalculate();
   });
-  $('#treasureSpec').addEventListener('input', () => {
-    window.clearTimeout(specSyncTimer);
-    specSyncTimer = window.setTimeout(() => {
-      syncSpecFromTextarea();
-      scheduleCalculate();
-    }, 300);
-  });
-  $('#treasureSpec').addEventListener('change', () => {
-    window.clearTimeout(specSyncTimer);
-    syncSpecFromTextarea();
-    scheduleCalculate();
-  });
   $('#clearTreasureSettings').addEventListener('click', () => {
     model.placedTreasures.flatMap((placement) => placement.cells).forEach((cell) => {
 
@@ -1523,10 +1482,6 @@ function boot() {
     model.placedTreasures = [];
     commitTreasureChange('宝形状と個数だけをクリアしました');
   });
-  $('#showProbability').addEventListener('change', (event) => syncPreference('showProbability', event.target.checked));
-  $('#showRecommendations').addEventListener('change', (event) => syncPreference('showRecommendations', event.target.checked));
-  const autoCalculateControl = $('#autoCalculate');
-  autoCalculateControl?.closest('label')?.remove();
   $('#undo').addEventListener('click', undoLastInput);
   $('#undoBelowBoard').addEventListener('click', undoLastInput);
   $('#reset').addEventListener('click', resetBoard);
