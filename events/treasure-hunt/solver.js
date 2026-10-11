@@ -693,6 +693,7 @@ function boot() {
   const resultText = {
     ja: {
       calculate: '確率を計算',
+      bestCell: '最高確率',
       calculating: '計算中…',
       exactTitle: '正確に計算しました',
       exactValue: (count) => `${count.toLocaleString('ja-JP')}通り`,
@@ -705,6 +706,7 @@ function boot() {
     },
     en: {
       calculate: 'Calculate Probability',
+      bestCell: 'Highest probability',
       calculating: 'Calculating…',
       exactTitle: 'Calculated exactly',
       exactValue: (count) => `${count.toLocaleString('en-US')} layouts`,
@@ -717,6 +719,7 @@ function boot() {
     },
     'zh-CN': {
       calculate: '计算概率',
+      bestCell: '最高概率',
       calculating: '计算中…',
       exactTitle: '已精确计算',
       exactValue: (count) => `${count.toLocaleString('zh-CN')}种布局`,
@@ -742,7 +745,6 @@ function boot() {
   let model = createDefaultModel();
   let history = [];
   let lastResult = null;
-  let selectedCandidateIndex = null;
   let calculateTimer = null;
   let calculating = false;
   let lastResetSnapshot = null;
@@ -789,9 +791,6 @@ function boot() {
   }
   function coordinate(index) {
     return `${Math.floor(index / model.size) + 1}行${(index % model.size) + 1}列`;
-  }
-  function rankMark(rank) {
-    return ['①', '②', '③', '④', '⑤'][Math.min(Math.max(rank, 1), 5) - 1];
   }
   function updateUndoState() {
     const disabled = history.length === 0;
@@ -1211,28 +1210,23 @@ function boot() {
       button.dataset.index = String(index);
       if (placedTreasure)
         button.dataset.placedTreasure = placedTreasure.id;
-      button.setAttribute('aria-label', `${coordinate(index)}：${placedTreasure ? `${placedShapeLabel}の宝・発見済み` : STATE_LABELS[state]}`);
-      const rankCandidate = lastResult?.topCandidates.find((candidate) => candidate.index === index)
-        || (lastResult?.bestIndices.includes(index) ? { index, rank: 1 } : null);
-      if (rankCandidate) {
-        button.classList.add('is-recommended', `recommendation-tier-${rankCandidate.rank === 1 ? 1 : rankCandidate.rank <= 3 ? 2 : 3}`);
-      }
-      if (selectedCandidateIndex === index)
-        button.classList.add('is-selected-candidate');
+      const isRecommended = state === 'unknown' && lastResult?.bestProbability > 0 && lastResult.bestIndices.includes(index);
+      button.setAttribute('aria-label', `${coordinate(index)}：${placedTreasure ? `${placedShapeLabel}の宝・発見済み` : STATE_LABELS[state]}${isRecommended ? `、${resultText.bestCell}` : ''}`);
+      if (isRecommended)
+        button.classList.add('is-recommended');
       if (pendingPlacementCells.includes(index))
         button.classList.add('is-pending-treasure');
       const probability = lastResult?.probabilities[index];
       const probabilityText = state === 'unknown' && Number.isFinite(probability)
         ? `${Math.round(probability * 100)}%`
         : '';
-      const rankText = rankCandidate ? rankMark(rankCandidate.rank) : '';
       const markContent = placedTreasure
         ? `<span class="cell-treasure-shape">${placedShapeLabel}</span><span class="cell-found-check">✓</span>`
         : STATE_MARKS[state];
       const removeMark = state === 'found'
         ? '<span class="cell-found-remove" aria-hidden="true">−</span>'
         : '';
-      button.innerHTML = `${removeMark}<span class="cell-mark${placedTreasure ? ' is-placed-treasure' : ''}" aria-hidden="true">${markContent}</span><small class="cell-probability">${probabilityText}</small><em class="cell-rank" aria-hidden="true">${rankText}</em>`;
+      button.innerHTML = `${removeMark}<span class="cell-mark${placedTreasure ? ' is-placed-treasure' : ''}" aria-hidden="true">${markContent}</span><small class="cell-probability">${probabilityText}</small>${isRecommended ? '<span class="cell-best" aria-hidden="true">★</span>' : ''}`;
       button.addEventListener('click', (event) => {
         if (event.target.closest('.cell-found-remove')) {
           removeFoundAtCell(index);
@@ -1268,7 +1262,6 @@ function boot() {
       return;
     boardSnapshot();
     model.cells[index] = state;
-    selectedCandidateIndex = null;
     save();
     clearResult();
     buildBoard();
@@ -1276,9 +1269,7 @@ function boot() {
   }
   function clearResult() {
     lastResult = null;
-    selectedCandidateIndex = null;
     $('#solverResults').hidden = true;
-    $('#candidateList').innerHTML = '';
   }
   function showStatus(title, text, error = false) {
     const status = $('#solverStatus');
@@ -1312,11 +1303,10 @@ function boot() {
   }
   function renderResult(result) {
     lastResult = result;
-    selectedCandidateIndex = null;
     buildBoard();
     $('#undo').classList.remove('is-attention');
     $('#solverResults').hidden = false;
-    $('#maxProbability').textContent = result.topCandidates.length ? `${(result.bestProbability * 100).toFixed(1)}%` : '—';
+    $('#maxProbability').textContent = result.bestIndices.length ? `${(result.bestProbability * 100).toFixed(1)}%` : '—';
     $('#validConfigurations').textContent = result.approximate
       ? resultText.approximateValue(result.sampleSize)
       : resultText.exactValue(result.configurations);
@@ -1326,51 +1316,12 @@ function boot() {
     $('#tieSummary').textContent = result.bestIndices.length > 1
       ? `同率最高 ${result.bestIndices.length}マス：${result.bestIndices.map(coordinate).join('、')}`
       : result.bestIndices.length === 1 ? `最高候補：${coordinate(result.bestIndices[0])}` : '未確認マスがありません。';
-    const list = $('#candidateList');
-    list.innerHTML = '';
-    result.topCandidates.forEach((candidate) => {
-      const card = document.createElement('li');
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'candidate-button';
-      button.dataset.candidateIndex = String(candidate.index);
-      button.setAttribute('aria-pressed', 'false');
-      button.setAttribute('aria-label', `${coordinate(candidate.index)}を盤面で強調`);
-      const rank = document.createElement('strong');
-      rank.textContent = candidate.rank === 1 && result.bestIndices.length > 1 ? '同率1位' : `${candidate.rank}位`;
-      const cell = document.createElement('span');
-      cell.textContent = coordinate(candidate.index);
-      const probability = document.createElement('span');
-      probability.textContent = `宝確率 ${(candidate.probability * 100).toFixed(1)}%`;
-      const action = document.createElement('small');
-      action.textContent = 'このマスを盤面で選ぶ';
-      button.append(rank, cell, probability, action);
-      button.addEventListener('click', () => selectCandidate(candidate.index, button));
-      card.append(button);
-      list.append(card);
-    });
     showStatus(
       result.approximate ? resultText.approximateTitle : resultText.exactTitle,
       result.approximate
         ? resultText.approximateDetail(result.sampleSize)
         : resultText.exactDetail(result.configurations)
     );
-  }
-  function selectCandidate(index, sourceButton) {
-    selectedCandidateIndex = index;
-    buildBoard();
-    document.querySelectorAll('.candidate-button').forEach((button) => {
-      const selected = button.dataset.candidateIndex === String(index);
-      button.classList.toggle('is-selected', selected);
-      button.setAttribute('aria-pressed', String(selected));
-    });
-    const cell = board.querySelector(`[data-index="${index}"]`);
-    cell?.scrollIntoView({
-      behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
-      block: 'center'
-    });
-    sourceButton.focus({ preventScroll: true });
-    showStatus('次に開ける候補として選択しました', `${coordinate(index)}を盤面で強調しています。マスの状態はまだ変更していません。`);
   }
   function setCalculating(value) {
     calculating = value;
