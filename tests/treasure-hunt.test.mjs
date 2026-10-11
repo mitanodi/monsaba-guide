@@ -293,6 +293,18 @@ test('最高確率が5件を超えて同率なら全マスを保持し空白・�
   assert.ok(result.bestIndices.every((index) => result.probabilities[index] === result.bestProbability));
 });
 
+test('概算でも対称な最高4マスを浮動小数の加算順で分断しない', () => {
+  const model = createDefaultModel(6);
+  model.shapeCounts = normalizeShapeCounts({ '1x2': 2, '1x3': 1, '2x3': 1 });
+  model.spec = '1x2:2,1x3:1,2x3:1';
+  const result = solveTreasureModel(model);
+  assert.equal(result.approximate, true);
+  assert.deepEqual(result.bestIndices, [14, 15, 20, 21]);
+  for (const index of [14, 15, 20, 21]) assert.equal(result.probabilities[index], result.bestProbability);
+  assert.equal((result.bestProbability * 100).toFixed(1), '46.4');
+  assert.equal(result.remainingPickaxes, 28);
+});
+
 test('3言語で表示切替をなくし確率・おすすめ・自動計算を常時有効にする', () => {
   for (const page of [html, enHtml, zhHtml]) {
     assert.doesNotMatch(page, /id="(?:showProbability|showRecommendations|autoCalculate)"|solver-toggles/);
