@@ -9,6 +9,8 @@ import { protectLocalizedHtml } from './lib/protect-localized-html.mjs';
 const root = path.resolve(import.meta.dirname, '..');
 const config = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/config.json'), 'utf8'));
 const overrides = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/overrides.json'), 'utf8'));
+const updateArticleOverrides = JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/update-articles.json'), 'utf8'));
+for (const locale of ['en', 'zh-CN']) Object.assign(overrides[locale], updateArticleOverrides[locale]);
 for (const locale of ['en', 'zh-CN']) {
   for (const [key, source] of Object.entries(astraCopy.ja)) {
     const sources = Array.isArray(source) ? source : [source];
@@ -401,7 +403,7 @@ function localizeHtml(source, sourceRoute, locale, missing) {
   html = html.replace(/<meta property="og:locale" content="[^"]+"\s*\/?>/, `<meta property="og:locale" content="${config.locales[locale].ogLocale}" />`);
   if (!html.includes('property="og:locale"'))
     html = html.replace('</title>', `</title><meta property="og:locale" content="${config.locales[locale].ogLocale}" />`);
-  html = html.replace(/(<option value="(?:ja|en|zh-CN)")\s+selected/g, '$1').replace(`<option value="${locale}">`, `<option value="${locale}" selected>`);
+  html = html.replace(/<option value="(ja|en|zh-CN)"[^>]*>/g, (_, value) => `<option value="${value}"${value === locale ? ' selected' : ''}>`);
   const noticeKey = sourceRoute.startsWith('/board/') ? 'board' : sourceRoute === '/friends/' ? 'friends' : sourceRoute === '/privacy/' ? 'privacy' : sourceRoute === '/consult/' ? 'consult' : null;
   if (noticeKey)
     html = html.replace(/(<main\b[^>]*>)/, `$1<p class="wrap i18n-locale-notice" role="note">${notices[noticeKey][locale]}</p>`);
@@ -518,9 +520,10 @@ if (!process.exitCode)
   console.log(`i18n pages generated: Japanese ${sourceFiles.length}, English ${sourceFiles.length}, Simplified Chinese ${sourceFiles.length}`);
 
 function sourceRouteIsNative(route, html) {
-  if (route !== '/updates/2026-10-07/' || !html.includes('data-i18n-native="integrated-research"')) return false;
+  const nativeUpdate = route.startsWith('/updates/') && html.includes('data-i18n-native="update-article"');
+  if (!nativeUpdate && (route !== '/updates/2026-10-07/' || !html.includes('data-i18n-native="integrated-research"'))) return false;
   for (const locale of locales) {
-    const nativeFile = path.join(root, targetDirectory[locale], 'updates/2026-10-07/index.html');
+    const nativeFile = path.join(root, targetDirectory[locale], route.slice(1), 'index.html');
     if (!fs.existsSync(nativeFile) || !read(nativeFile).includes(`data-locale="${locale}"`))
       throw new Error(`Missing native localized integrated update: ${locale}`);
   }

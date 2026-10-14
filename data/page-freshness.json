@@ -10,7 +10,7 @@
   },
   "routes": {
     "/": {
-      "updated": "2026-08-28",
+      "updated": "2026-10-14",
       "verified": "2026-08-28"
     },
     "/tata/*": {
@@ -123,8 +123,17 @@
       "verified": "2026-08-28"
     },
     "/updates/": {
-      "updated": "2026-08-28",
+      "updated": "2026-10-14",
       "verified": "2026-08-28"
+    },
+    "/updates/2026-10-21-test-preview/": {
+      "published": "2026-10-14",
+      "updated": "2026-10-14",
+      "verified": "2026-10-14",
+      "externalVerified": "2026-10-14",
+      "verificationScope": "external-preview-only",
+      "status": "test-server-preview-not-live",
+      "pending": ["本番実装と正式日程", "新タタ・チップの詳細", "イベント開始終了時刻"]
     },
     "/updates/2026-08-26/": {
       "published": "2026-08-25",

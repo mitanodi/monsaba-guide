@@ -47,7 +47,7 @@ test('A8 originals and all tracking identifiers remain exact; Production retains
   assert.match(read('monetization.js'), /link\.rel = 'sponsored nofollow noopener'/);
   assert.match(read('monetization.js'), /pixel\.src = offer\.trackingPixel/);
 });
-test('all 399 published SEO records retain their fields except reviewed October 7 data and October 10 catalog totals', () => {
+test('published SEO fields retain approved data changes and October 14 article timestamps', () => {
   const historical = JSON.parse(read('tests/fixtures/seo-baseline-fields-2026-10-06.json'));
   const policy = JSON.parse(read('tests/fixtures/seo-approved-changes-2026-10-07.json'));
   const apply = (object, change) => { const keys = change.path.slice(1).split('/'); let parent = object; for (const key of keys.slice(0, -1)) parent = parent[key]; parent[keys.at(-1)] = change.value; };
@@ -72,6 +72,12 @@ test('all 399 published SEO records retain their fields except reviewed October 
         .replace(/242(?=\s*(?:体|forms|个形态))/g, '246');
       if (['index.html', 'en/index.html', 'zh-cn/index.html'].includes(file))
         approved.schemas[0]['@graph'][1].description = updateTotals(approved.schemas[0]['@graph'][1].description);
+      // Only these six pages gain new article content on October 14. Preserve
+      // all other SEO fields and derive the date from the reviewed publication.
+      if (['index.html', 'en/index.html', 'zh-cn/index.html'].includes(file))
+        approved.schemas[0]['@graph'][1].dateModified = '2026-10-14';
+      if (['updates/index.html', 'en/updates/index.html', 'zh-cn/updates/index.html'].includes(file))
+        approved.schemas[0]['@graph'][0].dateModified = '2026-10-14';
       if (['evolution/trials/index.html', 'en/evolution/trials/index.html', 'zh-cn/evolution/trials/index.html'].includes(file)) {
         approved.title = updateTotals(approved.title);
         approved.description = updateTotals(approved.description);
@@ -87,6 +93,12 @@ test('all 399 published SEO records retain their fields except reviewed October 
       assert.deepEqual(fields, approved, file);
     } else {
       const preserved = structuredClone(fields);
+      if (['updates/index.html', 'en/updates/index.html', 'zh-cn/updates/index.html'].includes(file)) {
+        assert.equal(preserved.schemas[0]['@graph'][0].dateModified, '2026-10-14');
+        // Original timestamp verified from the pre-change c0f7f646 Git source.
+        // Normalize only this approved field before comparing the published hash.
+        preserved.schemas[0]['@graph'][0].dateModified = '2026-08-28';
+      }
       if (['attribute/index.html', 'en/attribute/index.html', 'zh-cn/attribute/index.html'].includes(file)) {
         // Only the family total changes in these two descriptions; all other
         // fields still match the exact published hash.

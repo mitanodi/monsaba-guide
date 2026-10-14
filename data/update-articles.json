@@ -1,0 +1,82 @@
+{
+  "checkedAt": "2026-10-14",
+  "sourceUrl": "https://w.atwiki.jp/monstersurvival/",
+  "sourceSection": "アップデート > 10/21（最新）（仮）",
+  "sourceStatus": "external-wiki-test-server-preview",
+  "latest": {
+    "route": "/updates/2026-10-21-test-preview/",
+    "plannedDate": "2026-10-21",
+    "dateStatus": "tentative",
+    "publishedAt": "2026-10-14",
+    "status": "test-server-preview-not-live",
+    "title": {
+      "ja": "10/21アップデート先行情報まとめ",
+      "en": "October 21 update: test-server preview",
+      "zh-CN": "10月21日更新先行信息汇总"
+    },
+    "summary": {
+      "ja": "シャイプ、ゾンビラッシュSeason 3、ハロウィン、収集要素と調整内容を項目別に整理。日程は仮・本番未確認です。",
+      "en": "A topic-by-topic preview of a new grass Tatari, Zombie Rush Season 3, Halloween, collectibles and balance changes. The date is tentative; live release is unconfirmed.",
+      "zh-CN": "按主题整理新草属性塔塔、Zombie Rush第3赛季、万圣节、收集要素及调整。日期暂定，正式服实装尚未确认。"
+    },
+    "sections": [
+      {
+        "id": "new-tata",
+        "title": { "ja": "新タタ：草属性シャイプ", "en": "New grass Tatari: シャイプ", "zh-CN": "新草属性塔塔：シャイプ" },
+        "items": {
+          "ja": ["草属性にシャイプが追加され、進化形を含めてゾンビラッシュ専用スキルを持つ予定です。", "進化名・スキル倍率・入手条件・独自Tierは、この資料からは確定できません。"],
+          "en": ["シャイプ is listed as a new grass Tatari, with Zombie Rush-only skills for its evolution line.", "Evolution names, skill multipliers, acquisition requirements and our own tiers are not established by this source."],
+          "zh-CN": ["预告新增草属性シャイプ，其进化系列将拥有Zombie Rush专属技能。", "进化名称、技能倍率、获取条件及本站Tier尚不能据此确定。"]
+        }
+      },
+      {
+        "id": "season3",
+        "title": { "ja": "ゾンビラッシュ Season 3", "en": "Zombie Rush Season 3", "zh-CN": "Zombie Rush 第3赛季" },
+        "items": {
+          "ja": ["ランキングをリセットし、難易度5・6を追加。難易度1〜4も調整予定です。", "開始難易度はSeason 2の最高到達難易度より1つ下を引き継ぐとされています。", "新しい敵とステージ構成、ボスの登場順変更を予定しています。", "アイコンフレーム「火山を制する者」はSeason 3終了後に報酬変更予定。順位条件や終了日時は未確認です。"],
+          "en": ["Rankings reset; difficulties 5 and 6 are added, with adjustments to difficulties 1–4.", "Starting difficulty is described as one below your highest difficulty in Season 2.", "The preview lists new enemies, revised stages and a different boss order.", "The 火山を制する者 avatar-frame reward is scheduled to change after Season 3. Rank requirements and the end time are unconfirmed."],
+          "zh-CN": ["重置排行榜，新增难度5、6，并调整难度1至4。", "预告说明将继承第2赛季最高到达难度的前一档。", "预计新增敌人、调整关卡构成和首领出场顺序。", "头像框「火山を制する者」奖励预计在第3赛季结束后变更。名次要求及结束时间待确认。"]
+        }
+      },
+      {
+        "id": "halloween",
+        "title": { "ja": "ハロウィン：ピンボールの期間限定バフ", "en": "Halloween: a limited pinball buff", "zh-CN": "万圣节：弹珠台限时增益" },
+        "items": {
+          "ja": ["予告期間は10月27日〜11月27日。開始・終了時刻やサーバー差は確認待ちです。", "ピンボールの従来の2倍バフに代わり「いたずらタイム」が登場し、特別なカードを引く仕組みが案内されています。"],
+          "en": ["The preview window is October 27–November 27. Exact times and server differences remain unconfirmed.", "The usual double buff is replaced by いたずらタイム, which allows a special card draw."],
+          "zh-CN": ["预告期间为10月27日至11月27日，具体时刻及服务器差异待确认。", "原有双倍增益将替换为「いたずらタイム」，获得后可抽取特殊卡片。"]
+        }
+      },
+      {
+        "id": "collection",
+        "title": { "ja": "タタの収集・カスタマイズ要素", "en": "Tatari collectibles and customization", "zh-CN": "塔塔收集与自定义要素" },
+        "items": {
+          "ja": ["アクセサリー、チャットスタンプ、バブルスタンプ、背景が追加予定です。対象名は参考資料の日本語表記で掲載しています。"],
+          "en": ["Accessories, chat stickers, bubble stickers and backgrounds are planned. The table retains Japanese source names; these are not newly verified official English names."],
+          "zh-CN": ["预告新增饰品、聊天表情、气泡表情及背景。表格保留参考资料中的日文名称，并非新确认的官方中文名。"]
+        },
+        "groups": [
+          { "label": { "ja": "アクセサリー", "en": "Accessories", "zh-CN": "饰品" }, "names": ["ビパピー", "コロコン", "コパンダ", "プラビ", "ネムクラゲ", "マルッシュ", "ボウズヘビ", "ヤミノメ", "トジコモル", "ヌスケ", "サトリッサム"] },
+          { "label": { "ja": "チャットスタンプ", "en": "Chat stickers", "zh-CN": "聊天表情" }, "names": ["ヤンザル", "パクマ", "シャイプ"] },
+          { "label": { "ja": "バブルスタンプ", "en": "Bubble stickers", "zh-CN": "气泡表情" }, "names": ["パチルフ", "フリコー", "ムムカバ", "ピカル", "アタタマ"] },
+          { "label": { "ja": "背景", "en": "Backgrounds", "zh-CN": "背景" }, "names": ["ナミアシカ", "コマキリ", "コワガルー", "ワンブー", "ツブツムリ"] }
+        ]
+      },
+      {
+        "id": "balance",
+        "title": { "ja": "バランス調整・不具合修正", "en": "Balance changes and fixes", "zh-CN": "平衡调整与问题修复" },
+        "items": {
+          "ja": ["一部のチップと専用スキルを調整予定。個別の変更後数値は今回のまとめには示されていません。", "ミストリア「安眠ミサイル」・エーテリファル「永眠ミサイル」：両隣の仲間の専用スキルダメージに、減速・睡眠を付ける効果がなくなる予定です。", "通常攻撃への影響は未確認。ウィキの補足解釈を確定仕様としては扱いません。", "ホルリン系「縦横無尽」で、仲間が配置可能な範囲の外へ移動する問題を修正予定です。", "専用スキルの説明を見直し。ギフトボックスの受取は1人週20回までの制限を追加予定です。", "チャプター24〜28は敵配置の調整と敵追加が案内されています。"],
+          "en": ["Some chips and dedicated skills are due for adjustments; this roundup does not specify the new individual values.", "ミストリア / 安眠ミサイル and エーテリファル / 永眠ミサイル: adjacent allies’ dedicated-skill damage is planned to lose the slow and sleep effects.", "The effect on normal attacks is unconfirmed; the wiki’s additional interpretation is not treated as a confirmed rule.", "A ホルリン-family 縦横無尽 issue that moves allies outside the placement area is scheduled to be fixed.", "Dedicated-skill descriptions are revised. Gift-box collection is planned to be capped at 20 times per person per week.", "Chapters 24–28 are listed for enemy-placement changes and additional enemies."],
+          "zh-CN": ["预计调整部分芯片和专属技能；本次汇总未列出各项调整后的具体数值。", "ミストリア「安眠ミサイル」和エーテリファル「永眠ミサイル」预计不再为两侧队友的专属技能伤害附加减速、睡眠。", "对普通攻击的影响尚未确认，不将wiki的补充解读当作已确定规则。", "预计修复ホルリン系列「縦横無尽」使队友移动到可放置范围外的问题。", "调整专属技能说明；礼物盒领取预计新增每人每周20次上限。", "第24至28章预计调整敌人配置并新增敌人。"]
+        }
+      }
+    ]
+  },
+  "archive": [
+    { "route": "/updates/2026-10-07/", "date": "2026-10-07", "label": { "ja": "10/7更新・確認情報", "en": "October 7 update and source review", "zh-CN": "10月7日更新与资料核对" }, "summary": { "ja": "サトリッサム、新T4、スパ、イベントを含む確認状況を整理。", "en": "Verification status for サトリッサム, new T4s, the spa and events.", "zh-CN": "整理サトリッサム、新T4、温泉及活动的确认状态。" } },
+    { "route": "/updates/2026-09-23-test-preview/", "date": "2026-09-23", "label": { "ja": "9/23先行情報・当時の記録", "en": "September 23 preview archive", "zh-CN": "9月23日先行信息存档" }, "summary": { "ja": "Season 2・ルカロン・チップ調整の先行記録。現在の確認状況への追記あり。", "en": "Historical Season 2, Dolphie and chip-change preview, with later status notes.", "zh-CN": "第2赛季、Dolphie及芯片调整的历史预告，含后续状态补充。" } },
+    { "route": "/updates/2026-08-30/", "date": "2026-08-30", "label": { "ja": "8/30大型更新まとめ", "en": "August 30 major update", "zh-CN": "8月30日大型更新汇总" }, "summary": { "ja": "パクマ、新T4、進化試練、イベントのまとめ。", "en": "Pakuma, new T4s, evolution trials and events.", "zh-CN": "Pakuma、新T4、进化试炼及活动汇总。" } },
+    { "route": "/updates/2026-08-26/", "date": "2026-08-26", "label": { "ja": "8/26公式アップデートまとめ", "en": "August 26 official update", "zh-CN": "8月26日官方更新汇总" }, "summary": { "ja": "Season 1と専用スキル・チップの調整情報。", "en": "Season 1 and dedicated-skill and chip balance changes.", "zh-CN": "第1赛季及专属技能、芯片平衡调整。" } }
+  ]
+}
