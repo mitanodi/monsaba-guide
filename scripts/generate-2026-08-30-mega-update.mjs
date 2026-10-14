@@ -728,10 +728,10 @@ for (const locale of ['ja', 'en', 'zh-CN']) {
   const originalPreviewNames = '<span lang="ja" translate="no">サトリッサム／ファミリッサム、エクスカボーラー、サボティアモ</span>';
   const previewDetails = currentResearch.upcoming.details.map(item=>`<section><h3 lang="ja" translate="no">${esc(item.name)}</h3><p>${esc(item.summary[locale])}</p><a href="${esc(item.sourceUrl)}">${c[7]} · preview</a>${item.officialSourceUrl ? `<a href="${esc(item.officialSourceUrl)}"> · Official Discord</a>` : ""}</section>`).join('');
   const officialAnnouncement = locale === 'ja'
-    ? '公式Xはサトリッサムの追加日を10/7と案内。\n2026年10月7日16:00から約2時間のメンテナンス予定です。\n英語名Popa、先行T4のArmavolve・Cactobodhiを確認。メンテナンス完了・全サーバー開放・実機性能は未確認です。'
+    ? '10/7確認時の記録：公式Xはサトリッサムの追加日を10/7と案内していました。\n公式Discordでは2026年10月7日16:00から約2時間のメンテナンスが告知されていました。\n英語名Popa、先行T4のArmavolve・Cactobodhiを確認。当時の記録ではメンテナンス完了・全サーバー開放・実機性能は未確認です。'
     : locale === 'en'
-      ? '<span lang="ja" translate="no">サトリッサム</span> was announced for October 7 in the official October 2 post. Official Discord schedules two-hour maintenance from 16:00 JST on October 7 and names Popa, Armavolve and Cactobodhi. Completion, server-wide availability and in-game performance have not been observed.'
-      : '官方10月2日公告将<span lang="ja" translate="no">サトリッサム</span>的追加日期定为10月7日。官方Discord预定10月7日日本时间16:00起维护约2小时，并确认英文名Popa、Armavolve及Cactobodhi。维护完成、全服务器开放及游戏内性能仍待确认。';
+      ? 'Historical record checked October 7: <span lang="ja" translate="no">サトリッサム</span> was announced for October 7 in the official October 2 post. Official Discord had announced two-hour maintenance from 16:00 JST on October 7 and named Popa, Armavolve and Cactobodhi. Completion, server-wide availability and in-game performance were unconfirmed in that record.'
+      : '10月7日确认时的历史记录：官方10月2日公告曾将<span lang="ja" translate="no">サトリッサム</span>的追加日期定为10月7日。官方Discord当时公告10月7日日本时间16:00起维护约2小时，并确认英文名Popa、Armavolve及Cactobodhi。维护完成、全服务器开放及游戏内性能在当时的记录中尚未确认。';
   const campaigns = currentResearch.communityCampaigns.map(item=>`<section><h3>${esc(item.id)}</h3><p>${esc(item.summary[locale])}</p><a href="${esc(item.sourceUrl)}">${item.sourceType === 'official_discord' ? 'Official Discord' : 'Official X'}</a>${item.resultsSourceUrl ? `<a href="${esc(item.resultsSourceUrl)}"> · Official Discord results</a>` : ''}</section>`).join('');
   const pending = locale === 'ja'
     ? '10/7資料のサトリッサム／ファミリッサム、エクスカボーラー、サボティアモ、スパ、ニジイロタタは予告です。現在の公式ストア履歴では一般配信を確認できていないため現行DBへは追加していません。新T4等の画像6件・簡体字名6件、全形態の最新通常数値、専用スキルの未掲載倍率・間隔、共有進行の換算式は確認待ち。公式Discordの更新告知・企画チャンネルを参照し、終了企画と現行募集を分けました。'
