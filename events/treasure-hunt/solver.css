@@ -139,31 +139,6 @@
 .treasure-picker-status.is-error {
   color: #a53020
 }
-.treasure-summary {
-  padding: 9px;
-  border-radius: 9px;
-  background: #fff
-}
-.treasure-summary h4 {
-  margin: 0 0 6px;
-  font-size: .9rem
-}
-.treasure-summary ul {
-  display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  gap: 3px 8px;
-  margin: 0 0 7px;
-  padding: 0;
-  list-style: none;
-  font-size: .8rem
-}
-.treasure-summary-empty {
-  grid-column: 1/-1;
-  color: #657382
-}
-.treasure-summary>strong {
-  font-size: .86rem
-}
 .treasure-picker.is-advanced-spec {
   border-color: #bd7300
 }
@@ -322,38 +297,6 @@
   border-color: #c94728;
   background: #fff4ef
 }
-.solver-results {
-  margin-top: 18px;
-  padding-top: 18px;
-  border-top: 1px solid #d8e0e8
-}
-.result-overview {
-  display: grid;
-  grid-template-columns: repeat(3,minmax(0,1fr));
-  gap: 10px
-}
-.result-overview>div {
-  display: grid;
-  gap: 4px;
-  padding: 12px;
-  border-radius: 12px;
-  background: #f4f8fb
-}
-.result-overview span {
-  font-size: .78rem;
-  color: #526170
-}
-.result-overview strong {
-  font-size: 1.25rem
-}
-.estimate-notice {
-  padding: 10px;
-  border-left: 4px solid #bd7300;
-  background: #fff8e5
-}
-.tie-summary {
-  font-weight: 700
-}
 .input-mode-buttons button:focus-visible,.shape-add:focus-visible,.shape-minus:focus-visible,.treasure-cell:focus-visible,.treasure-picker-head button:focus-visible {
   outline: 3px solid #165aa7;
   outline-offset: 2px
@@ -389,9 +332,6 @@
   .treasure-cell {
     border-radius: 5px
   }
-  .result-overview {
-    grid-template-columns: 1fr
-  }
 }
 @media (min-width:520px) and (max-width:760px) {
   .shape-grid {
@@ -424,9 +364,6 @@
     left: 1px;
     top: 1px
   }
-  .result-overview>div {
-    padding: 9px
-  }
   .treasure-picker {
     padding: 9px
   }
@@ -457,79 +394,8 @@
     transition: none
   }
 }
-.treasure-summary-item {
-  grid-column: 1/-1;
-  display: grid;
-  grid-template-columns: minmax(0,1fr) auto;
-  align-items: center;
-  gap: 6px;
-  padding: 7px 0;
-  border-bottom: 1px solid #e6ebf0
-}
-.treasure-placement-controls {
-  display: flex;
-  gap: 5px
-}
-.treasure-place-button,.treasure-rotate-button,.treasure-remove-placement {
-  min-height: 36px;
-  border: 1px solid #aeb9c4;
-  border-radius: 8px;
-  background: #f4f8fb;
-  color: #172432;
-  font: inherit;
-  font-size: .75rem;
-  font-weight: 700
-}
-.treasure-place-button,.treasure-rotate-button {
-  padding: 5px 8px
-}
-.treasure-place-button[aria-pressed=true] {
-  border-color: #1f6646;
-  background: #d9f2e5
-}
-.treasure-place-button[draggable=true] {cursor:grab}
-.placed-treasure-section {
-  margin-top: 9px;
-  padding-top: 8px;
-  border-top: 1px solid #d8e0e8
-}
-.placed-treasure-section h5 {
-  margin: 0 0 5px;
-  font-size: .82rem
-}
-.treasure-summary #placedTreasures {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 4px;
-  margin: 0;
-  padding: 0;
-  list-style: none
-}
-.treasure-summary #placedTreasures li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 6px;
-  font-size: .76rem
-}
-.treasure-remove-placement {
-  width: 36px;
-  padding: 0;
-  color: #a53020
-}
 .treasure-cell[data-state=found] {
   box-shadow: inset 0 0 0 2px rgba(255,255,255,.35)
-}
-@media (max-width:390px) {
-  .treasure-summary-item {
-    grid-template-columns: 1fr
-  }
-  .treasure-placement-controls {
-    width: 100%
-  }
-  .treasure-place-button,.treasure-rotate-button {
-    flex: 1
-  }
 }
 .treasure-cell .cell-mark.is-placed-treasure {
   display: grid;

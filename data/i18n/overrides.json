@@ -1,5 +1,7 @@
 {
   "en": {
+    "は、宝があると確定したマスです。": " indicates a tile confirmed to contain treasure.",
+    "お宝をクリックで個数追加": "Click a treasure to add one",
     "Tierメーカー": "Tier Maker",
     "役割別Tier表を作成・画像保存": "Create role tiers and save images",
     "公式クリエイター素材": "Official creator assets",
@@ -281,6 +283,8 @@
     "最高確率のマスを選ぶ（同率はすべて強調）": "Choose a highest-probability square (all ties are highlighted)"
   },
   "zh-CN": {
+    "は、宝があると確定したマスです。": "表示已确定有宝物的方格。",
+    "お宝をクリックで個数追加": "点击宝物增加数量",
     "Tierメーカー": "Tier制作器",
     "役割別Tier表を作成・画像保存": "制作定位分级表并保存图片",
     "公式クリエイター素材": "官方创作者素材",

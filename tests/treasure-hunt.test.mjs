@@ -253,15 +253,15 @@ test('候補順位は確率降順になる', () => {
   assert.deepEqual([...candidates].sort((a, b) => b.probability - a.probability), candidates);
 });
 
-test('3言語でTOP5一覧・順位番号をなくし計算結果の指標を残す', () => {
+test('3言語で下部の計算結果セクション・指標・TOP5一覧を表示しない', () => {
   for (const page of [html, enHtml, zhHtml]) {
     assert.doesNotMatch(page, /TOP5|id="candidateList"|candidate-list/);
-    for (const id of ['maxProbability', 'validConfigurations', 'remainingPickaxes', 'tieSummary']) {
-      assert.match(page, new RegExp(`id="${id}"`));
+    for (const id of ['solverResults', 'resultTitle', 'maxProbability', 'validConfigurations', 'remainingPickaxes', 'estimateNotice', 'tieSummary']) {
+      assert.doesNotMatch(page, new RegExp(`id="${id}"`));
     }
   }
-  assert.doesNotMatch(js.slice(js.indexOf('function boot()')), /topCandidates|candidateList|selectCandidate|selectedCandidateIndex|rankMark|cell-rank/);
-  assert.doesNotMatch(css, /recommendation-tier-|candidate-list|candidate-button|cell-rank/);
+  assert.doesNotMatch(js.slice(js.indexOf('function boot()')), /topCandidates|candidateList|selectCandidate|selectedCandidateIndex|rankMark|cell-rank|#(?:solverResults|maxProbability|validConfigurations|remainingPickaxes|estimateNotice|tieSummary)/);
+  assert.doesNotMatch(css, /recommendation-tier-|candidate-list|candidate-button|cell-rank|\.solver-results|\.result-overview|\.estimate-notice|\.tie-summary/);
 });
 
 test('2x4一個の盤面は最高40%の4マスを残し33%を最高へ混ぜない', () => {
@@ -308,8 +308,8 @@ test('概算でも対称な最高4マスを浮動小数の加算順で分断し�
 test('3言語で表示切替をなくし確率・おすすめ・自動計算を常時有効にする', () => {
   for (const page of [html, enHtml, zhHtml]) {
     assert.doesNotMatch(page, /id="(?:showProbability|showRecommendations|autoCalculate)"|solver-toggles/);
-    assert.match(page, /id="solverResults"/);
-    assert.match(page, /id="tieSummary"/);
+    assert.match(page, /id="board"/);
+    assert.match(page, /id="solverStatus"/);
   }
   assert.doesNotMatch(js, /model\.preferences\.(?:showProbability|showRecommendations|autoCalculate)/);
   assert.match(js, /buildBoard\(\);\s*scheduleCalculate\(\);\s*\}/);
@@ -367,8 +367,11 @@ test('10種類のcanonical宝形状pickerと宝設定だけのclear操作を公�
   assert.match(html, /id="shapeGrid"/);
   assert.match(html, /id="clearTreasureSettings"/);
   assert.match(html, /宝設定をクリア/);
-  assert.match(html, /id="currentTreasures"/);
-  assert.match(html, /id="treasureTotal"/);
+  for (const page of [html, enHtml, zhHtml]) {
+    assert.doesNotMatch(page, /class="treasure-summary"/);
+    assert.doesNotMatch(page, /id="(?:currentTreasureTitle|currentTreasures|treasureTotal|placedTreasureSection|placedTreasures)"/);
+  }
+  assert.doesNotMatch(js, /currentTreasureTitle|currentTreasures|treasureTotal|placedTreasureSection/);
   assert.match(js, /createShapePreview/);
 });
 
@@ -577,15 +580,14 @@ test('v3の両orientation保存を物理個数を保ってv6へ移行する', ()
   assert.deepEqual(migrated.preferences, { ...saved.preferences, inputMode: 'found', showProbability: true });
 });
 
-test('回転可能表示と3言語のUI文言を備える', () => {
-  assert.match(js, /shape-rotation/);
-  assert.match(js, /回転可/);
-  assert.match(js, /Rotatable/);
-  assert.match(js, /可旋转/);
-  assert.match(html, /長方形のお宝は縦・横どちらの向きも自動で計算します/);
-  assert.match(html, /各形状8個まで/);
-  assert.match(enHtml, /up to eight per shape/);
-  assert.match(zhHtml, /每种形状最多8个/);
+test('形状上の案内を短くし回転可能バッジを表示しない', () => {
+  for (const [page, instruction] of [
+    [html, 'お宝をクリックで個数追加'],
+    [enHtml, 'Click a treasure to add one'],
+    [zhHtml, '点击宝物增加数量']
+  ]) assert.ok(page.includes(`<p class="section-note">${instruction}</p>`));
+  assert.doesNotMatch(js, /shape-rotation|回転可|Rotatable|可旋转/);
+  assert.doesNotMatch(css, /\.shape-rotation/);
   assert.doesNotMatch(html, /各形状3個まで/);
   assert.doesNotMatch(html, /幅×高さの向きは別々に扱います/);
 });
@@ -600,6 +602,7 @@ test('既定宝は2x2と1x3を1個ずつ、宝設定clearは配置済みセル�
 });
 
 test('宝形状を左上マス基準で縦横に配置でき、盤面外を拒否する', () => {
+  assert.deepEqual(placementCells(7, '1x1', 0, false)?.cells, [0]);
   assert.deepEqual(placementCells(7, '1x2', 0, false)?.cells, [0, 7]);
   assert.deepEqual(placementCells(7, '1x2', 0, true)?.cells, [0, 1]);
   assert.deepEqual(placementCells(7, '3x4', 0, false)?.cells, [0, 1, 2, 7, 8, 9, 14, 15, 16, 21, 22, 23]);
@@ -671,13 +674,12 @@ test('配置した宝はその形と位置を固定して残りの確率を計�
   assert.ok(Math.abs(result.probabilityMass - 4) < 1e-9);
 });
 
-test('配置ボタンはドラッグ・ドロップとタップ操作の両方を備える', () => {
-  assert.match(js, /place\.draggable =/);
-  assert.match(js, /dragstart/);
-  assert.match(js, /dragover/);
-  assert.match(js, /drop/);
-  assert.match(js, /placeSelectedTreasure/);
-  assert.match(css, /treasure-place-button/);
+test('現在の宝の旧配置ボタンをなくし発見形選択から入力する', () => {
+  assert.doesNotMatch(js, /treasure-place-button|treasure-rotate-button/);
+  assert.doesNotMatch(css, /treasure-place-button|treasure-rotate-button/);
+  assert.match(js, /found-shape-options/);
+  assert.match(js, /mode: 'cells'/);
+  assert.match(js, /selectTreasureCell\(index\)/);
 });
 
 test('配置済みの緑マスはチェックだけでなく宝形状名を直接表示する', () => {
@@ -697,10 +699,11 @@ test('発見済みマス右上のマイナスから単独マスまたは宝全�
   assert.match(css, /top:3px;right:3px/);
 });
 
-test('発見済みモードから宝形状を選び盤面へ配置できる', () => {
+test('発見済みモードは宝形状から入力し1マスだけの手動選択を表示しない', () => {
   assert.match(js, /foundShapeChooser/);
   assert.match(js, /発見した宝の形/);
-  assert.match(js, /1マスだけ/);
+  assert.doesNotMatch(js, /1マスだけ|Single tile|仅单格|foundShapeText\.manual/);
+  assert.doesNotMatch(js, /(?:const|let) manual\s*=|options\.append\(manual\)/);
   assert.match(js, /model\.preferences\.inputMode !== 'found'/);
   assert.match(js, /found-shape-placed/);
   assert.match(js, /found-shape-remove/);

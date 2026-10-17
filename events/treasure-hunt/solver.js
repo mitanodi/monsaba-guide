@@ -602,25 +602,16 @@ function boot() {
   const locale = document.documentElement.lang === 'en' ? 'en' : document.documentElement.lang === 'zh-CN' ? 'zh-CN' : 'ja';
   const pickerText = {
     ja: {
-      rotatable: '回転可',
-      empty: '宝が選ばれていません',
-      total: (count) => `合計：${count}個`,
       add: (shape, count) => `${shape}の宝を1個追加。現在${count}個`,
       remove: (shape) => `${shape}の宝を1個減らす`,
       maxReached: `この形状は最大${MAX_SHAPE_COUNT}個まで設定できます`
     },
     en: {
-      rotatable: 'Rotatable',
-      empty: 'No treasures selected',
-      total: (count) => `Total: ${count}`,
       add: (shape, count) => `Add one ${shape} treasure. Currently ${count}`,
       remove: (shape) => `Remove one ${shape} treasure`,
       maxReached: `You can set up to ${MAX_SHAPE_COUNT} treasures of this shape`
     },
     'zh-CN': {
-      rotatable: '可旋转',
-      empty: '尚未选择宝物',
-      total: (count) => `合计：${count}个`,
       add: (shape, count) => `添加1个${shape}宝物。当前${count}个`,
       remove: (shape) => `减少1个${shape}宝物`,
       maxReached: `每种形状最多可设置${MAX_SHAPE_COUNT}个宝物`
@@ -633,8 +624,6 @@ function boot() {
       vertical: '縦 ↕️',
       horizontal: '横 ↔️',
       remove: '配置を取り消す',
-      placedTitle: '盤面に配置した宝',
-      empty: 'まだ配置していません',
       selected: (shape) => `${shape}を選択中。盤面の左上マスをタップするか、ドラッグしてください。`,
       placed: (shape) => `${shape}を盤面へ配置しました`,
       invalid: 'その位置には配置できません。盤面外・空白・他の宝との重なりを確認してください。'
@@ -645,8 +634,6 @@ function boot() {
       vertical: 'Vertical ↕️',
       horizontal: 'Horizontal ↔️',
       remove: 'Remove placement',
-      placedTitle: 'Treasures placed on the board',
-      empty: 'No treasures placed yet',
       selected: (shape) => `${shape} selected. Tap the top-left board tile or drag it onto the board.`,
       placed: (shape) => `${shape} placed on the board`,
       invalid: 'Cannot place it there. Check the board edge, empty tiles, and overlaps.'
@@ -657,8 +644,6 @@ function boot() {
       vertical: '纵向 ↕️',
       horizontal: '横向 ↔️',
       remove: '取消放置',
-      placedTitle: '已放置到棋盘的宝物',
-      empty: '尚未放置宝物',
       selected: (shape) => `已选择${shape}。点击棋盘左上格，或将其拖到棋盘上。`,
       placed: (shape) => `已将${shape}放置到棋盘`,
       invalid: '无法放置在该位置。请检查棋盘边界、空白格与宝物重叠。'
@@ -667,7 +652,6 @@ function boot() {
   const foundShapeText = {
     ja: {
       title: '発見した宝の形',
-      manual: '1マスだけ',
       help: '形を選び、宝のマスを1つずつタップしてください。',
       placed: '登録済み',
       remove: 'この発見済みの宝を取り消す',
@@ -676,7 +660,6 @@ function boot() {
     },
     en: {
       title: 'Found treasure shape',
-      manual: 'Single tile',
       help: 'Choose a shape, then tap each treasure tile one by one.',
       placed: 'Registered',
       remove: 'Remove this found treasure',
@@ -685,7 +668,6 @@ function boot() {
     },
     'zh-CN': {
       title: '已找到的宝物形状',
-      manual: '仅单格',
       help: '选择形状后，逐格点击宝物所在方格。',
       placed: '已登记',
       remove: '取消这个已找到的宝物',
@@ -699,12 +681,9 @@ function boot() {
       bestCell: '最高確率',
       calculating: '計算中…',
       exactTitle: '正確に計算しました',
-      exactValue: (count) => `${count.toLocaleString('ja-JP')}通り`,
       exactDetail: (count) => `${count.toLocaleString('ja-JP')}件の有効配置をすべて数えました。`,
       approximateTitle: '偏りを抑えた概算です',
-      approximateValue: (count) => `${count.toLocaleString('ja-JP')}回サンプル（概算）`,
       approximateDetail: (count) => `候補数が非常に多いため、固定seedの分岐重み付きサンプリングを${count.toLocaleString('ja-JP')}回行いました。`,
-      approximateNotice: '探索順の先頭候補は使用せず、決定的な分岐重み付きサンプリングと盤面対称性で偏りを抑えています。',
       calculatingDetail: '入力条件に合う宝配置を確認しています。'
     },
     en: {
@@ -712,12 +691,9 @@ function boot() {
       bestCell: 'Highest probability',
       calculating: 'Calculating…',
       exactTitle: 'Calculated exactly',
-      exactValue: (count) => `${count.toLocaleString('en-US')} layouts`,
       exactDetail: (count) => `Counted all ${count.toLocaleString('en-US')} valid layouts.`,
       approximateTitle: 'Bias-reduced estimate',
-      approximateValue: (count) => `${count.toLocaleString('en-US')} samples (estimate)`,
       approximateDetail: (count) => `The layout space is very large, so ${count.toLocaleString('en-US')} deterministic branch-weighted samples were used.`,
-      approximateNotice: 'The solver does not use the first layouts in traversal order. It reduces bias with deterministic branch weighting and board symmetries.',
       calculatingDetail: 'Checking treasure layouts that match the board.'
     },
     'zh-CN': {
@@ -725,12 +701,9 @@ function boot() {
       bestCell: '最高概率',
       calculating: '计算中…',
       exactTitle: '已精确计算',
-      exactValue: (count) => `${count.toLocaleString('zh-CN')}种布局`,
       exactDetail: (count) => `已统计全部${count.toLocaleString('zh-CN')}种有效布局。`,
       approximateTitle: '已使用降低偏差的估算',
-      approximateValue: (count) => `${count.toLocaleString('zh-CN')}次采样（估算）`,
       approximateDetail: (count) => `布局数量非常大，因此使用了${count.toLocaleString('zh-CN')}次固定种子的分支加权采样。`,
-      approximateNotice: '求解器不会使用遍历顺序中的前若干布局，而是通过固定种子的分支加权采样与棋盘对称性来降低偏差。',
       calculatingDetail: '正在检查符合棋盘条件的宝物布局。'
     }
   }[locale];
@@ -816,6 +789,10 @@ function boot() {
     renderFoundShapeChooser();
   }
   function renderFoundShapeChooser() {
+    if (selectedPlacement && model.shapeCounts[selectedPlacement.key] <= model.placedTreasures.filter((placement) => placement.key === selectedPlacement.key).length) {
+      selectedPlacement = null;
+      pendingPlacementCells = [];
+    }
     const palette = $('.input-palette');
     if (!palette)
       return;
@@ -832,17 +809,6 @@ function boot() {
     chooser.querySelector('small').textContent = foundShapeText.help;
     const options = chooser.querySelector('.found-shape-options');
     options.innerHTML = '';
-    const manual = document.createElement('button');
-    manual.type = 'button';
-    manual.textContent = foundShapeText.manual;
-    manual.setAttribute('aria-pressed', String(!selectedPlacement));
-    manual.addEventListener('click', () => {
-      selectedPlacement = null;
-      pendingPlacementCells = [];
-      buildBoard();
-      renderFoundShapeChooser();
-    });
-    options.append(manual);
     SHAPE_KEYS.filter((key) => model.shapeCounts[key] > model.placedTreasures.filter((placement) => placement.key === key).length).forEach((key) => {
       const button = document.createElement('button');
       button.type = 'button';
@@ -900,14 +866,13 @@ function boot() {
   }
   function renderShapePicker() {
     const grid = $('#shapeGrid');
-    const list = $('#currentTreasures');
-    if (!grid || !list)
+    if (!grid)
       return;
     for (const key of SHAPE_KEYS) {
       const [width, height] = key.split('x').map(Number);
       const count = model.shapeCounts[key];
       const placedCount = model.placedTreasures.filter((placement) => placement.key === key).length;
-      const shapeLabel = `${width}×${height}${width !== height ? ` (${pickerText.rotatable})` : ''}`;
+      const shapeLabel = `${width}×${height}`;
       const countText = locale === 'en' ? `${count}` : locale === 'zh-CN' ? `${count}个` : `${count}個`;
       const existing = grid.querySelector(`[data-shape="${key}"]`);
       if (existing) {
@@ -930,12 +895,6 @@ function boot() {
       add.setAttribute('aria-label', `${width}×${height}の宝を1個追加。現在${count}個`);
       const label = document.createElement('strong');
       label.textContent = `${width}×${height}`;
-      if (width !== height) {
-        const rotation = document.createElement('small');
-        rotation.className = 'shape-rotation';
-        rotation.textContent = `↻ ${pickerText.rotatable}`;
-        label.append(rotation);
-      }
       const countLabel = document.createElement('span');
       countLabel.className = 'shape-count';
       countLabel.textContent = countText;
@@ -955,93 +914,6 @@ function boot() {
       grid.append(option);
     }
 
-    list.innerHTML = '';
-    const selected = SHAPE_KEYS.filter((key) => model.shapeCounts[key] > 0);
-    if (!selected.length) {
-      const empty = document.createElement('li');
-      empty.className = 'treasure-summary-empty';
-      empty.textContent = pickerText.empty;
-      list.append(empty);
-    } else {
-      selected.forEach((key) => {
-        const [width, height] = key.split('x');
-        const placedCount = model.placedTreasures.filter((placement) => placement.key === key).length;
-        const item = document.createElement('li');
-        item.className = 'treasure-summary-item';
-        const label = document.createElement('span');
-        label.textContent = `${width}×${height}${width !== height ? `（${pickerText.rotatable}）` : ''} ×${model.shapeCounts[key]}　${placementText.found} ${placedCount}/${model.shapeCounts[key]}`;
-        const controls = document.createElement('span');
-        controls.className = 'treasure-placement-controls';
-        const place = document.createElement('button');
-        place.type = 'button';
-        place.className = 'treasure-place-button';
-        place.dataset.placeShape = key;
-        place.draggable = placedCount < model.shapeCounts[key];
-        place.disabled = placedCount >= model.shapeCounts[key];
-        place.textContent = placementText.place;
-        place.setAttribute('aria-pressed', String(selectedPlacement?.key === key));
-        place.addEventListener('click', () => selectPlacement(key));
-        place.addEventListener('dragstart', (event) => {
-          selectedPlacement = { key, rotated: placementRotation[key], mode: 'quick' };
-          event.dataTransfer?.setData('text/plain', key);
-          if (event.dataTransfer)
-            event.dataTransfer.effectAllowed = 'move';
-          showPickerStatus(placementText.selected(`${width}×${height}`));
-        });
-        controls.append(place);
-        if (width !== height) {
-          const rotate = document.createElement('button');
-          rotate.type = 'button';
-          rotate.className = 'treasure-rotate-button';
-          rotate.dataset.rotateShape = key;
-          rotate.textContent = placementRotation[key] ? placementText.horizontal : placementText.vertical;
-          rotate.addEventListener('click', () => {
-            placementRotation[key] = !placementRotation[key];
-            if (selectedPlacement?.key === key)
-              selectedPlacement.rotated = placementRotation[key];
-            renderShapePicker();
-            renderFoundShapeChooser();
-          });
-          controls.append(rotate);
-        }
-        item.append(label, controls);
-        list.append(item);
-      });
-    }
-    let placedSection = $('#placedTreasureSection');
-    if (!placedSection) {
-      placedSection = document.createElement('section');
-      placedSection.id = 'placedTreasureSection';
-      placedSection.className = 'placed-treasure-section';
-      placedSection.innerHTML = '<h5></h5><ul id="placedTreasures"></ul>';
-      list.after(placedSection);
-    }
-    placedSection.querySelector('h5').textContent = placementText.placedTitle;
-    const placedList = placedSection.querySelector('#placedTreasures');
-    placedList.innerHTML = '';
-    if (!model.placedTreasures.length) {
-      const empty = document.createElement('li');
-      empty.className = 'treasure-summary-empty';
-      empty.textContent = placementText.empty;
-      placedList.append(empty);
-    } else {
-      model.placedTreasures.forEach((placement) => {
-        const item = document.createElement('li');
-        const position = coordinate(placement.startIndex);
-        const label = document.createElement('span');
-        label.textContent = `${placement.width}×${placement.height}・${position}`;
-        const remove = document.createElement('button');
-        remove.type = 'button';
-        remove.className = 'treasure-remove-placement';
-        remove.textContent = '×';
-        remove.setAttribute('aria-label', `${placement.width}×${placement.height} ${position}：${placementText.remove}`);
-        remove.addEventListener('click', () => removePlacedTreasure(placement.id));
-        item.append(label, remove);
-        placedList.append(item);
-      });
-    }
-    const total = SHAPE_KEYS.reduce((sum, key) => sum + model.shapeCounts[key], 0);
-    $('#treasureTotal').textContent = pickerText.total(total);
     $('#treasurePicker').classList.toggle('is-advanced-spec', model.shapeMode === 'advanced');
   }
   function selectPlacement(key) {
@@ -1187,6 +1059,7 @@ function boot() {
     clearResult();
     buildBoard();
     renderShapePicker();
+    renderFoundShapeChooser();
     showPickerStatus(message);
     scheduleCalculate();
   }
@@ -1257,6 +1130,10 @@ function boot() {
     });
   }
   function setCell(index, state) {
+    if (state === 'found') {
+      showPickerStatus(foundShapeText.help, true);
+      return;
+    }
     if (model.placedTreasures.some((placement) => placement.cells.includes(index))) {
       showPickerStatus('配置済みの宝は「配置を取り消す」で外してください。', true);
       return;
@@ -1272,7 +1149,6 @@ function boot() {
   }
   function clearResult() {
     lastResult = null;
-    $('#solverResults').hidden = true;
   }
   function showStatus(title, text, error = false) {
     const status = $('#solverStatus');
@@ -1308,17 +1184,6 @@ function boot() {
     lastResult = result;
     buildBoard();
     $('#undo').classList.remove('is-attention');
-    $('#solverResults').hidden = false;
-    $('#maxProbability').textContent = result.bestIndices.length ? `${(result.bestProbability * 100).toFixed(1)}%` : '—';
-    $('#validConfigurations').textContent = result.approximate
-      ? resultText.approximateValue(result.sampleSize)
-      : resultText.exactValue(result.configurations);
-    $('#remainingPickaxes').textContent = result.remainingPickaxes == null ? '—' : `${result.remainingPickaxes}本`;
-    $('#estimateNotice').hidden = !result.approximate;
-    $('#estimateNotice').textContent = resultText.approximateNotice;
-    $('#tieSummary').textContent = result.bestIndices.length > 1
-      ? `同率最高 ${result.bestIndices.length}マス：${result.bestIndices.map(coordinate).join('、')}`
-      : result.bestIndices.length === 1 ? `最高候補：${coordinate(result.bestIndices[0])}` : '未確認マスがありません。';
     showStatus(
       result.approximate ? resultText.approximateTitle : resultText.exactTitle,
       result.approximate
@@ -1421,9 +1286,13 @@ function boot() {
     model.size = Number(event.target.value);
     model.cells = Array(model.size * model.size).fill('unknown');
     model.placedTreasures = [];
+    selectedPlacement = null;
+    pendingPlacementCells = [];
     save();
     clearResult();
     buildBoard();
+    renderShapePicker();
+    renderFoundShapeChooser();
     scheduleCalculate();
   });
   $('#clearTreasureSettings').addEventListener('click', () => {
