@@ -375,6 +375,18 @@ test('10種類のcanonical宝形状pickerと宝設定だけのclear操作を公�
   assert.match(js, /createShapePreview/);
 });
 
+test('宝カードは上部タップと − 個数 + ステッパーで個数を増減する', () => {
+  assert.match(js, /stepper\.append\(minus, countLabel, plus\)/);
+  assert.match(js, /option\.append\(add, stepper\)/);
+  assert.match(js, /add\.addEventListener\('click', \(\) => changeShapeCount\(key, 1\)\)/);
+  assert.match(js, /plus\.addEventListener\('click', \(\) => changeShapeCount\(key, 1\)\)/);
+  assert.match(js, /minus\.addEventListener\('click', \(\) => changeShapeCount\(key, -1\)\)/);
+  assert.match(js, /plus\.disabled = count >= MAX_SHAPE_COUNT/);
+  assert.match(js, /minus\.disabled = count === 0 \|\| count <= placedCount/);
+  assert.match(css, /\.shape-stepper\s*\{[^}]*grid-template-columns/);
+  assert.match(css, /\.shape-minus,\.shape-plus\s*\{[^}]*min-height: 44px/);
+});
+
 for (const key of SHAPE_KEYS) {
   test(`${key}はカード操作で最大8個まで追加でき、上限超過と負数を防ぐ`, () => {
     let counts = normalizeShapeCounts();
