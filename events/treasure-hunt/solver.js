@@ -880,6 +880,8 @@ function boot() {
         existing.classList.toggle('is-selected', count > 0);
         existing.querySelector('.shape-count').textContent = countText;
         existing.querySelector('.shape-add').setAttribute('aria-label', pickerText.add(shapeLabel, count));
+        existing.querySelector('.shape-plus').setAttribute('aria-label', pickerText.add(shapeLabel, count));
+        existing.querySelector('.shape-plus').disabled = count >= MAX_SHAPE_COUNT;
         existing.querySelector('.shape-minus').disabled = count === 0 || count <= placedCount;
         continue;
       }
@@ -892,16 +894,15 @@ function boot() {
       add.type = 'button';
       add.className = 'shape-add';
       add.dataset.shapeAdd = key;
-      add.setAttribute('aria-label', `${width}×${height}の宝を1個追加。現在${count}個`);
       const label = document.createElement('strong');
-      label.textContent = `${width}×${height}`;
-      const countLabel = document.createElement('span');
-      countLabel.className = 'shape-count';
-      countLabel.textContent = countText;
-      add.append(createShapePreview(width, height), label, countLabel);
+      label.textContent = shapeLabel;
+      add.append(createShapePreview(width, height), label);
       add.setAttribute('aria-label', pickerText.add(shapeLabel, count));
       add.addEventListener('click', () => changeShapeCount(key, 1));
 
+      // Stepper: − [count] +. The card body above also adds one as a shortcut.
+      const stepper = document.createElement('div');
+      stepper.className = 'shape-stepper';
       const minus = document.createElement('button');
       minus.type = 'button';
       minus.className = 'shape-minus';
@@ -910,7 +911,19 @@ function boot() {
       minus.setAttribute('aria-label', pickerText.remove(shapeLabel));
       minus.textContent = '−';
       minus.addEventListener('click', () => changeShapeCount(key, -1));
-      option.append(add, minus);
+      const countLabel = document.createElement('span');
+      countLabel.className = 'shape-count';
+      countLabel.textContent = countText;
+      const plus = document.createElement('button');
+      plus.type = 'button';
+      plus.className = 'shape-plus';
+      plus.dataset.shapePlus = key;
+      plus.disabled = count >= MAX_SHAPE_COUNT;
+      plus.setAttribute('aria-label', pickerText.add(shapeLabel, count));
+      plus.textContent = '+';
+      plus.addEventListener('click', () => changeShapeCount(key, 1));
+      stepper.append(minus, countLabel, plus);
+      option.append(add, stepper);
       grid.append(option);
     }
 

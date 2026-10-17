@@ -64,7 +64,7 @@
 }
 .shape-option {
   display: grid;
-  grid-template-columns: minmax(0,1fr) 44px;
+  grid-template-rows: minmax(0,1fr) auto;
   overflow: hidden;
   min-width: 0;
   border: 1px solid #aeb9c4;
@@ -76,7 +76,7 @@
   box-shadow: 0 0 0 2px #d9f2e5;
   background: #f4fff9
 }
-.shape-add,.shape-minus {
+.shape-add,.shape-minus,.shape-plus {
   border: 0;
   color: #172432;
   font: inherit;
@@ -87,30 +87,40 @@
   place-items: center;
   gap: 3px;
   min-width: 0;
-  min-height: 94px;
-  padding: 7px 3px;
+  min-height: 72px;
+  padding: 7px 3px 5px;
   background: 0 0
 }
 .shape-add strong {
   font-size: .86rem
 }
+.shape-stepper {
+  display: grid;
+  grid-template-columns: minmax(32px,44px) minmax(0,1fr) minmax(32px,44px);
+  border-top: 1px solid #d8e0e8
+}
 .shape-count {
+  display: grid;
+  place-items: center;
+  min-width: 0;
   color: #657382;
-  font-size: .76rem;
-  font-weight: 700
+  font-size: .9rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums
 }
 .is-selected .shape-count {
   color: #1f6646
 }
-.shape-minus {
-  min-width: 44px;
+.shape-minus,.shape-plus {
   min-height: 44px;
-  border-left: 1px solid #d8e0e8;
   background: #edf2f7;
   font-size: 1.35rem;
   font-weight: 800
 }
-.shape-minus:disabled {
+.shape-plus {
+  color: #1f6646
+}
+.shape-minus:disabled,.shape-plus:disabled {
   color: #9aa5af;
   background: #f6f8fa
 }
@@ -297,7 +307,7 @@
   border-color: #c94728;
   background: #fff4ef
 }
-.input-mode-buttons button:focus-visible,.shape-add:focus-visible,.shape-minus:focus-visible,.treasure-cell:focus-visible,.treasure-picker-head button:focus-visible {
+.input-mode-buttons button:focus-visible,.shape-add:focus-visible,.shape-minus:focus-visible,.shape-plus:focus-visible,.treasure-cell:focus-visible,.treasure-picker-head button:focus-visible {
   outline: 3px solid #165aa7;
   outline-offset: 2px
 }
@@ -371,7 +381,7 @@
     gap: 6px
   }
   .shape-add {
-    min-height: 90px
+    min-height: 68px
   }
 }
 @media (max-width:340px) {
