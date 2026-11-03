@@ -1,4 +1,4 @@
-import { decodeTeam, stageImageFor, FREE_SLOT_KIND } from '../team-core.js';
+import { decodeTeam, stageImageFor, FREE_SLOT_KIND, boardColumns, boardSlotCount } from '../team-core.js';
 
 const $ = (selector) => document.querySelector(selector);
 const locale = document.body.dataset.locale || 'ja';
@@ -24,6 +24,41 @@ const tagLabel = (tag) => {
   return locale === 'ja' || index < 0 ? tag : TAG_LABELS[locale][index]
 };
 const DRAFT_KEY = 'monsabaCommunityDraft:v1';
+const isChapterPage = location.pathname.includes('/community/chapters/');
+const isDojoPage = location.pathname.includes('/community/dojo/');
+const isScopedPage = isChapterPage || isDojoPage;
+let activeDojoAttribute = 'fire';
+let activeFloor = 1;
+const DOJO_ATTRIBUTES = ['fire', 'grass', 'water', 'thunder', 'rock'];
+const dojoAttributeLabel = (attribute) => ({ ja: ['炎道場', '草道場', '水道場', '雷道場', '岩道場'], en: ['Fire Dojo', 'Grass Dojo', 'Water Dojo', 'Thunder Dojo', 'Rock Dojo'], 'zh-CN': ['火道场', '草道场', '水道场', '雷道场', '岩道场'] }[locale] || [])[DOJO_ATTRIBUTES.indexOf(attribute)] || attribute;
+const floorLabel = (floor) => locale === 'en' ? `Floor ${floor}` : `${floor}${locale === 'zh-CN' ? '层' : '階'}`;
+const dojoRoute = (attribute = activeDojoAttribute, floor = activeFloor) => `${prefix}/team-builder/community/dojo/?attribute=${attribute}&floor=${floor}`;
+let activeChapter = 1;
+const chapterLabel = (chapter) => `${locale === 'ja' ? 'チャプター' : locale === 'en' ? 'Chapter' : '章节'} ${chapter}`;
+const isNormal = (build) => build.mode === 'normal';
+const isDojo = (build) => build.mode === 'dojo';
+const isSinglePlayer = (build) => isNormal(build) || isDojo(build);
+const buildListRoute = (build) => isNormal(build) ? chapterRoute(build.chapter) : isDojo(build) ? dojoRoute(build.dojoAttribute, build.floor) : `${prefix}/team-builder/community/`;
+const chapterRoute = (chapter = activeChapter) => `${prefix}/team-builder/community/chapters/?chapter=${chapter}`;
+const currentStageFilter = () => chapterNumber($('#community-filters')?.elements.stage?.value);
+const withStageFilter = (route) => {
+  const stage = currentStageFilter();
+  return stage ? `${route}&stage=${stage}` : route;
+};
+const builderRoute = () => isChapterPage ? withStageFilter(`${prefix}/team-builder/?mode=normal&chapter=${activeChapter}`) : isDojoPage ? withStageFilter(`${prefix}/team-builder/?mode=dojo&attribute=${activeDojoAttribute}&floor=${activeFloor}`) : `${prefix}/team-builder/`;
+const refreshBuilderLinks = () => document.querySelectorAll('[data-chapter-builder]').forEach((link) => { link.href = builderRoute() });
+function syncBoardUrl() {
+  if (!isScopedPage)
+    return;
+  const url = new URL(isDojoPage ? dojoRoute() : chapterRoute(), location.origin);
+  const stage = currentStageFilter();
+  if (stage)
+    url.searchParams.set('stage', String(stage));
+  history.replaceState(null, '', url);
+  refreshBuilderLinks();
+}
+const chapterNumber = (value) => /^\d+$/.test(String(value || '')) && Number(value) >= 1 && Number(value) <= 9999 ? Number(value) : null;
+const stageLabel = (build) => isDojo(build) ? `${dojoAttributeLabel(build.dojoAttribute)} · ${floorLabel(build.floor)}${build.stageFrom ? ` · ${build.stageFrom}${build.stageTo && build.stageTo !== build.stageFrom ? `〜${build.stageTo}` : ''}` : ''}` : build.stageFrom ? `${build.chapter}-${build.stageFrom}${build.stageTo && build.stageTo !== build.stageFrom ? `〜${build.chapter}-${build.stageTo}` : ''}` : chapterLabel(build.chapter);
 
 const OWNER_KEY = 'monsabaCommunityOwners:v1';
 const COPY = {
@@ -101,6 +136,7 @@ let families = [];
 let chips = [];
 let images = new Map();
 let nextCursor = null;
+let listRequest = 0;
 let currentBuild = null;
 const owners = () => {
   try {
@@ -160,7 +196,9 @@ function boardPreview(code, large = false) {
     board.textContent = COPY.api;
     return board
   }
-  for (const slot of team.slots) {
+  board.style.gridTemplateColumns = `repeat(${boardColumns(team)},minmax(0,1fr))`;
+  board.classList.toggle('is-normal', team.mode !== 'zombie');
+  for (const slot of team.slots.slice(0, boardSlotCount(team))) {
     const cell = node('div', `community-cell${slot ? ` is-p${slot.playerId}` : ''}${slot?.kind === FREE_SLOT_KIND ? ' is-flex' : ''}`);
     if (slot?.kind === FREE_SLOT_KIND) {
       cell.append(node('strong', 'flex-symbol', '?'), node('small', 'flex-label', locale === 'en' ? 'Flex slot' : locale === 'zh-CN' ? '自由位置' : '自由枠'), node('span', 'p', `P${slot.playerId}`));
@@ -178,9 +216,9 @@ function boardPreview(code, large = false) {
         img.alt = '';
         cell.append(img)
       }
-      for (const [className, value] of [['p', `P${slot.playerId}`], ['lv', `Lv${slot.level}`], ['tier', `T${slot.stage}`]])
+      for (const [className, value] of team.mode === 'zombie' ? [['p', `P${slot.playerId}`], ['lv', `Lv${slot.level}`], ['tier', `T${slot.stage}`]] : [['tier', `T${slot.stage}`]])
         cell.append(node('span', className, value));
-      cell.setAttribute('aria-label', `${family?.evolutions?.find((item) => Number(item.stage) === Number(slot.stage))?.name || slot.familyId} P${slot.playerId} T${slot.stage} Lv${slot.level}`)
+      cell.setAttribute('aria-label', `${family?.evolutions?.find((item) => Number(item.stage) === Number(slot.stage))?.name || slot.familyId} T${slot.stage}${team.mode === 'zombie' ? ` P${slot.playerId} Lv${slot.level}` : ''}`)
     } else cell.setAttribute('aria-label', locale === 'en' ? 'Empty' : locale === 'zh-CN' ? '空位' : '空き');
     cell.setAttribute('role', 'img');
     board.append(cell)
@@ -204,8 +242,7 @@ function buildCard(build) {
   card.append(head);
   const meta = node('div', 'community-meta');
   for (const value of [
-    `Season 1`,
-    `${locale === 'en' ? 'Difficulty' : locale === 'zh-CN' ? '难度' : '難易度'} ${build.difficulty}`,
+    ...(isSinglePlayer(build) ? [stageLabel(build)] : [`Season 1`, `${locale === 'en' ? 'Difficulty' : locale === 'zh-CN' ? '难度' : '難易度'} ${build.difficulty}`]),
     resultLabel(build),
     COPY.reported
   ])
@@ -214,7 +251,7 @@ function buildCard(build) {
   card.append(boardPreview(build.formationCode));
   const counts = node('div', 'community-counts');
   for (const value of [
-    `P1 ${build.playerCounts[1]} / P2 ${build.playerCounts[2]}`,
+    isSinglePlayer(build) ? `${COPY.p} ${build.playerCounts[1]} / ${isDojo(build) ? 5 : 15}` : `P1 ${build.playerCounts[1]} / P2 ${build.playerCounts[2]}`,
     `${COPY.helpful} ${build.helpfulCount}`,
     `${COPY.trial} ${build.trialCount}`,
     `${COPY.clear} ${build.clearReportCount}`
@@ -248,56 +285,201 @@ function filterQuery(cursor = '') {
   for (const [key, value] of [...params])
     if (!value)
       params.delete(key);
+  if (isChapterPage) {
+    params.set('mode', 'normal');
+    params.set('chapter', String(activeChapter));
+  }
+  if (isDojoPage) {
+    params.set('mode', 'dojo');
+    params.set('dojoAttribute', activeDojoAttribute);
+    params.set('floor', String(activeFloor));
+  }
   if (cursor)
     params.set('cursor', cursor);
   const value = params.toString();
   return value ? `?${value}` : '';
 }
 async function loadList(append = false) {
+  const request = ++listRequest;
   const list = $('#community-list');
+  const more = $('#community-more');
+  more.disabled = true;
   if (!append)
-    list.replaceChildren(node('p', '', '読み込み中…'));
+    list.replaceChildren(node('p', '', locale === 'en' ? 'Loading…' : locale === 'zh-CN' ? '读取中…' : '読み込み中…'));
   try {
     const data = await api(filterQuery(append ? nextCursor : ''));
+    if (request !== listRequest)
+      return;
     if (!append)
       list.replaceChildren();
     if (!data.builds.length && !append) {
       const empty = node('div', 'community-empty');
-      empty.append(node('p', '', COPY.empty));
+      empty.append(node('p', '', data.nextCursor ? (locale === 'en' ? 'Load more to continue searching for matching builds.' : locale === 'zh-CN' ? '请继续加载以查找符合条件的阵容。' : 'さらに読み込んで、条件に合う編成を続けて探せます。') : COPY.empty));
       const link = document.createElement('a');
       link.className = 'button';
-      link.href = `${prefix}/team-builder/`;
+      link.href = builderRoute();
       link.textContent = COPY.create;
       empty.append(link);
       list.append(empty)
-    } else data.builds.forEach((build) => list.append(buildCard(build)));
+    } else {
+      if (data.builds.length)
+        list.querySelector('.community-empty')?.remove();
+      data.builds.forEach((build) => list.append(buildCard(build)));
+      if (!data.nextCursor && !list.querySelector('.community-card')) {
+        const message = list.querySelector('.community-empty p');
+        if (message) message.textContent = COPY.empty;
+      }
+    }
     nextCursor = data.nextCursor;
     $('#community-more').hidden = !nextCursor
   } catch (error) {
-    list.replaceChildren(node('p', 'tool-status is-error', error.message))
+    if (request === listRequest)
+      list.replaceChildren(node('p', 'tool-status is-error', error.message));
+  } finally {
+    if (request === listRequest)
+      more.disabled = false;
   }
+}
+function setupDojo() {
+  const params = new URL(location.href).searchParams;
+  let draftContext = {};
+  let draftAttribute = '';
+  try {
+    const draft = decodeTeam(localStorage.getItem(DRAFT_KEY) || '', families, chips);
+    if (draft.mode === 'dojo') {
+      draftAttribute = draft.context.dojoAttribute;
+      draftContext = draft.context;
+    }
+  } catch { }
+  activeDojoAttribute = [params.get('attribute'), draftContext.dojoAttribute, draftAttribute].find((value) => DOJO_ATTRIBUTES.includes(value)) || 'fire';
+  activeFloor = chapterNumber(params.get('floor')) || chapterNumber(draftContext.dojoFloor) || 1;
+  const form = $('#community-chapter-form');
+  form.elements.floor.value = activeFloor;
+  form.elements.attribute.value = activeDojoAttribute;
+  $('#community-chapter-title').textContent = `${dojoAttributeLabel(activeDojoAttribute)} · ${floorLabel(activeFloor)}`;
+  $('#community-list-title').textContent = `${dojoAttributeLabel(activeDojoAttribute)} · ${floorLabel(activeFloor)} · ${locale === 'en' ? 'Player builds' : locale === 'zh-CN' ? '玩家阵容' : '投稿された編成'}`;
+  $('#community-chapter-prev').href = dojoRoute(activeDojoAttribute, Math.max(1, activeFloor - 1));
+  $('#community-chapter-prev').hidden = activeFloor === 1;
+  $('#community-chapter-next').href = dojoRoute(activeDojoAttribute, Math.min(9999, activeFloor + 1));
+  $('#community-chapter-next').hidden = activeFloor === 9999;
+  refreshBuilderLinks();
+  const tabs = $('#community-dojo-attributes');
+  DOJO_ATTRIBUTES.forEach((attribute) => {
+    const link = document.createElement('a');
+    link.href = dojoRoute(attribute, activeFloor);
+    link.textContent = dojoAttributeLabel(attribute);
+    if (attribute === activeDojoAttribute)
+      link.setAttribute('aria-current', 'page');
+    tabs.append(link);
+  });
+  const publish = $('#community-publish-form');
+  publish.elements.dojoAttribute.value = activeDojoAttribute;
+  publish.elements.floor.value = activeFloor;
+  const sameDraftScope = draftContext.dojoAttribute === activeDojoAttribute && chapterNumber(draftContext.dojoFloor) === activeFloor;
+  const stage = chapterNumber(params.get('stage')) || (sameDraftScope ? chapterNumber(draftContext.dojoStage) : null);
+  if (stage) {
+    $('#community-filters').elements.stage.value = stage;
+    publish.elements.stageFrom.value = stage;
+    publish.elements.stageTo.value = stage;
+  }
+  refreshBuilderLinks();
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const floor = chapterNumber(form.elements.floor.value);
+    const attribute = form.elements.attribute.value;
+    if (floor && DOJO_ATTRIBUTES.includes(attribute))
+      location.href = dojoRoute(attribute, floor);
+  });
+  $('#community-chapter-copy').addEventListener('click', async () => {
+    const status = $('#community-chapter-share-status');
+    try {
+      await navigator.clipboard.writeText(new URL(withStageFilter(dojoRoute()), location.origin).href);
+      status.textContent = locale === 'en' ? 'Dojo URL copied.' : locale === 'zh-CN' ? '已复制道场链接。' : 'この道場のURLをコピーしました。';
+    } catch {
+      status.textContent = locale === 'en' ? 'Copy the URL from the address bar.' : locale === 'zh-CN' ? '请从地址栏复制链接。' : 'アドレスバーからURLをコピーしてください。';
+    }
+  });
+}
+function setupChapters() {
+  if (!isChapterPage)
+    return;
+  const params = new URL(location.href).searchParams;
+  let draftChapter = null;
+  try {
+    const draft = decodeTeam(localStorage.getItem(DRAFT_KEY) || '', families, chips);
+    if (draft.mode === 'normal')
+      draftChapter = chapterNumber(draft.context.normalStage.match(/^(\d+)/)?.[1]);
+  } catch { }
+  activeChapter = chapterNumber(params.get('chapter')) || draftChapter || 1;
+  const chapterForm = $('#community-chapter-form');
+  chapterForm.elements.chapter.value = activeChapter;
+  $('#community-chapter-title').textContent = chapterLabel(activeChapter);
+  $('#community-list-title').textContent = `${chapterLabel(activeChapter)} · ${locale === 'en' ? 'Player builds' : locale === 'zh-CN' ? '玩家阵容' : '投稿された編成'}`;
+  $('#community-chapter-prev').href = chapterRoute(Math.max(1, activeChapter - 1));
+  $('#community-chapter-prev').hidden = activeChapter === 1;
+  $('#community-chapter-next').href = chapterRoute(Math.min(9999, activeChapter + 1));
+  $('#community-chapter-next').hidden = activeChapter === 9999;
+  refreshBuilderLinks();
+  const publishForm = $('#community-publish-form');
+  publishForm.elements.chapter.value = activeChapter;
+  const filterStage = chapterNumber(params.get('stage'));
+  if (filterStage)
+    $('#community-filters').elements.stage.value = filterStage;
+  refreshBuilderLinks();
+  chapterForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const chapter = chapterNumber(chapterForm.elements.chapter.value);
+    if (chapter)
+      location.href = chapterRoute(chapter);
+  });
+  $('#community-chapter-copy').addEventListener('click', async () => {
+    const status = $('#community-chapter-share-status');
+    try {
+      await navigator.clipboard.writeText(new URL(withStageFilter(chapterRoute()), location.origin).href);
+      status.textContent = locale === 'en' ? 'Chapter URL copied.' : locale === 'zh-CN' ? '已复制章节链接。' : 'このチャプターのURLをコピーしました。';
+    } catch {
+      status.textContent = locale === 'en' ? 'Copy the URL from the address bar.' : locale === 'zh-CN' ? '请从地址栏复制链接。' : 'アドレスバーからURLをコピーしてください。';
+    }
+  });
 }
 function setupPublish() {
   const toggle = $('#community-publish-toggle');
   const form = $('#community-publish-form');
-  const draft = localStorage.getItem(DRAFT_KEY);
-  const preview = node('div', 'community-publish-preview');
-  preview.id = 'community-publish-preview';
-  preview.setAttribute('aria-label', locale === 'en' ? 'Formation preview' : locale === 'zh-CN' ? '阵容预览' : '投稿前の編成プレビュー');
+  let draft = '';
+  let draftTeam = null;
+  try {
+    const code = localStorage.getItem(DRAFT_KEY) || '';
+    const team = decodeTeam(code, families, chips);
+    if (team.mode === (isChapterPage ? 'normal' : isDojoPage ? 'dojo' : 'zombie')) {
+      draft = code;
+      draftTeam = team;
+    }
+  } catch { }
   if (draft) {
+    const preview = node('div', 'community-publish-preview');
+    preview.id = 'community-publish-preview';
+    preview.setAttribute('aria-label', locale === 'en' ? 'Formation preview' : locale === 'zh-CN' ? '阵容预览' : '投稿前の編成プレビュー');
     preview.append(boardPreview(draft, true));
-    form.before(preview)
+    form.before(preview);
   }
-  $('#community-draft-status').textContent = draft ? (locale === 'en' ? 'A formation is ready to publish. Check the preview below.' : locale === 'zh-CN' ? '已有可发布的阵容，请确认下方预览。' : '投稿できる編成を読み込み済みです。下のプレビューを確認してください。') : (locale === 'en' ? 'Create a Zombie Rush formation first.' : locale === 'zh-CN' ? '请先创建Zombie Rush阵容。' : '先に編成メーカーでゾンビラッシュ編成を作成してください。');
+  if (isChapterPage && draftTeam) {
+    const match = draftTeam.context.normalStage.match(/^(\d+)-(\d+)(?:[〜~–-](?:\d+-)?(\d+))?$/);
+    if (match && Number(match[1]) === activeChapter) {
+      form.elements.stageFrom.value = match[2];
+      form.elements.stageTo.value = match[3] || match[2];
+    }
+  }
+  $('#community-draft-status').textContent = draft ? (locale === 'en' ? 'A formation is ready to publish. Check the preview below.' : locale === 'zh-CN' ? '已有可发布的阵容，请确认下方预览。' : '投稿できる編成を読み込み済みです。下のプレビューを確認してください。') : isDojoPage ? (locale === 'en' ? 'Create a Badge Dojo formation in Team Builder, then choose Publish.' : locale === 'zh-CN' ? '请在阵容制作器中创建徽章道场阵容，然后选择发布。' : '編成メーカーでバッジ道場編成を作り、「編成を投稿」から戻ってきてください。') : isChapterPage ? (locale === 'en' ? 'Create a Normal formation in Team Builder, then choose Publish.' : locale === 'zh-CN' ? '请在阵容制作器中创建普通阵容，然后选择发布。' : '編成メーカーで通常編成を作り、「編成を投稿」から戻ってきてください。') : (locale === 'en' ? 'Create a Zombie Rush formation first.' : locale === 'zh-CN' ? '请先创建Zombie Rush阵容。' : '先に編成メーカーでゾンビラッシュ編成を作成してください。');
   toggle.disabled = !draft;
   toggle.addEventListener('click', () => {
     form.hidden = !form.hidden;
     if (!form.hidden)
-      form.querySelector('[name=title]')?.focus()
+      form.querySelector('[name=title]')?.focus();
   });
   if (new URL(location.href).searchParams.get('publish') === '1' && draft) {
+    document.querySelector('[data-community-view=publish]')?.click();
     form.hidden = false;
-    form.querySelector('[name=title]')?.focus()
+    form.querySelector('[name=title]')?.focus();
   }
   const tags = $('#community-tag-options');
   const filter = $('#community-tag-filter');
@@ -312,26 +494,46 @@ function setupPublish() {
     const option = document.createElement('option');
     option.value = tag;
     option.textContent = tag;
-    filter.append(option)
+    filter.append(option);
   });
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     const data = Object.fromEntries(new FormData(form));
     data.tags = [...form.querySelectorAll('[name=tags]:checked')].map((item) => item.value);
     data.action = 'create';
-    data.formationCode = localStorage.getItem(DRAFT_KEY) || '';
-    data.difficulty = Number(data.difficulty);
-    data.highestRound = Number(data.highestRound);
+    data.formationCode = draft;
+    if (isScopedPage) {
+      data.mode = isDojoPage ? 'dojo' : 'normal';
+      if (isDojoPage) {
+        data.dojoAttribute = activeDojoAttribute;
+        data.floor = activeFloor;
+      } else data.chapter = activeChapter;
+      data.stageFrom = data.stageFrom ? Number(data.stageFrom) : null;
+      data.stageTo = data.stageTo ? Number(data.stageTo) : null;
+    } else {
+      data.difficulty = Number(data.difficulty);
+      data.highestRound = Number(data.highestRound);
+    }
+    const submit = form.querySelector('[type=submit]');
+    submit.disabled = true;
     try {
       const result = await api('', { method: 'POST', body: JSON.stringify(data) });
       saveOwner(result.build.id, result.ownerToken);
-      localStorage.removeItem(DRAFT_KEY);track('formation_publish');$('#community-publish-status').textContent=COPY.published;location.href=`${prefix}/team-builder/community/detail/?id=${encodeURIComponent(result.build.id)}`}catch(error){$('#community-publish-status').textContent= error.message;
-      $('#community-publish-status').classList.add('is-error')
+      if (localStorage.getItem(DRAFT_KEY) === draft)
+        localStorage.removeItem(DRAFT_KEY);
+      track('formation_publish');
+      $('#community-publish-status').textContent = COPY.published;
+      location.href = `${prefix}/team-builder/community/detail/?id=${encodeURIComponent(result.build.id)}`;
+    } catch (error) {
+      $('#community-publish-status').textContent = error.message;
+      $('#community-publish-status').classList.add('is-error');
+      submit.disabled = false;
     }
   });
   $('#community-filters').addEventListener('submit', (event) => {
     event.preventDefault();
-    loadList(false)
+    syncBoardUrl();
+    loadList(false);
   });
   $('#community-more').addEventListener('click', () => loadList(true));
   loadList(false);
@@ -339,10 +541,8 @@ function setupPublish() {
 function metadata(build) {
   const wrap = node('div', 'community-meta');
   for (const value of [
-    `Season 1`,
-    `${locale === 'en' ? 'Difficulty' : locale === 'zh-CN' ? '难度' : '難易度'} ${build.difficulty}`,
+    ...(isSinglePlayer(build) ? [stageLabel(build)] : [`Season 1`, `${locale === 'en' ? 'Difficulty' : locale === 'zh-CN' ? '难度' : '難易度'} ${build.difficulty}`, `${COPY.round} ${build.reportedBestRound || 0}`]),
     resultLabel(build),
-    `${COPY.round} ${build.reportedBestRound || 0}`,
     COPY.reported
   ])
     wrap.append(node('span', '', value));
@@ -384,7 +584,7 @@ function addShareActions(build) {
   const pageUrl = new URL(location.href);
   pageUrl.hash = '';
   const shareUrl = pageUrl.href;
-  const genericText = locale === 'en' ? `Zombie Rush build: Difficulty ${build.difficulty}, ${resultLabel(build)}` : locale === 'zh-CN' ? `Zombie Rush阵容：难度${build.difficulty}、${resultLabel(build)}` : `ゾンビラッシュ編成：難易度${build.difficulty}・${resultLabel(build)}`;
+  const genericText = isSinglePlayer(build) ? `${stageLabel(build)} · ${resultLabel(build)}` : locale === 'en' ? `Zombie Rush build: Difficulty ${build.difficulty}, ${resultLabel(build)}` : locale === 'zh-CN' ? `Zombie Rush阵容：难度${build.difficulty}、${resultLabel(build)}` : `ゾンビラッシュ編成：難易度${build.difficulty}・${resultLabel(build)}`;
   const x = document.createElement('a');
   x.id = 'community-share-x';
   x.className = 'ghost-button';
@@ -418,7 +618,7 @@ function setupDetail(build, comments) {
   card.append(node('h2', '', build.title), metadata(build), boardPreview(build.formationCode, true));
   const counts = node('div', 'community-counts');
   for (const value of [
-    `P1 ${build.playerCounts[1]} / P2 ${build.playerCounts[2]}`,
+    isSinglePlayer(build) ? `${COPY.p} ${build.playerCounts[1]} / ${isDojo(build) ? 5 : 15}` : `P1 ${build.playerCounts[1]} / P2 ${build.playerCounts[2]}`,
     `${COPY.helpful} ${build.helpfulCount}`,
     `${COPY.trial} ${build.trialCount}`,
     `${COPY.clear} ${build.clearReportCount}`
@@ -433,7 +633,7 @@ function setupDetail(build, comments) {
     button.type = 'button';
     button.addEventListener('click', () => {
       if (localStorage.getItem('monsabaFormationDraft:v2') && !confirm(COPY.confirm))
-        return;track(label===COPY.load?'formation_load':'formation_copy');location.href=`${prefix}/team-builder/#build=${build.formationCode}`});actions.append(button)}const helpful=node('button','ghost-button',`${COPY.helpful} ${build.helpfulCount}`);helpful.type='button';helpful.addEventListener('click',async()=>{try{const result=await postAction('helpful',{id:build.id},$('#community-action-status'));helpful.textContent=`${COPY.helpful} ${result.helpfulCount}`;helpful.disabled=true;track('formation_helpful')}catch{}});actions.append(helpful);card.append(actions);const status=node('p','tool-status');status.id='community-action-status';status.setAttribute('role','status');card.append(status);const token=owners()[build.id];if(token){const owner=node('div','community-owner-actions');const edit=node('button','ghost-button',COPY.edit);edit.type='button';edit.addEventListener('click',async()=>{const title=prompt(locale==='en'?'Title':locale==='zh-CN'?'标题':'タイトル',build.title);if(!title)return;const note=prompt(locale==='en'?'Note':locale==='zh-CN'?'补充':'補足',build.note||'');if(note===null)return;try{const result=await postAction('edit',{...build,title,note,id:build.id,ownerToken:token},status);setupDetail(result.build,comments)}catch{}});const remove=node('button','ghost-button danger-button',COPY.remove);remove.type='button';remove.addEventListener('click',async()=>{if(!confirm(locale==='en'?'Delete this post?':locale==='zh-CN'?'删除此投稿？':'この投稿を削除しますか？'))return;try{await api('',{method:'DELETE',body:JSON.stringify({id:build.id,ownerToken:token})});removeOwner(build.id);status.textContent=COPY.deleted;location.href=`${prefix}/team-builder/community/`}catch(error){status.textContent=error.message}});owner.append(edit,remove);card.append(owner)}const report=node('button','ghost-button',COPY.report);report.type='button';report.addEventListener('click',async()=>{const reason=prompt(locale==='en'?'Report reason':locale==='zh-CN'?'举报理由':'通報理由','不適切内容');if(!reason)return;try{await postAction('report',{targetType:'build',targetId: build.id, reason }, status);
+        return;track(label===COPY.load?'formation_load':'formation_copy');location.href=`${prefix}/team-builder/#build=${build.formationCode}`});actions.append(button)}const helpful=node('button','ghost-button',`${COPY.helpful} ${build.helpfulCount}`);helpful.type='button';helpful.addEventListener('click',async()=>{try{const result=await postAction('helpful',{id:build.id},$('#community-action-status'));helpful.textContent=`${COPY.helpful} ${result.helpfulCount}`;helpful.disabled=true;track('formation_helpful')}catch{}});actions.append(helpful);card.append(actions);const status=node('p','tool-status');status.id='community-action-status';status.setAttribute('role','status');card.append(status);const token=owners()[build.id];if(token){const owner=node('div','community-owner-actions');const edit=node('button','ghost-button',COPY.edit);edit.type='button';edit.addEventListener('click',async()=>{const title=prompt(locale==='en'?'Title':locale==='zh-CN'?'标题':'タイトル',build.title);if(!title)return;const note=prompt(locale==='en'?'Note':locale==='zh-CN'?'补充':'補足',build.note||'');if(note===null)return;try{const result=await postAction('edit',{...build,title,note,id:build.id,ownerToken:token},status);setupDetail(result.build,comments)}catch{}});const remove=node('button','ghost-button danger-button',COPY.remove);remove.type='button';remove.addEventListener('click',async()=>{if(!confirm(locale==='en'?'Delete this post?':locale==='zh-CN'?'删除此投稿？':'この投稿を削除しますか？'))return;try{await api('',{method:'DELETE',body:JSON.stringify({id:build.id,ownerToken:token})});removeOwner(build.id);status.textContent=COPY.deleted;location.href=buildListRoute(build)}catch(error){status.textContent=error.message}});owner.append(edit,remove);card.append(owner)}const report=node('button','ghost-button',COPY.report);report.type='button';report.addEventListener('click',async()=>{const reason=prompt(locale==='en'?'Report reason':locale==='zh-CN'?'举报理由':'通報理由','不適切内容');if(!reason)return;try{await postAction('report',{targetType:'build',targetId: build.id, reason }, status);
       report.disabled = true
     } catch { }
   });
@@ -443,21 +643,42 @@ function setupDetail(build, comments) {
   $('#community-comments-panel').hidden = false;
   renderComments(comments);
   const trial = $('#community-trial-form');
-  trial.addEventListener('submit', async (event) => {
+  trial.querySelectorAll('[name=difficulty],[name=highestRound]').forEach((input) => {
+    input.closest('label').hidden = isSinglePlayer(build);
+    input.disabled = isSinglePlayer(build);
+  });
+  const resultSelect = trial.elements.resultStatus;
+  resultSelect.replaceChildren();
+  for (const [value, label] of isSinglePlayer(build) ? [['cleared', locale === 'en' ? 'Clear (reported)' : locale === 'zh-CN' ? '通关（申报）' : 'クリア（自己申告）'], ['challenging', locale === 'en' ? 'In progress' : locale === 'zh-CN' ? '挑战中' : '挑戦中']] : [['round', COPY.round], ['cleared', locale === 'en' ? 'Clear (reported)' : locale === 'zh-CN' ? '通关（申报）' : 'クリア（自己申告）']]) {
+    const option = document.createElement('option');
+    option.value = value;
+    option.textContent = label;
+    resultSelect.append(option);
+  }
+  if (isSinglePlayer(build)) {
+    const back = document.querySelector('.attribute-guide-nav a[href$="/team-builder/community/"]');
+    if (back) {
+      back.href = buildListRoute(build);
+      back.textContent = isDojo(build) ? `${dojoAttributeLabel(build.dojoAttribute)} · ${floorLabel(build.floor)}` : chapterLabel(build.chapter);
+    }
+  }
+  trial.onsubmit = async (event) => {
     event.preventDefault();
     const data = Object.fromEntries(new FormData(trial));
     data.id = build.id;
-    data.seasonId = build.seasonId;
-    data.difficulty = Number(data.difficulty);
-    data.highestRound = Number(data.highestRound);
+    if (!isSinglePlayer(build)) {
+      data.seasonId = build.seasonId;
+      data.difficulty = Number(data.difficulty);
+      data.highestRound = Number(data.highestRound);
+    }
     data.changed = data.changed === 'on';
     try {
       await postAction('trial', data, $('#community-trial-status'));
       track('formation_trial_report')
     } catch { }
-  });
+  };
   const comment = $('#community-comment-form');
-  comment.addEventListener('submit', async (event) => {
+  comment.onsubmit = async (event) => {
     event.preventDefault();
     const data = Object.fromEntries(new FormData(comment));
     data.id = build.id;
@@ -468,7 +689,7 @@ function setupDetail(build, comments) {
       renderComments(comments);
       comment.reset()
     } catch { }
-  })
+  };
 }
 async function loadDetail() {
   const id = new URL(location.href).searchParams.get('id');
@@ -503,6 +724,8 @@ async function init() {
     chips = chipData.chips;
     images = new Map(imageData.families.map((item) => [item.familyId, item]));
     if ($('#community-list')) {
+      if (isDojoPage) setupDojo();
+      else setupChapters();
       setupPublish();
       localizeTagControls()
     }

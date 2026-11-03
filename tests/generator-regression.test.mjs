@@ -50,6 +50,25 @@ test('A8 originals and all tracking identifiers remain exact; Production retains
 test('published SEO fields retain approved data changes and October 14 article timestamps', () => {
   const historical = JSON.parse(read('tests/fixtures/seo-baseline-fields-2026-10-06.json'));
   const policy = JSON.parse(read('tests/fixtures/seo-approved-changes-2026-10-07.json'));
+  const detailBaseline = JSON.parse(read('tests/fixtures/community-detail-seo-2026-10-18.json'));
+  assert.equal(detailBaseline.sourceCommit, '8b96a78800a33cc34f27054374c52f3133b8d6ab');
+  // Independently reviewed copy for the three shared detail pages. Keep every
+  // other field at the published Git baseline, including robots and dates.
+  const detailChanges = {
+    'team-builder/community/detail/index.html': {
+      title: 'みんなの編成詳細',
+      description: 'プレイヤー投稿の通常ステージ・バッジ道場・ゾンビラッシュ編成を確認し、同じ配置を編成メーカーへ読み込めます。'
+    },
+    'en/team-builder/community/detail/index.html': {
+      title: 'Community Build Details',
+      description: 'View player formations for Normal stages, Badge Dojo and Zombie Rush, and load the same positions in Team Builder.'
+    },
+    'zh-cn/team-builder/community/detail/index.html': {
+      title: '玩家阵容详情',
+      description: '查看普通关卡、徽章道场和Zombie Rush的玩家阵容，并将相同站位载入阵容制作器。'
+    }
+  };
+  assert.deepEqual(Object.keys(detailBaseline.pages).sort(), Object.keys(detailChanges).sort());
   const apply = (object, change) => { const keys = change.path.slice(1).split('/'); let parent = object; for (const key of keys.slice(0, -1)) parent = parent[key]; parent[keys.at(-1)] = change.value; };
   const expected = JSON.parse(read('tests/fixtures/generation-seo.json'));
   for (const [file, hash] of Object.entries(expected)) {
@@ -62,7 +81,18 @@ test('published SEO fields retain approved data changes and October 14 article t
       robots: $('meta[name="robots"]').toArray().map(e => $(e).attr('content')),
       schemas: $('script[type="application/ld+json"]').toArray().map(e => JSON.parse($(e).text()))
     };
-    if (historical[file]) {
+    if (Object.hasOwn(detailChanges, file)) {
+      const baseline = detailBaseline.pages[file];
+      assert.equal(sha(JSON.stringify(baseline)), hash, file + ': published detail baseline changed');
+      const approved = structuredClone(baseline);
+      const change = detailChanges[file];
+      approved.title = change.title;
+      approved.description = change.description;
+      approved.schemas[0]['@graph'][0].name = change.title;
+      approved.schemas[0]['@graph'][0].description = change.description;
+      approved.schemas[0]['@graph'][1].itemListElement[2].name = change.title;
+      assert.deepEqual(fields, approved, file);
+    } else if (historical[file]) {
       assert.equal(sha(JSON.stringify(historical[file])), hash, file + ': published baseline changed');
       const approved = structuredClone(historical[file]);
       for (const change of policy.changes[file] || []) apply(approved, change);

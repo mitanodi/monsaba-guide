@@ -13,7 +13,7 @@ for (const [locale, prefix] of locales) {
   const alternates = [...locales.map(([, p, lang]) => [lang, `${p}/tier-maker/`]), ['x-default', '/tier-maker/']];
   const dictionary = locale === 'ja' ? {} : {...JSON.parse(fs.readFileSync(path.join(root, `data/i18n/${locale}.json`), 'utf8')), ...JSON.parse(fs.readFileSync(path.join(root, 'data/i18n/overrides.json'), 'utf8'))[locale]};
   if (locale !== 'ja') {
-    for (const file of ['quality-overrides', 'phase3', 'phase4']) Object.assign(dictionary, JSON.parse(fs.readFileSync(path.join(root, `data/i18n/${file}.json`), 'utf8'))[locale]);
+    for (const file of ['quality-overrides', 'phase3', 'phase4', 'community']) Object.assign(dictionary, JSON.parse(fs.readFileSync(path.join(root, `data/i18n/${file}.json`), 'utf8'))[locale]);
     dictionary['みんなの編成'] = locale === 'en' ? 'Community formations' : '社区阵容';
   }
   const translateAttributes = html => html.replace(/\b(aria-label|title)="([^"]+)"/g, (full, attr, value) => dictionary[value] ? `${attr}="${esc(dictionary[value])}"` : full);

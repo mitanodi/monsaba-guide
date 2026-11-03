@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "checkedAt": "2026-11-04",
+  "status": "external-reference",
+  "attributes": ["fire", "grass", "water", "rock", "thunder"],
+  "formation": { "mode": "dojo", "maximumMembers": 5, "columns": 3, "source": "team-builder/team-core.js" },
+  "stageStructure": {
+    "keys": ["attribute", "floor", "stage"],
+    "observedStagesPerFloor": 10,
+    "observedFloors": { "water": [5], "fire": [4], "grass": [4], "rock": [4], "thunder": [4, 5, 6] },
+    "maximumFloor": null,
+    "source": "https://nekonokyositu.com/monsaba/14016/",
+    "note": "作者自身のクリア記録で属性・階・ステージの区分を確認。観測範囲はゲーム全体の上限を意味しない。編成画像・個人のクリア報告は転載しない。"
+  },
+  "badgeLevels": [
+    { "level": 1, "condition": "対象属性のタタを7体入手", "effect": "全ステータス+10%" },
+    { "level": 2, "condition": "対象属性のタタ5体を第2進化", "effect": "HP+20%" },
+    { "level": 3, "condition": "対象属性のタタ1体を第3進化", "effect": "攻撃+20%" },
+    { "level": 4, "condition": "対象属性のタタ3体を第3進化", "effect": "防御+20%" },
+    { "level": 5, "condition": "対象属性のタタ6体を第3進化", "effect": "HP+20%" },
+    { "level": 6, "condition": "対象属性のタタ1体を第4進化", "effect": "攻撃+20%" },
+    { "level": 7, "condition": "対象属性のタタ3体を第4進化", "effect": "防御+20%" }
+  ],
+  "sources": [
+    { "url": "https://w.atwiki.jp/monstersurvival/pages/22.html", "title": "モンスターサバイバル@wiki バッジ道場", "sourceType": "publicWiki", "sourceUpdated": "2026-10-29", "supports": ["5属性", "バッジLv1〜7の条件と効果"] },
+    { "url": "https://nekonokyositu.com/monsaba/14016/", "title": "ネコの教室 バッジ道場のステージごとの編成", "sourceType": "playerClearRecord", "sourceUpdated": "2026-10-11", "supports": ["属性・階・ステージの区分", "4〜6階の各1〜10ステージの記録"] }
+  ],
+  "unverified": ["ゲーム内の最新最大階数", "全階層の敵配置", "各編成のゲーム内再現性"],
+  "policy": "外部攻略の参照資料とユーザー投稿は区別する。公式確認済み・実機検証済み・自サイト投稿済みとは扱わない。"
+}

@@ -1,7 +1,7 @@
 # A8広告配置監査
 
 生成元: `data/monetization.json` / `data/affiliate-offers.json`
-対象: 公開HTML 141ページ（404を含む）
+対象: 公開HTML 143ページ（404を含む）
 監査日: 2026-08-28
 
 ## Before
@@ -143,7 +143,9 @@
 | https://monster-survival.com/tatari-names/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/team-builder/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/team-builder/community/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/team-builder/community/chapters/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/team-builder/community/detail/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/team-builder/community/dojo/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tier-maker/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/updates/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/updates/2026-08-26/ | 0 | — | — | — | 非表示 |
@@ -295,7 +297,9 @@
 | https://monster-survival.com/tatari-names/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/team-builder/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/team-builder/community/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/team-builder/community/chapters/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/team-builder/community/detail/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/team-builder/community/dojo/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tier-maker/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/updates/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/updates/2026-08-26/ | 0 | — | — | — | 非表示 |

@@ -133,7 +133,11 @@
       "externalVerified": "2026-10-14",
       "verificationScope": "external-preview-only",
       "status": "test-server-preview-not-live",
-      "pending": ["本番実装と正式日程", "新タタ・チップの詳細", "イベント開始終了時刻"]
+      "pending": [
+        "本番実装と正式日程",
+        "新タタ・チップの詳細",
+        "イベント開始終了時刻"
+      ]
     },
     "/updates/2026-08-26/": {
       "published": "2026-08-25",
@@ -539,6 +543,20 @@
       "verified": "2026-10-07",
       "externalVerified": "2026-10-07",
       "status": "mixed-evidence-with-pending-fields"
+    },
+    "/team-builder/community/chapters/": {
+      "published": "2026-11-04",
+      "updated": "2026-11-04",
+      "verified": "2026-11-04",
+      "status": "community-user-generated",
+      "pending": []
+    },
+    "/team-builder/community/dojo/": {
+      "published": "2026-11-04",
+      "updated": "2026-11-04",
+      "verified": "2026-11-04",
+      "status": "community-user-generated",
+      "pending": []
     }
   }
 }
