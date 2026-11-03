@@ -1,5 +1,6 @@
 import { familyMatches, loadRoster } from '../my-monsaba/roster-core.js';
 import { languageSwitchHash } from './locale-handoff.js';
+import { chapterContext, openChapterDraft, openDojoDraft } from './chapter-context.js';
 import { TIER_DRAFT_KEY, readPersonalTiers, personalTierOptions, validOrder, loadOrder, saveOrder, personalTierOrder } from './personal-tier-order.js';
 import {
   HANDOFF_KEY, MODE_LABELS, PLAYER_IDS, BASE_LEVEL_LIMIT, MAX_LEVEL_LIMIT,
@@ -399,6 +400,13 @@ function persistDraft() {
 
     saveDraft(localStorage, team, families);
 
+    const entryQuery = new URLSearchParams(location.search);
+    if (['normal', 'dojo'].includes(entryQuery.get('mode'))) {
+      for (const key of ['mode', 'chapter', 'stage', 'attribute', 'floor']) entryQuery.delete(key);
+      const search = entryQuery.toString();
+      history.replaceState(null, '', `${location.pathname}${search ? `?${search}` : ''}${location.hash}`);
+    }
+
   } catch { /* private storage */ }
 
 }
@@ -707,7 +715,8 @@ function renderModeDetails() {
   }
   const context = team.context;
   const primary = team.mode === 'boss' ? `<label>${esc(detailCopy.boss)} <span class="optional">${esc(detailCopy.optional)}</span><select data-team-context="bossId">${optionMarkup(BOSS_RALLY_OPTIONS, bossLabels, context.bossId)}</select></label>` : team.mode === 'dojo' ? `<label>${esc(detailCopy.dojo)} <span class="optional">${esc(detailCopy.optional)}</span><select data-team-context="dojoAttribute">${optionMarkup(DOJO_OPTIONS, dojoLabels, context.dojoAttribute)}</select></label>` : team.mode === 'normal' ? `<label>${esc(detailCopy.stage)} <span class="optional">${esc(detailCopy.optional)}</span><input data-team-context="normalStage" maxlength="24" value="${esc(context.normalStage)}" placeholder="${esc(detailCopy.stagePlaceholder)}"></label>` : '';
-  node.innerHTML = `${primary}<label>${esc(detailCopy.note)} <span class="optional">${esc(detailCopy.optional)}</span><input data-team-context="note" maxlength="40" value="${esc(context.note)}" placeholder="${esc(detailCopy.notePlaceholder)}"></label>${team.mode === 'free' ? `<p>${esc(detailCopy.freeHint)}</p>` : ''}`;
+  const dojoFields = team.mode === 'dojo' ? `<label>${locale === 'en' ? 'Floor' : locale === 'zh-CN' ? '层数' : '階'}<input data-team-context="dojoFloor" type="number" min="1" max="9999" value="${context.dojoFloor || 1}"></label><label>${locale === 'en' ? 'Stage (optional)' : locale === 'zh-CN' ? '关卡（可选）' : 'ステージ（任意）'}<input data-team-context="dojoStage" type="number" min="1" max="9999" value="${context.dojoStage || ''}"></label>` : '';
+  node.innerHTML = `${primary}${dojoFields}<label>${esc(detailCopy.note)} <span class="optional">${esc(detailCopy.optional)}</span><input data-team-context="note" maxlength="40" value="${esc(context.note)}" placeholder="${esc(detailCopy.notePlaceholder)}"></label>${team.mode === 'free' ? `<p>${esc(detailCopy.freeHint)}</p>` : ''}`;
 }
 
 function renderFilters() {
@@ -811,7 +820,22 @@ function renderAll() {
   const publish = $('#team-community-publish');
 
   if (publish)
-    publish.hidden = team.mode !== 'zombie';
+    publish.hidden = !['zombie', 'normal', 'dojo'].includes(team.mode);
+
+  updateCommunityLink();
+
+}
+
+function updateCommunityLink() {
+  const communityLink = document.querySelector('#team-save-title + .tool-actions a[href*="/team-builder/community/"]');
+  if (communityLink) {
+    const { chapter, stage } = chapterContext(team.context?.normalStage);
+    communityLink.href = `${localePrefix}/team-builder/community/${team.mode === 'normal' ? `chapters/?chapter=${chapter || 1}${stage ? `&stage=${stage}` : ''}` : team.mode === 'dojo' ? `dojo/?attribute=${team.context.dojoAttribute || 'fire'}&floor=${team.context.dojoFloor || 1}${team.context.dojoStage ? `&stage=${team.context.dojoStage}` : ''}` : ''}`;
+    communityLink.textContent = team.mode === 'dojo'
+      ? (locale === 'en' ? 'Dojo formations' : locale === 'zh-CN' ? '道场阵容' : '道場の編成を見る') : team.mode === 'normal'
+      ? (locale === 'en' ? 'Chapter formations' : locale === 'zh-CN' ? '章节阵容' : 'チャプター別の編成を見る')
+      : (locale === 'en' ? 'Community builds' : locale === 'zh-CN' ? '社区阵容' : 'みんなの編成を見る');
+  }
 
 }
 
@@ -2299,6 +2323,7 @@ function bind() {
     team.context[key] = event.target.value;
 
     persistDraft();
+    updateCommunityLink();
 
   });
   document.addEventListener('change', (event) => {
@@ -2311,6 +2336,7 @@ function bind() {
     team.context[key] = event.target.value || null;
 
     persistDraft();
+    updateCommunityLink();
 
   });
   $('#team-save').addEventListener('click', () => {
@@ -2340,8 +2366,14 @@ function bind() {
   });
   $('#team-community-publish')?.addEventListener('click', () => {
 
-    if (team.mode !== 'zombie')
+    if (!['zombie', 'normal', 'dojo'].includes(team.mode))
       return;
+
+    if (team.mode === 'dojo' && !DOJO_OPTIONS.includes(team.context.dojoAttribute)) {
+      setStatus(locale === 'en' ? 'Choose a dojo attribute before publishing.' : locale === 'zh-CN' ? '发布前请选择道场属性。' : '投稿する道場の属性を選んでください。', true);
+      document.querySelector('[data-team-context="dojoAttribute"]')?.focus();
+      return;
+    }
 
     try {
 
@@ -2349,7 +2381,11 @@ function bind() {
 
       track('formation_publish_start');
 
-      location.href = `${localePrefix}/team-builder/community/?publish=1`;
+      const { chapter, stage } = chapterContext(team.context?.normalStage);
+      location.href = team.mode === 'dojo'
+        ? `${localePrefix}/team-builder/community/dojo/?publish=1&attribute=${team.context.dojoAttribute || 'fire'}&floor=${team.context.dojoFloor || 1}${team.context.dojoStage ? `&stage=${team.context.dojoStage}` : ''}` : team.mode === 'normal'
+        ? `${localePrefix}/team-builder/community/chapters/?publish=1&chapter=${chapter || 1}${stage ? `&stage=${stage}` : ''}`
+        : `${localePrefix}/team-builder/community/?publish=1`;
 
     } catch (error) {
 
@@ -2526,6 +2562,12 @@ async function boot() {
 
   $('#team-mode').setAttribute('aria-describedby', modeHint.id);
   const query = new URLSearchParams(location.search);
+
+  const chapterDraft = openChapterDraft(query, team, modeDrafts, families, Boolean(shared)) || openDojoDraft(query, team, modeDrafts, families, Boolean(shared));
+  if (chapterDraft) {
+    team = chapterDraft.team;
+    modeDrafts = chapterDraft.drafts;
+  }
 
   const beginnerFamily = query.get('family');
 

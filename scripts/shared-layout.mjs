@@ -53,6 +53,8 @@ export const GLOBAL_NAV_GROUPS = Object.freeze([
     icon: '●',
     items: Object.freeze([
       Object.freeze({ href: '/team-builder/community/', label: 'みんなの編成', description: '投稿編成を探して読み込む' }),
+      Object.freeze({ href: '/team-builder/community/chapters/', label: 'チャプター別編成', description: 'ステージごとの投稿編成を探す' }),
+      Object.freeze({ href: '/team-builder/community/dojo/', label: '道場の編成掲示板', description: '属性・階・ステージから探す' }),
       Object.freeze({ href: '/friends/', label: 'フレンド掲示板', description: '一緒に遊ぶ人を探す' }),
       Object.freeze({ href: '/board/', label: '質問掲示板', description: '攻略の質問と情報交換' })
     ])
@@ -62,6 +64,10 @@ export const GLOBAL_NAV_GROUPS = Object.freeze([
 export const GLOBAL_NAV_ITEMS = Object.freeze(GLOBAL_NAV_GROUPS.flatMap((group) => group.items));
 
 const currentNavHrefs = (route) => {
+  if (route.startsWith('/team-builder/community/chapters/'))
+    return new Set(['/team-builder/community/chapters/']);
+  if (route.startsWith('/team-builder/community/dojo/'))
+    return new Set(['/team-builder/community/dojo/']);
   if (route.startsWith('/team-builder/community/'))
     return new Set(['/team-builder/community/']);
   if (route.startsWith('/tata/') || route.startsWith('/attribute/'))

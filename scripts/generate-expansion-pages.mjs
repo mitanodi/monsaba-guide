@@ -54,7 +54,7 @@ write('/stages/', shell({
   route: '/stages/',
   title: 'モンサバ ステージ別攻略｜Chapter・Stage番号から探す',
   description: 'Chapter・Stage番号から攻略を探すための基盤です。確実な攻略情報があるステージだけを公開し、架空の個別攻略は生成しません。',
-  body: `<section class="wrap static-section"><h2 class="page-h2">ステージ番号から探す</h2><form class="compare-controls" action="/search/"><label>Chapter / Stage<input name="q" inputmode="numeric" placeholder="例：2-50、7-70"></label><button class="button">サイト内検索</button></form><div class="summary-box"><strong>公開中の確認済み個別攻略：${stages.guides.length}件</strong><p>個別ページは、失敗原因・時間切れ対策・全滅対策・配置・推奨役割・関連タタ・参考情報・確認状況が揃った場合だけ公開します。</p></div><div class="attribute-guide-nav"><a href="/normal-guide/">通常ステージ共通攻略</a><a href="/consult/?flow=content&mode=normal">症状から攻略相談</a><a href="/roles/">役割からタタを探す</a></div></section>`
+  body: `<section class="wrap static-section"><h2 class="page-h2">ステージ番号から探す</h2><div class="notice-box"><h3>チャプターごとの編成を探す・投稿する</h3><p>挑戦するステージの投稿編成を見て、そのまま編成メーカーへ読み込めます。</p><a class="button" href="/team-builder/community/chapters/">チャプター別編成</a> <a class="ghost-button" href="/team-builder/community/dojo/">道場の編成掲示板</a></div><form class="compare-controls" action="/search/"><label>Chapter / Stage<input name="q" inputmode="numeric" placeholder="例：2-50、7-70"></label><button class="button">サイト内検索</button></form><div class="summary-box"><strong>公開中の確認済み個別攻略：${stages.guides.length}件</strong><p>個別ページは、失敗原因・時間切れ対策・全滅対策・配置・推奨役割・関連タタ・参考情報・確認状況が揃った場合だけ公開します。</p></div><div class="attribute-guide-nav"><a href="/normal-guide/">通常ステージ共通攻略</a><a href="/consult/?flow=content&mode=normal">症状から攻略相談</a><a href="/roles/">役割からタタを探す</a></div></section>`
 }));
 
 const roadmap = [...evolution.t3Roadmap.firstPriority, ...evolution.t3Roadmap.secondPriority];

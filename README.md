@@ -23,6 +23,12 @@
 
 ## データ
 
+チャプター別編成掲示板は `/team-builder/community/chapters/?chapter=74`、道場の編成掲示板は `/team-builder/community/dojo/?attribute=water&floor=5` です。`stage` でステージを絞り込めます。編成メーカーの通常／バッジ道場モードで編成を作り、「みんなの編成へ投稿」から投稿内容と公開を確認します。結果はプレイヤー申告です。
+
+既存 `/api/community` と接続済みRedisを使用し、通常・道場・ゾンビラッシュの索引を分離しています。通常はチャプター、道場は属性と階、どちらも任意のステージ範囲を保存します。通常15体・道場5体の制限、投稿者の編集／削除権限、スパム対策をサーバーで検証します。Previewは引き続き読み取り専用です。外部記事の投稿や編成画像を自サイト投稿として取り込みません。
+
+道場の調査資料・確認日・未確認範囲は `data/community-dojo.json`、ページの編集元は `scripts/generate-community-pages.mjs`、翻訳は `data/i18n/community.json` です。道場の階とステージは編成contextの任意項目 `dojoFloor` / `dojoStage` として保持し、既存v6共有のcontext末尾へ追加します。旧データ・旧共有URLも維持します。
+
 主要ゲームJSONは `data/tatari.json`, `data/tata-skills.json`, `data/tier-ratings.json`, `data/evolution-priority.json`, `data/content-guides.json` です。Seasonごとに変わるゾンビラッシュ専用スキルは `data/zombie-rush/seasons/` に分離し、通常スキルDBへ混在させません。収益化設定は `data/monetization.json`、実在する承認済み案件は `data/affiliate-offers.json`、計測・A/B flagは `data/growth-config.json`、ページ確認日は `data/page-freshness.json` で中央管理します。通常広告は無効、承認済みのA8.netアフィリエイト枠だけを限定表示しています。タタ名・進化・スキルは確認済みスクリーンショット、攻略は収録済み公開情報、Tierは当サイト独自の暫定評価を基準とし、不明内容は推測で補いません。
 
 ## 編集する場所と生成物

@@ -91,7 +91,8 @@ export function formationContextLabel(team, locale = 'ja') {
   const labels = CONTEXT_LABELS[locale] || CONTEXT_LABELS.ja;
   const context = team?.context || {};
   const automatic = team?.mode === 'boss' ? labels[context.bossId] : team?.mode === 'dojo' ? labels[context.dojoAttribute] : team?.mode === 'normal' && context.normalStage ? `${locale === 'en' ? 'Stage' : locale === 'zh-CN' ? '关卡' : 'ステージ'} ${context.normalStage}` : '';
-  return [automatic, context.note].filter(Boolean).join('｜');
+  const dojoStage = team?.mode === 'dojo' && context.dojoFloor ? ` ${context.dojoFloor}${context.dojoStage ? `-${context.dojoStage}` : ''}` : '';
+  return [(automatic || '') + dojoStage, context.note].filter(Boolean).join('｜');
 }
 export const MODE_PLAYER_LIMITS = Object.freeze({ free: 15, normal: 15, zombie: 10, dojo: 5, boss: 15 });
 const isRecord = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -124,7 +125,9 @@ function sanitizeContext(value) {
     bossId: BOSS_RALLY_OPTIONS.includes(source.bossId) ? source.bossId : null,
     dojoAttribute: DOJO_OPTIONS.includes(source.dojoAttribute) ? source.dojoAttribute : null,
     normalStage: text(source.normalStage, 24),
-    note: text(source.note, 40)
+    note: text(source.note, 40),
+    ...(Number.isInteger(Number(source.dojoFloor)) && Number(source.dojoFloor) > 0 && Number(source.dojoFloor) <= 9999 ? { dojoFloor: Number(source.dojoFloor) } : {}),
+    ...(Number.isInteger(Number(source.dojoStage)) && Number(source.dojoStage) > 0 && Number(source.dojoStage) <= 9999 ? { dojoStage: Number(source.dojoStage) } : {})
   };
 }
 
@@ -562,8 +565,10 @@ export function encodeTeam(team, families, chips = []) {
 
   const playerChips = PLAYER_IDS.map((id) => clean.chips[id].flatMap((chipId) => chipIndexes.has(chipId) ? [chipIndexes.get(chipId)] : []));
   const compact = { v: SHARE_VERSION, m: TEAM_MODES.indexOf(clean.mode), u: unlocks, s: slots };
-  if (clean.context.bossId || clean.context.dojoAttribute || clean.context.normalStage || clean.context.note)
+  if (clean.context.bossId || clean.context.dojoAttribute || clean.context.normalStage || clean.context.note || clean.context.dojoFloor || clean.context.dojoStage)
     compact.c = [clean.context.bossId, clean.context.dojoAttribute, clean.context.normalStage, clean.context.note];
+  if (clean.context.dojoFloor || clean.context.dojoStage)
+    compact.c.push(clean.context.dojoFloor || null, clean.context.dojoStage || null);
   if (!clean.showLevels)
     compact.l = 0;
   if (playerChips.some((items) => items.length))
@@ -664,7 +669,7 @@ function decodeV4(parsed, families, chips) {
     cleared: parsed.x[3],
     tags: parsed.x[4]
   } : undefined;
-  const context = Array.isArray(parsed.c) ? { bossId: parsed.c[0], dojoAttribute: parsed.c[1], normalStage: parsed.c[2], note: parsed.c[3] } : undefined;
+  const context = Array.isArray(parsed.c) ? { bossId: parsed.c[0], dojoAttribute: parsed.c[1], normalStage: parsed.c[2], note: parsed.c[3], dojoFloor: parsed.c[4], dojoStage: parsed.c[5] } : undefined;
   const raw = {
     version: TEAM_VERSION,
     mode: TEAM_MODES[parsed.m],

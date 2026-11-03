@@ -283,7 +283,7 @@ for (const file of walk(root)) {
       $('.formation-board-footer').after(detail);
     }
   }
-  if (route.startsWith('/team-builder/community/'))
+  if (route.startsWith('/team-builder/community/') && !['/team-builder/community/chapters/', '/team-builder/community/dojo/'].includes(route))
     $('.page-hero').after(`<section class="wrap astra-community-intro"><span class="astra-eyebrow">PLAYER KNOWLEDGE</span><h2>${c.communityTitle}</h2><p>${c.communityText}</p><a class="button" href="${href('/team-builder/')}">${c.team} ↗</a><p class="astra-read-only">${c.readOnly}</p></section>`);
   if (route === '/search/')
     $('.page-hero').after(`<div class="wrap astra-search-help"><p>${c.searchHint}</p><a href="${href('/#tatari')}">${c.db}</a> · <a href="${href('/events/calendar/')}">${c.calendar}</a> · <a href="${href('/beginner-guide/')}">${c.beginner}</a></div>`);

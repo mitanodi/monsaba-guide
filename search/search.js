@@ -35,6 +35,18 @@ const fuzzyMatch = (query, value) => {
 };
 const pages = [
   {
+    title: 'チャプター別編成',
+    href: '/team-builder/community/chapters/',
+    description: 'チャプター・ステージ別の投稿編成を探して編成メーカーへ読み込む',
+    keywords: 'チャプター ステージ 通常 編成 掲示板 chapter stage formation'
+  },
+  {
+    title: '道場の編成掲示板',
+    href: '/team-builder/community/dojo/',
+    description: 'バッジ道場の属性・階・ステージ別に編成を探す',
+    keywords: '道場 バッジ 炎 火 水 草 岩 雷 階 編成 掲示板 dojo badge'
+  },
+  {
     title: '9/23テストサーバー更新プレビュー',
     href: '/updates/2026-09-23-test-preview/',
     description: 'ゾンビラッシュSeason 2・ルカロン・新T4・チップ調整の先行情報。本番未確認。',

@@ -2,8 +2,8 @@
   "version": 1,
   "asOf": "2026-09-05",
   "totals": {
-    "pages": 420,
-    "indexable": 375,
+    "pages": 426,
+    "indexable": 381,
     "brokenLinks": 0,
     "brokenImages": 0,
     "structuralIssues": 0,
@@ -1370,6 +1370,26 @@
       "reasons": []
     },
     {
+      "route": "/en/team-builder/community/chapters/",
+      "verified": "2026-11-04",
+      "ageDays": -60,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "community-user-generated",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/en/team-builder/community/dojo/",
+      "verified": "2026-11-04",
+      "ageDays": -60,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "community-user-generated",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
       "route": "/en/team-builder/community/",
       "verified": "2026-09-04",
       "ageDays": 1,
@@ -2476,6 +2496,26 @@
       "category": "tier",
       "priority": "MEDIUM",
       "status": "verified",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/team-builder/community/chapters/",
+      "verified": "2026-11-04",
+      "ageDays": -60,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "community-user-generated",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/team-builder/community/dojo/",
+      "verified": "2026-11-04",
+      "ageDays": -60,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "community-user-generated",
       "reviewRequired": false,
       "reasons": []
     },
@@ -3710,6 +3750,26 @@
       "reasons": []
     },
     {
+      "route": "/zh-cn/team-builder/community/chapters/",
+      "verified": "2026-11-04",
+      "ageDays": -60,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "community-user-generated",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
+      "route": "/zh-cn/team-builder/community/dojo/",
+      "verified": "2026-11-04",
+      "ageDays": -60,
+      "category": "evergreen",
+      "priority": "LOW",
+      "status": "community-user-generated",
+      "reviewRequired": false,
+      "reasons": []
+    },
+    {
       "route": "/zh-cn/team-builder/community/",
       "verified": "2026-09-04",
       "ageDays": 1,
@@ -4009,11 +4069,11 @@
       },
       {
         "file": "team-builder/team-builder.js",
-        "bytes": 92644
+        "bytes": 95912
       },
       {
         "file": "team-builder/community/community.js",
-        "bytes": 23323
+        "bytes": 36948
       }
     ],
     "localStorageNamespaces": [

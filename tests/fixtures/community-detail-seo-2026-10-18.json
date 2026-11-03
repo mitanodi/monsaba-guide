@@ -1,0 +1,198 @@
+{
+  "sourceCommit": "8b96a78800a33cc34f27054374c52f3133b8d6ab",
+  "source": "git show of pre-change published main; fields extracted independently of current generated HTML",
+  "pages": {
+    "team-builder/community/detail/index.html": {
+      "title": "みんなのゾンビラッシュ編成詳細",
+      "description": "プレイヤー投稿のゾンビラッシュ編成を確認し、同じ配置を編成メーカーへ読み込めます。",
+      "canonical": "https://monster-survival.com/team-builder/community/detail/",
+      "hreflang": [
+        [
+          "ja",
+          "https://monster-survival.com/team-builder/community/detail/"
+        ],
+        [
+          "en",
+          "https://monster-survival.com/en/team-builder/community/detail/"
+        ],
+        [
+          "zh-Hans",
+          "https://monster-survival.com/zh-cn/team-builder/community/detail/"
+        ],
+        [
+          "x-default",
+          "https://monster-survival.com/team-builder/community/detail/"
+        ]
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "schemas": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://monster-survival.com/team-builder/community/detail/",
+              "url": "https://monster-survival.com/team-builder/community/detail/",
+              "name": "みんなのゾンビラッシュ編成詳細",
+              "description": "プレイヤー投稿のゾンビラッシュ編成を確認し、同じ配置を編成メーカーへ読み込めます。",
+              "inLanguage": "ja",
+              "dateModified": "2026-09-04"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "トップ",
+                  "item": "https://monster-survival.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "編成メーカー",
+                  "item": "https://monster-survival.com/team-builder/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "みんなのゾンビラッシュ編成詳細"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "en/team-builder/community/detail/index.html": {
+      "title": "Community Zombie Rush Build Details",
+      "description": "Review a player-posted Zombie Rush build and load the same layout into Team Builder.",
+      "canonical": "https://monster-survival.com/en/team-builder/community/detail/",
+      "hreflang": [
+        [
+          "ja",
+          "https://monster-survival.com/team-builder/community/detail/"
+        ],
+        [
+          "en",
+          "https://monster-survival.com/en/team-builder/community/detail/"
+        ],
+        [
+          "zh-Hans",
+          "https://monster-survival.com/zh-cn/team-builder/community/detail/"
+        ],
+        [
+          "x-default",
+          "https://monster-survival.com/team-builder/community/detail/"
+        ]
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "schemas": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://monster-survival.com/en/team-builder/community/detail/",
+              "url": "https://monster-survival.com/en/team-builder/community/detail/",
+              "name": "Community Zombie Rush Build Details",
+              "description": "Review a player-posted Zombie Rush build and load the same layout into Team Builder.",
+              "inLanguage": "en",
+              "dateModified": "2026-09-04"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://monster-survival.com/en/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Team Builder",
+                  "item": "https://monster-survival.com/en/team-builder/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Community Zombie Rush Build Details"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "zh-cn/team-builder/community/detail/index.html": {
+      "title": "大家的僵尸突袭阵容详情",
+      "description": "查看玩家投稿的僵尸突袭阵容，并将相同布局载入阵容制作器。",
+      "canonical": "https://monster-survival.com/zh-cn/team-builder/community/detail/",
+      "hreflang": [
+        [
+          "ja",
+          "https://monster-survival.com/team-builder/community/detail/"
+        ],
+        [
+          "en",
+          "https://monster-survival.com/en/team-builder/community/detail/"
+        ],
+        [
+          "zh-Hans",
+          "https://monster-survival.com/zh-cn/team-builder/community/detail/"
+        ],
+        [
+          "x-default",
+          "https://monster-survival.com/team-builder/community/detail/"
+        ]
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "schemas": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://monster-survival.com/zh-cn/team-builder/community/detail/",
+              "url": "https://monster-survival.com/zh-cn/team-builder/community/detail/",
+              "name": "大家的僵尸突袭阵容详情",
+              "description": "查看玩家投稿的僵尸突袭阵容，并将相同布局载入阵容制作器。",
+              "inLanguage": "zh-CN",
+              "dateModified": "2026-09-04"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "首页",
+                  "item": "https://monster-survival.com/zh-cn/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "阵容编辑器",
+                  "item": "https://monster-survival.com/zh-cn/team-builder/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "大家的僵尸突袭阵容详情"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
