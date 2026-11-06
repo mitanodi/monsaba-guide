@@ -1,5 +1,12 @@
 const $ = (selector) => document.querySelector(selector);
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
+const locale = document.documentElement.lang === 'zh-CN' ? 'zh-CN' : document.documentElement.lang === 'en' ? 'en' : 'ja';
+const localePrefix = locale === 'en' ? '/en' : locale === 'zh-CN' ? '/zh-cn' : '';
+const searchCopy = {
+  ja: { prompt: '検索語を入力してください。', error: 'データの読み込みに失敗しました。', retry: 'ページを再読み込みしてください。', results: (query, count) => `「${query}」の検索結果：${count}件`, count: count => `${count}件`, sections: {} },
+  en: { prompt: 'Enter a search term.', error: 'Data could not be loaded.', retry: 'Reload the page.', results: (query, count) => `Search results for “${query}”: ${count}`, count: count => count === 1 ? '1 result' : `${count} results`, sections: { 'タタ': 'Tatari', '進化名': 'Evolution names', 'スキル': 'Skills', 'ゾンビラッシュチップ': 'Zombie Rush chips', '進化試練': 'Evolution trials', 'イベント': 'Events', 'ガイド': 'Guides', 'ツール': 'Tools' } },
+  'zh-CN': { prompt: '请输入搜索词。', error: '数据加载失败。', retry: '请重新加载页面。', results: (query, count) => `“${query}”的搜索结果：${count}项`, count: count => `${count}项`, sections: { 'タタ': 'Tatari', '進化名': '进化名称', 'スキル': '技能', 'ゾンビラッシュチップ': '僵尸突袭芯片', '進化試練': '进化试炼', 'イベント': '活动', 'ガイド': '攻略', 'ツール': '工具' } }
+}[locale];
 const { getFamilyDisplayLabel, getFamilySearchAliases, getTataDisplayName, getEvolutionChain, getJapaneseSecondaryLabel } = MONSABA_FAMILY;
 const normalize = (value) => {
   let text = String(value ?? '').toLowerCase().normalize('NFKC').replaceAll('土属性', '岩属性').trim();
@@ -243,6 +250,7 @@ async function fetchJson(url) {
 }
 
 async function boot() {
+  $('#searchStatus').setAttribute('translate', 'no');
   const [tatari, skillData, ratingData, chipData, trialData, imageData] = await Promise.all([
     fetchJson('/data/tatari.json'),
     fetchJson('/data/tata-skills.json'),
@@ -257,7 +265,7 @@ async function boot() {
   chips = chipData.chips || [];
   trials = trialData.families || [];
   imageByFamily = new Map((imageData.families || []).map((item) => [item.familyId, item]));
-  const suggestions = new Set(pages.map((page) => page.title));
+  const suggestions = new Set([...pages.map((page) => page.title), ...chips.flatMap((chip) => [chip.name[locale] || chip.name.ja, ...Object.values(chip.name)])]);
   for (const family of families) {
     getFamilySearchAliases(family).forEach((name) => suggestions.add(name));
 
@@ -266,7 +274,6 @@ async function boot() {
     (skills[family.id]?.stages || []).forEach((stage) => suggestions.add(stage.skillName));
     (ratings[family.id]?.roles || []).forEach((role) => suggestions.add(role));
   }
-  chips.forEach((chip) => suggestions.add(chip.name.ja));
   $('#siteSearchSuggestions').innerHTML = [...suggestions].slice(0, 500).map((value) => `<option value="${esc(value)}"></option>`).join('');
   $('#siteSearchForm').addEventListener('submit', (event) => {
 
@@ -296,7 +303,7 @@ function runSearch(rawQuery, updateUrl = true) {
     history.replaceState(null, '', url);
   }
   if (!query) {
-    $('#searchStatus').textContent = '検索語を入力してください。';
+    $('#searchStatus').textContent = searchCopy.prompt;
     $('#searchResults').innerHTML = `<nav class="attribute-guide-nav" aria-label="主要ページ">${pages.slice(0, 9).map((page) => `<a href="${page.href}">${esc(page.title)}</a>`).join('')}</nav>`;
     return 0;
   }
@@ -316,15 +323,15 @@ function runSearch(rawQuery, updateUrl = true) {
   const toolResults = pageResults.filter((page) => toolRoutes.includes(page.href));
   const eventResults = pageResults.filter((page) => page.href.startsWith('/events/') && !toolResults.includes(page));
   const guideResults = pageResults.filter((page) => !eventResults.includes(page) && !toolResults.includes(page));
-  const chipResults = chips.filter((chip) => contains(query, chip.name.ja, chip.effect.ja, chip.tags));
+  const chipResults = chips.filter((chip) => contains(query, Object.values(chip.name), Object.values(chip.effect), chip.id, chip.id.replaceAll('-', ' '), chip.tags));
   const trialResults = trials.filter((family) => contains(query, family.familyName, family.conditions.map((item) => [item.tataName, item.condition])));
   const total = familyResults.length + evolutionResults.length + skillResults.length + chipResults.length + trialResults.length + pageResults.length;
-  $('#searchStatus').textContent = `「${raw}」の検索結果：${total}件`;
+  $('#searchStatus').textContent = searchCopy.results(raw, total);
   const sections = [
     section('タタ', familyResults, (family) => resultLink(`/tata/${encodeURIComponent(family.id)}/`, getFamilyDisplayLabel(family), `${family.attribute}属性 / ${getEvolutionChain(family)}`, family)),
     section('進化名', evolutionResults, (item) => resultLink(`/tata/${encodeURIComponent(item.family.id)}/`, getFamilyDisplayLabel(item.family), item.matches.join(' / '), item.family)),
     section('スキル', skillResults, (item) => resultLink(`/tata/${encodeURIComponent(item.family.id)}/`, getFamilyDisplayLabel(item.family), item.matches.join(' / '), item.family)),
-    section('ゾンビラッシュチップ', chipResults, (chip) => resultLink('/zombie-rush/chips/', chip.name.ja, `Rank ${chip.rarity} / ${chip.effect.ja}`)),
+    section('ゾンビラッシュチップ', chipResults, chipResultLink),
     section('進化試練', trialResults, (family) => resultLink(`/evolution/trials/`, `${family.familyName}系`, family.conditions.map((item) => `T${item.stage} ${item.tataName}`).join(' / '))),
     section('イベント', eventResults, (page) => resultLink(page.href, page.title, page.description)),
     section('ガイド', guideResults, (page) => resultLink(page.href, page.title, page.description)),
@@ -337,7 +344,7 @@ function runSearch(rawQuery, updateUrl = true) {
 function section(title, items, render) {
   if (!items.length)
     return '';
-  return `<section class="search-result-section"><h2>${esc(title)} <small>${items.length}件</small></h2><div class="search-result-list">${items.map(render).join('')}</div></section>`;
+  return `<section class="search-result-section"><h2 translate="no">${esc(searchCopy.sections[title] || title)} <small>${esc(searchCopy.count(items.length))}</small></h2><div class="search-result-list">${items.map(render).join('')}</div></section>`;
 }
 
 function resultLink(href, title, detail, family = null) {
@@ -347,8 +354,17 @@ function resultLink(href, title, detail, family = null) {
   return `<a class="search-result${image ? ' has-tata-image' : ''}" href="${href}">${visual}<span class="search-result-copy"><b>${esc(title)}</b>${original ? `<small class="dynamic-original-name">${esc(original)}</small>` : ''}<span>${esc(detail)}</span></span></a>`;
 }
 
+function chipResultLink(chip) {
+  const name = chip.name[locale] || chip.name.ja;
+  const effect = chip.effect[locale] || chip.effect.ja;
+  const fallback = locale !== 'ja' && chip.nameLocalizationStatus?.[locale] !== 'official-source-confirmed';
+  const fallbackLabel = { en: 'Official English name pending · Japanese label', 'zh-CN': '中文正式名待确认 · 日文原名' }[locale];
+  const note = fallback ? `<small data-chip-name-fallback translate="no">${esc(fallbackLabel)}</small>` : '';
+  return `<a class="search-result" data-search-chip-id="${esc(chip.id)}" href="${localePrefix}/zombie-rush/chips/"><span class="search-result-copy"><b translate="no" lang="${fallback ? 'ja' : locale}">${esc(name)}</b>${note}<span data-chip-effect translate="no">Rank ${esc(chip.rarity)} / ${esc(effect)}</span></span></a>`;
+}
+
 boot().catch((error) => {
   console.error(error);
-  $('#searchStatus').textContent = 'データの読み込みに失敗しました。';
-  $('#searchResults').innerHTML = '<p class="error-message">データの読み込みに失敗しました。ページを再読み込みしてください。</p>';
+  $('#searchStatus').textContent = searchCopy.error;
+  $('#searchResults').innerHTML = `<p class="error-message" translate="no">${esc(searchCopy.error)} ${esc(searchCopy.retry)}</p>`;
 });
