@@ -46,7 +46,10 @@ test('eight user-confirmed names map to exact evolution stages and transparent, 
 test('all pre-existing skills, names, editorial ratings and position ratings stay unchanged', () => {
   for (const [id, old] of Object.entries(baseline('data/tata-skills.json').byFamily)) assert.deepEqual(skills.byFamily[id], old, id);
   for (const old of baseline('data/tata-tier.json').families) assert.deepEqual(json('data/tata-tier.json').families.find(f => f.familyId === old.familyId), old);
-  assert.deepEqual(json('data/zombie-rush/position-tiers.json'), baseline('data/zombie-rush/position-tiers.json'));
+  const expectedPositions = baseline('data/zombie-rush/position-tiers.json');
+  expectedPositions.creator = { ...expectedPositions.futureContributor, scope: 'zombie-rush-position-tier' };
+  delete expectedPositions.futureContributor;
+  assert.deepEqual(json('data/zombie-rush/position-tiers.json'), expectedPositions);
   for (const old of baseline('data/tatari.json').families) {
     const current = structuredClone(tatari.families.find(f => f.id === old.id));
     for (const stage of current.evolutions) if (expected.some(([id, n]) => id === old.id && n === stage.stage)) {
