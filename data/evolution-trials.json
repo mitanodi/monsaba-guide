@@ -1,7 +1,7 @@
 {
   "version": 1,
   "updated": "2026-10-10",
-  "familyCount": 67,
+  "familyCount": 69,
   "source": {
     "sourceType": "public_wiki",
     "sourceName": "モンスターサバイバル@wiki 進化条件一覧・個別タタ",
@@ -4775,6 +4775,110 @@
             "進化条件"
           ],
           "evidence": "data/user-tata-evidence-2026-10-10.json"
+        }
+      ]
+    },
+    {
+      "familyId": "bibabo",
+      "familyName": "ビバボ",
+      "attribute": "雷",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "デンキゲシ",
+          "condition": "進化条件はゲーム内資料の確認待ち",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "public_wiki_game_asset",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/171.html",
+          "checkedAt": "2026-11-07",
+          "confirmedParts": [],
+          "pendingFields": [
+            "進化条件"
+          ],
+          "evidence": "data/wiki-tata-evidence-2026-11-07.json"
+        },
+        {
+          "stage": 3,
+          "tataName": "ボルティース",
+          "condition": "進化条件はゲーム内資料の確認待ち",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "public_wiki_game_asset",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/171.html",
+          "checkedAt": "2026-11-07",
+          "confirmedParts": [],
+          "pendingFields": [
+            "進化条件"
+          ],
+          "evidence": "data/wiki-tata-evidence-2026-11-07.json"
+        },
+        {
+          "stage": 4,
+          "tataName": "ビバントクロー",
+          "condition": "進化条件はゲーム内資料の確認待ち",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "public_wiki_game_asset",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/171.html",
+          "checkedAt": "2026-11-07",
+          "confirmedParts": [],
+          "pendingFields": [
+            "進化条件"
+          ],
+          "evidence": "data/wiki-tata-evidence-2026-11-07.json"
+        }
+      ]
+    },
+    {
+      "familyId": "shaipu",
+      "familyName": "シャイプ",
+      "attribute": "草",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "プランキー",
+          "condition": "進化条件はゲーム内資料の確認待ち",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "public_wiki_game_asset",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/155.html",
+          "checkedAt": "2026-11-07",
+          "confirmedParts": [],
+          "pendingFields": [
+            "進化条件"
+          ],
+          "evidence": "data/wiki-tata-evidence-2026-11-07.json"
+        },
+        {
+          "stage": 3,
+          "tataName": "バナコング",
+          "condition": "進化条件はゲーム内資料の確認待ち",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "public_wiki_game_asset",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/155.html",
+          "checkedAt": "2026-11-07",
+          "confirmedParts": [],
+          "pendingFields": [
+            "進化条件"
+          ],
+          "evidence": "data/wiki-tata-evidence-2026-11-07.json"
+        },
+        {
+          "stage": 4,
+          "tataName": "バナナリアン",
+          "condition": "進化条件はゲーム内資料の確認待ち",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "public_wiki_game_asset",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/155.html",
+          "checkedAt": "2026-11-07",
+          "confirmedParts": [],
+          "pendingFields": [
+            "進化条件"
+          ],
+          "evidence": "data/wiki-tata-evidence-2026-11-07.json"
         }
       ]
     }

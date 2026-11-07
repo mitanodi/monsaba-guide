@@ -24,11 +24,11 @@
     }
   },
   "summary": {
-    "canonicalForms": 246,
+    "canonicalForms": 254,
     "englishConfirmed": 242,
     "simplifiedChineseConfirmed": 236,
     "bothConfirmed": 236,
-    "needsReview": 10
+    "needsReview": 18
   },
   "forms": [
     {
@@ -3866,6 +3866,230 @@
         }
       },
       "checkedAt": "2026-10-10"
+    },
+    {
+      "familyId": "bibabo",
+      "stage": 1,
+      "japaneseName": "ビバボ",
+      "englishName": null,
+      "simplifiedChineseName": null,
+      "confidence": "pending-official",
+      "sourceType": "supplemental-evidence",
+      "japaneseEvidence": {
+        "sourceType": "public_wiki_game_asset",
+        "manifest": "data/wiki-tata-evidence-2026-11-07.json",
+        "recordId": "bibabo:T1",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/171.html",
+        "sourceSha256": "00fc4e915c2bf593bb1a8f09f295889a9bfa5f1eb90730b71d5ead31fd70d552",
+        "checkedAt": "2026-11-07"
+      },
+      "localizedEvidence": {
+        "en": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        },
+        "zh-CN": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        }
+      },
+      "checkedAt": "2026-11-07"
+    },
+    {
+      "familyId": "bibabo",
+      "stage": 2,
+      "japaneseName": "デンキゲシ",
+      "englishName": null,
+      "simplifiedChineseName": null,
+      "confidence": "pending-official",
+      "sourceType": "supplemental-evidence",
+      "japaneseEvidence": {
+        "sourceType": "public_wiki_game_asset",
+        "manifest": "data/wiki-tata-evidence-2026-11-07.json",
+        "recordId": "bibabo:T2",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/171.html",
+        "sourceSha256": "276580fea54e5601aa1eca917c559288039ed71e32bd65c67304026f081ad785",
+        "checkedAt": "2026-11-07"
+      },
+      "localizedEvidence": {
+        "en": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        },
+        "zh-CN": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        }
+      },
+      "checkedAt": "2026-11-07"
+    },
+    {
+      "familyId": "bibabo",
+      "stage": 3,
+      "japaneseName": "ボルティース",
+      "englishName": null,
+      "simplifiedChineseName": null,
+      "confidence": "pending-official",
+      "sourceType": "supplemental-evidence",
+      "japaneseEvidence": {
+        "sourceType": "public_wiki_game_asset",
+        "manifest": "data/wiki-tata-evidence-2026-11-07.json",
+        "recordId": "bibabo:T3",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/171.html",
+        "sourceSha256": "ce648fe824d85d251e600a86e9f3d4a37fcb9a1e54971d61079bf366790117a6",
+        "checkedAt": "2026-11-07"
+      },
+      "localizedEvidence": {
+        "en": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        },
+        "zh-CN": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        }
+      },
+      "checkedAt": "2026-11-07"
+    },
+    {
+      "familyId": "bibabo",
+      "stage": 4,
+      "japaneseName": "ビバントクロー",
+      "englishName": null,
+      "simplifiedChineseName": null,
+      "confidence": "pending-official",
+      "sourceType": "supplemental-evidence",
+      "japaneseEvidence": {
+        "sourceType": "public_wiki_game_asset",
+        "manifest": "data/wiki-tata-evidence-2026-11-07.json",
+        "recordId": "bibabo:T4",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/171.html",
+        "sourceSha256": "ba392598b4c905ef30e672541effd3029c6dcfb5be10cf22b78206d51cc03b39",
+        "checkedAt": "2026-11-07"
+      },
+      "localizedEvidence": {
+        "en": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        },
+        "zh-CN": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        }
+      },
+      "checkedAt": "2026-11-07"
+    },
+    {
+      "familyId": "shaipu",
+      "stage": 1,
+      "japaneseName": "シャイプ",
+      "englishName": null,
+      "simplifiedChineseName": null,
+      "confidence": "pending-official",
+      "sourceType": "supplemental-evidence",
+      "japaneseEvidence": {
+        "sourceType": "public_wiki_game_asset",
+        "manifest": "data/wiki-tata-evidence-2026-11-07.json",
+        "recordId": "shaipu:T1",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/155.html",
+        "sourceSha256": "c737ec8aff9ffff25322712f4949ad99677e339970b9c6d3d7dfc6effbe047a0",
+        "checkedAt": "2026-11-07"
+      },
+      "localizedEvidence": {
+        "en": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        },
+        "zh-CN": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        }
+      },
+      "checkedAt": "2026-11-07"
+    },
+    {
+      "familyId": "shaipu",
+      "stage": 2,
+      "japaneseName": "プランキー",
+      "englishName": null,
+      "simplifiedChineseName": null,
+      "confidence": "pending-official",
+      "sourceType": "supplemental-evidence",
+      "japaneseEvidence": {
+        "sourceType": "public_wiki_game_asset",
+        "manifest": "data/wiki-tata-evidence-2026-11-07.json",
+        "recordId": "shaipu:T2",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/155.html",
+        "sourceSha256": "1a483ce54bacc935388df89646926fd7ea023110e8c2f2644fe011980f2d5569",
+        "checkedAt": "2026-11-07"
+      },
+      "localizedEvidence": {
+        "en": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        },
+        "zh-CN": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        }
+      },
+      "checkedAt": "2026-11-07"
+    },
+    {
+      "familyId": "shaipu",
+      "stage": 3,
+      "japaneseName": "バナコング",
+      "englishName": null,
+      "simplifiedChineseName": null,
+      "confidence": "pending-official",
+      "sourceType": "supplemental-evidence",
+      "japaneseEvidence": {
+        "sourceType": "public_wiki_game_asset",
+        "manifest": "data/wiki-tata-evidence-2026-11-07.json",
+        "recordId": "shaipu:T3",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/155.html",
+        "sourceSha256": "4cef8074cc27ec1a2c6a2fed1e055f86ec9d7f2e5bfe97c98c4f5e509f47d8ab",
+        "checkedAt": "2026-11-07"
+      },
+      "localizedEvidence": {
+        "en": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        },
+        "zh-CN": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        }
+      },
+      "checkedAt": "2026-11-07"
+    },
+    {
+      "familyId": "shaipu",
+      "stage": 4,
+      "japaneseName": "バナナリアン",
+      "englishName": null,
+      "simplifiedChineseName": null,
+      "confidence": "pending-official",
+      "sourceType": "supplemental-evidence",
+      "japaneseEvidence": {
+        "sourceType": "public_wiki_game_asset",
+        "manifest": "data/wiki-tata-evidence-2026-11-07.json",
+        "recordId": "shaipu:T4",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/155.html",
+        "sourceSha256": "e226e787f42ce5bd0e83d6758eccd8b5b4e7de3e9fce2d21251b0e9d2e6137f4",
+        "checkedAt": "2026-11-07"
+      },
+      "localizedEvidence": {
+        "en": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        },
+        "zh-CN": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        }
+      },
+      "checkedAt": "2026-11-07"
     }
   ]
 }

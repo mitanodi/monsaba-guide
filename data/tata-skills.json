@@ -3,11 +3,11 @@
   "source": "data/tatari.json",
   "description": "Tata skill data copied from the existing structured tatari.json source. Values are preserved as published strings and are not inferred.",
   "totals": {
-    "families": 67,
-    "stages": 246,
-    "skills": 246,
+    "families": 69,
+    "stages": 254,
+    "skills": 254,
     "unreadable": 0,
-    "pendingSkillEvidence": 4
+    "pendingSkillEvidence": 12
   },
   "issues": [],
   "byFamily": {
@@ -16869,6 +16869,164 @@
             "manifest": "data/user-tata-evidence-2026-10-10.json",
             "skillEvidenceProvided": false,
             "verifiedAt": "2026-10-10"
+          }
+        }
+      ]
+    },
+    "bibabo": {
+      "familyId": "bibabo",
+      "familyName": "ビバボ",
+      "attribute": "雷",
+      "stages": [
+        {
+          "stage": 1,
+          "tataName": "ビバボ",
+          "skillName": "確認待ち",
+          "description": "Wikiの名称と画像を確認済み。スキル名・効果・数値はゲーム内資料の確認待ちです。",
+          "values": [],
+          "sources": [],
+          "verificationStatus": "pending-wiki-skill-evidence",
+          "nameEn": null,
+          "nameZhHans": null,
+          "evidence": {
+            "sourceType": "public_wiki",
+            "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/171.html",
+            "manifest": "data/wiki-tata-evidence-2026-11-07.json",
+            "skillEvidenceProvided": false,
+            "verifiedAt": "2026-11-07"
+          }
+        },
+        {
+          "stage": 2,
+          "tataName": "デンキゲシ",
+          "skillName": "確認待ち",
+          "description": "Wikiの名称と画像を確認済み。スキル名・効果・数値はゲーム内資料の確認待ちです。",
+          "values": [],
+          "sources": [],
+          "verificationStatus": "pending-wiki-skill-evidence",
+          "nameEn": null,
+          "nameZhHans": null,
+          "evidence": {
+            "sourceType": "public_wiki",
+            "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/171.html",
+            "manifest": "data/wiki-tata-evidence-2026-11-07.json",
+            "skillEvidenceProvided": false,
+            "verifiedAt": "2026-11-07"
+          }
+        },
+        {
+          "stage": 3,
+          "tataName": "ボルティース",
+          "skillName": "確認待ち",
+          "description": "Wikiの名称と画像を確認済み。スキル名・効果・数値はゲーム内資料の確認待ちです。",
+          "values": [],
+          "sources": [],
+          "verificationStatus": "pending-wiki-skill-evidence",
+          "nameEn": null,
+          "nameZhHans": null,
+          "evidence": {
+            "sourceType": "public_wiki",
+            "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/171.html",
+            "manifest": "data/wiki-tata-evidence-2026-11-07.json",
+            "skillEvidenceProvided": false,
+            "verifiedAt": "2026-11-07"
+          }
+        },
+        {
+          "stage": 4,
+          "tataName": "ビバントクロー",
+          "skillName": "確認待ち",
+          "description": "Wikiの名称と画像を確認済み。スキル名・効果・数値はゲーム内資料の確認待ちです。",
+          "values": [],
+          "sources": [],
+          "verificationStatus": "pending-wiki-skill-evidence",
+          "nameEn": null,
+          "nameZhHans": null,
+          "evidence": {
+            "sourceType": "public_wiki",
+            "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/171.html",
+            "manifest": "data/wiki-tata-evidence-2026-11-07.json",
+            "skillEvidenceProvided": false,
+            "verifiedAt": "2026-11-07"
+          }
+        }
+      ]
+    },
+    "shaipu": {
+      "familyId": "shaipu",
+      "familyName": "シャイプ",
+      "attribute": "草",
+      "stages": [
+        {
+          "stage": 1,
+          "tataName": "シャイプ",
+          "skillName": "確認待ち",
+          "description": "Wikiの名称と画像を確認済み。スキル名・効果・数値はゲーム内資料の確認待ちです。",
+          "values": [],
+          "sources": [],
+          "verificationStatus": "pending-wiki-skill-evidence",
+          "nameEn": null,
+          "nameZhHans": null,
+          "evidence": {
+            "sourceType": "public_wiki",
+            "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/155.html",
+            "manifest": "data/wiki-tata-evidence-2026-11-07.json",
+            "skillEvidenceProvided": false,
+            "verifiedAt": "2026-11-07"
+          }
+        },
+        {
+          "stage": 2,
+          "tataName": "プランキー",
+          "skillName": "確認待ち",
+          "description": "Wikiの名称と画像を確認済み。スキル名・効果・数値はゲーム内資料の確認待ちです。",
+          "values": [],
+          "sources": [],
+          "verificationStatus": "pending-wiki-skill-evidence",
+          "nameEn": null,
+          "nameZhHans": null,
+          "evidence": {
+            "sourceType": "public_wiki",
+            "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/155.html",
+            "manifest": "data/wiki-tata-evidence-2026-11-07.json",
+            "skillEvidenceProvided": false,
+            "verifiedAt": "2026-11-07"
+          }
+        },
+        {
+          "stage": 3,
+          "tataName": "バナコング",
+          "skillName": "確認待ち",
+          "description": "Wikiの名称と画像を確認済み。スキル名・効果・数値はゲーム内資料の確認待ちです。",
+          "values": [],
+          "sources": [],
+          "verificationStatus": "pending-wiki-skill-evidence",
+          "nameEn": null,
+          "nameZhHans": null,
+          "evidence": {
+            "sourceType": "public_wiki",
+            "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/155.html",
+            "manifest": "data/wiki-tata-evidence-2026-11-07.json",
+            "skillEvidenceProvided": false,
+            "verifiedAt": "2026-11-07"
+          }
+        },
+        {
+          "stage": 4,
+          "tataName": "バナナリアン",
+          "skillName": "確認待ち",
+          "description": "Wikiの名称と画像を確認済み。スキル名・効果・数値はゲーム内資料の確認待ちです。",
+          "values": [],
+          "sources": [],
+          "verificationStatus": "pending-wiki-skill-evidence",
+          "nameEn": null,
+          "nameZhHans": null,
+          "evidence": {
+            "sourceType": "public_wiki",
+            "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/155.html",
+            "manifest": "data/wiki-tata-evidence-2026-11-07.json",
+            "skillEvidenceProvided": false,
+            "verifiedAt": "2026-11-07"
           }
         }
       ]

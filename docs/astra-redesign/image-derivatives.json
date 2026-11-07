@@ -495,5 +495,19 @@
     "bytes": 3766,
     "source": "assets/tata-provided/satorissamu/t1-512.webp",
     "sourceSha256": "87a3483aa78fced4a4517490ba374becc35009b66ec79601d1186b691f7213a6"
+  },
+  {
+    "file": "assets/astra/bibabo-128.webp",
+    "width": 128,
+    "bytes": 3148,
+    "source": "assets/tata-wiki/bibabo/t1-512.webp",
+    "sourceSha256": "fe2406893f4ba1178b30f92a32384f9d9aa78b2d71f091d5e320fd283f87abe2"
+  },
+  {
+    "file": "assets/astra/shaipu-128.webp",
+    "width": 128,
+    "bytes": 4150,
+    "source": "assets/tata-wiki/shaipu/t1-512.webp",
+    "sourceSha256": "5c00d01879ff70a398cef681c59cd10d714bc644e87a90726a3e6badb5b6ff40"
   }
 ]

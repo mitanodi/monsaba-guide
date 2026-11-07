@@ -21,6 +21,15 @@ const hasOfficialStoreEvidence = (evidence) => {
       && /^\d{4}-\d{2}-\d{2}$/.test(evidence?.checkedAt || '');
   } catch { return false; }
 };
+const hasWikiImageEvidence = (evidence, row) => {
+  const pages = { bibabo: 171, shaipu: 155 };
+  return evidence?.sourceType === 'public_wiki_game_asset'
+    && evidence.sourceUrl === `https://w.atwiki.jp/monstersurvival/pages/${pages[row.familyId]}.html`
+    && Boolean(pages[row.familyId])
+    && evidence.manifest === 'data/wiki-tata-evidence-2026-11-07.json'
+    && evidence.recordId === formKey(row.familyId, row.stage)
+    && /^[a-f0-9]{64}$/.test(evidence.sourceSha256 || '');
+};
 const hasExternalNameEvidence = (evidence) => {
   try {
     const url = new URL(evidence?.url);
@@ -111,6 +120,7 @@ export function validateTataNameSources({ source, tatari, skills, generatedHtml 
     if (isSupplemental(row) && (row.confidence !== 'pending-official'
       || !(hasOfficialStoreEvidence(row.japaneseEvidence)
         || hasUserImageEvidence(row.japaneseEvidence, row)
+        || hasWikiImageEvidence(row.japaneseEvidence, row)
         || (exactString(row.japaneseEvidence?.manifest)
           && Number.isInteger(row.japaneseEvidence?.sourcePage) && row.japaneseEvidence.sourcePage >= 1)))) {
       fail('invalidDocuments', 'Invalid supplemental Tata evidence', { family: row.familyId, stage: row.stage });

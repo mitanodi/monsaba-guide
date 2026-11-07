@@ -88,9 +88,10 @@ function renderPage(family, index) {
   const displayName = getFamilyDisplayName(family);
   const displayLabel = getFamilyDisplayLabel(family);
   const stageData = skills.byFamily?.[family.id]?.stages || [];
-  const pendingSkillEvidence = stageData.some((stage) => stage.verificationStatus === 'pending-user-skill-evidence');
+  const pendingSkillEvidence = stageData.some((stage) => ['pending-user-skill-evidence', 'pending-wiki-skill-evidence'].includes(stage.verificationStatus));
   const firstEnglishEvidence = tataNameSources.forms.find(form => form.familyId === family.id && form.stage === 1)?.localizedEvidence?.en;
-  const pendingSourceNote = firstEnglishEvidence?.status === 'confirmed' && firstEnglishEvidence?.sourceType === 'official-store'
+  const wikiImageSource = family.evolutions[0]?.imageEvidence?.sourceType === 'public_wiki_game_asset' ? family.evolutions[0].imageEvidence.sourceUrl : null;
+  const pendingSourceNote = wikiImageSource ? `日本語名と進化画像は<a href="${esc(wikiImageSource)}">モンサバ攻略Wiki</a>で確認しました。画像の権利は各権利者に帰属します。スキル・進化条件・評価・外国語名はゲーム内資料の確認待ちです。` : firstEnglishEvidence?.status === 'confirmed' && firstEnglishEvidence?.sourceType === 'official-store'
     ? '日本語名と進化画像は提供資料、T1英語名は公式ストアで確認しました。スキル・進化条件・評価・一部の外国語名は確認待ちです。'
     : '日本語名と進化画像は提供資料で確認しました。スキル・進化条件・評価・外国語名は確認待ちです。';
   const overall = ratings.overall?.byFamily?.[family.id];

@@ -263,7 +263,7 @@ const tierHtml = read('tata-tier/index.html');
 expect((tierHtml.match(/class="wrap static-section tier-board"/g) || []).length > 0, 'Tierの静的HTMLがありません');
 const positionTiers = JSON.parse(read('data/zombie-rush/position-tiers.json'));
 const roleFamilyCount = positionTiers.entries.filter(entry => entry.familyId).length;
-expect((tierHtml.match(/class="tier-chart-tata"/g) || []).length === tatari.families.length * 5 + roleFamilyCount, '既存5表と役割別Tierの系統数が正本と一致しません');
+expect((tierHtml.match(/class="tier-chart-tata"/g) || []).length === JSON.parse(read('data/tata-tier.json')).families.length * 5 + roleFamilyCount, '既存5表と役割別Tierの系統数が正本と一致しません');
 const roleRowCount = ['front', 'middle', 'rear'].reduce((count, position) => count + new Set(positionTiers.entries.filter(entry => entry.position === position).map(entry => entry.tier)).size, 0);
 expect((tierHtml.match(/class="tier-chart-row /g) || []).length === 40 + roleRowCount, '既存5表と役割別Tierの評価行を維持する必要があります');
 expect((tierHtml.match(/data-tier-position="/g) || []).length === 3, 'ゾンビラッシュの前衛・中衛・後衛表が不足しています');

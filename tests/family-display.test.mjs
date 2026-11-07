@@ -9,9 +9,9 @@ const tatari = JSON.parse(fs.readFileSync(path.join(root, 'data', 'tatari.json')
 const ratings = JSON.parse(fs.readFileSync(path.join(root, 'data', 'tier-ratings.json'), 'utf8'));
 const { getFamilyDisplayName, getFamilyDisplayLabel, getFamilySearchAliases } = globalThis.MONSABA_FAMILY;
 
-test('all 67 family labels use the stage 1 name while retaining every search alias', () => {
-  assert.equal(tatari.families.length, 67);
-  assert.equal(tatari.families.flatMap((family) => family.evolutions).length, 246);
+test('all 69 family labels use the stage 1 name while retaining every search alias', () => {
+  assert.equal(tatari.families.length, 69);
+  assert.equal(tatari.families.flatMap((family) => family.evolutions).length, 254);
   for (const family of tatari.families) {
     assert.equal(getFamilyDisplayName(family), family.evolutions[0].name, family.id);
     assert.equal(getFamilyDisplayLabel(family), `${family.evolutions[0].name}系`, family.id);

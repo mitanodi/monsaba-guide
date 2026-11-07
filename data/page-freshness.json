@@ -557,6 +557,24 @@
       "verified": "2026-11-04",
       "status": "community-user-generated",
       "pending": []
+    },
+    "/tata/bibabo/": {
+      "published": "2026-11-07",
+      "updated": "2026-11-07",
+      "verified": "2026-11-07",
+      "status": "partial",
+      "pending": [
+        "スキル・進化条件・評価・外国語名"
+      ]
+    },
+    "/tata/shaipu/": {
+      "published": "2026-11-07",
+      "updated": "2026-11-07",
+      "verified": "2026-11-07",
+      "status": "partial",
+      "pending": [
+        "スキル・進化条件・評価・外国語名"
+      ]
     }
   }
 }

@@ -1,7 +1,7 @@
 # A8広告配置監査
 
 生成元: `data/monetization.json` / `data/affiliate-offers.json`
-対象: 公開HTML 143ページ（404を含む）
+対象: 公開HTML 145ページ（404を含む）
 監査日: 2026-08-28
 
 ## Before
@@ -75,6 +75,7 @@
 | https://monster-survival.com/tata-tier/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/atatama/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/batarisu/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/tata/bibabo/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/birimori/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/birinamazu/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/biripiyo/ | 0 | — | — | — | 非表示 |
@@ -128,6 +129,7 @@
 | https://monster-survival.com/tata/rukaron/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/sabooru/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/satorissamu/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/tata/shaipu/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/shiiparusu/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/shizukuchou/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/sukedako/ | 0 | — | — | — | 非表示 |
@@ -229,6 +231,7 @@
 | https://monster-survival.com/tata-tier/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/atatama/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/batarisu/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/tata/bibabo/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/birimori/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/birinamazu/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/biripiyo/ | 0 | — | — | — | 非表示 |
@@ -282,6 +285,7 @@
 | https://monster-survival.com/tata/rukaron/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/sabooru/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/satorissamu/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/tata/shaipu/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/shiiparusu/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/shizukuchou/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/sukedako/ | 0 | — | — | — | 非表示 |

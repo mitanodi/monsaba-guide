@@ -13,7 +13,10 @@ const data = json('data/tata-tier.json'), canonical = json('data/tatari.json').f
 test('67 canonical families have five independent, valid rankings and real assets/URLs', () => {
   assert.equal(data.families.length, 67);
   assert.equal(new Set(data.families.map(f => f.familyId)).size, 67);
-  assert.deepEqual(data.families.map(f => f.familyId).sort(), canonical.map(f => f.id).sort());
+  const unranked = canonical.filter(f => !data.families.some(r => r.familyId === f.id));
+  assert.deepEqual(unranked.map(f => f.id).sort(), ['bibabo', 'shaipu']);
+  assert.ok(unranked.every(f => f.verification.namesAndImages === 'public-wiki-confirmed'));
+  assert.deepEqual(data.families.map(f => f.familyId).sort(), canonical.filter(f => !['bibabo', 'shaipu'].includes(f.id)).map(f => f.id).sort());
   for (const f of data.families) {
     assert.deepEqual(Object.keys(f.rankings), MODES);
     assert.equal(f.slug, f.familyId);

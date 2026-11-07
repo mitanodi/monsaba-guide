@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "checkedAt": "2026-11-07",
+  "sourceType": "public_wiki_game_asset",
+  "scope": "User-requested game character artwork and Japanese evolution names only; no inferred localized names, skills or rankings.",
+  "rightsNote": "Wiki hosting is not evidence of a general redistribution license. Game artwork rights remain with their respective owners; these files are not official creator asset-pack records.",
+  "records": [
+    {
+      "recordId": "bibabo:T1",
+      "familyId": "bibabo",
+      "stage": 1,
+      "name": "ビバボ",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/171.html",
+      "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2722/%E3%83%93%E3%83%90%E3%83%9C.webp",
+      "originalPath": "assets/tata-wiki/bibabo/t1-source.webp",
+      "sourceSha256": "00fc4e915c2bf593bb1a8f09f295889a9bfa5f1eb90730b71d5ead31fd70d552",
+      "originalWidth": 154,
+      "originalHeight": 188,
+      "checkedAt": "2026-11-07"
+    },
+    {
+      "recordId": "bibabo:T2",
+      "familyId": "bibabo",
+      "stage": 2,
+      "name": "デンキゲシ",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/171.html",
+      "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2723/%E3%83%87%E3%83%B3%E3%82%AD%E3%82%B2%E3%82%B7.webp",
+      "originalPath": "assets/tata-wiki/bibabo/t2-source.webp",
+      "sourceSha256": "276580fea54e5601aa1eca917c559288039ed71e32bd65c67304026f081ad785",
+      "originalWidth": 154,
+      "originalHeight": 188,
+      "checkedAt": "2026-11-07"
+    },
+    {
+      "recordId": "bibabo:T3",
+      "familyId": "bibabo",
+      "stage": 3,
+      "name": "ボルティース",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/171.html",
+      "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2724/%E3%83%9C%E3%83%AB%E3%83%86%E3%82%A3%E3%83%BC%E3%82%B9.webp",
+      "originalPath": "assets/tata-wiki/bibabo/t3-source.webp",
+      "sourceSha256": "ce648fe824d85d251e600a86e9f3d4a37fcb9a1e54971d61079bf366790117a6",
+      "originalWidth": 154,
+      "originalHeight": 188,
+      "checkedAt": "2026-11-07"
+    },
+    {
+      "recordId": "bibabo:T4",
+      "familyId": "bibabo",
+      "stage": 4,
+      "name": "ビバントクロー",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/171.html",
+      "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2725/%E3%83%93%E3%83%90%E3%83%B3%E3%83%88%E3%82%AF%E3%83%AD%E3%83%BC.webp",
+      "originalPath": "assets/tata-wiki/bibabo/t4-source.webp",
+      "sourceSha256": "ba392598b4c905ef30e672541effd3029c6dcfb5be10cf22b78206d51cc03b39",
+      "originalWidth": 154,
+      "originalHeight": 188,
+      "checkedAt": "2026-11-07"
+    },
+    {
+      "recordId": "shaipu:T1",
+      "familyId": "shaipu",
+      "stage": 1,
+      "name": "シャイプ",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/155.html",
+      "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2399/%E3%82%B7%E3%83%A3%E3%82%A4%E3%83%97.webp",
+      "originalPath": "assets/tata-wiki/shaipu/t1-source.webp",
+      "sourceSha256": "c737ec8aff9ffff25322712f4949ad99677e339970b9c6d3d7dfc6effbe047a0",
+      "originalWidth": 320,
+      "originalHeight": 272,
+      "checkedAt": "2026-11-07"
+    },
+    {
+      "recordId": "shaipu:T2",
+      "familyId": "shaipu",
+      "stage": 2,
+      "name": "プランキー",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/155.html",
+      "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2701/%E3%83%97%E3%83%A9%E3%83%B3%E3%82%AD%E3%83%BC.webp",
+      "originalPath": "assets/tata-wiki/shaipu/t2-source.webp",
+      "sourceSha256": "1a483ce54bacc935388df89646926fd7ea023110e8c2f2644fe011980f2d5569",
+      "originalWidth": 512,
+      "originalHeight": 512,
+      "checkedAt": "2026-11-07"
+    },
+    {
+      "recordId": "shaipu:T3",
+      "familyId": "shaipu",
+      "stage": 3,
+      "name": "バナコング",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/155.html",
+      "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2702/%E3%83%90%E3%83%8A%E3%82%B3%E3%83%B3%E3%82%B0.webp",
+      "originalPath": "assets/tata-wiki/shaipu/t3-source.webp",
+      "sourceSha256": "4cef8074cc27ec1a2c6a2fed1e055f86ec9d7f2e5bfe97c98c4f5e509f47d8ab",
+      "originalWidth": 512,
+      "originalHeight": 512,
+      "checkedAt": "2026-11-07"
+    },
+    {
+      "recordId": "shaipu:T4",
+      "familyId": "shaipu",
+      "stage": 4,
+      "name": "バナナリアン",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/155.html",
+      "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2703/%E3%83%90%E3%83%8A%E3%83%8A%E3%83%AA%E3%82%A2%E3%83%B3.webp",
+      "originalPath": "assets/tata-wiki/shaipu/t4-source.webp",
+      "sourceSha256": "e226e787f42ce5bd0e83d6758eccd8b5b4e7de3e9fce2d21251b0e9d2e6137f4",
+      "originalWidth": 512,
+      "originalHeight": 512,
+      "checkedAt": "2026-11-07"
+    }
+  ]
+}

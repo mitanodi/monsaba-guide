@@ -98,8 +98,8 @@ test('published SEO fields retain approved data changes and October 14 article t
       for (const change of policy.changes[file] || []) apply(approved, change);
       // The supplied four-stage family changes only current totals and the trial
       // update date. Build expectations from the published baseline, not outputs.
-      const updateTotals = value => value.replace(/66(?=\s*(?:系統|families|个系列))/g, '67')
-        .replace(/242(?=\s*(?:体|forms|个形态))/g, '246');
+      const updateTotals = value => value.replace(/66(?=\s*(?:系統|families|个系列))/g, '69')
+        .replace(/242(?=\s*(?:体|forms|个形态))/g, '254');
       if (['index.html', 'en/index.html', 'zh-cn/index.html'].includes(file))
         approved.schemas[0]['@graph'][1].description = updateTotals(approved.schemas[0]['@graph'][1].description);
       // Only these six pages gain new article content on October 14. Preserve
@@ -132,7 +132,7 @@ test('published SEO fields retain approved data changes and October 14 article t
       if (['attribute/index.html', 'en/attribute/index.html', 'zh-cn/attribute/index.html'].includes(file)) {
         // Only the family total changes in these two descriptions; all other
         // fields still match the exact published hash.
-        const publishedTotal = value => value.replace(/67(?=\s*(?:系統|Tatari families|个 Tatari系列))/g, '66');
+        const publishedTotal = value => value.replace(/69(?=\s*(?:系統|Tatari families|个 Tatari系列))/g, '66');
         preserved.description = publishedTotal(preserved.description);
         preserved.schemas[0]['@graph'][0].description = publishedTotal(preserved.schemas[0]['@graph'][0].description);
       }

@@ -35,6 +35,12 @@ for (const [prefix, locale, warning] of [['', 'ja', '本番実装は未確認'],
   });
 }
 test('Preview is not copied into live gameplay records', () => {
-  for (const file of ['data/tatari.json', 'data/tata-skills.json', 'data/tier-ratings.json', 'data/zombie-rush/chips.json']) assert.ok(!read(file).includes('シャイプ'), file);
+  for (const file of ['data/tier-ratings.json', 'data/zombie-rush/chips.json']) assert.ok(!read(file).includes('シャイプ'), file);
+  // November's explicitly requested Wiki artwork is independent of preview gameplay claims.
+  const family = JSON.parse(read('data/tatari.json')).families.find(f => f.id === 'shaipu');
+  assert.equal(family.verification.implementation, 'general-release-not-independently-verified');
+  assert.ok(family.evolutions.every(e => e.imageEvidence.sourceType === 'public_wiki_game_asset'));
+  const stages = JSON.parse(read('data/tata-skills.json')).byFamily.shaipu.stages;
+  assert.ok(stages.every(s => s.verificationStatus === 'pending-wiki-skill-evidence' && s.values.length === 0));
   assert.equal(JSON.parse(read('data/update-articles.json')).latest.dateStatus, 'tentative');
 });

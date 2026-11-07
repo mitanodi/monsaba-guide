@@ -21,12 +21,12 @@ const forms = images.families.flatMap((family) => family.forms.map((form) => ({ 
 const official = forms.filter((form) => form.sourceType === 'official_creator_asset');
 const pending = forms.filter((form) => form.status === 'pending');
 
-test('all 246 Tata forms have one stage-correct mapping with two expected pending', () => {
-  assert.equal(forms.length, 246);
-  assert.equal(new Set(forms.map((form) => `${form.familyId}:T${form.stage}`)).size, 246);
+test('all 254 Tata forms have one stage-correct mapping with two expected pending', () => {
+  assert.equal(forms.length, 254);
+  assert.equal(new Set(forms.map((form) => `${form.familyId}:T${form.stage}`)).size, 254);
   assert.equal(official.length, 224);
   assert.deepEqual(pending.map((form) => `${form.familyId}:T${form.stage}`).sort(), expectedPending);
-  assert.equal(forms.filter((form) => form.status === 'verified' && form.sourceType !== 'official_creator_asset').length, 20);
+  assert.equal(forms.filter((form) => form.status === 'verified' && form.sourceType !== 'official_creator_asset').length, 28);
   assert.equal(forms.find((form) => form.familyId === 'pakuma' && form.stage === 1).src, '/assets/tata-provided/pakuma/t1-512.webp');
 });
 test('official source mapping has no duplicate, stage mismatch, fallback, or missing optimized file', async () => {

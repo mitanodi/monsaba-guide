@@ -15,13 +15,14 @@ test('official pending Tata review remains a subset of all unresolved forms', ()
   const review = images.officialPendingReview.forms
     .map((form) => `${form.familyId}:T${form.stage}`).sort();
   assert.deepEqual(images.counts, {
-    families: 67,
-    forms: 246,
-    verifiedForms: 244,
+    families: 69,
+    forms: 254,
+    verifiedForms: 252,
     pendingForms: 2,
     officialCreatorAssetForms: 224,
     userProvidedPdfForms: 12,
-    userProvidedImageForms: 8
+    userProvidedImageForms: 8,
+    publicWikiGameAssetForms: 8
   });
   assert.equal(images.officialPendingReview.status, 'official_team_checking');
   assert.equal(images.officialPendingReview.asOf, '2026-09-05');
