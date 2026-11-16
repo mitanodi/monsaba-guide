@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "updated": "2026-09-10",
+  "version": 2,
+  "updated": "2026-11-16",
   "timeZone": "Asia/Tokyo",
   "dailyResetHour": 9,
   "teamEventRotation": {
@@ -13,6 +13,74 @@
       { "id": "running-party", "name": { "ja": "ランニングパーティー", "en": "Running Party", "zh-CN": "跑步派对" }, "href": "/events/running-party/" },
       { "id": "zombie-siege", "name": { "ja": "ゾンビ包囲戦", "en": "Zombie Siege", "zh-CN": "僵尸围攻" }, "href": "/events/zombie-siege/" },
       { "id": "magic-farm", "name": { "ja": "魔法の農場", "en": "Magic Farm", "zh-CN": "魔法农场" }, "href": "/events/magic-farm/" }
+    ],
+    "transitions": [
+      {
+        "effectiveFrom": "2026-11-14T09:00:00+09:00",
+        "anchorStart": "2026-11-14T09:00:00+09:00",
+        "durationHours": 72,
+        "status": "community_confirmed_dates",
+        "sources": [
+          "https://w.atwiki.jp/monstersurvival/pages/4.html"
+        ],
+        "note": "2026-11-16の遺跡最終日と11-17からのゾンビ包囲戦のコミュニティ確認に基づく現在周期の基準点。09:00 JSTは従来の切替時刻を踏襲。遺跡の初導入日を示すものではない。",
+        "sequence": [
+          {
+            "id": "ruins-exploration",
+            "name": {
+              "ja": "遺跡探索",
+              "en": "Ruins Exploration",
+              "zh-CN": "遗迹探索"
+            },
+            "href": "/events/calendar/"
+          },
+          {
+            "id": "zombie-siege",
+            "name": {
+              "ja": "ゾンビ包囲戦",
+              "en": "Zombie Siege",
+              "zh-CN": "僵尸围攻"
+            },
+            "href": "/events/zombie-siege/"
+          },
+          {
+            "id": "magic-farm",
+            "name": {
+              "ja": "魔法の農場",
+              "en": "Magic Farm",
+              "zh-CN": "魔法农场"
+            },
+            "href": "/events/magic-farm/"
+          },
+          {
+            "id": "fishing-tournament",
+            "name": {
+              "ja": "釣り大会",
+              "en": "Fishing Tournament",
+              "zh-CN": "钓鱼大赛"
+            },
+            "href": "/events/fishing-tournament/"
+          },
+          {
+            "id": "treasure-hunt",
+            "name": {
+              "ja": "お宝探し",
+              "en": "Treasure Hunt",
+              "zh-CN": "寻宝"
+            },
+            "href": "/events/treasure-hunt/"
+          },
+          {
+            "id": "running-party",
+            "name": {
+              "ja": "ラフトレース",
+              "en": "Raft Race",
+              "zh-CN": "木筏竞赛"
+            },
+            "href": "/events/running-party/"
+          }
+        ]
+      }
     ]
   },
   "islandTreasure": {

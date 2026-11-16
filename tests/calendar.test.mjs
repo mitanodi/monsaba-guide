@@ -82,3 +82,52 @@ test('calendar configuration remains separate from localized event pages', async
     assert.doesNotMatch(html, /<script[^>]+src="\/calendar\/calendar\.js/);
   }
 });
+
+test('versioned team rotation preserves history and uses the new sequence only after its boundary', () => {
+  // Synthetic boundary: not a claim about the real ruins launch date.
+  const changed = structuredClone(config);
+  const legacy = changed.teamEventRotation;
+  legacy.transitions = [...(legacy.transitions || []), {
+    effectiveFrom: '2030-01-01T09:00:00+09:00',
+    anchorStart: '2030-01-01T09:00:00+09:00',
+    durationHours: 72,
+    sequence: [{ id: 'ruins-exploration' }, ...legacy.sequence.slice(3), ...legacy.sequence.slice(0, 3)]
+  }];
+  for (const date of ['2026-09-06T09:00:00+09:00', '2026-11-16T09:00:00+09:00']) {
+    assert.deepEqual(teamEventAt(date, changed), teamEventAt(date, config));
+  }
+  const boundary = Date.parse(legacy.transitions[0].effectiveFrom);
+  const before = teamEventAt(boundary - 1, changed);
+  assert.equal(before.end, boundary);
+  assert.equal(before.nextEvent.id, 'ruins-exploration');
+  assert.equal(before.isFinalDay, true);
+  const first = teamEventAt(boundary, changed);
+  assert.equal(first.event.id, 'ruins-exploration');
+  assert.equal(first.day, 1);
+  assert.equal(first.end, boundary + 72 * 3600000);
+  assert.equal(first.nextEvent.id, 'zombie-siege');
+  const ids = ['ruins-exploration', 'zombie-siege', 'magic-farm', 'fishing-tournament', 'treasure-hunt', 'running-party', 'ruins-exploration'];
+  ids.forEach((id, index) => assert.equal(teamEventAt(boundary + index * 72 * 3600000, changed).event.id, id));
+  assert.equal(teamEventAt(boundary + 48 * 3600000, changed).isFinalDay, true);
+});
+test('November confirmed observation anchors ruins, then zombie, without rewriting September', () => {
+  const cases = [
+    ['2026-11-14T09:00:00+09:00', 'ruins-exploration', 1],
+    ['2026-11-16T09:00:00+09:00', 'ruins-exploration', 3],
+    ['2026-11-17T08:59:59+09:00', 'ruins-exploration', 3],
+    ['2026-11-17T09:00:00+09:00', 'zombie-siege', 1],
+    ['2026-11-20T09:00:00+09:00', 'magic-farm', 1],
+    ['2026-11-23T09:00:00+09:00', 'fishing-tournament', 1],
+    ['2026-11-26T09:00:00+09:00', 'treasure-hunt', 1],
+    ['2026-11-29T09:00:00+09:00', 'running-party', 1],
+    ['2026-12-02T09:00:00+09:00', 'ruins-exploration', 1]
+  ];
+  for (const [at, id, day] of cases) {
+    const result = teamEventAt(at, config);
+    assert.equal(result.event.id, id);
+    assert.equal(result.day, day);
+  }
+  assert.equal(teamEventAt('2026-11-14T08:59:59+09:00', config).nextEvent.id, 'ruins-exploration');
+  assert.equal(teamEventAt('2026-11-16T09:00:00+09:00', config).nextEvent.id, 'zombie-siege');
+  assert.equal(teamEventAt('2026-11-29T09:00:00+09:00', config).event.name.ja, 'ラフトレース');
+});

@@ -29,22 +29,41 @@ export function dateKey(value) {
   const p = jstParts(value);
   return `${p.year}-${String(p.month).padStart(2, '0')}-${String(p.day).padStart(2, '0')}`;
 }
-export function teamEventAt(value, config) {
-  const rotation = config.teamEventRotation;
+// Transitions apply only from their effective timestamp; historical dates keep
+// the original rotation instead of retroactively expanding a new sequence.
+function teamPeriodAt(instant, config) {
+  const base = config.teamEventRotation;
+  const transitions = [...(base.transitions || [])].sort((a, b) => Date.parse(a.effectiveFrom) - Date.parse(b.effectiveFrom));
+  let rotation = base;
+  let effectiveStart = -Infinity;
+  let effectiveEnd = Infinity;
+  for (const transition of transitions) {
+    const boundary = Date.parse(transition.effectiveFrom);
+    if (boundary <= instant) {
+      rotation = transition;
+      effectiveStart = boundary;
+    } else {
+      effectiveEnd = boundary;
+      break;
+    }
+  }
   const duration = rotation.durationHours * HOUR_MS;
-  const instant = new Date(value).getTime();
-  const anchor = new Date(rotation.anchorStart).getTime();
+  const anchor = Date.parse(rotation.anchorStart);
   const period = Math.floor((instant - anchor) / duration);
-  const event = rotation.sequence[mod(period, rotation.sequence.length)];
-  const start = anchor + period * duration;
-  const end = start + duration;
+  const start = Math.max(anchor + period * duration, effectiveStart);
+  const end = Math.min(anchor + (period + 1) * duration, effectiveEnd);
+  return { event: rotation.sequence[mod(period, rotation.sequence.length)], start, end };
+}
+export function teamEventAt(value, config) {
+  const instant = new Date(value).getTime();
+  const { event, start, end } = teamPeriodAt(instant, config);
   return {
     event,
     start,
     end,
     day: Math.floor((instant - start) / DAY_MS) + 1,
     isFinalDay: instant >= end - DAY_MS,
-    nextEvent: rotation.sequence[mod(period + 1, rotation.sequence.length)]
+    nextEvent: teamPeriodAt(end, config).event
   };
 }
 export function islandAt(value, config) {
