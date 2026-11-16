@@ -11,7 +11,6 @@ const control = f => execFileSync('git', ['show', `pre-astra-redesign-20260915:$
 test('Astra preserves core data, affiliate code, saved-data keys and share codec byte for byte', () => {
   for (const f of [
     'data/evolution-priority.json',
-    'data/calendar-config.json',
     'data/monetization.json',
     'monetization.js'
   ])
@@ -21,6 +20,24 @@ test('Astra preserves core data, affiliate code, saved-data keys and share codec
   for (const key of ['monsabaTeamBuilds:v1', 'monsabaFormationDraft:v2', 'monsabaFormationModeDrafts:v1', 'monsabaBoardTeamHandoff:v1'])
     assert.match(core, new RegExp(key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
 });
+
+test('dated calendar update preserves the original rotation and all unrelated calendar settings', () => {
+  const baseline = JSON.parse(control('data/calendar-config.json'));
+  const current = JSON.parse(read('data/calendar-config.json'));
+  assert.equal(current.version, 2);
+  assert.equal(current.updated, '2026-11-16');
+  assert.equal(current.teamEventRotation.transitions.length, 1);
+  const transition = current.teamEventRotation.transitions[0];
+  assert.equal(transition.effectiveFrom, '2026-11-14T09:00:00+09:00');
+  assert.equal(transition.anchorStart, transition.effectiveFrom);
+  assert.equal(transition.durationHours, 72);
+  assert.deepEqual(transition.sequence.map(item => item.id), ['ruins-exploration', 'zombie-siege', 'magic-farm', 'fishing-tournament', 'treasure-hunt', 'running-party']);
+  delete current.teamEventRotation.transitions;
+  current.version = baseline.version;
+  current.updated = baseline.updated;
+  assert.deepEqual(current, baseline);
+});
+
 test('the supplied character update preserves all existing families and skill values', () => {
   const before = JSON.parse(control('data/tatari.json'));
   const after = JSON.parse(read('data/tatari.json'));
