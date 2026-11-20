@@ -27,7 +27,7 @@ test('Japanese indexable content has a reversible AdMax plan capped at three slo
   for (const file of files) {
     const html = read(file), $ = load(html), slots = $('.ninja-admax-slot'), page = route(file), ids = slots.toArray().map(el => $(el).attr('data-admax-slot'));
     // Artwork-only additions do not authorize expanding existing advertising placements.
-    if (['/tata/bibabo/', '/tata/shaipu/'].includes(page)) {
+    if (['/tata/bibabo/', '/tata/shaipu/', '/tata/hikoko/'].includes(page)) {
       assert.equal(slots.length, 0, `${file}: new Wiki image pages have no additional AdMax placements`);
       continue;
     }

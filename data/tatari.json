@@ -3,8 +3,8 @@
     "screenshotTotal": 668,
     "processedRange": "IMG_6242〜IMG_6910",
     "processedScreenshotCount": 668,
-    "familyCount": 69,
-    "monsterCount": 254,
+    "familyCount": 70,
+    "monsterCount": 258,
     "status": "all_user_screenshots_processed",
     "nonIndexScreenshots": [
       "IMG_6272.png",
@@ -85,11 +85,10 @@
       "evidence": "data/user-tata-evidence-2026-10-06.json"
     },
     "latestWikiSupplement": {
-      "checkedAt": "2026-11-07",
-      "evidence": "data/wiki-tata-evidence-2026-11-07.json",
+      "checkedAt": "2026-11-20",
+      "evidence": "data/wiki-tata-evidence-2026-11-20.json",
       "scope": [
-        "bibabo",
-        "shaipu"
+        "hikoko"
       ]
     }
   },
@@ -19085,6 +19084,145 @@
         "プランキー",
         "バナコング",
         "バナナリアン"
+      ]
+    },
+    {
+      "id": "hikoko",
+      "familyName": "ヒココ",
+      "attribute": "火",
+      "attributeEvidence": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/189.html",
+        "checkedAt": "2026-11-20"
+      },
+      "verification": {
+        "namesAndImages": "public-wiki-confirmed",
+        "implementation": "general-release-not-independently-verified",
+        "checkedAt": "2026-11-20"
+      },
+      "evolutions": [
+        {
+          "stage": 1,
+          "name": "ヒココ",
+          "nameEn": null,
+          "nameZhHans": null,
+          "image": "assets/tata-wiki/hikoko/t1-512.webp",
+          "source": "data/wiki-tata-evidence-2026-11-20.json",
+          "nameVerification": {
+            "en": "pending",
+            "zh-CN": "pending"
+          },
+          "imageEvidence": {
+            "sourceType": "public_wiki_game_asset",
+            "manifest": "data/wiki-tata-evidence-2026-11-20.json",
+            "recordId": "hikoko:T1",
+            "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/189.html",
+            "sourceSha256": "caff44d459637c82cf598ca1aa0db55a4bad039b5da90418d28ccfc1c9da4398",
+            "checkedAt": "2026-11-20"
+          }
+        },
+        {
+          "stage": 2,
+          "name": "ヒコケコ",
+          "nameEn": null,
+          "nameZhHans": null,
+          "image": "assets/tata-wiki/hikoko/t2-512.webp",
+          "source": "data/wiki-tata-evidence-2026-11-20.json",
+          "nameVerification": {
+            "en": "pending",
+            "zh-CN": "pending"
+          },
+          "imageEvidence": {
+            "sourceType": "public_wiki_game_asset",
+            "manifest": "data/wiki-tata-evidence-2026-11-20.json",
+            "recordId": "hikoko:T2",
+            "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/189.html",
+            "sourceSha256": "d45c4aa10c59955a8ee5cda7d04ee63577eab95524ee658492920db57c1d291c",
+            "checkedAt": "2026-11-20"
+          }
+        },
+        {
+          "stage": 3,
+          "name": "ヒコケコッコ",
+          "nameEn": null,
+          "nameZhHans": null,
+          "image": "assets/tata-wiki/hikoko/t3-512.webp",
+          "source": "data/wiki-tata-evidence-2026-11-20.json",
+          "nameVerification": {
+            "en": "pending",
+            "zh-CN": "pending"
+          },
+          "imageEvidence": {
+            "sourceType": "public_wiki_game_asset",
+            "manifest": "data/wiki-tata-evidence-2026-11-20.json",
+            "recordId": "hikoko:T3",
+            "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/189.html",
+            "sourceSha256": "0fd5697f72222b327376bdd3c7eb39c878dd1477832d975c3a35ad7fe47c947b",
+            "checkedAt": "2026-11-20"
+          }
+        },
+        {
+          "stage": 4,
+          "name": "フェニコケコッコ",
+          "nameEn": null,
+          "nameZhHans": null,
+          "image": "assets/tata-wiki/hikoko/t4-512.webp",
+          "source": "data/wiki-tata-evidence-2026-11-20.json",
+          "nameVerification": {
+            "en": "pending",
+            "zh-CN": "pending"
+          },
+          "imageEvidence": {
+            "sourceType": "public_wiki_game_asset",
+            "manifest": "data/wiki-tata-evidence-2026-11-20.json",
+            "recordId": "hikoko:T4",
+            "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/189.html",
+            "sourceSha256": "e9bb6ed9082307e006ea64e4ca958a5e0dab6aa100e8e92697ff290a0b7e43f2",
+            "checkedAt": "2026-11-20"
+          }
+        }
+      ],
+      "skills": [
+        {
+          "stage": 1,
+          "name": "確認待ち",
+          "summary": "Wikiの名称と画像を確認済み。スキル名・効果・数値はゲーム内資料の確認待ちです。",
+          "stats": [],
+          "source": "data/wiki-tata-evidence-2026-11-20.json"
+        },
+        {
+          "stage": 2,
+          "name": "確認待ち",
+          "summary": "Wikiの名称と画像を確認済み。スキル名・効果・数値はゲーム内資料の確認待ちです。",
+          "stats": [],
+          "source": "data/wiki-tata-evidence-2026-11-20.json"
+        },
+        {
+          "stage": 3,
+          "name": "確認待ち",
+          "summary": "Wikiの名称と画像を確認済み。スキル名・効果・数値はゲーム内資料の確認待ちです。",
+          "stats": [],
+          "source": "data/wiki-tata-evidence-2026-11-20.json"
+        },
+        {
+          "stage": 4,
+          "name": "確認待ち",
+          "summary": "Wikiの名称と画像を確認済み。スキル名・効果・数値はゲーム内資料の確認待ちです。",
+          "stats": [],
+          "source": "data/wiki-tata-evidence-2026-11-20.json"
+        }
+      ],
+      "searchAliases": [
+        "ヒココ",
+        "ヒコケコ",
+        "ヒコケコッコ",
+        "フェニコケコッコ"
+      ],
+      "tierMakerStages": [
+        1,
+        2,
+        3,
+        4
       ]
     }
   ]

@@ -509,5 +509,12 @@
     "bytes": 4150,
     "source": "assets/tata-wiki/shaipu/t1-512.webp",
     "sourceSha256": "5c00d01879ff70a398cef681c59cd10d714bc644e87a90726a3e6badb5b6ff40"
+  },
+  {
+    "file": "assets/astra/hikoko-128.webp",
+    "width": 128,
+    "bytes": 4616,
+    "source": "assets/tata-wiki/hikoko/t1-512.webp",
+    "sourceSha256": "de61d1c3c3741d5d847b13ca3fbd81ccee9dc74c56600c511a2fe12433f8d176"
   }
 ]

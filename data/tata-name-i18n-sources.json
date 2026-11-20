@@ -24,11 +24,11 @@
     }
   },
   "summary": {
-    "canonicalForms": 254,
+    "canonicalForms": 258,
     "englishConfirmed": 242,
     "simplifiedChineseConfirmed": 236,
     "bothConfirmed": 236,
-    "needsReview": 18
+    "needsReview": 22
   },
   "forms": [
     {
@@ -4090,6 +4090,118 @@
         }
       },
       "checkedAt": "2026-11-07"
+    },
+    {
+      "familyId": "hikoko",
+      "stage": 1,
+      "japaneseName": "ヒココ",
+      "englishName": null,
+      "simplifiedChineseName": null,
+      "confidence": "pending-official",
+      "sourceType": "supplemental-evidence",
+      "japaneseEvidence": {
+        "sourceType": "public_wiki_game_asset",
+        "manifest": "data/wiki-tata-evidence-2026-11-20.json",
+        "recordId": "hikoko:T1",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/189.html",
+        "sourceSha256": "caff44d459637c82cf598ca1aa0db55a4bad039b5da90418d28ccfc1c9da4398",
+        "checkedAt": "2026-11-20"
+      },
+      "localizedEvidence": {
+        "en": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        },
+        "zh-CN": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        }
+      },
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "familyId": "hikoko",
+      "stage": 2,
+      "japaneseName": "ヒコケコ",
+      "englishName": null,
+      "simplifiedChineseName": null,
+      "confidence": "pending-official",
+      "sourceType": "supplemental-evidence",
+      "japaneseEvidence": {
+        "sourceType": "public_wiki_game_asset",
+        "manifest": "data/wiki-tata-evidence-2026-11-20.json",
+        "recordId": "hikoko:T2",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/189.html",
+        "sourceSha256": "d45c4aa10c59955a8ee5cda7d04ee63577eab95524ee658492920db57c1d291c",
+        "checkedAt": "2026-11-20"
+      },
+      "localizedEvidence": {
+        "en": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        },
+        "zh-CN": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        }
+      },
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "familyId": "hikoko",
+      "stage": 3,
+      "japaneseName": "ヒコケコッコ",
+      "englishName": null,
+      "simplifiedChineseName": null,
+      "confidence": "pending-official",
+      "sourceType": "supplemental-evidence",
+      "japaneseEvidence": {
+        "sourceType": "public_wiki_game_asset",
+        "manifest": "data/wiki-tata-evidence-2026-11-20.json",
+        "recordId": "hikoko:T3",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/189.html",
+        "sourceSha256": "0fd5697f72222b327376bdd3c7eb39c878dd1477832d975c3a35ad7fe47c947b",
+        "checkedAt": "2026-11-20"
+      },
+      "localizedEvidence": {
+        "en": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        },
+        "zh-CN": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        }
+      },
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "familyId": "hikoko",
+      "stage": 4,
+      "japaneseName": "フェニコケコッコ",
+      "englishName": null,
+      "simplifiedChineseName": null,
+      "confidence": "pending-official",
+      "sourceType": "supplemental-evidence",
+      "japaneseEvidence": {
+        "sourceType": "public_wiki_game_asset",
+        "manifest": "data/wiki-tata-evidence-2026-11-20.json",
+        "recordId": "hikoko:T4",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/189.html",
+        "sourceSha256": "e9bb6ed9082307e006ea64e4ca958a5e0dab6aa100e8e92697ff290a0b7e43f2",
+        "checkedAt": "2026-11-20"
+      },
+      "localizedEvidence": {
+        "en": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        },
+        "zh-CN": {
+          "status": "pending",
+          "reason": "official-localized-name-not-obtained"
+        }
+      },
+      "checkedAt": "2026-11-20"
     }
   ]
 }

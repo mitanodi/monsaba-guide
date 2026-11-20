@@ -3,11 +3,11 @@
   "source": "data/tatari.json",
   "description": "Tata skill data copied from the existing structured tatari.json source. Values are preserved as published strings and are not inferred.",
   "totals": {
-    "families": 69,
-    "stages": 254,
-    "skills": 254,
+    "families": 70,
+    "stages": 258,
+    "skills": 258,
     "unreadable": 0,
-    "pendingSkillEvidence": 12
+    "pendingSkillEvidence": 16
   },
   "issues": [],
   "byFamily": {
@@ -17027,6 +17027,85 @@
             "manifest": "data/wiki-tata-evidence-2026-11-07.json",
             "skillEvidenceProvided": false,
             "verifiedAt": "2026-11-07"
+          }
+        }
+      ]
+    },
+    "hikoko": {
+      "familyId": "hikoko",
+      "familyName": "ヒココ",
+      "attribute": "火",
+      "stages": [
+        {
+          "stage": 1,
+          "tataName": "ヒココ",
+          "skillName": "確認待ち",
+          "description": "Wikiの名称と画像を確認済み。スキル名・効果・数値はゲーム内資料の確認待ちです。",
+          "values": [],
+          "sources": [],
+          "verificationStatus": "pending-wiki-skill-evidence",
+          "nameEn": null,
+          "nameZhHans": null,
+          "evidence": {
+            "sourceType": "public_wiki",
+            "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/189.html",
+            "manifest": "data/wiki-tata-evidence-2026-11-20.json",
+            "skillEvidenceProvided": false,
+            "verifiedAt": "2026-11-20"
+          }
+        },
+        {
+          "stage": 2,
+          "tataName": "ヒコケコ",
+          "skillName": "確認待ち",
+          "description": "Wikiの名称と画像を確認済み。スキル名・効果・数値はゲーム内資料の確認待ちです。",
+          "values": [],
+          "sources": [],
+          "verificationStatus": "pending-wiki-skill-evidence",
+          "nameEn": null,
+          "nameZhHans": null,
+          "evidence": {
+            "sourceType": "public_wiki",
+            "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/189.html",
+            "manifest": "data/wiki-tata-evidence-2026-11-20.json",
+            "skillEvidenceProvided": false,
+            "verifiedAt": "2026-11-20"
+          }
+        },
+        {
+          "stage": 3,
+          "tataName": "ヒコケコッコ",
+          "skillName": "確認待ち",
+          "description": "Wikiの名称と画像を確認済み。スキル名・効果・数値はゲーム内資料の確認待ちです。",
+          "values": [],
+          "sources": [],
+          "verificationStatus": "pending-wiki-skill-evidence",
+          "nameEn": null,
+          "nameZhHans": null,
+          "evidence": {
+            "sourceType": "public_wiki",
+            "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/189.html",
+            "manifest": "data/wiki-tata-evidence-2026-11-20.json",
+            "skillEvidenceProvided": false,
+            "verifiedAt": "2026-11-20"
+          }
+        },
+        {
+          "stage": 4,
+          "tataName": "フェニコケコッコ",
+          "skillName": "確認待ち",
+          "description": "Wikiの名称と画像を確認済み。スキル名・効果・数値はゲーム内資料の確認待ちです。",
+          "values": [],
+          "sources": [],
+          "verificationStatus": "pending-wiki-skill-evidence",
+          "nameEn": null,
+          "nameZhHans": null,
+          "evidence": {
+            "sourceType": "public_wiki",
+            "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/189.html",
+            "manifest": "data/wiki-tata-evidence-2026-11-20.json",
+            "skillEvidenceProvided": false,
+            "verifiedAt": "2026-11-20"
           }
         }
       ]

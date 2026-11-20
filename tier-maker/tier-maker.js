@@ -2,6 +2,7 @@ import { COPY } from './copy.js';
 import { STORAGE_KEY, LIMITS, createState, parseState, updateState, unplacedIds, categoryName, exportLayout } from './core.js';
 import '../family-display.js';
 import { stageImageFor, pickerOrder } from '../team-builder/team-core.js';
+import { expandMakerStages } from './catalog.js';
 
 const locale = document.documentElement.lang;
 const copy = COPY[locale] || COPY.ja;
@@ -16,6 +17,7 @@ let state, activeId, selectedId = null, roster = [], images = new Map(), ids = [
 let history = [], future = [], query = '', attribute = '', dragged = null, clickUntil = 0, exportUrl = null, busy = false;
 let dialogAction = null;
 const nameOf = family => getFamilyDisplayName(family, locale);
+const imageOf = family => stageImageFor({id:family.makerFamilyId || family.id}, family.makerStage || 1, images);
 const category = () => state.categories.find(item => item.id === activeId) || state.categories[0];
 const message = value => { status.textContent = value; };
 const focused = () => {
@@ -45,7 +47,7 @@ function restore(direction) {
   persist(); render();
 }
 function imageMarkup(family) {
-  const img = stageImageFor(family, 1, images);
+  const img = imageOf(family);
   return img ? `<img src="${esc(img.src)}" alt="" width="64" height="64" loading="lazy" draggable="false">` : '<span class="tm-placeholder" aria-hidden="true">?</span>';
 }
 function cardMarkup(id, tierId = '') {
@@ -261,7 +263,7 @@ async function createImage(snapshot, chosen, includeUnplaced) {
   const needed = new Set(sections.flatMap(section => section.rows.flatMap(row => row.cards)));
   const loaded = new Map();
   await Promise.all([...needed].map(async id => {
-    const img = stageImageFor(byId.get(id), 1, images); if (!img) return;
+    const img = imageOf(byId.get(id)); if (!img) return;
     const image = new Image();
     await new Promise((resolve, reject) => {
       const timer = setTimeout(() => reject(new Error(`TM:${copy.imageMissing}`)), 15000);
@@ -324,7 +326,7 @@ async function boot() {
     const [catalog, manifest, positionData] = await Promise.all(['/data/tatari.json', '/data/tata-images.json', '/data/zombie-rush/position-tiers.json'].map(async url => {
       const response = await fetch(url); if (!response.ok) throw new Error('fetch'); return response.json();
     }));
-    roster = pickerOrder(catalog.families, { positionData }, 'zombie', 'all');
+    roster = expandMakerStages(pickerOrder(catalog.families, { positionData }, 'zombie', 'all'));
     ids = roster.map(family => family.id); byId = new Map(roster.map(family => [family.id, family]));
     images = new Map(manifest.families.map(item => [item.familyId, item]));
     state = createState();

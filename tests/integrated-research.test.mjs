@@ -12,7 +12,7 @@ test('nested untranslated content and adjacent advertising bytes survive localiz
 test('normal and dedicated skills retain independent evolution and level dimensions',()=>{
  const normal=json('data/tata-skills.json'),zr=json('data/zombie-rush/skills.json');
  assert.equal(Object.keys(zr.byFamily).length,66);
- assert.equal(Object.values(normal.byFamily).reduce((n,f)=>n+f.stages.length,0),254);
+ assert.equal(Object.values(normal.byFamily).reduce((n,f)=>n+f.stages.length,0),258);
  for(const family of Object.values(normal.byFamily))for(const stage of family.stages){
   if(['pending-user-skill-evidence','pending-wiki-skill-evidence'].includes(stage.verificationStatus)){assert.equal(stage.skillName,'確認待ち');assert.deepEqual(stage.values,[]);continue;}
   assert.equal(stage.externalReview.sourceType,'public_wiki');

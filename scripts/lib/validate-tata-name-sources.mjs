@@ -22,11 +22,11 @@ const hasOfficialStoreEvidence = (evidence) => {
   } catch { return false; }
 };
 const hasWikiImageEvidence = (evidence, row) => {
-  const pages = { bibabo: 171, shaipu: 155 };
+  const pages = { bibabo: 171, shaipu: 155, hikoko: 189 };
   return evidence?.sourceType === 'public_wiki_game_asset'
     && evidence.sourceUrl === `https://w.atwiki.jp/monstersurvival/pages/${pages[row.familyId]}.html`
     && Boolean(pages[row.familyId])
-    && evidence.manifest === 'data/wiki-tata-evidence-2026-11-07.json'
+    && evidence.manifest === (row.familyId === 'hikoko' ? 'data/wiki-tata-evidence-2026-11-20.json' : 'data/wiki-tata-evidence-2026-11-07.json')
     && evidence.recordId === formKey(row.familyId, row.stage)
     && /^[a-f0-9]{64}$/.test(evidence.sourceSha256 || '');
 };

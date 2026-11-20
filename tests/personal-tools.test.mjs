@@ -109,9 +109,9 @@ test('ZR P2, chips and Lv8 survive Normal mode and return after reload', () => {
   }, result.drafts, families), /quota/);
 });
 
-test('データIntegrityは69系統・254体', () => {
-  assert.equal(families.length, 69);
-  assert.equal(families.flatMap((family) => family.evolutions).length, 254);
+test('データIntegrityは70系統・258体', () => {
+  assert.equal(families.length, 70);
+  assert.equal(families.flatMap((family) => family.evolutions).length, 258);
   assert.deepEqual(new Set(families.map((family) => family.attribute)), new Set(['草', '水', '火', '雷', '岩']));
 });
 

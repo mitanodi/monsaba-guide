@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "checkedAt": "2026-11-20",
+  "sourceUpdatedAt": "2026-11-18",
+  "sourceType": "public_wiki_game_asset",
+  "scope": "User-requested Hikoko game character artwork, Japanese evolution names and fire attribute only; no inferred localized names, skills or rankings.",
+  "rightsNote": "Wiki hosting is not evidence of a general redistribution license. Game artwork rights remain with their respective owners; these files are not official creator asset-pack records.",
+  "records": [
+    {
+      "recordId": "hikoko:T1",
+      "familyId": "hikoko",
+      "stage": 1,
+      "name": "ヒココ",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/189.html",
+      "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2841/%E3%83%92%E3%82%B3%E3%82%B3.webp",
+      "originalPath": "assets/tata-wiki/hikoko/t1-source.webp",
+      "sourceSha256": "caff44d459637c82cf598ca1aa0db55a4bad039b5da90418d28ccfc1c9da4398",
+      "originalWidth": 489,
+      "originalHeight": 429,
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "recordId": "hikoko:T2",
+      "familyId": "hikoko",
+      "stage": 2,
+      "name": "ヒコケコ",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/189.html",
+      "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2842/%E3%83%92%E3%82%B3%E3%82%B1%E3%82%B3.webp",
+      "originalPath": "assets/tata-wiki/hikoko/t2-source.webp",
+      "sourceSha256": "d45c4aa10c59955a8ee5cda7d04ee63577eab95524ee658492920db57c1d291c",
+      "originalWidth": 628,
+      "originalHeight": 639,
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "recordId": "hikoko:T3",
+      "familyId": "hikoko",
+      "stage": 3,
+      "name": "ヒコケコッコ",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/189.html",
+      "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2843/%E3%83%92%E3%82%B3%E3%82%B1%E3%82%B3%E3%83%83%E3%82%B3.webp",
+      "originalPath": "assets/tata-wiki/hikoko/t3-source.webp",
+      "sourceSha256": "0fd5697f72222b327376bdd3c7eb39c878dd1477832d975c3a35ad7fe47c947b",
+      "originalWidth": 695,
+      "originalHeight": 637,
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "recordId": "hikoko:T4",
+      "familyId": "hikoko",
+      "stage": 4,
+      "name": "フェニコケコッコ",
+      "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/189.html",
+      "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2848/%E3%83%95%E3%82%A7%E3%83%8B%E3%82%B3%E3%82%B1%E3%82%B3%E3%83%83%E3%82%B3.webp",
+      "originalPath": "assets/tata-wiki/hikoko/t4-source.webp",
+      "sourceSha256": "e9bb6ed9082307e006ea64e4ca958a5e0dab6aa100e8e92697ff290a0b7e43f2",
+      "originalWidth": 512,
+      "originalHeight": 512,
+      "checkedAt": "2026-11-20"
+    }
+  ]
+}

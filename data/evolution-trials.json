@@ -1,7 +1,7 @@
 {
   "version": 1,
   "updated": "2026-10-10",
-  "familyCount": 69,
+  "familyCount": 70,
   "source": {
     "sourceType": "public_wiki",
     "sourceName": "モンスターサバイバル@wiki 進化条件一覧・個別タタ",
@@ -4879,6 +4879,58 @@
             "進化条件"
           ],
           "evidence": "data/wiki-tata-evidence-2026-11-07.json"
+        }
+      ]
+    },
+    {
+      "familyId": "hikoko",
+      "familyName": "ヒココ",
+      "attribute": "火",
+      "conditions": [
+        {
+          "stage": 2,
+          "tataName": "ヒコケコ",
+          "condition": "進化条件はゲーム内資料の確認待ち",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "public_wiki_game_asset",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/189.html",
+          "checkedAt": "2026-11-20",
+          "confirmedParts": [],
+          "pendingFields": [
+            "進化条件"
+          ],
+          "evidence": "data/wiki-tata-evidence-2026-11-20.json"
+        },
+        {
+          "stage": 3,
+          "tataName": "ヒコケコッコ",
+          "condition": "進化条件はゲーム内資料の確認待ち",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "public_wiki_game_asset",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/189.html",
+          "checkedAt": "2026-11-20",
+          "confirmedParts": [],
+          "pendingFields": [
+            "進化条件"
+          ],
+          "evidence": "data/wiki-tata-evidence-2026-11-20.json"
+        },
+        {
+          "stage": 4,
+          "tataName": "フェニコケコッコ",
+          "condition": "進化条件はゲーム内資料の確認待ち",
+          "status": "pending",
+          "needsHumanVerification": true,
+          "sourceType": "public_wiki_game_asset",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/189.html",
+          "checkedAt": "2026-11-20",
+          "confirmedParts": [],
+          "pendingFields": [
+            "進化条件"
+          ],
+          "evidence": "data/wiki-tata-evidence-2026-11-20.json"
         }
       ]
     }

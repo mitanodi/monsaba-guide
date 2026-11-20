@@ -14,9 +14,9 @@ test('67 canonical families have five independent, valid rankings and real asset
   assert.equal(data.families.length, 67);
   assert.equal(new Set(data.families.map(f => f.familyId)).size, 67);
   const unranked = canonical.filter(f => !data.families.some(r => r.familyId === f.id));
-  assert.deepEqual(unranked.map(f => f.id).sort(), ['bibabo', 'shaipu']);
+  assert.deepEqual(unranked.map(f => f.id).sort(), ['bibabo', 'hikoko', 'shaipu']);
   assert.ok(unranked.every(f => f.verification.namesAndImages === 'public-wiki-confirmed'));
-  assert.deepEqual(data.families.map(f => f.familyId).sort(), canonical.filter(f => !['bibabo', 'shaipu'].includes(f.id)).map(f => f.id).sort());
+  assert.deepEqual(data.families.map(f => f.familyId).sort(), canonical.filter(f => !['bibabo', 'shaipu', 'hikoko'].includes(f.id)).map(f => f.id).sort());
   for (const f of data.families) {
     assert.deepEqual(Object.keys(f.rankings), MODES);
     assert.equal(f.slug, f.familyId);

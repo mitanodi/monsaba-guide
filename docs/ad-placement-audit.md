@@ -1,7 +1,7 @@
 # A8広告配置監査
 
 生成元: `data/monetization.json` / `data/affiliate-offers.json`
-対象: 公開HTML 145ページ（404を含む）
+対象: 公開HTML 146ページ（404を含む）
 監査日: 2026-08-28
 
 ## Before
@@ -101,6 +101,7 @@
 | https://monster-survival.com/tata/hihidog/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/hikaru/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/hikikomoru/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/tata/hikoko/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/himawarin/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/himori/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/hinyao/ | 0 | — | — | — | 非表示 |
@@ -257,6 +258,7 @@
 | https://monster-survival.com/tata/hihidog/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/hikaru/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/hikikomoru/ | 0 | — | — | — | 非表示 |
+| https://monster-survival.com/tata/hikoko/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/himawarin/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/himori/ | 0 | — | — | — | 非表示 |
 | https://monster-survival.com/tata/hinyao/ | 0 | — | — | — | 非表示 |
