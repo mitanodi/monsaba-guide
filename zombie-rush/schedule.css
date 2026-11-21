@@ -1,0 +1,20 @@
+.zr-schedule{margin-top:20px;padding:20px;border:1px solid #cbd9dd;border-radius:16px;background:#f4faf8;color:#18333a;min-width:0;width:100%;box-sizing:border-box}
+.zr-schedule h2{margin:0 0 4px;font-size:1.25rem;line-height:1.4}
+.zr-schedule-zone{margin:0 0 14px;font-size:.85rem;color:#415c63}
+.zr-schedule-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(170px,1fr);gap:20px;align-items:start}
+.zr-schedule-live{min-width:0}
+.zr-schedule-date{margin:0;font-variant-numeric:tabular-nums}
+.zr-schedule-clock,.zr-schedule-remaining{display:block;font-size:clamp(1.5rem,2.7vw,2rem);font-weight:800;line-height:1.4;font-variant-numeric:tabular-nums;white-space:nowrap}
+.zr-schedule-status{margin:12px 0 8px;font-weight:700;font-size:.9rem;line-height:1.5}
+.zr-schedule[data-session=active] .zr-schedule-status{color:#116240}
+.zr-schedule-countdown{margin:0}
+.zr-schedule-boundary{font-size:.8rem;line-height:1.6;overflow-wrap:anywhere}
+.zr-schedule table{border-collapse:collapse;width:100%;font-size:.9rem;text-align:left;line-height:1.5}
+.zr-schedule caption{text-align:left;font-weight:700;padding-bottom:8px}
+.zr-schedule th,.zr-schedule td{padding:5px 8px;border-bottom:1px solid #cfdfdb;font-variant-numeric:tabular-nums;white-space:nowrap}
+.zr-schedule thead th{font-size:.8rem;color:#415c63}
+.zr-schedule tr[aria-current=true]{background:#d4eee2;outline:2px solid #247851;outline-offset:-2px}
+.zr-schedule-note,.zr-schedule-source,.zr-schedule-device{font-size:.8rem;line-height:1.7;margin:12px 0 0;overflow-wrap:anywhere}
+.zr-schedule-source a{text-decoration:underline;text-underline-offset:3px}
+.zr-schedule-source a:focus-visible{outline:3px solid #176caa;outline-offset:3px}
+@media(max-width:600px){.zr-schedule{padding:16px}.zr-schedule-grid{grid-template-columns:1fr;gap:16px}.zr-schedule-clock,.zr-schedule-remaining{font-size:2rem}.zr-schedule th,.zr-schedule td{padding:6px 10px}}
