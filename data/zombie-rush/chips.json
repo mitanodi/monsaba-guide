@@ -3206,9 +3206,8 @@
         "zh-CN": "ファイターの紋章III"
       },
       "rarity": "III",
-      "icon": null,
-      "iconStatus": "pending",
-      "iconPendingReason": "reuse-permission-not-confirmed",
+      "icon": "/assets/chips/fighter-emblem-iii-wiki-13615da09439.webp",
+      "iconStatus": "verified",
       "effect": {
         "ja": "自分のファイタータタ：攻撃力+24%、防御力+24%。",
         "en": "Your Fighter Tatari: ATK+24%, DEF+24%.",
@@ -3274,6 +3273,26 @@
           "sourceSha256": "13615da0943910840561db69952fa9c63cc17b0a7ce79b4768778700da2fc087",
           "verifiedAt": "2026-11-22"
         }
+      },
+      "iconSource": {
+        "sourceType": "public_wiki_game_card",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2833/%E3%83%95%E3%82%A1%E3%82%A4%E3%82%BF%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A03.webp",
+        "attachmentId": 2833,
+        "sourceSha256": "13615da0943910840561db69952fa9c63cc17b0a7ce79b4768778700da2fc087",
+        "width": 278,
+        "height": 340,
+        "verifiedAt": "2026-11-22",
+        "nameAndRankComparison": "matched",
+        "artworkComparison": "visually-matched-original-card",
+        "userAuthorization": {
+          "date": "2026-11-22",
+          "sourceType": "user_instruction",
+          "statement": "ウィキに乗ってたよそのページに / 載せていいよ",
+          "scope": "Publish the 24 name-, rank- and artwork-matched Wiki game cards using the existing game-material policy.",
+          "thirdPartyLicenseStatus": "unconfirmed",
+          "note": "User authorization is recorded separately from an independent third-party license. No TataCalc artwork or substitute images are used."
+        }
       }
     },
     {
@@ -3284,9 +3303,8 @@
         "zh-CN": "タンクの紋章III"
       },
       "rarity": "III",
-      "icon": null,
-      "iconStatus": "pending",
-      "iconPendingReason": "reuse-permission-not-confirmed",
+      "icon": "/assets/chips/tank-emblem-iii-wiki-4cac9f8c6d47.webp",
+      "iconStatus": "verified",
       "effect": {
         "ja": "自分のタンクタタ：防御力+32%、最大HP+20%。",
         "en": "Your Tank Tatari: DEF+32%, max HP+20%.",
@@ -3351,6 +3369,26 @@
           "sourceSha256": "4cac9f8c6d474bf013db02b8d6f37e2fea7534682fc14e7a257f22ca3ff68d0d",
           "verifiedAt": "2026-11-22"
         }
+      },
+      "iconSource": {
+        "sourceType": "public_wiki_game_card",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2834/%E3%82%BF%E3%83%B3%E3%82%AF%E3%81%AE%E7%B4%8B%E7%AB%A03.webp",
+        "attachmentId": 2834,
+        "sourceSha256": "4cac9f8c6d474bf013db02b8d6f37e2fea7534682fc14e7a257f22ca3ff68d0d",
+        "width": 281,
+        "height": 338,
+        "verifiedAt": "2026-11-22",
+        "nameAndRankComparison": "matched",
+        "artworkComparison": "visually-matched-original-card",
+        "userAuthorization": {
+          "date": "2026-11-22",
+          "sourceType": "user_instruction",
+          "statement": "ウィキに乗ってたよそのページに / 載せていいよ",
+          "scope": "Publish the 24 name-, rank- and artwork-matched Wiki game cards using the existing game-material policy.",
+          "thirdPartyLicenseStatus": "unconfirmed",
+          "note": "User authorization is recorded separately from an independent third-party license. No TataCalc artwork or substitute images are used."
+        }
       }
     },
     {
@@ -3361,9 +3399,8 @@
         "zh-CN": "アーチャーの紋章III"
       },
       "rarity": "III",
-      "icon": null,
-      "iconStatus": "pending",
-      "iconPendingReason": "reuse-permission-not-confirmed",
+      "icon": "/assets/chips/archer-emblem-iii-wiki-1ae70b1ad6a7.webp",
+      "iconStatus": "verified",
       "effect": {
         "ja": "自分のアーチャータタ：攻撃力+40%。",
         "en": "Your Archer Tatari: ATK+40%.",
@@ -3423,6 +3460,26 @@
           "sourceSha256": "1ae70b1ad6a78d6b5f18d104edf1f7554e41d4e2c883468dda5cad4f662f279d",
           "verifiedAt": "2026-11-22"
         }
+      },
+      "iconSource": {
+        "sourceType": "public_wiki_game_card",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2836/%E3%82%A2%E3%83%BC%E3%83%81%E3%83%A3%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A03.webp",
+        "attachmentId": 2836,
+        "sourceSha256": "1ae70b1ad6a78d6b5f18d104edf1f7554e41d4e2c883468dda5cad4f662f279d",
+        "width": 283,
+        "height": 344,
+        "verifiedAt": "2026-11-22",
+        "nameAndRankComparison": "matched",
+        "artworkComparison": "visually-matched-original-card",
+        "userAuthorization": {
+          "date": "2026-11-22",
+          "sourceType": "user_instruction",
+          "statement": "ウィキに乗ってたよそのページに / 載せていいよ",
+          "scope": "Publish the 24 name-, rank- and artwork-matched Wiki game cards using the existing game-material policy.",
+          "thirdPartyLicenseStatus": "unconfirmed",
+          "note": "User authorization is recorded separately from an independent third-party license. No TataCalc artwork or substitute images are used."
+        }
       }
     },
     {
@@ -3433,9 +3490,8 @@
         "zh-CN": "ヒーラーの紋章III"
       },
       "rarity": "III",
-      "icon": null,
-      "iconStatus": "pending",
-      "iconPendingReason": "reuse-permission-not-confirmed",
+      "icon": "/assets/chips/healer-emblem-iii-wiki-ac6d444ff0b2.webp",
+      "iconStatus": "verified",
       "effect": {
         "ja": "自分のヒーラータタ：攻撃力+24%、最大HP+24%。",
         "en": "Your Healer Tatari: ATK+24%, max HP+24%.",
@@ -3501,6 +3557,26 @@
           "sourceSha256": "ac6d444ff0b2a3f3b917e87bfa27382236844e7e3c72fdba6f1c45be0ed0f906",
           "verifiedAt": "2026-11-22"
         }
+      },
+      "iconSource": {
+        "sourceType": "public_wiki_game_card",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2835/%E3%83%92%E3%83%BC%E3%83%A9%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A03.webp",
+        "attachmentId": 2835,
+        "sourceSha256": "ac6d444ff0b2a3f3b917e87bfa27382236844e7e3c72fdba6f1c45be0ed0f906",
+        "width": 280,
+        "height": 344,
+        "verifiedAt": "2026-11-22",
+        "nameAndRankComparison": "matched",
+        "artworkComparison": "visually-matched-original-card",
+        "userAuthorization": {
+          "date": "2026-11-22",
+          "sourceType": "user_instruction",
+          "statement": "ウィキに乗ってたよそのページに / 載せていいよ",
+          "scope": "Publish the 24 name-, rank- and artwork-matched Wiki game cards using the existing game-material policy.",
+          "thirdPartyLicenseStatus": "unconfirmed",
+          "note": "User authorization is recorded separately from an independent third-party license. No TataCalc artwork or substitute images are used."
+        }
       }
     },
     {
@@ -3511,9 +3587,8 @@
         "zh-CN": "サポーターの紋章III"
       },
       "rarity": "III",
-      "icon": null,
-      "iconStatus": "pending",
-      "iconPendingReason": "reuse-permission-not-confirmed",
+      "icon": "/assets/chips/supporter-emblem-iii-wiki-89d94687a210.webp",
+      "iconStatus": "verified",
       "effect": {
         "ja": "自分のサポータータタ：防御力+20%、最大HP+28%。",
         "en": "Your Supporter Tatari: DEF+20%, max HP+28%.",
@@ -3578,6 +3653,26 @@
           "sourceSha256": "89d94687a2102b6494a09e7931db1882bff979520380e005784d0d84b79c83ef",
           "verifiedAt": "2026-11-22"
         }
+      },
+      "iconSource": {
+        "sourceType": "public_wiki_game_card",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2837/%E3%82%B5%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A03.webp",
+        "attachmentId": 2837,
+        "sourceSha256": "89d94687a2102b6494a09e7931db1882bff979520380e005784d0d84b79c83ef",
+        "width": 281,
+        "height": 344,
+        "verifiedAt": "2026-11-22",
+        "nameAndRankComparison": "matched",
+        "artworkComparison": "visually-matched-original-card",
+        "userAuthorization": {
+          "date": "2026-11-22",
+          "sourceType": "user_instruction",
+          "statement": "ウィキに乗ってたよそのページに / 載せていいよ",
+          "scope": "Publish the 24 name-, rank- and artwork-matched Wiki game cards using the existing game-material policy.",
+          "thirdPartyLicenseStatus": "unconfirmed",
+          "note": "User authorization is recorded separately from an independent third-party license. No TataCalc artwork or substitute images are used."
+        }
       }
     },
     {
@@ -3588,9 +3683,8 @@
         "zh-CN": "スペシャルの紋章III"
       },
       "rarity": "III",
-      "icon": null,
-      "iconStatus": "pending",
-      "iconPendingReason": "reuse-permission-not-confirmed",
+      "icon": "/assets/chips/special-emblem-iii-wiki-ef09455c28f3.webp",
+      "iconStatus": "verified",
       "effect": {
         "ja": "自分のスペシャルタタ：攻撃力+16%、防御力+16%、最大HP+16%。",
         "en": "Your Special Tatari: ATK+16%, DEF+16%, max HP+16%.",
@@ -3661,6 +3755,26 @@
           "sourceSha256": "ef09455c28f357749138aab9fdec794cd451e45be1a951ccff7395f13f158091",
           "verifiedAt": "2026-11-22"
         }
+      },
+      "iconSource": {
+        "sourceType": "public_wiki_game_card",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2838/%E3%82%B9%E3%83%9A%E3%82%B7%E3%83%A3%E3%83%AB%E3%81%AE%E7%B4%8B%E7%AB%A03.webp",
+        "attachmentId": 2838,
+        "sourceSha256": "ef09455c28f357749138aab9fdec794cd451e45be1a951ccff7395f13f158091",
+        "width": 277,
+        "height": 344,
+        "verifiedAt": "2026-11-22",
+        "nameAndRankComparison": "matched",
+        "artworkComparison": "visually-matched-original-card",
+        "userAuthorization": {
+          "date": "2026-11-22",
+          "sourceType": "user_instruction",
+          "statement": "ウィキに乗ってたよそのページに / 載せていいよ",
+          "scope": "Publish the 24 name-, rank- and artwork-matched Wiki game cards using the existing game-material policy.",
+          "thirdPartyLicenseStatus": "unconfirmed",
+          "note": "User authorization is recorded separately from an independent third-party license. No TataCalc artwork or substitute images are used."
+        }
       }
     },
     {
@@ -3671,9 +3785,8 @@
         "zh-CN": "背水の陣"
       },
       "rarity": "III",
-      "icon": null,
-      "iconStatus": "pending",
-      "iconPendingReason": "reuse-permission-not-confirmed",
+      "icon": "/assets/chips/last-stand-wiki-397993ab3130.webp",
+      "iconStatus": "verified",
       "effect": {
         "ja": "以降、ゾンビが1体でも防衛ラインへ到達すると戦闘終了。自分とチームメイトのタタのダメージが30%増加する。",
         "en": "From now on, the battle ends if any zombie reaches the defense line. Your and your teammate’s Tatari gain 30% increased damage.",
@@ -3738,6 +3851,26 @@
           "sourceSha256": "397993ab31301c2237efa46e8ea217b2d8b5314a252f2cb794473a9f1c3d715e",
           "verifiedAt": "2026-11-22"
         }
+      },
+      "iconSource": {
+        "sourceType": "public_wiki_game_card",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2839/%E8%83%8C%E6%B0%B4%E3%81%AE%E9%99%A3.webp",
+        "attachmentId": 2839,
+        "sourceSha256": "397993ab31301c2237efa46e8ea217b2d8b5314a252f2cb794473a9f1c3d715e",
+        "width": 279,
+        "height": 343,
+        "verifiedAt": "2026-11-22",
+        "nameAndRankComparison": "matched",
+        "artworkComparison": "visually-matched-original-card",
+        "userAuthorization": {
+          "date": "2026-11-22",
+          "sourceType": "user_instruction",
+          "statement": "ウィキに乗ってたよそのページに / 載せていいよ",
+          "scope": "Publish the 24 name-, rank- and artwork-matched Wiki game cards using the existing game-material policy.",
+          "thirdPartyLicenseStatus": "unconfirmed",
+          "note": "User authorization is recorded separately from an independent third-party license. No TataCalc artwork or substitute images are used."
+        }
       }
     },
     {
@@ -3748,9 +3881,8 @@
         "zh-CN": "長き修行"
       },
       "rarity": "III",
-      "icon": null,
-      "iconStatus": "pending",
-      "iconPendingReason": "reuse-permission-not-confirmed",
+      "icon": "/assets/chips/long-training-wiki-4a8eae22e01b.webp",
+      "iconStatus": "verified",
       "effect": {
         "ja": "12ウェーブ後、配置中で最もレベルの低いタタからランダムで1体を選び、Lv.8にする。第5ウェーブでのみ出現するとのWiki記載。",
         "en": "After 12 waves, one randomly chosen Tatari among your lowest-level deployed Tatari is raised to Lv.8. The Wiki lists this chip as offered only at wave 5.",
@@ -3822,6 +3954,26 @@
           "sourceSha256": "4a8eae22e01b1fe706f448511d39b2b6a10717b9c7e12c3d432e1deb1cb7b148",
           "verifiedAt": "2026-11-22"
         }
+      },
+      "iconSource": {
+        "sourceType": "public_wiki_game_card",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2840/%E9%95%B7%E3%81%8D%E4%BF%AE%E8%A1%8C.webp",
+        "attachmentId": 2840,
+        "sourceSha256": "4a8eae22e01b1fe706f448511d39b2b6a10717b9c7e12c3d432e1deb1cb7b148",
+        "width": 281,
+        "height": 342,
+        "verifiedAt": "2026-11-22",
+        "nameAndRankComparison": "matched",
+        "artworkComparison": "visually-matched-original-card",
+        "userAuthorization": {
+          "date": "2026-11-22",
+          "sourceType": "user_instruction",
+          "statement": "ウィキに乗ってたよそのページに / 載せていいよ",
+          "scope": "Publish the 24 name-, rank- and artwork-matched Wiki game cards using the existing game-material policy.",
+          "thirdPartyLicenseStatus": "unconfirmed",
+          "note": "User authorization is recorded separately from an independent third-party license. No TataCalc artwork or substitute images are used."
+        }
       }
     },
     {
@@ -3832,9 +3984,8 @@
         "zh-CN": "ファイターの紋章II"
       },
       "rarity": "II",
-      "icon": null,
-      "iconStatus": "pending",
-      "iconPendingReason": "reuse-permission-not-confirmed",
+      "icon": "/assets/chips/fighter-emblem-ii-wiki-fc5e0f42997e.webp",
+      "iconStatus": "verified",
       "effect": {
         "ja": "自分のファイタータタ：攻撃力+18%、防御力+18%。",
         "en": "Your Fighter Tatari: ATK+18%, DEF+18%.",
@@ -3900,6 +4051,26 @@
           "sourceSha256": "fc5e0f42997ef211972b6a4adcdf820302faf51084e19f4e870a1c36014aa146",
           "verifiedAt": "2026-11-22"
         }
+      },
+      "iconSource": {
+        "sourceType": "public_wiki_game_card",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2832/%E3%83%95%E3%82%A1%E3%82%A4%E3%82%BF%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A02.webp",
+        "attachmentId": 2832,
+        "sourceSha256": "fc5e0f42997ef211972b6a4adcdf820302faf51084e19f4e870a1c36014aa146",
+        "width": 279,
+        "height": 341,
+        "verifiedAt": "2026-11-22",
+        "nameAndRankComparison": "matched",
+        "artworkComparison": "visually-matched-original-card",
+        "userAuthorization": {
+          "date": "2026-11-22",
+          "sourceType": "user_instruction",
+          "statement": "ウィキに乗ってたよそのページに / 載せていいよ",
+          "scope": "Publish the 24 name-, rank- and artwork-matched Wiki game cards using the existing game-material policy.",
+          "thirdPartyLicenseStatus": "unconfirmed",
+          "note": "User authorization is recorded separately from an independent third-party license. No TataCalc artwork or substitute images are used."
+        }
       }
     },
     {
@@ -3910,9 +4081,8 @@
         "zh-CN": "タンクの紋章II"
       },
       "rarity": "II",
-      "icon": null,
-      "iconStatus": "pending",
-      "iconPendingReason": "reuse-permission-not-confirmed",
+      "icon": "/assets/chips/tank-emblem-ii-wiki-257ba37b93dc.webp",
+      "iconStatus": "verified",
       "effect": {
         "ja": "自分のタンクタタ：防御力+24%、最大HP+15%。",
         "en": "Your Tank Tatari: DEF+24%, max HP+15%.",
@@ -3977,6 +4147,26 @@
           "sourceSha256": "257ba37b93dca80cdfe4e1d9a56812d18e1b04cae0574379677f0e2a13bcb51e",
           "verifiedAt": "2026-11-22"
         }
+      },
+      "iconSource": {
+        "sourceType": "public_wiki_game_card",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2831/%E3%82%BF%E3%83%B3%E3%82%AF%E3%81%AE%E7%B4%8B%E7%AB%A02.webp",
+        "attachmentId": 2831,
+        "sourceSha256": "257ba37b93dca80cdfe4e1d9a56812d18e1b04cae0574379677f0e2a13bcb51e",
+        "width": 278,
+        "height": 341,
+        "verifiedAt": "2026-11-22",
+        "nameAndRankComparison": "matched",
+        "artworkComparison": "visually-matched-original-card",
+        "userAuthorization": {
+          "date": "2026-11-22",
+          "sourceType": "user_instruction",
+          "statement": "ウィキに乗ってたよそのページに / 載せていいよ",
+          "scope": "Publish the 24 name-, rank- and artwork-matched Wiki game cards using the existing game-material policy.",
+          "thirdPartyLicenseStatus": "unconfirmed",
+          "note": "User authorization is recorded separately from an independent third-party license. No TataCalc artwork or substitute images are used."
+        }
       }
     },
     {
@@ -3987,9 +4177,8 @@
         "zh-CN": "アーチャーの紋章II"
       },
       "rarity": "II",
-      "icon": null,
-      "iconStatus": "pending",
-      "iconPendingReason": "reuse-permission-not-confirmed",
+      "icon": "/assets/chips/archer-emblem-ii-wiki-116136e7ceb9.webp",
+      "iconStatus": "verified",
       "effect": {
         "ja": "自分のアーチャータタ：攻撃力+30%。",
         "en": "Your Archer Tatari: ATK+30%.",
@@ -4049,6 +4238,26 @@
           "sourceSha256": "116136e7ceb9e10ce3efb3b3c2cd62feedc98e6ffd1d690d8ed11548861af0fd",
           "verifiedAt": "2026-11-22"
         }
+      },
+      "iconSource": {
+        "sourceType": "public_wiki_game_card",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2830/%E3%82%A2%E3%83%BC%E3%83%81%E3%83%A3%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A02.webp",
+        "attachmentId": 2830,
+        "sourceSha256": "116136e7ceb9e10ce3efb3b3c2cd62feedc98e6ffd1d690d8ed11548861af0fd",
+        "width": 283,
+        "height": 340,
+        "verifiedAt": "2026-11-22",
+        "nameAndRankComparison": "matched",
+        "artworkComparison": "visually-matched-original-card",
+        "userAuthorization": {
+          "date": "2026-11-22",
+          "sourceType": "user_instruction",
+          "statement": "ウィキに乗ってたよそのページに / 載せていいよ",
+          "scope": "Publish the 24 name-, rank- and artwork-matched Wiki game cards using the existing game-material policy.",
+          "thirdPartyLicenseStatus": "unconfirmed",
+          "note": "User authorization is recorded separately from an independent third-party license. No TataCalc artwork or substitute images are used."
+        }
       }
     },
     {
@@ -4059,9 +4268,8 @@
         "zh-CN": "ヒーラーの紋章II"
       },
       "rarity": "II",
-      "icon": null,
-      "iconStatus": "pending",
-      "iconPendingReason": "reuse-permission-not-confirmed",
+      "icon": "/assets/chips/healer-emblem-ii-wiki-27af0ecfb2f4.webp",
+      "iconStatus": "verified",
       "effect": {
         "ja": "自分のヒーラータタ：攻撃力+18%、最大HP+18%。",
         "en": "Your Healer Tatari: ATK+18%, max HP+18%.",
@@ -4127,6 +4335,26 @@
           "sourceSha256": "27af0ecfb2f498b979a894dc499b2828705d2a87c54ae17a65cdc82a6a3b8f9a",
           "verifiedAt": "2026-11-22"
         }
+      },
+      "iconSource": {
+        "sourceType": "public_wiki_game_card",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2829/%E3%83%92%E3%83%BC%E3%83%A9%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A02.webp",
+        "attachmentId": 2829,
+        "sourceSha256": "27af0ecfb2f498b979a894dc499b2828705d2a87c54ae17a65cdc82a6a3b8f9a",
+        "width": 275,
+        "height": 340,
+        "verifiedAt": "2026-11-22",
+        "nameAndRankComparison": "matched",
+        "artworkComparison": "visually-matched-original-card",
+        "userAuthorization": {
+          "date": "2026-11-22",
+          "sourceType": "user_instruction",
+          "statement": "ウィキに乗ってたよそのページに / 載せていいよ",
+          "scope": "Publish the 24 name-, rank- and artwork-matched Wiki game cards using the existing game-material policy.",
+          "thirdPartyLicenseStatus": "unconfirmed",
+          "note": "User authorization is recorded separately from an independent third-party license. No TataCalc artwork or substitute images are used."
+        }
       }
     },
     {
@@ -4137,9 +4365,8 @@
         "zh-CN": "サポーターの紋章II"
       },
       "rarity": "II",
-      "icon": null,
-      "iconStatus": "pending",
-      "iconPendingReason": "reuse-permission-not-confirmed",
+      "icon": "/assets/chips/supporter-emblem-ii-wiki-dc6daa1cd422.webp",
+      "iconStatus": "verified",
       "effect": {
         "ja": "自分のサポータータタ：防御力+15%、最大HP+21%。",
         "en": "Your Supporter Tatari: DEF+15%, max HP+21%.",
@@ -4204,6 +4431,26 @@
           "sourceSha256": "dc6daa1cd4229e049a2fd565a2673153664504d9ccb4fd4635333388515408d1",
           "verifiedAt": "2026-11-22"
         }
+      },
+      "iconSource": {
+        "sourceType": "public_wiki_game_card",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2828/%E3%82%B5%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A02.webp",
+        "attachmentId": 2828,
+        "sourceSha256": "dc6daa1cd4229e049a2fd565a2673153664504d9ccb4fd4635333388515408d1",
+        "width": 277,
+        "height": 340,
+        "verifiedAt": "2026-11-22",
+        "nameAndRankComparison": "matched",
+        "artworkComparison": "visually-matched-original-card",
+        "userAuthorization": {
+          "date": "2026-11-22",
+          "sourceType": "user_instruction",
+          "statement": "ウィキに乗ってたよそのページに / 載せていいよ",
+          "scope": "Publish the 24 name-, rank- and artwork-matched Wiki game cards using the existing game-material policy.",
+          "thirdPartyLicenseStatus": "unconfirmed",
+          "note": "User authorization is recorded separately from an independent third-party license. No TataCalc artwork or substitute images are used."
+        }
       }
     },
     {
@@ -4214,9 +4461,8 @@
         "zh-CN": "スペシャルの紋章II"
       },
       "rarity": "II",
-      "icon": null,
-      "iconStatus": "pending",
-      "iconPendingReason": "reuse-permission-not-confirmed",
+      "icon": "/assets/chips/special-emblem-ii-wiki-3c1f3deef156.webp",
+      "iconStatus": "verified",
       "effect": {
         "ja": "自分のスペシャルタタ：攻撃力+12%、防御力+12%、最大HP+12%。",
         "en": "Your Special Tatari: ATK+12%, DEF+12%, max HP+12%.",
@@ -4287,6 +4533,26 @@
           "sourceSha256": "3c1f3deef156c62800d8feedb2a4075df5543dcb53a69273c42baa5311550edd",
           "verifiedAt": "2026-11-22"
         }
+      },
+      "iconSource": {
+        "sourceType": "public_wiki_game_card",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2827/%E3%82%B9%E3%83%9A%E3%82%B7%E3%83%A3%E3%83%AB%E3%81%AE%E7%B4%8B%E7%AB%A02.webp",
+        "attachmentId": 2827,
+        "sourceSha256": "3c1f3deef156c62800d8feedb2a4075df5543dcb53a69273c42baa5311550edd",
+        "width": 282,
+        "height": 342,
+        "verifiedAt": "2026-11-22",
+        "nameAndRankComparison": "matched",
+        "artworkComparison": "visually-matched-original-card",
+        "userAuthorization": {
+          "date": "2026-11-22",
+          "sourceType": "user_instruction",
+          "statement": "ウィキに乗ってたよそのページに / 載せていいよ",
+          "scope": "Publish the 24 name-, rank- and artwork-matched Wiki game cards using the existing game-material policy.",
+          "thirdPartyLicenseStatus": "unconfirmed",
+          "note": "User authorization is recorded separately from an independent third-party license. No TataCalc artwork or substitute images are used."
+        }
       }
     },
     {
@@ -4297,13 +4563,12 @@
         "zh-CN": "小さな大人"
       },
       "rarity": "II",
-      "icon": null,
-      "iconStatus": "pending",
-      "iconPendingReason": "reuse-permission-not-confirmed",
+      "icon": "/assets/chips/little-adult-wiki-e4586ff91716.webp",
+      "iconStatus": "verified",
       "effect": {
-        "ja": "自分の低レベルのタタの攻撃力・防御力・最大HPが30%増加する。対象の上限Lvは未確定。",
-        "en": "Your low-level Tatari gain 30% ATK, DEF and max HP. The maximum eligible level is unresolved.",
-        "zh-CN": "你的低等级塔塔攻击力、防御力及最大生命值提高30%。适用的最高等级尚未确认。"
+        "ja": "自分のLv.5以下のタタの攻撃力・防御力・最大HPが30%増加する。",
+        "en": "Your Tatari at Lv.5 or below gain 30% ATK, DEF and max HP.",
+        "zh-CN": "你的Lv.5及以下塔塔攻击力、防御力及最大生命值提高30%。"
       },
       "tags": [
         "attack",
@@ -4358,10 +4623,9 @@
         }
       ],
       "conditions": {
-        "status": "conflicting",
-        "targetMaxLevel": null,
-        "wikiEffectMaxLevel": 5,
-        "wikiCommentMaxLevel": 4
+        "status": "user_confirmed",
+        "targetMaxLevel": 5,
+        "targetMaxLevelInclusive": true
       },
       "nameLocalizationStatus": {
         "ja": "wiki-card-image-compared",
@@ -4377,10 +4641,45 @@
           "verifiedAt": "2026-11-22"
         }
       },
-      "verificationNote": {
-        "ja": "Wiki効果欄は「Lv.5以下」、解説欄は「4までと思われる」と記載。条件は未確定として掲載し、自動補正には使用しません。",
-        "en": "The Wiki effect table says Lv.5 or below; its commentary suggests Lv.4 or below. This unresolved condition is not used for automatic adjustments.",
-        "zh-CN": "Wiki效果栏写Lv.5及以下，解说栏推测为Lv.4及以下。此条件尚未确认，不用于自动修正。"
+      "conditionHistory": {
+        "previousConditions": {
+          "status": "conflicting",
+          "targetMaxLevel": null,
+          "wikiEffectMaxLevel": 5,
+          "wikiCommentMaxLevel": 4
+        },
+        "previousVerificationNote": {
+          "ja": "Wiki効果欄は「Lv.5以下」、解説欄は「4までと思われる」と記載。条件は未確定として掲載し、自動補正には使用しません。",
+          "en": "The Wiki effect table says Lv.5 or below; its commentary suggests Lv.4 or below. This unresolved condition is not used for automatic adjustments.",
+          "zh-CN": "Wiki效果栏写Lv.5及以下，解说栏推测为Lv.4及以下。此条件尚未确认，不用于自动修正。"
+        }
+      },
+      "conditionSource": {
+        "sourceType": "user_confirmation",
+        "confirmedAt": "2026-11-22",
+        "scope": "targetMaxLevel",
+        "statement": "小さな大人はレベル５以下対象だよ",
+        "officialConfirmation": false
+      },
+      "iconSource": {
+        "sourceType": "public_wiki_game_card",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2826/%E5%B0%8F%E3%81%95%E3%81%AA%E5%A4%A7%E4%BA%BA.webp",
+        "attachmentId": 2826,
+        "sourceSha256": "e4586ff91716e997549413a207e21469c09feef350c0debecd5ec410c861a45d",
+        "width": 278,
+        "height": 343,
+        "verifiedAt": "2026-11-22",
+        "nameAndRankComparison": "matched",
+        "artworkComparison": "visually-matched-original-card",
+        "userAuthorization": {
+          "date": "2026-11-22",
+          "sourceType": "user_instruction",
+          "statement": "ウィキに乗ってたよそのページに / 載せていいよ",
+          "scope": "Publish the 24 name-, rank- and artwork-matched Wiki game cards using the existing game-material policy.",
+          "thirdPartyLicenseStatus": "unconfirmed",
+          "note": "User authorization is recorded separately from an independent third-party license. No TataCalc artwork or substitute images are used."
+        }
       }
     },
     {
@@ -4391,9 +4690,8 @@
         "zh-CN": "タタ蘇生"
       },
       "rarity": "II",
-      "icon": null,
-      "iconStatus": "pending",
-      "iconPendingReason": "reuse-permission-not-confirmed",
+      "icon": "/assets/chips/tata-revival-wiki-61c330fa9b0f.webp",
+      "iconStatus": "verified",
       "effect": {
         "ja": "自分のタタが倒れた時、キャンディが十分なら再配置コストの80%を自動消費して復活させる。",
         "en": "When your Tatari falls, automatically revive it by spending 80% of its redeployment cost if you have enough Energy Candies.",
@@ -4456,6 +4754,26 @@
           "sourceSha256": "61c330fa9b0fe37ce143cdd0f6ea82fe73ea62ac382ad7924624b0cc04defa14",
           "verifiedAt": "2026-11-22"
         }
+      },
+      "iconSource": {
+        "sourceType": "public_wiki_game_card",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2825/%E3%82%BF%E3%82%BF%E8%98%87%E7%94%9F.webp",
+        "attachmentId": 2825,
+        "sourceSha256": "61c330fa9b0fe37ce143cdd0f6ea82fe73ea62ac382ad7924624b0cc04defa14",
+        "width": 282,
+        "height": 343,
+        "verifiedAt": "2026-11-22",
+        "nameAndRankComparison": "matched",
+        "artworkComparison": "visually-matched-original-card",
+        "userAuthorization": {
+          "date": "2026-11-22",
+          "sourceType": "user_instruction",
+          "statement": "ウィキに乗ってたよそのページに / 載せていいよ",
+          "scope": "Publish the 24 name-, rank- and artwork-matched Wiki game cards using the existing game-material policy.",
+          "thirdPartyLicenseStatus": "unconfirmed",
+          "note": "User authorization is recorded separately from an independent third-party license. No TataCalc artwork or substitute images are used."
+        }
       }
     },
     {
@@ -4466,9 +4784,8 @@
         "zh-CN": "開拓と拡張"
       },
       "rarity": "II",
-      "icon": null,
-      "iconStatus": "pending",
-      "iconPendingReason": "reuse-permission-not-confirmed",
+      "icon": "/assets/chips/frontier-expansion-wiki-b2bfc9fcd31f.webp",
+      "iconStatus": "verified",
       "effect": {
         "ja": "配置エリアを前方へ横3列拡張し、自分とチームメイトのタタを配置・移動できるようにする。",
         "en": "Extend the deployment area forward by three horizontal rows, allowing your and your teammate’s Tatari to be placed or moved there.",
@@ -4530,6 +4847,26 @@
           "sourceSha256": "b2bfc9fcd31f9f9fa055f6bbe500de7dfe7a845f14f1c3028ca2d9924eade908",
           "verifiedAt": "2026-11-22"
         }
+      },
+      "iconSource": {
+        "sourceType": "public_wiki_game_card",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2824/%E9%96%8B%E6%8B%93%E3%81%A8%E6%8B%A1%E5%BC%B5.webp",
+        "attachmentId": 2824,
+        "sourceSha256": "b2bfc9fcd31f9f9fa055f6bbe500de7dfe7a845f14f1c3028ca2d9924eade908",
+        "width": 276,
+        "height": 339,
+        "verifiedAt": "2026-11-22",
+        "nameAndRankComparison": "matched",
+        "artworkComparison": "visually-matched-original-card",
+        "userAuthorization": {
+          "date": "2026-11-22",
+          "sourceType": "user_instruction",
+          "statement": "ウィキに乗ってたよそのページに / 載せていいよ",
+          "scope": "Publish the 24 name-, rank- and artwork-matched Wiki game cards using the existing game-material policy.",
+          "thirdPartyLicenseStatus": "unconfirmed",
+          "note": "User authorization is recorded separately from an independent third-party license. No TataCalc artwork or substitute images are used."
+        }
       }
     },
     {
@@ -4540,9 +4877,8 @@
         "zh-CN": "ファイターの紋章I"
       },
       "rarity": "I",
-      "icon": null,
-      "iconStatus": "pending",
-      "iconPendingReason": "reuse-permission-not-confirmed",
+      "icon": "/assets/chips/fighter-emblem-i-wiki-e4c800c94cf0.webp",
+      "iconStatus": "verified",
       "effect": {
         "ja": "自分のファイタータタ：攻撃力+12%、防御力+12%。",
         "en": "Your Fighter Tatari: ATK+12%, DEF+12%.",
@@ -4608,6 +4944,26 @@
           "sourceSha256": "e4c800c94cf015e704ed19ff6ffd79bb38b07d4eb0ed642cc7cfa9710e2f11fd",
           "verifiedAt": "2026-11-22"
         }
+      },
+      "iconSource": {
+        "sourceType": "public_wiki_game_card",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2822/%E3%83%95%E3%82%A1%E3%82%A4%E3%82%BF%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A01.webp",
+        "attachmentId": 2822,
+        "sourceSha256": "e4c800c94cf015e704ed19ff6ffd79bb38b07d4eb0ed642cc7cfa9710e2f11fd",
+        "width": 278,
+        "height": 343,
+        "verifiedAt": "2026-11-22",
+        "nameAndRankComparison": "matched",
+        "artworkComparison": "visually-matched-original-card",
+        "userAuthorization": {
+          "date": "2026-11-22",
+          "sourceType": "user_instruction",
+          "statement": "ウィキに乗ってたよそのページに / 載せていいよ",
+          "scope": "Publish the 24 name-, rank- and artwork-matched Wiki game cards using the existing game-material policy.",
+          "thirdPartyLicenseStatus": "unconfirmed",
+          "note": "User authorization is recorded separately from an independent third-party license. No TataCalc artwork or substitute images are used."
+        }
       }
     },
     {
@@ -4618,9 +4974,8 @@
         "zh-CN": "タンクの紋章I"
       },
       "rarity": "I",
-      "icon": null,
-      "iconStatus": "pending",
-      "iconPendingReason": "reuse-permission-not-confirmed",
+      "icon": "/assets/chips/tank-emblem-i-wiki-cf40812301c9.webp",
+      "iconStatus": "verified",
       "effect": {
         "ja": "自分のタンクタタ：防御力+16%、最大HP+10%。",
         "en": "Your Tank Tatari: DEF+16%, max HP+10%.",
@@ -4685,6 +5040,26 @@
           "sourceSha256": "cf40812301c9045f975204d44ba03e237a118b292aa217b5b3958702d04ef81e",
           "verifiedAt": "2026-11-22"
         }
+      },
+      "iconSource": {
+        "sourceType": "public_wiki_game_card",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2823/%E3%82%BF%E3%83%B3%E3%82%AF%E3%81%AE%E7%B4%8B%E7%AB%A01.webp",
+        "attachmentId": 2823,
+        "sourceSha256": "cf40812301c9045f975204d44ba03e237a118b292aa217b5b3958702d04ef81e",
+        "width": 280,
+        "height": 340,
+        "verifiedAt": "2026-11-22",
+        "nameAndRankComparison": "matched",
+        "artworkComparison": "visually-matched-original-card",
+        "userAuthorization": {
+          "date": "2026-11-22",
+          "sourceType": "user_instruction",
+          "statement": "ウィキに乗ってたよそのページに / 載せていいよ",
+          "scope": "Publish the 24 name-, rank- and artwork-matched Wiki game cards using the existing game-material policy.",
+          "thirdPartyLicenseStatus": "unconfirmed",
+          "note": "User authorization is recorded separately from an independent third-party license. No TataCalc artwork or substitute images are used."
+        }
       }
     },
     {
@@ -4695,9 +5070,8 @@
         "zh-CN": "アーチャーの紋章I"
       },
       "rarity": "I",
-      "icon": null,
-      "iconStatus": "pending",
-      "iconPendingReason": "reuse-permission-not-confirmed",
+      "icon": "/assets/chips/archer-emblem-i-wiki-2f243d8ac628.webp",
+      "iconStatus": "verified",
       "effect": {
         "ja": "自分のアーチャータタ：攻撃力+20%。",
         "en": "Your Archer Tatari: ATK+20%.",
@@ -4757,6 +5131,26 @@
           "sourceSha256": "2f243d8ac628b885a203417f7502184e8c51e5da7803f52d4e41ce2d95e9eaef",
           "verifiedAt": "2026-11-22"
         }
+      },
+      "iconSource": {
+        "sourceType": "public_wiki_game_card",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2821/%E3%82%A2%E3%83%BC%E3%83%81%E3%83%A3%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A01.webp",
+        "attachmentId": 2821,
+        "sourceSha256": "2f243d8ac628b885a203417f7502184e8c51e5da7803f52d4e41ce2d95e9eaef",
+        "width": 277,
+        "height": 340,
+        "verifiedAt": "2026-11-22",
+        "nameAndRankComparison": "matched",
+        "artworkComparison": "visually-matched-original-card",
+        "userAuthorization": {
+          "date": "2026-11-22",
+          "sourceType": "user_instruction",
+          "statement": "ウィキに乗ってたよそのページに / 載せていいよ",
+          "scope": "Publish the 24 name-, rank- and artwork-matched Wiki game cards using the existing game-material policy.",
+          "thirdPartyLicenseStatus": "unconfirmed",
+          "note": "User authorization is recorded separately from an independent third-party license. No TataCalc artwork or substitute images are used."
+        }
       }
     },
     {
@@ -4767,9 +5161,8 @@
         "zh-CN": "ヒーラーの紋章I"
       },
       "rarity": "I",
-      "icon": null,
-      "iconStatus": "pending",
-      "iconPendingReason": "reuse-permission-not-confirmed",
+      "icon": "/assets/chips/healer-emblem-i-wiki-2cb271d50038.webp",
+      "iconStatus": "verified",
       "effect": {
         "ja": "自分のヒーラータタ：攻撃力+12%、最大HP+12%。",
         "en": "Your Healer Tatari: ATK+12%, max HP+12%.",
@@ -4835,6 +5228,26 @@
           "sourceSha256": "2cb271d5003865bb86450beb5ffab36225c7b89471fb15cd7aed771b0c0ee1df",
           "verifiedAt": "2026-11-22"
         }
+      },
+      "iconSource": {
+        "sourceType": "public_wiki_game_card",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2820/%E3%83%92%E3%83%BC%E3%83%A9%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A01.webp",
+        "attachmentId": 2820,
+        "sourceSha256": "2cb271d5003865bb86450beb5ffab36225c7b89471fb15cd7aed771b0c0ee1df",
+        "width": 278,
+        "height": 340,
+        "verifiedAt": "2026-11-22",
+        "nameAndRankComparison": "matched",
+        "artworkComparison": "visually-matched-original-card",
+        "userAuthorization": {
+          "date": "2026-11-22",
+          "sourceType": "user_instruction",
+          "statement": "ウィキに乗ってたよそのページに / 載せていいよ",
+          "scope": "Publish the 24 name-, rank- and artwork-matched Wiki game cards using the existing game-material policy.",
+          "thirdPartyLicenseStatus": "unconfirmed",
+          "note": "User authorization is recorded separately from an independent third-party license. No TataCalc artwork or substitute images are used."
+        }
       }
     },
     {
@@ -4845,9 +5258,8 @@
         "zh-CN": "サポーターの紋章I"
       },
       "rarity": "I",
-      "icon": null,
-      "iconStatus": "pending",
-      "iconPendingReason": "reuse-permission-not-confirmed",
+      "icon": "/assets/chips/supporter-emblem-i-wiki-4880cc2eefea.webp",
+      "iconStatus": "verified",
       "effect": {
         "ja": "自分のサポータータタ：防御力+10%、最大HP+14%。",
         "en": "Your Supporter Tatari: DEF+10%, max HP+14%.",
@@ -4912,6 +5324,26 @@
           "sourceSha256": "4880cc2eefeac4f9f2a6f7f1f054c614240ffdcaff618515a5248a4477f0d19b",
           "verifiedAt": "2026-11-22"
         }
+      },
+      "iconSource": {
+        "sourceType": "public_wiki_game_card",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2819/%E3%82%B5%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A01.webp",
+        "attachmentId": 2819,
+        "sourceSha256": "4880cc2eefeac4f9f2a6f7f1f054c614240ffdcaff618515a5248a4477f0d19b",
+        "width": 275,
+        "height": 340,
+        "verifiedAt": "2026-11-22",
+        "nameAndRankComparison": "matched",
+        "artworkComparison": "visually-matched-original-card",
+        "userAuthorization": {
+          "date": "2026-11-22",
+          "sourceType": "user_instruction",
+          "statement": "ウィキに乗ってたよそのページに / 載せていいよ",
+          "scope": "Publish the 24 name-, rank- and artwork-matched Wiki game cards using the existing game-material policy.",
+          "thirdPartyLicenseStatus": "unconfirmed",
+          "note": "User authorization is recorded separately from an independent third-party license. No TataCalc artwork or substitute images are used."
+        }
       }
     },
     {
@@ -4922,9 +5354,8 @@
         "zh-CN": "スペシャルの紋章I"
       },
       "rarity": "I",
-      "icon": null,
-      "iconStatus": "pending",
-      "iconPendingReason": "reuse-permission-not-confirmed",
+      "icon": "/assets/chips/special-emblem-i-wiki-dd47bc827e85.webp",
+      "iconStatus": "verified",
       "effect": {
         "ja": "自分のスペシャルタタ：攻撃力+8%、防御力+8%、最大HP+8%。",
         "en": "Your Special Tatari: ATK+8%, DEF+8%, max HP+8%.",
@@ -4995,6 +5426,26 @@
           "sourceSha256": "dd47bc827e85e394379eb99553cf47bb56750abe8a76b85f7db720bb2683e521",
           "verifiedAt": "2026-11-22"
         }
+      },
+      "iconSource": {
+        "sourceType": "public_wiki_game_card",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2818/%E3%82%B9%E3%83%9A%E3%82%B7%E3%83%A3%E3%83%AB%E3%81%AE%E7%B4%8B%E7%AB%A01.webp",
+        "attachmentId": 2818,
+        "sourceSha256": "dd47bc827e85e394379eb99553cf47bb56750abe8a76b85f7db720bb2683e521",
+        "width": 280,
+        "height": 343,
+        "verifiedAt": "2026-11-22",
+        "nameAndRankComparison": "matched",
+        "artworkComparison": "visually-matched-original-card",
+        "userAuthorization": {
+          "date": "2026-11-22",
+          "sourceType": "user_instruction",
+          "statement": "ウィキに乗ってたよそのページに / 載せていいよ",
+          "scope": "Publish the 24 name-, rank- and artwork-matched Wiki game cards using the existing game-material policy.",
+          "thirdPartyLicenseStatus": "unconfirmed",
+          "note": "User authorization is recorded separately from an independent third-party license. No TataCalc artwork or substitute images are used."
+        }
       }
     },
     {
@@ -5005,9 +5456,8 @@
         "zh-CN": "おあずけご褒美"
       },
       "rarity": "I",
-      "icon": null,
-      "iconStatus": "pending",
-      "iconPendingReason": "reuse-permission-not-confirmed",
+      "icon": "/assets/chips/delayed-reward-wiki-6924894082d1.webp",
+      "iconStatus": "verified",
       "effect": {
         "ja": "5ウェーブ後にエナジーキャンディを400個獲得する。",
         "en": "Gain 400 Energy Candies after 5 waves.",
@@ -5070,16 +5520,36 @@
           "sourceSha256": "6924894082d190ffca15d88d64bf10ee342d0ffe1f72743c11c67e67fe5914cf",
           "verifiedAt": "2026-11-22"
         }
+      },
+      "iconSource": {
+        "sourceType": "public_wiki_game_card",
+        "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2817/%E3%81%8A%E3%81%82%E3%81%9A%E3%81%91%E3%81%94%E8%A4%92%E7%BE%8E.webp",
+        "attachmentId": 2817,
+        "sourceSha256": "6924894082d190ffca15d88d64bf10ee342d0ffe1f72743c11c67e67fe5914cf",
+        "width": 279,
+        "height": 341,
+        "verifiedAt": "2026-11-22",
+        "nameAndRankComparison": "matched",
+        "artworkComparison": "visually-matched-original-card",
+        "userAuthorization": {
+          "date": "2026-11-22",
+          "sourceType": "user_instruction",
+          "statement": "ウィキに乗ってたよそのページに / 載せていいよ",
+          "scope": "Publish the 24 name-, rank- and artwork-matched Wiki game cards using the existing game-material policy.",
+          "thirdPartyLicenseStatus": "unconfirmed",
+          "note": "User authorization is recorded separately from an independent third-party license. No TataCalc artwork or substitute images are used."
+        }
       }
     }
   ],
   "iconSource": {
     "sourceType": "public_wiki",
     "pageUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
-    "retrievedAt": "2026-10-06",
+    "retrievedAt": "2026-11-22",
     "thirdPartyLicenseStatus": "unconfirmed",
     "termsUrl": "https://atwiki.jp/tos",
-    "userAuthorization": "Explicit request to replace all 49 chip images from the public Wiki"
+    "userAuthorization": "Explicit user requests to publish the original 49 Wiki cards and the 24 additional matched Wiki game cards (2026-11-22)."
   },
   "effectAudit": {
     "checkedAt": "2026-10-07",
@@ -5103,9 +5573,10 @@
     "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json",
     "added": 24,
     "existing": 49,
-    "imagesPending": 24,
+    "imagesPending": 0,
     "sourceGameVersion": "0.52.1",
     "officialExistenceSource": "https://apps.apple.com/jp/app/id6741567125",
-    "individualEffectsOfficiallyConfirmed": false
+    "individualEffectsOfficiallyConfirmed": false,
+    "imagesPublished": 24
   }
 }

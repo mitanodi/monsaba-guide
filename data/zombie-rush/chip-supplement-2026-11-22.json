@@ -8,15 +8,17 @@
   "baselineCount": 49,
   "addedCount": 24,
   "totalCount": 73,
-  "imagesPublished": 0,
-  "imagesPending": 24,
+  "imagesPublished": 24,
+  "imagesPending": 0,
   "imageRights": {
-    "status": "unconfirmed",
-    "officialManifest": "2026-09-04 / 9726 entries",
-    "officialMaterialMatch": "not established",
-    "wikiMaterialPage": "https://w.atwiki.jp/monstersurvival/pages/26.html",
-    "wikiTerms": "https://atwiki.jp/tos",
-    "note": "No new Wiki card is published or hotlinked. References were viewed for name/rank matching only. No substitute artwork is used."
+    "date": "2026-11-22",
+    "sourceType": "user_instruction",
+    "statement": "ウィキに乗ってたよそのページに / 載せていいよ",
+    "scope": "Publish the 24 name-, rank- and artwork-matched Wiki game cards using the existing game-material policy.",
+    "thirdPartyLicenseStatus": "unconfirmed",
+    "note": "User authorization is recorded separately from an independent third-party license. No TataCalc artwork or substitute images are used.",
+    "termsUrl": "https://atwiki.jp/tos",
+    "originalGameCards": true
   },
   "records": [
     {
@@ -27,9 +29,9 @@
       "referenceImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2833/%E3%83%95%E3%82%A1%E3%82%A4%E3%82%BF%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A03.webp",
       "referenceSha256": "13615da0943910840561db69952fa9c63cc17b0a7ce79b4768778700da2fc087",
       "nameAndRankComparison": "matched",
-      "artworkComparison": "stage-correct reference viewed; not published",
-      "imagePermission": "unconfirmed",
-      "publishedIcon": null,
+      "artworkComparison": "visually-matched-original-card",
+      "imagePermission": "user-authorized",
+      "publishedIcon": "/assets/chips/fighter-emblem-iii-wiki-13615da09439.webp",
       "effectStats": [
         {
           "stat": "attack",
@@ -42,7 +44,17 @@
           "unit": "percent"
         }
       ],
-      "conditionStatus": "externally_confirmed"
+      "conditionStatus": "externally_confirmed",
+      "imagePublicationHistory": [
+        {
+          "date": "2026-11-22",
+          "status": "withheld-before-user-authorization",
+          "imagePermission": "unconfirmed"
+        }
+      ],
+      "thirdPartyLicenseStatus": "unconfirmed",
+      "width": 278,
+      "height": 340
     },
     {
       "id": "tank-emblem-iii",
@@ -52,9 +64,9 @@
       "referenceImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2834/%E3%82%BF%E3%83%B3%E3%82%AF%E3%81%AE%E7%B4%8B%E7%AB%A03.webp",
       "referenceSha256": "4cac9f8c6d474bf013db02b8d6f37e2fea7534682fc14e7a257f22ca3ff68d0d",
       "nameAndRankComparison": "matched",
-      "artworkComparison": "stage-correct reference viewed; not published",
-      "imagePermission": "unconfirmed",
-      "publishedIcon": null,
+      "artworkComparison": "visually-matched-original-card",
+      "imagePermission": "user-authorized",
+      "publishedIcon": "/assets/chips/tank-emblem-iii-wiki-4cac9f8c6d47.webp",
       "effectStats": [
         {
           "stat": "defense",
@@ -67,7 +79,17 @@
           "unit": "percent"
         }
       ],
-      "conditionStatus": "externally_confirmed"
+      "conditionStatus": "externally_confirmed",
+      "imagePublicationHistory": [
+        {
+          "date": "2026-11-22",
+          "status": "withheld-before-user-authorization",
+          "imagePermission": "unconfirmed"
+        }
+      ],
+      "thirdPartyLicenseStatus": "unconfirmed",
+      "width": 281,
+      "height": 338
     },
     {
       "id": "archer-emblem-iii",
@@ -77,9 +99,9 @@
       "referenceImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2836/%E3%82%A2%E3%83%BC%E3%83%81%E3%83%A3%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A03.webp",
       "referenceSha256": "1ae70b1ad6a78d6b5f18d104edf1f7554e41d4e2c883468dda5cad4f662f279d",
       "nameAndRankComparison": "matched",
-      "artworkComparison": "stage-correct reference viewed; not published",
-      "imagePermission": "unconfirmed",
-      "publishedIcon": null,
+      "artworkComparison": "visually-matched-original-card",
+      "imagePermission": "user-authorized",
+      "publishedIcon": "/assets/chips/archer-emblem-iii-wiki-1ae70b1ad6a7.webp",
       "effectStats": [
         {
           "stat": "attack",
@@ -87,7 +109,17 @@
           "unit": "percent"
         }
       ],
-      "conditionStatus": "externally_confirmed"
+      "conditionStatus": "externally_confirmed",
+      "imagePublicationHistory": [
+        {
+          "date": "2026-11-22",
+          "status": "withheld-before-user-authorization",
+          "imagePermission": "unconfirmed"
+        }
+      ],
+      "thirdPartyLicenseStatus": "unconfirmed",
+      "width": 283,
+      "height": 344
     },
     {
       "id": "healer-emblem-iii",
@@ -97,9 +129,9 @@
       "referenceImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2835/%E3%83%92%E3%83%BC%E3%83%A9%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A03.webp",
       "referenceSha256": "ac6d444ff0b2a3f3b917e87bfa27382236844e7e3c72fdba6f1c45be0ed0f906",
       "nameAndRankComparison": "matched",
-      "artworkComparison": "stage-correct reference viewed; not published",
-      "imagePermission": "unconfirmed",
-      "publishedIcon": null,
+      "artworkComparison": "visually-matched-original-card",
+      "imagePermission": "user-authorized",
+      "publishedIcon": "/assets/chips/healer-emblem-iii-wiki-ac6d444ff0b2.webp",
       "effectStats": [
         {
           "stat": "attack",
@@ -112,7 +144,17 @@
           "unit": "percent"
         }
       ],
-      "conditionStatus": "externally_confirmed"
+      "conditionStatus": "externally_confirmed",
+      "imagePublicationHistory": [
+        {
+          "date": "2026-11-22",
+          "status": "withheld-before-user-authorization",
+          "imagePermission": "unconfirmed"
+        }
+      ],
+      "thirdPartyLicenseStatus": "unconfirmed",
+      "width": 280,
+      "height": 344
     },
     {
       "id": "supporter-emblem-iii",
@@ -122,9 +164,9 @@
       "referenceImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2837/%E3%82%B5%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A03.webp",
       "referenceSha256": "89d94687a2102b6494a09e7931db1882bff979520380e005784d0d84b79c83ef",
       "nameAndRankComparison": "matched",
-      "artworkComparison": "stage-correct reference viewed; not published",
-      "imagePermission": "unconfirmed",
-      "publishedIcon": null,
+      "artworkComparison": "visually-matched-original-card",
+      "imagePermission": "user-authorized",
+      "publishedIcon": "/assets/chips/supporter-emblem-iii-wiki-89d94687a210.webp",
       "effectStats": [
         {
           "stat": "defense",
@@ -137,7 +179,17 @@
           "unit": "percent"
         }
       ],
-      "conditionStatus": "externally_confirmed"
+      "conditionStatus": "externally_confirmed",
+      "imagePublicationHistory": [
+        {
+          "date": "2026-11-22",
+          "status": "withheld-before-user-authorization",
+          "imagePermission": "unconfirmed"
+        }
+      ],
+      "thirdPartyLicenseStatus": "unconfirmed",
+      "width": 281,
+      "height": 344
     },
     {
       "id": "special-emblem-iii",
@@ -147,9 +199,9 @@
       "referenceImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2838/%E3%82%B9%E3%83%9A%E3%82%B7%E3%83%A3%E3%83%AB%E3%81%AE%E7%B4%8B%E7%AB%A03.webp",
       "referenceSha256": "ef09455c28f357749138aab9fdec794cd451e45be1a951ccff7395f13f158091",
       "nameAndRankComparison": "matched",
-      "artworkComparison": "stage-correct reference viewed; not published",
-      "imagePermission": "unconfirmed",
-      "publishedIcon": null,
+      "artworkComparison": "visually-matched-original-card",
+      "imagePermission": "user-authorized",
+      "publishedIcon": "/assets/chips/special-emblem-iii-wiki-ef09455c28f3.webp",
       "effectStats": [
         {
           "stat": "attack",
@@ -167,7 +219,17 @@
           "unit": "percent"
         }
       ],
-      "conditionStatus": "externally_confirmed"
+      "conditionStatus": "externally_confirmed",
+      "imagePublicationHistory": [
+        {
+          "date": "2026-11-22",
+          "status": "withheld-before-user-authorization",
+          "imagePermission": "unconfirmed"
+        }
+      ],
+      "thirdPartyLicenseStatus": "unconfirmed",
+      "width": 277,
+      "height": 344
     },
     {
       "id": "last-stand",
@@ -177,9 +239,9 @@
       "referenceImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2839/%E8%83%8C%E6%B0%B4%E3%81%AE%E9%99%A3.webp",
       "referenceSha256": "397993ab31301c2237efa46e8ea217b2d8b5314a252f2cb794473a9f1c3d715e",
       "nameAndRankComparison": "matched",
-      "artworkComparison": "stage-correct reference viewed; not published",
-      "imagePermission": "unconfirmed",
-      "publishedIcon": null,
+      "artworkComparison": "visually-matched-original-card",
+      "imagePermission": "user-authorized",
+      "publishedIcon": "/assets/chips/last-stand-wiki-397993ab3130.webp",
       "effectStats": [
         {
           "stat": "damage",
@@ -187,7 +249,17 @@
           "unit": "percent"
         }
       ],
-      "conditionStatus": "externally_confirmed"
+      "conditionStatus": "externally_confirmed",
+      "imagePublicationHistory": [
+        {
+          "date": "2026-11-22",
+          "status": "withheld-before-user-authorization",
+          "imagePermission": "unconfirmed"
+        }
+      ],
+      "thirdPartyLicenseStatus": "unconfirmed",
+      "width": 279,
+      "height": 343
     },
     {
       "id": "long-training",
@@ -197,9 +269,9 @@
       "referenceImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2840/%E9%95%B7%E3%81%8D%E4%BF%AE%E8%A1%8C.webp",
       "referenceSha256": "4a8eae22e01b1fe706f448511d39b2b6a10717b9c7e12c3d432e1deb1cb7b148",
       "nameAndRankComparison": "matched",
-      "artworkComparison": "stage-correct reference viewed; not published",
-      "imagePermission": "unconfirmed",
-      "publishedIcon": null,
+      "artworkComparison": "visually-matched-original-card",
+      "imagePermission": "user-authorized",
+      "publishedIcon": "/assets/chips/long-training-wiki-4a8eae22e01b.webp",
       "effectStats": [
         {
           "stat": "delayWaves",
@@ -214,7 +286,17 @@
           "value": 1
         }
       ],
-      "conditionStatus": "externally_confirmed"
+      "conditionStatus": "externally_confirmed",
+      "imagePublicationHistory": [
+        {
+          "date": "2026-11-22",
+          "status": "withheld-before-user-authorization",
+          "imagePermission": "unconfirmed"
+        }
+      ],
+      "thirdPartyLicenseStatus": "unconfirmed",
+      "width": 281,
+      "height": 342
     },
     {
       "id": "fighter-emblem-ii",
@@ -224,9 +306,9 @@
       "referenceImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2832/%E3%83%95%E3%82%A1%E3%82%A4%E3%82%BF%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A02.webp",
       "referenceSha256": "fc5e0f42997ef211972b6a4adcdf820302faf51084e19f4e870a1c36014aa146",
       "nameAndRankComparison": "matched",
-      "artworkComparison": "stage-correct reference viewed; not published",
-      "imagePermission": "unconfirmed",
-      "publishedIcon": null,
+      "artworkComparison": "visually-matched-original-card",
+      "imagePermission": "user-authorized",
+      "publishedIcon": "/assets/chips/fighter-emblem-ii-wiki-fc5e0f42997e.webp",
       "effectStats": [
         {
           "stat": "attack",
@@ -239,7 +321,17 @@
           "unit": "percent"
         }
       ],
-      "conditionStatus": "externally_confirmed"
+      "conditionStatus": "externally_confirmed",
+      "imagePublicationHistory": [
+        {
+          "date": "2026-11-22",
+          "status": "withheld-before-user-authorization",
+          "imagePermission": "unconfirmed"
+        }
+      ],
+      "thirdPartyLicenseStatus": "unconfirmed",
+      "width": 279,
+      "height": 341
     },
     {
       "id": "tank-emblem-ii",
@@ -249,9 +341,9 @@
       "referenceImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2831/%E3%82%BF%E3%83%B3%E3%82%AF%E3%81%AE%E7%B4%8B%E7%AB%A02.webp",
       "referenceSha256": "257ba37b93dca80cdfe4e1d9a56812d18e1b04cae0574379677f0e2a13bcb51e",
       "nameAndRankComparison": "matched",
-      "artworkComparison": "stage-correct reference viewed; not published",
-      "imagePermission": "unconfirmed",
-      "publishedIcon": null,
+      "artworkComparison": "visually-matched-original-card",
+      "imagePermission": "user-authorized",
+      "publishedIcon": "/assets/chips/tank-emblem-ii-wiki-257ba37b93dc.webp",
       "effectStats": [
         {
           "stat": "defense",
@@ -264,7 +356,17 @@
           "unit": "percent"
         }
       ],
-      "conditionStatus": "externally_confirmed"
+      "conditionStatus": "externally_confirmed",
+      "imagePublicationHistory": [
+        {
+          "date": "2026-11-22",
+          "status": "withheld-before-user-authorization",
+          "imagePermission": "unconfirmed"
+        }
+      ],
+      "thirdPartyLicenseStatus": "unconfirmed",
+      "width": 278,
+      "height": 341
     },
     {
       "id": "archer-emblem-ii",
@@ -274,9 +376,9 @@
       "referenceImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2830/%E3%82%A2%E3%83%BC%E3%83%81%E3%83%A3%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A02.webp",
       "referenceSha256": "116136e7ceb9e10ce3efb3b3c2cd62feedc98e6ffd1d690d8ed11548861af0fd",
       "nameAndRankComparison": "matched",
-      "artworkComparison": "stage-correct reference viewed; not published",
-      "imagePermission": "unconfirmed",
-      "publishedIcon": null,
+      "artworkComparison": "visually-matched-original-card",
+      "imagePermission": "user-authorized",
+      "publishedIcon": "/assets/chips/archer-emblem-ii-wiki-116136e7ceb9.webp",
       "effectStats": [
         {
           "stat": "attack",
@@ -284,7 +386,17 @@
           "unit": "percent"
         }
       ],
-      "conditionStatus": "externally_confirmed"
+      "conditionStatus": "externally_confirmed",
+      "imagePublicationHistory": [
+        {
+          "date": "2026-11-22",
+          "status": "withheld-before-user-authorization",
+          "imagePermission": "unconfirmed"
+        }
+      ],
+      "thirdPartyLicenseStatus": "unconfirmed",
+      "width": 283,
+      "height": 340
     },
     {
       "id": "healer-emblem-ii",
@@ -294,9 +406,9 @@
       "referenceImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2829/%E3%83%92%E3%83%BC%E3%83%A9%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A02.webp",
       "referenceSha256": "27af0ecfb2f498b979a894dc499b2828705d2a87c54ae17a65cdc82a6a3b8f9a",
       "nameAndRankComparison": "matched",
-      "artworkComparison": "stage-correct reference viewed; not published",
-      "imagePermission": "unconfirmed",
-      "publishedIcon": null,
+      "artworkComparison": "visually-matched-original-card",
+      "imagePermission": "user-authorized",
+      "publishedIcon": "/assets/chips/healer-emblem-ii-wiki-27af0ecfb2f4.webp",
       "effectStats": [
         {
           "stat": "attack",
@@ -309,7 +421,17 @@
           "unit": "percent"
         }
       ],
-      "conditionStatus": "externally_confirmed"
+      "conditionStatus": "externally_confirmed",
+      "imagePublicationHistory": [
+        {
+          "date": "2026-11-22",
+          "status": "withheld-before-user-authorization",
+          "imagePermission": "unconfirmed"
+        }
+      ],
+      "thirdPartyLicenseStatus": "unconfirmed",
+      "width": 275,
+      "height": 340
     },
     {
       "id": "supporter-emblem-ii",
@@ -319,9 +441,9 @@
       "referenceImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2828/%E3%82%B5%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A02.webp",
       "referenceSha256": "dc6daa1cd4229e049a2fd565a2673153664504d9ccb4fd4635333388515408d1",
       "nameAndRankComparison": "matched",
-      "artworkComparison": "stage-correct reference viewed; not published",
-      "imagePermission": "unconfirmed",
-      "publishedIcon": null,
+      "artworkComparison": "visually-matched-original-card",
+      "imagePermission": "user-authorized",
+      "publishedIcon": "/assets/chips/supporter-emblem-ii-wiki-dc6daa1cd422.webp",
       "effectStats": [
         {
           "stat": "defense",
@@ -334,7 +456,17 @@
           "unit": "percent"
         }
       ],
-      "conditionStatus": "externally_confirmed"
+      "conditionStatus": "externally_confirmed",
+      "imagePublicationHistory": [
+        {
+          "date": "2026-11-22",
+          "status": "withheld-before-user-authorization",
+          "imagePermission": "unconfirmed"
+        }
+      ],
+      "thirdPartyLicenseStatus": "unconfirmed",
+      "width": 277,
+      "height": 340
     },
     {
       "id": "special-emblem-ii",
@@ -344,9 +476,9 @@
       "referenceImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2827/%E3%82%B9%E3%83%9A%E3%82%B7%E3%83%A3%E3%83%AB%E3%81%AE%E7%B4%8B%E7%AB%A02.webp",
       "referenceSha256": "3c1f3deef156c62800d8feedb2a4075df5543dcb53a69273c42baa5311550edd",
       "nameAndRankComparison": "matched",
-      "artworkComparison": "stage-correct reference viewed; not published",
-      "imagePermission": "unconfirmed",
-      "publishedIcon": null,
+      "artworkComparison": "visually-matched-original-card",
+      "imagePermission": "user-authorized",
+      "publishedIcon": "/assets/chips/special-emblem-ii-wiki-3c1f3deef156.webp",
       "effectStats": [
         {
           "stat": "attack",
@@ -364,7 +496,17 @@
           "unit": "percent"
         }
       ],
-      "conditionStatus": "externally_confirmed"
+      "conditionStatus": "externally_confirmed",
+      "imagePublicationHistory": [
+        {
+          "date": "2026-11-22",
+          "status": "withheld-before-user-authorization",
+          "imagePermission": "unconfirmed"
+        }
+      ],
+      "thirdPartyLicenseStatus": "unconfirmed",
+      "width": 282,
+      "height": 342
     },
     {
       "id": "little-adult",
@@ -374,9 +516,9 @@
       "referenceImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2826/%E5%B0%8F%E3%81%95%E3%81%AA%E5%A4%A7%E4%BA%BA.webp",
       "referenceSha256": "e4586ff91716e997549413a207e21469c09feef350c0debecd5ec410c861a45d",
       "nameAndRankComparison": "matched",
-      "artworkComparison": "stage-correct reference viewed; not published",
-      "imagePermission": "unconfirmed",
-      "publishedIcon": null,
+      "artworkComparison": "visually-matched-original-card",
+      "imagePermission": "user-authorized",
+      "publishedIcon": "/assets/chips/little-adult-wiki-e4586ff91716.webp",
       "effectStats": [
         {
           "stat": "attack",
@@ -394,7 +536,25 @@
           "unit": "percent"
         }
       ],
-      "conditionStatus": "conflicting"
+      "conditionStatus": "user_confirmed",
+      "previousConditionStatus": "conflicting",
+      "conditionSource": {
+        "sourceType": "user_confirmation",
+        "confirmedAt": "2026-11-22",
+        "scope": "targetMaxLevel",
+        "statement": "小さな大人はレベル５以下対象だよ",
+        "officialConfirmation": false
+      },
+      "imagePublicationHistory": [
+        {
+          "date": "2026-11-22",
+          "status": "withheld-before-user-authorization",
+          "imagePermission": "unconfirmed"
+        }
+      ],
+      "thirdPartyLicenseStatus": "unconfirmed",
+      "width": 278,
+      "height": 343
     },
     {
       "id": "tata-revival",
@@ -404,9 +564,9 @@
       "referenceImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2825/%E3%82%BF%E3%82%BF%E8%98%87%E7%94%9F.webp",
       "referenceSha256": "61c330fa9b0fe37ce143cdd0f6ea82fe73ea62ac382ad7924624b0cc04defa14",
       "nameAndRankComparison": "matched",
-      "artworkComparison": "stage-correct reference viewed; not published",
-      "imagePermission": "unconfirmed",
-      "publishedIcon": null,
+      "artworkComparison": "visually-matched-original-card",
+      "imagePermission": "user-authorized",
+      "publishedIcon": "/assets/chips/tata-revival-wiki-61c330fa9b0f.webp",
       "effectStats": [
         {
           "stat": "redeploymentCost",
@@ -414,7 +574,17 @@
           "unit": "percent"
         }
       ],
-      "conditionStatus": "externally_confirmed"
+      "conditionStatus": "externally_confirmed",
+      "imagePublicationHistory": [
+        {
+          "date": "2026-11-22",
+          "status": "withheld-before-user-authorization",
+          "imagePermission": "unconfirmed"
+        }
+      ],
+      "thirdPartyLicenseStatus": "unconfirmed",
+      "width": 282,
+      "height": 343
     },
     {
       "id": "frontier-expansion",
@@ -424,16 +594,26 @@
       "referenceImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2824/%E9%96%8B%E6%8B%93%E3%81%A8%E6%8B%A1%E5%BC%B5.webp",
       "referenceSha256": "b2bfc9fcd31f9f9fa055f6bbe500de7dfe7a845f14f1c3028ca2d9924eade908",
       "nameAndRankComparison": "matched",
-      "artworkComparison": "stage-correct reference viewed; not published",
-      "imagePermission": "unconfirmed",
-      "publishedIcon": null,
+      "artworkComparison": "visually-matched-original-card",
+      "imagePermission": "user-authorized",
+      "publishedIcon": "/assets/chips/frontier-expansion-wiki-b2bfc9fcd31f.webp",
       "effectStats": [
         {
           "stat": "additionalFrontRows",
           "value": 3
         }
       ],
-      "conditionStatus": "externally_confirmed"
+      "conditionStatus": "externally_confirmed",
+      "imagePublicationHistory": [
+        {
+          "date": "2026-11-22",
+          "status": "withheld-before-user-authorization",
+          "imagePermission": "unconfirmed"
+        }
+      ],
+      "thirdPartyLicenseStatus": "unconfirmed",
+      "width": 276,
+      "height": 339
     },
     {
       "id": "fighter-emblem-i",
@@ -443,9 +623,9 @@
       "referenceImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2822/%E3%83%95%E3%82%A1%E3%82%A4%E3%82%BF%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A01.webp",
       "referenceSha256": "e4c800c94cf015e704ed19ff6ffd79bb38b07d4eb0ed642cc7cfa9710e2f11fd",
       "nameAndRankComparison": "matched",
-      "artworkComparison": "stage-correct reference viewed; not published",
-      "imagePermission": "unconfirmed",
-      "publishedIcon": null,
+      "artworkComparison": "visually-matched-original-card",
+      "imagePermission": "user-authorized",
+      "publishedIcon": "/assets/chips/fighter-emblem-i-wiki-e4c800c94cf0.webp",
       "effectStats": [
         {
           "stat": "attack",
@@ -458,7 +638,17 @@
           "unit": "percent"
         }
       ],
-      "conditionStatus": "externally_confirmed"
+      "conditionStatus": "externally_confirmed",
+      "imagePublicationHistory": [
+        {
+          "date": "2026-11-22",
+          "status": "withheld-before-user-authorization",
+          "imagePermission": "unconfirmed"
+        }
+      ],
+      "thirdPartyLicenseStatus": "unconfirmed",
+      "width": 278,
+      "height": 343
     },
     {
       "id": "tank-emblem-i",
@@ -468,9 +658,9 @@
       "referenceImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2823/%E3%82%BF%E3%83%B3%E3%82%AF%E3%81%AE%E7%B4%8B%E7%AB%A01.webp",
       "referenceSha256": "cf40812301c9045f975204d44ba03e237a118b292aa217b5b3958702d04ef81e",
       "nameAndRankComparison": "matched",
-      "artworkComparison": "stage-correct reference viewed; not published",
-      "imagePermission": "unconfirmed",
-      "publishedIcon": null,
+      "artworkComparison": "visually-matched-original-card",
+      "imagePermission": "user-authorized",
+      "publishedIcon": "/assets/chips/tank-emblem-i-wiki-cf40812301c9.webp",
       "effectStats": [
         {
           "stat": "defense",
@@ -483,7 +673,17 @@
           "unit": "percent"
         }
       ],
-      "conditionStatus": "externally_confirmed"
+      "conditionStatus": "externally_confirmed",
+      "imagePublicationHistory": [
+        {
+          "date": "2026-11-22",
+          "status": "withheld-before-user-authorization",
+          "imagePermission": "unconfirmed"
+        }
+      ],
+      "thirdPartyLicenseStatus": "unconfirmed",
+      "width": 280,
+      "height": 340
     },
     {
       "id": "archer-emblem-i",
@@ -493,9 +693,9 @@
       "referenceImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2821/%E3%82%A2%E3%83%BC%E3%83%81%E3%83%A3%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A01.webp",
       "referenceSha256": "2f243d8ac628b885a203417f7502184e8c51e5da7803f52d4e41ce2d95e9eaef",
       "nameAndRankComparison": "matched",
-      "artworkComparison": "stage-correct reference viewed; not published",
-      "imagePermission": "unconfirmed",
-      "publishedIcon": null,
+      "artworkComparison": "visually-matched-original-card",
+      "imagePermission": "user-authorized",
+      "publishedIcon": "/assets/chips/archer-emblem-i-wiki-2f243d8ac628.webp",
       "effectStats": [
         {
           "stat": "attack",
@@ -503,7 +703,17 @@
           "unit": "percent"
         }
       ],
-      "conditionStatus": "externally_confirmed"
+      "conditionStatus": "externally_confirmed",
+      "imagePublicationHistory": [
+        {
+          "date": "2026-11-22",
+          "status": "withheld-before-user-authorization",
+          "imagePermission": "unconfirmed"
+        }
+      ],
+      "thirdPartyLicenseStatus": "unconfirmed",
+      "width": 277,
+      "height": 340
     },
     {
       "id": "healer-emblem-i",
@@ -513,9 +723,9 @@
       "referenceImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2820/%E3%83%92%E3%83%BC%E3%83%A9%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A01.webp",
       "referenceSha256": "2cb271d5003865bb86450beb5ffab36225c7b89471fb15cd7aed771b0c0ee1df",
       "nameAndRankComparison": "matched",
-      "artworkComparison": "stage-correct reference viewed; not published",
-      "imagePermission": "unconfirmed",
-      "publishedIcon": null,
+      "artworkComparison": "visually-matched-original-card",
+      "imagePermission": "user-authorized",
+      "publishedIcon": "/assets/chips/healer-emblem-i-wiki-2cb271d50038.webp",
       "effectStats": [
         {
           "stat": "attack",
@@ -528,7 +738,17 @@
           "unit": "percent"
         }
       ],
-      "conditionStatus": "externally_confirmed"
+      "conditionStatus": "externally_confirmed",
+      "imagePublicationHistory": [
+        {
+          "date": "2026-11-22",
+          "status": "withheld-before-user-authorization",
+          "imagePermission": "unconfirmed"
+        }
+      ],
+      "thirdPartyLicenseStatus": "unconfirmed",
+      "width": 278,
+      "height": 340
     },
     {
       "id": "supporter-emblem-i",
@@ -538,9 +758,9 @@
       "referenceImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2819/%E3%82%B5%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A01.webp",
       "referenceSha256": "4880cc2eefeac4f9f2a6f7f1f054c614240ffdcaff618515a5248a4477f0d19b",
       "nameAndRankComparison": "matched",
-      "artworkComparison": "stage-correct reference viewed; not published",
-      "imagePermission": "unconfirmed",
-      "publishedIcon": null,
+      "artworkComparison": "visually-matched-original-card",
+      "imagePermission": "user-authorized",
+      "publishedIcon": "/assets/chips/supporter-emblem-i-wiki-4880cc2eefea.webp",
       "effectStats": [
         {
           "stat": "defense",
@@ -553,7 +773,17 @@
           "unit": "percent"
         }
       ],
-      "conditionStatus": "externally_confirmed"
+      "conditionStatus": "externally_confirmed",
+      "imagePublicationHistory": [
+        {
+          "date": "2026-11-22",
+          "status": "withheld-before-user-authorization",
+          "imagePermission": "unconfirmed"
+        }
+      ],
+      "thirdPartyLicenseStatus": "unconfirmed",
+      "width": 275,
+      "height": 340
     },
     {
       "id": "special-emblem-i",
@@ -563,9 +793,9 @@
       "referenceImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2818/%E3%82%B9%E3%83%9A%E3%82%B7%E3%83%A3%E3%83%AB%E3%81%AE%E7%B4%8B%E7%AB%A01.webp",
       "referenceSha256": "dd47bc827e85e394379eb99553cf47bb56750abe8a76b85f7db720bb2683e521",
       "nameAndRankComparison": "matched",
-      "artworkComparison": "stage-correct reference viewed; not published",
-      "imagePermission": "unconfirmed",
-      "publishedIcon": null,
+      "artworkComparison": "visually-matched-original-card",
+      "imagePermission": "user-authorized",
+      "publishedIcon": "/assets/chips/special-emblem-i-wiki-dd47bc827e85.webp",
       "effectStats": [
         {
           "stat": "attack",
@@ -583,7 +813,17 @@
           "unit": "percent"
         }
       ],
-      "conditionStatus": "externally_confirmed"
+      "conditionStatus": "externally_confirmed",
+      "imagePublicationHistory": [
+        {
+          "date": "2026-11-22",
+          "status": "withheld-before-user-authorization",
+          "imagePermission": "unconfirmed"
+        }
+      ],
+      "thirdPartyLicenseStatus": "unconfirmed",
+      "width": 280,
+      "height": 343
     },
     {
       "id": "delayed-reward",
@@ -593,9 +833,9 @@
       "referenceImageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2817/%E3%81%8A%E3%81%82%E3%81%9A%E3%81%91%E3%81%94%E8%A4%92%E7%BE%8E.webp",
       "referenceSha256": "6924894082d190ffca15d88d64bf10ee342d0ffe1f72743c11c67e67fe5914cf",
       "nameAndRankComparison": "matched",
-      "artworkComparison": "stage-correct reference viewed; not published",
-      "imagePermission": "unconfirmed",
-      "publishedIcon": null,
+      "artworkComparison": "visually-matched-original-card",
+      "imagePermission": "user-authorized",
+      "publishedIcon": "/assets/chips/delayed-reward-wiki-6924894082d1.webp",
       "effectStats": [
         {
           "stat": "delayWaves",
@@ -606,7 +846,25 @@
           "value": 400
         }
       ],
-      "conditionStatus": "externally_confirmed"
+      "conditionStatus": "externally_confirmed",
+      "imagePublicationHistory": [
+        {
+          "date": "2026-11-22",
+          "status": "withheld-before-user-authorization",
+          "imagePermission": "unconfirmed"
+        }
+      ],
+      "thirdPartyLicenseStatus": "unconfirmed",
+      "width": 279,
+      "height": 341
     }
-  ]
+  ],
+  "previousImageRights": {
+    "status": "unconfirmed",
+    "officialManifest": "2026-09-04 / 9726 entries",
+    "officialMaterialMatch": "not established",
+    "wikiMaterialPage": "https://w.atwiki.jp/monstersurvival/pages/26.html",
+    "wikiTerms": "https://atwiki.jp/tos",
+    "note": "No new Wiki card is published or hotlinked. References were viewed for name/rank matching only. No substitute artwork is used."
+  }
 }

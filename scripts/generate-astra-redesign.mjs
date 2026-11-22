@@ -30,7 +30,7 @@ const adPlans = {
     { offer: 'point_income_003', after: '#diagnosis' },
     { offer: 'ipsos_isay_001', after: '.static-section:has(h2:contains("T3で大きく化けるタタ"))' },
     { offer: 'macromill_002', after: '#transition-list' },
-    { offer: 'warau_003', before: '.source-note' }
+    { offer: 'warau_003', before: '[data-ad-break="legacy-reference"]' }
   ],
   '/tata-tier/': [
     { offer: 'warau_003', after: '#mode-overall' },
@@ -54,8 +54,8 @@ const adPlans = {
 const ninjaAdMaxPlans = {
   '/beginner-guide/': { slot: 'GUIDE_BEGINNER', after: '#t3 + .astra-ad + .monetization-slot' },
   '/normal-guide/': { slot: 'GUIDE_NORMAL', before: '#normal-bosses' },
-  '/evolution-priority/': { slot: 'GUIDE_EVOLUTION', after: '.source-note' },
-  '/zombie-rush/': { slot: 'GUIDE_ZOMBIE_RUSH', after: '.source-note' },
+  '/evolution-priority/': { slot: 'GUIDE_EVOLUTION', after: '[data-ad-break="legacy-reference"]' },
+  '/zombie-rush/': { slot: 'GUIDE_ZOMBIE_RUSH', after: '[data-ad-break="legacy-reference"]' },
   '/boss-rally/': { slot: 'GUIDE_BOSS_RALLY', after: 'main > .static-section' },
   '/badge-dojo/': { slot: 'GUIDE_BADGE_DOJO', after: 'main > .static-section' },
   '/attribute/grass/': { slot: 'ATTRIBUTE_GRASS', after: '#attributeGuideNav' },
@@ -301,6 +301,12 @@ for (const file of walk(root)) {
       sizes: img.closest('.tier-chart-tata').length ? '(max-width:700px) 52px,72px' : img.closest('.overall-image').length ? '92px' : '(max-width:700px) 90px,112px'
     });
   });
+  // Keep the existing ad position even after optional editorial reference copy is removed.
+  if (locale === 'ja' && ['/evolution-priority/', '/zombie-rush/'].includes(route) && !$('[data-ad-break="legacy-reference"]').length) {
+    const oldReference = $('.source-note').first();
+    if (!oldReference.length) throw new Error('Missing legacy ad break: ' + route);
+    oldReference.before('<span hidden data-ad-break="legacy-reference"></span>');
+  }
   const plan = locale === 'ja' ? (adPlans[route] || []) : [];
   for (const [index, item] of plan.entries()) {
     const o = offers.get(item.offer);

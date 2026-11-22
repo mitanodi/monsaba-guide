@@ -71,8 +71,8 @@ test('three generated top-of-page widgets preserve static schedules and quiet ac
     assert.equal(widget.find('[aria-live="polite"]').length,1);
     assert.equal(widget.find('[data-rush-status][role="status"]').length,1);
     assert.equal(widget.find('noscript').text().includes(SCHEDULE_COPY[locale].fallback),true);
-    const source=widget.find('a');assert.equal(source.attr('href'),'https://w.atwiki.jp/monstersurvival/pages/19.html');
-    assert.equal(source.attr('rel'),'noopener noreferrer');
+    assert.equal(widget.find('.zr-schedule-source,a[href*="atwiki"]').length,0);
+    assert.equal(widget.find('.zr-schedule-note').text(),SCHEDULE_COPY[locale].note);
     assert.equal($('script[src="/zombie-rush/schedule.js"][type="module"]').length,1);
     assert.equal($('link[href="/zombie-rush/schedule.css"]').length,1);
   }

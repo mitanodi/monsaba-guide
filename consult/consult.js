@@ -447,7 +447,7 @@ function showResult(html, crumbs = []) {
 }
 
 function answerProvenance() {
-  return `<aside class="consult-source-note"><strong>回答の根拠</strong><div class="trust-label-row"><span class="trust-label is-verified">ゲーム内データ確認済み</span><span class="trust-label is-independent">独自Tier・進化優先度</span><span class="trust-label is-pending">評価保留は未断定</span></div><nav class="consult-related" aria-label="回答後の確認"><a href="/tata-tier/">Tierを見る</a><a href="/compare/">2体比較</a><a href="/evolution-priority/">進化優先度</a><a href="/guides/">該当攻略を見る</a></nav></aside>`;
+  return `<aside class="consult-source-note"><nav class="consult-related" aria-label="回答後の確認"><a href="/tata-tier/">Tierを見る</a><a href="/compare/">2体比較</a><a href="/evolution-priority/">進化優先度</a><a href="/guides/">該当攻略を見る</a></nav></aside>`;
 }
 
 function breadcrumbHtml() {

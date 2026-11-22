@@ -17,13 +17,15 @@ for (const [prefix, locale, warning] of [['', 'ja', '本番実装は未確認'],
     assert.equal($('link[rel="alternate"][hreflang]').length, 4);
     const article = JSON.parse($('script[type="application/ld+json"]').first().text())['@graph'].find(x => x['@type'] === 'Article');
     assert.equal(article.datePublished, '2026-10-14', 'The tentative release day is not the article publication day');
-    for (const id of ['new-tata', 'season3', 'halloween', 'collection', 'balance', 'prepare', 'sources']) {
+    for (const id of ['new-tata', 'season3', 'halloween', 'collection', 'balance', 'prepare']) {
       assert.equal($(`#${id}`).length, 1);
       assert.equal($(`.update-article-toc a[href="#${id}"]`).length, 1);
     }
     assert.equal($('.update-article-table tbody tr').length, 4);
     assert.equal($('.update-article-table [lang="ja"]').length, 24);
-    assert.equal($('#sources a').attr('rel'), 'noopener noreferrer');
+    assert.equal($('#sources a').length, 0);
+    assert.equal($('.update-article-toc a[href="#sources"]').length, 0);
+    assert($('#sources').text().trim().length > 20, 'Actual unconfirmed fields are retained');
     assert.equal($('.update-related a').last().attr('href'), `${prefix}/updates/`);
     const home = load(read(prefix ? prefix.slice(1) + '/index.html' : 'index.html'));
     assert.equal(home(`.update-news a[href="${prefix}${route}"]`).length, 1);

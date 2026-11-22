@@ -132,7 +132,7 @@ const officialXScript = read('official-x.js');
 const officialXApi = read('api/official-x.js');
 const officialXCore = read('lib/official-x-core.js');
 expect(homeHtml.includes('href="https://x.com/monsaba_jp"'), '公式X: アカウントURLが不正です');
-expect(homeHtml.includes('X公式投稿・公式一次情報') && homeHtml.includes('当サイトによる整理記事・更新履歴'), '公式X: 一次情報とサイト記事の区別が不足しています');
+expect(homeHtml.includes('X公式投稿・公式一次情報') && !homeHtml.includes('class="official-x-source-note"'), '公式X: 投稿導線を保持し、不要な編集説明は表示しない');
 expect(homeHtml.includes('公式Xの投稿を表示できません。') && homeHtml.includes('公式Xで最新情報を見る'), '公式X: 明示的fallbackがありません');
 expect(officialXScript.includes("fetch('/api/official-x'") && officialXScript.includes('createPost(post)'), '公式X: API投稿カード描画が不足しています');
 expect(officialXScript.includes("text.textContent = post.text") && !officialXScript.includes('innerHTML'), '公式X: 投稿本文は改変・HTML解釈せず描画してください');

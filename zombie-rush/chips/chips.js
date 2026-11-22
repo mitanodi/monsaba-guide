@@ -16,14 +16,13 @@
   const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
   const controls = [...root.querySelectorAll('input,select')];
   let chips = [];
-  let imageReference = null;
   const render = () => {
     const query = root.querySelector('[data-chip-search]').value.trim().toLocaleLowerCase(locale);
     const rarity = root.querySelector('[data-chip-rarity]').value;
     const tag = root.querySelector('[data-chip-tag]').value;
     const matches = chips.filter((chip) => (!query || `${Object.values(chip.name).join(" ")} ${chip.id} ${chip.id.replaceAll("-", " ")} ${chip.effect[locale] || chip.effect.ja}`.toLocaleLowerCase(locale).includes(query)) && (!rarity || chip.rarity === rarity) && (!tag || chip.tags.includes(tag)));
     root.querySelector('[data-chip-count]').textContent = text.count(matches.length);
-    root.querySelector('[data-chip-results]').innerHTML = matches.length ? matches.map((chip) => `<article translate="no" class="chip-card"${chip.icon ? '' : ' data-icon-pending="true"'} data-chip-id="${esc(chip.id)}" data-rarity="${chip.rarity}">${chip.icon ? `<img src="${esc(chip.icon)}" width="96" height="96" loading="lazy" alt="${esc(chip.name[locale] || chip.name.ja)}">` : ''}<div><div class="chip-card-head"><h2>${esc((chip.name[locale] || chip.name.ja))}</h2>${chip.iconStatus === 'pending' ? `<small>${text.pending}</small>` : ''}${locale !== 'ja' && chip.nameLocalizationStatus?.[locale] !== 'official-source-confirmed' ? `<small>${text.fallback}</small>` : ''}<span>Rank ${chip.rarity}</span></div><details><summary>${text.detail}</summary><p>${esc(chip.effect[locale] || chip.effect.ja)}</p>${chip.verificationNote ? `<p class="section-note">${esc(chip.verificationNote[locale] || chip.verificationNote.ja)}</p>` : ''}<small>${chip.effectSource?.sourceType === 'official_discord' ? `<a href="${esc(chip.effectSource.sourceUrl)}">${text.official}</a>` : chip.effectSource?.sourceType === 'public_wiki' ? `<a href="${esc(chip.effectSource.sourceUrl)}">${text.source}</a>` : 'PDF p.' + chip.source.pdfPage}</small>${imageReference && chip.icon ? `<small> · ${text.imageSource}: <a href="${esc(imageReference)}">モンサバWiki</a></small>` : ''}</details></div></article>`).join('') : `<p class="empty">${text.empty}</p>`;
+    root.querySelector('[data-chip-results]').innerHTML = matches.length ? matches.map((chip) => `<article translate="no" class="chip-card"${chip.icon ? '' : ' data-icon-pending="true"'} data-chip-id="${esc(chip.id)}" data-rarity="${chip.rarity}">${chip.icon ? `<img src="${esc(chip.icon)}" width="96" height="96" loading="lazy" alt="${esc(chip.name[locale] || chip.name.ja)}">` : ''}<div><div class="chip-card-head"><h2>${esc((chip.name[locale] || chip.name.ja))}</h2><span>Rank ${chip.rarity}</span></div><details><summary>${text.detail}</summary><p>${esc(chip.effect[locale] || chip.effect.ja)}</p></details></div></article>`).join('') : `<p class="empty">${text.empty}</p>`;
   };
   for (const control of controls)
     control.addEventListener('input', () => {
@@ -42,7 +41,6 @@
   fetch('/data/zombie-rush/chips.json', { cache: 'no-store' }).then((response) => response.ok ? response.json() : Promise.reject(new Error(String(response.status)))).then((data) => {
 
     chips = data.chips;
-    imageReference = data.iconSource?.pageUrl || null;
 
     render();
 

@@ -301,6 +301,7 @@ let movingFrom = null;
 let editingIndex = null;
 
 let replacingIndex = null;
+let pendingCellIndex = null;
 
 let attribute = 'all';
 
@@ -1091,6 +1092,7 @@ function setupPhase4Controls() {
       movingFrom = null;
 
       replacingIndex = null;
+      pendingCellIndex = null;
 
       selected = null;
 
@@ -1178,7 +1180,7 @@ async function exportImage() {
 
     const x = 62 + index * 570;
 
-    context.fillStyle = id === 1 ? '#ef5f61' : '#4a91e8';
+    context.fillStyle = id === 1 ? '#4a91e8' : '#ef5f61';
 
     context.fillRect(x, 88 + detailOffset, 20, 20);
 
@@ -1209,7 +1211,7 @@ async function exportImage() {
 
     context.fillRect(x, y, cell, cell);
 
-    context.strokeStyle = slot ? (slot.playerId === 1 ? '#ef5f61' : '#4a91e8') : '#30364b';
+    context.strokeStyle = slot ? (slot.playerId === 1 ? '#4a91e8' : '#ef5f61') : '#30364b';
 
     context.lineWidth = slot ? 6 : 3;
 
@@ -1228,7 +1230,7 @@ async function exportImage() {
       context.font = '800 23px sans-serif';
       context.fillText(COPY.flex, x + cell / 2, y + cell / 2 + 35);
       if (team.mode === 'zombie') {
-        context.fillStyle = slot.playerId === 1 ? '#ef5f61' : '#4a91e8';
+        context.fillStyle = slot.playerId === 1 ? '#4a91e8' : '#ef5f61';
         context.fillRect(x + 5, y + 5, 43, 34);
         context.fillStyle = '#fff';
         context.fillText(`P${slot.playerId}`, x + 26, y + 29);
@@ -1261,7 +1263,7 @@ async function exportImage() {
 
     if (team.mode === 'zombie') {
 
-      context.fillStyle = slot.playerId === 1 ? '#ef5f61' : '#4a91e8';
+      context.fillStyle = slot.playerId === 1 ? '#4a91e8' : '#ef5f61';
 
       context.fillRect(x + 5, y + 5, 43, 34);
 
@@ -1288,7 +1290,7 @@ async function exportImage() {
     const emptyLabel = { ja: '未選択', en: 'None selected', 'zh-CN': '未选择' }[locale];
     for (const [playerIndex, id] of PLAYER_IDS.entries()) {
       const x = boardX + playerIndex * (chipPanelWidth + 24);
-      const color = id === 1 ? '#ef5f61' : '#4a91e8';
+      const color = id === 1 ? '#4a91e8' : '#ef5f61';
       context.fillStyle = '#171e2d';
       context.fillRect(x, chipPanelY, chipPanelWidth, chipPanelHeight);
       context.strokeStyle = color;
@@ -1529,6 +1531,7 @@ function moveDragGhost(event) {
 
 }
 function applyDrop(index, payload) {
+  pendingCellIndex = null;
   if (payload.type === 'board') {
     if (payload.index !== index) {
 
@@ -1618,6 +1621,8 @@ function beginPointerDrag(event, payload, source, { preventDefault = false, acti
       document.querySelector('.formation-picker')?.classList.add('is-drag-compact');
 
     moveDragGhost(event);
+    if (payload.type === 'picker' && event.pointerType !== 'mouse')
+      closePickerForPlacement();
 
   }
 
@@ -1695,14 +1700,16 @@ function placeOrMove(index) {
 
   }
   if (team.slots[index]) {
-
+    pendingCellIndex = null;
     openEditor(index);
 
     return;
 
   }
   if (!selected) {
-
+    pendingCellIndex = index;
+    document.dispatchEvent(new CustomEvent('monsaba:formation-picker', { detail: { open: true } }));
+    $('#team-picker-search')?.focus({ preventScroll: true });
     setStatus(levelsVisible() ? COPY.selectFirst : COPY.selectFirstBasic, false, '#team-message');
 
     return;
@@ -1958,6 +1965,19 @@ function bind() {
       return;
 
     const pick = flexButton ? freeSlot(currentPlayer) : { familyId: button.dataset.pickFamily, stage: Number(button.dataset.pickStage) };
+    if (pendingCellIndex !== null && !team.slots[pendingCellIndex]) {
+      const member = pick.kind === FREE_SLOT_KIND ? freeSlot(currentPlayer) : { ...pick, playerId: currentPlayer, level: currentLevel };
+      const issue = placementIssue(team, pendingCellIndex, member, families);
+      if (issue) { reportIssue(issue, currentPlayer); return; }
+      const target = pendingCellIndex;
+      pendingCellIndex = null;
+      selected = null;
+      commit(placeMember(team, target, member, families), COPY.placed);
+      track('formation_place');
+      closePickerForPlacement();
+      return;
+    }
+    pendingCellIndex = null;
     if (replacingIndex !== null) {
 
       const previous = team.slots[replacingIndex];
@@ -1979,6 +1999,7 @@ function bind() {
       } else reportIssue(issue, replacement.playerId);
 
       replacingIndex = null;
+      pendingCellIndex = null;
 
       selected = pick;
 
@@ -2268,6 +2289,7 @@ function bind() {
     movingFrom = null;
 
     replacingIndex = null;
+      pendingCellIndex = null;
 
     currentPlayer = 1;
 
@@ -2300,6 +2322,7 @@ function bind() {
     movingFrom = null;
 
     replacingIndex = null;
+      pendingCellIndex = null;
 
     currentPlayer = 1;
 

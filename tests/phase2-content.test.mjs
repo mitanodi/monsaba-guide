@@ -93,7 +93,8 @@ test('Community一覧のみindex対象で主要導線と3言語ページがあ�
 
     assert.match(detail, /noindex,follow/);
 
-    assert.match(list, /community_user/);
+    assert.doesNotMatch(list, /community_user/);
+    assert.match(read('lib/community-core.js'), /community_user/);
 
   }
   assert.match(read('team-builder/index.html'), /team-community-publish/);

@@ -98,12 +98,12 @@
   object-fit: contain
 }
 .community-cell.is-p1 {
-  border: 2px solid #d76b6b;
-  background: #fff1f1
-}
-.community-cell.is-p2 {
   border: 2px solid #4b91cf;
   background: #eef7ff
+}
+.community-cell.is-p2 {
+  border: 2px solid #d76b6b;
+  background: #fff1f1
 }
 .community-cell span {position:absolute;
   padding: 1px 3px;

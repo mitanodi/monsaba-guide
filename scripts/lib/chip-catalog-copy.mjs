@@ -1,9 +1,7 @@
-export function chipCatalogCopy({count,latestSupplement,chips}) {
-  const added=latestSupplement.added,base=count-added,pending=chips.filter(chip=>!chip.icon).length;
-  const source='https://w.atwiki.jp/monstersurvival/pages/128.html',official='https://apps.apple.com/jp/app/id6741567125';
+export function chipCatalogCopy({count}) {
   return {
-    ja:{title:`ゾンビラッシュ チップ図鑑｜${count}種の効果・検索・フィルタ`,description:`全${count}チップを検索。新規${added}件の名称・Rank・効果をWikiと照合し、画像の利用条件と効果条件の未確認部分を明示しています。`,summary:`チップ全${count}種：既存${base}種＋新規${added}種`,supplement:`新規${added}件の名称・Rank・効果は<a href="${source}">Wiki</a>を2026年11月22日に照合。<a href="${official}">公式App Storeの0.52.1更新履歴</a>は新チップ追加の存在を確認できる資料で、個別効果の公式確認とは区別しています。画像${pending}件は利用条件を確認中のため掲載せず、別の絵で代用していません。正式な英語・中国語名は未確認のため日本語名を保持しています。`},
-    en:{title:`Zombie Rush Chip Database | ${count} effects and filters`,description:`Search ${count} chips. ${added} new names, ranks and effects were checked against the Wiki; unresolved conditions and image permissions are labeled.`,summary:`${count} chips: ${base} existing + ${added} new`,supplement:`The ${added} new names, ranks and effects were checked against the <a href="${source}">Wiki</a> on November 22, 2026. The <a href="${official}">official App Store notes for v0.52.1</a> confirm that new chips were added, but do not verify individual effects. ${pending} images are withheld pending reuse permission; no substitute artwork is used. Unconfirmed official English and Chinese names retain their Japanese labels.`},
-    'zh-CN':{title:`Zombie Rush 芯片图鉴｜${count}种效果与筛选`,description:`搜索${count}种芯片。新增${added}项名称、Rank及效果已与Wiki核对；图片使用条件与未确定的效果条件分别标注。`,summary:`共${count}种芯片：原有${base}种＋新增${added}种`,supplement:`新增${added}项名称、Rank及效果于2026年11月22日与<a href="${source}">Wiki</a>核对。<a href="${official}">官方App Store的0.52.1更新记录</a>只确认新增芯片，并不确认各项具体效果。${pending}张图片因使用条件未确认而暂不展示，也不使用替代图。英语及中文正式名称未确认时保留日文原名。`}
+    ja: {title: `ゾンビラッシュ チップ図鑑｜${count}種の効果・検索・フィルタ`, description: `ゾンビラッシュの全${count}チップを画像・名称・Rank・効果から検索。編成メーカーで選んで保存・共有できます。`, summary: `全${count}種`, supplement: ''},
+    en: {title: `Zombie Rush Chip Database | ${count} effects and filters`, description: `Browse all ${count} Zombie Rush chips by image, name, rank and effect. Select chips in Team Builder to save and share your lineup.`, summary: `${count} chips`, supplement: ''},
+    'zh-CN': {title: `Zombie Rush 芯片图鉴｜${count}种效果与筛选`, description: `按图片、名称、Rank及效果搜索全部${count}种Zombie Rush芯片。在编队工具中选择芯片，保存并分享阵容。`, summary: `共${count}种芯片`, supplement: ''}
   };
 }

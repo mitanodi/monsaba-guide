@@ -86,7 +86,7 @@ function renderRoles() {
 
 function renderGrowth() {
   const rows = growthCandidates(roster, families, ratings, evolution);
-  $('#roster-growth-candidates').innerHTML = rows.map((item) => `<article class="candidate-card"><span class="candidate-evidence">根拠：${esc(item.evidence)}</span><h3>${esc(getFamilyDisplayLabel(item.family))}</h3>${secondary(item.family) ? `<small class="dynamic-original-name">${esc(secondary(item.family))}</small>` : ''}<p><b>T${item.currentStage} → T${item.nextStage}</b> / 総合${esc(item.rating.tier || '未評価')}${item.requiredStars ? ` / 必要星数 ${item.requiredStars}` : ''}</p>${item.headline ? `<p>${esc(item.headline)}</p>` : ''}<p>${esc(item.reason)}</p><div class="guide-card-actions"><a href="/tata/${encodeURIComponent(item.family.id)}/">個別ページ</a><a href="/evolution-priority/">進化優先度</a></div></article>`).join('') || '<p>所持段階を登録すると、確認済みデータから候補を表示します。</p>';
+  $('#roster-growth-candidates').innerHTML = rows.map((item) => `<article class="candidate-card"><h3>${esc(getFamilyDisplayLabel(item.family))}</h3>${secondary(item.family) ? `<small class="dynamic-original-name">${esc(secondary(item.family))}</small>` : ''}<p><b>T${item.currentStage} → T${item.nextStage}</b> / 総合${esc(item.rating.tier || '未評価')}${item.requiredStars ? ` / 必要星数 ${item.requiredStars}` : ''}</p>${item.headline ? `<p>${esc(item.headline)}</p>` : ''}<p>${esc(item.reason)}</p><div class="guide-card-actions"><a href="/tata/${encodeURIComponent(item.family.id)}/">個別ページ</a><a href="/evolution-priority/">進化優先度</a></div></article>`).join('') || '<p>所持段階を登録すると、確認済みデータから候補を表示します。</p>';
 }
 
 function renderMode() {

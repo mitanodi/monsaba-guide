@@ -106,13 +106,10 @@ function renderSeasonActualTier(prediction, byId) {
 
 function renderPredictionAccuracy(prediction) {
   const stats = calculatePredictionAccuracy(prediction);
-  $('#predictionExactRate').textContent = formatPredictionRate(stats.exactRate);
-  $('#predictionWithinOneRate').textContent = formatPredictionRate(stats.withinOneRate);
+  $('#predictionExactRate').textContent = stats.judged ? formatPredictionRate(stats.exactRate) : '—';
+  $('#predictionWithinOneRate').textContent = stats.judged ? formatPredictionRate(stats.withinOneRate) : '—';
   $('#predictionJudged').textContent = `${stats.judged} / ${stats.total}`;
   $('#predictionAccuracyStatus').textContent = stats.status;
-  $('#predictionAccuracyNote').textContent = stats.judged === 0
-    ? '0%は全予測が外れたという意味ではありません。Season 1公開後の十分な実戦データがまだ揃っていないため、判定を保留しています。'
-    : `未判定の${stats.total - stats.judged}系統は分母に含めず、判定済み${stats.judged}系統をもとに自動計算しています。`;
 }
 
 function calculatePredictionAccuracy(prediction) {

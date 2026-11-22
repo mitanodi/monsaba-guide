@@ -59,27 +59,8 @@ function renderSharedLinks() {
   }
 }
 
-function renderReferences(guide) {
-  const root = $('#referenceSources');
-  if (!root || !guide)
-    return;
-  const urls = new Set();
-  const collect = (value) => {
-    if (typeof value === 'string' && /^https:\/\//.test(value))
-      urls.add(value);
-    else if (Array.isArray(value))
-      value.forEach(collect);
-    else if (value && typeof value === 'object')
-      Object.values(value).forEach(collect);
-  };
-  collect(guide);
-  const sourceLabels = {
-    [state.guides.sources.bossRally]: '公開攻略Wiki：ボスラリー',
-    [state.guides.sources.normalBosses]: '公開攻略Wiki：通常ボス',
-    [state.guides.sources.faq]: '公開攻略Wiki：FAQ',
-    [state.guides.sources.dojo]: '公開攻略Wiki：バッジ道場'
-  };
-  root.innerHTML = [...urls].map(url => `<li><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(sourceLabels[url] || '公開攻略Wiki（外部サイト）')} <span aria-hidden="true">↗</span></a></li>`).join('');
+function renderReferences() {
+  // Reference metadata remains in the common guide data.
 }
 
 function renderBossRally() {

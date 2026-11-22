@@ -205,7 +205,7 @@ test('event research dates agree in every locale and sitemap', () => {
           : locale.checked;
       assert.match(html, new RegExp(`"dateModified"\\s*:\\s*"${updated}"`), relative);
       assert.match(html, new RegExp(`<span class="visible-kicker">[^<]*${kickerDate.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[^<]*<\\/span>`), relative);
-      assert.ok(html.includes(checked), relative);
+      assert.ok(!html.includes(checked), relative);
       const route = `/${locale.prefix}events/${id}/`;
       if (['running-star', 'surprise-roulette'].includes(id)) {
         assert.match(html, /name="robots" content="noindex,follow"/);
@@ -232,14 +232,14 @@ test('Treasure Hunt uses the shared localized footer totals', () => {
   }
 });
 
-test('localized event guides and freshness sections appear exactly once', () => {
+test('localized event guides retain content without editorial freshness frames', () => {
   for (const locale of ['en', 'zh-cn']) {
     for (const id of researchedEventIds) {
       const relative = `${locale}/events/${id}/index.html`;
       const html = read(relative);
       assert.equal((html.match(/class="event-status-grid"/g) || []).length, id === 'zombie-siege' ? 3 : 1, relative);
-      assert.equal((html.match(/>Human Verification</g) || []).length, 1, relative);
-      assert.equal((html.match(/class="wrap source-note page-freshness"/g) || []).length, 1, relative);
+      assert.equal((html.match(/>Human Verification</g) || []).length, 0, relative);
+      assert.equal((html.match(/class="wrap source-note page-freshness"/g) || []).length, 0, relative);
     }
   }
 });

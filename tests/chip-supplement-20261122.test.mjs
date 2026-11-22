@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import crypto from 'node:crypto';
 import {emptyTeam,encodeTeam,decodeTeam,saveDraft,loadDraft,saveTeamList,loadTeams,teamText} from '../team-builder/team-core.js';
 const read=file=>JSON.parse(fs.readFileSync(new URL('../'+file,import.meta.url),'utf8'));
 const data=read('data/zombie-rush/chips.json'),all=data.chips,legacy=all.slice(0,49),added=all.slice(49);
@@ -31,25 +32,32 @@ test('six profession emblems preserve every independently reported rank value',(
  }
 });
 
-test('six distinct effects retain delays, costs, target conditions and the unresolved level conflict',()=>{
+test('six distinct effects retain delays, costs and the user-confirmed inclusive Lv.5 condition',()=>{
  const byId=Object.fromEntries(added.map(c=>[c.id,c]));
  assert.deepEqual(byId['last-stand'].conditions,{zombiesReachingLineToEndBattle:1,includesTeammate:true});
  assert.equal(byId['last-stand'].effectStats[0].value,30);
  assert.deepEqual(byId['long-training'].effectStats.map(s=>s.value),[12,8,1]);assert.equal(byId['long-training'].conditions.offeredAtWave,5);
- const little=byId['little-adult'];assert.equal(little.conditions.targetMaxLevel,null);assert.equal(little.conditions.status,'conflicting');
- assert.equal(little.conditions.wikiEffectMaxLevel,5);assert.equal(little.conditions.wikiCommentMaxLevel,4);
- for(const locale of ['ja','en','zh-CN']){assert(little.verificationNote[locale].includes('5'));assert(little.verificationNote[locale].includes('4'));}
+ const little=byId['little-adult'];assert.equal(little.conditions.targetMaxLevel,5);assert.equal(little.conditions.status,'user_confirmed');assert.equal(little.conditions.targetMaxLevelInclusive,true);
+ assert.equal(little.conditionSource.sourceType,'user_confirmation');assert.equal(little.conditionSource.officialConfirmation,false);
+ assert.equal(little.conditionHistory.previousConditions.wikiEffectMaxLevel,5);assert.equal(little.conditionHistory.previousConditions.wikiCommentMaxLevel,4);
+ assert.equal(little.verificationNote,undefined);
+ for(const locale of ['ja','en','zh-CN'])assert(little.effect[locale].includes('5'));
+ for(const [level,eligible]of [[4,true],[5,true],[6,false]])assert.equal(level<=little.conditions.targetMaxLevel,eligible);
  assert.equal(byId['tata-revival'].effectStats[0].value,80);assert.equal(byId['tata-revival'].conditions.requiresSufficientEnergyCandies,true);
  assert.equal(byId['frontier-expansion'].effectStats[0].value,3);assert.equal(byId['frontier-expansion'].conditions.includesTeammate,true);
  assert.deepEqual(byId['delayed-reward'].effectStats.map(s=>s.value),[5,400]);
 });
 
-test('unconfirmed image permission cannot silently become an icon or a fabricated replacement',()=>{
- assert.equal(evidence.imagesPublished,0);assert.equal(evidence.imagesPending,24);
+test('all 24 user-authorized icons retain the original name/rank-matched bytes and a separate license status',()=>{
+ assert.equal(evidence.imagesPublished,24);assert.equal(evidence.imagesPending,0);
+ assert.equal(data.latestSupplement.imagesPublished,24);assert.equal(data.latestSupplement.imagesPending,0);
+ assert.equal(evidence.imageRights.sourceType,'user_instruction');assert.equal(evidence.imageRights.thirdPartyLicenseStatus,'unconfirmed');
  for(const chip of added){
   const row=evidence.records.find(r=>r.id===chip.id);
-  assert.equal(chip.icon,null);assert.equal(chip.iconStatus,'pending');assert.equal(chip.iconPendingReason,'reuse-permission-not-confirmed');
-  assert.equal(row.publishedIcon,null);assert.equal(row.imagePermission,'unconfirmed');assert.match(row.referenceSha256,/^[a-f0-9]{64}$/);
+  assert.match(chip.icon,new RegExp('^/assets/chips/'+chip.id+'-wiki-[a-f0-9]{12}\\.webp$'));assert.equal(chip.iconStatus,'verified');assert.equal(chip.iconPendingReason,undefined);
+  assert.equal(row.publishedIcon,chip.icon);assert.equal(row.imagePermission,'user-authorized');assert.equal(row.thirdPartyLicenseStatus,'unconfirmed');assert.match(row.referenceSha256,/^[a-f0-9]{64}$/);
+  const bytes=fs.readFileSync(new URL('..'+chip.icon,import.meta.url));assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),row.referenceSha256);
+  assert.equal(chip.iconSource.nameAndRankComparison,'matched');assert.equal(chip.iconSource.artworkComparison,'visually-matched-original-card');
   assert.match(row.referenceImageUrl,/^https:\/\/img\.atwiki\.jp\/monstersurvival\/attach\/83\//);
  }
  assert.equal(legacy.filter(c=>c.iconStatus==='verified'&&c.icon).length,49);

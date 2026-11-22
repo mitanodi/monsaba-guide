@@ -569,47 +569,23 @@
       if (event.key === 'Escape' && document.body.classList.contains('team-focus-mode'))
         setFocusMode(false);
     });
-    const pickerToggle = document.createElement('button');
-    pickerToggle.type = 'button';
-    pickerToggle.className = 'button team-picker-sheet-toggle';
     formationPicker.id ||= 'team-picker-panel';
-    pickerToggle.setAttribute('aria-controls', formationPicker.id);
-    pickerToggle.setAttribute('aria-expanded', 'false');
-    const setPickerOpen = (open, revealBoard = false) => {
-      formationPicker.classList.toggle('is-sheet-open', open);
-      pickerToggle.setAttribute('aria-expanded', String(open));
-      pickerToggle.setAttribute('aria-label', open ? focusCopy.pickerClose : focusCopy.picker);
-      pickerToggle.innerHTML = open ? `<span aria-hidden="true">×</span><span>${focusCopy.pickerClose}</span>` : `<span aria-hidden="true">◀</span><span>${focusCopy.picker}</span>`;
-      if (revealBoard)
-        requestAnimationFrame(() => document.querySelector('#team-board')?.scrollIntoView({
-          block: 'center',
-          behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
-        }));
-    };
-    setPickerOpen(false);
-    pickerToggle.addEventListener('click', () => setPickerOpen(!formationPicker.classList.contains('is-sheet-open')));
-    document.addEventListener('monsaba:formation-picker', (event) => setPickerOpen(Boolean(event.detail?.open), Boolean(event.detail?.revealBoard)));
-    document.addEventListener('keydown', (event) => {
-
-      if (event.key === 'Escape' && formationPicker.classList.contains('is-sheet-open'))
-        setPickerOpen(false);
-
-    });
-    document.querySelectorAll('[data-team-picker-open]').forEach((button) => {
-      button.textContent = focusCopy.picker;
-      button.addEventListener('click', () => {
-        setPickerOpen(true);
-        requestAnimationFrame(() => formationPicker.scrollIntoView({
-          block: 'start',
-          behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
-        }));
-      });
+    const reveal = (node, block = 'start') => requestAnimationFrame(() => node?.scrollIntoView({
+      block, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+    }));
+    // The picker remains in the page flow and is usable immediately.
+    document.addEventListener('monsaba:formation-picker', (event) => {
+      if (event.detail?.revealBoard) reveal(document.querySelector('#team-board'), 'center');
+      else if (event.detail?.open) reveal(formationPicker);
     });
     document.querySelectorAll('[data-team-board-focus]').forEach((button) => {
       button.textContent = focusCopy.build;
-      button.addEventListener('click', () => setPickerOpen(false, true));
+      button.addEventListener('click', () => reveal(document.querySelector('#team-board'), 'center'));
     });
-    formationPicker.before(pickerToggle);
+    document.querySelectorAll('[data-team-picker-return]').forEach((button) => {
+      button.textContent = {ja: 'タタ一覧へ', en: 'Tata list', 'zh-CN': '塔塔列表'}[locale];
+      button.addEventListener('click', () => reveal(formationPicker));
+    });
   }
 
   const communityPublish = document.querySelector('#community-publish-panel');

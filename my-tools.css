@@ -599,10 +599,10 @@
   padding: 10px
 }
 .formation-player-card.is-player-1 {
-  border-color: #dc5b5d
+  border-color: #3f82cf
 }
 .formation-player-card.is-player-2 {
-  border-color: #3f82cf
+  border-color: #dc5b5d
 }
 .formation-player-head {
   display: flex;
@@ -644,10 +644,10 @@
   width: 12px;
   height: 12px;
   border-radius: 999px;
-  background: #dc5b5d
+  background: #3f82cf
 }
 .is-player-2 .formation-player-dot {
-  background: #3f82cf
+  background: #dc5b5d
 }
 .formation-direction {
   margin: 0 auto 10px;
@@ -696,11 +696,11 @@
   border-style: solid;
   background: #252b39
 }
-.formation-cell.is-player-1{border-color:#ef5f61;
-  box-shadow: inset 0 0 0 1px rgba(239,95,97,.35)
-}
-.formation-cell.is-player-2{border-color:#4a91e8;
+.formation-cell.is-player-1{border-color:#4a91e8;
   box-shadow: inset 0 0 0 1px rgba(74,145,232,.35)
+}
+.formation-cell.is-player-2{border-color:#ef5f61;
+  box-shadow: inset 0 0 0 1px rgba(239,95,97,.35)
 }
 .formation-cell.is-move-source {
   outline: 3px solid #f2bf43;
@@ -742,10 +742,10 @@
   line-height: 1.25
 }
 .formation-player-badge{top:3px;left:3px;
-  background: #dc5b5d
+  background: #3f82cf
 }
 .is-player-2 .formation-player-badge {
-  background: #3f82cf
+  background: #dc5b5d
 }
 .formation-quick-remove{position:absolute;z-index:2;top:3px;right:3px;
   display: grid;
@@ -864,14 +864,14 @@
   font-weight: 800
 }
 .formation-segmented .is-player-1[aria-pressed=true] {
-  border-color: #c43f42;
-  background: #fff0f0;
-  color: #98282b
-}
-.formation-segmented .is-player-2[aria-pressed=true] {
   border-color: #2f75c2;
   background: #edf6ff;
   color: #205a99
+}
+.formation-segmented .is-player-2[aria-pressed=true] {
+  border-color: #c43f42;
+  background: #fff0f0;
+  color: #98282b
 }
 .formation-level-options button[aria-pressed=true] {
   border-color: #2f6fb2;
@@ -1130,10 +1130,10 @@
   min-height: 44px
 }
 .formation-cell .formation-player-badge {
-  background: #a52d31
+  background: #245f9f
 }
 .formation-cell.is-player-2 .formation-player-badge {
-  background: #245f9f
+  background: #a52d31
 }
 .formation-cell.is-dragging {
   opacity: .48

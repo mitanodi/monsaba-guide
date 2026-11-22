@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { playerFacingHtml } from '../lib/public-copy.mjs';
 import path from 'node:path';
 import { load } from 'cheerio';
 import { MODES, legacyRatings } from '../lib/tata-tier.mjs';
@@ -10,8 +11,11 @@ const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const json = file => JSON.parse(read(file));
 const write = (file, value) => {
   if (!fs.existsSync(path.join(root, file)) || read(file) !== value) {
-    if (process.argv.includes('--check'))
+    if (process.argv.includes('--check')) {
+      const normalized = text => file.endsWith('.html') ? playerFacingHtml(text, file) : text;
+      if (fs.existsSync(path.join(root, file)) && normalized(read(file)) === normalized(value)) return;
       throw new Error(`Regenerate stale Tier output: ${file}`);
+    }
     fs.writeFileSync(path.join(root, file), value);
   }
 };
@@ -107,7 +111,12 @@ for (const [locale, prefix] of [['ja', ''], ['en', 'en/'], ['zh-CN', 'zh-cn/']])
     if (!fs.existsSync(path.join(root, detail)) && !process.argv.includes('--check')) continue;
     const label = ranking => ranking.tier === 'HOLD' ? copy.hold : ranking.tier;
     const summary = MODES.map((mode, i) => `${copy.labels[i]} ${label(entry.rankings[mode])}${entry.rankings[mode].status === 'provisional' ? ' ※' : ''}`).join(' / ');
-    let source = patchHtml(read(detail), [['.ninja-admax-slot', () => ''], ['.imobile-ad-slot:not(.imobile-content-ad)', () => '']]);
+    const publishedDetail = read(detail);
+    const hadBottomAd = load(publishedDetail)('.ninja-admax-slot[data-admax-position="BOTTOM"]').length > 0;
+    let detailInput = publishedDetail;
+    if (hadBottomAd && !load(detailInput)('[data-detail-ad-break="source-end"]').length)
+      detailInput = patchHtml(detailInput, [['.ninja-admax-slot[data-admax-position="BOTTOM"]', (el, $) => '<span hidden data-detail-ad-break="source-end"></span>' + $.html(el)]]);
+    let source = patchHtml(detailInput, [['.ninja-admax-slot', () => ''], ['.imobile-ad-slot:not(.imobile-content-ad)', () => '']]);
     if (!load(source)('.imobile-content-ad').length)
       source = source.replace(/<link[^>]+href="\/imobile-ads\.css[^>]*>/g, '');
     if (!load(source)('.mode-rating-grid').length)
@@ -137,11 +146,13 @@ for (const [locale, prefix] of [['ja', ''], ['en', 'en/'], ['zh-CN', 'zh-cn/']])
     if (locale === 'ja') {
       // Detail articles around 5,000 visible characters have a natural source
       // note at the end; shorter pages retain just TOP + existing MID.
-      const longDetail = load(source).text().replace(/\s+/g, ' ').length >= 5000;
+      const longDetail = hadBottomAd || (load(source)('.source-note').length > 0 && load(source).text().replace(/\s+/g, ' ').length >= 5000);
+      if (longDetail && !load(source)('[data-detail-ad-break="source-end"]').length)
+        source = patchHtml(source, [['.source-note', (el, $) => $.html(el) + '<span hidden data-detail-ad-break="source-end"></span>']]);
       source = patchHtml(source, [
         ['.tata-quick-answers', (el, $) => `${$.html(el)}${ninjaAdMaxTataContent(entry.familyId, 'TOP')}`],
         ['section:has(> h2:contains("スキル一覧"))', (el, $) => `${$.html(el)}${ninjaAdMaxTata}`],
-        ...(longDetail ? [['.source-note', (el, $) => `${$.html(el)}${ninjaAdMaxTataContent(entry.familyId, 'BOTTOM')}`]] : [])
+        ...(longDetail ? [['[data-detail-ad-break="source-end"]', (el, $) => `${$.html(el)}${ninjaAdMaxTataContent(entry.familyId, 'BOTTOM')}`]] : [])
       ]);
       if (entry.familyId === 'gaoden' && locale === 'ja') {
         source = patchHtml(source, [['.tata-consult-cta', (el, $) => `${$.html(el)}${imobileSlot('gaoden')}`]]);

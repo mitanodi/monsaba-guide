@@ -12,13 +12,13 @@ import '../family-display.js';
 const read=p=>JSON.parse(fs.readFileSync(new URL('../'+p,import.meta.url),'utf8'));
 const db=read('data/tatari.json'),images=read('data/tata-images.json');
 const evidence=read('data/wiki-tata-evidence-2026-11-07.json');
-test('new catalog pages show every stage and Wiki attribution in all site languages',()=>{
+test('new catalog pages show every stage while Wiki provenance stays in internal data',()=>{
   for(const prefix of ['', 'en/', 'zh-cn/'])for(const id of ['bibabo','shaipu']){
     const html=fs.readFileSync(new URL(`../${prefix}tata/${id}/index.html`,import.meta.url),'utf8');
     for(const row of evidence.records.filter(r=>r.familyId===id)){
       assert.ok(html.includes(row.name));
       assert.ok(html.includes(`/assets/tata-wiki/${id}/t${row.stage}-512.webp`));
-      assert.ok(html.includes(row.sourceUrl));
+      assert.ok(!html.includes(`href="${row.sourceUrl}"`));
     }
     assert.ok(html.includes('2026-11-07'));
   }
@@ -58,7 +58,7 @@ test('Hikoko has four stage-correct, attributed game images and no inferred name
   for(const prefix of ['', 'en/', 'zh-cn/']){
     const html=fs.readFileSync(new URL(`../${prefix}tata/hikoko/index.html`,import.meta.url),'utf8');
     for(const [index,name]of hikokoNames.entries()){assert(html.includes(name));assert(html.includes(`/assets/tata-wiki/hikoko/t${index+1}-512.webp`));}
-    assert(html.includes('https://w.atwiki.jp/monstersurvival/pages/189.html'));
+    assert(!html.includes('href="https://w.atwiki.jp/monstersurvival/pages/189.html"'));
     assert(html.includes('data-name-status="pending"'));
   }
   assert.equal(manifest.records.length,4);assert.match(manifest.rightsNote,/not evidence of a general redistribution license/);

@@ -1945,3 +1945,18 @@ body[data-astra] .astra-ad-desktop {
     max-height: 60dvh!important
   }
 }
+
+/* Keep the direct picker first in mobile reading/tab order, board beside it on PC. */
+body[data-astra] .formation-workspace { grid-template-areas: "board picker"; }
+body[data-astra] .formation-board-panel { grid-area: board; }
+body[data-astra] .formation-picker { grid-area: picker; }
+body[data-astra] .formation-cell.is-player-1 { border-color: #4a91e8; box-shadow: inset 0 0 0 1px rgba(74,145,232,.35); }
+body[data-astra] .formation-cell.is-player-2 { border-color: #ef5f61; box-shadow: inset 0 0 0 1px rgba(239,95,97,.35); }
+body[data-astra] .formation-primary-actions { display: flex!important; }
+body[data-astra] .formation-primary-actions [data-team-picker-return] { display: inline-flex!important; }
+@media (max-width: 820px) {
+  body[data-astra] .formation-workspace { grid-template-columns: minmax(0, 1fr); grid-template-areas: "picker" "board"; }
+  body[data-astra] .formation-picker,
+  body[data-astra] .formation-picker:not(.is-sheet-open) { position: static!important; inset: auto!important; width: auto!important; max-height: none!important; transform: none!important; visibility: visible!important; pointer-events: auto!important; z-index: auto; }
+  body[data-astra] .formation-picker-list { max-height: 60dvh!important; }
+}

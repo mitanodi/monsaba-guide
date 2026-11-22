@@ -54,7 +54,8 @@ test('catalog, Team Builder, Community, and Events expose Phase 3 controls', () 
   assert.match(read('app.js'), /data-clear-filter/);
   const site = read('site.js');
   assert.match(site, /team-focus-mode/);
-  assert.match(site, /team-picker-sheet-toggle/);
+  assert.doesNotMatch(site, /team-picker-sheet-toggle/);
+  assert.match(site, /data-team-picker-return/);
   assert.match(site, /community-view-tabs/);
   assert.match(read('events/index.html'), /data-event-filter/);
 });

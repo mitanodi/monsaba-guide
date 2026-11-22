@@ -86,7 +86,7 @@ for (const chip of chips.chips) {
     expect(record && record.japaneseName === chip.name.ja && record.rarity === chip.rarity, `${chip.id}: new name/rank evidence missing`);
     expect(chip.source?.sourceType === 'public_wiki' && chip.source?.status === 'externally_confirmed' && chip.source?.sourceUrl === chipSupplement.sourceUrl, `${chip.id}: invalid new effect source`);
     expect(chip.source?.pdfPage === undefined && chip.source?.pdfPages === undefined, `${chip.id}: fabricated PDF evidence`);
-    expect(chip.icon === null && chip.iconStatus === 'pending' && chip.iconPendingReason === 'reuse-permission-not-confirmed' && record.publishedIcon === null && record.imagePermission === 'unconfirmed', `${chip.id}: unapproved artwork published`);
+    expect(chip.icon && chip.iconStatus === 'verified' && record.publishedIcon === chip.icon && record.imagePermission === 'user-authorized' && fs.existsSync(path.join(root, chip.icon.slice(1))), `${chip.id}: authorized matched artwork missing`);
     expect(/^[a-f0-9]{64}$/.test(record.referenceSha256), `${chip.id}: reference hash missing`);
   }
 }

@@ -811,12 +811,12 @@ test('レスポンシブ・キーボード操作・保存不能時の表示を�
   assert.match(read('my-monsaba/my-monsaba.js'), /このブラウザでは保存機能を利用できません/);
 });
 
-test('P1は赤、P2は青の固定表示で文字ラベルも併用する', () => {
+test('P1は青、P2は赤の固定表示で文字ラベルも併用する', () => {
   const css = read('my-tools.css');
 
   const source = read('team-builder/team-builder.js');
-  assert.match(css, /formation-cell\.is-player-1\{border-color:#ef5f61/);
-  assert.match(css, /formation-cell\.is-player-2\{border-color:#4a91e8/);
+  assert.match(css, /formation-cell\.is-player-1\{border-color:#4a91e8/);
+  assert.match(css, /formation-cell\.is-player-2\{border-color:#ef5f61/);
   assert.match(source, /formation-player-badge">P\$\{slot\.playerId\}/);
 });
 
@@ -839,7 +839,7 @@ test('配置セル右上のマイナスボタンから直接削除でき、セ�
   assert.match(css, /formation-quick-remove\{position:absolute;z-index:2;top:3px;right:3px/);
 });
 
-test('画像出力は2Player集計・赤青枠・任意Lv・Tier・チップ・ドメインを描画する', () => {
+test('画像出力は2Player集計・青赤枠・任意Lv・Tier・チップ・ドメインを描画する', () => {
   const source = read('team-builder/team-builder.js');
   for (const token of [
     'playerCount(team, id)',
@@ -851,7 +851,7 @@ test('画像出力は2Player集計・赤青枠・任意Lv・Tier・チップ・�
   ])
     assert.match(source, new RegExp(token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   assert.doesNotMatch(source, /COPY\.direction|context\.fillText\(`P\$\{id\}[^\n]*levelLimit/);
-  assert.match(source, /slot\.playerId === 1 \? '#ef5f61' : '#4a91e8'/);
+  assert.match(source, /slot\.playerId === 1 \? '#4a91e8' : '#ef5f61'/);
   assert.match(source, /canvas\.toBlob/);
   assert.match(source, /URL\.createObjectURL/);
   assert.doesNotMatch(source, /output\.toDataURL/);
@@ -921,14 +921,15 @@ test('スマホPickerは縦スクロールと専用ハンドルDragを分離し�
   assert.match(css, /max-height:72svh/);
   assert.match(source, /closePickerForPlacement/);
   assert.match(source, /monsaba:formation-picker/);
-  assert.match(site, /setPickerOpen/);
+  assert.doesNotMatch(site, /setPickerOpen|formationPicker.before\(pickerToggle\)/);
+  assert.match(site, /data-team-picker-return/);
   assert.match(site, /revealBoard/);
   assert.match(site, /aria-controls/);
   assert.match(styles, /team-picker-sheet-toggle\{position:fixed/);
   assert.match(styles, /team-picker-sheet-toggle\{[^}]*left:50%[^}]*min-width:184px[^}]*min-height:68px/);
   assert.match(styles, /transform:translateX\(calc\(100% \+ 20px\)\)/);
   assert.match(styles, /formation-picker\.is-sheet-open\{visibility:visible;pointer-events:auto;transform:translateX\(0\)/);
-  assert.match(site, /data-team-picker-open/);
+  assert.doesNotMatch(site, /data-team-picker-open/);
   assert.match(site, /data-team-board-focus/);
   assert.match(css, /formation-primary-actions/);
   assert.match(source, /data-selected-drag/);

@@ -112,7 +112,7 @@ test('meaningfully changed pages retain the exact review timestamp after generat
   assert.match(read('privacy/index.html'), /最終更新：2026\/9\/24 21:38:12 JST/);
 });
 
-test('every active role guide has substantive original context, mode guidance and evidence links', () => {
+test('every active role guide has substantive play guidance and normal navigation without editorial source labels', () => {
   const roleDirectories = fs.readdirSync(path.join(root, 'roles'), { withFileTypes: true }).filter((entry) => entry.isDirectory());
   assert.equal(roleDirectories.length, 10);
   for (const { name } of roleDirectories) {
@@ -131,12 +131,11 @@ test('every active role guide has substantive original context, mode guidance an
       'ボスラリー',
       '初心者・育成優先の考え方',
       '関連する役割と確認先',
-      '確認済みDB',
-      '当サイト独自整理'
+      '関連する役割と確認先'
     ])
       assert.ok(html.includes(phrase), `${name}: ${phrase}`);
     assert.match(html, /href="\/tata\/[^/]+\/"/);
-    assert.match(html, /href="\/about-data\/"/);
+    assert.doesNotMatch(plainText(html), /当サイト独自整理/);
   }
 });
 

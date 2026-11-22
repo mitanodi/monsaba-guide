@@ -90,9 +90,9 @@ expect(html.includes('id="prediction"')&&html.includes('Season 1 AI予測Tier'),
 expect(html.includes('AI予測')&&html.includes('実装前予測'),'目立つAI予測ラベルがありません');
 expect(html.includes('公式Tier・実戦確認済みTierではありません'),'公式Tierではない注意表示がありません');
 expect(html.includes('id="prediction-accuracy"')&&html.includes('AI予測的中率'),'AI予測的中率カードがありません');
-expect(html.includes('id="predictionExactRate">0%</strong>')&&html.includes('id="predictionJudged">0 / 35</strong>'),'実装前の完全的中率0%・判定済み0/35表示がありません');
+expect(html.includes('id="predictionExactRate">—</strong>')&&html.includes('id="predictionJudged">0 / 35</strong>'),'実装前の完全的中率0%・判定済み0/35表示がありません');
 expect(html.includes('id="predictionAccuracyStatus">答え合わせ前</strong>'),'実装前の答え合わせ前表示がありません');
-expect(html.includes('0%は全予測が外れたという意味ではありません'),'0%の誤解防止説明がありません');
+expect(!html.includes('0%は全予測が外れたという意味ではありません') && script.includes("stats.judged ? formatPredictionRate"), '未判定の率は数値を出さず、不要な未作成理由を表示しない');
 expect(html.includes('AI予測採用率')&&html.includes('実測・統計・公式データではなく'),'採用率の非実測表示がありません');
 expect(html.includes('<link rel="canonical" href="https://monster-survival.com/zombie-rush/"'),'Zombie Rush URL/canonicalが変更されています');
 expect(html.includes('/zombie-rush/prediction.css'),'AI予測専用スタイルが読み込まれていません');
