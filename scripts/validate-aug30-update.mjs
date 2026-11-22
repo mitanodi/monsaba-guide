@@ -13,6 +13,8 @@ const expect = (condition, message) => {
 const tatari = readJson('tatari.json');
 const skills = readJson('tata-skills.json');
 const chips = readJson('zombie-rush/chips.json');
+const chipSupplement = readJson('zombie-rush/chip-supplement-2026-11-22.json');
+const historicalChips = chips.chips.filter(chip => chip.source?.sourceType === 'in_game');
 const trials = readJson('evolution-trials.json');
 const events = readJson('events.json');
 const byId = new Map(tatari.families.map((family) => [family.id, family]));
@@ -69,13 +71,24 @@ expect(byId.get('sukedako')?.evolutions[3]?.name === 'ロードパス', 'Roadpas
 expect(byId.get('nenbutsuhebi')?.evolutions[3]?.name === 'ナムアミダイジャ', 'Namuamidaija missing');
 expect(skills.byFamily.pakuma?.stages[3]?.values.some((item) => item.label === 'オーラ・水 最大回復量' && item.value === '対象最大HPの2.5%'), 'Pakuma aura mismatch');
 expect(skills.byFamily.nenbutsuhebi?.stages[3]?.values.some((item) => item.label === 'オーラ・岩 最大被ダメージ軽減' && item.value === '17.5%'), 'Rock aura mismatch');
-expect(chips.chips.length === 49 && new Set(chips.chips.map((chip) => chip.id)).size === 49, 'chip count or IDs mismatch');
+expect(historicalChips.length === 49, 'preserve all 49 historical in-game chips');
+expect(chips.chips.length === 73 && chips.count === 73 && new Set(chips.chips.map((chip) => chip.id)).size === 73, 'chip count or IDs mismatch');
+expect(chipSupplement.records.length === 24 && chipSupplement.addedCount === 24, 'new chip evidence count mismatch');
 for (const chip of chips.chips) {
   expect(chip.name?.ja && chip.effect?.ja && chip.effect?.en && chip.effect?.['zh-CN'], `${chip.id}: localized effect missing`);
   expect(['I', 'II', 'III'].includes(chip.rarity), `${chip.id}: invalid rank`);
-  expect(Number.isInteger(chip.source?.pdfPage), `${chip.id}: PDF page missing`);
-  assertPdfPage(chip.source.pdfPage, `${chip.id}: PDF page`);
-  expect(fs.existsSync(path.join(root, chip.icon.slice(1))), `${chip.id}: icon missing`);
+  if (chip.source?.sourceType === 'in_game') {
+    expect(Number.isInteger(chip.source?.pdfPage), `${chip.id}: PDF page missing`);
+    assertPdfPage(chip.source.pdfPage, `${chip.id}: PDF page`);
+    expect(chip.icon && fs.existsSync(path.join(root, chip.icon.slice(1))), `${chip.id}: icon missing`);
+  } else {
+    const record = chipSupplement.records.find(row => row.id === chip.id);
+    expect(record && record.japaneseName === chip.name.ja && record.rarity === chip.rarity, `${chip.id}: new name/rank evidence missing`);
+    expect(chip.source?.sourceType === 'public_wiki' && chip.source?.status === 'externally_confirmed' && chip.source?.sourceUrl === chipSupplement.sourceUrl, `${chip.id}: invalid new effect source`);
+    expect(chip.source?.pdfPage === undefined && chip.source?.pdfPages === undefined, `${chip.id}: fabricated PDF evidence`);
+    expect(chip.icon === null && chip.iconStatus === 'pending' && chip.iconPendingReason === 'reuse-permission-not-confirmed' && record.publishedIcon === null && record.imagePermission === 'unconfirmed', `${chip.id}: unapproved artwork published`);
+    expect(/^[a-f0-9]{64}$/.test(record.referenceSha256), `${chip.id}: reference hash missing`);
+  }
 }
 validatePdfMetadata(tatari, 'tatari');
 validatePdfMetadata(skills, 'skills');
@@ -97,7 +110,7 @@ pakumaSkillRanges.forEach((range, index) => {
 expectPages(byId.get('nenbutsuhebi').skills[3].source.pdfPages, PDF_EVIDENCE.knownRanges.namuamidaija, 'Namuamidaija');
 expectPages(byId.get('sukedako').skills[3].source.pdfPages, PDF_EVIDENCE.knownRanges.roadpass, 'Roadpass');
 expectPages(chips.source.pdfPages, [40, 91], 'Chip source coverage');
-expect(equalPages(chips.chips.map((chip) => chip.source.pdfPage), pagesInRange(PDF_EVIDENCE.knownRanges.chipDetails)), 'Chip detail pages must be 43-91 in display order');
+expect(equalPages(historicalChips.map((chip) => chip.source.pdfPage), pagesInRange(PDF_EVIDENCE.knownRanges.chipDetails)), 'Historical chip detail pages must remain 43-91 in display order');
 
 const referenceFiles = [
   'data/tatari.json',
@@ -136,7 +149,7 @@ const indexedOfficialResponseRoutes = ['/events/', '/events/treasure-hunt/'];
 for (const route of modifiedRoutes) {
   for (const prefix of ['', '/en', '/zh-cn']) {
     const localizedRoute = `${prefix}${route}`;
-    const expectedDate = route === '/updates/2026-08-30/' ? '2026-08-30' : route === '/evolution/trials/' ? trials.updated : '2026-10-07';
+    const expectedDate = route === '/updates/2026-08-30/' ? '2026-08-30' : route === '/evolution/trials/' ? trials.updated : route === '/zombie-rush/chips/' ? chips.updated : '2026-10-07';
     expect(dateModifiedFor(localizedRoute) === expectedDate, `${localizedRoute}: dateModified must be ${expectedDate}`);
   }
 }

@@ -15,6 +15,7 @@ const $ = (selector) => document.querySelector(selector);
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 const { getFamilyDisplayLabel, getTataDisplayName, getJapaneseSecondaryLabel, getFamilySearchAliases } = MONSABA_FAMILY;
 const locale = document.body.dataset.locale || 'ja';
+const chipImagePending = locale === 'en' ? 'Image reuse permission pending' : locale === 'zh-CN' ? '图片使用条件待确认' : '画像の利用条件を確認中';
 const localePrefix = locale === 'en' ? '/en' : locale === 'zh-CN' ? '/zh-cn' : '';
 const COPY = {
   ja: {
@@ -603,7 +604,7 @@ function renderChipResults() {
 
   const selectedIds = new Set(team.chips[currentPlayer]);
   const rows = chips.filter((chip) => !query || `${chipName(chip)} ${chip.name?.ja || ''} ${chip.id} ${chip.id.replaceAll('-', ' ')} ${chipEffect(chip)}`.toLocaleLowerCase().includes(query));
-  node.innerHTML = rows.map((chip) => `<button type="button" translate="no" class="formation-chip-option${selectedIds.has(chip.id) ? ' is-selected' : ''}" data-chip-id="${esc(chip.id)}" aria-pressed="${selectedIds.has(chip.id)}" title="${esc(chipEffect(chip))}"><img loading="lazy" decoding="async" src="${esc(chip.icon)}" width="48" height="48" alt=""><span>${esc(chipName(chip))}${chip.iconStatus === 'pending' ? `<small> · ${esc(COPY.placeholder)}</small>` : ''}</span></button>`).join('') || `<p>${esc(COPY.noChips)}</p>`;
+  node.innerHTML = rows.map((chip) => `<button type="button" translate="no" class="formation-chip-option${selectedIds.has(chip.id) ? ' is-selected' : ''}" ${chip.icon ? '' : 'data-icon-pending="true"'} data-chip-id="${esc(chip.id)}" aria-pressed="${selectedIds.has(chip.id)}" title="${esc(chipEffect(chip))}">${chip.icon ? `<img loading="lazy" decoding="async" src="${esc(chip.icon)}" width="48" height="48" alt="">` : ''}<span>${esc(chipName(chip))}${chip.iconStatus === 'pending' ? `<small> · ${esc(chipImagePending)}</small>` : ''}</span></button>`).join('') || `<p>${esc(COPY.noChips)}</p>`;
 }
 
 function renderChipSettings() {
@@ -621,7 +622,7 @@ function renderChipSettings() {
   node.hidden = false;
   const players = PLAYER_IDS.map((id) => {
     const selectedChips = team.chips[id].map((chipId) => chipById.get(chipId)).filter(Boolean);
-    const items = selectedChips.map((chip) => `<button type="button" translate="no" class="formation-chip-selected" data-chip-id="${esc(chip.id)}" data-chip-player="${id}" aria-label="${esc(message(COPY.chipRemove, { name: chipName(chip) }))}"><img src="${esc(chip.icon)}" width="40" height="40" alt=""><span>${esc(chipName(chip))}${chip.iconStatus === 'pending' ? `<small> · ${esc(COPY.placeholder)}</small>` : ''}</span><b aria-hidden="true">−</b></button>`).join('');
+    const items = selectedChips.map((chip) => `<button type="button" translate="no" class="formation-chip-selected" ${chip.icon ? '' : 'data-icon-pending="true"'} data-chip-id="${esc(chip.id)}" data-chip-player="${id}" aria-label="${esc(message(COPY.chipRemove, { name: chipName(chip) }))}">${chip.icon ? `<img src="${esc(chip.icon)}" width="40" height="40" alt="">` : ''}<span>${esc(chipName(chip))}${chip.iconStatus === 'pending' ? `<small> · ${esc(chipImagePending)}</small>` : ''}</span><b aria-hidden="true">−</b></button>`).join('');
     return `<section class="formation-chip-player is-player-${id}${currentPlayer === id ? ' is-current' : ''}"><div class="formation-chip-player-head"><button type="button" data-current-player="${id}" aria-pressed="${currentPlayer === id}"><b>${esc(message(COPY.chipsForPlayer, { player: id }))}</b></button><span>${esc(message(COPY.chipCount, { count: selectedChips.length }))}</span></div><div class="formation-chip-selected-list">${items}</div></section>`;
   }).join('');
   node.innerHTML = `<div class="formation-chip-heading"><h3>${esc(COPY.chips)}</h3><p>${esc(message(COPY.chipCount, { count: team.chips[currentPlayer].length }))}</p></div><div class="formation-chip-player-grid">${players}</div><label class="formation-chip-search">${esc(COPY.chipSearch)}<input id="team-chip-search" type="search" autocomplete="off" value="${esc(chipQuery)}" placeholder="${esc(COPY.chipSearchPlaceholder)}"></label>${COPY.chipNameFallback ? `<p class="section-note" translate="no">${esc(COPY.chipNameFallback)}</p>` : ''}<div id="team-chip-results" class="formation-chip-options"></div>`;

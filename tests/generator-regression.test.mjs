@@ -50,6 +50,7 @@ test('A8 originals and all tracking identifiers remain exact; Production retains
 test('published SEO fields retain approved data changes and October 14 article timestamps', () => {
   const historical = JSON.parse(read('tests/fixtures/seo-baseline-fields-2026-10-06.json'));
   const policy = JSON.parse(read('tests/fixtures/seo-approved-changes-2026-10-07.json'));
+  const chipChanges = JSON.parse(read('tests/fixtures/chip-seo-approved-2026-11-22.json'));
   const detailBaseline = JSON.parse(read('tests/fixtures/community-detail-seo-2026-10-18.json'));
   assert.equal(detailBaseline.sourceCommit, '8b96a78800a33cc34f27054374c52f3133b8d6ab');
   // Independently reviewed copy for the three shared detail pages. Keep every
@@ -96,6 +97,15 @@ test('published SEO fields retain approved data changes and October 14 article t
       assert.equal(sha(JSON.stringify(historical[file])), hash, file + ': published baseline changed');
       const approved = structuredClone(historical[file]);
       for (const change of policy.changes[file] || []) apply(approved, change);
+      if (chipChanges[file]) {
+        const change = chipChanges[file];
+        approved.title = change.title;
+        approved.description = change.description;
+        approved.schemas[0]['@graph'][0].name = change.title;
+        approved.schemas[0]['@graph'][0].description = change.description;
+        approved.schemas[0]['@graph'][0].dateModified = '2026-11-22';
+        approved.schemas[0]['@graph'][1].itemListElement.at(-1).name = change.breadcrumb;
+      }
       // The supplied four-stage family changes only current totals and the trial
       // update date. Build expectations from the published baseline, not outputs.
       const updateTotals = value => value.replace(/66(?=\s*(?:系統|families|个系列))/g, '70')

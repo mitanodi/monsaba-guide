@@ -231,7 +231,7 @@
       "key": "zombie-rush-chips",
       "accent": "#7046b8",
       "accentDark": "#48247f",
-      "symbol": "49",
+      "symbol": "73",
       "routes": {
         "ja": "/zombie-rush/chips/",
         "en": "/en/zombie-rush/chips/",
@@ -240,24 +240,24 @@
       "content": {
         "ja": {
           "title": "ゾンビラッシュ チップ図鑑",
-          "description": "ゲーム内確認済み49種を検索・フィルター",
+          "description": "全73種・新規24種の効果と確認状況",
           "badge": "効果・Rank・分類を収録",
-          "ogTitle": "モンサバ ゾンビラッシュ チップ図鑑｜49種の効果",
-          "ogDescription": "ゾンビラッシュのチップ49種をゲーム内画面から確認。名称、Rank、効果分類から検索できます。"
+          "ogTitle": "モンサバ ゾンビラッシュ チップ図鑑｜73種の効果",
+          "ogDescription": "ゾンビラッシュのチップ73種を検索。新規24種の名称・Rank・効果をWikiと照合し、画像の利用条件と未確定条件を明示。"
         },
         "en": {
           "title": "Zombie Rush Chip Database",
-          "description": "Search and filter 49 in-game verified chips",
+          "description": "73 chips · 24 additions with source and image status",
           "badge": "Effects, ranks and categories",
-          "ogTitle": "Clash of Critters Zombie Rush Chip Database | 49 Effects",
-          "ogDescription": "Search 49 Zombie Rush chips verified from in-game screens by name, rank and effect category."
+          "ogTitle": "Clash of Critters Zombie Rush Chip Database | 73 Effects",
+          "ogDescription": "Search 73 Zombie Rush chips, including 24 Wiki-checked additions. Image permissions and unresolved conditions are labeled."
         },
         "zh-CN": {
           "title": "Zombie Rush 芯片图鉴",
-          "description": "搜索并筛选游戏内确认的49种芯片",
+          "description": "共73种・新增24种的效果与确认状态",
           "badge": "收录效果、Rank 与分类",
-          "ogTitle": "Clash of Critters Zombie Rush 芯片图鉴｜49种效果",
-          "ogDescription": "依据游戏内画面整理49种Zombie Rush芯片，可按名称、Rank与效果分类搜索。"
+          "ogTitle": "Clash of Critters Zombie Rush 芯片图鉴｜73种效果",
+          "ogDescription": "搜索73种Zombie Rush芯片，新增24种已与Wiki核对。图片使用条件与未确定的效果条件分别标注。"
         }
       }
     },

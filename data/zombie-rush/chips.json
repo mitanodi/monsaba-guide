@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "updated": "2026-10-07",
+  "updated": "2026-11-22",
   "gameVersion": "0.46.1",
-  "count": 49,
+  "count": 73,
   "source": {
     "sourceType": "in_game",
     "sourceName": "ユーザー提供ゲーム内PDF（写真.pdf）",
@@ -3197,6 +3197,1880 @@
           "verifiedAt": "2026-10-07"
         }
       }
+    },
+    {
+      "id": "fighter-emblem-iii",
+      "name": {
+        "ja": "ファイターの紋章III",
+        "en": "ファイターの紋章III",
+        "zh-CN": "ファイターの紋章III"
+      },
+      "rarity": "III",
+      "icon": null,
+      "iconStatus": "pending",
+      "iconPendingReason": "reuse-permission-not-confirmed",
+      "effect": {
+        "ja": "自分のファイタータタ：攻撃力+24%、防御力+24%。",
+        "en": "Your Fighter Tatari: ATK+24%, DEF+24%.",
+        "zh-CN": "你的战士塔塔：攻击力+24%、防御力+24%。"
+      },
+      "tags": [
+        "attack",
+        "defense"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "targetRole": "fighter",
+      "flags": {
+        "attack": true,
+        "defense": true,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectStats": [
+        {
+          "stat": "attack",
+          "value": 24,
+          "unit": "percent"
+        },
+        {
+          "stat": "defense",
+          "value": 24,
+          "unit": "percent"
+        }
+      ],
+      "conditions": {},
+      "nameLocalizationStatus": {
+        "ja": "wiki-card-image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "ja": {
+          "sourceType": "public_wiki_card_image",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+          "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2833/%E3%83%95%E3%82%A1%E3%82%A4%E3%82%BF%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A03.webp",
+          "sourceSha256": "13615da0943910840561db69952fa9c63cc17b0a7ce79b4768778700da2fc087",
+          "verifiedAt": "2026-11-22"
+        }
+      }
+    },
+    {
+      "id": "tank-emblem-iii",
+      "name": {
+        "ja": "タンクの紋章III",
+        "en": "タンクの紋章III",
+        "zh-CN": "タンクの紋章III"
+      },
+      "rarity": "III",
+      "icon": null,
+      "iconStatus": "pending",
+      "iconPendingReason": "reuse-permission-not-confirmed",
+      "effect": {
+        "ja": "自分のタンクタタ：防御力+32%、最大HP+20%。",
+        "en": "Your Tank Tatari: DEF+32%, max HP+20%.",
+        "zh-CN": "你的坦克塔塔：防御力+32%、最大生命值+20%。"
+      },
+      "tags": [
+        "defense"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "targetRole": "tank",
+      "flags": {
+        "attack": false,
+        "defense": true,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectStats": [
+        {
+          "stat": "defense",
+          "value": 32,
+          "unit": "percent"
+        },
+        {
+          "stat": "maxHp",
+          "value": 20,
+          "unit": "percent"
+        }
+      ],
+      "conditions": {},
+      "nameLocalizationStatus": {
+        "ja": "wiki-card-image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "ja": {
+          "sourceType": "public_wiki_card_image",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+          "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2834/%E3%82%BF%E3%83%B3%E3%82%AF%E3%81%AE%E7%B4%8B%E7%AB%A03.webp",
+          "sourceSha256": "4cac9f8c6d474bf013db02b8d6f37e2fea7534682fc14e7a257f22ca3ff68d0d",
+          "verifiedAt": "2026-11-22"
+        }
+      }
+    },
+    {
+      "id": "archer-emblem-iii",
+      "name": {
+        "ja": "アーチャーの紋章III",
+        "en": "アーチャーの紋章III",
+        "zh-CN": "アーチャーの紋章III"
+      },
+      "rarity": "III",
+      "icon": null,
+      "iconStatus": "pending",
+      "iconPendingReason": "reuse-permission-not-confirmed",
+      "effect": {
+        "ja": "自分のアーチャータタ：攻撃力+40%。",
+        "en": "Your Archer Tatari: ATK+40%.",
+        "zh-CN": "你的弓手塔塔：攻击力+40%。"
+      },
+      "tags": [
+        "attack"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "targetRole": "archer",
+      "flags": {
+        "attack": true,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectStats": [
+        {
+          "stat": "attack",
+          "value": 40,
+          "unit": "percent"
+        }
+      ],
+      "conditions": {},
+      "nameLocalizationStatus": {
+        "ja": "wiki-card-image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "ja": {
+          "sourceType": "public_wiki_card_image",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+          "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2836/%E3%82%A2%E3%83%BC%E3%83%81%E3%83%A3%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A03.webp",
+          "sourceSha256": "1ae70b1ad6a78d6b5f18d104edf1f7554e41d4e2c883468dda5cad4f662f279d",
+          "verifiedAt": "2026-11-22"
+        }
+      }
+    },
+    {
+      "id": "healer-emblem-iii",
+      "name": {
+        "ja": "ヒーラーの紋章III",
+        "en": "ヒーラーの紋章III",
+        "zh-CN": "ヒーラーの紋章III"
+      },
+      "rarity": "III",
+      "icon": null,
+      "iconStatus": "pending",
+      "iconPendingReason": "reuse-permission-not-confirmed",
+      "effect": {
+        "ja": "自分のヒーラータタ：攻撃力+24%、最大HP+24%。",
+        "en": "Your Healer Tatari: ATK+24%, max HP+24%.",
+        "zh-CN": "你的治疗者塔塔：攻击力+24%、最大生命值+24%。"
+      },
+      "tags": [
+        "attack",
+        "defense"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "targetRole": "healer",
+      "flags": {
+        "attack": true,
+        "defense": true,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectStats": [
+        {
+          "stat": "attack",
+          "value": 24,
+          "unit": "percent"
+        },
+        {
+          "stat": "maxHp",
+          "value": 24,
+          "unit": "percent"
+        }
+      ],
+      "conditions": {},
+      "nameLocalizationStatus": {
+        "ja": "wiki-card-image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "ja": {
+          "sourceType": "public_wiki_card_image",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+          "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2835/%E3%83%92%E3%83%BC%E3%83%A9%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A03.webp",
+          "sourceSha256": "ac6d444ff0b2a3f3b917e87bfa27382236844e7e3c72fdba6f1c45be0ed0f906",
+          "verifiedAt": "2026-11-22"
+        }
+      }
+    },
+    {
+      "id": "supporter-emblem-iii",
+      "name": {
+        "ja": "サポーターの紋章III",
+        "en": "サポーターの紋章III",
+        "zh-CN": "サポーターの紋章III"
+      },
+      "rarity": "III",
+      "icon": null,
+      "iconStatus": "pending",
+      "iconPendingReason": "reuse-permission-not-confirmed",
+      "effect": {
+        "ja": "自分のサポータータタ：防御力+20%、最大HP+28%。",
+        "en": "Your Supporter Tatari: DEF+20%, max HP+28%.",
+        "zh-CN": "你的辅助塔塔：防御力+20%、最大生命值+28%。"
+      },
+      "tags": [
+        "defense"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "targetRole": "supporter",
+      "flags": {
+        "attack": false,
+        "defense": true,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectStats": [
+        {
+          "stat": "defense",
+          "value": 20,
+          "unit": "percent"
+        },
+        {
+          "stat": "maxHp",
+          "value": 28,
+          "unit": "percent"
+        }
+      ],
+      "conditions": {},
+      "nameLocalizationStatus": {
+        "ja": "wiki-card-image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "ja": {
+          "sourceType": "public_wiki_card_image",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+          "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2837/%E3%82%B5%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A03.webp",
+          "sourceSha256": "89d94687a2102b6494a09e7931db1882bff979520380e005784d0d84b79c83ef",
+          "verifiedAt": "2026-11-22"
+        }
+      }
+    },
+    {
+      "id": "special-emblem-iii",
+      "name": {
+        "ja": "スペシャルの紋章III",
+        "en": "スペシャルの紋章III",
+        "zh-CN": "スペシャルの紋章III"
+      },
+      "rarity": "III",
+      "icon": null,
+      "iconStatus": "pending",
+      "iconPendingReason": "reuse-permission-not-confirmed",
+      "effect": {
+        "ja": "自分のスペシャルタタ：攻撃力+16%、防御力+16%、最大HP+16%。",
+        "en": "Your Special Tatari: ATK+16%, DEF+16%, max HP+16%.",
+        "zh-CN": "你的特殊塔塔：攻击力+16%、防御力+16%、最大生命值+16%。"
+      },
+      "tags": [
+        "attack",
+        "defense"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "targetRole": "special",
+      "flags": {
+        "attack": true,
+        "defense": true,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectStats": [
+        {
+          "stat": "attack",
+          "value": 16,
+          "unit": "percent"
+        },
+        {
+          "stat": "defense",
+          "value": 16,
+          "unit": "percent"
+        },
+        {
+          "stat": "maxHp",
+          "value": 16,
+          "unit": "percent"
+        }
+      ],
+      "conditions": {},
+      "nameLocalizationStatus": {
+        "ja": "wiki-card-image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "ja": {
+          "sourceType": "public_wiki_card_image",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+          "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2838/%E3%82%B9%E3%83%9A%E3%82%B7%E3%83%A3%E3%83%AB%E3%81%AE%E7%B4%8B%E7%AB%A03.webp",
+          "sourceSha256": "ef09455c28f357749138aab9fdec794cd451e45be1a951ccff7395f13f158091",
+          "verifiedAt": "2026-11-22"
+        }
+      }
+    },
+    {
+      "id": "last-stand",
+      "name": {
+        "ja": "背水の陣",
+        "en": "背水の陣",
+        "zh-CN": "背水の陣"
+      },
+      "rarity": "III",
+      "icon": null,
+      "iconStatus": "pending",
+      "iconPendingReason": "reuse-permission-not-confirmed",
+      "effect": {
+        "ja": "以降、ゾンビが1体でも防衛ラインへ到達すると戦闘終了。自分とチームメイトのタタのダメージが30%増加する。",
+        "en": "From now on, the battle ends if any zombie reaches the defense line. Your and your teammate’s Tatari gain 30% increased damage.",
+        "zh-CN": "此后只要有1只僵尸到达防线，战斗即结束。你和队友的塔塔伤害提高30%。"
+      },
+      "tags": [
+        "attack",
+        "drawback",
+        "special"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "targetRole": null,
+      "flags": {
+        "attack": true,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": true,
+        "placement": false,
+        "special": true
+      },
+      "source": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectStats": [
+        {
+          "stat": "damage",
+          "value": 30,
+          "unit": "percent"
+        }
+      ],
+      "conditions": {
+        "zombiesReachingLineToEndBattle": 1,
+        "includesTeammate": true
+      },
+      "nameLocalizationStatus": {
+        "ja": "wiki-card-image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "ja": {
+          "sourceType": "public_wiki_card_image",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+          "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2839/%E8%83%8C%E6%B0%B4%E3%81%AE%E9%99%A3.webp",
+          "sourceSha256": "397993ab31301c2237efa46e8ea217b2d8b5314a252f2cb794473a9f1c3d715e",
+          "verifiedAt": "2026-11-22"
+        }
+      }
+    },
+    {
+      "id": "long-training",
+      "name": {
+        "ja": "長き修行",
+        "en": "長き修行",
+        "zh-CN": "長き修行"
+      },
+      "rarity": "III",
+      "icon": null,
+      "iconStatus": "pending",
+      "iconPendingReason": "reuse-permission-not-confirmed",
+      "effect": {
+        "ja": "12ウェーブ後、配置中で最もレベルの低いタタからランダムで1体を選び、Lv.8にする。第5ウェーブでのみ出現するとのWiki記載。",
+        "en": "After 12 waves, one randomly chosen Tatari among your lowest-level deployed Tatari is raised to Lv.8. The Wiki lists this chip as offered only at wave 5.",
+        "zh-CN": "经过12波后，从你已部署且等级最低的塔塔中随机选1只升至Lv.8。Wiki记载仅在第5波出现。"
+      },
+      "tags": [
+        "level",
+        "random",
+        "special"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "targetRole": null,
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": true,
+        "random": true,
+        "drawback": false,
+        "placement": false,
+        "special": true
+      },
+      "source": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectStats": [
+        {
+          "stat": "delayWaves",
+          "value": 12
+        },
+        {
+          "stat": "targetLevel",
+          "value": 8
+        },
+        {
+          "stat": "targetCount",
+          "value": 1
+        }
+      ],
+      "conditions": {
+        "offeredAtWave": 5,
+        "selection": "random-among-lowest-level-deployed"
+      },
+      "nameLocalizationStatus": {
+        "ja": "wiki-card-image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "ja": {
+          "sourceType": "public_wiki_card_image",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+          "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2840/%E9%95%B7%E3%81%8D%E4%BF%AE%E8%A1%8C.webp",
+          "sourceSha256": "4a8eae22e01b1fe706f448511d39b2b6a10717b9c7e12c3d432e1deb1cb7b148",
+          "verifiedAt": "2026-11-22"
+        }
+      }
+    },
+    {
+      "id": "fighter-emblem-ii",
+      "name": {
+        "ja": "ファイターの紋章II",
+        "en": "ファイターの紋章II",
+        "zh-CN": "ファイターの紋章II"
+      },
+      "rarity": "II",
+      "icon": null,
+      "iconStatus": "pending",
+      "iconPendingReason": "reuse-permission-not-confirmed",
+      "effect": {
+        "ja": "自分のファイタータタ：攻撃力+18%、防御力+18%。",
+        "en": "Your Fighter Tatari: ATK+18%, DEF+18%.",
+        "zh-CN": "你的战士塔塔：攻击力+18%、防御力+18%。"
+      },
+      "tags": [
+        "attack",
+        "defense"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "targetRole": "fighter",
+      "flags": {
+        "attack": true,
+        "defense": true,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectStats": [
+        {
+          "stat": "attack",
+          "value": 18,
+          "unit": "percent"
+        },
+        {
+          "stat": "defense",
+          "value": 18,
+          "unit": "percent"
+        }
+      ],
+      "conditions": {},
+      "nameLocalizationStatus": {
+        "ja": "wiki-card-image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "ja": {
+          "sourceType": "public_wiki_card_image",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+          "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2832/%E3%83%95%E3%82%A1%E3%82%A4%E3%82%BF%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A02.webp",
+          "sourceSha256": "fc5e0f42997ef211972b6a4adcdf820302faf51084e19f4e870a1c36014aa146",
+          "verifiedAt": "2026-11-22"
+        }
+      }
+    },
+    {
+      "id": "tank-emblem-ii",
+      "name": {
+        "ja": "タンクの紋章II",
+        "en": "タンクの紋章II",
+        "zh-CN": "タンクの紋章II"
+      },
+      "rarity": "II",
+      "icon": null,
+      "iconStatus": "pending",
+      "iconPendingReason": "reuse-permission-not-confirmed",
+      "effect": {
+        "ja": "自分のタンクタタ：防御力+24%、最大HP+15%。",
+        "en": "Your Tank Tatari: DEF+24%, max HP+15%.",
+        "zh-CN": "你的坦克塔塔：防御力+24%、最大生命值+15%。"
+      },
+      "tags": [
+        "defense"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "targetRole": "tank",
+      "flags": {
+        "attack": false,
+        "defense": true,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectStats": [
+        {
+          "stat": "defense",
+          "value": 24,
+          "unit": "percent"
+        },
+        {
+          "stat": "maxHp",
+          "value": 15,
+          "unit": "percent"
+        }
+      ],
+      "conditions": {},
+      "nameLocalizationStatus": {
+        "ja": "wiki-card-image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "ja": {
+          "sourceType": "public_wiki_card_image",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+          "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2831/%E3%82%BF%E3%83%B3%E3%82%AF%E3%81%AE%E7%B4%8B%E7%AB%A02.webp",
+          "sourceSha256": "257ba37b93dca80cdfe4e1d9a56812d18e1b04cae0574379677f0e2a13bcb51e",
+          "verifiedAt": "2026-11-22"
+        }
+      }
+    },
+    {
+      "id": "archer-emblem-ii",
+      "name": {
+        "ja": "アーチャーの紋章II",
+        "en": "アーチャーの紋章II",
+        "zh-CN": "アーチャーの紋章II"
+      },
+      "rarity": "II",
+      "icon": null,
+      "iconStatus": "pending",
+      "iconPendingReason": "reuse-permission-not-confirmed",
+      "effect": {
+        "ja": "自分のアーチャータタ：攻撃力+30%。",
+        "en": "Your Archer Tatari: ATK+30%.",
+        "zh-CN": "你的弓手塔塔：攻击力+30%。"
+      },
+      "tags": [
+        "attack"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "targetRole": "archer",
+      "flags": {
+        "attack": true,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectStats": [
+        {
+          "stat": "attack",
+          "value": 30,
+          "unit": "percent"
+        }
+      ],
+      "conditions": {},
+      "nameLocalizationStatus": {
+        "ja": "wiki-card-image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "ja": {
+          "sourceType": "public_wiki_card_image",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+          "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2830/%E3%82%A2%E3%83%BC%E3%83%81%E3%83%A3%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A02.webp",
+          "sourceSha256": "116136e7ceb9e10ce3efb3b3c2cd62feedc98e6ffd1d690d8ed11548861af0fd",
+          "verifiedAt": "2026-11-22"
+        }
+      }
+    },
+    {
+      "id": "healer-emblem-ii",
+      "name": {
+        "ja": "ヒーラーの紋章II",
+        "en": "ヒーラーの紋章II",
+        "zh-CN": "ヒーラーの紋章II"
+      },
+      "rarity": "II",
+      "icon": null,
+      "iconStatus": "pending",
+      "iconPendingReason": "reuse-permission-not-confirmed",
+      "effect": {
+        "ja": "自分のヒーラータタ：攻撃力+18%、最大HP+18%。",
+        "en": "Your Healer Tatari: ATK+18%, max HP+18%.",
+        "zh-CN": "你的治疗者塔塔：攻击力+18%、最大生命值+18%。"
+      },
+      "tags": [
+        "attack",
+        "defense"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "targetRole": "healer",
+      "flags": {
+        "attack": true,
+        "defense": true,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectStats": [
+        {
+          "stat": "attack",
+          "value": 18,
+          "unit": "percent"
+        },
+        {
+          "stat": "maxHp",
+          "value": 18,
+          "unit": "percent"
+        }
+      ],
+      "conditions": {},
+      "nameLocalizationStatus": {
+        "ja": "wiki-card-image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "ja": {
+          "sourceType": "public_wiki_card_image",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+          "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2829/%E3%83%92%E3%83%BC%E3%83%A9%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A02.webp",
+          "sourceSha256": "27af0ecfb2f498b979a894dc499b2828705d2a87c54ae17a65cdc82a6a3b8f9a",
+          "verifiedAt": "2026-11-22"
+        }
+      }
+    },
+    {
+      "id": "supporter-emblem-ii",
+      "name": {
+        "ja": "サポーターの紋章II",
+        "en": "サポーターの紋章II",
+        "zh-CN": "サポーターの紋章II"
+      },
+      "rarity": "II",
+      "icon": null,
+      "iconStatus": "pending",
+      "iconPendingReason": "reuse-permission-not-confirmed",
+      "effect": {
+        "ja": "自分のサポータータタ：防御力+15%、最大HP+21%。",
+        "en": "Your Supporter Tatari: DEF+15%, max HP+21%.",
+        "zh-CN": "你的辅助塔塔：防御力+15%、最大生命值+21%。"
+      },
+      "tags": [
+        "defense"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "targetRole": "supporter",
+      "flags": {
+        "attack": false,
+        "defense": true,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectStats": [
+        {
+          "stat": "defense",
+          "value": 15,
+          "unit": "percent"
+        },
+        {
+          "stat": "maxHp",
+          "value": 21,
+          "unit": "percent"
+        }
+      ],
+      "conditions": {},
+      "nameLocalizationStatus": {
+        "ja": "wiki-card-image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "ja": {
+          "sourceType": "public_wiki_card_image",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+          "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2828/%E3%82%B5%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A02.webp",
+          "sourceSha256": "dc6daa1cd4229e049a2fd565a2673153664504d9ccb4fd4635333388515408d1",
+          "verifiedAt": "2026-11-22"
+        }
+      }
+    },
+    {
+      "id": "special-emblem-ii",
+      "name": {
+        "ja": "スペシャルの紋章II",
+        "en": "スペシャルの紋章II",
+        "zh-CN": "スペシャルの紋章II"
+      },
+      "rarity": "II",
+      "icon": null,
+      "iconStatus": "pending",
+      "iconPendingReason": "reuse-permission-not-confirmed",
+      "effect": {
+        "ja": "自分のスペシャルタタ：攻撃力+12%、防御力+12%、最大HP+12%。",
+        "en": "Your Special Tatari: ATK+12%, DEF+12%, max HP+12%.",
+        "zh-CN": "你的特殊塔塔：攻击力+12%、防御力+12%、最大生命值+12%。"
+      },
+      "tags": [
+        "attack",
+        "defense"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "targetRole": "special",
+      "flags": {
+        "attack": true,
+        "defense": true,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectStats": [
+        {
+          "stat": "attack",
+          "value": 12,
+          "unit": "percent"
+        },
+        {
+          "stat": "defense",
+          "value": 12,
+          "unit": "percent"
+        },
+        {
+          "stat": "maxHp",
+          "value": 12,
+          "unit": "percent"
+        }
+      ],
+      "conditions": {},
+      "nameLocalizationStatus": {
+        "ja": "wiki-card-image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "ja": {
+          "sourceType": "public_wiki_card_image",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+          "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2827/%E3%82%B9%E3%83%9A%E3%82%B7%E3%83%A3%E3%83%AB%E3%81%AE%E7%B4%8B%E7%AB%A02.webp",
+          "sourceSha256": "3c1f3deef156c62800d8feedb2a4075df5543dcb53a69273c42baa5311550edd",
+          "verifiedAt": "2026-11-22"
+        }
+      }
+    },
+    {
+      "id": "little-adult",
+      "name": {
+        "ja": "小さな大人",
+        "en": "小さな大人",
+        "zh-CN": "小さな大人"
+      },
+      "rarity": "II",
+      "icon": null,
+      "iconStatus": "pending",
+      "iconPendingReason": "reuse-permission-not-confirmed",
+      "effect": {
+        "ja": "自分の低レベルのタタの攻撃力・防御力・最大HPが30%増加する。対象の上限Lvは未確定。",
+        "en": "Your low-level Tatari gain 30% ATK, DEF and max HP. The maximum eligible level is unresolved.",
+        "zh-CN": "你的低等级塔塔攻击力、防御力及最大生命值提高30%。适用的最高等级尚未确认。"
+      },
+      "tags": [
+        "attack",
+        "defense",
+        "level"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "targetRole": null,
+      "flags": {
+        "attack": true,
+        "defense": true,
+        "heal": false,
+        "cc": false,
+        "level": true,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectStats": [
+        {
+          "stat": "attack",
+          "value": 30,
+          "unit": "percent"
+        },
+        {
+          "stat": "defense",
+          "value": 30,
+          "unit": "percent"
+        },
+        {
+          "stat": "maxHp",
+          "value": 30,
+          "unit": "percent"
+        }
+      ],
+      "conditions": {
+        "status": "conflicting",
+        "targetMaxLevel": null,
+        "wikiEffectMaxLevel": 5,
+        "wikiCommentMaxLevel": 4
+      },
+      "nameLocalizationStatus": {
+        "ja": "wiki-card-image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "ja": {
+          "sourceType": "public_wiki_card_image",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+          "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2826/%E5%B0%8F%E3%81%95%E3%81%AA%E5%A4%A7%E4%BA%BA.webp",
+          "sourceSha256": "e4586ff91716e997549413a207e21469c09feef350c0debecd5ec410c861a45d",
+          "verifiedAt": "2026-11-22"
+        }
+      },
+      "verificationNote": {
+        "ja": "Wiki効果欄は「Lv.5以下」、解説欄は「4までと思われる」と記載。条件は未確定として掲載し、自動補正には使用しません。",
+        "en": "The Wiki effect table says Lv.5 or below; its commentary suggests Lv.4 or below. This unresolved condition is not used for automatic adjustments.",
+        "zh-CN": "Wiki效果栏写Lv.5及以下，解说栏推测为Lv.4及以下。此条件尚未确认，不用于自动修正。"
+      }
+    },
+    {
+      "id": "tata-revival",
+      "name": {
+        "ja": "タタ蘇生",
+        "en": "タタ蘇生",
+        "zh-CN": "タタ蘇生"
+      },
+      "rarity": "II",
+      "icon": null,
+      "iconStatus": "pending",
+      "iconPendingReason": "reuse-permission-not-confirmed",
+      "effect": {
+        "ja": "自分のタタが倒れた時、キャンディが十分なら再配置コストの80%を自動消費して復活させる。",
+        "en": "When your Tatari falls, automatically revive it by spending 80% of its redeployment cost if you have enough Energy Candies.",
+        "zh-CN": "你的塔塔倒下时，若能量糖果足够，会自动消耗重新部署费用的80%使其复活。"
+      },
+      "tags": [
+        "heal",
+        "special"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "targetRole": null,
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": true,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": true
+      },
+      "source": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectStats": [
+        {
+          "stat": "redeploymentCost",
+          "value": 80,
+          "unit": "percent"
+        }
+      ],
+      "conditions": {
+        "requiresSufficientEnergyCandies": true
+      },
+      "nameLocalizationStatus": {
+        "ja": "wiki-card-image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "ja": {
+          "sourceType": "public_wiki_card_image",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+          "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2825/%E3%82%BF%E3%82%BF%E8%98%87%E7%94%9F.webp",
+          "sourceSha256": "61c330fa9b0fe37ce143cdd0f6ea82fe73ea62ac382ad7924624b0cc04defa14",
+          "verifiedAt": "2026-11-22"
+        }
+      }
+    },
+    {
+      "id": "frontier-expansion",
+      "name": {
+        "ja": "開拓と拡張",
+        "en": "開拓と拡張",
+        "zh-CN": "開拓と拡張"
+      },
+      "rarity": "II",
+      "icon": null,
+      "iconStatus": "pending",
+      "iconPendingReason": "reuse-permission-not-confirmed",
+      "effect": {
+        "ja": "配置エリアを前方へ横3列拡張し、自分とチームメイトのタタを配置・移動できるようにする。",
+        "en": "Extend the deployment area forward by three horizontal rows, allowing your and your teammate’s Tatari to be placed or moved there.",
+        "zh-CN": "部署区域向前扩展3横排，你和队友的塔塔均可放置或移动到扩展区域。"
+      },
+      "tags": [
+        "placement",
+        "special"
+      ],
+      "targetAttribute": null,
+      "targetPosition": "specified-by-effect",
+      "targetRole": null,
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": true,
+        "special": true
+      },
+      "source": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectStats": [
+        {
+          "stat": "additionalFrontRows",
+          "value": 3
+        }
+      ],
+      "conditions": {
+        "includesTeammate": true
+      },
+      "nameLocalizationStatus": {
+        "ja": "wiki-card-image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "ja": {
+          "sourceType": "public_wiki_card_image",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+          "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2824/%E9%96%8B%E6%8B%93%E3%81%A8%E6%8B%A1%E5%BC%B5.webp",
+          "sourceSha256": "b2bfc9fcd31f9f9fa055f6bbe500de7dfe7a845f14f1c3028ca2d9924eade908",
+          "verifiedAt": "2026-11-22"
+        }
+      }
+    },
+    {
+      "id": "fighter-emblem-i",
+      "name": {
+        "ja": "ファイターの紋章I",
+        "en": "ファイターの紋章I",
+        "zh-CN": "ファイターの紋章I"
+      },
+      "rarity": "I",
+      "icon": null,
+      "iconStatus": "pending",
+      "iconPendingReason": "reuse-permission-not-confirmed",
+      "effect": {
+        "ja": "自分のファイタータタ：攻撃力+12%、防御力+12%。",
+        "en": "Your Fighter Tatari: ATK+12%, DEF+12%.",
+        "zh-CN": "你的战士塔塔：攻击力+12%、防御力+12%。"
+      },
+      "tags": [
+        "attack",
+        "defense"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "targetRole": "fighter",
+      "flags": {
+        "attack": true,
+        "defense": true,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectStats": [
+        {
+          "stat": "attack",
+          "value": 12,
+          "unit": "percent"
+        },
+        {
+          "stat": "defense",
+          "value": 12,
+          "unit": "percent"
+        }
+      ],
+      "conditions": {},
+      "nameLocalizationStatus": {
+        "ja": "wiki-card-image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "ja": {
+          "sourceType": "public_wiki_card_image",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+          "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2822/%E3%83%95%E3%82%A1%E3%82%A4%E3%82%BF%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A01.webp",
+          "sourceSha256": "e4c800c94cf015e704ed19ff6ffd79bb38b07d4eb0ed642cc7cfa9710e2f11fd",
+          "verifiedAt": "2026-11-22"
+        }
+      }
+    },
+    {
+      "id": "tank-emblem-i",
+      "name": {
+        "ja": "タンクの紋章I",
+        "en": "タンクの紋章I",
+        "zh-CN": "タンクの紋章I"
+      },
+      "rarity": "I",
+      "icon": null,
+      "iconStatus": "pending",
+      "iconPendingReason": "reuse-permission-not-confirmed",
+      "effect": {
+        "ja": "自分のタンクタタ：防御力+16%、最大HP+10%。",
+        "en": "Your Tank Tatari: DEF+16%, max HP+10%.",
+        "zh-CN": "你的坦克塔塔：防御力+16%、最大生命值+10%。"
+      },
+      "tags": [
+        "defense"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "targetRole": "tank",
+      "flags": {
+        "attack": false,
+        "defense": true,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectStats": [
+        {
+          "stat": "defense",
+          "value": 16,
+          "unit": "percent"
+        },
+        {
+          "stat": "maxHp",
+          "value": 10,
+          "unit": "percent"
+        }
+      ],
+      "conditions": {},
+      "nameLocalizationStatus": {
+        "ja": "wiki-card-image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "ja": {
+          "sourceType": "public_wiki_card_image",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+          "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2823/%E3%82%BF%E3%83%B3%E3%82%AF%E3%81%AE%E7%B4%8B%E7%AB%A01.webp",
+          "sourceSha256": "cf40812301c9045f975204d44ba03e237a118b292aa217b5b3958702d04ef81e",
+          "verifiedAt": "2026-11-22"
+        }
+      }
+    },
+    {
+      "id": "archer-emblem-i",
+      "name": {
+        "ja": "アーチャーの紋章I",
+        "en": "アーチャーの紋章I",
+        "zh-CN": "アーチャーの紋章I"
+      },
+      "rarity": "I",
+      "icon": null,
+      "iconStatus": "pending",
+      "iconPendingReason": "reuse-permission-not-confirmed",
+      "effect": {
+        "ja": "自分のアーチャータタ：攻撃力+20%。",
+        "en": "Your Archer Tatari: ATK+20%.",
+        "zh-CN": "你的弓手塔塔：攻击力+20%。"
+      },
+      "tags": [
+        "attack"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "targetRole": "archer",
+      "flags": {
+        "attack": true,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectStats": [
+        {
+          "stat": "attack",
+          "value": 20,
+          "unit": "percent"
+        }
+      ],
+      "conditions": {},
+      "nameLocalizationStatus": {
+        "ja": "wiki-card-image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "ja": {
+          "sourceType": "public_wiki_card_image",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+          "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2821/%E3%82%A2%E3%83%BC%E3%83%81%E3%83%A3%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A01.webp",
+          "sourceSha256": "2f243d8ac628b885a203417f7502184e8c51e5da7803f52d4e41ce2d95e9eaef",
+          "verifiedAt": "2026-11-22"
+        }
+      }
+    },
+    {
+      "id": "healer-emblem-i",
+      "name": {
+        "ja": "ヒーラーの紋章I",
+        "en": "ヒーラーの紋章I",
+        "zh-CN": "ヒーラーの紋章I"
+      },
+      "rarity": "I",
+      "icon": null,
+      "iconStatus": "pending",
+      "iconPendingReason": "reuse-permission-not-confirmed",
+      "effect": {
+        "ja": "自分のヒーラータタ：攻撃力+12%、最大HP+12%。",
+        "en": "Your Healer Tatari: ATK+12%, max HP+12%.",
+        "zh-CN": "你的治疗者塔塔：攻击力+12%、最大生命值+12%。"
+      },
+      "tags": [
+        "attack",
+        "defense"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "targetRole": "healer",
+      "flags": {
+        "attack": true,
+        "defense": true,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectStats": [
+        {
+          "stat": "attack",
+          "value": 12,
+          "unit": "percent"
+        },
+        {
+          "stat": "maxHp",
+          "value": 12,
+          "unit": "percent"
+        }
+      ],
+      "conditions": {},
+      "nameLocalizationStatus": {
+        "ja": "wiki-card-image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "ja": {
+          "sourceType": "public_wiki_card_image",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+          "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2820/%E3%83%92%E3%83%BC%E3%83%A9%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A01.webp",
+          "sourceSha256": "2cb271d5003865bb86450beb5ffab36225c7b89471fb15cd7aed771b0c0ee1df",
+          "verifiedAt": "2026-11-22"
+        }
+      }
+    },
+    {
+      "id": "supporter-emblem-i",
+      "name": {
+        "ja": "サポーターの紋章I",
+        "en": "サポーターの紋章I",
+        "zh-CN": "サポーターの紋章I"
+      },
+      "rarity": "I",
+      "icon": null,
+      "iconStatus": "pending",
+      "iconPendingReason": "reuse-permission-not-confirmed",
+      "effect": {
+        "ja": "自分のサポータータタ：防御力+10%、最大HP+14%。",
+        "en": "Your Supporter Tatari: DEF+10%, max HP+14%.",
+        "zh-CN": "你的辅助塔塔：防御力+10%、最大生命值+14%。"
+      },
+      "tags": [
+        "defense"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "targetRole": "supporter",
+      "flags": {
+        "attack": false,
+        "defense": true,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectStats": [
+        {
+          "stat": "defense",
+          "value": 10,
+          "unit": "percent"
+        },
+        {
+          "stat": "maxHp",
+          "value": 14,
+          "unit": "percent"
+        }
+      ],
+      "conditions": {},
+      "nameLocalizationStatus": {
+        "ja": "wiki-card-image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "ja": {
+          "sourceType": "public_wiki_card_image",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+          "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2819/%E3%82%B5%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%BC%E3%81%AE%E7%B4%8B%E7%AB%A01.webp",
+          "sourceSha256": "4880cc2eefeac4f9f2a6f7f1f054c614240ffdcaff618515a5248a4477f0d19b",
+          "verifiedAt": "2026-11-22"
+        }
+      }
+    },
+    {
+      "id": "special-emblem-i",
+      "name": {
+        "ja": "スペシャルの紋章I",
+        "en": "スペシャルの紋章I",
+        "zh-CN": "スペシャルの紋章I"
+      },
+      "rarity": "I",
+      "icon": null,
+      "iconStatus": "pending",
+      "iconPendingReason": "reuse-permission-not-confirmed",
+      "effect": {
+        "ja": "自分のスペシャルタタ：攻撃力+8%、防御力+8%、最大HP+8%。",
+        "en": "Your Special Tatari: ATK+8%, DEF+8%, max HP+8%.",
+        "zh-CN": "你的特殊塔塔：攻击力+8%、防御力+8%、最大生命值+8%。"
+      },
+      "tags": [
+        "attack",
+        "defense"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "targetRole": "special",
+      "flags": {
+        "attack": true,
+        "defense": true,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": false
+      },
+      "source": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectStats": [
+        {
+          "stat": "attack",
+          "value": 8,
+          "unit": "percent"
+        },
+        {
+          "stat": "defense",
+          "value": 8,
+          "unit": "percent"
+        },
+        {
+          "stat": "maxHp",
+          "value": 8,
+          "unit": "percent"
+        }
+      ],
+      "conditions": {},
+      "nameLocalizationStatus": {
+        "ja": "wiki-card-image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "ja": {
+          "sourceType": "public_wiki_card_image",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+          "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2818/%E3%82%B9%E3%83%9A%E3%82%B7%E3%83%A3%E3%83%AB%E3%81%AE%E7%B4%8B%E7%AB%A01.webp",
+          "sourceSha256": "dd47bc827e85e394379eb99553cf47bb56750abe8a76b85f7db720bb2683e521",
+          "verifiedAt": "2026-11-22"
+        }
+      }
+    },
+    {
+      "id": "delayed-reward",
+      "name": {
+        "ja": "おあずけご褒美",
+        "en": "おあずけご褒美",
+        "zh-CN": "おあずけご褒美"
+      },
+      "rarity": "I",
+      "icon": null,
+      "iconStatus": "pending",
+      "iconPendingReason": "reuse-permission-not-confirmed",
+      "effect": {
+        "ja": "5ウェーブ後にエナジーキャンディを400個獲得する。",
+        "en": "Gain 400 Energy Candies after 5 waves.",
+        "zh-CN": "经过5波后获得400个能量糖果。"
+      },
+      "tags": [
+        "special"
+      ],
+      "targetAttribute": null,
+      "targetPosition": null,
+      "targetRole": null,
+      "flags": {
+        "attack": false,
+        "defense": false,
+        "heal": false,
+        "cc": false,
+        "level": false,
+        "random": false,
+        "drawback": false,
+        "placement": false,
+        "special": true
+      },
+      "source": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectSource": {
+        "sourceType": "public_wiki",
+        "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+        "sourceUpdatedAt": "2026-11-22",
+        "verifiedAt": "2026-11-22",
+        "status": "externally_confirmed",
+        "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json"
+      },
+      "effectStats": [
+        {
+          "stat": "delayWaves",
+          "value": 5
+        },
+        {
+          "stat": "energyCandies",
+          "value": 400
+        }
+      ],
+      "conditions": {},
+      "nameLocalizationStatus": {
+        "ja": "wiki-card-image-compared",
+        "en": "official-name-pending-japanese-fallback",
+        "zh-CN": "official-name-pending-japanese-fallback"
+      },
+      "nameSources": {
+        "ja": {
+          "sourceType": "public_wiki_card_image",
+          "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+          "imageUrl": "https://img.atwiki.jp/monstersurvival/attach/83/2817/%E3%81%8A%E3%81%82%E3%81%9A%E3%81%91%E3%81%94%E8%A4%92%E7%BE%8E.webp",
+          "sourceSha256": "6924894082d190ffca15d88d64bf10ee342d0ffe1f72743c11c67e67fe5914cf",
+          "verifiedAt": "2026-11-22"
+        }
+      }
     }
   ],
   "iconSource": {
@@ -3222,5 +5096,16 @@
       "strategic-move"
     ],
     "gameVersionConfirmed": false
+  },
+  "latestSupplement": {
+    "checkedAt": "2026-11-22",
+    "sourceUrl": "https://w.atwiki.jp/monstersurvival/pages/128.html",
+    "evidence": "data/zombie-rush/chip-supplement-2026-11-22.json",
+    "added": 24,
+    "existing": 49,
+    "imagesPending": 24,
+    "sourceGameVersion": "0.52.1",
+    "officialExistenceSource": "https://apps.apple.com/jp/app/id6741567125",
+    "individualEffectsOfficiallyConfirmed": false
   }
 }

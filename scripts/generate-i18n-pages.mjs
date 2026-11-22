@@ -521,7 +521,8 @@ if (!process.exitCode)
 
 function sourceRouteIsNative(route, html) {
   const nativeUpdate = route.startsWith('/updates/') && html.includes('data-i18n-native="update-article"');
-  if (!nativeUpdate && (route !== '/updates/2026-10-07/' || !html.includes('data-i18n-native="integrated-research"'))) return false;
+  const nativeChipCatalog = route === '/zombie-rush/chips/' && html.includes('data-i18n-native="chip-catalog"');
+  if (!nativeUpdate && !nativeChipCatalog && (route !== '/updates/2026-10-07/' || !html.includes('data-i18n-native="integrated-research"'))) return false;
   for (const locale of locales) {
     const nativeFile = path.join(root, targetDirectory[locale], route.slice(1), 'index.html');
     if (!fs.existsSync(nativeFile) || !read(nativeFile).includes(`data-locale="${locale}"`))

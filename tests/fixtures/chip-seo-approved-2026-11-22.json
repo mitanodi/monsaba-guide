@@ -1,0 +1,17 @@
+{
+  "zombie-rush/chips/index.html": {
+    "title": "ゾンビラッシュ チップ図鑑｜73種の効果・検索・フィルタ",
+    "description": "全73チップを検索。新規24件の名称・Rank・効果をWikiと照合し、画像の利用条件と効果条件の未確認部分を明示しています。",
+    "breadcrumb": "ゾンビラッシュ チップ図鑑"
+  },
+  "en/zombie-rush/chips/index.html": {
+    "title": "Zombie Rush Chip Database | 73 effects and filters",
+    "description": "Search 73 chips. 24 new names, ranks and effects were checked against the Wiki; unresolved conditions and image permissions are labeled.",
+    "breadcrumb": "Zombie Rush Chip Database | 73 effects and filters"
+  },
+  "zh-cn/zombie-rush/chips/index.html": {
+    "title": "Zombie Rush 芯片图鉴｜73种效果与筛选",
+    "description": "搜索73种芯片。新增24项名称、Rank及效果已与Wiki核对；图片使用条件与未确定的效果条件分别标注。",
+    "breadcrumb": "Zombie Rush 芯片图鉴"
+  }
+}

@@ -351,8 +351,8 @@ test('最大20体の共有URLデータも従来形式より十分短く復元で
   assert.deepEqual(restored.chips, team.chips);
 });
 
-test('ゾンビラッシュのチップは49種類からPlayerごとに最大3種類を選べる', () => {
-  assert.equal(chips.length, 49);
+test('ゾンビラッシュのチップは73種類からPlayerごとに最大3種類を選べる', () => {
+  assert.equal(chips.length, 73);
 
   const ids = new Set(chips.map((chip) => chip.id));
 

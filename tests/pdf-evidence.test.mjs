@@ -54,7 +54,7 @@ test('Tatari and chip source metadata store the corrected ranges', () => {
   assert.deepEqual(byId.get('nenbutsuhebi').skills[3].source.pdfPages, pagesInRange(PDF_EVIDENCE.knownRanges.namuamidaija));
   assert.deepEqual(byId.get('sukedako').skills[3].source.pdfPages, pagesInRange(PDF_EVIDENCE.knownRanges.roadpass));
   assert.deepEqual(chips.source.pdfPages, pagesInRange([40, 91]));
-  assert.deepEqual(chips.chips.map((chip) => chip.source.pdfPage), pagesInRange(PDF_EVIDENCE.knownRanges.chipDetails));
+    assert.deepEqual(chips.chips.filter(chip => chip.source.sourceType === 'in_game').map((chip) => chip.source.pdfPage), pagesInRange(PDF_EVIDENCE.knownRanges.chipDetails));
 });
 
 test('target pages keep their current evidence dateModified in all three languages', () => {
@@ -67,7 +67,7 @@ test('target pages keep their current evidence dateModified in all three languag
     ['/tata/pakuma/', '2026-10-07'],
     ['/tata/sukedako/', '2026-10-07'],
     ['/tata/nenbutsuhebi/', '2026-10-07'],
-    ['/zombie-rush/chips/', '2026-10-07'],
+    ['/zombie-rush/chips/', '2026-11-22'],
     ['/evolution/trials/', '2026-10-10'],
     ['/events/', '2026-09-05']
   ]);

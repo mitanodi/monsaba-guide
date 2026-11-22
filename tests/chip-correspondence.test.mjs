@@ -7,7 +7,7 @@ import sharp from 'sharp';
 import {emptyTeam,encodeTeam,decodeTeam,saveDraft,loadDraft,saveTeamList,loadTeams} from '../team-builder/team-core.js';
 const root=path.resolve(import.meta.dirname,'..');
 const read=p=>fs.readFileSync(path.join(root,p));
-const chips=JSON.parse(read('data/zombie-rush/chips.json')).chips;
+const chips=JSON.parse(read('data/zombie-rush/chips.json')).chips.slice(0,49);
 const audit=JSON.parse(read('docs/evidence/chip-correspondence-2026-10-06.json'));
 const hash=b=>createHash('sha256').update(b).digest('hex');
 const correctedIds=['maverick','back-shooter','rear-support','upgrade','shuffle','adverse-attribute','and-one','undeployed-tatari'];

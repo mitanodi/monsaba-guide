@@ -1,3 +1,4 @@
+import { chipCatalogCopy } from './lib/chip-catalog-copy.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { renderHeader, renderFooter, renderBreadcrumb } from './shared-layout.mjs';
@@ -8,6 +9,7 @@ const root = path.resolve(import.meta.dirname, '..');
 const read = (name) => JSON.parse(fs.readFileSync(path.join(root, 'data', name), 'utf8'));
 const tatari = read('tatari.json');
 const chips = read('zombie-rush/chips.json');
+const chipCopy = chipCatalogCopy(chips);
 const trials = read('evolution-trials.json');
 const events = read('events.json');
 const officialEventImages = read('official-assets/event-images.json');
@@ -28,6 +30,7 @@ const japaneseDate = (value) => {
 };
 const englishDate = (value) => new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${value}T00:00:00Z`));
 const write = (route, html) => {
+  if (route.endsWith('/zombie-rush/chips/')) html = html.replace(/(<body\s+data-locale="[^"]+")/, '$1 data-i18n-native="chip-catalog"');
   const directory = path.join(root, route.slice(1));
   const withIcons = html.replace('<link rel="icon" href="/favicon.ico" sizes="any">', '<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png">');
   const withAnalytics = withIcons.includes('data-monsaba-ga4="loader"') ? withIcons : withIcons.replace('</head>', `${renderGa4Tag()}</head>`);
@@ -64,11 +67,11 @@ function shell({ route, title, description, body, type = 'CollectionPage', image
 
 write('/zombie-rush/chips/', shell({
   route: '/zombie-rush/chips/',
-  title: 'ゾンビラッシュ チップ図鑑｜49種の効果・検索・フィルタ',
-  description: '全49チップの画像・名前・Rankを実照合。効果は外部攻略資料で確認し、資料間の矛盾を分けて表示します。',
+  title: chipCopy.ja.title,
+  description: chipCopy.ja.description,
   updated: chips.updated,
   image: '/assets/chips/sugar-iii.webp',
-  body: `<section class="wrap static-section"><div class="summary-box"><strong>チップ全${chips.count}種：画像・名前・Rankを照合済み</strong><p>通常スキルとは別のゾンビラッシュ専用データです。おすすめTierは実戦根拠が不足するため作成していません。</p></div><div data-chip-browser><div class="data-browser-controls"><label>名称・効果を検索<input type="search" data-chip-search data-filter-type="search" placeholder="例：水、回復、スロット"></label><label>Rank<select data-chip-rarity data-filter-type="rarity"><option value="">すべて</option><option>III</option><option>II</option><option>I</option></select></label><label>効果分類<select data-chip-tag data-filter-type="category"><option value="">すべて</option><option value="attack">攻撃</option><option value="defense">防御</option><option value="heal">回復</option><option value="cc">CC</option><option value="placement">配置</option><option value="random">ランダム</option><option value="level">レベル操作</option><option value="drawback">デメリット</option><option value="special">特殊効果</option></select></label></div><p class="result-count" data-chip-count aria-live="polite">${chips.count}件</p><div class="chip-grid" data-chip-results><p>データを読み込んでいます。</p></div></div><h2 class="page-h2">出典</h2><ul class="source-list"><li><a href="https://w.atwiki.jp/monstersurvival/pages/128.html">モンサバWiki：チップ画像・名前・Rank・効果（2026年10月7日照合）</a></li><li>旧ゲーム内チップ一覧：写真.pdf p.40〜42</li><li>個別効果ポップアップ：写真.pdf p.43〜91</li></ul><p class="evidence-image-note">画像はモンサバWikiのカード画像です。効果は外部攻略資料と<a href="https://discord.com/channels/1343763804349267989/1344150608743104532/1551858168974417943">公式9/23更新告知</a>で照合。旧画像・外部表との相違3件は公式告知で解決し、各カードに経緯を表示しています。</p><nav class="attribute-guide-nav"><a href="/zombie-rush/">ゾンビラッシュ攻略</a><a href="/updates/2026-08-30/">今回の更新内容</a></nav></section><script src="/zombie-rush/chips/chips.js" defer></script>`
+  body: `<section class="wrap static-section"><div class="summary-box"><strong>${chipCopy.ja.summary}</strong><p>通常スキルとは別のゾンビラッシュ専用データです。おすすめTierは実戦根拠が不足するため作成していません。</p></div><div data-chip-browser><div class="data-browser-controls"><label>名称・効果を検索<input type="search" data-chip-search data-filter-type="search" placeholder="例：水、回復、スロット"></label><label>Rank<select data-chip-rarity data-filter-type="rarity"><option value="">すべて</option><option>III</option><option>II</option><option>I</option></select></label><label>効果分類<select data-chip-tag data-filter-type="category"><option value="">すべて</option><option value="attack">攻撃</option><option value="defense">防御</option><option value="heal">回復</option><option value="cc">CC</option><option value="placement">配置</option><option value="random">ランダム</option><option value="level">レベル操作</option><option value="drawback">デメリット</option><option value="special">特殊効果</option></select></label></div><p class="result-count" data-chip-count aria-live="polite">${chips.count}件</p><div class="chip-grid" data-chip-results><p>データを読み込んでいます。</p></div></div><h2 class="page-h2">出典</h2><ul class="source-list"><li><a href="https://w.atwiki.jp/monstersurvival/pages/128.html">モンサバWiki：チップ画像・名前・Rank・効果（2026年10月7日照合）</a></li><li>旧ゲーム内チップ一覧：写真.pdf p.40〜42</li><li>個別効果ポップアップ：写真.pdf p.43〜91</li></ul><p class="evidence-image-note">既存49件の画像はモンサバWikiのカード画像です。効果は外部攻略資料と<a href="https://discord.com/channels/1343763804349267989/1344150608743104532/1551858168974417943">公式9/23更新告知</a>で照合。旧画像・外部表との相違3件は公式告知で解決し、各カードに経緯を表示しています。</p><p class="chip-supplement-note">${chipCopy.ja.supplement}</p><nav class="attribute-guide-nav"><a href="/zombie-rush/">ゾンビラッシュ攻略</a><a href="/updates/2026-08-30/">今回の更新内容</a></nav></section><script src="/zombie-rush/chips/chips.js" defer></script>`
 }));
 
 write('/evolution/trials/', shell({
@@ -252,7 +255,7 @@ function removeInjected(file, key) {
   fs.writeFileSync(target, `${source.trimEnd()}\n`);
 }
 
-inject('zombie-rush/index.html', 'CHIPS', `<section class="wrap static-section"><h2 class="page-h2">ゾンビラッシュチップ</h2><p>画像を照合した全49種を、Rank・効果分類・名称で検索できます。効果は外部確認・資料差を区別しています。通常スキルとは別データです。</p><a class="button" href="/zombie-rush/chips/">チップ図鑑を開く</a></section>`);
+inject('zombie-rush/index.html', 'CHIPS', `<section class="wrap static-section"><h2 class="page-h2">ゾンビラッシュチップ</h2><p>全${chips.count}種を、Rank・効果分類・名称で検索できます。新規24種を追加し、画像24件は利用条件を確認中です。通常スキルとは別データです。</p><a class="button" href="/zombie-rush/chips/">チップ図鑑を開く</a></section>`);
 inject('evolution/index.html', 'TRIALS', `<section class="wrap static-section"><h2 class="page-h2">全${familyCount}系統の進化試練</h2><p>外部確認と確認待ちを分け、系統・属性・条件から検索できます。</p><a class="button" href="/evolution/trials/">進化試練DBを開く</a></section>`);
 inject('index.html', 'LATEST', `<section class="wrap static-section"><h2 class="page-h2">2026年8月30日の大型更新</h2><div class="guide-hub-grid"><article class="guide-hub-card"><h3>パクマ系・新T4</h3><p>この更新で新規6形態を追加しました。現在のDBは${familyCount}系統・${formCount}体です。</p><a href="/updates/2026-08-30/">更新内容を見る</a></article><article class="guide-hub-card"><h3>ゾンビラッシュチップ</h3><p>ゲーム内確認済み49種を検索できます。</p><a href="/zombie-rush/chips/">チップ図鑑を見る</a></article><article class="guide-hub-card"><h3>進化試練・イベント</h3><p>全系統の試練検索と9イベントを更新しました。</p><a href="/evolution/trials/">進化試練を見る</a></article></div></section>`);
 inject('updates/index.html', 'AUG30', `<section class="update-card"><time datetime="2026-08-30">2026年8月30日</time><h2>パクマ・新T4・チップ・イベント・進化試練の大型更新</h2><p>v0.46.1ゲーム内資料と公式・国内外情報を統合しました。</p><a href="/updates/2026-08-30/">詳しく見る</a></section>`);
@@ -319,9 +322,9 @@ function localizedShell(locale, { route, title, description, body, type = 'Colle
 }
 const localizedChip = {
   en: {
-    title: 'Zombie Rush Chip Database | 49 effects and filters',
-    description: 'Search 49 visually compared chips by name, rank and effect. External effect evidence and conflicting values are labeled separately.',
-    summary: '49 chip images, names and ranks compared',
+    title: chipCopy.en.title,
+    description: chipCopy.en.description,
+    summary: chipCopy.en.summary,
     note: 'This database is separate from normal Tatari skills. We are not publishing a chip tier list without sufficient battle evidence.',
     search: 'Search names and effects',
     placeholder: 'Water, healing, slot…',
@@ -334,9 +337,9 @@ const localizedChip = {
     back: 'Zombie Rush guide'
   },
   'zh-CN': {
-    title: 'Zombie Rush 芯片图鉴｜49种效果与筛选',
-    description: '已实际比对49种芯片的图片、名称与Rank；效果来自外部攻略资料，矛盾数值单独标记。',
-    summary: '已比对49种芯片图片、名称与Rank',
+    title: chipCopy['zh-CN'].title,
+    description: chipCopy['zh-CN'].description,
+    summary: chipCopy['zh-CN'].summary,
     note: '本数据库与塔塔普通技能分开保存。实战证据不足，因此不制作芯片Tier。',
     search: '搜索名称与效果',
     placeholder: '水、治疗、插槽……',
@@ -357,7 +360,7 @@ for (const locale of Object.keys(localeConfig)) {
     description: t.description,
     updated: chips.updated,
     image: '/assets/chips/sugar-iii.webp',
-    body: `<section class="wrap static-section"><div class="summary-box"><strong>${t.summary}</strong><p>${t.note}</p></div><div data-chip-browser><div class="data-browser-controls"><label>${t.search}<input type="search" data-chip-search data-filter-type="search" placeholder="${t.placeholder}"></label><label>${t.rank}<select data-chip-rarity data-filter-type="rarity"><option value="">${t.all}</option><option>III</option><option>II</option><option>I</option></select></label><label>${t.category}<select data-chip-tag data-filter-type="category"><option value="">${t.all}</option><option value="attack">${locale === 'zh-CN' ? '攻击' : 'Attack'}</option><option value="defense">${locale === 'zh-CN' ? '防御' : 'Defense'}</option><option value="heal">${locale === 'zh-CN' ? '治疗' : 'Healing'}</option><option value="cc">${locale === 'zh-CN' ? '控制' : 'CC'}</option><option value="placement">${locale === 'zh-CN' ? '站位' : 'Placement'}</option><option value="random">${locale === 'zh-CN' ? '随机' : 'Random'}</option><option value="level">${locale === 'zh-CN' ? '等级' : 'Level'}</option><option value="drawback">${locale === 'zh-CN' ? '负面' : 'Drawback'}</option><option value="special">${locale === 'zh-CN' ? '特殊' : 'Special'}</option></select></label></div><p class="result-count" data-chip-count aria-live="polite">49</p><div class="chip-grid" data-chip-results><p>${t.load}</p></div></div><h2 class="page-h2">${t.source}</h2><p>${t.sourceText}</p><nav class="attribute-guide-nav"><a href="${localeConfig[locale].prefix}/zombie-rush/">${t.back}</a></nav></section><script src="/zombie-rush/chips/chips.js" defer></script>`
+    body: `<section class="wrap static-section"><div class="summary-box"><strong>${t.summary}</strong><p>${t.note}</p></div><div data-chip-browser><div class="data-browser-controls"><label>${t.search}<input type="search" data-chip-search data-filter-type="search" placeholder="${t.placeholder}"></label><label>${t.rank}<select data-chip-rarity data-filter-type="rarity"><option value="">${t.all}</option><option>III</option><option>II</option><option>I</option></select></label><label>${t.category}<select data-chip-tag data-filter-type="category"><option value="">${t.all}</option><option value="attack">${locale === 'zh-CN' ? '攻击' : 'Attack'}</option><option value="defense">${locale === 'zh-CN' ? '防御' : 'Defense'}</option><option value="heal">${locale === 'zh-CN' ? '治疗' : 'Healing'}</option><option value="cc">${locale === 'zh-CN' ? '控制' : 'CC'}</option><option value="placement">${locale === 'zh-CN' ? '站位' : 'Placement'}</option><option value="random">${locale === 'zh-CN' ? '随机' : 'Random'}</option><option value="level">${locale === 'zh-CN' ? '等级' : 'Level'}</option><option value="drawback">${locale === 'zh-CN' ? '负面' : 'Drawback'}</option><option value="special">${locale === 'zh-CN' ? '特殊' : 'Special'}</option></select></label></div><p class="result-count" data-chip-count aria-live="polite">${chips.count}</p><div class="chip-grid" data-chip-results><p>${t.load}</p></div></div><h2 class="page-h2">${t.source}</h2><p>${t.sourceText}</p><p class="chip-supplement-note">${chipCopy[locale].supplement}</p><nav class="attribute-guide-nav"><a href="${localeConfig[locale].prefix}/zombie-rush/">${t.back}</a></nav></section><script src="/zombie-rush/chips/chips.js" defer></script>`
   }));
 }
 const localizedTrial = {
@@ -617,8 +620,8 @@ for (const locale of Object.keys(localeConfig)) {
   }));
 }
 
-inject('en/zombie-rush/index.html', 'CHIPS_EN', '<section class="wrap static-section"><h2>Zombie Rush chips</h2><p>Search all 49 visually compared chips, with external effect sources and conflicts labeled.</p><a class="button" href="/en/zombie-rush/chips/">Open the chip database</a></section>');
-inject('zh-cn/zombie-rush/index.html', 'CHIPS_ZH', '<section class="wrap static-section"><h2>Zombie Rush 芯片</h2><p>可搜索已比对图片的49种芯片，区分外部效果来源与矛盾。</p><a class="button" href="/zh-cn/zombie-rush/chips/">打开芯片图鉴</a></section>');
+inject('en/zombie-rush/index.html', 'CHIPS_EN', `<section class="wrap static-section"><h2>Zombie Rush chips</h2><p>Search all ${chips.count} chips, including 24 additions with image reuse permission pending.</p><a class="button" href="/en/zombie-rush/chips/">Open the chip database</a></section>`);
+inject('zh-cn/zombie-rush/index.html', 'CHIPS_ZH', `<section class="wrap static-section"><h2>Zombie Rush 芯片</h2><p>可搜索全部${chips.count}种芯片，新增24种的图片使用条件待确认。</p><a class="button" href="/zh-cn/zombie-rush/chips/">打开芯片图鉴</a></section>`);
 inject('en/evolution/index.html', 'TRIALS_EN', `<section class="wrap static-section"><h2>Evolution trials for all ${familyCount} families</h2><a class="button" href="/en/evolution/trials/">Open the trial database</a></section>`);
 inject('zh-cn/evolution/index.html', 'TRIALS_ZH', `<section class="wrap static-section"><h2>全部${familyCount}个系列的进化试炼</h2><a class="button" href="/zh-cn/evolution/trials/">打开试炼数据库</a></section>`);
 inject('events/treasure-hunt/index.html', 'EVENT_GUIDE', '<section class="wrap static-section"><h2 class="page-h2">オタカラ探しの進め方</h2><div class="trust-label-row"><span class="trust-label is-external">コミュニティ確認</span></div><div class="event-status-grid"><article><h3>鍵と中央宝箱</h3><p>開始後に4人を選び、1人の盤面でオタカラを3回見つけると鍵を1個獲得します。鍵4個で中央宝箱を開き、同じメンバーから複数の鍵も取得できます。</p></article><article><h3>コスト・爆弾・盤面拡張</h3><p>鍵ごとに必要アイテム数が5増え、盤面は最大3回拡張します。爆弾は追加で1〜3マスを掘ります。上の独自ソルバーで候補を比較してください。</p></article></div><div class="summary-box"><strong>Human Verification</strong><p>日本版の4人選択、鍵、中央宝箱、盤面拡張、爆弾効果、終了日時の画面を確認待ちです。</p></div><a href="/evolution/trials/">関連する進化試練を見る</a></section>');

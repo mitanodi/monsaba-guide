@@ -1554,3 +1554,6 @@
     font-size: 7px
   }
 }
+
+.formation-chip-option[data-icon-pending]{grid-template-columns:minmax(0,1fr)}
+.formation-chip-selected[data-icon-pending]{grid-template-columns:minmax(0,1fr) auto}
