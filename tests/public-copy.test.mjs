@@ -34,6 +34,9 @@ test('all three makers start with the direct picker in reading order and preserv
   assert(q('.formation-workspace').children().first().is('.formation-picker'));
   assert.equal(q('[data-team-picker-open]').length,0);
   assert.equal(q('[data-team-picker-return]').length,1);
+  assert.equal(q('section[aria-labelledby="team-help-title"]').length,0);
+  assert(q('#team-help-title').is('[hidden]'));
+  assert.equal(q('main .page-hero .visible-kicker,main .page-hero .family-page-head > div > p').length,0);
   for(const selector of ['#team-mode','#team-board','#team-picker-search','#team-save','#team-share','#team-image'])assert.equal(q(selector).length,1,selector);
  }
 });
